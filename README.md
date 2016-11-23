@@ -11,7 +11,7 @@ In order to use this project, your computer needs:
 - [NodeJS](https://nodejs.org/en/) (0.12 or greater)
 - [Git](https://git-scm.com/)
 
-### Setup
+## Setup
 
 To manually set up the project, first download it with Git:
 
@@ -26,7 +26,7 @@ cd projectname
 npm install
 ```
 
-### Starting
+## Start
 
 Start the project with `npm start`. The Sass and HTML will be compiled in the background as you save changes. Compile minified CSS and JS with `npm build`.
 
