@@ -8,7 +8,7 @@ The simplicity and speed of Panini makes it easy to isolate front-end design (CS
 
 In order to use this project, your computer needs:
 
-- [NodeJS](https://nodejs.org/en/) (0.12 or greater)
+- [NodeJS](https://nodejs.org/en/)
 - [Git](https://git-scm.com/)
 
 ## Setup
