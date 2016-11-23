@@ -1,0 +1,211 @@
+---
+layout: default
+title: Basic Styles
+---
+{<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+    <a class="navbar-brand" href="index.html">Bootstrap 4 Prototyping Glue</a>
+    <ul class="nav navbar-nav float-xs-right">
+        <li class="nav-item">
+            <a class="nav-link" href="styles.html">Basic Styles</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" target="_blank" href="http://v4-alpha.getbootstrap.com/getting-started/introduction/">Bootstrap Docs</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" target="_blank" href="http://github.com/gluethegiant/bootstrap4-prototyping-glue">GitHub</a>
+        </li>
+    </ul>
+</nav>
+
+<main>
+    <div class="container">
+
+        <h1>Alerts</h1>
+        <div class="alert alert-success" role="alert">
+            <strong>Well done!</strong> You successfully read this important alert message.
+        </div>
+        <div class="alert alert-info" role="alert">
+            <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
+        </div>
+        <div class="alert alert-warning" role="alert">
+            <strong>Warning!</strong> Better check yourself, you're not looking too good.
+        </div>
+        <div class="alert alert-danger" role="alert">
+            <strong>Oh snap!</strong> Change a few things up and try submitting again.
+        </div>
+        <hr>
+
+        <h1>Blockquotes</h1>
+        <blockquote class="blockquote">
+            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+        </blockquote>
+        <hr>
+
+        <h1>Buttons</h1>
+        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+        <button type="button" class="btn btn-primary">Primary</button>
+
+        <!-- Secondary, outline button -->
+        <button type="button" class="btn btn-secondary">Secondary</button>
+
+        <!-- Indicates a successful or positive action -->
+        <button type="button" class="btn btn-success">Success</button>
+
+        <!-- Contextual button for informational alert messages -->
+        <button type="button" class="btn btn-info">Info</button>
+
+        <!-- Indicates caution should be taken with this action -->
+        <button type="button" class="btn btn-warning">Warning</button>
+
+        <!-- Indicates a dangerous or potentially negative action -->
+        <button type="button" class="btn btn-danger">Danger</button>
+
+        <!-- Deemphasize a button by making it look like a link while maintaining button behavior -->
+        <button type="button" class="btn btn-link">Link</button>
+        <hr>
+
+        <h1>Forms</h1>
+        <form>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <label for="exampleSelect1">Example select</label>
+                <select class="form-control" id="exampleSelect1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleSelect2">Example multiple select</label>
+                <select multiple class="form-control" id="exampleSelect2">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleTextarea">Example textarea</label>
+                <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputFile">File input</label>
+                <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+                <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+            </div>
+            <fieldset class="form-group">
+                <legend>Radio buttons</legend>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                        Option one is this and that&mdash;be sure to include why it's great
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+                        Option two can be something else and selecting it will deselect option one
+                    </label>
+                </div>
+                <div class="form-check disabled">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+                        Option three is disabled
+                    </label>
+                </div>
+            </fieldset>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input">
+                    Check me out
+                </label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <hr>
+
+        <h1>Headings</h1>
+        <h1>H1 Lorem ipsum dolor sit amet.</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora quo cumque sunt consectetur laborum veritatis nisi minus excepturi, perferendis laudantium perspiciatis omnis quam animi vel suscipit officiis placeat, magni assumenda quaerat ut repudiandae hic quibusdam alias. Maiores, ad, non! Sequi repudiandae vel doloribus ipsum nemo. Delectus, excepturi magni error minus?</p>
+
+        <h2>H2 Lorem ipsum dolor sit amet.</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora quo cumque sunt consectetur laborum veritatis nisi minus excepturi, perferendis laudantium perspiciatis omnis quam animi vel suscipit officiis placeat, magni assumenda quaerat ut repudiandae hic quibusdam alias. Maiores, ad, non! Sequi repudiandae vel doloribus ipsum nemo. Delectus, excepturi magni error minus?</p>
+
+        <h3>H3 Lorem ipsum dolor sit amet.</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora quo cumque sunt consectetur laborum veritatis nisi minus excepturi, perferendis laudantium perspiciatis omnis quam animi vel suscipit officiis placeat, magni assumenda quaerat ut repudiandae hic quibusdam alias. Maiores, ad, non! Sequi repudiandae vel doloribus ipsum nemo. Delectus, excepturi magni error minus?</p>
+
+        <h4>H4 Lorem ipsum dolor sit amet.</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora quo cumque sunt consectetur laborum veritatis nisi minus excepturi, perferendis laudantium perspiciatis omnis quam animi vel suscipit officiis placeat, magni assumenda quaerat ut repudiandae hic quibusdam alias. Maiores, ad, non! Sequi repudiandae vel doloribus ipsum nemo. Delectus, excepturi magni error minus?</p>
+
+        <h5>H5 Lorem ipsum dolor sit amet.</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora quo cumque sunt consectetur laborum veritatis nisi minus excepturi, perferendis laudantium perspiciatis omnis quam animi vel suscipit officiis placeat, magni assumenda quaerat ut repudiandae hic quibusdam alias. Maiores, ad, non! Sequi repudiandae vel doloribus ipsum nemo. Delectus, excepturi magni error minus?</p>
+
+        <h6>H5 Lorem ipsum dolor sit amet.</h6>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora quo cumque sunt consectetur laborum veritatis nisi minus excepturi, perferendis laudantium perspiciatis omnis quam animi vel suscipit officiis placeat, magni assumenda quaerat ut repudiandae hic quibusdam alias. Maiores, ad, non! Sequi repudiandae vel doloribus ipsum nemo. Delectus, excepturi magni error minus?</p>
+        <hr>
+
+        <h1>Lists</h1>
+        <ul class="list-unstyled">
+            <li>Integer molestie lorem at massa</li>
+            <li>Facilisis in pretium nisl aliquet</li>
+            <li>Nulla volutpat aliquam velit
+                <ul>
+                    <li>Purus sodales ultricies</li>
+                    <li>Vestibulum laoreet porttitor sem</li>
+                    <li>Ac tristique libero volutpat at</li>
+                </ul>
+            </li>
+        </ul>
+        <ol>
+            <li>Integer molestie lorem at massa</li>
+            <li>Facilisis in pretium nisl aliquet</li>
+            <li>Nulla volutpat aliquam velit</li>
+        </ol>
+        <hr>
+
+        <h1>Tables</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+
+    </div>
+</main>

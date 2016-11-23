@@ -13,7 +13,7 @@ In order to use this project, your computer needs:
 
 ## Setup
 
-To manually set up the project, first download it with Git:
+Get started by downloading the project with Git:
 
 ```bash
 git clone https://github.com/gluethegiant/bootstrap4-prototyping-glue projectname
