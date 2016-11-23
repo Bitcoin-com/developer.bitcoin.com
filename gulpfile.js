@@ -17,7 +17,7 @@ var nodepath = process.env.NODE_PATH || 'node_modules/';
 
 // Starts BrowerSync
 gulp.task('server', ['build'], function(){
-  browser.init({server: './_site', port: port});
+  browser.init({server: './dist', port: port});
 });
 
 // Watches files for changes
@@ -29,12 +29,12 @@ gulp.task('watch', function() {
 
 // Erases the dist folder
 gulp.task('clean', function() {
-  rimraf('_site');
+  rimraf('dist');
 });
 
 // Copies assets
 gulp.task('copy', function() {
-  gulp.src(['assets/**/*']).pipe(gulp.dest('_site'));
+  gulp.src(['assets/**/*']).pipe(gulp.dest('dist'));
 });
 
 var sassOptions = {
@@ -84,7 +84,7 @@ gulp.task('compile-sass', function () {
         .pipe(sass(sassOptions).on('error', sass.logError))
         .pipe(postcss(processors))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('./_site/css/'));
+        .pipe(gulp.dest('./dist/css/'));
 });
 
 gulp.task('compile-html', function() {
@@ -96,7 +96,7 @@ gulp.task('compile-html', function() {
       helpers: 'html/helpers/',
       data: 'html/data/'
     }))
-    .pipe(gulp.dest('_site'))
+    .pipe(gulp.dest('dist'))
     .on('finish', browser.reload);
 });
 
@@ -108,7 +108,7 @@ gulp.task('compile-html:reset', function(done) {
 gulp.task('compile-js', function() {
   return gulp.src([nodepath+ 'jquery/dist/jquery.min.js', nodepath+ 'tether/dist/js/tether.min.js', nodepath+ 'bootstrap/dist/js/bootstrap.min.js'])
     .pipe(concat('app.js'))
-    .pipe(gulp.dest('./_site/js/'));
+    .pipe(gulp.dest('./dist/js/'));
 });
 
 
