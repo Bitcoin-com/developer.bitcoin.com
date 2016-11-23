@@ -37,4 +37,4 @@ npm build
 
 ## Acknowledgments
 
-Forked from bassjobsen's [empty-bootstrap-starter-gulp](https://github.com/bassjobsen/empty-bootstrap-starter-gulp), showing that Zurb's Panini is not just for Foundation. The great Panini, and the initial Panini starter projects, were made by [Zurb](https:/github.com/zurb).
+Forked from bassjobsen's [empty-bootstrap-project-gulp](https://github.com/bassjobsen/empty-bootstrap-project-gulp), showing that Zurb's Panini is not just for Foundation. The great Panini, and the initial Panini starter projects, were made by [Zurb](https://github.com/zurb).
