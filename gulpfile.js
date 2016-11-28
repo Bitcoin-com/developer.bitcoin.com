@@ -35,6 +35,7 @@ gulp.task('clean', function() {
 // Copies assets
 gulp.task('copy', function() {
   gulp.src(['assets/**/*']).pipe(gulp.dest('dist'));
+  gulp.src('node_modules/holderjs/holder.min.js').pipe(gulp.dest('dist/temp'));
 });
 
 var sassOptions = {
