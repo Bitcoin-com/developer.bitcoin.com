@@ -35,6 +35,8 @@ npm start
 npm build
 ```
 
+[Holder](http://holderjs.com/) is included to display placeholder images. If you want to add your own assets, e.g. images and fonts, place them inside folders inside of an assets folder at the root of the project. For example, anything placed in assets/img/ will be copied to dist/img/. Don't add assets directly to your dist/ folder. They will be deleted when dist/ is refreshed.
+
 ## Acknowledgments
 
 Forked from bassjobsen's [empty-bootstrap-project-gulp](https://github.com/bassjobsen/empty-bootstrap-project-gulp), showing that Zurb's Panini is not just for Foundation. The great Panini, and the initial Panini starter projects, were made by [Zurb](https://github.com/zurb).
