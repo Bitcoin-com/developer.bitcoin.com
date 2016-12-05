@@ -32,7 +32,7 @@ Start the project with `npm start`. The Sass and HTML files will be compiled in 
 
 ```bash
 npm start
-npm run build
+npm run build --production
 ```
 
 [Holder](https://github.com/imsky/holder/) is included to display placeholder images. If you want to add your own assets, e.g. images and fonts, don't add them directly to the /dist folder. They will be deleted each time the project is refreshed. Instead, place them inside folders inside of an /assets folder at the root of the project. For example, anything placed in /assets/img will be copied to /dist/img.
