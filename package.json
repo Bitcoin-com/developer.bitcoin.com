@@ -10,21 +10,24 @@
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
     "gulp-concat": "^2.6.0",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-if": "^2.0.2",
     "gulp-postcss": "^6.1.0",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^2.0.0",
     "holderjs": "^2.9.4",
     "mq4-hover-shim": "^0.3.0",
     "panini": "^1.3.0",
     "rimraf": "^2.5.2",
-    "tether": "^1.1.2"
+    "yargs": "^6.0.0"
   },
   "engines": {
     "node": ">=0.10.1"
   },
   "scripts": {
     "start": "gulp",
-    "build": "gulp build"
+    "build": "gulp build --production"
   },
   "repository": {
     "type": "git",
