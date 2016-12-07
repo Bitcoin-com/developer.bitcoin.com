@@ -15,7 +15,8 @@ const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
 
-// Set options, in future move this to config.yml
+// Set options
+// TODO: move this to a config.yml
 var port = process.env.SERVER_PORT || 8080;
 var nodepath = process.env.NODE_PATH || 'node_modules/';
 var sassOptions = {
@@ -38,7 +39,8 @@ gulp.task('copy', function() {
   gulp.src(nodepath+ 'holderjs/holder.min.js').pipe(gulp.dest('dist/temp'));
 });
 
-// Compile JS, in future define js files in a config.yml
+// Compile JS
+// TODO: define js files in a config.yml so unused components can be easily commented out
 gulp.task('compile-js', function() {
   return gulp.src([nodepath+ 'jquery/dist/jquery.min.js', nodepath+ 'bootstrap/dist/js/bootstrap.min.js', 'js/**/*.js'])
     .pipe(gulpif(argv.production, uglify()))
