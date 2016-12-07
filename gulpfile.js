@@ -4,92 +4,78 @@ const autoprefixer = require('autoprefixer');
 const browser = require('browser-sync');
 const clean = require('gulp-clean');
 const concat = require('gulp-concat');
+const cssnano = require('gulp-cssnano');
 const gulp = require('gulp');
+const gulpif = require('gulp-if');
 const mq4HoverShim = require('mq4-hover-shim');
 const panini = require('panini');
 const postcss = require('gulp-postcss');
 const rimraf = require('rimraf').sync;
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
+const uglify = require('gulp-uglify');
 
+// Set options, in future move this to config.yml
 var port = process.env.SERVER_PORT || 8080;
 var nodepath = process.env.NODE_PATH || 'node_modules/';
-
-// Starts BrowerSync
-gulp.task('server', ['build'], function(){
-  browser.init({server: './dist', port: port});
-});
-
-// Watches files for changes
-gulp.task('watch', function() {
-  gulp.watch('scss/**/*', ['compile-sass', browser.reload]);
-  gulp.watch('html/pages/**/*', ['compile-html']);
-  gulp.watch(['html/{layouts,includes,helpers,data}/**/*'], ['compile-html:reset','compile-html']);
-});
-
-// Erases the dist folder
-gulp.task('clean', function() {
-  rimraf('dist');
-});
-
-// Copies assets
-gulp.task('copy', function() {
-  gulp.src(['assets/**/*']).pipe(gulp.dest('dist'));
-  gulp.src('node_modules/holderjs/holder.min.js').pipe(gulp.dest('dist/temp'));
-});
-
 var sassOptions = {
   errLogToConsole: true,
   outputStyle: 'expanded',
   includePaths: nodepath
 };
 
-gulp.task('compile-sass', function () {
-    var processors = [
-        mq4HoverShim.postprocessorFor({ hoverSelectorPrefix: '.bs-true-hover ' }),
-        autoprefixer({
-            browsers: [
-              //
-              // Official browser support policy:
-              // http://v4-alpha.getbootstrap.com/getting-started/browsers-devices/#supported-browsers
-              //
-              'Chrome >= 35', // Exact version number here is kinda arbitrary
-              // Rather than using Autoprefixer's native "Firefox ESR" version specifier string,
-              // we deliberately hardcode the number. This is to avoid unwittingly severely breaking the previous ESR in the event that:
-              // (a) we happen to ship a new Bootstrap release soon after the release of a new ESR,
-              //     such that folks haven't yet had a reasonable amount of time to upgrade; and
-              // (b) the new ESR has unprefixed CSS properties/values whose absence would severely break webpages
-              //     (e.g. `box-sizing`, as opposed to `background: linear-gradient(...)`).
-              //     Since they've been unprefixed, Autoprefixer will stop prefixing them,
-              //     thus causing them to not work in the previous ESR (where the prefixes were required).
-              'Firefox >= 31', // Current Firefox Extended Support Release (ESR)
-              // Note: Edge versions in Autoprefixer & Can I Use refer to the EdgeHTML rendering engine version,
-              // NOT the Edge app version shown in Edge's "About" screen.
-              // For example, at the time of writing, Edge 20 on an up-to-date system uses EdgeHTML 12.
-              // See also https://github.com/Fyrd/caniuse/issues/1928
-              'Edge >= 12',
-              'Explorer >= 9',
-              // Out of leniency, we prefix these 1 version further back than the official policy.
-              'iOS >= 8',
-              'Safari >= 8',
-              // The following remain NOT officially supported, but we're lenient and include their prefixes to avoid severely breaking in them.
-              'Android 2.3',
-              'Android >= 4',
-              'Opera >= 12'
-            ]
-          })//,
-        //cssnano(),
-    ];
-    return gulp.src('./scss/app.scss')
-        .pipe(sourcemaps.init())
-        .pipe(sass(sassOptions).on('error', sass.logError))
-        .pipe(postcss(processors))
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest('./dist/css/'));
+// Get flags
+var argv = require('yargs').argv;
+
+// Erase the dist folder
+gulp.task('clean', function() {
+  rimraf('dist');
 });
 
+// Copy assets
+gulp.task('copy', function() {
+  gulp.src(['assets/**/*']).pipe(gulp.dest('dist'));
+  gulp.src(nodepath+ 'holderjs/holder.min.js').pipe(gulp.dest('dist/temp'));
+});
+
+// Compile JS, in future define js files in a config.yml
+gulp.task('compile-js', function() {
+  return gulp.src([nodepath+ 'jquery/dist/jquery.min.js', nodepath+ 'bootstrap/dist/js/bootstrap.min.js', 'js/**/*.js'])
+    .pipe(gulpif(argv.production, uglify()))
+    .pipe(concat('app.js'))
+    .pipe(gulp.dest('./dist/js/'));
+});
+
+// Compile Sass
+gulp.task('compile-sass', function () {
+  var processors = [
+    mq4HoverShim.postprocessorFor({ hoverSelectorPrefix: '.bs-true-hover ' }),
+      autoprefixer({
+        browsers: [
+          'Chrome >= 35',
+          'Firefox >= 31',
+          'Edge >= 12',
+          'Explorer >= 9',
+          'iOS >= 8',
+          'Safari >= 8',
+          'Android 2.3',
+          'Android >= 4',
+          'Opera >= 12'
+        ]
+      })//,
+    ];
+  return gulp.src('./scss/app.scss')
+    .pipe(sourcemaps.init())
+    .pipe(sass(sassOptions).on('error', sass.logError))
+    .pipe(postcss(processors))
+    .pipe(gulpif(!argv.production, sourcemaps.write()))
+    .pipe(gulpif(argv.production, cssnano()))
+    .pipe(gulp.dest('./dist/css/'));
+});
+
+// Compile HTML
 gulp.task('compile-html', function() {
-  gulp.src('html/pages/**/*.html')
+  return gulp.src('html/pages/**/*.html')
     .pipe(panini({
       root: 'html/pages/',
       layouts: 'html/layouts/',
@@ -101,17 +87,25 @@ gulp.task('compile-html', function() {
     .on('finish', browser.reload);
 });
 
+// Start BrowerSync
+gulp.task('server', ['build'], function(){
+  browser.init({server: './dist', port: port});
+});
+
+// Watch files for changes
+gulp.task('watch', function() {
+  gulp.watch('scss/**/*.scss', ['compile-sass', browser.reload]);
+  gulp.watch('html/pages/**/*.html', ['compile-html']);
+  gulp.watch(['html/{layouts,includes,helpers,data}/**/*'], ['compile-html:reset','compile-html']);
+  gulp.watch('js/**/*.js', ['compile-js', browser.reload]);
+});
+
+// Refresh Panini
 gulp.task('compile-html:reset', function(done) {
   panini.refresh();
   done();
 });
 
-gulp.task('compile-js', function() {
-  return gulp.src([nodepath+ 'jquery/dist/jquery.min.js', nodepath+ 'tether/dist/js/tether.min.js', nodepath+ 'bootstrap/dist/js/bootstrap.min.js'])
-    .pipe(concat('app.js'))
-    .pipe(gulp.dest('./dist/js/'));
-});
-
-
+// Primary tasks
+gulp.task('default', ['server', 'watch']); 
 gulp.task('build', ['clean','copy','compile-js','compile-sass','compile-html']);
-gulp.task('default', ['server', 'watch']);

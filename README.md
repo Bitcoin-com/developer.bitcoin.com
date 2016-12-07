@@ -28,11 +28,11 @@ npm install
 
 ## Start
 
-Start the project with `npm start`. The Sass and HTML files will be compiled in the background as you save changes to them. Compile minified CSS and JS to your dist folder with `npm build`.
+Start the project with `npm start`. Then edit the files in your /html, /sass, and /js folders. The Sass and HTML files will be compiled in the background as you save changes to them. Compile minified CSS and JS to your dist folder with `npm run build`.
 
 ```bash
 npm start
-npm build
+npm run build
 ```
 
 [Holder](https://github.com/imsky/holder/) is included to display placeholder images. If you want to add your own assets, e.g. images and fonts, don't add them directly to the /dist folder. They will be deleted each time the project is refreshed. Instead, place them inside folders inside of an /assets folder at the root of the project. For example, anything placed in /assets/img will be copied to /dist/img.
