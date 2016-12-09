@@ -28,15 +28,23 @@ npm install
 
 ## Start
 
-Start the project with `npm start`. Then edit the files in your /html, /sass, and /js folders. The Sass and HTML files will be compiled in the background as you save changes. To create minified CSS and JS for production on a live website, use `npm run build`.
+Start the project with `npm start`. Then edit the files in your html/, sass/, and js/ folders. The Sass and HTML files will be compiled in the background as you save changes. To create minified CSS and JS for production on a live website, use `npm run build`.
 
 ```bash
 npm start
 npm run build
 ```
 
-[Holder](https://github.com/imsky/holder/) is included to display placeholder images. If you want to add your own assets, e.g. images and fonts, don't add them directly to the /dist folder. They will be deleted each time the project is refreshed. Instead, place them inside folders inside of an /assets folder at the root of the project. For example, anything placed in /assets/img will be copied to /dist/img.
+## Configuration
+
+Several configuration options can be found and edited in the config/config.yml file.
+
+[Holder.js](https://github.com/imsky/holder/) is included by default to display placeholder images. If you want to add your own assets, e.g. images and fonts, don't add them directly to the dist/ folder. They will be deleted each time the project is refreshed. Instead, place assets inside an assets/ folder at the root of your project. As an example, anything placed in assets/img/ will be copied to dist/img/.
 
 ## Acknowledgments
 
 Forked from bassjobsen's [empty-bootstrap-project-gulp](https://github.com/bassjobsen/empty-bootstrap-project-gulp), showing that Zurb's Panini is not just for Foundation. The great Panini, and the initial Panini starter projects, were made by [Zurb](https://github.com/zurb).
+
+## License
+
+Released under the [MIT License](https://opensource.org/licenses/MIT).
