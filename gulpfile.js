@@ -1,5 +1,9 @@
 'use strict';
 
+// Node File System
+const fs = require('fs');
+
+// Installed modules
 const autoprefixer = require('autoprefixer');
 const browser = require('browser-sync');
 const clean = require('gulp-clean');
@@ -14,65 +18,63 @@ const rimraf = require('rimraf').sync;
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
-
-// Set options
-// TODO: move this to a config.yml
-var port = process.env.SERVER_PORT || 8080;
-var nodepath = process.env.NODE_PATH || 'node_modules/';
-var sassOptions = {
-  errLogToConsole: true,
-  outputStyle: 'expanded',
-  includePaths: nodepath
-};
+const yaml = require('js-yaml');
 
 // Get flags
 var argv = require('yargs').argv;
 
-// Erase the dist folder
+// Load settings from config.yml
+const { BROWSERS, FILENAME, INCLUDE_HOLDER, PATHS, PORT, SASS_OPTIONS } = loadConfig();
+
+function loadConfig() {
+  let ymlConfig = fs.readFileSync('config/config.yml', 'utf8');
+  return yaml.load(ymlConfig);
+}
+
+// Function returns build or site directory, depending on argv.production
+function outPath() {
+  if (argv.production) {
+    return PATHS.build;
+  } else {
+    return PATHS.site;
+  }
+}
+
+// Erase the output folder
 gulp.task('clean', function() {
-  rimraf('dist');
+  rimraf(outPath());
 });
 
 // Copy assets
 gulp.task('copy', function() {
-  gulp.src(['assets/**/*']).pipe(gulp.dest('dist'));
-  gulp.src(nodepath+ 'holderjs/holder.min.js').pipe(gulp.dest('dist/temp'));
+  gulp.src(['assets/**/*']).pipe(gulp.dest(outPath()));
+  if (INCLUDE_HOLDER) {
+    gulp.src('node_modules/holderjs/holder.min.js').pipe(gulp.dest(outPath()+ '/temp'));
+  }
 });
 
 // Compile JS
-// TODO: define js files in a config.yml so unused components can be easily commented out
 gulp.task('compile-js', function() {
-  return gulp.src([nodepath+ 'jquery/dist/jquery.min.js', nodepath+ 'bootstrap/dist/js/bootstrap.min.js', 'js/**/*.js'])
+  return gulp.src(PATHS.js)
     .pipe(gulpif(argv.production, uglify()))
-    .pipe(concat('app.js'))
-    .pipe(gulp.dest('./dist/js/'));
+    .pipe(concat(FILENAME + '.js'))
+    .pipe(gulp.dest(outPath()+ '/js/'));
 });
 
 // Compile Sass
 gulp.task('compile-sass', function () {
   var processors = [
     mq4HoverShim.postprocessorFor({ hoverSelectorPrefix: '.bs-true-hover ' }),
-      autoprefixer({
-        browsers: [
-          'Chrome >= 35',
-          'Firefox >= 31',
-          'Edge >= 12',
-          'Explorer >= 9',
-          'iOS >= 8',
-          'Safari >= 8',
-          'Android 2.3',
-          'Android >= 4',
-          'Opera >= 12'
-        ]
-      })//,
-    ];
-  return gulp.src('./scss/app.scss')
+    autoprefixer({browsers: BROWSERS})
+  ];
+  return gulp.src(['./scss/app.scss', './scss/**/*.scss'])
     .pipe(sourcemaps.init())
-    .pipe(sass(sassOptions).on('error', sass.logError))
+    .pipe(sass(SASS_OPTIONS).on('error', sass.logError))
     .pipe(postcss(processors))
+    .pipe(concat(FILENAME + '.css'))
     .pipe(gulpif(!argv.production, sourcemaps.write()))
     .pipe(gulpif(argv.production, cssnano()))
-    .pipe(gulp.dest('./dist/css/'));
+    .pipe(gulp.dest(outPath()+ '/css/'));
 });
 
 // Compile HTML
@@ -83,15 +85,15 @@ gulp.task('compile-html', function() {
       layouts: 'html/layouts/',
       partials: 'html/includes/',
       helpers: 'html/helpers/',
-      data: 'html/data/'
+      data: ['html/data/','config/']
     }))
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest(outPath()))
     .on('finish', browser.reload);
 });
 
 // Start BrowerSync
 gulp.task('server', ['build'], function(){
-  browser.init({server: './dist', port: port});
+  browser.init({server: outPath(), port: PORT});
 });
 
 // Watch files for changes
