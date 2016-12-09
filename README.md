@@ -37,9 +37,9 @@ npm run build
 
 ## Configuration
 
-Several configuration options can be found and edited in the /config/config.yml file.
+Several configuration options can be found and edited in the config/config.yml file.
 
-[Holder](https://github.com/imsky/holder/) is included by default to display placeholder images. If you want to add your own assets, e.g. images and fonts, don't add them directly to the /dist folder. They will be deleted each time the project is refreshed. Instead, place assets inside an assets/ folder at the root of your project. For example, anything placed in assets/img/ will be copied to dist/img/.
+[Holder.js](https://github.com/imsky/holder/) is included by default to display placeholder images. If you want to add your own assets, e.g. images and fonts, don't add them directly to the /dist folder. They will be deleted each time the project is refreshed. Instead, place assets inside an assets/ folder at the root of your project. As an example, anything placed in assets/img/ will be copied to dist/img/.
 
 ## Acknowledgments
 
