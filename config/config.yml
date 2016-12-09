@@ -14,7 +14,7 @@ BROWSERS:
 FILENAME: "app"
 
 # Include temp/holder.min.js in the output directory for placeholder images
-INCLUDE_HOLDER: false
+INCLUDE_HOLDER: true
 
 # Your project's paths
 PATHS:
