@@ -1,8 +1,8 @@
 {
   "name": "bootstrap4-prototyping-glue",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "A rapid prototyping starter for Bootstrap 4 using Panini, Sass, and Gulp.",
-  "main": "gruntfile.js",
+  "main": "gulpfile.js",
   "devDependencies": {
     "autoprefixer": "^6.3.6",
     "browser-sync": "^2.17.6",
