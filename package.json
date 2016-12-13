@@ -1,6 +1,6 @@
 {
   "name": "bootstrap4-prototyping-glue",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "A rapid prototyping starter for Bootstrap 4 using Panini, Sass, and Gulp.",
   "main": "gulpfile.js",
   "devDependencies": {
@@ -40,5 +40,5 @@
   },
   "author": "Paul Merchant <prmerchant@gmail.com> (http://paulmerchant.com)",
   "license": "MIT",
-  "private": true
+  "private": false
 }
