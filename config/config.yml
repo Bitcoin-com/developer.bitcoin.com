@@ -50,6 +50,7 @@ SASS_OPTIONS:
   includePaths: "node_modules/"
 
 # Paths and ignores for UnCSS
+# TODO Ignores have been tested against Bootstrap 3. Update to Bootstrap 4.
 UNCSS_OPTIONS:
   html:
     - "html/**/*.html"
