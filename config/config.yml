@@ -50,7 +50,7 @@ SASS_OPTIONS:
   includePaths: "node_modules/"
 
 # Run UnCSS on production builds, experimental
-UNCSS_ON_BUILD: false
+UNCSS_ON: false
 
 # Paths and ignores for UnCSS
 # TODO These ignores have only been tested against Bootstrap 3. Update to Bootstrap 4.
