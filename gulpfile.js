@@ -18,13 +18,14 @@ const rimraf = require('rimraf').sync;
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
+const uncss = require('gulp-uncss');
 const yaml = require('js-yaml');
 
 // Get flags
 var argv = require('yargs').argv;
 
 // Load settings from config.yml
-const { BROWSERS, FILENAME, INCLUDE_HOLDER, PATHS, PORT, SASS_OPTIONS } = loadConfig();
+const { BROWSERS, FILENAME, INCLUDE_HOLDER, PATHS, PORT, SASS_OPTIONS, UNCSS_ON_BUILD, UNCSS_OPTIONS } = loadConfig();
 
 function loadConfig() {
   let ymlConfig = fs.readFileSync('config/config.yml', 'utf8');
@@ -73,6 +74,7 @@ gulp.task('compile-sass', function () {
     .pipe(postcss(processors))
     .pipe(concat(FILENAME + '.css'))
     .pipe(gulpif(!argv.production, sourcemaps.write()))
+    .pipe(gulpif((argv.production & UNCSS_ON_BUILD), uncss(UNCSS_OPTIONS)))
     .pipe(gulpif(argv.production, cssnano()))
     .pipe(gulp.dest(outPath()+ '/css/'));
 });
