@@ -49,8 +49,11 @@ SASS_OPTIONS:
   outputStyle: "expanded"
   includePaths: "node_modules/"
 
+# Run UnCSS on production builds, experimental
+UNCSS_ON_BUILD: false
+
 # Paths and ignores for UnCSS
-# TODO Ignores have been tested against Bootstrap 3. Update to Bootstrap 4.
+# TODO These ignores have only been tested against Bootstrap 3. Update to Bootstrap 4.
 UNCSS_OPTIONS:
   html:
     - "html/**/*.html"

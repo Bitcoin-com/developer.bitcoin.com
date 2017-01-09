@@ -25,7 +25,7 @@ const yaml = require('js-yaml');
 var argv = require('yargs').argv;
 
 // Load settings from config.yml
-const { BROWSERS, FILENAME, INCLUDE_HOLDER, PATHS, PORT, SASS_OPTIONS, UNCSS_OPTIONS } = loadConfig();
+const { BROWSERS, FILENAME, INCLUDE_HOLDER, PATHS, PORT, SASS_OPTIONS, UNCSS_ON_BUILD, UNCSS_OPTIONS } = loadConfig();
 
 function loadConfig() {
   let ymlConfig = fs.readFileSync('config/config.yml', 'utf8');
@@ -74,7 +74,7 @@ gulp.task('compile-sass', function () {
     .pipe(postcss(processors))
     .pipe(concat(FILENAME + '.css'))
     .pipe(gulpif(!argv.production, sourcemaps.write()))
-    .pipe(gulpif(argv.production, uncss(UNCSS_OPTIONS)))
+    .pipe(gulpif((argv.production & UNCSS_ON_BUILD), uncss(UNCSS_OPTIONS)))
     .pipe(gulpif(argv.production, cssnano()))
     .pipe(gulp.dest(outPath()+ '/css/'));
 });
