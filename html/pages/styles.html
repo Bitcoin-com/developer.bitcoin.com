@@ -2,235 +2,262 @@
 layout: default
 title: Bootstrap 4 Prototyping Glue - Base Styles
 ---
-<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+<nav class="navbar fixed-top navbar-toggleable-md navbar-inverse bg-inverse">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
     <a class="navbar-brand" href="index.html">Bootstrap 4 Prototyping Glue</a>
-    <ul class="nav navbar-nav">
-        <li class="nav-item">
-            <a class="nav-link" href="styles.html">Base Styles</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" target="_blank" href="http://v4-alpha.getbootstrap.com/getting-started/introduction/">Bootstrap Docs</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" target="_blank" href="http://github.com/gluethegiant/bootstrap4-prototyping-glue">GitHub</a>
-        </li>
-    </ul>
+    <div class="collapse navbar-collapse" id="navbarToggle">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="styles.html">Base Styles</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" target="_blank" href="http://v4-alpha.getbootstrap.com/getting-started/introduction/">Bootstrap Docs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" target="_blank" href="http://github.com/gluethegiant/bootstrap4-prototyping-glue">GitHub</a>
+            </li>
+        </ul>
+    </div>
 </nav>
 
 <main>
     <div class="container">
-        <div class="card card-block">
-            <h1 class="card-title">Alerts</h1>
-            <div class="alert alert-success" role="alert">
-                <strong>Well done!</strong> You successfully read this important alert message.
-            </div>
-            <div class="alert alert-info" role="alert">
-                <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
-            </div>
-            <div class="alert alert-warning" role="alert">
-                <strong>Warning!</strong> Better check yourself, you're not looking too good.
-            </div>
-            <div class="alert alert-danger" role="alert">
-                <strong>Oh snap!</strong> Change a few things up and try submitting again.
-            </div>
-            <div class="alert alert-warning alert-dismissible fade in" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+        <div class="card mb-1">
+            <div class="card-block">
+                <h1 class="card-title">Alerts</h1>
+                <div class="alert alert-success" role="alert">
+                    <strong>Well done!</strong> You successfully read this important alert message.
+                </div>
+                <div class="alert alert-info" role="alert">
+                    <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
+                </div>
+                <div class="alert alert-warning" role="alert">
+                    <strong>Warning!</strong> Better check yourself, you're not looking too good.
+                </div>
+                <div class="alert alert-danger" role="alert">
+                    <strong>Oh snap!</strong> Change a few things up and try submitting again.
+                </div>
+                <div class="alert alert-warning alert-dismissible fade in" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                </div>
             </div>
         </div>
 
-        <div class="card card-block">
-            <h1>Blockquotes</h1>
-            <blockquote class="blockquote">
-                <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            </blockquote>
+        <div class="card mb-1">
+            <div class="card-block">
+                <h1>Blockquotes</h1>
+                <blockquote class="blockquote">
+                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                </blockquote>
+            </div>
         </div>
 
-        <div class="card card-block">
-            <h1 class="card-title">Buttons</h1>
-            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-            <button type="button" class="btn btn-primary">Primary</button>
+        <div class="card mb-1">
+            <div class="card-block">
+                <h1 class="card-title">Buttons</h1>
+                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                <button type="button" class="btn btn-primary">Primary</button>
 
-            <!-- Secondary, outline button -->
-            <button type="button" class="btn btn-secondary">Secondary</button>
+                <!-- Secondary, outline button -->
+                <button type="button" class="btn btn-secondary">Secondary</button>
 
-            <!-- Indicates a successful or positive action -->
-            <button type="button" class="btn btn-success">Success</button>
+                <!-- Indicates a successful or positive action -->
+                <button type="button" class="btn btn-success">Success</button>
 
-            <!-- Contextual button for informational alert messages -->
-            <button type="button" class="btn btn-info">Info</button>
+                <!-- Contextual button for informational alert messages -->
+                <button type="button" class="btn btn-info">Info</button>
 
-            <!-- Indicates caution should be taken with this action -->
-            <button type="button" class="btn btn-warning">Warning</button>
+                <!-- Indicates caution should be taken with this action -->
+                <button type="button" class="btn btn-warning">Warning</button>
 
-            <!-- Indicates a dangerous or potentially negative action -->
-            <button type="button" class="btn btn-danger">Danger</button>
+                <!-- Indicates a dangerous or potentially negative action -->
+                <button type="button" class="btn btn-danger">Danger</button>
 
-            <!-- Deemphasize a button by making it look like a link while maintaining button behavior -->
-            <button type="button" class="btn btn-link">Link</button>
+                <!-- Deemphasize a button by making it look like a link while maintaining button behavior -->
+                <button type="button" class="btn btn-link">Link</button>
+            </div>
         </div>
 
-        <div class="card card-block">
-            <h1 class="card-title">Forms</h1>
-            <form>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                </div>
-                <div class="form-group">
-                    <label for="exampleSelect1">Example select</label>
-                    <select class="form-control" id="exampleSelect1">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="exampleSelect2">Example multiple select</label>
-                    <select multiple class="form-control" id="exampleSelect2">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="exampleTextarea">Example textarea</label>
-                    <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputFile">File input</label>
-                    <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
-                    <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
-                </div>
-                <fieldset class="form-group">
-                    <legend>Radio buttons</legend>
+        <div class="card mb-1">
+            <div class="card-block">
+                <h1 class="card-title">Forms</h1>
+                <form>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleSelect1">Example select</label>
+                        <select class="form-control" id="exampleSelect1">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleSelect2">Example multiple select</label>
+                        <select multiple class="form-control" id="exampleSelect2">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleTextarea">Example textarea</label>
+                        <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputFile">File input</label>
+                        <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+                        <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+                    </div>
+                    <fieldset class="form-group">
+                        <legend>Radio buttons</legend>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                Option one is this and that&mdash;be sure to include why it's great
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+                                Option two can be something else and selecting it will deselect option one
+                            </label>
+                        </div>
+                        <div class="form-check disabled">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+                                Option three is disabled
+                            </label>
+                        </div>
+                    </fieldset>
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                            Option one is this and that&mdash;be sure to include why it's great
+                            <input type="checkbox" class="form-check-input">
+                            Check me out
                         </label>
                     </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
-                            Option two can be something else and selecting it will deselect option one
-                        </label>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="card mb-1">
+            <div class="card-block">
+                <h1 class="card-title">Headings</h1>
+                <h1>H1 Lorem ipsum dolor sit amet.</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora quo cumque sunt consectetur laborum veritatis nisi minus excepturi, perferendis laudantium perspiciatis omnis quam animi vel suscipit officiis placeat, magni assumenda quaerat ut repudiandae hic quibusdam alias. Maiores, ad, non! Sequi repudiandae vel doloribus ipsum nemo. Delectus, excepturi magni error minus?</p>
+
+                <h2>H2 Lorem ipsum dolor sit amet.</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora quo cumque sunt consectetur laborum veritatis nisi minus excepturi, perferendis laudantium perspiciatis omnis quam animi vel suscipit officiis placeat, magni assumenda quaerat ut repudiandae hic quibusdam alias. Maiores, ad, non! Sequi repudiandae vel doloribus ipsum nemo. Delectus, excepturi magni error minus?</p>
+
+                <h3>H3 Lorem ipsum dolor sit amet.</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora quo cumque sunt consectetur laborum veritatis nisi minus excepturi, perferendis laudantium perspiciatis omnis quam animi vel suscipit officiis placeat, magni assumenda quaerat ut repudiandae hic quibusdam alias. Maiores, ad, non! Sequi repudiandae vel doloribus ipsum nemo. Delectus, excepturi magni error minus?</p>
+
+                <h4>H4 Lorem ipsum dolor sit amet.</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora quo cumque sunt consectetur laborum veritatis nisi minus excepturi, perferendis laudantium perspiciatis omnis quam animi vel suscipit officiis placeat, magni assumenda quaerat ut repudiandae hic quibusdam alias. Maiores, ad, non! Sequi repudiandae vel doloribus ipsum nemo. Delectus, excepturi magni error minus?</p>
+
+                <h5>H5 Lorem ipsum dolor sit amet.</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora quo cumque sunt consectetur laborum veritatis nisi minus excepturi, perferendis laudantium perspiciatis omnis quam animi vel suscipit officiis placeat, magni assumenda quaerat ut repudiandae hic quibusdam alias. Maiores, ad, non! Sequi repudiandae vel doloribus ipsum nemo. Delectus, excepturi magni error minus?</p>
+
+                <h6>H5 Lorem ipsum dolor sit amet.</h6>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora quo cumque sunt consectetur laborum veritatis nisi minus excepturi, perferendis laudantium perspiciatis omnis quam animi vel suscipit officiis placeat, magni assumenda quaerat ut repudiandae hic quibusdam alias. Maiores, ad, non! Sequi repudiandae vel doloribus ipsum nemo. Delectus, excepturi magni error minus?</p>
+            </div>
+        </div>
+
+        <div class="card mb-1">
+            <div class="card-block">
+                <h1 class="card-title">Lists</h1>
+                <ul class="list-unstyled">
+                    <li>Integer molestie lorem at massa</li>
+                    <li>Facilisis in pretium nisl aliquet</li>
+                    <li>Nulla volutpat aliquam velit
+                        <ul>
+                            <li>Purus sodales ultricies</li>
+                            <li>Vestibulum laoreet porttitor sem</li>
+                            <li>Ac tristique libero volutpat at</li>
+                        </ul>
+                    </li>
+                </ul>
+                <ol>
+                    <li>Integer molestie lorem at massa</li>
+                    <li>Facilisis in pretium nisl aliquet</li>
+                    <li>Nulla volutpat aliquam velit</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="card mb-1">
+            <div class="card-block">
+                <h1 class="card-title">Media Object</h1>
+                <div class="media">
+                    <img class="d-flex mr-3" src="holder.js/64x64" alt="Generic placeholder image">
+                    <div class="media-body">
+                        <h5 class="mt-0">Media heading</h5>
+                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                        <div class="media mt-3">
+                            <a class="d-flex pr-3" href="#">
+                                <img src="holder.js/64x64" alt="Generic placeholder image">
+                            </a>
+                            <div class="media-body">
+                                <h5 class="mt-0">Media heading</h5>
+                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-check disabled">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
-                            Option three is disabled
-                        </label>
-                    </div>
-                </fieldset>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input">
-                        Check me out
-                    </label>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-        </div>
-
-        <div class="card card-block">
-            <h1 class="card-title">Headings</h1>
-            <h1>H1 Lorem ipsum dolor sit amet.</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora quo cumque sunt consectetur laborum veritatis nisi minus excepturi, perferendis laudantium perspiciatis omnis quam animi vel suscipit officiis placeat, magni assumenda quaerat ut repudiandae hic quibusdam alias. Maiores, ad, non! Sequi repudiandae vel doloribus ipsum nemo. Delectus, excepturi magni error minus?</p>
-
-            <h2>H2 Lorem ipsum dolor sit amet.</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora quo cumque sunt consectetur laborum veritatis nisi minus excepturi, perferendis laudantium perspiciatis omnis quam animi vel suscipit officiis placeat, magni assumenda quaerat ut repudiandae hic quibusdam alias. Maiores, ad, non! Sequi repudiandae vel doloribus ipsum nemo. Delectus, excepturi magni error minus?</p>
-
-            <h3>H3 Lorem ipsum dolor sit amet.</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora quo cumque sunt consectetur laborum veritatis nisi minus excepturi, perferendis laudantium perspiciatis omnis quam animi vel suscipit officiis placeat, magni assumenda quaerat ut repudiandae hic quibusdam alias. Maiores, ad, non! Sequi repudiandae vel doloribus ipsum nemo. Delectus, excepturi magni error minus?</p>
-
-            <h4>H4 Lorem ipsum dolor sit amet.</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora quo cumque sunt consectetur laborum veritatis nisi minus excepturi, perferendis laudantium perspiciatis omnis quam animi vel suscipit officiis placeat, magni assumenda quaerat ut repudiandae hic quibusdam alias. Maiores, ad, non! Sequi repudiandae vel doloribus ipsum nemo. Delectus, excepturi magni error minus?</p>
-
-            <h5>H5 Lorem ipsum dolor sit amet.</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora quo cumque sunt consectetur laborum veritatis nisi minus excepturi, perferendis laudantium perspiciatis omnis quam animi vel suscipit officiis placeat, magni assumenda quaerat ut repudiandae hic quibusdam alias. Maiores, ad, non! Sequi repudiandae vel doloribus ipsum nemo. Delectus, excepturi magni error minus?</p>
-
-            <h6>H5 Lorem ipsum dolor sit amet.</h6>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora quo cumque sunt consectetur laborum veritatis nisi minus excepturi, perferendis laudantium perspiciatis omnis quam animi vel suscipit officiis placeat, magni assumenda quaerat ut repudiandae hic quibusdam alias. Maiores, ad, non! Sequi repudiandae vel doloribus ipsum nemo. Delectus, excepturi magni error minus?</p>
-        </div>
-
-        <div class="card card-block">
-            <h1 class="card-title">Lists</h1>
-            <ul class="list-unstyled">
-                <li>Integer molestie lorem at massa</li>
-                <li>Facilisis in pretium nisl aliquet</li>
-                <li>Nulla volutpat aliquam velit
-                    <ul>
-                        <li>Purus sodales ultricies</li>
-                        <li>Vestibulum laoreet porttitor sem</li>
-                        <li>Ac tristique libero volutpat at</li>
-                    </ul>
-                </li>
-            </ul>
-            <ol>
-                <li>Integer molestie lorem at massa</li>
-                <li>Facilisis in pretium nisl aliquet</li>
-                <li>Nulla volutpat aliquam velit</li>
-            </ol>
-        </div>
-
-        <div class="card card-block">
-            <h1 class="card-title">Media Object</h1>
-            <div class="media">
-                <a class="media-left" href="#">
-                    <img class="media-object" src="holder.js/64x64" alt="Generic placeholder image">
-                </a>
-                <div class="media-body">
-                    <h4 class="media-heading">Media heading</h4>
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
                 </div>
             </div>
         </div>
 
-        <div class="card card-block">
-            <h1 class="card-title">Tables</h1>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Username</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="card mb-1">
+            <div class="card-block">
+                <h1 class="card-title">Tables</h1>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Username</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-
     </div>
 </main>
