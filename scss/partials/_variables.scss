@@ -1,0 +1,128 @@
+// Bootstrap overrides
+
+$white:                           #fff;
+$gray-100:                        #F9F9F9;
+$gray-200:                        #c2cfd6;
+$gray-300:                        #a4b7c1;
+$gray-400:                        #8B8B8B;
+$gray-500:                        #678898;
+$gray-600:                        #536c79;
+$gray-700:                        #3e515b;
+$gray-800:                        #29363d;
+$gray-900:                        #151b1e;
+$black:                           #191919;
+
+$blue:                            #6890B0;
+$indigo:                          #6610f2;
+$purple:                          #BA728F;
+$pink:                            #e83e8c;
+$red:                             #D23728;
+$orange:                          #f8cb00;
+$yellow:                          #F8B832;
+$yellow-alt:                      #C5AC5C;
+$green:                           #669759;
+$teal:                            #6890B0;
+$cyan:                            #3C59AB;
+
+$colors: (
+  blue:                           $blue,
+  indigo:                         $indigo,
+  purple:                         $purple,
+  pink:                           $pink,
+  red:                            $red,
+  orange:                         $orange,
+  yellow:                         $yellow,
+  green:                          $green,
+  teal:                           $teal,
+  cyan:                           $cyan,
+  white:                          $white,
+  gray:                           $gray-600,
+  gray-dark:                      $gray-800
+);
+
+$theme-colors: (
+  primary:                        $yellow,
+  secondary:                      $black,
+  success:                        $green,
+  info:                           $cyan,
+  warning:                        $yellow-alt,
+  danger:                         $red,
+  light:                          $gray-100,
+  dark:                           $gray-800
+);
+
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+
+$enable-transitions:              true;
+$enable-rounded:                  false;
+
+// Body
+//
+// Settings for the `<body>` element.
+
+$body-bg:                         #fff;
+
+
+
+
+// Fonts
+//
+// Font, line-height, and color for body text, headings, and more.
+
+// stylelint-disable value-keyword-case
+$font-family-sans-serif:"museo_sans_rounded300", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+$font-family-base:            $font-family-sans-serif;
+
+
+// Typography
+//
+// Font, line-height, and color for body text, headings, and more.
+
+$font-size-base:                  0.875rem;
+
+// Breadcrumbs
+
+$breadcrumb-bg:                   #fff;
+
+// Cards
+
+$card-border-color:               $gray-200;
+$card-cap-bg:                     $gray-100;
+
+// Dropdowns
+
+$dropdown-padding-y:              0;
+$dropdown-border-color:           $gray-200;
+$dropdown-divider-bg:             $gray-100;
+
+// Buttons
+
+$btn-secondary-border:            $gray-300;
+
+// Progress bars
+
+$progress-bg:                     $gray-100;
+
+// Tables
+
+$table-bg-accent:                 $gray-100;
+$table-bg-hover:                  $gray-100;
+
+// Forms
+
+$input-group-addon-bg:            $gray-100;
+$input-border-color:              $gray-200;
+$input-group-addon-border-color:  $gray-200;
+
+
+// container
+
+$container-max-widths: (
+  sm: 719px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
+);

@@ -1,0 +1,33 @@
+.contact-section {
+  background:$gray-100;
+}
+
+.form-shadow {
+    background:$white;
+    border-radius:5px;
+    border:0;
+    padding:2rem;
+    box-shadow:0 0 30px rgba($black,0.08);
+}
+
+.contact-section {
+  .section-title {
+    text-align:center;
+    margin-bottom:2em;
+
+    &:after {
+      margin-left:auto;
+      margin-right:auto;
+    }
+  }
+  .secondary-header {
+    text-align:center;
+    margin-bottom:20px;
+  }
+}
+
+form {
+  input, .form-control {
+    border-radius:5px;
+  }
+}

@@ -68,7 +68,7 @@ gulp.task('compile-sass', function () {
     mq4HoverShim.postprocessorFor({ hoverSelectorPrefix: '.bs-true-hover ' }),
     autoprefixer({browsers: BROWSERS})
   ];
-  return gulp.src(['./scss/app.scss', './scss/**/*.scss'])
+  return gulp.src(['./scss/main.scss'])
     .pipe(sourcemaps.init())
     .pipe(sass(SASS_OPTIONS).on('error', sass.logError))
     .pipe(postcss(processors))

@@ -1,0 +1,33 @@
+.people-card {
+  border-radius:10px;
+  position:relative;
+  z-index:2;
+  overflow:visible;
+  border:0;
+  padding:1em;
+
+  .person {
+    margin:1em auto;
+
+
+    img {
+    border-radius:50%;
+    border:3px solid $yellow;
+    }
+
+    &:after {
+    content:"";
+    width:90%;
+    height: 15px;
+    left: 5%;
+    bottom: -15px;
+    z-index:-2;
+    position:absolute;
+    background:$yellow;
+    border-radius:0 0 10px 10px;
+  }
+
+  }
+  
+
+}

@@ -1,0 +1,127 @@
+
+
+@include media-breakpoint-up(xs) {
+  .learn-section {
+    /*background: linear-gradient(180deg, $black 50%, $yellow 50%);*/
+    background-color: $black;
+    background-image: none;
+    // padding-bottom: 0;
+  }
+
+  .basics-course {
+    /*padding-top: 80px;*/
+    /*display: none;*/
+    width: 100vw;
+    background-color: $yellow;
+    // margin-left: calc(50% - 50vw);
+    /*margin-left: -5%;
+    margin-right: -5%;*/
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .bitcoin-academy {
+    width: 280px;
+    margin-top: 10px;
+  }
+
+  .academy-section {
+    padding-right: 0;
+    margin-bottom: 50px;
+  }
+
+
+.academy-p {
+  font-weight: 300;
+  font-size: 20px;
+  color: #8b8b8b;
+  // padding-right: 30px;
+  // padding-left: 30px;
+}
+
+.academy-p-2 {
+  // font-family: 'museo_sans_rounded700', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: $yellow;
+  // padding-right: 30px;
+  // padding-left: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.basics-p {
+  // font-family: 'museo_sans_rounded700', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: $black;
+  padding-right: 30px;
+  padding-left: 30px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.academy-section {
+  text-align: center;
+  padding-left: 0px;
+  // padding-right: 90px;
+}
+
+.basics-course {
+  text-align: center;
+}
+
+.knowledge-base-section {
+  padding-bottom: 50px;
+}
+
+.kb-header {
+  margin-bottom: 35px;
+}
+
+
+.sumo-container {
+  max-width: 537px;
+  margin: auto;
+  padding-bottom:50px;
+}
+
+.academy-title {
+  // font-family: 'museo_sans_rounded500', sans-serif;
+  font-weight: 500;
+  font-size: 25px;
+  color: #fff;
+}
+
+
+}
+
+
+@include media-breakpoint-up(md) {
+
+.basics-course {
+  background:none;
+  margin-left:0;
+  padding-top:0;
+}
+  
+.learn-section {
+  background-image: url(../img/background-less-angle.jpg);
+  background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 15px;
+    padding-bottom: 50px;
+}
+
+.bitcoin-academy {
+  width: 250px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+.academy-section {
+  padding-right:30px !important;
+}
+
+
+
+}
