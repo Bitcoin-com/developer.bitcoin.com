@@ -41,5 +41,8 @@
   },
   "author": "Paul Merchant <prmerchant@gmail.com> (http://paulmerchant.com)",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
 }

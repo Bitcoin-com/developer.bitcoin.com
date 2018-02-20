@@ -10,11 +10,8 @@
 @import "contact_section";
 
 body {
-    padding-top: 5rem;
+    padding-top: 2rem;
 }
-
-
-
 
 
 @font-face {
@@ -60,8 +57,31 @@ body {
 
 // globals
 
+
 body {
   font-family:$font-family-sans-serif;
+}
+
+
+.center-nav {
+  .table {
+    display: table;   /* Allow the centering to work */
+    margin: 0 auto;
+  }
+  display:block;
+
+}
+.inline-list {
+  text-align:center;
+  li {
+    text-align:center;
+    display:inline;
+    font-size:1.2em;
+    margin:0 1em;
+    a {
+      text-align:center;
+    }
+  }
 }
 
 .code-snippet, pre {
@@ -226,4 +246,26 @@ li.gray {
 }
 
 
+.section-title.text-center {
+  &:after {
+    margin-left:auto;
+    margin-right:auto;
+  }
+}
+
+
+.contact, .contact-section {
+  padding:4em 0;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#eeeeee+0,ffffff+100 */
+  background: $gray-100; /* Old browsers */
+  background: -moz-linear-gradient(top, $gray-100 0%, #ffffff 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, $gray-100 0%,#ffffff 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, $gray-100 0%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$gray-100', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+
+  .section-title:after {
+      margin-left: auto;
+      margin-right: auto;
+  }
+}
 

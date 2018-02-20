@@ -27,18 +27,11 @@ PATHS:
     # JQuery
     - "node_modules/jquery/dist/jquery.min.js"
     # Bootstrap
-    - "node_modules/bootstrap/js/dist/util.js"
-    - "node_modules/bootstrap/js/dist/alert.js"
-    - "node_modules/bootstrap/js/dist/button.js"
-    - "node_modules/bootstrap/js/dist/carousel.js"
-    - "node_modules/bootstrap/js/dist/collapse.js"
-    - "node_modules/bootstrap/js/dist/dropdown.js"
-    - "node_modules/bootstrap/js/dist/modal.js"
-    - "node_modules/bootstrap/js/dist/scrollspy.js"
-    - "node_modules/bootstrap/js/dist/tab.js"
+    - "node_modules/bootstrap/dist/js/bootstrap.min.js"
+    - "../js/balance.js"
     # Add tether.js to the project if you are including tooltip.js or popover.js
-    - "node_modules/bootstrap/js/dist/tooltip.js"
-    - "node_modules/bootstrap/js/dist/popover.js"
+    # - "node_modules/bootstrap/js/dist/tooltip.js"
+    # - "node_modules/bootstrap/js/dist/popover.js"
 
 # The port your project's local web server will use, e.g. 8080
 PORT: 8080

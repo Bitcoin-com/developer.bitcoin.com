@@ -1,0 +1,41 @@
+[
+
+  {
+    "title": "Title 1",
+    "description" : "#",
+    "bountyaddr"  : "#",
+    "attachments" : "#",
+    "attachments" : [
+        {
+          "title" : "Transcript #1",
+          "intro" : "Message #",
+          "href"  : "#",
+        }
+      ],
+    "discussions" : "#",
+    "qrimg":  "#",
+  },
+
+  {
+    "title": "Title 2",
+    "description" : "#",
+    "bountyaddr"  : "#",
+    "attachments" : "#",
+    "attachments" : [
+        {
+          "title" : "Transcript #1",
+          "intro" : "Message #",
+          "href"  : "#",
+        },
+        {
+          "title" : "Transcript #2",
+          "intro" : "Message #",
+          "href"  : "#",
+        }
+      ],
+    "discussions" : "#",
+    "qrimg":  "#",
+  }
+
+
+]
