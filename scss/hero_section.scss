@@ -59,6 +59,10 @@
     -webkit-clip-path: polygon(0 0, 100% 7%, 100% 96%, 0% 100%);
     clip-path: polygon(0 0, 100% 7%, 100% 96%, 0% 100%);
 
+    h3 {
+      line-height:1.8;
+    }
+
     // overlay
       &:after { 
         content:"";
@@ -127,9 +131,23 @@ clip-path: polygon(70% 0, 100% 9%, 100% 86%, 73% 100%, 0 86%, 0 10%);
 
 .top-banner {
   .top-banner-title {
+    text-align:center;
+    @include media-breakpoint-up(md) {
+      text-align:left;
+    }
     h1 {
-      font-size:4em;
+      font-size:2.3em;
+      @include media-breakpoint-up(md) {
+        font-size:4em;
+      }
       font-weight:800;
+    }
+
+    h3 {
+      font-size:1.2rem;
+      @include media-breakpoint-up(md) {
+        font-size:1.53125rem;
+      }
     }
 
     .underline-thin {

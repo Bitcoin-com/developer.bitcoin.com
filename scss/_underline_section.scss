@@ -9,6 +9,7 @@
 }
 
 .section-title.underlines, .underlines {
+
   &:after {
     content:none;
   }
@@ -23,7 +24,11 @@
       background:$gray-400;
       position:absolute;
       left:0;
-      bottom:-15px;
+      bottom:-2px;
+      @include media-breakpoint-up(md) {
+        bottom:-5px;
+      }
+
     }
   }
   .underline.yellow {
