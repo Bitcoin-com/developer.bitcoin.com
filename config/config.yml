@@ -14,7 +14,7 @@ BROWSERS:
 FILENAME: "app"
 
 # Include temp/holder.min.js in the output directory for placeholder images
-INCLUDE_HOLDER: true
+INCLUDE_HOLDER: false
 
 # Your project's paths
 PATHS:
@@ -28,7 +28,6 @@ PATHS:
     - "node_modules/jquery/dist/jquery.min.js"
     # Bootstrap
     - "node_modules/bootstrap/dist/js/bootstrap.min.js"
-    - "../js/balance.js"
     # Add tether.js to the project if you are including tooltip.js or popover.js
     # - "node_modules/bootstrap/js/dist/tooltip.js"
     # - "node_modules/bootstrap/js/dist/popover.js"

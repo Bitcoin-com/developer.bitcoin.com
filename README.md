@@ -48,6 +48,13 @@ npm start
 npm run build
 ```
 
+
+## How to add bounty
+
+Edit data > bounties including title, excerpt, bts address, and href. 
+
+Create a new bounty page in pages > bounties - see other bounties for examples. 
+
 ## Configuration
 
 Several configuration options can be found and edited in the config/config.yml file.
@@ -73,7 +80,7 @@ Set classes by colour var (ie `<h3 class="yellow">This would be yellow text</h3>
 
 ## Acknowledgments
 
-Forked from [https://github.com/bitcoin-portal/bitcoin-bootstrap](https://github.com/bitcoin-portal/bitcoin-bootstrap) and bassjobsen's [empty-bootstrap-project-gulp](https://github.com/bassjobsen/empty-bootstrap-project-gulp), showing that Zurb's Panini is not just for Foundation. The great Panini, and the initial Panini starter projects, were made by [Zurb](https://github.com/zurb).
+Forked from [https://github.com/bitcoin-portal/bitcoin-bootstrap](https://github.com/bitcoin-portal/bitcoin-bootstrap) and [https://github.com/gluethegiant/bootstrap4-prototyping-glue](https://github.com/gluethegiant/bootstrap4-prototyping-glue) and bassjobsen's [empty-bootstrap-project-gulp](https://github.com/bassjobsen/empty-bootstrap-project-gulp), showing that Zurb's Panini is not just for Foundation. The great Panini, and the initial Panini starter projects, were made by [Zurb](https://github.com/zurb).
 
 ## License
 

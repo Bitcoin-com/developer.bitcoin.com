@@ -49,7 +49,7 @@
 
  .hero-inner-wrap {
     background-color:$black;
-    padding:4em 0 8em;
+    padding:4em 0 5em;
     position:relative;
     z-index:1;
     overflow:visible;
@@ -132,7 +132,7 @@ clip-path: polygon(70% 0, 100% 9%, 100% 86%, 73% 100%, 0 86%, 0 10%);
       font-weight:800;
     }
 
-    .underline {
+    .underline-thin {
       border-bottom:1px solid #73777E;
       display:inline-block;
     }

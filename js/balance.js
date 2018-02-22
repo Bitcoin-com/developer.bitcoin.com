@@ -1,6 +1,9 @@
 var balanceBaseURL = 'https://blockchain.info/q/addressbalance/';
 var exchangeRateURL = 'https://blockchain.info/ticker';
 
+var btcsum = 0;
+var usdsum = 0;
+
 var balances = {};
 
 function onExchangeRateUpdated(result)
@@ -12,13 +15,13 @@ function onExchangeRateUpdated(result)
 function convertSatsToBTC(sats)
 {
   btc = sats * .00000001;
-  return "\u0243" + btc.toFixed(4);
+  return btc.toFixed(4);
 }
 
 function convertSatsToUSD(sats)
 {
   usd = sats * .00000001 * exchangeRates.USD['15m'];
-  return '~$' + Number(usd.toFixed(0)).toLocaleString('en');
+  return '' + Number(usd.toFixed(0)).toLocaleString('en');
 }
 
 function doBalanceUpdateAll()
@@ -41,8 +44,26 @@ function doBalanceUpdateAll()
 function onBalanceUpdated(index, result)
 {
   var target = $(balances[index].element);
-  var output = convertSatsToBTC(result) + ' (' + convertSatsToUSD(result) + ')';
-  target.text(output);
+  var output = '<i class="fa fa-btc" aria-hidden="true"></i><span class="btcval">' + convertSatsToBTC(result) + '</span> <i class="fa fa-usd" aria-hidden="true"></i><span class="usdval">' + convertSatsToUSD(result) + '</span>';
+  target.text('');
+  target.append(output);
+
+
+    btcsum += parseFloat(convertSatsToBTC(result));
+
+    console.log('btc grand-total = '+btcsum);
+    $('.btctotal').html('<i class="fa fa-btc" aria-hidden="true"></i>'+btcsum);
+
+
+    // console.log('result '+ result);
+
+    // usdsum += parseFloat(convertSatsToUSD(result);
+
+    // console.log('USD grand-total = '+usdsum);
+    // $('.usdtotal').html('<i class="fa fa-usd" aria-hidden="true"></i><span class="usdval">'+usdsum);
+
+
+
 }
 
 function doBalanceUpdate(addr, cb)
@@ -72,6 +93,13 @@ function doExchangeRateUpdate()
 function init()
 {
   doExchangeRateUpdate();
+
+  // usdsum += parseFloat(convertSatsToUSD(result);
+
+  // $('.usdtotal').html('<i class="fa fa-usd" aria-hidden="true"></i><span class="usdval">'+usdsum);
+
 }
 
 $(document).ready(init);
+
+

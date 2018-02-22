@@ -49,6 +49,9 @@ gulp.task('clean', function() {
 // Copy assets
 gulp.task('copy', function() {
   gulp.src(['assets/**/*']).pipe(gulp.dest(outPath()));
+
+  gulp.src(['js/*']).pipe(gulp.dest(outPath()+'/js'));
+
   if (INCLUDE_HOLDER) {
     gulp.src('node_modules/holderjs/holder.min.js').pipe(gulp.dest(outPath()+ '/temp'));
   }
