@@ -1,4 +1,4 @@
-var balanceBaseURL = 'https://blockchain.info/q/addressbalance/';
+var balanceBaseURL = 'https://explorer.bitcoin.com/bch/address/';
 var exchangeRateURL = 'https://blockchain.info/ticker';
 
 var btcsum = 0;
@@ -28,7 +28,7 @@ function convertSatsToUSD(sats)
 function convertSumToUSD(sats)
 {
   usd = sats * .00000001 * exchangeRates.USD['15m'];
-  return '' + Number(usd).toFixed(2);
+  return '' + Number(usd).toFixed(0);
 }
 
 function doBalanceUpdateAll()
@@ -51,7 +51,7 @@ function doBalanceUpdateAll()
 function onBalanceUpdated(index, result)
 {
   var target = $(balances[index].element);
-  var output = '<i class="fa fa-btc" aria-hidden="true"></i><span class="btcval">' + convertSatsToBTC(result) + '</span> <i class="fa fa-usd" aria-hidden="true"></i><span class="usdval">' + convertSatsToUSD(result) + '</span>';
+  var output = '<img src="/img/bitcoincash.png" alt="bitcoincash" class="coinlogo"><span class="btcval">' + convertSatsToBTC(result) + '</span> <i class="fa fa-usd" aria-hidden="true"></i><span class="usdval">' + convertSatsToUSD(result) + '</span>';
   target.text('');
   target.append(output);
 
@@ -59,7 +59,7 @@ function onBalanceUpdated(index, result)
 
 
     console.log('btc grand-total = '+btcsum);
-    $('.btctotal').html('<i class="fa fa-btc" aria-hidden="true"></i>'+btcsum);
+    $('.btctotal').html(btcsum);
 
 
     // usdsum += parseFloat(convertSatsToUSD(result));
