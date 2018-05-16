@@ -14,47 +14,6 @@ body {
 }
 
 
-@font-face {
-    font-family: 'museo_sans_rounded900';
-    src: url('../fonts/museosansrounded-900.svg') format('svg'),
-       url('../fonts/museosansrounded-900.ttf') format('ttf'),
-       url('../fonts/museosansrounded-900.woff2') format('woff2'),
-         url('../fonts/museosansrounded-900.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'museo_sans_rounded300';
-    src: url('../fonts/museosansrounded-300.svg') format('svg'),
-       url('../fonts/museosansrounded-300.woff2') format('woff2'),
-         url('../fonts/museosansrounded-300.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'museo_sans_rounded500';
-    src: url('../fonts/museosansrounded-500.svg') format('svg'),
-       url('../fonts/museosansrounded-500.woff2') format('woff2'),
-         url('../fonts/museosansrounded-500.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'museo_sans_rounded700';
-    src: url('../fonts/museosansrounded-700.svg') format('svg'),
-       url('../fonts/museosansrounded-700.ttf') format('ttf'),
-       url('../fonts/museosansrounded-700.woff2') format('woff2'),
-         url('../fonts/museosansrounded-700.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-
-
-
 // globals
 
 
@@ -168,8 +127,13 @@ body {
   border-radius:32px;
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1 {
+  font-weight:700;
+}
+
+h2,h3,h4,h5,h6 {
   margin-top:1em;
+  font-weight:600
 }
 
 h1.white,
@@ -217,7 +181,7 @@ h6.gray,
 p.gray,
 div.gray,
 li.gray {
-  color:$gray-400;
+  color:$gray-700;
 }
 
 .double-section-clip {
