@@ -1,0 +1,34 @@
+.yellow-section {
+  background:$yellow;
+  padding:4em 0;
+  h1,h2 {
+  	color:$black;
+  }
+  h2 {
+	margin-bottom:0;
+	}
+
+  h3 {
+  	margin-top:0;
+  }
+  h3,h4,h5,h6 {
+  	color:$white;
+  }
+  .uppercase {
+  	text-transform: uppercase;
+  }
+
+  .subheadline {
+  	margin-bottom:1.5em;
+  	&:after {
+  		content: "";
+  		width:100px;
+  		height:3px;
+  		background:#fff;
+  		position:absolute;
+  		left:50%;
+  		margin-left:-50px;
+  		bottom:.7em;
+  	}
+  }
+}

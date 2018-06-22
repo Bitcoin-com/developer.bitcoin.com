@@ -49,11 +49,13 @@ npm run build
 ```
 
 
-## How to add bounty
+## How to add items
 
-Edit data > bounties including title, excerpt, bts address, and href. 
+If you require adding items such as blog posts, faqs, etc, panini is able to handle it quite easily.
 
-Create a new bounty page in pages > bounties - see other bounties for examples. 
+Edit data > items.json including title, excerpt, href.
+
+Create a new item page in pages > items.html - see item1.html and item2.html for examples. See debugging below, npm start must be rerun to regen dist assets which are served via localhost
 
 ## Configuration
 
@@ -77,6 +79,10 @@ Customized variables can be seen in `src/partials/_variables` which include modi
 
 Set classes by colour var (ie `<h3 class="yellow">This would be yellow text</h3>`) for consistency and global editing. 
 
+
+## Debugging
+
+Please note that editing panini data > .json files requires a new run of ```npm start``` in order to regenerate the /dist/ which is serviced via localhost. 
 
 ## Acknowledgments
 
