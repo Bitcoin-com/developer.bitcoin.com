@@ -1,5 +1,5 @@
 {
-  "name": "bootstrap4-prototyping-glue",
+  "name": "bitcoin-bootstrap-panini",
   "version": "0.1.0",
   "description": "A rapid prototyping starter for Bootstrap 4 using Panini, Sass, and Gulp.",
   "main": "gulpfile.js",
@@ -13,13 +13,14 @@
     "gulp-cssnano": "^2.1.2",
     "gulp-if": "^2.0.2",
     "gulp-postcss": "^6.1.0",
-    "gulp-sass": "^2.3.2",
+    "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^2.0.0",
     "gulp-uncss": "^1.0.6",
     "holderjs": "^2.9.4",
     "js-yaml": "3.7.0",
     "mq4-hover-shim": "^0.3.0",
+    "node-sass": "^4.9.0",
     "panini": "^1.3.0",
     "rimraf": "^2.5.2",
     "yargs": "^6.0.0"
@@ -33,11 +34,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gluethegiant/bootstrap4-prototyping-glue.git"
+    "url": "git@github.com:bitcoin-portal/bitcoin-bootstrap-panini.git"
   },
   "bugs": {
-    "url": "https://github.com/gluethegiant/bootstrap4-prototyping-glue/issues",
-    "email": "prmerchant@gmail.com"
+    "url": "git@github.com:bitcoin-portal/bitcoin-bootstrap-panini/issues",
+    "email": "corbin@bitcoin.com"
   },
   "author": "Paul Merchant <prmerchant@gmail.com> (http://paulmerchant.com)",
   "license": "MIT",
