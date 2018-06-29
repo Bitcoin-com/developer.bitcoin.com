@@ -1,0 +1,56 @@
+---
+layout: default
+title: Developer.bitcoin.com | BITBOX new
+---
+
+<nav class="center-nav">
+  <ul class="inline-list">
+    <li><a href="/bitbox.html">Overview</a></li>
+    <li><a href="/docs/documentation.html">Documenation</a></li>
+  </ul>
+</nav>
+<section class="bounties">
+  <div class="container">
+    <div class="section-title text-center pb-4">
+      <h1 class="gray bold">BITBOX NEW</h1>
+    </div>
+    <div class="row">
+
+      <div class="col-12 col-md-3 mb-4 text-center">
+
+        {{> bitbox-docs-menu}}
+
+      </div>
+
+      <div class="col-12 col-md-9">
+          <h2 id='bitboxNew' className="contentSubHead isCenter"><i className="fas fa-plus"></i> New</h2>
+          <p>BITBOX will generate a new app w/ empty <code>src/</code> and <code>test/</code> directories and a <code>bitbox.js</code> configured to connect to Bitcoin.com&rsquo;s Cloud.</p>
+          <pre><code>
+  Usage: new [options] <name>
+
+  Options:
+
+  -s, --scaffold <scaffold>        The framework to use. Options include react, angular, node, next, and vue. (Default: react)
+  -r, --restURL <restURL>          The rest URL to use. default: https://rest.bitbox.earth/v1/
+  -e, --environment <environment>  environment of running BITBOX instance. Ex: production, staging. Default: development
+  -h, --help                       output usage information
+
+  $ bitbox new helloEARTH
+  $ bitbox new helloEARTH --scaffold react
+        </code></pre>
+          <h3 id="bitboxJS">bitbox.js</h3>
+          <p>Your <code>bitbox.js</code> file will contain the default settings to connect to Bitcoin.com&rsquo;s Cloud.</p>
+          <pre><code>
+  exports.config = {
+    networks: {
+      development: {
+        restURL: 'https://rest.bitbox.earth/v1/'
+      }
+    }
+  };
+          </code></pre>
+      </div>
+
+    </div>
+  </div>
+</section>

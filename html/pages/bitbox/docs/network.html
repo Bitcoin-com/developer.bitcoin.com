@@ -1,0 +1,180 @@
+---
+layout: default
+title: Developer.bitcoin.com | Documenation
+---
+
+<nav class="center-nav">
+  <ul class="inline-list">
+    <li><a href="/bitbox.html">Overview</a></li>
+    <li><a href="/docs/documentation.html">Documenation</a></li>
+  </ul>
+</nav>
+<section class="bounties">
+  <div class="container">
+    <div class="section-title text-center pb-4">
+      <h1 class="gray bold">Documenation</h1>
+    </div>
+    <div class="row">
+
+      <div class="col-12 col-md-3 mb-4 text-center">
+
+        {{> bitbox-docs-menu}}
+
+      </div>
+
+      <div class="col-12 col-md-9">
+            <h2 id='network' className="contentSubHead isCenter"><i className="fas fa-cloud"></i> Network</h2>
+            <h3 id='getConnectionCount'><code>getConnectionCount</code></h3>
+            <p>
+            Returns the number of connections to other nodes.
+            </p>
+            <h4>Result</h4>
+            <ol>
+            <li>
+            n          (numeric): The connection count
+            </li>
+            </ol>
+            <h4>Examples</h4>
+            <pre><code>
+  BITBOX.Network.getConnectionCount().then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+
+  // 35
+            </code></pre>
+
+            <h3 id='getNetTotals'><code>getNetTotals</code></h3>
+            <p>
+            Returns information about network traffic, including bytes in, bytes out, and current time.
+            </p>
+            <h4>Examples</h4>
+            <pre><code>
+  BITBOX.Network.getNetTotals().then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+
+  // { totalbytesrecv: 413668219,
+  // totalbytessent: 14308845058,
+  // timemillis: 1525733247675,
+  // uploadtarget:
+  //  { timeframe: 86400,
+  //    target: 0,
+  //    target_reached: false,
+  //    serve_historical_blocks: true,
+  //    bytes_left_in_cycle: 0,
+  //    time_left_in_cycle: 0 } }
+            </code></pre>
+
+            <h3 id='getNetworkInfo'><code>getNetworkInfo</code></h3>
+            <p>
+            Returns an object containing various state info regarding P2P networking.
+            </p>
+            <h4>Examples</h4>
+            <pre><code>
+  BITBOX.Network.getNetworkInfo().then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+
+  // { version: 170000,
+  // subversion: '/Bitcoin ABC:0.17.0(EB32.0)/',
+  // protocolversion: 70015,
+  // localservices: '0000000000000025',
+  // localrelay: true,
+  // timeoffset: 0,
+  // networkactive: true,
+  // connections: 35,
+  // networks:
+  //  [ { name: 'ipv4',
+  //      limited: false,
+  //      reachable: true,
+  //      proxy: '',
+  //      proxy_randomize_credentials: false },
+  //    { name: 'ipv6',
+  //      limited: false,
+  //      reachable: true,
+  //      proxy: '',
+  //      proxy_randomize_credentials: false },
+  //    { name: 'onion',
+  //      limited: true,
+  //      reachable: false,
+  //      proxy: '',
+  //      proxy_randomize_credentials: false } ],
+  // relayfee: 0.00001,
+  // incrementalfee: 0.00001,
+  // localaddresses: [ { address: '138.68.54.100', port: 8333, score: 12929 } ],
+  // warnings: '' }
+            </code></pre>
+
+            <h3 id='getPeerInfo'><code>getPeerInfo</code></h3>
+            <p>
+            Returns data about each connected network node as a json array of objects.
+            </p>
+            <h4>Examples</h4>
+            <pre><code>
+  BITBOX.Network.getPeerInfo().then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+
+  // [{ id: 32388,
+  //   addr: '173.249.34.172:54414',
+  //   addrlocal: '138.68.54.100:8333',
+  //   services: '0000000000000000',
+  //   relaytxes: false,
+  //   lastsend: 1525733286,
+  //   lastrecv: 1525733287,
+  //   bytessent: 338,
+  //   bytesrecv: 210,
+  //   conntime: 1525733285,
+  //   timeoffset: 0,
+  //   pingtime: 0.565894,
+  //   minping: 0.565894,
+  //   version: 70015,
+  //   subver: '/cashnodes.io:0.0.1/',
+  //   inbound: true,
+  //   addnode: false,
+  //   startingheight: 529235,
+  //   banscore: 0,
+  //   synced_headers: -1,
+  //   synced_blocks: -1,
+  //   inflight: [],
+  //   whitelisted: false,
+  //   bytessent_per_msg:
+  //    { addr: 55,
+  //      feefilter: 32,
+  //      ping: 32,
+  //      sendcmpct: 33,
+  //      sendheaders: 24,
+  //      verack: 24,
+  //      version: 138 },
+  //   bytesrecv_per_msg: { getaddr: 24, pong: 32, verack: 24, version: 130 } } ]
+            </code></pre>
+
+            <h3 id='ping'><code>ping</code></h3>
+            <p>
+            Requests that a ping be sent to all other nodes, to measure ping time.
+            Results provided in getpeerinfo, pingtime and pingwait fields are decimal seconds.
+            Ping command is handled in queue with all other commands, so it measures processing backlog, not just network ping.
+            </p>
+            <h4>Examples</h4>
+            <pre><code>
+  BITBOX.Network.ping().then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+
+  // null
+            </code></pre>
+      </div>
+
+    </div>
+  </div>
+</section>

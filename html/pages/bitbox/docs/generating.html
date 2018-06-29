@@ -1,0 +1,61 @@
+---
+layout: default
+title: Developer.bitcoin.com | Documenation
+---
+
+<nav class="center-nav">
+  <ul class="inline-list">
+    <li><a href="/bitbox.html">Overview</a></li>
+    <li><a href="/docs/documentation.html">Documenation</a></li>
+  </ul>
+</nav>
+<section class="bounties">
+  <div class="container">
+    <div class="section-title text-center pb-4">
+      <h1 class="gray bold">Documenation</h1>
+    </div>
+    <div class="row">
+
+      <div class="col-12 col-md-3 mb-4 text-center">
+
+        {{> bitbox-docs-menu}}
+
+      </div>
+
+      <div class="col-12 col-md-9">
+            <h2 id='generating' className="contentSubHead isCenter"><i className="fab fa-buromobelexperte"></i> Generating</h2>
+            <h3 id='generateToAddress'><code>generateToAddress</code></h3>
+            <p>
+            Mine blocks immediately to a specified address (before the RPC call returns)
+            </p>
+            <h4>Arguments</h4>
+            <ol>
+              <li>
+            nblocks      (numeric, required): How many blocks are generated immediately.
+              </li>
+              <li>
+            address     (string, required): The address to send the newly generated bitcoin to.
+              </li>
+              <li>
+            maxtries     (numeric, optional): How many iterations to try (default = 1000000).
+              </li>
+            </ol>
+            <h4>Result</h4>
+            <p>
+            [ blockhashes ]     (array): hashes of blocks generated
+            </p>
+            <h4>Examples</h4>
+              <pre><code>
+  BITBOX.Generating.generateToAddress(11, 'bitcoincash:qzhhrxcdlxdsw3xuw8nz3c4476fdz69uq5gewr0lxg').then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+
+  // []
+              </code></pre>
+      </div>
+
+    </div>
+  </div>
+</section>
