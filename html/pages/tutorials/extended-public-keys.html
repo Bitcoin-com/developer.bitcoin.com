@@ -1,0 +1,48 @@
+---
+layout: default
+title: Developer.bitcoin.com | Tutorials - Extended Public Keys
+---
+
+<section class="bounties">
+  <div class="container">
+    <div class="section-title text-center pb-4">
+      <h1 class="gray bold">Extended Public Keys</h1>
+    </div>
+    <div class="row">
+
+      <div class="col-12">
+        <p>Bitcoin Cash offers an unimaginably large number of addresses. This allows you to use a new address for every transaction which greatly increases your privacy. However most people keep their private keys offline in a hardware or paper wallet so it’s not conventient to generate new addresses for each transaction. Extended public keys (xpub) let you share or deploy only your xpub and applications can produce an infinite number of public keys and $BCH addresses, but can’t spend any of the $BCH sent to those addresses.</p>
+
+        <h2 id="fromxpub" class='yellow'>fromXPub</h2>
+
+        <p><code class="highlighter-rouge">bitbox-cli</code> now has an <code class="highlighter-rouge">Address.fromXPub</code> method which takes an <code class="highlighter-rouge">xpub</code> as a first argument and an <code class="highlighter-rouge">index</code> as an optional 2nd argument which defaults to “0/0”.</p>
+
+        <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">BITBOX</span><span class="p">.</span><span class="nx">Address</span><span class="p">.</span><span class="nx">fromXPub</span><span class="p">(</span><span class="s2">"xpub6Bs8HUjmkWC8F6yN6AB4t4npFg7R3EAnzY8yZKRMEiLdTr1PNFwhVSWSaUSkNs43pehV4dNvaQqUAUmAWQXATDQNb1S9EhH515BjyRz5ZNE"</span><span class="p">,</span> <span class="s2">`</span><span class="p">${</span><span class="nx">i</span><span class="p">}</span><span class="s2">`</span><span class="p">))</span>
+        <span class="p">}</span>
+        <span class="c1">// bitcoincash:qrxrc8z2crecu54fvhl5ugku92rcyylqqgfydz48gm</span>
+        <span class="c1">// bitcoincash:qzvg5h97fg0l8a28hwf5ynmp9x3dwrm9ugkw2ngmt3</span>
+        <span class="c1">// bitcoincash:qz7gaqvu9crsrj6z70hhu5vd93h64rxcwqhuvgac8d</span>
+        <span class="c1">// bitcoincash:qzcru5knw8as09cwzp594ma2xv7yj8gl55f62vw3jg</span>
+        <span class="c1">// bitcoincash:qzxfk738ymn78wh4l9j830jf9qfe60rh0yd9plh38k</span>
+        </code></pre></div></div>
+
+        <h2 id="usage" class='yellow'>Usage</h2>
+
+        <p>This can be useful if you’re accepting donations on your website and want to generate a new address for each donation. Or if you’re a merchant and you want to create a new address for each transaction.</p>
+
+        <p>Write a script to generate the addresses 1 at a time and check the blockchain to see if each address has any inputs/outputs. If so then someone has already sent that address a donation so generate the next address and try again until you find an address with no transactions.</p>
+
+        <h2 id="privacy" class='yellow'>Privacy</h2>
+
+        <p><strong>Be aware</strong> that if you use <code class="highlighter-rouge">BITBOX.Address.fromXPub</code> in the browser or share your <code class="highlighter-rouge">xpub</code> w/ anyone else they will be able to generate all your public keys and know exactly how much money has in total been sent to that <code class="highlighter-rouge">xpub</code>. They <strong>cannot</strong> spend any funds unless they also have the private keys.</p>
+
+        <p>As a matter of good practice you should keep your private keys in a hardware wallet or as a mnemonic on a paper wallet. You should be aware that using <code class="highlighter-rouge">xpub</code> comes w/ lessened privacy if you make your <code class="highlighter-rouge">xpub</code> known to anyone.</p>
+
+        <h2 id="summary" class='yellow'>Summary</h2>
+
+        <p>Extended public keys make generating a new address for every transaction possible. <code class="highlighter-rouge">BITBOX.Address.fromXPub</code> makes it quick and easy for devs to have their apps create an infinite number of addresses for their users w/out needing to expose their users to loss via holding their private keys.</p>
+      </div>
+    </div>
+  </div>
+</section>

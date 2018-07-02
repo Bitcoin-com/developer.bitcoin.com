@@ -1,0 +1,224 @@
+---
+layout: default
+title: Developer.bitcoin.com | Tutorials - Memopress
+---
+
+<section class="bounties">
+  <div class="container">
+    <div class="section-title text-center pb-4">
+      <h1 class="gray bold">Memopress</h1>
+    </div>
+    <div class="row">
+
+      <div class="col-12">
+        <p><a href="https://memo.cash/">Memo</a> and <a href="https://www.blockpress.com/">BlockPress</a> are two very popular on-chain social networks. They use a clever <code class="highlighter-rouge">OP_RETURN</code> prefixed protocol to write your actions to the blockchain. Later clients can read that data from the chain and recreate your account’s actions. This represents a truly decentralized and censorship resistant social network and it’s only possible on Bitcoin Cash.</p>
+
+        <p>Today we’re exicited to release <a href="https://www.npmjs.com/package/memopress">memopress</a>—helper methods for reading/writing to the Bitcoin Cash blockchain per the Memo and BlockPress protocols.</p>
+
+        <h2 id="usage" class='yellow'>Usage</h2>
+
+        <p>Memopress supports encoding and decoding payloads for 100% of each the <a href="https://memo.cash/protocol">Memo</a> and <a href="https://www.blockpress.com/developers/blockpress-protocol">BlockPress</a> protocols.</p>
+
+        <h3 id="install" class='yellow'>Install</h3>
+
+        <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">npm</span> <span class="nx">install</span> <span class="nx">memopress</span> <span class="o">--</span><span class="nx">save</span>
+        </code></pre></div></div>
+
+        <h3 id="require" class='yellow'>Require</h3>
+
+        <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">memopress</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'memopress'</span><span class="p">);</span>
+        </code></pre></div></div>
+
+        <h3 id="encode" class='yellow'>Encode</h3>
+
+        <h4 id="memo" class='yellow'>Memo</h4>
+
+        <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">memopress</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="s1">'0x6d01'</span><span class="p">,</span> <span class="s1">'nakamoto'</span><span class="p">)</span>
+        <span class="c1">// &lt;Buffer 6a 02 6d 01 08 6e 61 6b 61 6d 6f 74 6f&gt;</span>
+
+        <span class="nx">memopress</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="s1">'0x6d02'</span><span class="p">,</span> <span class="s1">'Hello BITBOX'</span><span class="p">)</span>
+        <span class="c1">// &lt;Buffer 6a 02 6d 02 0c 48 65 6c 6c 6f 20 42 49 54 42 4f 58&gt;</span>
+
+        <span class="nx">memopress</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="s1">'0x6d03'</span><span class="p">,</span> <span class="p">{</span><span class="na">txHash</span><span class="p">:</span> <span class="s1">'99c38277ce297711b78ff09aa6857417a3b8df1873987b2a17b44b27877972ab'</span><span class="p">,</span> <span class="na">message</span><span class="p">:</span> <span class="s1">'Great!'</span><span class="p">});</span>
+        <span class="c1">// &lt;Buffer 6a 02 6d 03 20 ab 72 79 87 27 4b b4 17 2a 7b 98 73 18 df b8 a3 17 74 85 a6 9a f0 8f b7 11 77 29 ce 77 82 c3 99 06 47 72 65 61 74 21&gt;</span>
+
+        <span class="nx">memopress</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="s1">'0x6d04'</span><span class="p">,</span> <span class="s1">'c21cdbc06393e291fe325649a6b52409759c1abf98950165f818abd44812ce12'</span><span class="p">);</span>
+        <span class="c1">// &lt;Buffer 6a 02 6d 04 20 12 ce 12 48 d4 ab 18 f8 65 01 95 98 bf 1a 9c 75 09 24 b5 a6 49 56 32 fe 91 e2 93 63 c0 db 1c c2&gt;</span>
+
+        <span class="nx">memopress</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="s1">'0x6d05'</span><span class="p">,</span> <span class="s1">'This is my profile text'</span><span class="p">);</span>
+        <span class="c1">// &lt;Buffer 6a 02 6d 05 17 54 68 69 73 20 69 73 20 6d 79 20 70 72 6f 66 69 6c 65 20 74 65 78 74&gt;</span>
+
+        <span class="nx">memopress</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="s1">'0x6d06'</span><span class="p">,</span> <span class="s1">'bitcoincash:qzzsecxwv8gm34xmhh360ytuzeqxrja7zsnfvlg79m'</span><span class="p">);</span>
+        <span class="c1">// &lt;Buffer 6a 02 6d 06 36 62 69 74 63 6f 69 6e 63 61 73 68 3a 71 7a 7a 73 65 63 78 77 76 38 67 6d 33 34 78 6d 68 68 33 36 30 79 74 75 7a 65 71 78 72 6a 61 37 7a ... &gt;</span>
+
+        <span class="nx">memopress</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="s1">'0x6d07'</span><span class="p">,</span> <span class="s1">'bitcoincash:qzzsecxwv8gm34xmhh360ytuzeqxrja7zsnfvlg79m'</span><span class="p">);</span>
+        <span class="c1">// &lt;Buffer 6a 02 6d 07 36 62 69 74 63 6f 69 6e 63 61 73 68 3a 71 7a 7a 73 65 63 78 77 76 38 67 6d 33 34 78 6d 68 68 33 36 30 79 74 75 7a 65 71 78 72 6a 61 37 7a ... &gt;</span>
+
+        <span class="nx">memopress</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="s1">'0x6d0C'</span><span class="p">,</span> <span class="p">{</span><span class="na">topic</span><span class="p">:</span> <span class="s1">'Crypto'</span><span class="p">,</span> <span class="na">message</span><span class="p">:</span> <span class="s1">'BCH is Bitcoin'</span><span class="p">});</span>
+        <span class="c1">// &lt;Buffer 6a 02 6d 0c 06 43 72 79 70 74 6f 0e 42 43 48 20 69 73 20 42 69 74 63 6f 69 6e&gt;</span>
+        </code></pre></div></div>
+
+        <h4 id="blockpress" class='yellow'>BlockPress</h4>
+
+        <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">memopress</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="s1">'0x8d01'</span><span class="p">,</span> <span class="s1">'nakamoto'</span><span class="p">)</span>
+        <span class="c1">// &lt;Buffer 6a 02 8d 01 08 6e 61 6b 61 6d 6f 74 6f&gt;</span>
+
+        <span class="nx">memopress</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="s1">'0x8d02'</span><span class="p">,</span> <span class="s1">'Hello BITBOX'</span><span class="p">)</span>
+        <span class="c1">// &lt;Buffer 6a 02 8d 02 0c 48 65 6c 6c 6f 20 42 49 54 42 4f 58&gt;</span>
+
+        <span class="nx">memopress</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="s1">'0x8d03'</span><span class="p">,</span> <span class="p">{</span><span class="na">txHash</span><span class="p">:</span> <span class="s1">'7fa9329e7a7613fd51c1990d959c42c2b077e9dd962c7c095e9b7d44fe568af2'</span><span class="p">,</span> <span class="na">message</span><span class="p">:</span> <span class="s1">'Great!'</span><span class="p">});</span>
+        <span class="c1">// &lt;Buffer 6a 02 8d 03 20 7f a9 32 9e 7a 76 13 fd 51 c1 99 0d 95 9c 42 c2 b0 77 e9 dd 96 2c 7c 09 5e 9b 7d 44 fe 56 8a f2 06 47 72 65 61 74 21&gt;</span>
+
+        <span class="nx">memopress</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="s1">'0x8d04'</span><span class="p">,</span> <span class="s1">'c21cdbc06393e291fe325649a6b52409759c1abf98950165f818abd44812ce12'</span><span class="p">);</span>
+        <span class="c1">// &lt;Buffer 6a 02 8d 04 20 12 ce 12 48 d4 ab 18 f8 65 01 95 98 bf 1a 9c 75 09 24 b5 a6 49 56 32 fe 91 e2 93 63 c0 db 1c c2&gt;</span>
+
+        <span class="nx">memopress</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="s1">'0x8d06'</span><span class="p">,</span> <span class="s1">'bitcoincash:qzzsecxwv8gm34xmhh360ytuzeqxrja7zsnfvlg79m'</span><span class="p">);</span>
+        <span class="c1">// &lt;Buffer 6a 02 8d 06 36 62 69 74 63 6f 69 6e 63 61 73 68 3a 71 7a 7a 73 65 63 78 77 76 38 67 6d 33 34 78 6d 68 68 33 36 30 79 74 75 7a 65 71 78 72 6a 61 37 7a ... &gt;</span>
+
+        <span class="nx">memopress</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="s1">'0x8d07'</span><span class="p">,</span> <span class="s1">'bitcoincash:qzzsecxwv8gm34xmhh360ytuzeqxrja7zsnfvlg79m'</span><span class="p">);</span>
+        <span class="c1">// &lt;Buffer 6a 02 8d 07 36 62 69 74 63 6f 69 6e 63 61 73 68 3a 71 7a 7a 73 65 63 78 77 76 38 67 6d 33 34 78 6d 68 68 33 36 30 79 74 75 7a 65 71 78 72 6a 61 37 7a ... &gt;</span>
+
+        <span class="nx">memopress</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="s1">'0x8d08'</span><span class="p">,</span> <span class="s1">'https://ipfs.pics/ipfs/QmXaWRFhu6G6yCcy7dftsiehY8obJmX17hRtZr7BHyCbZC'</span><span class="p">);</span>
+        <span class="c1">// &lt;Buffer 6a 02 8d 08 45 68 74 74 70 73 3a 2f 2f 69 70 66 73 2e 70 69 63 73 2f 69 70 66 73 2f 51 6d 58 61 57 52 46 68 75 36 47 36 79 43 63 79 37 64 66 74 73 69 ... &gt;</span>
+
+        <span class="nx">memopress</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="s1">'0x8d09'</span><span class="p">,</span> <span class="p">{</span><span class="na">mediaType</span><span class="p">:</span> <span class="s1">'0x01'</span><span class="p">,</span> <span class="na">mediaPayload</span><span class="p">:</span> <span class="s1">'https://bit.ly/2FYUrea'</span><span class="p">,</span> <span class="na">mediaText</span><span class="p">:</span> <span class="s1">'shamone'</span><span class="p">});</span>
+        <span class="c1">// &lt;Buffer 6a 02 8d 09 00 16 68 74 74 70 73 3a 2f 2f 62 69 74 2e 6c 79 2f 32 46 59 55 72 65 61 07 73 68 61 6d 6f 6e 65&gt;</span>
+
+        <span class="nx">memopress</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="s1">'0x8d10'</span><span class="p">,</span> <span class="s1">'https://ipfs.pics/ipfs/QmXaWRFhu6G6yCcy7dftsiehY8obJmX17hRtZr7BHyCbZC'</span><span class="p">);</span>
+        <span class="c1">// &lt;Buffer 6a 02 8d 10 45 68 74 74 70 73 3a 2f 2f 69 70 66 73 2e 70 69 63 73 2f 69 70 66 73 2f 51 6d 58 61 57 52 46 68 75 36 47 36 79 43 63 79 37 64 66 74 73 69 ... &gt;</span>
+
+        <span class="nx">memopress</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="s1">'0x8d11'</span><span class="p">,</span> <span class="p">{</span><span class="na">community</span><span class="p">:</span> <span class="s1">'Crypto'</span><span class="p">,</span> <span class="na">message</span><span class="p">:</span> <span class="s1">'BCH is Bitcoin'</span><span class="p">});</span>
+        <span class="c1">// &lt;Buffer 6a 02 8d 11 06 43 72 79 70 74 6f 0e 42 43 48 20 69 73 20 42 69 74 63 6f 69 6e&gt;</span>
+        </code></pre></div></div>
+
+        <h3 id="decode" class='yellow'>Decode</h3>
+
+        <h4 id="memo-1" class='yellow'>Memo</h4>
+
+        <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">memopress</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="s1">'OP_RETURN 365 746573742032'</span><span class="p">)</span>
+        <span class="c1">// { service: 'memo',</span>
+        <span class="c1">//   prefix: '0x6d01',</span>
+        <span class="c1">//   action: 'Set Name',</span>
+        <span class="c1">//   message: 'test 2' }</span>
+
+        <span class="nx">memopress</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="s1">'OP_RETURN 621 4c6f72656d20697073756d20646f6c6f722073697420616d65742c20636f6e73656374657475722061646970697363696e6720656c6974'</span><span class="p">);</span>
+        <span class="c1">// { service: 'memo',</span>
+        <span class="c1">//   prefix: '0x6d02',</span>
+        <span class="c1">//   action: 'Post Memo',</span>
+        <span class="c1">//   message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit' }</span>
+
+        <span class="nx">memopress</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="s1">'OP_RETURN 877 fe32a4bc5a52ce9b861725462ad7d5d223d3554532eb172c7d29feca5722d44c 5468616e6b7320666f72207469707072626f7421'</span><span class="p">);</span>
+        <span class="c1">// { service: 'memo',</span>
+        <span class="c1">//   prefix: '0x6d03',</span>
+        <span class="c1">//   action: 'Reply',</span>
+        <span class="c1">//   message: 'Thanks for tipprbot!' }</span>
+
+        <span class="nx">memopress</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="s1">'OP_RETURN 1133 1f1f63293441c673033f9112bab1b3071b2f06f68d3032a23ba9eda819694520'</span><span class="p">);</span>
+        <span class="c1">// { service: 'memo',</span>
+        <span class="c1">//   prefix: '0x6d04',</span>
+        <span class="c1">//   action: 'Like',</span>
+        <span class="c1">//   message: '\u001f\u001fc)4AFs\u0003?\u0011\u0012:13\u0007\u001b/\u0006v\r02";)m(\u0019iE ' }</span>
+
+        <span class="nx">memopress</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="s1">'OP_RETURN 1389 566572696669636174696f6e3a2068747470733a2f2f747769747465722e636f6d2f6d656d6f6263682f7374617475732f393932303333363532373635373030303937'</span><span class="p">);</span>
+        <span class="c1">// { service: 'memo',</span>
+        <span class="c1">//   prefix: '0x6d05',</span>
+        <span class="c1">//   action: 'Set Profile Text',</span>
+        <span class="c1">//   message: 'Verification: https://twitter.com/memobch/status/992033652765700097' }</span>
+
+        <span class="nx">memopress</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="s1">'OP_RETURN 1645 fe686b9b2ab589a3cb3368d02211ca1a9b88aa42'</span><span class="p">);</span>
+        <span class="c1">// { service: 'memo',</span>
+        <span class="c1">//   prefix: '0x6d06',</span>
+        <span class="c1">//   action: 'Follow',</span>
+        <span class="c1">//   message: '~hk\u001b*5\t#K3hP"\u0011J\u001a\u001b\b*B' }</span>
+
+        <span class="nx">memopress</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="s1">'OP_RETURN 1901 fe686b9b2ab589a3cb3368d02211ca1a9b88aa42'</span><span class="p">);</span>
+        <span class="c1">// { service: 'memo',</span>
+        <span class="c1">//   prefix: '0x6d07',</span>
+        <span class="c1">//   action: 'Unfollow',</span>
+        <span class="c1">//   message: '~hk\u001b*5\t#K3hP"\u0011J\u001a\u001b\b*B' }</span>
+
+        <span class="nx">memopress</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="s1">'OP_RETURN 3181 4c657427732074616c6b2061626f757420546563686e6f -10985456'</span><span class="p">);</span>
+        <span class="c1">// { service: 'memo',</span>
+        <span class="c1">//   prefix: '0x6d0C',</span>
+        <span class="c1">//   action: 'Post Topic Message',</span>
+        <span class="c1">//   message: 'Let\'s talk about Techno' }</span>
+        </code></pre></div></div>
+
+        <h4 id="blockpress-1" class='yellow'>BlockPress</h4>
+
+        <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">memopress</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="s1">'OP_RETURN 397 6e616b616d6f746f'</span><span class="p">);</span>
+        <span class="c1">// { service: 'blockpress',</span>
+        <span class="c1">//   prefix: '0x8d01',</span>
+        <span class="c1">//   action: 'Set Name',</span>
+        <span class="c1">//   message: 'nakamoto' }</span>
+
+        <span class="nx">memopress</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="s1">'OP_RETURN 653 48656c6c6f20576f726c6421'</span><span class="p">);</span>
+        <span class="c1">// { service: 'blockpress',</span>
+        <span class="c1">//   prefix: '0x8d02',</span>
+        <span class="c1">//   action: 'Create Text Post',</span>
+        <span class="c1">//   message: 'Hello World!' }</span>
+
+        <span class="nx">memopress</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="s1">'OP_RETURN 909 0ea5a448dbcf9fc0b05622341dfc59b90419fc9b0c0d6865ecaaed9031f14d17 546869732069732061206c6f6e67207265706c7920546869732069732061206c6f6e67207265706c7920313233'</span><span class="p">);</span>
+        <span class="c1">// { service: 'blockpress',</span>
+        <span class="c1">//   prefix: '0x8d03',</span>
+        <span class="c1">//   action: 'Reply',</span>
+        <span class="c1">//   message: '\u000e%$H[O\u001f@0V"4\u001d|Y9\u0004\u0019|\u001b\f\rhel*m\u00101qM\u0017' }</span>
+
+        <span class="nx">memopress</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="s1">'OP_RETURN 1165 829f421e381e4b84e4f1ac4ac121767eeb41d4280c555dc4cb1ae952307ee78f'</span><span class="p">);</span>
+        <span class="c1">// { service: 'blockpress',</span>
+        <span class="c1">//   prefix: '0x8d04',</span>
+        <span class="c1">//   action: 'Like',</span>
+        <span class="c1">//   message: '\u0002\u001fB\u001e8\u001eK\u0004dq,JA!v~kAT(\fU]DK\u001aiR0~g\u000f' }</span>
+
+        <span class="nx">memopress</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="s1">'OP_RETURN 1677 313551464a6a4752726a4a764a6f53796666596735476232795674374b425979676b'</span><span class="p">);</span>
+        <span class="c1">// { service: 'blockpress',</span>
+        <span class="c1">//   prefix: '0x8d06',</span>
+        <span class="c1">//   action: 'Follow',</span>
+        <span class="c1">//   message: '15QFJjGRrjJvJoSyffYg5Gb2yVt7KBYygk' }</span>
+
+        <span class="nx">memopress</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="s1">'OP_RETURN 1933 313551464a6a4752726a4a764a6f53796666596735476232795674374b425979676b'</span><span class="p">);</span>
+        <span class="c1">// { service: 'blockpress',</span>
+        <span class="c1">//   prefix: '0x8d07',</span>
+        <span class="c1">//   action: 'Unfollow',</span>
+        <span class="c1">//   message: '15QFJjGRrjJvJoSyffYg5Gb2yVt7KBYygk' }</span>
+
+        <span class="nx">memopress</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="s1">'OP_RETURN 2189 68747470733a2f2f697066732e706963732f697066732f516d5861575246687536473679436379376466747369656859386f624a6d5831376852745a723742487943625a43'</span><span class="p">);</span>
+        <span class="c1">// { service: 'blockpress',</span>
+        <span class="c1">//   prefix: '0x8d08',</span>
+        <span class="c1">//   action: 'Set Profile Header',</span>
+        <span class="c1">//   message: 'https://ipfs.pics/ipfs/QmXaWRFhu6G6yCcy7dftsiehY8obJmX17hRtZr7BHyCbZC' }</span>
+
+        <span class="nx">memopress</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="s1">'OP_RETURN 2445 1 68747470733a2f2f6269742e6c792f32465955726561 4e65772023666561747572653a2023696d61676520706f737473206f6e20426c6f636b50726573732e20456e6a6f7921'</span><span class="p">);</span>
+        <span class="c1">// { service: 'blockpress',</span>
+        <span class="c1">//   prefix: '0x8d09',</span>
+        <span class="c1">//   action: 'Create Media Post',</span>
+        <span class="c1">//   message: 'https://bit.ly/2FYUrea' }</span>
+
+        <span class="nx">memopress</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="s1">'OP_RETURN 4237 68747470733a2f2f692e696d6775722e636f6d2f4a306b5239506d2e6a7067'</span><span class="p">);</span>
+        <span class="c1">// { service: 'blockpress',</span>
+        <span class="c1">//   prefix: '0x8d10',</span>
+        <span class="c1">//   action: 'Set Profile Avatar',</span>
+        <span class="c1">//   message: 'https://i.imgur.com/J0kR9Pm.jpg' }</span>
+
+        <span class="nx">memopress</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="s1">'OP_RETURN 4493 30324 4c6f73743a2054686520436f6d706c65746520436f6c6c656374696f6e202d20536561736f6e732031202d2036'</span><span class="p">);</span>
+        <span class="c1">// { service: 'blockpress',</span>
+        <span class="c1">//   prefix: '0x8d11',</span>
+        <span class="c1">//   action: 'Create Post in Community',</span>
+        <span class="c1">//   message: 'Lost: The Complete Collection - Seasons 1 - 6' }</span>
+        </code></pre></div></div>
+
+        <h2 id="summary" class='yellow'>Summary</h2>
+
+        <p>Memo/BlockPress are innovative ideas that demonstrate features which exist on the Bitcoin Cash blockchain and nowhere else. As the Bitcoin Cash ecosystem continues to mature BITBOX will release open source tools which accelerate how quickly devs can adopt them.</p>
+
+        <h3 id="more-info" class='yellow'>More Info</h3>
+
+        <ul>
+        <li><a href="/bitbox.html">BITBOX</a></li>
+        <li><a href="https://github.com/bigearth/memopress">memopress</a></li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</section>

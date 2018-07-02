@@ -12,16 +12,12 @@ title: Developer.bitcoin.com | Tutorials
     <div class="row">
 
 
-      {{#each learn-items}}
+      {{#each tutorial-items}}
 
-      <div class="col-12 col-md-6 mb-4 text-center">
-        <div class="card">
-          <div class="card-body">
-              <h3 class="yellow">{{{this.title}}}</h3>
-              <p>{{{this.excerpt}}}</p>
-              <a href="{{this.href}}" class="btn btn-primary btn-round">View Details</a>
-            </div>
-          </div>
+      <div class="col-12">
+        <h3 class="yellow">{{{this.title}}}</h3>
+        <p>{{{this.excerpt}}}</p>
+        <a href="{{this.href}}" class="">Read More...</a>
       </div>
 
       {{/each}}

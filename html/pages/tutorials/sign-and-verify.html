@@ -1,0 +1,56 @@
+---
+layout: default
+title: Developer.bitcoin.com | Tutorials - Sign & Verify
+---
+
+<section class="bounties">
+  <div class="container">
+    <div class="section-title text-center pb-4">
+      <h1 class="gray bold">Sign &amp; Verify</h1>
+    </div>
+    <div class="row">
+
+      <div class="col-12">
+      <p>BITBOX enables you to cryptographically prove ownership of an address via signing messages. You can also verify that ownership of an address from another person.</p>
+
+        <p>If, for example, you lost access to an account you could prove you were the owner that had been sending payments to that account by signing a specific message from that address.</p>
+
+        <p>Or someone could potentially give you a loan or credit using a signature from a wallet holding a certain amount of funds as proof that you could repay them.</p>
+
+        <h3 class="yellow">Sign a message</h3>
+
+        <p>You can sign a message w/ any address in your BITBOX. It doesn’t matter if it’s in cashaddr or legacy encoding. Just paste the address into the address field and type the message that you want to sign. Then click the ‘Sign’ button and if you have entered a valid address that has keys in your BITBOX you’ll see a signature appear.</p>
+
+        <p><img src="https://bigearth.github.io/bitblog/assets/verify-cashaddr.png" alt="Converter" /></p>
+
+        <p>You can share this message, address and signature w/ anyone and they can verify that you are the owner of that address.</p>
+
+        <h3 class="yellow">Verify a message</h3>
+
+        <p>You can verify a message from any address on the Bitcoin Cash network. Just paste in the message, address and signature provided and click the ‘Verify’ button. If the address and signature are both valid format and the signature matches the message and the address you’ll get a green ‘Valid message’ response.</p>
+
+        <p><img src="https://bigearth.github.io/bitblog/assets/verify-legacy.png" alt="Converter" /></p>
+
+        <p>If the address or signature are incorrectly formatted or the signature doesn’t match the message and address you’ll get an error message.</p>
+
+        <p><img src="https://bigearth.github.io/bitblog/assets/verify-fail.png" alt="Converter" /></p>
+
+        <h3 class="yellow">Using the command line</h3>
+
+        <p>BITBOX supports the entire Bitcoin Cash RPC. <a href="https://www.npmjs.com/package/bitbox-cli"><code class="highlighter-rouge">bitbox-cli</code></a> now supports, <code class="highlighter-rouge">signmessagewithprivkey</code> and <code class="highlighter-rouge">verifymessage</code> in cashaddr (w/ or w/out the prefix) and legacy.</p>
+
+        <h4 class="yellow">Sign</h4>
+
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>BITBOX.BitcoinCash.signMessageWithPrivKey('KxtpRDUJDiutLaTV8Vuavhb6h7zq9YV9ZKA3dU79PCgYmNVmkkvS', "EARTH");
+         // IIYVhlo2Z6TWFjYX1+YM+7vQKz0m+zYdSe4eYpFLuAQDEZXqll7lZC8Au22VI2LLP5x+IerZckVk3QQPsA3e8/8=
+        </code></pre></div></div>
+
+        <h4 class="yellow">Verify</h4>
+
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>BITBOX.BitcoinCash.verifyMessage('bitcoincash:qp2zvw3zpk5xx43w4tve7mtekd9kaxwj4uenq9eupv', 'IIYVhlo2Z6TWFjYX1+YM+7vQKz0m+zYdSe4eYpFLuAQDEZXqll7lZC8Au22VI2LLP5x+IerZckVk3QQPsA3e8/8=', 'EARTH')
+        true
+        </code></pre></div></div>
+      </div>
+    </div>
+  </div>
+</section>
