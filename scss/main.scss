@@ -202,7 +202,7 @@ li.gray {
 }
 
 .section-title, .section-title.light {
-  
+
   &:after {
     content: ' ';
     display: block;
@@ -221,7 +221,7 @@ li.gray {
 }
 
 .section-title.dark {
-  
+
   &:after {
     content: ' ';
     display: block;
@@ -272,4 +272,13 @@ li.gray {
   width:20px;
   margin-right:3px;
   margin-top:-3px;
+}
+
+.masteringBitcoin {
+  img {
+    max-width: 750px;
+  }
+  pre {
+    width: 1000px;
+  }
 }
