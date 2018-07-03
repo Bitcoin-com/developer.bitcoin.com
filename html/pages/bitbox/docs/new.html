@@ -2,7 +2,6 @@
 layout: default
 title: Developer.bitcoin.com | BITBOX new
 ---
-
 <nav class="center-nav">
   <ul class="inline-list">
     <li><a href="/bitbox.html">Overview</a></li>
@@ -22,10 +21,10 @@ title: Developer.bitcoin.com | BITBOX new
 
       </div>
 
-      <div class="col-12 col-md-9">
-          <h2 id='bitboxNew' className="contentSubHead isCenter"><i className="fas fa-plus"></i> New</h2>
-          <p>BITBOX will generate a new app w/ empty <code>src/</code> and <code>test/</code> directories and a <code>bitbox.js</code> configured to connect to Bitcoin.com&rsquo;s Cloud.</p>
-          <pre><code>
+      <div class="col-12 col-md-9 language-javascript">
+        <h2 id='bitboxNew' className="contentSubHead isCenter"><i className="fas fa-plus"></i> New</h2>
+        <p>BITBOX will generate a new app w/ empty <code>src/</code> and <code>test/</code> directories and a <code>bitbox.js</code> configured to connect to Bitcoin.com&rsquo;s Cloud.</p>
+        <pre><code>
   Usage: new [options] <name>
 
   Options:
@@ -38,9 +37,9 @@ title: Developer.bitcoin.com | BITBOX new
   $ bitbox new helloEARTH
   $ bitbox new helloEARTH --scaffold react
         </code></pre>
-          <h3 id="bitboxJS">bitbox.js</h3>
-          <p>Your <code>bitbox.js</code> file will contain the default settings to connect to Bitcoin.com&rsquo;s Cloud.</p>
-          <pre><code>
+        <h3 id="bitboxJS">bitbox.js</h3>
+        <p>Your <code>bitbox.js</code> file will contain the default settings to connect to Bitcoin.com&rsquo;s Cloud.</p>
+        <pre><code>
   exports.config = {
     networks: {
       development: {

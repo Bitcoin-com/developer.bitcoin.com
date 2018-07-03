@@ -19,7 +19,7 @@ INCLUDE_HOLDER: false
 # Your project's paths
 PATHS:
   #Local web server root path, output from 'npm start', e.g. "_site"
-  site: "dist" 
+  site: "dist"
   #The build path, output from 'npm run build'
   build: "dist"
   # Javascript, optimize .js size by commenting out unused scripts
@@ -28,6 +28,7 @@ PATHS:
     - "node_modules/jquery/dist/jquery.min.js"
     # Bootstrap
     - "node_modules/bootstrap/dist/js/bootstrap.min.js"
+    - "node_modules/prismjs/prism.js"
     # Add tether.js to the project if you are including tooltip.js or popover.js
     # - "node_modules/bootstrap/js/dist/tooltip.js"
     # - "node_modules/bootstrap/js/dist/popover.js"
@@ -35,7 +36,7 @@ PATHS:
 # The port your project's local web server will use, e.g. 8080
 PORT: 8080
 
-# Sass configurations, includePaths has "node_modules/" to find Bootstrap 
+# Sass configurations, includePaths has "node_modules/" to find Bootstrap
 SASS_OPTIONS:
   errLogToConsole: true
   outputStyle: "expanded"

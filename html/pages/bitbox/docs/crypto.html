@@ -22,24 +22,24 @@ title: Developer.bitcoin.com | Documenation
 
       </div>
 
-      <div class="col-12 col-md-9">
-            <h2 id='crypto' className="contentSubHead isCenter"><i className="fas fa-link"></i> Crypto</h2>
-            <h3 id='sha256'><code>sha256</code></h3>
-            <p>
-              Utility for creating sha256 hash digests of data
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
-                buffer <code>Buffer</code>:          data to be hashed
-              </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            buffer <code>Buffer</code>:     sha256 hash of data
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+      <div class="col-12 col-md-9 language-javascript">
+        <h2 id='crypto' className="contentSubHead isCenter"><i className="fas fa-link"></i> Crypto</h2>
+        <h3 id='sha256'><code>sha256</code></h3>
+        <p>
+          Utility for creating sha256 hash digests of data
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            buffer <code>Buffer</code>: data to be hashed
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          buffer <code>Buffer</code>: sha256 hash of data
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   // buffer from hex
   let buffer = Buffer.from('0101010101010101', 'hex')
   BITBOX.Crypto.sha256(buffer)
@@ -56,22 +56,22 @@ title: Developer.bitcoin.com | Documenation
   // <Buffer 97 8c 09 dd 46 09 1d 19 22 fa 01 e9 f4 a9 75 b9 1a 37 1f 26 ba 83 99 de 27 d5 38 01 15 21 21 de>
             </code></pre>
 
-            <h3 id='ripemd160'><code>ripemd160</code></h3>
-            <p>
-            Utility for creating ripemd160 hash digests of data
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
-            buffer  <code>Buffer</code>:          data to be hashed
-              </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            buffer <code>Buffer</code>:     ripemd160 hash of data
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='ripemd160'><code>ripemd160</code></h3>
+        <p>
+          Utility for creating ripemd160 hash digests of data
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            buffer <code>Buffer</code>: data to be hashed
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          buffer <code>Buffer</code>: ripemd160 hash of data
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   // buffer from hex
   let buffer = Buffer.from('0101010101010101', 'hex')
   BITBOX.Crypto.ripemd160(buffer)
@@ -88,22 +88,22 @@ title: Developer.bitcoin.com | Documenation
   // <Buffer 5f 95 6a 88 86 30 51 ea 52 15 d8 97 0c ed 8e 21 8e b6 15 cf>
             </code></pre>
 
-            <h3 id='hash256'><code>hash256</code></h3>
-            <p>
-            Utility for creating double sha256 hash digests of data
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
-            buffer  <code>Buffer</code>:          data to be hashed
-              </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            buffer <code>Buffer</code>:     double sha256 hash of data
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='hash256'><code>hash256</code></h3>
+        <p>
+          Utility for creating double sha256 hash digests of data
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            buffer <code>Buffer</code>: data to be hashed
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          buffer <code>Buffer</code>: double sha256 hash of data
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   // buffer from hex
   let buffer = Buffer.from('0101010101010101', 'hex')
   BITBOX.Crypto.hash256(buffer)
@@ -120,22 +120,22 @@ title: Developer.bitcoin.com | Documenation
   // <Buffer 68 8f 1d 02 9e d5 4c 34 d0 32 0b 83 8b f6 fc 64 f6 2f 38 a6 e9 30 a0 af 5b db 4e 27 d1 a6 84 cd>
             </code></pre>
 
-            <h3 id='hash160'><code>hash160</code></h3>
-            <p>
-            Utility for creating ripemd160(sha256()) hash digests of data
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
-            buffer  <code>Buffer</code>:          data to be hashed
-              </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            buffer <code>Buffer</code>:     ripemd160(sha256()) hash of data
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='hash160'><code>hash160</code></h3>
+        <p>
+          Utility for creating ripemd160(sha256()) hash digests of data
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            buffer <code>Buffer</code>: data to be hashed
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          buffer <code>Buffer</code>: ripemd160(sha256()) hash of data
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   // buffer from hex
   let buffer = Buffer.from('0101010101010101', 'hex')
   BITBOX.Crypto.hash160(buffer)
@@ -152,22 +152,22 @@ title: Developer.bitcoin.com | Documenation
   // <Buffer 5f 95 6a 88 86 30 51 ea 52 15 d8 97 0c ed 8e 21 8e b6 15 cf>
             </code></pre>
 
-            <h3 id='randomBytes'><code>randomBytes</code></h3>
-            <p>
-            Generates cryptographically strong pseudo-random data. The size argument is a number indicating the number of bytes to generate.
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
-            numBytes <code>number</code>:          number of bytes to generate
-              </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            buffer <code>Buffer</code>:     random bytes encoded as a buffer
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='randomBytes'><code>randomBytes</code></h3>
+        <p>
+          Generates cryptographically strong pseudo-random data. The size argument is a number indicating the number of bytes to generate.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            numBytes <code>number</code>: number of bytes to generate
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          buffer <code>Buffer</code>: random bytes encoded as a buffer
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   BITBOX.Crypto.randomBytes(16)
   // <Buffer 8c 5e 76 62 2f 4c bf cc 07 db b2 4f ea ea 1e d6>
 

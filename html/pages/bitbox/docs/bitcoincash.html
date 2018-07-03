@@ -22,24 +22,24 @@ title: Developer.bitcoin.com | Documenation
 
       </div>
 
-      <div class="col-12 col-md-9">
-            <h2 id='BitcoinCash' className="contentSubHead isCenter"><i className="fab fa-btc"></i> BitcoinCash</h2>
-            <h3 id='toSatoshi'><code>toSatoshi</code></h3>
-            <p>
-            Converting Bitcoin Cash units to satoshi units
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
-            bitcoinCash <code>Number</code>:         unit to be converted
-              </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            satoshi <code>Number</code>:    bitcoinCash unit converted to satoshis
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+      <div class="col-12 col-md-9 language-javascript">
+        <h2 id='BitcoinCash' className="contentSubHead isCenter"><i className="fab fa-btc"></i> BitcoinCash</h2>
+        <h3 id='toSatoshi'><code>toSatoshi</code></h3>
+        <p>
+          Converting Bitcoin Cash units to satoshi units
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            bitcoinCash <code>Number</code>: unit to be converted
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          satoshi <code>Number</code>: bitcoinCash unit converted to satoshis
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   // convert 9 $BCH to satoshis
   BITBOX.BitcoinCash.toSatoshi(9)
   // 900000000
@@ -61,22 +61,22 @@ title: Developer.bitcoin.com | Documenation
   // 50700000000
             </code></pre>
 
-            <h3 id='toBitcoinCash'><code>toBitcoinCash</code></h3>
-            <p>
-            Converting satoshi units to Bitcoin Cash units
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
-            satoshi <code>Number</code>:         unit to be converted
-              </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            bitcoinCash <code>Number</code>:    satoshi unit converted to Bitcoin Cash
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='toBitcoinCash'><code>toBitcoinCash</code></h3>
+        <p>
+          Converting satoshi units to Bitcoin Cash units
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            satoshi <code>Number</code>: unit to be converted
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          bitcoinCash <code>Number</code>: satoshi unit converted to Bitcoin Cash
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   // convert 900000000 satoshis to $BCH
   BITBOX.BitcoinCash.toBitcoinCash(900000000)
   // 9
@@ -98,22 +98,22 @@ title: Developer.bitcoin.com | Documenation
   // 507
             </code></pre>
 
-            <h3 id='toBits'><code>toBits</code></h3>
-            <p>
-            Converting satoshi units to Bits denomination
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
-            satoshi <code>Number</code>:         unit to be converted
-              </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            bits <code>Number</code>:    satoshi unit converted to Bits
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='toBits'><code>toBits</code></h3>
+        <p>
+          Converting satoshi units to Bits denomination
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            satoshi <code>Number</code>: unit to be converted
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          bits <code>Number</code>: satoshi unit converted to Bits
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   // convert 4242323400 satoshis to 42423.234 bits
   BITBOX.BitcoinCash.toBits(4242323400)
   // 42423.234
@@ -135,22 +135,22 @@ title: Developer.bitcoin.com | Documenation
   // 0.123
               </code></pre>
 
-            <h3 id='fromBits'><code>fromBits</code></h3>
-            <p>
-            Converting bits units to satoshi denomination
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
-            bits <code>Number</code>:         unit to be converted
-              </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            satoshi <code>Number</code>:    bits unit converted to satoshi
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='fromBits'><code>fromBits</code></h3>
+        <p>
+          Converting bits units to satoshi denomination
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            bits <code>Number</code>: unit to be converted
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          satoshi <code>Number</code>: bits unit converted to satoshi
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   // convert 42423.234 bits to 4242323400 satoshis
   BITBOX.BitcoinCash.fromBits(42423.234)
   // 4242323400
@@ -172,71 +172,71 @@ title: Developer.bitcoin.com | Documenation
   // 12300
               </code></pre>
 
-            <h3 id='signMessageWithPrivKey'><code>signMessageWithPrivKey</code></h3>
-            <p>
-            Sign message with private key
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
-            privateKeyWIF <code>String</code>:        private key in wallet import format
-              </li>
-              <li>
-            message <code>String</code>:              message to sign
-              </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            signature <code>string</code>:        cryptographic signature
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='signMessageWithPrivKey'><code>signMessageWithPrivKey</code></h3>
+        <p>
+          Sign message with private key
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            privateKeyWIF <code>String</code>: private key in wallet import format
+          </li>
+          <li>
+            message <code>String</code>: message to sign
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          signature <code>string</code>: cryptographic signature
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   BITBOX.BitcoinCash.signMessageWithPrivKey('KxtpRDUJDiutLaTV8Vuavhb6h7zq9YV9ZKA3dU79PCgYmNVmkkvS', "EARTH");
   // IIYVhlo2Z6TWFjYX1+YM+7vQKz0m+zYdSe4eYpFLuAQDEZXqll7lZC8Au22VI2LLP5x+IerZckVk3QQPsA3e8/8=
             </code></pre>
 
-            <h3 id='verifyMessage'><code>verifyMessage</code></h3>
-            <p>
-            Verify message
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
-            address              public cashaddr or legacy address which signed the message
-              </li>
-              <li>
-            signature            cryptographic signature
-              </li>
-              <li>
-            message              message to verify
-              </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            isVerified <code>boolean</code>: if message is verified or not
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='verifyMessage'><code>verifyMessage</code></h3>
+        <p>
+          Verify message
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            address public cashaddr or legacy address which signed the message
+          </li>
+          <li>
+            signature cryptographic signature
+          </li>
+          <li>
+            message message to verify
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          isVerified <code>boolean</code>: if message is verified or not
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   BITBOX.BitcoinCash.verifyMessage('bitcoincash:qp2zvw3zpk5xx43w4tve7mtekd9kaxwj4uenq9eupv', 'IIYVhlo2Z6TWFjYX1+YM+7vQKz0m+zYdSe4eYpFLuAQDEZXqll7lZC8Au22VI2LLP5x+IerZckVk3QQPsA3e8/8=', 'EARTH')
   // true
             </code></pre>
 
-            <h3 id='encodeBase58Check'><code>encodeBase58Check</code></h3>
-            <p>
-            Encodes hex string as base58Check
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
-            hex <code>String</code>:                        hex encoded bytes to encode as base58check
-              </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            base58check <code>String</code>:                    base58check encoded string
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='encodeBase58Check'><code>encodeBase58Check</code></h3>
+        <p>
+          Encodes hex string as base58Check
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            hex <code>String</code>: hex encoded bytes to encode as base58check
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          base58check <code>String</code>: base58check encoded string
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   // encode 0079bd35d306f648350818470c9f18903df6e06902a026f2a7 as base58check
   let hex = '0079bd35d306f648350818470c9f18903df6e06902a026f2a7';
   BITBOX.BitcoinCash.encodeBase58Check(hex);
@@ -263,22 +263,22 @@ title: Developer.bitcoin.com | Documenation
   // 1Ly4gqPddveYHMNkfjoXHanVszXpD3duKg
             </code></pre>
 
-            <h3 id='decodeBase58Check'><code>decodeBase58Check</code></h3>
-            <p>
-            Decodes base58Check encoded string to hex
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
-            base58check <code>String</code>:                base58check encoded string to decode to hex
-              </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            hex <code>string</code>:                            hex encoded string
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='decodeBase58Check'><code>decodeBase58Check</code></h3>
+        <p>
+          Decodes base58Check encoded string to hex
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            base58check <code>String</code>: base58check encoded string to decode to hex
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          hex <code>string</code>: hex encoded string
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   // decode 1C6hRmfzvWst5WA7bFRCVAqHt5gE2g7Qar to hex
   let base58check = '1C6hRmfzvWst5WA7bFRCVAqHt5gE2g7Qar';
   BITBOX.BitcoinCash.decodeBase58Check(base58check);
@@ -305,25 +305,25 @@ title: Developer.bitcoin.com | Documenation
   // 00db04c2e6f104997cb04c956bf25da6078e559d303127f08b
             </code></pre>
 
-            <h3 id='encodeBIP21'><code>encodeBIP21</code></h3>
-            <p>
-            Encodes address and options as BIP21 uri
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
-            address <code>String</code>:                cashaddr (w/ or w/out prefix) or legacy base58check encoded address
-              </li>
-              <li>
-            options <code>Object</code>:                options such as amount, label, message etc
-              </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            bip21 <code>string</code>:                    bip21 encoded uri
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='encodeBIP21'><code>encodeBIP21</code></h3>
+        <p>
+          Encodes address and options as BIP21 uri
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            address <code>String</code>: cashaddr (w/ or w/out prefix) or legacy base58check encoded address
+          </li>
+          <li>
+            options <code>Object</code>: options such as amount, label, message etc
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          bip21 <code>string</code>: bip21 encoded uri
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   let address = "bitcoincash:qrdsfshx7yzfjl9sfj2khuja5crcu4vaxqrt2qkz5s";
   let options = {
   amount: 1,
@@ -350,22 +350,22 @@ title: Developer.bitcoin.com | Documenation
   // bitcoincash:qzw6tfrh8p0jh834uf9rhg77pjg5rgnt3qw0e54u03?amount=42&label=no%20prefix
             </code></pre>
 
-            <h3 id='decodeBIP21'><code>decodeBIP21</code></h3>
-            <p>
-            Decodes BIP21 uri
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
-            bip21 <code>String</code>:                 bip21 encoded uri
-              </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            results <code>Object</code>:                  decoded bip21 uri
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='decodeBIP21'><code>decodeBIP21</code></h3>
+        <p>
+          Decodes BIP21 uri
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            bip21 <code>String</code>: bip21 encoded uri
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          results <code>Object</code>: decoded bip21 uri
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   let bip21 = "bitcoincash:qrdsfshx7yzfjl9sfj2khuja5crcu4vaxqrt2qkz5s?amount=1&label=%23BCHForEveryone";
   BITBOX.BitcoinCash.decodeBIP21(bip21);
   // { address: 'qrdsfshx7yzfjl9sfj2khuja5crcu4vaxqrt2qkz5s', options: { amount: 1, label: '#BCHForEveryone' } }
@@ -385,26 +385,26 @@ title: Developer.bitcoin.com | Documenation
   // { address: 'qzw6tfrh8p0jh834uf9rhg77pjg5rgnt3qw0e54u03', options: { amount: 42, label: 'no prefix' } }
             </code></pre>
 
-            <h3 id='getByteCount'><code>getByteCount</code></h3>
-            <p>
-            Get byte count of transaction
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
-            inputs <code>Object</code>:                 object w/ keys describing input types and counts. 'MULTISIG-P2SH' and 'P2PKH'. "MULTISIG-P2SH" also should include the required and total number of signatures. EX: "MULTISIG-P2SH:2-4"
-              </li>
-              <li>
-            outputs <code>Object</code>:                 object w/ keys describing output types and counts. 'P2SH' and 'P2PKH'
+        <h3 id='getByteCount'><code>getByteCount</code></h3>
+        <p>
+          Get byte count of transaction
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            inputs <code>Object</code>: object w/ keys describing input types and counts. 'MULTISIG-P2SH' and 'P2PKH'. "MULTISIG-P2SH" also should include the required and total number of signatures. EX: "MULTISIG-P2SH:2-4"
+          </li>
+          <li>
+            outputs <code>Object</code>: object w/ keys describing output types and counts. 'P2SH' and 'P2PKH'
 
-              </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            byteCount <code>Number</code>:                  number of bytes
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          byteCount <code>Number</code>: number of bytes
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   // 1 P2PKH input
   let inputs = {
   P2PKH: 1
@@ -464,25 +464,25 @@ title: Developer.bitcoin.com | Documenation
   // 1780
             </code></pre>
 
-            <h3 id='encryptBIP38'><code>encryptBIP38</code></h3>
-            <p>
-            <a href='https://github.com/bitcoin/bips/blob/master/bip-0038.mediawiki'>BIP38</a> encrypt privkey WIFs
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
-            wif <code>String</code>:  privkey WIF on mainnet or testnet
-              </li>
-              <li>
+        <h3 id='encryptBIP38'><code>encryptBIP38</code></h3>
+        <p>
+          <a href='https://github.com/bitcoin/bips/blob/master/bip-0038.mediawiki'>BIP38</a> encrypt privkey WIFs
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            wif <code>String</code>: privkey WIF on mainnet or testnet
+          </li>
+          <li>
             password <code>String</code>: password to encrypt wif with
-              </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            encryptedKey <code>String</code>: privkey WIF encrypted w/ password
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          encryptedKey <code>String</code>: privkey WIF encrypted w/ password
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   // mainnet
   BITBOX.BitcoinCash.encryptBIP38('L1phBREbhL4vb1uHHHCAse8bdGE5c7ic2PFjRxMawLzQCsiFVbvu', '9GKVkabAHBMyAf');
   // 6PYU2fDHRVF2194gKDGkbFbeu4mFgkWtVvg2RPd2Sp6KmZx3RCHFpgBB2G
@@ -492,28 +492,28 @@ title: Developer.bitcoin.com | Documenation
   // 6PYUAPLwLSEjWSAfoe9NTSPkMZXnJA8j8EFJtKaeSnP18RCouutBrS2735
             </code></pre>
 
-            <h3 id='decryptBIP38'><code>decryptBIP38</code></h3>
-            <p>
-            <a href='https://github.com/bitcoin/bips/blob/master/bip-0038.mediawiki'>BIP38</a> decrypt privkey WIFs
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
+        <h3 id='decryptBIP38'><code>decryptBIP38</code></h3>
+        <p>
+          <a href='https://github.com/bitcoin/bips/blob/master/bip-0038.mediawiki'>BIP38</a> decrypt privkey WIFs
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
             encryptedKey <code>String</code>: encrypted privkey WIF
-              </li>
-              <li>
+          </li>
+          <li>
             password <code>String</code>: password to decrypt wif with
-              </li>
-              <li>
+          </li>
+          <li>
             network <code>String</code>: mainnet or testnet. Default: mainnet
-              </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            wif <code>String</code>: decrypted privkey WIF on mainnet or testnet
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          wif <code>String</code>: decrypted privkey WIF on mainnet or testnet
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   // mainnet
   BITBOX.BitcoinCash.decryptBIP38('6PYU2fDHRVF2194gKDGkbFbeu4mFgkWtVvg2RPd2Sp6KmZx3RCHFpgBB2G', '9GKVkabAHBMyAf', 'mainnet');
   // L1phBREbhL4vb1uHHHCAse8bdGE5c7ic2PFjRxMawLzQCsiFVbvu

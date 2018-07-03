@@ -22,18 +22,19 @@ title: Developer.bitcoin.com | Documenation
 
       </div>
 
-      <div class="col-12 col-md-9">
-          <h2 className="contentSubHead isCenter"><i className="fas fa-terminal"></i> Console</h2>
-          <p>Launch a console w/ the entire Bitcoin Cash RPC available as well as dozens of helper methods via a built in <code>BITBOX</code> object. Pass in an <code>--environment</code> flag to connect to environments defined in a local <code>bitbox.js</code>. By default <code>console</code> will connect to your <code>development</code> environment.</p>
-          <pre></code>
+      <div class="col-12 col-md-9 language-javascript">
+        <h2 className="contentSubHead isCenter"><i className="fas fa-terminal"></i> Console</h2>
+        <p>Launch a console w/ the entire Bitcoin Cash RPC available as well as dozens of helper methods via a built in <code>BITBOX</code> object. Pass in an <code>--environment</code> flag to connect to environments defined in a local <code>bitbox.js</code>.
+          By default <code>console</code> will connect to your <code>development</code> environment.</p>
+        <pre></code>
   $ bitbox console --environment production
   > BITBOX.
   BITBOX.Address                 BITBOX.BitboxHTTP              BITBOX.BitcoinCash             BITBOX.Blockchain              BITBOX.Control                 BITBOX.Crypto                  BITBOX.ECPair
   BITBOX.Generating              BITBOX.HDNode                  BITBOX.Mining                  BITBOX.Mnemonic                BITBOX.Network                 BITBOX.RawTransactions         BITBOX.Script
   BITBOX.Transaction             BITBOX.Util                    BITBOX.config
           </code></pre>
-          <p>Quickly test your ideas</p>
-          <pre><code>
+        <p>Quickly test your ideas</p>
+        <pre><code>
   > BITBOX.BitcoinCash.toSatoshi(9)
   // 900000000
 

@@ -22,11 +22,12 @@ title: Developer.bitcoin.com | Documenation
 
       </div>
 
-      <div class="col-12 col-md-9">
+      <div class="col-12 col-md-9 language-javascript">
         <h2 className="contentSubHead isCenter"><i className="fas fa-folder"></i> Paper</h2>
-        <p>Generate a paper-wallet.html w/ private key WIF and public address in cashaddr or legacy encoding. The paper wallet will also list the mnemonic and HD path.  Generate the mnemonic in 8 langugages including: english, chinese (simplified & traditional), french, italian, japanese, korean and spanish.</p>
+        <p>Generate a paper-wallet.html w/ private key WIF and public address in cashaddr or legacy encoding. The paper wallet will also list the mnemonic and HD path. Generate the mnemonic in 8 langugages including: english, chinese (simplified & traditional),
+          french, italian, japanese, korean and spanish.</p>
         <p>The privateKey/address pair are created from a fresh 32 byte mnemonic and derived as the first external change address from the following HD path: <code>m / 44&rsquo; / 145&rsquo; / 0&rsquo; / 0 / 0</code>.</p>
-          <pre><code>
+        <pre><code>
 Usage: paper [options]
 
 Create a paper wallet for easy and safe back up. Outputs paper-wallet.html which you can customize the look and then print.

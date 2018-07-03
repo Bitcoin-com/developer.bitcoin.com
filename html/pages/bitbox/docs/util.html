@@ -22,20 +22,20 @@ title: Developer.bitcoin.com | Documenation
 
       </div>
 
-      <div class="col-12 col-md-9">
-            <h2 id='util' className="contentSubHead isCenter"><i className="fas fa-cogs"></i> Util</h2>
-            <h3 id='validateAddress'><code>validateAddress</code></h3>
-            <p>
-            Return information about the given bitcoin address.
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-            <li>
-            address     (string, required): The bitcoin address to validate
-            </li>
-            </ol>
-            <h4>Examples</h4>
-            <pre><code>
+      <div class="col-12 col-md-9 language-javascript">
+        <h2 id='util' className="contentSubHead isCenter"><i className="fas fa-cogs"></i> Util</h2>
+        <h3 id='validateAddress'><code>validateAddress</code></h3>
+        <p>
+          Return information about the given bitcoin address.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            address (string, required): The bitcoin address to validate
+          </li>
+        </ol>
+        <h4>Examples</h4>
+        <pre><code>
   BITBOX.Util.validateAddress("bitcoincash:qzc86hrdufhcwlyzk7k82x77kfs2myekn57nv9cw5f").then((result) => {
   console.log(result);
   }, (err) => {
