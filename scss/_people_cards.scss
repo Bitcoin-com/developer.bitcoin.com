@@ -11,8 +11,13 @@
 
 
     img {
-    border-radius:50%;
-    border:3px solid $yellow;
+      border-radius:50%;
+      border:3px solid $yellow;
+      width:250px;
+      transition:opacity 250ms ease-in-out;
+      &:hover,&:focus {
+        opacity:0.9;
+      }
     }
 
     &:after {

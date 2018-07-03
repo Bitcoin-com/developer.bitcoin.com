@@ -129,6 +129,18 @@ clip-path: polygon(70% 0, 100% 9%, 100% 86%, 73% 100%, 0 86%, 0 10%);
   }
 }
 
+.social {
+  .section-title {
+    text-align:center;
+    margin-bottom:2em;
+
+    &:after {
+      margin-left:auto;
+      margin-right:auto;
+    }
+  }
+}
+
 .top-banner {
   .top-banner-title {
     text-align:center;
