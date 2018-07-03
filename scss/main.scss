@@ -283,3 +283,63 @@ li.gray {
     width: 1000px;
   }
 }
+
+
+.btn-facebook {
+  background:#415894;
+  border:0;
+  &:hover, &:focus {
+    background: lighten(#415894, 10%);
+    color:#fff;
+  }
+}
+
+.btn-twitter {
+  background:#6baae8;
+  border:0;
+  &:hover, &:focus {
+    background: lighten(#6baae8, 10%);
+    color:#fff;
+  }
+}
+
+.btn-reddit {
+  background:#eb5528;
+  border:0;
+  &:hover, &:focus {
+    background: lighten(#eb5528, 10%);
+    color:#fff;
+  }
+}
+
+.btn-linkedin {
+  background:#3275b0;
+  border:0;
+  &:hover, &:focus {
+    background: lighten(#3275b0, 10%);
+    color:#fff;
+  }
+}
+
+.social {
+  .btn {
+    margin:.65em .2em 0;
+  }
+}
+
+.bounties {
+  // p {
+  //   font-size:18px;
+  //   line-height:1.5;
+  //   margin-bottom:1.5em;
+  // }
+  img {
+    margin:10px auto;
+    display:block;
+    background:#fff;
+    border:1px solid #ccc;
+    border-radius:3px;
+    padding:5px;
+    box-shadow:0 1px 2px rgba(0,0,0,0.1);
+  }
+}
