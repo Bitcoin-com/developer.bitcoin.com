@@ -51,7 +51,7 @@ function doBalanceUpdateAll()
 function onBalanceUpdated(index, result)
 {
   var target = $(balances[index].element);
-  var output = '<img src="/img/bitcoincash.png" alt="bitcoincash" class="coinlogo"><span class="btcval">' + convertSatsToBTC(result) + '</span> <i class="fa fa-usd" aria-hidden="true"></i><span class="usdval">' + convertSatsToUSD(result) + '</span>';
+  var output = '<img src="../img/bitcoincash.png" alt="bitcoincash" class="coinlogo"><span class="btcval">' + convertSatsToBTC(result) + '</span> <i class="fa fa-usd" aria-hidden="true"></i><span class="usdval">' + convertSatsToUSD(result) + '</span>';
   target.text('');
   target.append(output);
 
