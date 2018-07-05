@@ -3,54 +3,54 @@
   {
   "title": "What is Bitcoin Cash?",
   "excerpt": "Bitcoin Cash is a collection of concepts and technologies that form the basis of a digital money ecosystem. Units of currency called bitcoins are used to store and transmit value among participants in the bitcoin cash network. Users communicate with each other using the bitcoin cash protocol primarily via the Internet, although other transport networks can also be used. The bitcoin cash protocol stack, available as open source software, can be run on a wide range of computing devices, including laptops and smartphones, making the technology easily accessible.",
-  "href": "/mastering-bitcoin-cash/what-is-bitcoin-cash.html"
+  "href": "mastering-bitcoin-cash/what-is-bitcoin-cash.html"
   },
 
   {
   "title": "How Bitcoin Cash Works",
   "excerpt": "The bitcoin cash system, unlike traditional banking and payment systems, is based on de-centralized trust. Instead of a central trusted authority, in bitcoin cash, trust is achieved as an emergent property from the interactions of different participants in the system. In this chapter, we will examine bitcoin cash from a high level by tracking a single transaction through the system and watch as it becomes 'trusted' and accepted by the mechanism of distributed consensus and is finally recorded on the blockchain, the distributed ledger of all transactions.",
-  "href": "/mastering-bitcoin-cash/how-bitcoin-cash-works.html"
+  "href": "mastering-bitcoin-cash/how-bitcoin-cash-works.html"
   },
 
   {
   "title": "Keys, Addresses, Wallets",
   "excerpt": "Ownership of bitcoin cash is established through digital keys, addresses, and digital signatures. The digital keys are not actually stored in the network, but are instead created and stored by users in a file, or simple database, called a wallet. The digital keys in a user’s wallet are completely independent of the bitcoin cash protocol and can be generated and managed by the user’s wallet software without reference to the blockchain or access to the Internet. Keys enable many of the interesting properties of bitcoin cash, including de-centralized trust and control, ownership attestation, and the cryptographic-proof security model.",
-  "href": "/mastering-bitcoin-cash/keys-addresses-wallets.html"
+  "href": "mastering-bitcoin-cash/keys-addresses-wallets.html"
   },
 
 
   {
   "title": "Transactions",
   "excerpt": "Transactions are the most important part of the bitcoin cash system. Everything else in bitcoin cash is designed to ensure that transactions can be created, propagated on the network, validated, and finally added to the global ledger of transactions (the blockchain). Transactions are data structures that encode the transfer of value between participants in the bitcoin cash system. Each transaction is a public entry in bitcoin cash’s blockchain, the global double-entry bookkeeping ledger.",
-  "href": "/mastering-bitcoin-cash/transactions.html"
+  "href": "mastering-bitcoin-cash/transactions.html"
   },
 
 
   {
   "title": "The Bitcoin Cash Network",
   "excerpt": "Bitcoin Cash is structured as a peer-to-peer network architecture on top of the Internet. The term peer-to-peer, or P2P, means that the computers that participate in the network are peers to each other, that they are all equal, that there are no 'special' nodes, and that all nodes share the burden of providing network services. The network nodes interconnect in a mesh network with a 'flat' topology. There is no server, no centralized service, and no hierarchy within the network. Nodes in a peer-to-peer network both provide and consume services at the same time with reciprocity acting as the incentive for participation. Peer-to-peer networks are inherently resilient, decentralized, and open. The preeminent example of a P2P network architecture was the early Internet itself, where nodes on the IP network were equal. Today’s Internet architecture is more hierarchical, but the Internet Protocol still retains its flat-topology essence.",
-  "href": "/mastering-bitcoin-cash/the-bitcoin-cash-network.html"
+  "href": "mastering-bitcoin-cash/the-bitcoin-cash-network.html"
   },
 
 
   {
   "title": "The Blockchain",
   "excerpt": "The blockchain data structure is an ordered, back-linked list of blocks of transactions. The blockchain can be stored as a flat file, or in a simple database. The Bitcoin ABC client stores the blockchain metadata using Google’s LevelDB database. Blocks are linked 'back,' each referring to the previous block in the chain. The blockchain is often visualized as a vertical stack, with blocks layered on top of each other and the first block serving as the foundation of the stack. The visualization of blocks stacked on top of each other results in the use of terms such as 'height' to refer to the distance from the first block, and 'top' or 'tip' to refer to the most recently added block.",
-  "href": "/mastering-bitcoin-cash/the-blockchain.html"
+  "href": "mastering-bitcoin-cash/the-blockchain.html"
   },
 
 
   {
   "title": "Mining and Consensus",
   "excerpt": "Mining is the process by which new bitcoin cash is added to the money supply. Mining also serves to secure the bitcoin cash system against fraudulent transactions or transactions spending the same amount of bitcoins more than once, known as a double-spend. Miners provide processing power to the bitcoin cash network in exchange for the opportunity to be rewarded bitcoin cash.",
-  "href": "/mastering-bitcoin-cash/mining-and-consensus.html"
+  "href": "mastering-bitcoin-cash/mining-and-consensus.html"
   },
 
 
   {
   "title": "Bitcoin Cash Security",
   "excerpt": "Securing bitcoin cash is challenging because it&rsquo;s not an abstract reference to value, like a balance in a bank account. Bitcoin Cash is very much like digital cash or gold. You’ve probably heard the expression, 'Possession is nine-tenths of the law.' Well, in bitcoin cash, possession is ten-tenths of the law. Possession of the keys to unlock the bitcoin cash is equivalent to possession of cash or a chunk of precious metal. You can lose it, misplace it, have it stolen, or accidentally give the wrong amount to someone. In every one of these cases, users have no recourse, just as if they dropped cash on a public sidewalk.",
-  "href": "/mastering-bitcoin-cas/bitcoin-cash-security.html"
+  "href": "mastering-bitcoin-cas/bitcoin-cash-security.html"
   }
 
 ]
