@@ -3,13 +3,15 @@ layout: default
 title: Developer.bitcoin.com | Tutorials - Multiple Environments
 banner: hero.jpeg
 H1: Multiple Environments
+subtitle: Mainnet and Testnet
+secondSubtitle: Launch a console with the full BITBOX API
 ---
 
-{{> inner-header}}
+{{> tutorial-header}}
 
 <section class="bounties">
   <div class="container">
-   
+
     <div class="row">
 
       <div class="col-12">
@@ -35,10 +37,10 @@ H1: Multiple Environments
 
         <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">networks</span><span class="p">:</span> <span class="p">{</span>
           <span class="nl">development</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nl">restURL</span><span class="p">:</span> <span class="s2">"https://rest.bitbox.earth/v1/"</span>
+            <span class="nl">restURL</span><span class="p">:</span> <span class="s2">"https://trest.bitbox.earth/v1/"</span>
           <span class="p">},</span>
           <span class="nx">production</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nl">restURL</span><span class="p">:</span> <span class="s2">"example.com"</span>
+            <span class="nl">restURL</span><span class="p">:</span> <span class="s2">"https://rest.bitbox.earth/v1/"</span>
           <span class="p">}</span>
         <span class="p">}</span>
         </code></pre></div></div>
