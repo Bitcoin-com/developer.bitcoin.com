@@ -3,28 +3,166 @@ layout: default
 title: Developer.bitcoin.com | BITBOX
 banner: hero.jpeg
 H1: BITBOX
+subtitle: Incredibly powerful. Easy to learn.
+secondSubtitle: Powerful and intuitive APIs which will have you creating world class applications
 ---
 
 {{> bitbox-header}}
 
-<section class="bounties">
+<section class="bounties language-javascript">
   <div class="container">
     <div class="row">
 
-      {{#each develop-items}}
-
-      <div class="col-12 col-md-6 mb-4 text-center">
-        <div class="card">
-          <div class="card-body">
-              <h3 class="yellow">{{{this.title}}}</h3>
-              <p>{{{this.excerpt}}}</p>
-              <a href="{{this.href}}" class="btn btn-primary btn-round">View Details</a>
-            </div>
-          </div>
+      <div class="col-12">
+        <h3 class="yellow">Powerful</h3>
+        <p>BITBOX is a fully featured javascript framework which offers Mnemonics, HDNodes, ECPairs, Crypto, Addresses, Transactions and much more. It’s powerful and intuitive APIs will have you creating world class applications.</p>
+        <p>Expressive and intuitive, BITBOX is built with the latest javascript technologies so developers feel right at home. Create amazing and powerful Bitcoin Cash applications on the client or server with full mainnet and testnet support.</p>
       </div>
 
-      {{/each}}
+    </div>
 
+    <div class="row">
+
+      <div class="col-12 col-md-6 mb-4">
+        <h3 class="yellow">Mnemonics</h3>
+        <p>Create mnemonics from 128 bits to 256 bits in 8 languages including english, chinese (traditional/simplified), korean, japanese, italian, french and spanish.</p>
+        <pre><code>
+// generate 24 word mnemonic
+BITBOX.Mnemonic.generate(256);
+// disagree tide elbow citizen jazz cinnamon bridge certain april settle pact film always inmate border inform solution that submit produce cloth balcony upper maid
+
+// generate 12 french word mnemonic
+BITBOX.Mnemonic.generate(128, BITBOX.Mnemonic.wordLists().french);
+// annonce ampleur sanglier peser acheter cultiver abroger embellir résoudre dialogue grappin lanterne
+        </code></pre>
+
+        <h3 class="yellow">Transactions</h3>
+        <p>Pay to PubKey, Pay to PubKeyHash, Pay to MultiSig, Pay to ScriptHash and write data to the chain w/ OP_RETURN</p>
+        <pre><code>
+// decode raw transaction hex
+BITBOX.RawTransactions.decodeRawTransaction('01000000013ba3edfd7a7b12b27ac72c3e67768f617fc81bc3888a51323a9fb8aa4b1e5e4a000000006a4730440220540986d1c58d6e76f8f05501c520c38ce55393d0ed7ed3c3a82c69af04221232022058ea43ed6c05fec0eccce749a63332ed4525460105346f11108b9c26df93cd72012103083dfc5a0254613941ddc91af39ff90cd711cdcde03a87b144b883b524660c39ffffffff01807c814a000000001976a914d7e7c4e0b70eaa67ceff9d2823d1bbb9f6df9a5188ac00000000').then((result) => {
+  console.log(result);
+}, (err) => {
+  console.log(err);
+});
+
+// send raw transactions to the network
+BITBOX.RawTransactions.sendRawTransaction("01000000010000000000000000000000000000000000000000000000000000000000000000ffffffff0704ffff001d0104ffffffff0100f2052a0100000043410496b538e853519c726a2c91e61ec11600ae1390813a627c66fb8be7947be63c52da7589379515d4e0a604f8141781e62294721166bf621e73a82cbf2342c858eeac00000000").then((result) => {
+  console.log(result);
+}, (err) => {
+  console.log(err);
+});
+
+// get transaction details by txid
+BITBOX.Transaction.details('a85fa3d831ab6b0305e7ff88d2d4941e25a810d4461635df51490653822071a8').then((result) => {
+  console.log(result);
+}, (err) => {
+  console.log(err);
+});
+        </code></pre>
+
+        <h3 class="yellow">Unit Conversion</h3>
+        <p>Convert between satoshis and whole units or bits.</p>
+        <pre><code>
+// convert 9 $BCH to satoshis
+BITBOX.BitcoinCash.toSatoshi(9)
+// 900000000
+
+// convert 900000000 satoshis to $BCH
+BITBOX.BitcoinCash.toBitcoinCash(900000000)
+// 9
+
+// convert 4242323400 satoshis to 42423234 bits
+BITBOX.BitcoinCash.satsToBits(4242323400)
+// 42423234
+        </code></pre>
+
+        <h3 class="yellow">Built in console</h3>
+        <p>Custom REPL with the full BITBOX and Bitcoin Cash JSON RPC API built in. Test your ideas quickly with no overhead.</p>
+
+        <h3 class="yellow">App scaffolds</h3>
+        <p>Create basic BIP44 wallets in under a minute with the most popular frameworks. Angular, React, Node, Next and Vue currently supported and adding more regularly.</p>
+      </div>
+
+      <div class="col-12 col-md-6 mb-4">
+        <h3 class="yellow">HDNodes</h3>
+        <p>HDNodes from root seeds, XPubs or XPrivs. Derive hardened and non-hardened children. Create legacy/cash addresses, private keys in WIF, public keys, extended public keys and extended private keys.</p>
+        <pre><code>
+let hdNode = BITBOX.HDNode.fromSeed(seedBuffer);
+
+// derive hardened child HDNode
+let childNode = BITBOX.HDNode.derivePath(hdNode, "m/44'/145'/0'");
+
+BITBOX.HDNode.toLegacyAddress(hdNode);
+// 14apxtw2LDQmXWsS5k4JEhG93Jzjswhvma
+
+BITBOX.HDNode.toCashAddress(hdNode);
+// bitcoincash:qqrz6kqw6nvhwgwrt4g7fggepvewtkr7nukkeqf4rw
+        </code></pre>
+
+        <h3 class="yellow">Address conversion</h3>
+        <p>Convert between legacy and cash addresses on main or testnet.</p>
+        <pre><code>
+// cashaddr to legacy
+BITBOX.Address.toLegacyAddress('bitcoincash:qzm47qz5ue99y9yl4aca7jnz7dwgdenl85jkfx3znl')
+// 1HiaTupadqQN66Tvgt7QSE5Wg13BUy25eN
+
+// legacy to cashaddr
+BITBOX.Address.toCashAddress('1HiaTupadqQN66Tvgt7QSE5Wg13BUy25eN')
+// bitcoincash:qzm47qz5ue99y9yl4aca7jnz7dwgdenl85jkfx3znl
+
+// detect legacy address
+BITBOX.Address.isLegacyAddress('bitcoincash:qqfx3wcg8ts09mt5l3zey06wenapyfqq2qrcyj5x0s')
+// false
+
+// detect cashaddr address
+BITBOX.Address.isCashAddress('bitcoincash:qqfx3wcg8ts09mt5l3zey06wenapyfqq2qrcyj5x0s')
+// true
+
+// detect mainnet address
+BITBOX.Address.isMainnetAddress('bitcoincash:qqfx3wcg8ts09mt5l3zey06wenapyfqq2qrcyj5x0s')
+// true
+
+// detect testnet address
+BITBOX.Address.isMainnetAddress('bitcoincash:qqfx3wcg8ts09mt5l3zey06wenapyfqq2qrcyj5x0s')
+// true
+        </code></pre>
+
+        <h3 class="yellow">OP Codes</h3>
+        <p>100% support for OP codes including everything which was recently re-enabled.</p>
+        <pre><code>
+// list all op codes
+BITBOX.Script.opcodes;
+// { OP_FALSE: 0,
+//   OP_0: 0,
+//   OP_PUSHDATA1: 76,
+//   OP_PUSHDATA2: 77,
+//   OP_PUSHDATA4: 78,
+//   OP_1NEGATE: 79,
+//   OP_RESERVED: 80,
+//   OP_TRUE: 81,
+//   OP_1: 81,
+//   OP_2: 82,
+//   OP_3: 83,
+//   OP_4: 84,
+//   ...
+// }
+
+// get the op code for a word
+BITBOX.Script.opcodes.OP_SPLIT
+// 127
+BITBOX.Script.opcodes.OP_NUM2BIN
+// 128
+BITBOX.Script.opcodes.OP_BIN2NUM
+// 129
+        </code></pre>
+
+        <h3 class="yellow">100% documentation</h3>
+        <p>Every method, argument, data type and return value is documented in great detail.</p>
+
+        <h3 class="yellow">REST integration</h3>
+        <p>Have your app talk to Cloud via REST with no further setup needed.</p>
+      </div>
     </div>
   </div>
 </section>
