@@ -124,6 +124,10 @@
 
 }
 
+img.gui {
+  max-width: 100%;
+}
+
 .bounties {
   // p {
   //   font-size:18px;
@@ -144,11 +148,5 @@
 .hero-inner-wrap {
   .language-javascript code {
     padding: 1em;
-  }
-}
-
-.gui {
-  img {
-    max-width: 100%;
   }
 }
