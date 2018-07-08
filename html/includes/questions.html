@@ -5,7 +5,7 @@
 
         <div id="accordion">
 
-        {{#each faq}} 
+        {{#each faq}}
 
           <div class="card">
             <div class="card-header" id="headingOne">
@@ -16,7 +16,7 @@
               </h5>
             </div>
             <div id="collapse{{@index}}" class="collapse hide" aria-labelledby="headingOne" data-parent="#accordion">
-              <div class="card-body">
+              <div lang="en" class="card-body">
                 {{{this.answer}}}
               </div>
             </div>
