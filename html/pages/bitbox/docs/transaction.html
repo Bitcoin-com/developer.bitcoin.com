@@ -1,18 +1,15 @@
 ---
 layout: default
-title: Developer.bitcoin.com | Documentation
+title: Developer.bitcoin.com | Transaction Documentation
 banner: hero2.jpg
 H1: Documentation
 ---
 
 {{> inner-header}}
 
-<nav class="center-nav">
-  <ul class="inline-list">
-    <li><a href="/bitbox.html">Overview</a></li>
-    <li><a href="/docs/documentation.html">Documentation</a></li>
-  </ul>
-</nav>
+{{> double-nested-navigation}}
+{{> bitbox-docs-submenu}}
+
 <section class="bounties">
   <div class="container">
     
@@ -24,24 +21,24 @@ H1: Documentation
 
       </div>
 
-      <div class="col-12 col-md-9">
-            <h2 id='Transaction' className="contentSubHead isCenter"><i className="fas fa-exchange-alt"></i> Transaction</h2>
-            <h3 id='details'><code>details</code></h3>
-            <p>
-            Return details about a Transaction.
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
+      <div class="col-12 col-md-9 language-javascript">
+        <h2 id='Transaction' class="contentSubHead isCenter"><i class="fas fa-exchange-alt"></i> Transaction</h2>
+        <h3 id='details'><code>details</code></h3>
+        <p>
+          Return details about a Transaction.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
             txid or txids <code>String | Array</code> required: Transaction id or array of transaction ids
-              </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            details <code>Object</code>: Details about Transaction
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          details <code>Object</code>: Details about Transaction
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   // single txid
   BITBOX.Transaction.details('a85fa3d831ab6b0305e7ff88d2d4941e25a810d4461635df51490653822071a8').then((result) => {
   console.log(result);

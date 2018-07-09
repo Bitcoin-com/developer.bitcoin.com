@@ -5,11 +5,12 @@ banner: hero.jpeg
 H1: Mastering Bitcoin Cash
 ---
 
-{{> inner-header}}
+{{> navigation}}
+{{> mastering-bitcoin-cash-header}}
 
 <section class="bounties">
   <div class="container">
-    
+
     <div class="row">
       <p>The following is based on <a href='https://github.com/bitcoinbook/bitcoinbook'>Mastering Bitcoin</a> by Andreas M. Antonopoulos <a href='https://github.com/bitcoinbook/bitcoinbook#mastering-bitcoin---first-edition'>First Edition</a> which is licensed under <a href='https://creativecommons.org/licenses/by-sa/4.0/'>Creative Commons Attribution-ShareAlike</a>.</p>
 
@@ -17,7 +18,7 @@ H1: Mastering Bitcoin Cash
 
       <div class="col-12 col-md-6 mb-4 text-center">
         <div class="card">
-          <div class="card-body">
+          <div lang="en" class="card-body">
               <h3 class="yellow">{{{this.title}}}</h3>
               <p>{{{this.excerpt}}}</p>
               <a href="{{this.href}}" class="btn btn-primary btn-round">View Details</a>
@@ -26,11 +27,6 @@ H1: Mastering Bitcoin Cash
       </div>
 
       {{/each}}
-
-
-
-
-
 
     </div>
   </div>

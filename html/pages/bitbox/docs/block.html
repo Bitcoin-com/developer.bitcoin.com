@@ -1,21 +1,18 @@
 ---
 layout: default
-title: Developer.bitcoin.com | Documentation
+<<<<<<< frontend-fixes
+title: Developer.bitcoin.com | Block Documentation
 banner: hero2.jpg
 H1: Documentation
 ---
 
 {{> inner-header}}
 
-<nav class="center-nav">
-  <ul class="inline-list">
-    <li><a href="/bitbox.html">Overview</a></li>
-    <li><a href="/docs/documentation.html">Documentation</a></li>
-  </ul>
-</nav>
+{{> double-nested-navigation}}
+{{> bitbox-docs-submenu}}
+
 <section class="bounties">
   <div class="container">
-    
     <div class="row">
 
       <div class="col-12 col-md-3 mb-4 text-center">
@@ -24,24 +21,24 @@ H1: Documentation
 
       </div>
 
-      <div class="col-12 col-md-9">
-            <h2 id='Block' className="contentSubHead isCenter"><i className="fas fa-cube"></i> Block</h2>
-            <h3 id='details'><code>details</code></h3>
-            <p>
-            Return details about a Block.
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
-            id  <code>String</code> required: block hash or height
-              </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            details <code>Object</code>: Details about Block
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+      <div class="col-12 col-md-9 language-javascript">
+        <h2 id='Block' class="contentSubHead isCenter"><i class="fa fa-cube"></i> Block</h2>
+        <h3 id='details'><code>details</code></h3>
+        <p>
+          Return details about a Block.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            id <code>String</code> required: block hash or height
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          details <code>Object</code>: Details about Block
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   BITBOX.Block.details('000000001c6aeec19265e9cc3ded8ba5ef5e63fae7747f30bf9c02c7bc8883f0').then((result) => {
   console.log(result);
   }, (err) => {

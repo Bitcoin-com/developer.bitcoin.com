@@ -1,93 +1,19 @@
+# Developer.bitcoin.com
 
-# Bitcoin.com Bootstrap 4 With Panini Templating
+## Developer Tooling, Cloud, and Marketplace
 
-A starter project with reusable Bitcoin.com elements, all wrapped up in Bootstrap 4, Gulp and Browsersync, and with Panini templating engine. This allows you to create and manage simple websites. This is a fork of the Bitcoin.com Bootstrap 4 [https://github.com/bitcoin-portal/bitcoin-bootstrap](https://github.com/bitcoin-portal/bitcoin-bootstrap).
+### BITBOX
 
-## Common Elements
+Bitcoin.com’s new developer plaform is based on the popular BITBOX javascript framework which has been downlaoded 36,000+ times from 100+ countries. Offering utility methods for Mnemonics, HDNodes, ECPairs, Crypto, Address conversion, Transactions and much more.
 
-See index for some common elements to use and build. Additional elements will be added in as new features are added to wallet.bitcoin.com and bitcoin.com.
+### REST
 
-Please ensure you familiarize yourself with Bootstrap 4 and it's components. Particularly the utility classes. `https://getbootstrap.com/docs/4.0/getting-started/introduction/`
+The BCH JSON RPC over HTTP including a fully documented and interactive GUI which developers can use to test their ideas and confirm their code is making proper API calls.
 
+### Cloud
 
+Blockchain-as-a-Service. Infrastructure to deploy and scale your apps. An ecosystem of add-ons for data, monitoring, logging, metrics, testing and more all built w/ BITBOX.
 
-# Bootstrap 4 Prototyping Glue
+### Marketplace
 
-This starter project brings together the Sass from [Bootstrap 4](http://v4-alpha.getbootstrap.com/) and [Panini](https://github.com/zurb/panini) HTML templates. Panini is a simple, intuitive flat file generator for Gulp that was designed specifically for rapid prototyping.
-
-The simplicity and speed of Panini makes it easy to isolate front-end design (CSS, JS, and HTML patterns) from other aspects of your project, and Panini still allows for HTML partials, external Handlebars helpers, and data from JSON or YAML sources when more complexity is needed.
-
-## Requirements
-
-In order to use this project, your computer needs:
-
-- [NodeJS](https://nodejs.org/en/)
-- [Git](https://git-scm.com/)
-
-## Setup
-
-Get started by downloading the project with Git:
-
-```bash
-git clone git@github.com:bitcoin-portal/bitcoin-bootstrap-panini.git projectname
-```
-
-Then open the folder in your command line and install the Node dependencies:
-
-```bash
-cd projectname
-npm install
-```
-
-## Start
-
-Start the project with `npm start`. Then edit the files in your html/, sass/, and js/ folders. The Sass and HTML files will be compiled in the background as you save changes. To create minified CSS and JS for production on a live website, use `npm run build`.
-
-```bash
-npm start
-npm run build
-```
-
-
-## How to add items
-
-If you require adding items such as blog posts, faqs, etc, panini is able to handle it quite easily.
-
-Edit data > items.json including title, excerpt, href.
-
-Create a new item page in pages > items.html - see item1.html and item2.html for examples. See debugging below, npm start must be rerun to regen dist assets which are served via localhost
-
-## Configuration
-
-Several configuration options can be found and edited in the config/config.yml file.
-
-[Holder.js](https://github.com/imsky/holder/) is included by default to display placeholder images. If you want to add your own assets, e.g. images and fonts, don't add them directly to the dist/ folder. They will be deleted each time the project is refreshed. Instead, place assets inside an assets/ folder at the root of your project. As an example, anything placed in assets/img/ will be copied to dist/img/.
-
-#### Margin and Padding Classes
-
-Please make sure to use `mt-5` (margin-top) or `mb-5` (margin-bottom) or `pt-5` (padding-top) or `pb-5` (padding-bottom). Note that the value 5 can change from 1-5. See `https://v4-alpha.getbootstrap.com/utilities/spacing/` 
-
-
-## Re-use these colour variables
-
-Customized variables can be seen in `src/partials/_variables` which include modifications to global styles, including: 
-
-- $black ($bitcoin black)
-- $yellow (bitcoin yellow)
-- $gray-400 (bitcoin gray)
-- $white
-
-Set classes by colour var (ie `<h3 class="yellow">This would be yellow text</h3>`) for consistency and global editing. 
-
-
-## Debugging
-
-Please note that editing panini data > .json files requires a new run of ```npm start``` in order to regenerate the /dist/ which is serviced via localhost. 
-
-## Acknowledgments
-
-Forked from [https://github.com/bitcoin-portal/bitcoin-bootstrap](https://github.com/bitcoin-portal/bitcoin-bootstrap) and [https://github.com/gluethegiant/bootstrap4-prototyping-glue](https://github.com/gluethegiant/bootstrap4-prototyping-glue) and bassjobsen's [empty-bootstrap-project-gulp](https://github.com/bassjobsen/empty-bootstrap-project-gulp), showing that Zurb's Panini is not just for Foundation. The great Panini, and the initial Panini starter projects, were made by [Zurb](https://github.com/zurb).
-
-## License
-
-Released under the [MIT License](https://opensource.org/licenses/MIT).
+Paid downloads, streaming media, in-app purchases, tokens and more ways for you to monetize.

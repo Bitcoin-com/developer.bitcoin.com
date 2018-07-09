@@ -1,18 +1,15 @@
 ---
 layout: default
-title: Developer.bitcoin.com | Documentation
+title: Developer.bitcoin.com | TransactionBuilder Documentation
 banner: hero2.jpg
 H1: Documentation
 ---
 
 {{> inner-header}}
 
-<nav class="center-nav">
-  <ul class="inline-list">
-    <li><a href="/bitbox.html">Overview</a></li>
-    <li><a href="/docs/documentation.html">Documentation</a></li>
-  </ul>
-</nav>
+{{> double-nested-navigation}}
+{{> bitbox-docs-submenu}}
+
 <section class="bounties">
   <div class="container">
     
@@ -24,34 +21,34 @@ H1: Documentation
 
       </div>
 
-      <div class="col-12 col-md-9">
-            <h2 id='TransactionBuilder' className="contentSubHead isCenter"><i className="fas fa-exchange-alt"></i> TransactionBuilder</h2>
-            <h3 id='constructor'><code>constructor</code></h3>
-            <p>
-            Create new Transaction Builder.
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
+      <div class="col-12 col-md-9 language-javascript">
+        <h2 id='TransactionBuilder' class="contentSubHead isCenter"><i class="fas fa-exchange-alt"></i> TransactionBuilder</h2>
+        <h3 id='constructor'><code>constructor</code></h3>
+        <p>
+          Create new Transaction Builder.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
             network <code>String</code>: Defaults to "bitcoincash"
-              </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            TransactionBuilder <code>TransactionBuilder</code>
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          TransactionBuilder <code>TransactionBuilder</code>
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   // instance of transaction builder
   let transactionBuilder = new BITBOX.TransactionBuilder('bitcoincash');
             </code></pre>
 
-            <h3 id='hashTypes'><code>hashTypes</code></h3>
-            <p>
-            BITBOX supports the <code>SIGHASH_ALL</code>, <code>SIGHASH_NONE</code> and <code>SIGHASH_SINGLE</code> hash types w/ the <code>SIGHASH_ANYONECANPAY</code> modifier.
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='hashTypes'><code>hashTypes</code></h3>
+        <p>
+          BITBOX supports the <code>SIGHASH_ALL</code>, <code>SIGHASH_NONE</code> and <code>SIGHASH_SINGLE</code> hash types w/ the <code>SIGHASH_ANYONECANPAY</code> modifier.
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   transactionBuilder.hashTypes
   // { SIGHASH_ALL: 1,
   //   SIGHASH_NONE: 2,
@@ -67,48 +64,48 @@ H1: Documentation
   // 4294967295
             </code></pre>
 
-            <h3 id='addInput'><code>addInput</code></h3>
-            <p>
-            Add input to transaction
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
-            txid <code>String</code> (required):               txid of vout
-              </li>
-              <li>
-            index <code>Number</code> (required):              index of vout
-              </li>
-              <li>
-            sequence <code>Number</code> (optional):           relative lock time. Default <code>0xffffffff</code>
-              </li>
-              <li>
-            prevOutScript <code>String</code> (optional):      previous output script
-              </li>
-            </ol>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='addInput'><code>addInput</code></h3>
+        <p>
+          Add input to transaction
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            txid <code>String</code> (required): txid of vout
+          </li>
+          <li>
+            index <code>Number</code> (required): index of vout
+          </li>
+          <li>
+            sequence <code>Number</code> (optional): relative lock time. Default <code>0xffffffff</code>
+          </li>
+          <li>
+            prevOutScript <code>String</code> (optional): previous output script
+          </li>
+        </ol>
+        <h4>Examples</h4>
+        <pre><code>
   // txid of vout
   let txid = 'f7890915febe580920df2681d2bac0909ae89bd0cc1d3ed763e5eeba7f337f0e';
   // add input with txid and index of vout
   transactionBuilder.addInput(txid, 0);
             </code></pre>
 
-            <h3 id='addOutput'><code>addOutput</code></h3>
-            <p>
-            Add output to transaction
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
-            scriptPubKey <code>String</code>:               legacy/cashaddr address or script
-              </li>
-              <li>
-            sendAmount <code>Number</code>:                amount to send in satoshis
-              </li>
-            </ol>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='addOutput'><code>addOutput</code></h3>
+        <p>
+          Add output to transaction
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            scriptPubKey <code>String</code>: legacy/cashaddr address or script
+          </li>
+          <li>
+            sendAmount <code>Number</code>: amount to send in satoshis
+          </li>
+        </ol>
+        <h4>Examples</h4>
+        <pre><code>
   let originalAmount = 100000;
   let byteCount = BITBOX.BitcoinCash.getByteCount({ P2PKH: 1 }, { P2PKH: 1 });
   // amount to send to receiver. It's the original amount - 1 sat/byte for tx size
@@ -117,30 +114,30 @@ H1: Documentation
   transactionBuilder.addOutput('bitcoincash:qpuax2tarq33f86wccwlx8ge7tad2wgvqgjqlwshpw', sendAmount);
             </code></pre>
 
-            <h3 id='sign'><code>sign</code></h3>
-            <p>
-            Sign transaction
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
-            vin <code>Number</code>:               vin to sign
-              </li>
-              <li>
-            keyPair <code>ECPair</code>:                ECPair of HDNode
-              </li>
-              <li>
+        <h3 id='sign'><code>sign</code></h3>
+        <p>
+          Sign transaction
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            vin <code>Number</code>: vin to sign
+          </li>
+          <li>
+            keyPair <code>ECPair</code>: ECPair of HDNode
+          </li>
+          <li>
             redeemScript <code>Buffer</code>
-              </li>
-              <li>
+          </li>
+          <li>
             hashType <code>Number</code>
-              </li>
-              <li>
+          </li>
+          <li>
             originalAmount <code>Number</code>: satoshis in vin
-              </li>
-            </ol>
-            <h4>Examples</h4>
-            <pre><code>
+          </li>
+        </ol>
+        <h4>Examples</h4>
+        <pre><code>
   let originalAmount = 100000;
   // node of address which is going to spend utxo
   let hdnode = BITBOX.HDNode.fromXPriv("xprvA3eaDg64MwDr72PVGJ7CkvshNAzCDRz7rn98sYrZVAtDSWCAmNGQhEQeCLDcnmcpSkfjhHevXmu4ZL8ZcT9D4vEbG8LpiToZETrHZttw9Yw");
@@ -152,30 +149,30 @@ H1: Documentation
   transactionBuilder.sign(0, keyPair, redeemScript, transactionBuilder.hashTypes.SIGHASH_ALL, originalAmount);
             </code></pre>
 
-            <h3 id='build'><code>build</code></h3>
-            <p>
-            Build transaction
-            </p>
-            <h4>Result</h4>
-            <p>
-            Transaction <code>Object</code>:      Transaction
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='build'><code>build</code></h3>
+        <p>
+          Build transaction
+        </p>
+        <h4>Result</h4>
+        <p>
+          Transaction <code>Object</code>: Transaction
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   // build tx
   let tx = transactionBuilder.build();
             </code></pre>
 
-            <h3 id='toHex'><code>toHex</code></h3>
-            <p>
-            Return raw hex of transaction ready to be sent to the $BCH network
-            </p>
-            <h4>Result</h4>
-            <p>
-            rawHex <code>string</code>:      hex encoded raw transaction ready to be sent to the $BCH network
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='toHex'><code>toHex</code></h3>
+        <p>
+          Return raw hex of transaction ready to be sent to the $BCH network
+        </p>
+        <h4>Result</h4>
+        <p>
+          rawHex <code>string</code>: hex encoded raw transaction ready to be sent to the $BCH network
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   // output rawhex
   let hex = tx.toHex();
   // 02000000010e7f337fbaeee563d73e1dccd09be89a90c0bad28126df200958befe150989f7000000006b48304502210085b8eb33f3981315bbe39c6810d0311c6cb39504914300ecd952cab8353222e202200ec95797c06ba8c9b15d59ab80e63300cb2371f67b3969d0b502d0fed733fbed4121025c85a571619e60fed412de0356b4e28f4f3670ab0c2b899dfe60e69aaa6cd4c0ffffffff01a6370000000000001976a91479d3297d1823149f4ec61df31d19f2fad5390c0288ac00000000
@@ -184,16 +181,16 @@ H1: Documentation
   // dfe54ec45c6fa2fa85b76d113de85b169d36902eaf6700f1cca21eed1392814b
             </code></pre>
 
-            <h3 id='op_return'><code>OP_RETURN</code></h3>
-            <p>
-            Write data to the blockchain w/ <code>OP_RETURN</code>
-            </p>
-            <h4>Result</h4>
-            <p>
-            rawHex <code>string</code>:      hex encoded raw transaction ready to be sent to the $BCH network
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='op_return'><code>OP_RETURN</code></h3>
+        <p>
+          Write data to the blockchain w/ <code>OP_RETURN</code>
+        </p>
+        <h4>Result</h4>
+        <p>
+          rawHex <code>string</code>: hex encoded raw transaction ready to be sent to the $BCH network
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   // encode some text as a buffer
   let buf = new Buffer('#BCHForEveryone');
   // create array w/ OP_RETURN code and text buffer and encode
@@ -214,25 +211,25 @@ H1: Documentation
   // #BCHForEveryone
             </code></pre>
 
-            <h3 id='encodeBIP66'><code>bip66.encode</code></h3>
-            <p>
-            Strict DER signature encoding per <a href='https://github.com/bitcoin/bips/blob/master/bip-0066.mediawiki'>bip66</a>
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
+        <h3 id='encodeBIP66'><code>bip66.encode</code></h3>
+        <p>
+          Strict DER signature encoding per <a href='https://github.com/bitcoin/bips/blob/master/bip-0066.mediawiki'>bip66</a>
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
             r <code>Buffer</code>
-              </li>
-              <li>
+          </li>
+          <li>
             s <code>Buffer</code>
-              </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            encoded <code>Buffer</code>
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          encoded <code>Buffer</code>
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   let transactionBuilder = new BITBOX.TransactionBuilder();
   let r = Buffer.from('1ea1fdff81b3a271659df4aad19bc4ef83def389131a36358fe64b245632e777', 'hex');
   let s = Buffer.from('29e164658be9ce810921bf81d6b86694785a79ea1e52dbfa5105148d1f0bc1', 'hex');
@@ -240,22 +237,22 @@ H1: Documentation
   // <Buffer 30 43 02 20 1e a1 fd ff 81 b3 a2 71 65 9d f4 aa d1 9b c4 ef 83 de f3 89 13 1a 36 35 8f e6 4b 24 56 32 e7 77 02 1f 29 e1 64 65 8b e9 ce 81 09 21 bf 81 ... >
             </code></pre>
 
-            <h3 id='decodeBIP66'><code>bip66.decode</code></h3>
-            <p>
-            Strict DER signature decoding per <a href='https://github.com/bitcoin/bips/blob/master/bip-0066.mediawiki'>bip66</a>
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
+        <h3 id='decodeBIP66'><code>bip66.decode</code></h3>
+        <p>
+          Strict DER signature decoding per <a href='https://github.com/bitcoin/bips/blob/master/bip-0066.mediawiki'>bip66</a>
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
             signature <code>Buffer</code>
-              </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            decoded <code>Object</code>
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          decoded <code>Object</code>
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   let transactionBuilder = new BITBOX.TransactionBuilder();
   let signature = new Buffer.from('304302201ea1fdff81b3a271659df4aad19bc4ef83def389131a36358fe64b245632e777021f29e164658be9ce810921bf81d6b86694785a79ea1e52dbfa5105148d1f0bc1', 'hex');
   transactionBuilder.bip66.decode(signature);
@@ -265,22 +262,22 @@ H1: Documentation
   //  <Buffer 29 e1 64 65 8b e9 ce 81 09 21 bf 81 d6 b8 66 94 78 5a 79 ea 1e 52 db fa 51 05 14 8d 1f 0b c1> }
             </code></pre>
 
-            <h3 id='checkBIP66'><code>bip66.check</code></h3>
-            <p>
-            Check format of <a href='https://github.com/bitcoin/bips/blob/master/bip-0066.mediawiki'>bip66</a> Strict DER Signature
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
+        <h3 id='checkBIP66'><code>bip66.check</code></h3>
+        <p>
+          Check format of <a href='https://github.com/bitcoin/bips/blob/master/bip-0066.mediawiki'>bip66</a> Strict DER Signature
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
             DER <code>Buffer</code>
-              </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            value <code>Boolean</code>
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          value <code>Boolean</code>
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   let transactionBuilder = new BITBOX.TransactionBuilder();
   let DER = '3044022029db2d5f4e1dcc04e19266cce3cb135865784c62ab653b307f0e0bb744f5c2aa022000a97f5826912cac8b44d9f577a26f169a2f8db781f2ddb7de2bc886e93b6844';
   let buffer = Buffer.from(DER, 'hex')
@@ -288,22 +285,22 @@ H1: Documentation
   // true
             </code></pre>
 
-            <h3 id='encodeBIP68'><code>bip68.encode</code></h3>
-            <p>
-            Encoded <a href='https://github.com/bitcoin/bips/blob/master/bip-0068.mediawiki'>bip68</a> relative time lock
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
+        <h3 id='encodeBIP68'><code>bip68.encode</code></h3>
+        <p>
+          Encoded <a href='https://github.com/bitcoin/bips/blob/master/bip-0068.mediawiki'>bip68</a> relative time lock
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
             config <code>Object</code>: Valid keys: <code>seconds</code> and <code>block</code>. <code>seconds</code> must be in multiples of 512.
-              </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            hex <code>String</code>:      hex encoded relative timelock
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          hex <code>String</code>: hex encoded relative timelock
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   let transactionBuilder = new BITBOX.TransactionBuilder();
   transactionBuilder.bip68.encode({ seconds: 2048 })
   // 4194308
@@ -311,22 +308,22 @@ H1: Documentation
   // 52
             </code></pre>
 
-            <h3 id='decodeBIP68'><code>bip68.decode</code></h3>
-            <p>
-            Decoded <a href='https://github.com/bitcoin/bips/blob/master/bip-0068.mediawiki'>bip68</a> relative time lock
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
+        <h3 id='decodeBIP68'><code>bip68.decode</code></h3>
+        <p>
+          Decoded <a href='https://github.com/bitcoin/bips/blob/master/bip-0068.mediawiki'>bip68</a> relative time lock
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
             hex <code>String</code>: hex encoded relative lock time
-              </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            details <code>Object</code>: details about the relative lock time
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          details <code>Object</code>: details about the relative lock time
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   let transactionBuilder = new BITBOX.TransactionBuilder();
   transactionBuilder.bip68.decode(0x03ffffff)
   // { seconds: 33553920 }

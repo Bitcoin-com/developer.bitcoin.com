@@ -1,0 +1,42 @@
+---
+layout: default
+title: Developer.bitcoin.com | GUI Getting Started Documentation
+---
+
+{{> double-nested-navigation}}
+{{> gui-docs-submenu}}
+
+<section class="bounties">
+  <div class="container">
+    <div class="section-title text-center pb-4">
+      <h1 class="gray bold">GUI Documentation</h1>
+    </div>
+    <div class="row">
+
+      <div class="col-12 col-md-3 mb-4 text-center">
+
+        {{> gui-docs-menu}}
+
+      </div>
+
+      <div class="col-12 col-md-9 language-javascript">
+        <h2 id='crypto' class="contentSubHead isCenter"><i class="fa fa-home"></i> Getting Started</h2>
+        <h3 id="apple"><i class="fab fa-apple"></i> MacOS</h3>
+        <p>Download the <a href='https://github.com/Bitcoin-com/bitbox-gui/releases/download/0.7.8/BITBOX-0.7.8.dmg'>app for MacOS</a>. You can verify the files haven&rsquo;t been tampered w/ by downloading them and running:</p>
+        <pre><code>openssl sha -sha256 path/to/BITBOX-0.7.8.dmg</code></pre>
+        <p>Verify the output matches the latest BITBOX release&rsquo;s <a href='https://github.com/Bitcoin-com/keys-n-hashes'>checksum</a>.</p>
+
+        <h3 id="windows"><i class="fab fa-windows"></i> Windows and <i class="fab fa-linux"></i> Linux</h3>
+        <h4>Clone the git repo</h4>
+        <pre><code>git clone https://github.com/Bitcoin-com/bitbox-gui.git</code></pre>
+        <h4>Install dependencies</h4>
+        <pre><code>cd bitbox-gui && npm install</code></pre>
+        <h4>Build app</h4>
+        <pre><code>npm run build</code></pre>
+        <h4>Launch app</h4>
+        <pre><code>npm start</code></pre>
+      </div>
+
+    </div>
+  </div>
+</section>

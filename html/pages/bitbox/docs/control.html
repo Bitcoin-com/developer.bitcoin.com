@@ -1,21 +1,17 @@
 ---
 layout: default
-title: Developer.bitcoin.com | Documentation
+<<<<<<< frontend-fixes
+title: Developer.bitcoin.com | Control Documentation
 banner: hero2.jpg
 H1: Documentation
 ---
 
 {{> inner-header}}
 
-<nav class="center-nav">
-  <ul class="inline-list">
-    <li><a href="/bitbox.html">Overview</a></li>
-    <li><a href="/docs/documentation.html">Documentation</a></li>
-  </ul>
-</nav>
+{{> double-nested-navigation}}
+{{> bitbox-docs-submenu}}
 <section class="bounties">
   <div class="container">
-    
     <div class="row">
 
       <div class="col-12 col-md-3 mb-4 text-center">
@@ -24,14 +20,14 @@ H1: Documentation
 
       </div>
 
-      <div class="col-12 col-md-9">
-            <h2 id='control' className="contentSubHead isCenter"><i className="fas fa-gamepad"></i> Control</h2>
-            <h3 id='getInfo'><code>getInfo</code></h3>
-            <p>
-            Returns an object containing various state info.
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+      <div class="col-12 col-md-9 language-javascript">
+        <h2 id='control' class="contentSubHead isCenter"><i class="fa fa-gamepad"></i> Control</h2>
+        <h3 id='getInfo'><code>getInfo</code></h3>
+        <p>
+          Returns an object containing various state info.
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   BITBOX.Control.getInfo().then((result) => {
   console.log(result);
   }, (err) => {
@@ -51,13 +47,13 @@ H1: Documentation
   // errors: '' }
             </code></pre>
 
-            <h3 id='getMemoryInfo'><code>getMemoryInfo</code></h3>
-            <p>
-            Returns an object containing information about memory usage.
-            </p>
-            <h4>Result</h4>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='getMemoryInfo'><code>getMemoryInfo</code></h3>
+        <p>
+          Returns an object containing information about memory usage.
+        </p>
+        <h4>Result</h4>
+        <h4>Examples</h4>
+        <pre><code>
   BITBOX.Control.getMemoryInfo().then((result) => {
   console.log(result);
   }, (err) => {

@@ -1,18 +1,16 @@
 ---
 layout: default
-title: Developer.bitcoin.com | Documentation
+<<<<<<< frontend-fixes
+title: Developer.bitcoin.com | ECPair Documentation
 banner: hero2.jpg
 H1: Documentation
 ---
 
 {{> inner-header}}
 
-<nav class="center-nav">
-  <ul class="inline-list">
-    <li><a href="/bitbox.html">Overview</a></li>
-    <li><a href="/docs/documentation.html">Documentation</a></li>
-  </ul>
-</nav>
+{{> double-nested-navigation}}
+{{> bitbox-docs-submenu}}
+
 <section class="bounties">
   <div class="container">
     
@@ -24,24 +22,24 @@ H1: Documentation
 
       </div>
 
-      <div class="col-12 col-md-9">
-            <h2 id='ECPair' className="contentSubHead isCenter"><i className="fas fa-key"></i> ECPair</h2>
-            <h3 id='fromWIF'><code>fromWIF</code></h3>
-            <p>
-            Generates an ECPair from a private key in wallet import format.
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
-            wif <code>string</code>:                private key in wallet import format (WIF)
-              </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            ecpair <code>string</code>:      ECPair
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+      <div class="col-12 col-md-9 language-javascript">
+        <h2 id='ECPair' class="contentSubHead isCenter"><i class="fa fa-key"></i> ECPair</h2>
+        <h3 id='fromWIF'><code>fromWIF</code></h3>
+        <p>
+          Generates an ECPair from a private key in wallet import format.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            wif <code>string</code>: private key in wallet import format (WIF)
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          ecpair <code>string</code>: ECPair
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   // mainnet WIF
   let wif = 'L4vmKsStbQaCvaKPnCzdRArZgdAxTqVx8vjMGLW5nHtWdRguiRi1';
   BITBOX.ECPair.fromWIF(wif);
@@ -51,22 +49,22 @@ H1: Documentation
   BITBOX.ECPair.fromWIF(wif)
             </code></pre>
 
-            <h3 id='toWIF'><code>toWIF</code></h3>
-            <p>
-            Gets a private key in wallet import format from an ECPair.
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
+        <h3 id='toWIF'><code>toWIF</code></h3>
+        <p>
+          Gets a private key in wallet import format from an ECPair.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
             ecpair <code>ECPair</code>
-              </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            wif <code>string</code>:      private key in wallet import format
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          wif <code>string</code>: private key in wallet import format
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   // mainnet wif
   let wif = 'L4vmKsStbQaCvaKPnCzdRArZgdAxTqVx8vjMGLW5nHtWdRguiRi1';
   // ecpair from wif
@@ -84,22 +82,22 @@ H1: Documentation
   // cT3tJP7BnjFJSAHbooMXrY8E9t2AFj37amSBAYFMeHfqPqPgD4ZA
             </code></pre>
 
-            <h3 id='fromPublicKey'><code>fromPublicKey</code></h3>
-            <p>
-            Generates an ECPair from a public key buffer.
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
-            buffer <code>Buffer</code>:                 public key buffer
-              </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            ecpair <code>ECPair</code>
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='fromPublicKey'><code>fromPublicKey</code></h3>
+        <p>
+          Generates an ECPair from a public key buffer.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            buffer <code>Buffer</code>: public key buffer
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          ecpair <code>ECPair</code>
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   // create ECPair from mainnet pubkeyBuffer
   let pubkeyBuffer = Buffer.from("02fb721b92025e775b1b84774e65d568d24645cb633275f5c26f5c3101b214a8fb", 'hex');
   BITBOX.ECPair.fromPublicKey(pubkeyBuffer);
@@ -109,22 +107,22 @@ H1: Documentation
   BITBOX.ECPair.fromPublicKey(pubkeyBuffer);
             </code></pre>
 
-            <h3 id='toPublicKey'><code>toPublicKey</code></h3>
-            <p>
-            Get the public key of an ECPair as a buffer.
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
+        <h3 id='toPublicKey'><code>toPublicKey</code></h3>
+        <p>
+          Get the public key of an ECPair as a buffer.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
             ecpair <code>ECPair</code>
-              </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            buffer <code>Buffer</code>:       public key of an ECPair as a buffer
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          buffer <code>Buffer</code>: public key of an ECPair as a buffer
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   // create ecpair from mainnet public key buffer
   let ecpair = BITBOX.ECPair.fromPublicKey(Buffer.from('02d305772e0873fba6c1c7ff353ce374233316eb5820acd7ff3d7d9b82d514126b', 'hex'));
   // create public key buffer
@@ -138,22 +136,22 @@ H1: Documentation
   // <Buffer 02 4a 6d 07 37 a2 3c 47 2d 07 8d 78 c1 cb c3 c2 bb f8 76 7b 48 e7 26 84 ff 03 a9 11 b4 63 da 7f a6>
             </code></pre>
 
-            <h3 id='toLegacyAddress'><code>toLegacyAddress</code></h3>
-            <p>
-            Get legacy address of ECPair
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
+        <h3 id='toLegacyAddress'><code>toLegacyAddress</code></h3>
+        <p>
+          Get legacy address of ECPair
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
             ecpair <code>ECPair</code>
-              </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            legacyAddress <code>string</code>:     legacy base58check encoded address of an ECPair
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          legacyAddress <code>string</code>: legacy base58check encoded address of an ECPair
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   // mainnet wif
   let wif = 'L5GPEGxCmojgzFoBLUUqT2GegLGqobiYhTZzfLtpkLTfTb9E9NRn';
   // ecpair from wif
@@ -171,22 +169,22 @@ H1: Documentation
   // mg4PygFcXoyNJGJkM2Dcpe25av9wXzz1My
             </code></pre>
 
-            <h3 id='toCashAddress'><code>toCashAddress</code></h3>
-            <p>
-            Get cash address of ECPair
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
+        <h3 id='toCashAddress'><code>toCashAddress</code></h3>
+        <p>
+          Get cash address of ECPair
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
             ecpair <code>ECPair</code>
-              </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            cashAddress <code>string</code>:     cashaddr encoded address of an ECPair
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          cashAddress <code>string</code>: cashaddr encoded address of an ECPair
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   // mainnet wif
   let wif = 'L5GPEGxCmojgzFoBLUUqT2GegLGqobiYhTZzfLtpkLTfTb9E9NRn';
   // ecpair from wif
@@ -204,25 +202,25 @@ H1: Documentation
   // bchtest:qqzly4vrcxcjw62u4yq4nv86ltk2mc9v0yvq8mvj6m
             </code></pre>
 
-            <h3 id='sign'><code>sign</code></h3>
-            <p>
-            Sign 32 byte hash encoded as a buffer
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
+        <h3 id='sign'><code>sign</code></h3>
+        <p>
+          Sign 32 byte hash encoded as a buffer
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
             ecpair <code>ECPair</code>
-              </li>
-              <li>
+          </li>
+          <li>
             buffer <code>Buffer</code>: 32 byte Buffer
-              </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            signature <code>Object</code>
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          signature <code>Object</code>
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   // mainnet wif
   let wif = 'Kxq2EzVbDwjquUt5zyCFED5FRt99RZKEKVDJWTQcpSDoLAWMqLer';
   // ecpair from wif
@@ -242,28 +240,28 @@ H1: Documentation
   BITBOX.ECPair.sign(ecpair, buf);
             </code></pre>
 
-            <h3 id='verify'><code>verify</code></h3>
-            <p>
-            Verify signed 32 byte hash encoded as a buffer
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
+        <h3 id='verify'><code>verify</code></h3>
+        <p>
+          Verify signed 32 byte hash encoded as a buffer
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
             ecpair <code>ECPair</code>
-              </li>
-              <li>
+          </li>
+          <li>
             buffer <code>Buffer</code>: 32 byte Buffer
-              </li>
-              <li>
+          </li>
+          <li>
             signature <code>Object</code>
-              </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            verified <code>Boolean</code>
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          verified <code>Boolean</code>
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   // mainnet wifs
   let wif1 = 'Kxq2EzVbDwjquUt5zyCFED5FRt99RZKEKVDJWTQcpSDoLAWMqLer';
   let wif2 = 'L4BwXDmjzEyzKHbAfGruhieUDPs8KTx7DMgqPk4aF9GefzgqPENV';

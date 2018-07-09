@@ -3,17 +3,19 @@ layout: default
 title: Developer.bitcoin.com | Tutorials - Address UTXO
 banner: hero.jpeg
 H1: Address UTXO
+subtitle: Leverage BITBOX's REST API
+secondSubtitle: Check for utxo by legacy or cashaddr
 ---
 
-{{> inner-header}}
+{{> tutorial-header}}
 
 <section class="bounties">
   <div class="container">
-    
+
     <div class="row">
 
       <div class="col-12">
-        <p>Sending transactions is at the heart of BCH. BITBOX has been able to send transactions for a while but w/ BITBOX Cloud and <a href="/rest.html">REST</a> taking shape we wanted to revisit the steps for sending transactions to show how to best leverage the new functionality.</p>
+        <p>Sending transactions is at the heart of BCH. BITBOX has been able to send transactions for a while but w/ BITBOX Cloud and <a href="rest.html">REST</a> taking shape we wanted to revisit the steps for sending transactions to show how to best leverage the new functionality.</p>
 
         <h2 id="setup" class='yellow'>Setup</h2>
 
@@ -76,7 +78,7 @@ H1: Address UTXO
 
         <p>BITBOX Cloud is your ‘Blockchain as a Service.’ We recently started integrating w/ <code class="highlighter-rouge">bitbox-cli</code> so you can leverage BITBOX Cloud w/out any additional setup.</p>
 
-        <p>You can use <a href="/bitbox/docs/address.html#utxo">Address.utxo</a> to get back a list of uxto for an address</p>
+        <p>You can use <a href="bitbox/docs/address.html#utxo">Address.utxo</a> to get back a list of uxto for an address</p>
 
         <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">BITBOX</span><span class="p">.</span><span class="nx">Address</span><span class="p">.</span><span class="nx">utxo</span><span class="p">(</span><span class="s1">'bitcoincash:qqn2yf5jzrhwr3magjps5muz30akqqgsm5q7wcgkga'</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">result</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
           <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
@@ -138,7 +140,7 @@ H1: Address UTXO
 
         <h3 id="calculate-the-fee" class='yellow'>Calculate the fee</h3>
 
-        <p>Next use <a href="/bitbox/docs/bitcoincash.html#getByteCount">BitcoinCash.getByteCount</a> to calculate the fee. Here we pass in 2 objects describing the type and number of inputs/outputs. For this example we have 1 <code class="highlighter-rouge">P2PKH</code> input and 1 <code class="highlighter-rouge">P2PKH</code> output.</p>
+        <p>Next use <a href="bitbox/docs/bitcoincash.html#getByteCount">BitcoinCash.getByteCount</a> to calculate the fee. Here we pass in 2 objects describing the type and number of inputs/outputs. For this example we have 1 <code class="highlighter-rouge">P2PKH</code> input and 1 <code class="highlighter-rouge">P2PKH</code> output.</p>
 
         <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// get byte count to calculate fee. paying 1 sat/byte</span>
         <span class="kd">let</span> <span class="nx">byteCount</span> <span class="o">=</span> <span class="nx">BITBOX</span><span class="p">.</span><span class="nx">BitcoinCash</span><span class="p">.</span><span class="nx">getByteCount</span><span class="p">({</span> <span class="na">P2PKH</span><span class="p">:</span> <span class="mi">1</span> <span class="p">},</span> <span class="p">{</span> <span class="na">P2PKH</span><span class="p">:</span> <span class="mi">1</span> <span class="p">});</span>

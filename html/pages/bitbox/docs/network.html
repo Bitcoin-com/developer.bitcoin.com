@@ -1,21 +1,19 @@
 ---
 layout: default
-title: Developer.bitcoin.com | Documentation
+<<<<<<< frontend-fixes
+title: Developer.bitcoin.com | Network Documentation
 banner: hero2.jpg
 H1: Documentation
 ---
 
 {{> inner-header}}
 
-<nav class="center-nav">
-  <ul class="inline-list">
-    <li><a href="/bitbox.html">Overview</a></li>
-    <li><a href="/docs/documentation.html">Documentation</a></li>
-  </ul>
-</nav>
+{{> double-nested-navigation}}
+{{> bitbox-docs-submenu}}
+
 <section class="bounties">
   <div class="container">
-    
+   
     <div class="row">
 
       <div class="col-12 col-md-3 mb-4 text-center">
@@ -24,20 +22,20 @@ H1: Documentation
 
       </div>
 
-      <div class="col-12 col-md-9">
-            <h2 id='network' className="contentSubHead isCenter"><i className="fas fa-cloud"></i> Network</h2>
-            <h3 id='getConnectionCount'><code>getConnectionCount</code></h3>
-            <p>
-            Returns the number of connections to other nodes.
-            </p>
-            <h4>Result</h4>
-            <ol>
-            <li>
-            n          (numeric): The connection count
-            </li>
-            </ol>
-            <h4>Examples</h4>
-            <pre><code>
+      <div class="col-12 col-md-9 language-javascript">
+        <h2 id='network' class="contentSubHead isCenter"><i class="fa fa-cloud"></i> Network</h2>
+        <h3 id='getConnectionCount'><code>getConnectionCount</code></h3>
+        <p>
+          Returns the number of connections to other nodes.
+        </p>
+        <h4>Result</h4>
+        <ol>
+          <li>
+            n (numeric): The connection count
+          </li>
+        </ol>
+        <h4>Examples</h4>
+        <pre><code>
   BITBOX.Network.getConnectionCount().then((result) => {
   console.log(result);
   }, (err) => {
@@ -47,12 +45,12 @@ H1: Documentation
   // 35
             </code></pre>
 
-            <h3 id='getNetTotals'><code>getNetTotals</code></h3>
-            <p>
-            Returns information about network traffic, including bytes in, bytes out, and current time.
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='getNetTotals'><code>getNetTotals</code></h3>
+        <p>
+          Returns information about network traffic, including bytes in, bytes out, and current time.
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   BITBOX.Network.getNetTotals().then((result) => {
   console.log(result);
   }, (err) => {
@@ -71,12 +69,12 @@ H1: Documentation
   //    time_left_in_cycle: 0 } }
             </code></pre>
 
-            <h3 id='getNetworkInfo'><code>getNetworkInfo</code></h3>
-            <p>
-            Returns an object containing various state info regarding P2P networking.
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='getNetworkInfo'><code>getNetworkInfo</code></h3>
+        <p>
+          Returns an object containing various state info regarding P2P networking.
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   BITBOX.Network.getNetworkInfo().then((result) => {
   console.log(result);
   }, (err) => {
@@ -113,12 +111,12 @@ H1: Documentation
   // warnings: '' }
             </code></pre>
 
-            <h3 id='getPeerInfo'><code>getPeerInfo</code></h3>
-            <p>
-            Returns data about each connected network node as a json array of objects.
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='getPeerInfo'><code>getPeerInfo</code></h3>
+        <p>
+          Returns data about each connected network node as a json array of objects.
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   BITBOX.Network.getPeerInfo().then((result) => {
   console.log(result);
   }, (err) => {
@@ -159,14 +157,13 @@ H1: Documentation
   //   bytesrecv_per_msg: { getaddr: 24, pong: 32, verack: 24, version: 130 } } ]
             </code></pre>
 
-            <h3 id='ping'><code>ping</code></h3>
-            <p>
-            Requests that a ping be sent to all other nodes, to measure ping time.
-            Results provided in getpeerinfo, pingtime and pingwait fields are decimal seconds.
-            Ping command is handled in queue with all other commands, so it measures processing backlog, not just network ping.
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='ping'><code>ping</code></h3>
+        <p>
+          Requests that a ping be sent to all other nodes, to measure ping time. Results provided in getpeerinfo, pingtime and pingwait fields are decimal seconds. Ping command is handled in queue with all other commands, so it measures processing backlog, not
+          just network ping.
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   BITBOX.Network.ping().then((result) => {
   console.log(result);
   }, (err) => {

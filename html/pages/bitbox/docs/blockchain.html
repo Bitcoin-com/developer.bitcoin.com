@@ -1,21 +1,19 @@
 ---
 layout: default
-title: Developer.bitcoin.com | Documentation
+<<<<<<< frontend-fixes
+title: Developer.bitcoin.com | Blockchain Documentation
 banner: hero2.jpg
-H1: Documentation
+H1: BITBOX Documentation
 ---
 
 {{> inner-header}}
 
-<nav class="center-nav">
-  <ul class="inline-list">
-    <li><a href="/bitbox.html">Overview</a></li>
-    <li><a href="/docs/documentation.html">Documentation</a></li>
-  </ul>
-</nav>
+{{> double-nested-navigation}}
+{{> bitbox-docs-submenu}}
+  
 <section class="bounties">
   <div class="container">
-    
+   
     <div class="row">
 
       <div class="col-12 col-md-3 mb-4 text-center">
@@ -24,19 +22,19 @@ H1: Documentation
 
       </div>
 
-      <div class="col-12 col-md-9">
-            <h2 id='blockchain' className="contentSubHead isCenter"><i className="fas fa-cubes"></i> Blockchain</h2>
-            <h3 id='getBestBlockHash'><code>getBestBlockHash</code></h3>
-            <p>
-            Returns the hash of the best (tip) block in the longest blockchain.
-            </p>
-            <h4>Result</h4>
-            <p>
-            hex      <code>string</code>: the block hash hex encoded
-            </p>
-            <h4>Examples</h4>
+      <div class="col-12 col-md-9 language-javascript">
+        <h2 id='blockchain' class="contentSubHead isCenter"><i class="fa fa-cubes"></i> Blockchain</h2>
+        <h3 id='getBestBlockHash'><code>getBestBlockHash</code></h3>
+        <p>
+          Returns the hash of the best (tip) block in the longest blockchain.
+        </p>
+        <h4>Result</h4>
+        <p>
+          hex <code>string</code>: the block hash hex encoded
+        </p>
+        <h4>Examples</h4>
 
-            <pre><code>
+        <pre><code>
   BITBOX.Blockchain.getBestBlockHash().then((result) => {
   console.log(result);
   }, (err) => {
@@ -45,21 +43,21 @@ H1: Documentation
   // 241decef88889efac8e6ce428a8ac696fdde5972eceed97e1fb58d6106af31d5
             </code></pre>
 
-            <h3 id='getBlock'><code>getBlock</code></h3>
-            <p>
-            If verbose is false, returns a string that is serialized, hex-encoded data for block 'hash'. If verbose is true, returns an Object with information about block <code>hash</code>.
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-              <li>
-            blockhash          (string, required) The block hash
-              </li>
-              <li>
-            verbose                (boolean, optional, default=true) true for a json object, false for the hex encoded data
-              </li>
-            </ol>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='getBlock'><code>getBlock</code></h3>
+        <p>
+          If verbose is false, returns a string that is serialized, hex-encoded data for block 'hash'. If verbose is true, returns an Object with information about block <code>hash</code>.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            blockhash (string, required) The block hash
+          </li>
+          <li>
+            verbose (boolean, optional, default=true) true for a json object, false for the hex encoded data
+          </li>
+        </ol>
+        <h4>Examples</h4>
+        <pre><code>
   BITBOX.Blockchain.getBlock("00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09").then((result) => {
   console.log(result);
   }, (err) => {
@@ -85,12 +83,12 @@ H1: Documentation
   // nextblockhash: '00000000a2887344f8db859e372e7e4bc26b23b9de340f725afbf2edb265b4c6' }
             </code></pre>
 
-            <h3 id='getBlockchainInfo'><code>getBlockchainInfo</code></h3>
-            <p>
-            Returns an object containing various state info regarding blockchain processing.
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='getBlockchainInfo'><code>getBlockchainInfo</code></h3>
+        <p>
+          Returns an object containing various state info regarding blockchain processing.
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   BITBOX.Blockchain.getBlockchainInfo().then((result) => {
   console.log(result);
   }, (err) => {
@@ -118,16 +116,16 @@ H1: Documentation
   //       since: 419328 } } }
             </code></pre>
 
-            <h3 id='getBlockCount'><code>getBlockCount</code></h3>
-            <p>
-            Returns the number of blocks in the longest blockchain.
-            </p>
-            <h4>Result</h4>
-            <p>
-            n    (numeric) The current block count
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='getBlockCount'><code>getBlockCount</code></h3>
+        <p>
+          Returns the number of blocks in the longest blockchain.
+        </p>
+        <h4>Result</h4>
+        <p>
+          n (numeric) The current block count
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   BITBOX.Blockchain.getBlockCount().then((result) => {
   console.log(result);
   }, (err) => {
@@ -136,22 +134,22 @@ H1: Documentation
   // 529235
             </code></pre>
 
-            <h3 id='getBlockHash'><code>getBlockHash</code></h3>
-            <p>
-            Returns hash of block in best-block-chain at height provided.
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-            <li>
-            height         (numeric, required) The height index
-            </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            hash        <code>string</code> The block hash
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='getBlockHash'><code>getBlockHash</code></h3>
+        <p>
+          Returns hash of block in best-block-chain at height provided.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            height (numeric, required) The height index
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          hash <code>string</code> The block hash
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   BITBOX.Blockchain.getBlockHash(0).then((result) => {
   console.log(result);
   }, (err) => {
@@ -160,22 +158,21 @@ H1: Documentation
   // 000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f
             </code></pre>
 
-            <h3 id='getBlockHeader'><code>getBlockHeader</code></h3>
-            <p>
-            If verbose is false, returns a string that is serialized, hex-encoded data for blockheader 'hash'.
-            If verbose is true, returns an Object with information about blockheader <code>hash</code>.
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-            <li>
-            hash          (string, required) The block hash
-            </li>
-            <li>
-            verbose           (boolean, optional, default=true) true for a json object, false for the hex encoded data
-            </li>
-            </ol>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='getBlockHeader'><code>getBlockHeader</code></h3>
+        <p>
+          If verbose is false, returns a string that is serialized, hex-encoded data for blockheader 'hash'. If verbose is true, returns an Object with information about blockheader <code>hash</code>.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            hash (string, required) The block hash
+          </li>
+          <li>
+            verbose (boolean, optional, default=true) true for a json object, false for the hex encoded data
+          </li>
+        </ol>
+        <h4>Examples</h4>
+        <pre><code>
   BITBOX.Blockchain.getBlockHeader("00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09").then((result) => {
   console.log(result);
   }, (err) => {
@@ -198,12 +195,12 @@ H1: Documentation
   // nextblockhash: '00000000a2887344f8db859e372e7e4bc26b23b9de340f725afbf2edb265b4c6' }
             </code></pre>
 
-            <h3 id='getChainTips'><code>getChainTips</code></h3>
-            <p>
-            Return information about all known tips in the block tree, including the main chain as well as orphaned branches.
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='getChainTips'><code>getChainTips</code></h3>
+        <p>
+          Return information about all known tips in the block tree, including the main chain as well as orphaned branches.
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   BITBOX.Blockchain.getChainTips().then((result) => {
   console.log(result);
   }, (err) => {
@@ -224,16 +221,16 @@ H1: Documentation
   //   status: 'valid-headers' } ]
             </code></pre>
 
-            <h3 id='getDifficulty'><code>getDifficulty</code></h3>
-            <p>
-            Returns the proof-of-work difficulty as a multiple of the minimum difficulty.
-            </p>
-            <h4>Result</h4>
-            <p>
-            n.nnn       (numeric): the proof-of-work difficulty as a multiple of the minimum difficulty.
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='getDifficulty'><code>getDifficulty</code></h3>
+        <p>
+          Returns the proof-of-work difficulty as a multiple of the minimum difficulty.
+        </p>
+        <h4>Result</h4>
+        <p>
+          n.nnn (numeric): the proof-of-work difficulty as a multiple of the minimum difficulty.
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   BITBOX.Blockchain.getDifficulty().then((result) => {
   console.log(result);
   }, (err) => {
@@ -243,22 +240,22 @@ H1: Documentation
   // 702784497476.8376
             </code></pre>
 
-            <h3 id='getMempoolAncestors'><code>getMempoolAncestors</code></h3>
-            <p>
-            If txid is in the mempool, returns all in-mempool ancestors.
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-            <li>
-            txid                 (string, required): The transaction id (must be in mempool)
-            </li>
-            <li>
-            verbose                  (boolean, optional, default=false): True for a json object, false for array of transaction ids
-            </li>
-            </ol>
-            <h4>Result</h4>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='getMempoolAncestors'><code>getMempoolAncestors</code></h3>
+        <p>
+          If txid is in the mempool, returns all in-mempool ancestors.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            txid (string, required): The transaction id (must be in mempool)
+          </li>
+          <li>
+            verbose (boolean, optional, default=false): True for a json object, false for array of transaction ids
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <h4>Examples</h4>
+        <pre><code>
   BITBOX.Blockchain.getMempoolAncestors("fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33").then((result) => {
   console.log(result);
   }, (err) => {
@@ -266,21 +263,21 @@ H1: Documentation
   });
             </code></pre>
 
-            <h3 id='getMempoolDescendants'><code>getMempoolDescendants</code></h3>
-            <p>
-            If txid is in the mempool, returns all in-mempool descendants.
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-            <li>
-            txid                 (string, required): The transaction id (must be in mempool)
-            </li>
-            <li>
-            verbose                  (boolean, optional, default=false): True for a json object, false for array of transaction ids
-            </li>
-            </ol>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='getMempoolDescendants'><code>getMempoolDescendants</code></h3>
+        <p>
+          If txid is in the mempool, returns all in-mempool descendants.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            txid (string, required): The transaction id (must be in mempool)
+          </li>
+          <li>
+            verbose (boolean, optional, default=false): True for a json object, false for array of transaction ids
+          </li>
+        </ol>
+        <h4>Examples</h4>
+        <pre><code>
   BITBOX.Blockchain.getMempoolDescendants("fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33").then((result) => {
   console.log(result);
   }, (err) => {
@@ -288,18 +285,18 @@ H1: Documentation
   });
             </code></pre>
 
-            <h3 id='getMempoolEntry'><code>getMempoolEntry</code></h3>
-            <p>
-            Returns mempool data for given transaction
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-            <li>
-            txid                   (string, required): The transaction id (must be in mempool)
-            </li>
-            </ol>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='getMempoolEntry'><code>getMempoolEntry</code></h3>
+        <p>
+          Returns mempool data for given transaction
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            txid (string, required): The transaction id (must be in mempool)
+          </li>
+        </ol>
+        <h4>Examples</h4>
+        <pre><code>
   BITBOX.Blockchain.getMempoolEntry("fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33").then((result) => {
   console.log(result);
   }, (err) => {
@@ -307,12 +304,12 @@ H1: Documentation
   });
             </code></pre>
 
-            <h3 id='getMempoolInfo'><code>getMempoolInfo</code></h3>
-            <p>
-            Returns details on the active state of the TX memory pool.
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='getMempoolInfo'><code>getMempoolInfo</code></h3>
+        <p>
+          Returns details on the active state of the TX memory pool.
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   BITBOX.Blockchain.getMempoolInfo().then((result) => {
   console.log(result);
   }, (err) => {
@@ -326,18 +323,18 @@ H1: Documentation
   // mempoolminfee: 0 }
             </code></pre>
 
-            <h3 id='getRawMempool'><code>getRawMempool</code></h3>
-            <p>
-            Returns all transaction ids in memory pool as a json array of string transaction ids.
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-            <li>
+        <h3 id='getRawMempool'><code>getRawMempool</code></h3>
+        <p>
+          Returns all transaction ids in memory pool as a json array of string transaction ids.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
             verbose (boolean, optional, default=false): True for a json object, false for array of transaction ids
-            </li>
-            </ol>
-            <h4>Examples</h4>
-            <pre><code>
+          </li>
+        </ol>
+        <h4>Examples</h4>
+        <pre><code>
   BITBOX.Blockchain.getRawMempool(true).then((result) => {
   console.log(result);
   }, (err) => {
@@ -362,24 +359,24 @@ H1: Documentation
   //     [ 'e25682caafc7000645d59f4c11d8d594b2943979b9d8fafb9f946e2b35c21b7e' ] },]
             </code></pre>
 
-            <h3 id='getTxOut'><code>getTxOut</code></h3>
-            <p>
-            Returns details about an unspent transaction output.
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-            <li>
-            txid       (string, required): The transaction id
-            </li>
-            <li>
-            n              (numeric, required): vout number
-            </li>
-            <li>
-            include_mempool  (boolean, optional): Whether to include the mempool
-            </li>
-            </ol>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='getTxOut'><code>getTxOut</code></h3>
+        <p>
+          Returns details about an unspent transaction output.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            txid (string, required): The transaction id
+          </li>
+          <li>
+            n (numeric, required): vout number
+          </li>
+          <li>
+            include_mempool (boolean, optional): Whether to include the mempool
+          </li>
+        </ol>
+        <h4>Examples</h4>
+        <pre><code>
   BITBOX.Blockchain.getTxOut("e25682caafc7000645d59f4c11d8d594b2943979b9d8fafb9f946e2b35c21b7e", 1).then((result) => {
   console.log(result);
   }, (err) => {
@@ -389,27 +386,27 @@ H1: Documentation
   // null
             </code></pre>
 
-            <h3 id='getTxOutProof'><code>getTxOutProof</code></h3>
-            <p>
-            Returns a hex-encoded proof that "txid" was included in a block.
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-            <li> txids       <code>string</code> A json array of txids to filter [ "txid"     <code>string</code> A transaction hash ,... ]
-            </li>
-            <li>
-            blockhash   (string, optional) If specified, looks for txid in the block with this hash
-            </li>
-            <li>
-            data           <code>string</code>: A string that is a serialized, hex-encoded data for the proof.
-            </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            legacyAddress <code>string</code>    legacy base 58 check encoded address
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='getTxOutProof'><code>getTxOutProof</code></h3>
+        <p>
+          Returns a hex-encoded proof that "txid" was included in a block.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li> txids <code>string</code> A json array of txids to filter [ "txid" <code>string</code> A transaction hash ,... ]
+          </li>
+          <li>
+            blockhash (string, optional) If specified, looks for txid in the block with this hash
+          </li>
+          <li>
+            data <code>string</code>: A string that is a serialized, hex-encoded data for the proof.
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          legacyAddress <code>string</code> legacy base 58 check encoded address
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   BITBOX.Blockchain.getTxOutProof(["e25682caafc7000645d59f4c11d8d594b2943979b9d8fafb9f946e2b35c21b7e", "d16662463fd98eb96c8f6898d58a4461ac3d0120f4d0aea601d72b37759f261c"]).then((result) => {
   console.log(result);
   }, (err) => {
@@ -419,22 +416,18 @@ H1: Documentation
   // Not all transactions found in specified or retrieved block
             </code></pre>
 
-            <h3 id='preciousBlock'><code>preciousBlock</code></h3>
-            <p>
-            Treats a block as if it were received before others with the same work.
-
-            A later preciousblock call can override the effect of an earlier one.
-
-            The effects of preciousblock are not retained across restarts.
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-            <li>
-            blockhash   (string, required): the hash of the block to mark as precious
-            </li>
-            </ol>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='preciousBlock'><code>preciousBlock</code></h3>
+        <p>
+          Treats a block as if it were received before others with the same work. A later preciousblock call can override the effect of an earlier one. The effects of preciousblock are not retained across restarts.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            blockhash (string, required): the hash of the block to mark as precious
+          </li>
+        </ol>
+        <h4>Examples</h4>
+        <pre><code>
   BITBOX.Blockchain.preciousBlock("00000000000000000108641af52e01a447b1f9d801571f93a0f20a8cbf80c236").then((result) => {
   console.log(result);
   }, (err) => {
@@ -442,19 +435,19 @@ H1: Documentation
   });
             </code></pre>
 
-            <h3 id='pruneBlockchain'><code>pruneBlockchain</code></h3>
-            <h4>Arguments</h4>
-            <ol>
-            <li>
-            height       (numeric, required): The block height to prune up to. May be set to a discrete height, or a unix timestamp to prune blocks whose block time is at least 2 hours older than the provided timestamp.
-            </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            n    (numeric): Height of the last block pruned.
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='pruneBlockchain'><code>pruneBlockchain</code></h3>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            height (numeric, required): The block height to prune up to. May be set to a discrete height, or a unix timestamp to prune blocks whose block time is at least 2 hours older than the provided timestamp.
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          n (numeric): Height of the last block pruned.
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   BITBOX.Blockchain.pruneBlockchain(1000).then((result) => {
   console.log(result);
   }, (err) => {
@@ -462,25 +455,25 @@ H1: Documentation
   });
             </code></pre>
 
-            <h3 id='verifyChain'><code>verifyChain</code></h3>
-            <p>
-            Verifies blockchain database.
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-            <li>
-            checklevel   (numeric, optional, 0-4, default=3): How thorough the block verification is.
-            </li>
-            <li>
-            nblocks      (numeric, optional, default=6, 0=all): The number of blocks to check.
-            </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            true|false       (boolean): Verified or not
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='verifyChain'><code>verifyChain</code></h3>
+        <p>
+          Verifies blockchain database.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            checklevel (numeric, optional, 0-4, default=3): How thorough the block verification is.
+          </li>
+          <li>
+            nblocks (numeric, optional, default=6, 0=all): The number of blocks to check.
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          true|false (boolean): Verified or not
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   BITBOX.Blockchain.verifyChain().then((result) => {
   console.log(result);
   }, (err) => {
@@ -489,23 +482,22 @@ H1: Documentation
   // true
             </code></pre>
 
-            <h3 id='verifyTxOutProof'><code>verifyTxOutProof</code></h3>
-            <p>
-            Verifies that a proof points to a transaction in a block, returning the transaction it commits to
-            and throwing an RPC error if the block is not in our best chain
-            </p>
-            <h4>Arguments</h4>
-            <ol>
-            <li>
-            proof    (string, required): The hex-encoded proof generated by gettxoutproof
-            </li>
-            </ol>
-            <h4>Result</h4>
-            <p>
-            ["txid"]      (array, strings): The txid(s) which the proof commits to, or empty array if the proof is invalid
-            </p>
-            <h4>Examples</h4>
-            <pre><code>
+        <h3 id='verifyTxOutProof'><code>verifyTxOutProof</code></h3>
+        <p>
+          Verifies that a proof points to a transaction in a block, returning the transaction it commits to and throwing an RPC error if the block is not in our best chain
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            proof (string, required): The hex-encoded proof generated by gettxoutproof
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          ["txid"] (array, strings): The txid(s) which the proof commits to, or empty array if the proof is invalid
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
   BITBOX.Blockchain.verifyTxOutProof("proof").then((result) => {
   console.log(result);
   }, (err) => {
