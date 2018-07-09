@@ -9,15 +9,21 @@ secondSubtitle: What worked and what would they do different?
 
 {{> insights-header}}
 
-<div class="underline-section">
+<section class="bounties">
   <div class="container">
-  <div class="row">
-    <div class="col-12 text-center">
-      <div class="icon yellow">
-        <i class="fab fa-btc" aria-hidden="true"></i>
+
+    <div class="row">
+
+      {{#each insights-items}}
+
+      <div class="col-12">
+        <h3 class="yellow">{{{this.title}}}</h3>
+        <p>{{{this.excerpt}}}</p>
+        <a href="{{this.href}}" class="btn btn-round btn-primary">Read More...</a>
       </div>
-      <h4 class="gray mt-5">Coming soon</h4>
+
+      {{/each}}
+
     </div>
   </div>
-  </div>
-</div>
+</section>
