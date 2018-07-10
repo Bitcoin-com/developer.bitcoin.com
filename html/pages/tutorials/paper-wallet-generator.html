@@ -17,7 +17,7 @@ secondSubtitle: Support for 8 languages
     <div class="row">
 
       <div class="col-12">
-        <p>Paper wallets let you print public and private keys as QR codes on to a piece of paper which can be stored offline. They are a very quick and convenient way to store coins safely (as long as the paper doesn’t degrade) and are much cheaper than a hardware wallet while maintaining much of the security.</p>
+        <p>Paper wallets let you print public and private keys as QR codes on to a piece of paper which can be stored offline. They are a very quick and convenient way to store coins safely (as long as the paper doesn&rsquo;t degrade) and are much cheaper than a hardware wallet while maintaining much of the security.</p>
 
         <p>They are hugely popular and are an often requested feature. <code class="highlighter-rouge">bitbox-cli</code> now lets you generate $BCH paper wallets on the mainnet or testnet with legacy or cashaddr encoding addresses from a single command.</p>
 
@@ -31,20 +31,20 @@ secondSubtitle: Support for 8 languages
 
         </code></pre></div></div>
 
-        <p><img src="https://bigearth.github.io/bitblog/assets/paper-wallet.png" alt="Mnemonic" /></p>
+        <p><img class='gui' src="https://bigearth.github.io/bitblog/assets/paper-wallet.png" alt="Mnemonic" /></p>
 
-        <p>You can send $BCH to the public address and it will be safely stored offline. Later you can use a wallet such as <a href="https://itunes.apple.com/us/app/bitcoin-wallet-by-bitcoin-com/id1252903728?mt=8">Bitcoin.com’s iOS wallet</a> to scan the private key WIF and sweep the coins to that wallet for spending.</p>
+        <p>You can send $BCH to the public address and it will be safely stored offline. Later you can use a wallet such as <a href="https://itunes.apple.com/us/app/bitcoin-wallet-by-bitcoin-com/id1252903728?mt=8">Bitcoin.com&rsquo;s iOS wallet</a> to scan the private key WIF and sweep the coins to that wallet for spending.</p>
 
         <h3 id="options" class='yellow'>Options</h3>
 
-        <p>Pass in a flag for <code class="highlighter-rouge">--encoding</code> to change from the default <code class="highlighter-rouge">cashaddr</code> to <code class="highlighter-rouge">legacy</code>. Also pass in a flag for <code class="highlighter-rouge">--network</code> to change from the default <code class="highlighter-rouge">mainnet</code> to <code class="highlighter-rouge">testnet</code> if you’re the type of person who backs up their testnet coins.</p>
+        <p>Pass in a flag for <code class="highlighter-rouge">--encoding</code> to change from the default <code class="highlighter-rouge">cashaddr</code> to <code class="highlighter-rouge">legacy</code>. Also pass in a flag for <code class="highlighter-rouge">--network</code> to change from the default <code class="highlighter-rouge">mainnet</code> to <code class="highlighter-rouge">testnet</code> if you&rsquo;re the type of person who backs up their testnet coins.</p>
 
         <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; bitbox paper --encoding legacy --network testnet
 
         Creating legacy paper wallet on testnet
         </code></pre></div></div>
 
-        <p><img src="https://bigearth.github.io/bitblog/assets/paper-wallet-legacy-testnet.png" alt="Mnemonic" /></p>
+        <p><img class='gui' src="https://bigearth.github.io/bitblog/assets/paper-wallet-legacy-testnet.png" alt="Mnemonic" /></p>
 
         <h2 id="keypairsfrommnemonic" class='yellow'>keypairsFromMnemonic</h2>
 

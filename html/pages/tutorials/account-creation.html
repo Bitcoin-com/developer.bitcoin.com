@@ -17,11 +17,11 @@ secondSubtitle: Create as many BIP44 accounts as you like
     <div class="row">
 
       <div class="col-12">
-        <p>Bitcoin Cash wallets are really just collections of key pairs. Hiearchical Deterministic wallets are the state of the art for reliably creating and backing up collections of related keypairs. For more detail read Andreas’s in depth explation about how they work in <a href='/mastering-bitcoin-cash/keys-addresses-wallets.html'>Mastering Bitcoin Cash</a>.</p>
+        <p>Bitcoin Cash wallets are really just collections of key pairs. Hiearchical Deterministic wallets are the state of the art for reliably creating and backing up collections of related keypairs. For more detail read Andreas&rsquo;s in depth explation about how they work in <a href='/mastering-bitcoin-cash/keys-addresses-wallets.html'>Mastering Bitcoin Cash</a>.</p>
         <p>BITBOX is an HD wallet which aims to be compliant w/ BIPS 32, 39, 43, 44. When you first fire up BITBOX we create a random mnemonic from 16 bytes of entropy which we then use to create a root seed, master key and 10 default accounts.</p>
         <h3 class="yellow">Generate mnemonic</h3>
         <p>You can configure how much entropy BITBOX uses to create your mnemonic in the config section. More entropy means more words in your mnemonic. By default BITBOX will use 16 bytes and create a 12 word mnemonic.</p>
-        <p><img src="https://bigearth.github.io/bitblog/assets/entropy-slider.png" alt="Entropy Slider" /></p>
+        <p><img class='gui' src="https://bigearth.github.io/bitblog/assets/entropy-slider.png" alt="Entropy Slider" /></p>
         <table>
           <thead>
             <tr>
@@ -52,19 +52,19 @@ secondSubtitle: Create as many BIP44 accounts as you like
             </tr>
           </tbody>
         </table>
-        <p>To do this we’re using NodeJS’s <a href="https://nodejs.org/api/crypto.html#crypto_crypto_randombytes_size_callback"><code class="highlighter-rouge">crypto.randomBytes</code></a> and the wonderful <a href="https://github.com/bitcoinjs/bip39">BIP39.js</a>.</p>
+        <p>To do this we&rsquo;re using NodeJS&rsquo;s <a href="https://nodejs.org/api/crypto.html#crypto_crypto_randombytes_size_callback"><code class="highlighter-rouge">crypto.randomBytes</code></a> and the wonderful <a href="https://github.com/bitcoinjs/bip39">BIP39.js</a>.</p>
 
         <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">randomBytes</span> <span class="o">=</span> <span class="nx">BITBOX</span><span class="p">.</span><span class="nx">Crypto</span><span class="p">.</span><span class="nx">randomBytes</span><span class="p">(</span><span class="mi">32</span><span class="p">);</span>
         <span class="kd">let</span> <span class="nx">mnemonic</span> <span class="o">=</span> <span class="nx">BITBOX</span><span class="p">.</span><span class="nx">Mnemonic</span><span class="p">.</span><span class="nx">fromEntropy</span><span class="p">(</span><span class="nx">randomBytes</span><span class="p">);</span>
         </code></pre></div></div>
 
-        <p><img src="https://bigearth.github.io/bitblog/assets/mnemonic.png" alt="Mnemonic" /></p>
+        <p><img class='gui' src="https://bigearth.github.io/bitblog/assets/mnemonic.png" alt="Mnemonic" /></p>
 
         <h3 class="yellow">Root seed</h3>
 
         <p>Next we take an optional password and combined w/ the mnemonic create a root seed. The number of potential seeds is 2^512.</p>
 
-        <p><img src="https://bigearth.github.io/bitblog/assets/password.png" alt="Optional Password`" /></p>
+        <p><img class='gui' src="https://bigearth.github.io/bitblog/assets/password.png" alt="Optional Password`" /></p>
 
         <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">password</span> <span class="o">=</span> <span class="s1">'l337'</span><span class="p">;</span>
         <span class="kd">let</span> <span class="nx">rootSeed</span> <span class="o">=</span> <span class="nx">BITBOX</span><span class="p">.</span><span class="nx">Mnemonic</span><span class="p">.</span><span class="nx">toSeed</span><span class="p">(</span><span class="nx">mnemonic</span><span class="p">,</span> <span class="nx">password</span><span class="p">);</span>
@@ -102,18 +102,18 @@ secondSubtitle: Create as many BIP44 accounts as you like
 
         <p>You can optionally set your own custom derivation path.</p>
 
-        <p><img src="https://bigearth.github.io/bitblog/assets/hd-path.png" alt="Derivation Path" /></p>
+        <p><img class='gui' src="https://bigearth.github.io/bitblog/assets/hd-path.png" alt="Derivation Path" /></p>
 
         <h3 class="yellow">Display to user</h3>
 
-        <p>We don’t want to display the private key WIF by default to the user because it’s unsafe. Instead we get the publicKey and display that by default allowing the user to toggle visibility of the privateKeyWIF w/ a button click.</p>
+        <p>We don&rsquo;t want to display the private key WIF by default to the user because it&rsquo;s unsafe. Instead we get the publicKey and display that by default allowing the user to toggle visibility of the privateKeyWIF w/ a button click.</p>
 
-        <p><img src="https://bigearth.github.io/bitblog/assets/private-wif.png" alt="Private WIF" /></p>
+        <p><img class='gui' src="https://bigearth.github.io/bitblog/assets/private-wif.png" alt="Private WIF" /></p>
 
         <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">publicKey</span> <span class="o">=</span> <span class="nx">BITBOX</span><span class="p">.</span><span class="nx">ECPair</span><span class="p">.</span><span class="nx">toLegacyAddress</span><span class="p">(</span><span class="nx">BITBOX</span><span class="p">.</span><span class="nx">ECPair</span><span class="p">.</span><span class="nx">fromWIF</span><span class="p">(</span><span class="nx">privKeyWIF</span><span class="p">));</span>
         </code></pre></div></div>
 
-        <p><img src="https://bigearth.github.io/bitblog/assets/base58check.png" alt="Base58Check" /></p>
+        <p><img class='gui' src="https://bigearth.github.io/bitblog/assets/base58check.png" alt="Base58Check" /></p>
 
         <h3 class="yellow">CashAddr</h3>
 
@@ -122,15 +122,15 @@ secondSubtitle: Create as many BIP44 accounts as you like
         <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">BITBOX</span><span class="p">.</span><span class="nx">Address</span><span class="p">.</span><span class="nx">toCashAddress</span><span class="p">(</span><span class="nx">publicKey</span><span class="p">);</span>
         </code></pre></div></div>
 
-        <p><img src="https://bigearth.github.io/bitblog/assets/cashaddr-public.png" alt="CashAddr" /></p>
+        <p><img class='gui' src="https://bigearth.github.io/bitblog/assets/cashaddr-public.png" alt="CashAddr" /></p>
 
         <h3 class="yellow">Testnet</h3>
 
         <p>You can also toggle generating keys on the $BCH testnet.</p>
 
-        <p><img src="https://bigearth.github.io/bitblog/assets/testnet-wif.png" alt="Testnet private" /></p>
+        <p><img class='gui' src="https://bigearth.github.io/bitblog/assets/testnet-wif.png" alt="Testnet private" /></p>
 
-        <p><img src="https://bigearth.github.io/bitblog/assets/testnet-public.png" alt="Testnet public" /></p>
+        <p><img class='gui' src="https://bigearth.github.io/bitblog/assets/testnet-public.png" alt="Testnet public" /></p>
 
         <h3 class="yellow">Summary</h3>
 

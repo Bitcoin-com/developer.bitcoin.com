@@ -19,19 +19,19 @@ secondSubtitle: Convert addresses and generate QR codes
       <div class="col-12">
         <p>When Bitcoin Cash began as a fork of $BTC on Aug 1st 2017 it kept the legacy address format. This ended up causing quite a bit of confusion and resulted in lost funds as users accidentially sent $BCH to $BTC addresses and vice versa.</p>
 
-        <p>To fix this <a href="https://github.com/bitcoincashorg/spec/blob/master/cashaddr.md">cashaddr</a> was introduced. It’s a base32 endcoding based on Bech32.</p>
+        <p>To fix this <a href="https://github.com/bitcoincashorg/spec/blob/master/cashaddr.md">cashaddr</a> was introduced. It&rsquo;s a base32 endcoding based on Bech32.</p>
 
         <h3 class="yellow">Conversion Tool</h3>
 
-        <p>BITBOX recently added it’s own conversion tool so you can quickly and easily convert legacy base58Check encoded Bitcoin Cash addresses in to the cashaddr format.</p>
+        <p>BITBOX recently added it&rsquo;s own conversion tool so you can quickly and easily convert legacy base58Check encoded Bitcoin Cash addresses in to the cashaddr format.</p>
 
         <p>Simply paste in a legacy or cashaddr address and BITBOX will convert it to both formats and generate QR codes.</p>
 
         <p>You can also paste in a private key in Wallet Import Format (WIF) to generate cashaddr/legacy addresses and QR codes.</p>
 
-        <p><img src="https://bigearth.github.io/bitblog/assets/converter.png" alt="Converter" /></p>
+        <p><img class='gui' src="https://bigearth.github.io/bitblog/assets/converter.png" alt="Converter" /></p>
 
-        <p>We’re using <a href="https://github.com/bitcoincashjs/bchaddrjs">bchaddr.js</a> along w/ <a href="https://github.com/zpao/qrcode.react">qrcode.react</a>.</p>
+        <p>We&rsquo;re using <a href="https://github.com/bitcoincashjs/bchaddrjs">bchaddr.js</a> along w/ <a href="https://github.com/zpao/qrcode.react">qrcode.react</a>.</p>
 
         <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">wif</span> <span class="o">=</span> <span class="s1">'L3npdkC5BkLZP2d6orb5ZefXYZFzkiteDB5okSgyuYJeGXLH3QNA'</span><span class="p">;</span>
         <span class="kd">let</span> <span class="nx">ecpair</span> <span class="o">=</span> <span class="nx">BITBOX</span><span class="p">.</span><span class="nx">ECPair</span><span class="p">.</span><span class="nx">fromWIF</span><span class="p">(</span><span class="nx">wif</span><span class="p">);</span>
@@ -44,7 +44,7 @@ secondSubtitle: Convert addresses and generate QR codes
 
         <h3 class="yellow">Sending actual funds</h3>
 
-        <p>All the addresses in BITBOX are 100% legit on the $BCH network. However BITBOX doesn’t actually connect to the Bitcoin Cash network so if you were to send actual $BCH to one of these generated addresses you wouldn’t see it. You would be able to see it in a live block explorer.</p>
+        <p>All the addresses in BITBOX are 100% legit on the $BCH network. However BITBOX doesn&rsquo;t actually connect to the Bitcoin Cash network so if you were to send actual $BCH to one of these generated addresses you wouldn&rsquo;t see it. You would be able to see it in a live block explorer.</p>
 
         <p>You can safely sweep any funds sent to a BITBOX generated address into a wallet via the private key WIF. But we strongly advice against sending any actual funds to a BITBOX address. This is a development tool and not meant to handle actual funds.</p>
 
