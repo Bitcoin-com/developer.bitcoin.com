@@ -18,7 +18,7 @@ subtitle: Mastering Bitcoin Cash
         <div class="sect1">
           <div class="sectionbody">
             <div class="sect2">
-              <h3 id="_transactions_blocks_mining_and_the_blockchain">Transactions, Blocks, Mining, and the Blockchain</h3>
+              <h3 class='yellow' id="_transactions_blocks_mining_and_the_blockchain">Transactions, Blocks, Mining, and the Blockchain</h3>
               <div class="paragraph">
                 <p>The bitcoin cash system, unlike traditional banking and payment systems, is based on de-centralized trust. Instead of a central trusted authority, in bitcoin cash, trust is achieved as an emergent property from the interactions of different participants
                   in the bitcoin cash system. In this chapter, we will examine bitcoin cash from a high level by tracking a single transaction through the bitcoin cash system and watch as it becomes "trusted" and accepted by the bitcoin cash mechanism of distributed consensus
@@ -47,7 +47,7 @@ subtitle: Mastering Bitcoin Cash
                   entry, so you can study it in detail.</p>
               </div>
               <div class="sect3">
-                <h4 id="_bitcoin_overview">Bitcoin Cash Overview</h4>
+                <h4 class='yellow' id="_bitcoin_overview">Bitcoin Cash Overview</h4>
                 <div class="paragraph">
                   <p>In the overview diagram shown in <a href="#bitcoin-overview">Bitcoin Cash overview</a>, we see that the bitcoin cash system consists of users with wallets containing keys, transactions that are propagated across the network, and miners who produce (through
                     competitive computation) the consensus blockchain, which is the authoritative ledger of all transactions. In this chapter, we will trace a single transaction as it travels across the network and examine the interactions between each part
@@ -61,10 +61,10 @@ subtitle: Mastering Bitcoin Cash
                 </div>
               </div>
               <div class="sect3">
-                <h4 id="cup_of_coffee">Buying a Cup of Coffee</h4>
+                <h4 class='yellow' id="cup_of_coffee">Buying a Cup of Coffee</h4>
                 <div class="paragraph">
                   <p>Alice, introduced in the previous chapter, is a new user who has just acquired her first bitcoin cash. Alice met with her friend Joe to exchange some cash for bitcoin cash. The transaction
-                    created by Joe funded Alice&#8217;s wallet with 0.10 BTC. Now Alice will make her first retail transaction, buying a cup of coffee at Bob&#8217;s coffee shop in Palo Alto, California. Bob&#8217;s coffee shop recently started accepting bitcoin cash
+                    created by Joe funded Alice&#8217;s wallet with 0.0138 BCH. Now Alice will make her first retail transaction, buying a cup of coffee at Bob&#8217;s coffee shop in Palo Alto, California. Bob&#8217;s coffee shop recently started accepting bitcoin cash
                     payments, by adding a bitcoin cash option to his point-of-sale system. The prices at Bob&#8217;s Cafe are listed in the local currency (US dollars), but at the register, customers have the option of paying in either dollars or bitcoin cash. Alice
                     places her order for a cup of coffee and Bob enters the transaction at the register. The point-of-sale system will convert the total price from US dollars to bitcoin cash at the prevailing market rate and display the prices in both currencies,
                     as well as show a QR code containing a <em>payment request</em> for this transaction (see <a href="#payment-request-QR">Payment request QR code (Hint: Try to scan this!)</a>):</p>
@@ -73,16 +73,16 @@ subtitle: Mastering Bitcoin Cash
                   <div class="content">
                     <pre>Total:
       $1.50 USD
-      0.015 BTC</pre>
+      0.00208507 BCH</pre>
                   </div>
                 </div>
                 <div id="payment-request-QR" class="imageblock">
                   <div class="content">
-                    <img src="../img/mastering-bitcoin-cash/msbt_0202.png" alt="payment-request" />
+                    <img src="../img/mastering-bitcoin-cash/msbt_02_receive.png" alt="payment-request" />
                   </div>
                   <div class="title">Figure 2. Payment request QR code (Hint: Try to scan this!)</div>
                 </div>
-                <div id="payment-request-URL" class="listingblock">
+                <!-- <div id="payment-request-URL" class="listingblock">
                   <div class="title">The payment request QR code encodes the following URL, defined in BIP0021:</div>
                   <div class="content">
                     <pre>bitcoin:1GdK9UzpHBzqzX2A9JFP3Di4weBwqgmoQA?
@@ -117,9 +117,10 @@ subtitle: Mastering Bitcoin Cash
                 </div>
                 <div class="paragraph">
                   <p>Bob says, "That&#8217;s one-dollar-fifty, or fifteen millibits."</p>
-                </div>
+                  TODO: Add BIP20 Payment request URL
+                </div> -->
                 <div class="paragraph">
-                  <p>Alice uses her smartphone to scan the barcode on display. Her smartphone shows a payment of 0.0150 BTC to Bob's Cafe and she selects Send to authorize the payment. Within a few seconds (about the same amount of time as a credit card authorization),
+                  <p>Alice uses her smartphone to scan the barcode on display. Her smartphone shows a payment of 0.00208507 BCH to Bob's Cafe and she selects Send to authorize the payment. Within a few seconds (about the same amount of time as a credit card authorization),
                     Bob would see the transaction on the register, completing the transaction.</p>
                 </div>
                 <div class="paragraph">
@@ -146,9 +147,9 @@ subtitle: Mastering Bitcoin Cash
               </div>
             </div>
             <div class="sect2">
-              <h3 id="_bitcoin_transactions">Bitcoin Cash Transactions</h3>
+              <h3 class='yellow' id="_bitcoin_transactions">Bitcoin Cash Transactions</h3>
               <div class="paragraph">
-                <p>In simple terms, a transaction tells the network that the owner of a number of bitcoins has authorized the transfer of some of those bitcoins to another owner. The new owner can now spend these bitcoins by creating another transaction that authorizes
+                <p>In simple terms, a transaction tells the network that the owner of a number of bitcoin cash has authorized the transfer of some of those bitcoin cash to another owner. The new owner can now spend these bitcoin cash by creating another transaction that authorizes
                   transfer to another owner, and so on, in a chain of ownership.</p>
               </div>
               <div class="paragraph">
@@ -180,25 +181,25 @@ subtitle: Mastering Bitcoin Cash
               </div>
               <div id="transaction-double-entry" class="imageblock">
                 <div class="content">
-                  <img src="../img/mastering-bitcoin-cash/msbt_0203.png" alt="Transaction Double-Entry" />
+                  <img src="../img/mastering-bitcoin-cash/transaction-as-double-entry-bookkepping.png" alt="Transaction Double-Entry" />
                 </div>
                 <div class="title">Figure 3. Transaction as double-entry bookkeeping</div>
               </div>
               <div id="blockchain-mnemonic" class="imageblock">
                 <div class="content">
-                  <img src="../img/mastering-bitcoin-cash/msbt_0204.png" alt="Transaction chain" />
+                  <img src="../img/mastering-bitcoin-cash/chain-of-transactions.png" alt="Transaction chain" />
                 </div>
                 <div class="title">Figure 4. A chain of transactions, where the output of one transaction is the input of the next transaction</div>
               </div>
               <div class="paragraph">
-                <p>Alice&#8217;s payment to Bob&#8217;s Cafe uses a previous transaction as its input. In the previous chapter Alice received bitcoin cash from her friend Joe in return for cash. That transaction has a number of bitcoin cashs locked (encumbered) against
+                <p>Alice&#8217;s payment to Bob&#8217;s Cafe uses a previous transaction as its input. In the previous chapter Alice received bitcoin cash from her friend Joe in return for cash. That transaction has a number of bitcoin cash locked (encumbered) against
                   Alice&#8217;s key. Her new transaction to Bob&#8217;s Cafe references the previous transaction as an input and creates new outputs to pay for the cup of coffee and receive change. The transactions form a chain, where the inputs from the latest
                   transaction correspond to outputs from previous transactions. Alice&#8217;s key provides the signature that unlocks those previous transaction outputs, thereby proving to the bitcoin cash network that she owns the funds. She attaches the payment
                   for coffee to Bob&#8217;s address, thereby "encumbering" that output with the requirement that Bob produces a signature in order to spend that amount. This represents a transfer of value between Alice and Bob. This chain of transactions, from
                   Joe to Alice to Bob, is illustrated in <a href="#blockchain-mnemonic">A chain of transactions, where the output of one transaction is the input of the next transaction</a>.</p>
               </div>
               <div class="sect3">
-                <h4 id="_common_transaction_forms">Common Transaction Forms</h4>
+                <h4 class='yellow' id="_common_transaction_forms">Common Transaction Forms</h4>
                 <div class="paragraph">
                   <p>The most common form of transaction is a simple payment from one address to another, which often includes some "change" returned to the original owner. This type of transaction has one input and two outputs and is shown in <a href="#transaction-common">Most common transaction</a>.</p>
                 </div>
@@ -224,24 +225,24 @@ subtitle: Mastering Bitcoin Cash
                 </div>
                 <div id="transaction-distributing" class="imageblock">
                   <div class="content">
-                    <img src="../img/mastering-bitcoin cash-cash/msbt_0207.png" alt="Distributing Transaction" />
+                    <img src="../img/mastering-bitcoin-cash/msbt_0207.png" alt="Distributing Transaction" />
                   </div>
                   <div class="title">Figure 7. Transaction distributing funds</div>
                 </div>
               </div>
             </div>
             <div class="sect2">
-              <h3 id="_constructing_a_transaction">Constructing a Transaction</h3>
+              <h3 class='yellow' id="_constructing_a_transaction">Constructing a Transaction</h3>
               <div class="paragraph">
                 <p>Alice&#8217;s wallet application contains all the logic for selecting appropriate inputs and outputs to build a transaction to Alice&#8217;s specification. Alice only needs to specify a destination and an amount and the rest happens in the wallet
                   application without her seeing the details. Importantly, a wallet application can construct transactions even if it is completely offline. Like writing a check at home and later sending it to the bank in an envelope, the transaction does not
                   need to be constructed and signed while connected to the bitcoin cash network. It only has to be sent to the network eventually for it to be executed.</p>
               </div>
               <div class="sect3">
-                <h4 id="_getting_the_right_inputs">Getting the Right Inputs</h4>
+                <h4 class='yellow' id="_getting_the_right_inputs">Getting the Right Inputs</h4>
                 <div class="paragraph">
                   <p>Alice&#8217;s wallet application will first have to find inputs that can pay for the amount she wants to send to Bob. Most wallet applications keep a small database of "unspent transaction outputs" that are locked (encumbered) with the wallet&#8217;s
-                    own keys. Therefore, Alice&#8217;s wallet would contain a copy of the transaction output from Joe&#8217;s transaction, which was created in exchange for cash (see <a href="#getting_first_bitcoin">[getting_first_bitcoin]</a>). A bitcoin cash wallet
+                    own keys. Therefore, Alice&#8217;s wallet would contain a copy of the transaction output from Joe&#8217;s transaction, which was created in exchange for cash. A bitcoin cash wallet
                     application that runs as a full-index client actually contains a copy of every unspent output from every transaction in the blockchain. This allows a wallet to construct transaction inputs as well as quickly verify incoming transactions
                     as having correct inputs. However, because a full-index client takes up a lot of disk space, most user wallets run "lightweight" clients that track only the user&#8217;s own unspent outputs.</p>
                 </div>
@@ -255,7 +256,7 @@ subtitle: Mastering Bitcoin Cash
                   <div class="content">
                     <div class="listingblock">
                       <div class="content">
-                        <pre class="highlight"><code class="language-bash" data-lang="bash">$ curl https://blockchain.info/unspent?active=1Cdid9KFAaatwczBwBttQcwXYCpvK8h7FK</code></pre>
+                        <pre class="highlight"><code class="language-bash" data-lang="bash">$ curl https://explorer.bitcoin.com/api/bch/addr/1MdHfh9dQWCjTiVT2rygBKqS8pWJziMddcK</code></pre>
                       </div>
                     </div>
                   </div>
@@ -265,23 +266,35 @@ subtitle: Mastering Bitcoin Cash
                   <div class="content">
                     <div class="listingblock">
                       <div class="content">
-                      <SyntaxHighlighter language='text' style={ocean}>{`
-  {
-  "unspent_outputs":[
-
-  {
-  "tx_hash":"186f9f998a5...2836dd734d2804fe65fa35779",
-  "tx_index":104810202,
-  "tx_output_n": 0,
-  "script":"76a9147f9b1a7fb68d60c536c2fd8aeaa53a8f3cc025a888ac",
-  "value": 10000000,
-  "value_hex": "00989680",
-  "confirmations":0
-  }
-
-  ]
-  }
-                      `}</SyntaxHighlighter>
+                        <pre>
+                          {
+   "addrStr":"1MdHfh9dQWCjTiVT2rygBKqS8pWJziMddc",
+   "balance":0.0024127,
+   "balanceSat":241270,
+   "totalReceived":0.27148629,
+   "totalReceivedSat":27148629,
+   "totalSent":0.26907359,
+   "totalSentSat":26907359,
+   "unconfirmedBalance":0,
+   "unconfirmedBalanceSat":0,
+   "unconfirmedTxApperances":0,
+   "txApperances":12,
+   "transactions":[
+      "435c917e7039bc2901a463d85920c94ccc755b3f3eb4d6392c19f745a39cfe7c",
+      "adc95fb479339517d9685119873466b520e6005bffb0965e48afaf9d3494055d",
+      "957d508ae4de21536fe957e448bdab6594f0f508796f2bd748330437b939152c",
+      "7fd442f1fe918a7258d96a0d282eaaee3dca4003ac64d688265f6a0b581f6e36",
+      "e9c2c9fac1ef97d1601169560a4de2127cf5b5f212b601c828924c1fca0f7cf8",
+      "40c5c1a229036d883dbe4a8f40e3d257a49b88ae286a2ac9e98503acaf2b7a2f",
+      "0007139a51e3ad3f4f0a6b3e9319d74bf546890919f91dc3b90eddca6364f7a1",
+      "3dc6c05a483aee06b448e997651eff6bcd639503b2e9208e411a817b7dc9d48c",
+      "a81e195c4b717a5222dc721a93236b340a946f4d80e33c7a860f8ca0b060d8e9",
+      "47a4811667b5488e502ec2edc40b0369c2fa2b6a042ccbf3db94824b4286f2b6",
+      "63df7b124265679575bb3e717ef7732a1954f7576301d69003d3c5133955e1fb",
+      "fdc1bab2cfb6329d3594655c56e8168284bae793beefb37225aec74ffbbc21ce"
+   ]
+}
+                        </pre>
                       </div>
                     </div>
                   </div>
@@ -314,7 +327,7 @@ subtitle: Mastering Bitcoin Cash
                 </div>
               </div>
               <div class="sect3">
-                <h4 id="_creating_the_outputs">Creating the Outputs</h4>
+                <h4 class='yellow' id="_creating_the_outputs">Creating the Outputs</h4>
                 <div class="paragraph">
                   <p>A transaction output is created in the form of a script that creates an encumbrance on the value and can only be redeemed by the introduction of a solution to the script. In simpler terms, Alice&#8217;s transaction output will contain a script
                     that says something like, "This output is payable to whoever can present a signature from the key corresponding to Bob&#8217;s public address." Because only Bob has the wallet with the keys corresponding to that address, only Bob&#8217;s
@@ -357,7 +370,7 @@ subtitle: Mastering Bitcoin Cash
                 </div>
               </div>
               <div class="sect3">
-                <h4 id="_adding_the_transaction_to_the_ledger">Adding the Transaction to the Ledger</h4>
+                <h4 class='yellow' id="_adding_the_transaction_to_the_ledger">Adding the Transaction to the Ledger</h4>
                 <div class="paragraph">
                   <p>The transaction created by Alice&#8217;s wallet application is 258 bytes long and contains everything necessary to confirm ownership of the funds and assign new owners. Now, the transaction must be transmitted to the bitcoin cash network where
                     it will become part of the distributed ledger (the blockchain). In the next section we will see how a transaction becomes part of a new block and how the block is "mined." Finally, we will see how the new block, once added to the blockchain,
@@ -408,7 +421,7 @@ subtitle: Mastering Bitcoin Cash
               </div>
             </div>
             <div class="sect2">
-              <h3 id="_bitcoin_mining">Bitcoin Cash Mining</h3>
+              <h3 class='yellow' id="_bitcoin_mining">Bitcoin Cash Mining</h3>
               <div class="paragraph">
                 <p>The transaction is now propagated on the bitcoin cash network. It does not become part of the shared ledger (the <em>blockchain</em>) until it is verified and included in a block by a process called <em>mining</em>. See <a href="#ch8">[ch8]</a> for
                   a detailed explanation.</p>
@@ -448,7 +461,7 @@ subtitle: Mastering Bitcoin Cash
               </div>
             </div>
             <div class="sect2">
-              <h3 id="_mining_transactions_in_blocks">Mining Transactions in Blocks</h3>
+              <h3 class='yellow' id="_mining_transactions_in_blocks">Mining Transactions in Blocks</h3>
               <div class="paragraph">
                 <p>A transaction transmitted across the network is not verified until it becomes part of the global distributed ledger, the blockchain. Every 10 minutes on average, miners generate a new block that contains all the transactions since the last block.
                   New transactions are constantly flowing into the network from user wallets and other applications. As these are seen by the bitcoin cash network nodes, they get added to a temporary pool of unverified transactions maintained by each node. As miners
@@ -489,7 +502,7 @@ subtitle: Mastering Bitcoin Cash
               </div>
             </div>
             <div class="sect2">
-              <h3 id="_spending_the_transaction">Spending the Transaction</h3>
+              <h3 class='yellow' id="_spending_the_transaction">Spending the Transaction</h3>
               <div class="paragraph">
                 <p>Now that Alice&#8217;s transaction has been embedded in the blockchain as part of a block, it is part of the distributed ledger of bitcoin cash and visible to all bitcoin cash applications. Each bitcoin cash client can independently verify the transaction
                   as valid and spendable. Full-index clients can track the source of the funds from the moment the bitcoins were first generated in a block, incrementally from transaction to transaction, until they reach Bob&#8217;s address. Lightweight clients
