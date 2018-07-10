@@ -21,7 +21,7 @@ secondSubtitle: Check for utxo by legacy or cashaddr
 
         <h2 id="setup" class='yellow'>Setup</h2>
 
-        <p>Before we get started let’s create an HDNode and send it some satohis.</p>
+        <p>Before we get started let&rsquo;s create an HDNode and send it some satohis.</p>
 
         <h3 id="mnemonic" class='yellow'>Mnemonic</h3>
 
@@ -78,7 +78,7 @@ secondSubtitle: Check for utxo by legacy or cashaddr
 
         <h2 id="bitbox-cloud" class='yellow'>BITBOX Cloud</h2>
 
-        <p>BITBOX Cloud is your ‘Blockchain as a Service.’ We recently started integrating w/ <code class="highlighter-rouge">bitbox-cli</code> so you can leverage BITBOX Cloud w/out any additional setup.</p>
+        <p>BITBOX Cloud is your &lsquo;Blockchain as a Service.&rsquo; We recently started integrating w/ <code class="highlighter-rouge">bitbox-cli</code> so you can leverage BITBOX Cloud w/out any additional setup.</p>
 
         <p>You can use <a href="bitbox/docs/address.html#utxo">Address.utxo</a> to get back a list of uxto for an address</p>
 
@@ -165,9 +165,9 @@ secondSubtitle: Check for utxo by legacy or cashaddr
         <span class="nx">transactionBuilder</span><span class="p">.</span><span class="nx">addOutput</span><span class="p">(</span><span class="s1">'bitcoincash:qpuax2tarq33f86wccwlx8ge7tad2wgvqgjqlwshpw'</span><span class="p">,</span> <span class="nx">sendAmount</span><span class="p">);</span>
         </code></pre></div></div>
 
-        <h3 id="get-the-nodes-keypair" class='yellow'>Get the node’s keypair</h3>
+        <h3 id="get-the-nodes-keypair" class='yellow'>Get the node&rsquo;s keypair</h3>
 
-        <p>Now get the change node’s keypair to sign the transaction.</p>
+        <p>Now get the change node&rsquo;s keypair to sign the transaction.</p>
 
         <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// keypair</span>
         <span class="kd">let</span> <span class="nx">keyPair</span> <span class="o">=</span> <span class="nx">BITBOX</span><span class="p">.</span><span class="nx">HDNode</span><span class="p">.</span><span class="nx">toKeyPair</span><span class="p">(</span><span class="nx">change</span><span class="p">);</span>
@@ -175,7 +175,7 @@ secondSubtitle: Check for utxo by legacy or cashaddr
 
         <h3 id="sign-input" class='yellow'>Sign input</h3>
 
-        <p>Sign the input. Pass in the index of the input you’re signing. In this case we only have 1 input so the index is <code class="highlighter-rouge">0</code>. Next pass in the node’s keypair to sign the tx, a placeholder <code class="highlighter-rouge">redeemScript</code> var which isn’t needed here, the hash type which is <code class="highlighter-rouge">SIGHASH_ALL</code> and lastly the original amount of satoshis in the utxo which we’re spending.</p>
+        <p>Sign the input. Pass in the index of the input you&rsquo;re signing. In this case we only have 1 input so the index is <code class="highlighter-rouge">0</code>. Next pass in the node&rsquo;s keypair to sign the tx, a placeholder <code class="highlighter-rouge">redeemScript</code> var which isn&rsquo;t needed here, the hash type which is <code class="highlighter-rouge">SIGHASH_ALL</code> and lastly the original amount of satoshis in the utxo which we&rsquo;re spending.</p>
 
         <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// sign w/ HDNode</span>
         <span class="kd">let</span> <span class="nx">redeemScript</span><span class="p">;</span>

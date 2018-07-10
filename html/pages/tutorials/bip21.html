@@ -17,7 +17,7 @@ secondSubtitle: encode/decode BIP21 URIs
     <div class="row">
 
       <div class="col-12">
-        <p>Bitcoin Cash is all about sending and receiving payments. <a href="https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki">BIP21</a> describes a way to encode payment request information such as address, amount, message etc as a URI. These URIs are a very popular way to share payment requests and you’ll often see them as links in a website or as QR codes. Today we’re releasing <code class="highlighter-rouge">encodeBIP21</code> and <code class="highlighter-rouge">decodeBIP21</code> to make it easy for your app to encode/decode BIP21 $BCH URIs.</p>
+        <p>Bitcoin Cash is all about sending and receiving payments. <a href="https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki">BIP21</a> describes a way to encode payment request information such as address, amount, message etc as a URI. These URIs are a very popular way to share payment requests and you&rsquo;ll often see them as links in a website or as QR codes. Today we&rsquo;re releasing <code class="highlighter-rouge">encodeBIP21</code> and <code class="highlighter-rouge">decodeBIP21</code> to make it easy for your app to encode/decode BIP21 $BCH URIs.</p>
 
         <h2 id="encodebip21" class='yellow'>encodeBIP21</h2>
 
@@ -55,7 +55,7 @@ secondSubtitle: encode/decode BIP21 URIs
 
         <p><code class="highlighter-rouge">encodeBIP21</code> won’t accept strings or negative values as an <code class="highlighter-rouge">amount</code>.</p>
 
-        <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// won't accept a string as an amount</span>
+        <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// won&rsquo;t accept a string as an amount</span>
         <span class="kd">let</span> <span class="nx">address</span> <span class="o">=</span> <span class="s2">"bitcoincash:qrdsfshx7yzfjl9sfj2khuja5crcu4vaxqrt2qkz5s"</span><span class="p">;</span>
         <span class="kd">let</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
           <span class="na">amount</span><span class="p">:</span> <span class="s1">'one'</span><span class="p">,</span>
