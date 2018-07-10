@@ -256,7 +256,7 @@ subtitle: Mastering Bitcoin Cash
                   <div class="content">
                     <div class="listingblock">
                       <div class="content">
-                        <pre class="highlight"><code class="language-bash" data-lang="bash">$ curl https://explorer.bitcoin.com/api/bch/addr/1MdHfh9dQWCjTiVT2rygBKqS8pWJziMddcK</code></pre>
+                        <pre class="highlight"><code class="language-bash" data-lang="bash">$ curl https://explorer.bitcoin.com/api/bch/addr/13wCzsosQfVSt86RNT1tegUKFhxmnpzoxw/utxo</code></pre>
                       </div>
                     </div>
                   </div>
@@ -267,41 +267,25 @@ subtitle: Mastering Bitcoin Cash
                     <div class="listingblock">
                       <div class="content">
                         <pre>
-                          {
-   "addrStr":"1MdHfh9dQWCjTiVT2rygBKqS8pWJziMddc",
-   "balance":0.0024127,
-   "balanceSat":241270,
-   "totalReceived":0.27148629,
-   "totalReceivedSat":27148629,
-   "totalSent":0.26907359,
-   "totalSentSat":26907359,
-   "unconfirmedBalance":0,
-   "unconfirmedBalanceSat":0,
-   "unconfirmedTxApperances":0,
-   "txApperances":12,
-   "transactions":[
-      "435c917e7039bc2901a463d85920c94ccc755b3f3eb4d6392c19f745a39cfe7c",
-      "adc95fb479339517d9685119873466b520e6005bffb0965e48afaf9d3494055d",
-      "957d508ae4de21536fe957e448bdab6594f0f508796f2bd748330437b939152c",
-      "7fd442f1fe918a7258d96a0d282eaaee3dca4003ac64d688265f6a0b581f6e36",
-      "e9c2c9fac1ef97d1601169560a4de2127cf5b5f212b601c828924c1fca0f7cf8",
-      "40c5c1a229036d883dbe4a8f40e3d257a49b88ae286a2ac9e98503acaf2b7a2f",
-      "0007139a51e3ad3f4f0a6b3e9319d74bf546890919f91dc3b90eddca6364f7a1",
-      "3dc6c05a483aee06b448e997651eff6bcd639503b2e9208e411a817b7dc9d48c",
-      "a81e195c4b717a5222dc721a93236b340a946f4d80e33c7a860f8ca0b060d8e9",
-      "47a4811667b5488e502ec2edc40b0369c2fa2b6a042ccbf3db94824b4286f2b6",
-      "63df7b124265679575bb3e717ef7732a1954f7576301d69003d3c5133955e1fb",
-      "fdc1bab2cfb6329d3594655c56e8168284bae793beefb37225aec74ffbbc21ce"
-   ]
-}
+  [
+  {
+  "address": "13wCzsosQfVSt86RNT1tegUKFhxmnpzoxw",
+  "txid": "3fd6e7fd56354a76072f84350023ead2da4427f5a17a223d16318de600dad76a",
+  "vout": 1,
+  "amount": 0.01386001,
+  "satoshis": 1386001,
+  "height": 538328,
+  "confirmations": 0
+  }
+  ]
                         </pre>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="paragraph">
-                  <p>The response in <a href="#example_2-2">Response to the lookup</a> shows one unspent output (one that has not been redeemed yet) under the ownership of Alice&#8217;s address 1Cdid9KFAaatwczBwBttQcwXYCpvK8h7FK. The response includes the reference
-                    to the transaction in which this unspent output is contained (the payment from Joe) and its value in satoshis, at 10 million, equivalent to 0.10 bitcoin cash. With this information, Alice&#8217;s wallet application can construct a transaction
+                  <p>The response in <a href="#example_2-2">Response to the lookup</a> shows one unspent output (one that has not been redeemed yet) under the ownership of Alice&#8217;s address 13wCzsosQfVSt86RNT1tegUKFhxmnpzoxw. The response includes the reference
+                    to the transaction in which this unspent output is contained (the payment from Joe) and its value in satoshis. With this information, Alice&#8217;s wallet application can construct a transaction
                     to transfer that value to new owner addresses.</p>
                 </div>
                 <div class="admonitionblock tip">
@@ -313,7 +297,7 @@ subtitle: Mastering Bitcoin Cash
                         </td>
                         <td class="content">
                           <div class="paragraph">
-                            <p>View the <a href="http://bit.ly/1tAeeGr">transaction from Joe to Alice</a>.</p>
+                            <p>View the <a href="https://explorer.bitcoin.com/bch/tx/3fd6e7fd56354a76072f84350023ead2da4427f5a17a223d16318de600dad76a">transaction from Joe to Alice</a>.</p>
                           </div>
                         </td>
                       </tr>
@@ -334,21 +318,21 @@ subtitle: Mastering Bitcoin Cash
                     wallet can present such a signature to redeem this output. Alice will therefore "encumber" the output value with a demand for a signature from Bob.</p>
                 </div>
                 <div class="paragraph">
-                  <p>This transaction will also include a second output, because Alice&#8217;s funds are in the form of a 0.10 BTC output, too much money for the 0.015 BTC cup of coffee. Alice will need 0.085 BTC in change. Alice&#8217;s change payment is created
+                  <p>This transaction will also include a second output, because Alice&#8217;s funds are in the form of a 0.01386001 BCH output, too much money for the 0.00208507 BCH cup of coffee. Alice will need 0.01177251 BCH in change. Alice&#8217;s change payment is created
                     <em>by Alice&#8217;s wallet</em> in the very same transaction as the payment to Bob. Essentially, Alice&#8217;s wallet breaks her funds into two payments: one to Bob, and one back to herself. She can then use the change output in a subsequent
                     transaction, thus spending it later.</p>
                 </div>
                 <div class="paragraph">
                   <p>Finally, for the transaction to be processed by the network in a timely fashion, Alice&#8217;s wallet application will add a small fee. This is not explicit in the transaction; it is implied by the difference between inputs and outputs. If
-                    instead of taking 0.085 in change, Alice creates only 0.0845 as the second output, there will be 0.0005 BTC (half a millibitcoin) left over. The input&#8217;s 0.10 BTC is not fully spent with the two outputs, because they will add up to
-                    less than 0.10. The resulting difference is the <em>transaction fee</em> that is collected by the miner as a fee for including the transaction in a block and putting it on the blockchain ledger.</p>
+                    instead of taking 0.01177251 in change, Alice creates only 0.01077251 as the second output, there will be 0.001 BCH left over. The input&#8217;s 0.01386001 BCH is not fully spent with the two outputs, because they will add up to
+                    less than 0.01386001. The resulting difference is the <em>transaction fee</em> that is collected by the miner as a fee for including the transaction in a block and putting it on the blockchain ledger.</p>
                 </div>
                 <div class="paragraph">
                   <p>The resulting transaction can be seen using a blockchain explorer web application, as shown in <a href="#transaction-alice">Alice&#8217;s transaction to Bob&#8217;s Cafe</a>.</p>
                 </div>
                 <div id="transaction-alice" class="imageblock">
                   <div class="content">
-                    <img src="../img/mastering-bitcoin-cash/msbt_0208.png" alt="Alice Coffee Transaction" />
+                    <img src="../img/mastering-bitcoin-cash/msbt_02-tx-screenshot.png" alt="Alice Coffee Transaction" />
                   </div>
                   <div class="title">Figure 8. Alice&#8217;s transaction to Bob&#8217;s Cafe</div>
                 </div>
@@ -361,7 +345,7 @@ subtitle: Mastering Bitcoin Cash
                         </td>
                         <td class="content">
                           <div class="paragraph">
-                            <p>View the <a href="http://bit.ly/1u0FIGs">transaction from Alice to Bob&#8217;s Cafe</a>.</p>
+                            <p>View the <a href="https://explorer.bitcoin.com/bch/tx/adc95fb479339517d9685119873466b520e6005bffb0965e48afaf9d3494055d">transaction from Alice to Bob&#8217;s Cafe</a>.</p>
                           </div>
                         </td>
                       </tr>
@@ -372,19 +356,19 @@ subtitle: Mastering Bitcoin Cash
               <div class="sect3">
                 <h4 class='yellow' id="_adding_the_transaction_to_the_ledger">Adding the Transaction to the Ledger</h4>
                 <div class="paragraph">
-                  <p>The transaction created by Alice&#8217;s wallet application is 258 bytes long and contains everything necessary to confirm ownership of the funds and assign new owners. Now, the transaction must be transmitted to the bitcoin cash network where
+                  <p>The transaction created by Alice&#8217;s wallet application is 226 bytes long and contains everything necessary to confirm ownership of the funds and assign new owners. Now, the transaction must be transmitted to the bitcoin cash network where
                     it will become part of the distributed ledger (the blockchain). In the next section we will see how a transaction becomes part of a new block and how the block is "mined." Finally, we will see how the new block, once added to the blockchain,
                     is increasingly trusted by the network as more blocks are added.</p>
                 </div>
                 <div class="sect4">
-                  <h5 id="_transmitting_the_transaction">Transmitting the transaction</h5>
+                  <h5 class='yellow' id="_transmitting_the_transaction">Transmitting the transaction</h5>
                   <div class="paragraph">
                     <p>Because the transaction contains all the information necessary to process, it does not matter how or where it is transmitted to the bitcoin cash network. The bitcoin cash network is a peer-to-peer network, with each bitcoin cash client participating by
                       connecting to several other bitcoin cash clients. The purpose of the bitcoin cash network is to propagate transactions and blocks to all participants.</p>
                   </div>
                 </div>
                 <div class="sect4">
-                  <h5 id="_how_it_propagates">How it propagates</h5>
+                  <h5 class='yellow' id="_how_it_propagates">How it propagates</h5>
                   <div class="paragraph">
                     <p>Alice&#8217;s wallet application can send the new transaction to any of the other bitcoin cash clients it is connected to over any Internet connection: wired, WiFi, or mobile. Her bitcoin cash wallet does not have to be connected to Bob&#8217;s bitcoin cash
                       wallet directly and she does not have to use the Internet connection offered by the cafe, though both those options are possible, too. Any bitcoin cash network node (other client) that receives a valid transaction it has not seen before will
@@ -392,7 +376,7 @@ subtitle: Mastering Bitcoin Cash
                   </div>
                 </div>
                 <div class="sect4">
-                  <h5 id="_bobs_view">Bob&#8217;s view</h5>
+                  <h5 class='yellow' id="_bobs_view">Bob&#8217;s view</h5>
                   <div class="paragraph">
                     <p>If Bob&#8217;s bitcoin cash wallet application is directly connected to Alice&#8217;s wallet application, Bob&#8217;s wallet application might be the first node to receive the transaction. However, even if Alice&#8217;s wallet sends the transaction
                       through other nodes, it will reach Bob&#8217;s wallet within a few seconds. Bob&#8217;s wallet will immediately identify Alice&#8217;s transaction as an incoming payment because it contains outputs redeemable by Bob&#8217;s keys. Bob&#8217;s
@@ -423,7 +407,8 @@ subtitle: Mastering Bitcoin Cash
             <div class="sect2">
               <h3 class='yellow' id="_bitcoin_mining">Bitcoin Cash Mining</h3>
               <div class="paragraph">
-                <p>The transaction is now propagated on the bitcoin cash network. It does not become part of the shared ledger (the <em>blockchain</em>) until it is verified and included in a block by a process called <em>mining</em>. See <a href="#ch8">[ch8]</a> for
+                <p>The transaction is now propagated on the bitcoin cash network. It does not become part of the shared ledger (the <em>blockchain</em>) until it is verified and included in a block by a process called <em>mining</em>. See <a href="mining-and-consensus.html">Mining and Consensus
+</a> for
                   a detailed explanation.</p>
               </div>
               <div class="paragraph">
@@ -433,7 +418,7 @@ subtitle: Mastering Bitcoin Cash
               <div class="ulist">
                 <ul>
                   <li>
-                    <p>Mining creates new bitcoins in each block, almost like a central bank printing new money. The amount of bitcoin cash created per block is fixed and diminishes with time.</p>
+                    <p>Mining creates new bitcoin cash in each block, almost like a central bank printing new money. The amount of bitcoin cash created per block is fixed and diminishes with time.</p>
                   </li>
                   <li>
                     <p>Mining creates trust by ensuring that transactions are only confirmed if enough computational power was devoted to the block that contains them. More blocks mean more computation, which means more trust.</p>
@@ -447,7 +432,7 @@ subtitle: Mastering Bitcoin Cash
                   it is asymmetrically hard to solve but easy to verify, and its difficulty can be adjusted.</p>
               </div>
               <div class="paragraph">
-                <p>In <a href="#user-stories">[user-stories]</a>, we introduced Jing, a computer engineering student in Shanghai. Jing is participating in the bitcoin cash network as a miner. Every 10 minutes or so, Jing joins thousands of other miners in a global
+                <p>Earlier we introduced Jing, a computer engineering student in Shanghai. Jing is participating in the bitcoin cash network as a miner. Every 10 minutes or so, Jing joins thousands of other miners in a global
                   race to find a solution to a block of transactions. Finding such a solution, the so-called proof of work, requires quadrillions of hashing operations per second across the entire bitcoin cash network. The algorithm for proof of work involves repeatedly
                   hashing the header of the block and a random number with the SHA256 cryptographic algorithm until a solution matching a predetermined pattern emerges. The first miner to find such a solution wins the round of competition and publishes that
                   block into the blockchain.</p>
@@ -477,28 +462,28 @@ subtitle: Mastering Bitcoin Cash
               </div>
               <div class="paragraph">
                 <p>Alice&#8217;s transaction was picked up by the network and included in the pool of unverified transactions. Because it had sufficient fees, it was included in a new block generated by Jing&#8217;s mining pool. Approximately five minutes after
-                  the transaction was first transmitted by Alice&#8217;s wallet, Jing&#8217;s ASIC miner found a solution for the block and published it as block #277316, containing 419 other transactions. Jing&#8217;s ASIC miner published the new block on
+                  the transaction was first transmitted by Alice&#8217;s wallet, Jing&#8217;s ASIC miner found a solution for the block and published it as block #538345, containing 680 other transactions. Jing&#8217;s ASIC miner published the new block on
                   the bitcoin cash network, where other miners validated it and started the race to generate the next block.</p>
               </div>
               <div class="paragraph">
-                <p>You can see the block that includes <a href="https://blockchain.info/block-height/277316">Alice&#8217;s transaction</a>.</p>
+                <p>You can see the block that includes <a href="https://explorer.bitcoin.com/bch/block/000000000000000001679e7ef188dbca25fe9384b20009c3778d25b340938a19">Alice&#8217;s transaction</a>.</p>
               </div>
               <div class="paragraph">
-                <p>A few minutes later, a new block, #277317, is mined by another miner. Because this new block is based on the previous block (#277316) that contained Alice&#8217;s transaction, it added even more computation on top of that block, thereby strengthening
+                <p>A few minutes later, a new block, #538346, is mined by another miner. Because this new block is based on the previous block (#538345) that contained Alice&#8217;s transaction, it added even more computation on top of that block, thereby strengthening
                   the trust in those transactions. The block containing Alice&#8217;s transaction is counted as one "confirmation" of that transaction. Each block mined on top of the one containing the transaction is an additional confirmation. As the blocks
                   pile on top of each other, it becomes exponentially harder to reverse the transaction, thereby making it more and more trusted by the network.</p>
               </div>
               <div class="paragraph">
-                <p>In the diagram in <a href="#block-alice1">Alice&#8217;s transaction included in block #277316</a> we can see block #277316, which contains Alice&#8217;s transaction. Below it are 277,316 blocks (including block #0), linked to each other in a
+                <p>In the diagram in <a href="#block-alice1">Alice&#8217;s transaction included in block #538345</a> we can see block #538345, which contains Alice&#8217;s transaction. Below it are 538,344 blocks (including block #0), linked to each other in a
                   chain of blocks (blockchain) all the way back to block #0, known as the <em>genesis block</em>. Over time, as the "height" in blocks increases, so does the computation difficulty for each block and the chain as a whole. The blocks mined after
                   the one that contains Alice&#8217;s transaction act as further assurance, as they pile on more computation in a longer and longer chain. By convention, any block with more than six confirmations is considered irrevocable, because it would
-                  require an immense amount of computation to invalidate and recalculate six blocks. We will examine the process of mining and the way it builds trust in more detail in <a href="#ch8">[ch8]</a>.</p>
+                  require an immense amount of computation to invalidate and recalculate six blocks.</p>
               </div>
               <div id="block-alice1" class="imageblock">
                 <div class="content">
-                  <img src="../img/mastering-bitcoin cash-cash/msbt_0209.png" alt="Alice&#8217;s transaction included in a block" />
+                  <img src="../img/mastering-bitcoin-cash/transaction-included-in-a-block.png" alt="Alice&#8217;s transaction included in a block" />
                 </div>
-                <div class="title">Figure 9. Alice&#8217;s transaction included in block #277316</div>
+                <div class="title">Figure 9. Alice&#8217;s transaction included in block #538345</div>
               </div>
             </div>
             <div class="sect2">
@@ -506,7 +491,7 @@ subtitle: Mastering Bitcoin Cash
               <div class="paragraph">
                 <p>Now that Alice&#8217;s transaction has been embedded in the blockchain as part of a block, it is part of the distributed ledger of bitcoin cash and visible to all bitcoin cash applications. Each bitcoin cash client can independently verify the transaction
                   as valid and spendable. Full-index clients can track the source of the funds from the moment the bitcoins were first generated in a block, incrementally from transaction to transaction, until they reach Bob&#8217;s address. Lightweight clients
-                  can do what is called a simplified payment verification (see <a href="#spv_nodes">[spv_nodes]</a>) by confirming that the transaction is in the blockchain and has several blocks mined after it, thus providing assurance that the network accepts
+                  can do what is called a simplified payment verification by confirming that the transaction is in the blockchain and has several blocks mined after it, thus providing assurance that the network accepts
                   it as valid.</p>
               </div>
               <div class="paragraph">
