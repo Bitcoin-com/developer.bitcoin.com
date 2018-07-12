@@ -1,6 +1,12 @@
 [
 
   {
+  "title": "Developer.bitcoin.com",
+  "excerpt": "Today we're happy to announce the release of <a href='https://www.bitcoin.com/'>bitcoin.com</a>'s new developer platform <a href='https://developer.bitcoin.com/'>Developer.bitcoin.com</a>.",
+  "href": "insights/developer.bitcoin.com.html"
+  },
+
+  {
   "title": "AKARI",
   "excerpt": "AKARI's focus is on enabling anyone to begin leveraging the many advantages of Bitcoin Cash and increase their economic freedom. One of the ways they do this is by providing a great experience through free and open-source online crowd-fundraising tools and Bitcoin Cash payment tools such as the website pay/donate buttons and APB.",
   "href": "insights/akari.html"
