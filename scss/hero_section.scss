@@ -81,8 +81,8 @@
 
 &:before {
   content:"";
-  width:50%;
   height:100%;
+  width:100%;
   background:rgba($yellow,0.2);
   right:0;
   top:0;
@@ -91,6 +91,10 @@
 
   -webkit-clip-path: polygon(70% 0, 100% 9%, 100% 86%, 73% 100%, 0 86%, 0 10%);
 clip-path: polygon(70% 0, 100% 9%, 100% 86%, 73% 100%, 0 86%, 0 10%);
+
+      @include media-breakpoint-up(md) {
+        width:50%;
+      }
 }
 
 
@@ -148,7 +152,7 @@ clip-path: polygon(70% 0, 100% 9%, 100% 86%, 73% 100%, 0 86%, 0 10%);
       text-align:left;
     }
     h1 {
-      font-size:2.3em;
+      font-size:1.9em;
       @include media-breakpoint-up(md) {
         font-size:4em;
       }
