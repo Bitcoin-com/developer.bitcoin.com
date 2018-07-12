@@ -1,6 +1,6 @@
 # Developer.bitcoin.com
 
-## Developer Tooling, Cloud, and Marketplace
+## Developer Tooling, Cloud, and Market
 
 ### BITBOX
 
@@ -14,6 +14,6 @@ The BCH JSON RPC over HTTP including a fully documented and interactive GUI whic
 
 Blockchain-as-a-Service. Infrastructure to deploy and scale your apps. An ecosystem of add-ons for data, monitoring, logging, metrics, testing and more all built w/ BITBOX.
 
-### Marketplace
+### Market
 
 Paid downloads, streaming media, in-app purchases, tokens and more ways for you to monetize.

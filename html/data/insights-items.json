@@ -2,7 +2,7 @@
 
   {
   "title": "Developer.bitcoin.com",
-  "excerpt": "Today we're happy to announce the release of <a href='https://www.bitcoin.com/'>bitcoin.com</a>'s new developer platform <a href='https://developer.bitcoin.com/'>Developer.bitcoin.com</a>.",
+  "excerpt": "Today we're happy to announce the release of <a href='https://www.bitcoin.com/'>bitcoin.com</a>'s new developer platform <a href='https://developer.bitcoin.com/'>Developer.bitcoin.com</a>. Featuring the powerful <a href='../bitbox.html'>BITBOX SDK</a>, <a href='../rest.html'>REST</a>, <a href='../gui.html'>GUI</a>, <a href='../cloud.html'>Cloud</a> for deploying and scaling and a <a href='../market.html'>Market</a> for monetizing your work.",
   "href": "insights/developer.bitcoin.com.html"
   },
 
