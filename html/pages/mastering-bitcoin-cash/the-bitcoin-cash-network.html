@@ -4,7 +4,7 @@ title: Bitcoin.com Developer Platform | Mastering Bitcoin Cash
 banner: hero.jpeg
 H1: The Bitcoin Cash Network
 subtitle: Mastering Bitcoin Cash
-secondSubtitle:
+secondSubtitle: Peer-to-peer network architecture on top of the Internet
 ---
 
 {{> nested-navigation}}
@@ -13,26 +13,16 @@ secondSubtitle:
 
 {{> mastering-bitcoin-cash-header}}
 
-<div class="underline-section">
-  <div class="container">
-  <div class="row">
-    <div class="col-12 text-center">
-      <div class="icon yellow">
-        <i class="fab fa-btc" aria-hidden="true"></i>
-      </div>
-      <h4 class="gray mt-5">Coming soon</h4>
-    </div>
-  </div>
-  </div>
-</div>
-
-<!-- <section class="bounties masteringBitcoin">
+<section class="bounties masteringBitcoin">
   <div class="container">
 
     <div class="row">
       <div class="col-12">
         <p>The following is based on <a href='https://github.com/bitcoinbook/bitcoinbook'>Mastering Bitcoin</a> by Andreas M. Antonopoulos <a href='https://github.com/bitcoinbook/bitcoinbook#mastering-bitcoin---first-edition'>First Edition</a> which is licensed under <a href='https://creativecommons.org/licenses/by-sa/4.0/'>Creative Commons Attribution-ShareAlike</a>.</p>
       </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
         <div>
           <div class="sect1">
             <div class="sectionbody">
@@ -157,7 +147,7 @@ secondSubtitle:
                     </dd>
                     <dt class="hdlist1">subver</dt>
                     <dd>
-                      <p>A sub-version showing the type of software running on this node (e.g., "/Satoshi:0.9.2.1/")+</p>
+                      <p>A sub-version showing the type of software running on this node (e.g., "/Bitcoin ABC:0.17.1(EB32.0)/")+</p>
                     </dd>
                     <dt class="hdlist1">BestHeight</dt>
                     <dd>
@@ -166,15 +156,12 @@ secondSubtitle:
                   </dl>
                 </div>
                 <div class="paragraph">
-                  <p>(See <a href="http://bit.ly/1qlsC7w">GitHub</a> for an example of the version network message.)</p>
-                </div>
-                <div class="paragraph">
                   <p>The peer node responds with verack to acknowledge and establish a connection, and optionally sends its own version message if it wishes to reciprocate the connection and connect back as a peer.</p>
                 </div>
                 <div class="paragraph">
                   <p>How does a new node find peers? The first method is to query DNS using a number of "DNS seeds," which are DNS servers that provide a list of IP addresses of bitcoin cash nodes. Some of those DNS seeds provide a static list of IP addresses of stable
                     bitcoin cash listening nodes. Some of the DNS seeds are custom implementations of BIND (Berkeley Internet Name Daemon) that return a random subset from a list of bitcoin cash node addresses collected by a crawler or a long-running bitcoin cash node. The Bitcoin Cash
-                    Core client contains the names of five different DNS seeds. The diversity of ownership and diversity of implementation of the different DNS seeds offers a high level or reliability for the initial bootstrapping process. In the Bitcoin Core client,
+                    client contains the names of five different DNS seeds. The diversity of ownership and diversity of implementation of the different DNS seeds offers a high level or reliability for the initial bootstrapping process. In the Bitcoin Cash client,
                     the option to use the DNS seeds is controlled by the option switch -dnsseed (set to 1 by default, to use the DNS seed).</p>
                 </div>
                 <div class="paragraph">
@@ -205,51 +192,68 @@ secondSubtitle:
                     of the former peers respond to its connection request, the node can use the seed nodes to bootstrap again.</p>
                 </div>
                 <div class="paragraph">
-                  <p>On a node running the Bitcoin Core client, you can list the peer connections with the command getpeerinfo:</p>
+                  <p>With BITBOX you can list the peer connections with the command getpeerinfo:</p>
                 </div>
                 <div class="listingblock">
                   <div class="content">
-                    <pre class="highlight"><code class="language-bash" data-lang="bash">$ bitcoin-cli getpeerinfo</code></pre>
-                  </div>
-                </div>
-                <div class="listingblock">
-                  <div class="content">
-                    <SyntaxHighlighter language='text' style={ocean}>{`
-            [
-              {
-                  "addr" : "85.213.199.39:8333",
-                  "services" : "00000001",
-                  "lastsend" : 1405634126,
-                  "lastrecv" : 1405634127,
-                  "bytessent" : 23487651,
-                  "bytesrecv" : 138679099,
-                  "conntime" : 1405021768,
-                  "pingtime" : 0.00000000,
-                  "version" : 70002,
-                  "subver" : "/Satoshi:0.9.2.1/",
-                  "inbound" : false,
-                  "startingheight" : 310131,
-                  "banscore" : 0,
-                  "syncnode" : true
-              },
-              {
-                  "addr" : "58.23.244.20:8333",
-                  "services" : "00000001",
-                  "lastsend" : 1405634127,
-                  "lastrecv" : 1405634124,
-                  "bytessent" : 4460918,
-                  "bytesrecv" : 8903575,
-                  "conntime" : 1405559628,
-                  "pingtime" : 0.00000000,
-                  "version" : 70001,
-                  "subver" : "/Satoshi:0.8.6/",
-                  "inbound" : false,
-                  "startingheight" : 311074,
-                  "banscore" : 0,
-                  "syncnode" : false
-              }
-          ]
-                    `}</SyntaxHighlighter>
+                    <pre class="highlight"><code class="language-javascript" data-lang="javascript">
+    BITBOX.Network.getPeerInfo().then((result) => {
+    console.log(result);
+    }, (err) => {
+    console.log(err);
+    });
+
+    // returns
+    [  { id: 99286,
+    addr: '96.126.122.17:53402',
+    addrlocal: '138.68.54.100:8333',
+    services: '0000000000000025',
+    relaytxes: true,
+    lastsend: 1531631325,
+    lastrecv: 1531631325,
+    bytessent: 498405940,
+    bytesrecv: 1813804,
+    conntime: 1531630964,
+    timeoffset: 0,
+    pingtime: 1.456465,
+    minping: 0.046046,
+    pingwait: 0.661831,
+    version: 70015,
+    subver: '/Bitcoin ABC:0.17.1(EB32.0)/',
+    inbound: true,
+    addnode: false,
+    startingheight: 40272,
+    banscore: 0,
+    synced_headers: -1,
+    synced_blocks: -1,
+    inflight: [],
+    whitelisted: false,
+    bytessent_per_msg:
+     { addr: 30442,
+       block: 498371828,
+       feefilter: 32,
+       getheaders: 1053,
+       headers: 106,
+       inv: 2004,
+       ping: 128,
+       pong: 128,
+       sendcmpct: 33,
+       sendheaders: 24,
+       verack: 24,
+       version: 138 },
+    bytesrecv_per_msg:
+     { addr: 1390,
+       feefilter: 32,
+       getaddr: 24,
+       getdata: 1810862,
+       getheaders: 1053,
+       ping: 128,
+       pong: 96,
+       sendcmpct: 33,
+       sendheaders: 24,
+       verack: 24,
+       version: 138 } } ]
+        </code></pre>
                   </div>
                 </div>
                 <div class="paragraph">
@@ -264,7 +268,7 @@ secondSubtitle:
               <div class="sect2">
                 <h3 id="_full_nodes">Full Nodes</h3>
                 <div class="paragraph">
-                  <p>Full nodes are nodes that maintain a full blockchain with all transactions. More accurately, they probably should be called "full blockchain nodes." In the early years of bitcoin cash, all nodes were full nodes and currently the Bitcoin Core client
+                  <p>Full nodes are nodes that maintain a full blockchain with all transactions. More accurately, they probably should be called "full blockchain nodes." In the early years of bitcoin cash, all nodes were full nodes and currently the Bitcoin Cash client
                     is a full blockchain node. In the past two years, however, new forms of bitcoin cash clients have been introduced that do not maintain a full blockchain but run as lightweight clients. We&#8217;ll examine these in more detail in the next section.</p>
                 </div>
                 <div class="paragraph">
@@ -274,13 +278,8 @@ secondSubtitle:
                 </div>
                 <div class="paragraph">
                   <p>Running a full blockchain node gives you the pure bitcoin cash experience: independent verification of all transactions without the need to rely on, or trust, any other systems. It&#8217;s easy to tell if you&#8217;re running a full node because it
-                    requires 20+ gigabytes of persistent storage (disk space) to store the full blockchain. If you need a lot of disk and it takes two to three days to sync to the network, you are running a full node. That is the price of complete independence
+                    requires 100+ gigabytes of persistent storage (disk space) to store the full blockchain. If you need a lot of disk and it takes two to three days to sync to the network, you are running a full node. That is the price of complete independence
                     and freedom from central authority.</p>
-                </div>
-                <div class="paragraph">
-                  <p>There are a few alternative implementations of full blockchain bitcoin cash clients, built using different programming languages and software architectures. However, the most common implementation is the reference client Bitcoin Core, also known as
-                    the Satoshi client. More than 90% of the nodes on the bitcoin cash network run various versions of Bitcoin Core. It is identified as "Satoshi" in the sub-version string sent in the version message and shown by the command getpeerinfo as we saw earlier;
-                    for example, /Satoshi:0.8.6/.</p>
                 </div>
               </div>
               <div class="sect2">
@@ -302,7 +301,7 @@ secondSubtitle:
                   <p>Let&#8217;s assume, for example, that a node only has the genesis block. It will then receive an inv message from its peers containing the hashes of the next 500 blocks in the chain. It will start requesting blocks from all of its connected peers,
                     spreading the load and ensuring that it doesn&#8217;t overwhelm any peer with requests. The node keeps track of how many blocks are "in transit" per peer connection, meaning blocks that it has requested but not received, checking that it does
                     not exceed a limit (MAX_BLOCKS_IN_TRANSIT_PER_PEER). This way, if it needs a lot of blocks, it will only request new ones as previous requests are fulfilled, allowing the peers to control the pace of updates and not overwhelming the network.
-                    As each block is received, it is added to the blockchain, as we will see in <a href="#blockchain">[blockchain]</a>. As the local blockchain is gradually built up, more blocks are requested and received, and the process continues until the node
+                    As each block is received, it is added to the blockchain, as we will see in <a href="the-blockchain.html">The Blockchain</a>. As the local blockchain is gradually built up, more blocks are requested and received, and the process continues until the node
                     catches up to the rest of the network.</p>
                 </div>
                 <div class="paragraph">
@@ -339,7 +338,7 @@ secondSubtitle:
                 </div>
                 <div class="paragraph">
                   <p>For example, when examining a transaction in block 300,000, a full node links all 300,000 blocks down to the genesis block and builds a full database of UTXO, establishing the validity of the transaction by confirming that the UTXO remains unspent.
-                    An SPV node cannot validate whether the UTXO is unspent. Instead, the SPV node will establish a link between the transaction and the block that contains it, using a <em>merkle path</em> (see <a href="#merkle_trees">[merkle_trees]</a>). Then,
+                    An SPV node cannot validate whether the UTXO is unspent. Instead, the SPV node will establish a link between the transaction and the block that contains it, using a <em>merkle path</em>. Then,
                     the SPV node waits until it sees the six blocks 300,001 through 300,006 piled on top of the block containing the transaction and verifies it by establishing its depth under blocks 300,006 to 300,001. The fact that other nodes on the network
                     accepted block 300,000 and then did the necessary work to produce six more blocks on top of it is proof, by proxy, that the transaction was not a double-spend.</p>
                 </div>
@@ -484,7 +483,7 @@ secondSubtitle:
                   <div class="title">Figure 12. Testing the existence of pattern "Y" in the bloom filter. The result is a definitive negative match, meaning "Definitely Not!"</div>
                 </div>
                 <div class="paragraph">
-                  <p>Bitcoin&#8217;s implementation of bloom filters is described in Bitcoin Improvement Proposal 37 (BIP0037). See <a href="#appdxbitcoinimpproposals">[appdxbitcoinimpproposals]</a> or visit <a href="http://bit.ly/1x6qCiO">GitHub</a>.</p>
+                  <p>Bitcoin&#8217;s implementation of bloom filters is described in Bitcoin Improvement Proposal 37 (<a href='https://github.com/bitcoin/bips/blob/master/bip-0037.mediawiki'>BIP0037</a>).</p>
                 </div>
               </div>
               <div class="sect2">
@@ -495,7 +494,7 @@ secondSubtitle:
                     are sent to the node.</p>
                 </div>
                 <div class="paragraph">
-                  <p>In response to a getdata message from the node, peers will send a merkleblock message that contains only block headers for blocks matching the filter and a merkle path (see <a href="#merkle_trees">[merkle_trees]</a>) for each matching transaction.
+                  <p>In response to a getdata message from the node, peers will send a merkleblock message that contains only block headers for blocks matching the filter and a merkle path for each matching transaction.
                     The peer will then also send tx messages containing the transactions matched by the filter.</p>
                 </div>
                 <div class="paragraph">
@@ -537,11 +536,12 @@ secondSubtitle:
                     the network and therefore will vary little between nodes. Furthermore, the transaction and orphan pools only contain unconfirmed transactions, while the UTXO pool only contains confirmed outputs.</p>
                 </div>
               </div>
-              <div class="sect2">
+              <!-- <div class="sect2">
+              TODO: Confirm alert message status on BCH
                 <h3 id="_alert_messages">Alert Messages</h3>
                 <div class="paragraph">
-                  <p>Alert messages are a seldom used function, but are nevertheless implemented in most nodes. Alert messages are bitcoin cash&#8217;s "emergency broadcast system," a means by which the core bitcoin cash developers can send an emergency text message to all
-                    bitcoin cash nodes. This feature is implemented to allow the core developer team to notify all bitcoin cash users of a serious problem in the bitcoin cash network, such as a critical bug that requires user action. The alert system has only been used a handful
+                  <p>Alert messages are a seldom used function, but are nevertheless implemented in most nodes. Alert messages are bitcoin cash&#8217;s "emergency broadcast system," a means by which the bitcoin cash developers can send an emergency text message to all
+                    bitcoin cash nodes. This feature is implemented to allow the developer team to notify all bitcoin cash users of a serious problem in the bitcoin cash network, such as a critical bug that requires user action. The alert system has only been used a handful
                     of times, most notably in early 2013 when a critical database bug caused a multiblock fork to occur in the bitcoin cash blockchain.</p>
                 </div>
                 <div class="paragraph">
@@ -576,7 +576,7 @@ secondSubtitle:
                   </dl>
                 </div>
                 <div class="paragraph">
-                  <p>Alerts are cryptographically signed by a public key. The corresponding private key is held by a few select members of the core development team. The digital signature ensures that fake alerts will not be propagated on the network.</p>
+                  <p>Alerts are cryptographically signed by a public key. The corresponding private key is held by a few select members of the development team. The digital signature ensures that fake alerts will not be propagated on the network.</p>
                 </div>
                 <div class="paragraph">
                   <p>Each node receiving this alert message will verify it, check for expiration, and propagate it to all its peers, thus ensuring rapid propagation across the entire network. In addition to propagating the alert, the nodes might implement a user interface
@@ -590,7 +590,7 @@ secondSubtitle:
                   <p>Other implementations of the bitcoin cash protocol might handle the alert in different ways. Many hardware-embedded bitcoin cash mining systems do not implement the alert message function because they have no user interface. It is strongly recommended that
                     miners running such mining systems subscribe to alerts via a mining pool operator or by running a lightweight node just for alert purposes.</p>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -604,4 +604,4 @@ secondSubtitle:
       </div>
     </div>
   </div>
-</section> -->
+</section>
