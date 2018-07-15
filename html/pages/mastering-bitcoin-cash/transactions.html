@@ -12,30 +12,20 @@ subtitle: Mastering Bitcoin Cash
 
 {{> mastering-bitcoin-cash-header}}
 
-<div class="underline-section">
-  <div class="container">
-  <div class="row">
-    <div class="col-12 text-center">
-      <div class="icon yellow">
-        <i class="fab fa-btc" aria-hidden="true"></i>
-      </div>
-      <h4 class="gray mt-5">Coming soon</h4>
-    </div>
-  </div>
-  </div>
-</div>
-
-<!-- <section class="bounties masteringBitcoin">
+<section class="bounties masteringBitcoin">
   <div class="container">
 
     <div class="row">
       <div class="col-12">
         <p>The following is based on <a href='https://github.com/bitcoinbook/bitcoinbook'>Mastering Bitcoin</a> by Andreas M. Antonopoulos <a href='https://github.com/bitcoinbook/bitcoinbook#mastering-bitcoin---first-edition'>First Edition</a> which is licensed under <a href='https://creativecommons.org/licenses/by-sa/4.0/'>Creative Commons Attribution-ShareAlike</a>.</p>
       </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
         <div class="sect1">
           <div class="sectionbody">
             <div class="sect2">
-              <h3 id="ch5_intro">Introduction</h3>
+              <h3 class='yellow' id="ch5_intro">Introduction</h3>
               <div class="paragraph">
                 <p>Transactions are the most important part of the bitcoin cash system. Everything else in bitcoin cash is designed to ensure that transactions can be created, propagated on the network, validated, and finally added to the global ledger of transactions (the
                   blockchain). Transactions are data structures that encode the transfer of value between participants in the bitcoin cash system. Each transaction is a public entry in bitcoin cash&#8217;s blockchain, the global double-entry bookkeeping ledger.</p>
@@ -45,7 +35,7 @@ subtitle: Mastering Bitcoin Cash
               </div>
             </div>
             <div class="sect2">
-              <h3 id="tx_lifecycle">Transaction Lifecycle</h3>
+              <h3 class='yellow' id="tx_lifecycle">Transaction Lifecycle</h3>
               <div class="paragraph">
                 <p>A transaction&#8217;s lifecycle starts with the transaction&#8217;s creation, also known as <em>origination</em>. The transaction is then signed with one or more signatures indicating the authorization to spend the funds referenced by the transaction.
                   The transaction is then broadcast on the bitcoin cash network, where each network node (participant) validates and propagates the transaction until it reaches (almost) every node in the network. Finally, the transaction is verified by a mining node
@@ -56,7 +46,7 @@ subtitle: Mastering Bitcoin Cash
                   can then be spent in a new transaction, extending the chain of ownership and beginning the lifecycle of a transaction again.</p>
               </div>
               <div class="sect3">
-                <h4 id="tx_origination">Creating Transactions</h4>
+                <h4 class='yellow' id="tx_origination">Creating Transactions</h4>
                 <div class="paragraph">
                   <p>In some ways it helps to think of a transaction in the same way as a paper check. Like a check, a transaction is an instrument that expresses the intent to transfer money and is not visible to the financial system until it is submitted for execution.
                     Like a check, the originator of the transaction does not have to be the one signing the transaction.</p>
@@ -72,7 +62,7 @@ subtitle: Mastering Bitcoin Cash
                 </div>
               </div>
               <div class="sect3">
-                <h4 id="tx_bcast">Broadcasting Transactions to the Bitcoin Cash Network</h4>
+                <h4 class='yellow' id="tx_bcast">Broadcasting Transactions to the Bitcoin Cash Network</h4>
                 <div class="paragraph">
                   <p>First, a transaction needs to be delivered to the bitcoin cash network so that it can be propagated and included in the blockchain. In essence, a bitcoin cash transaction is just 300 to 400 bytes of data and has to reach any one of tens of thousands of
                     bitcoin cash nodes. The senders do not need to trust the nodes they use to broadcast the transaction, as long as they use more than one to ensure that it propagates. The nodes don&#8217;t need to trust the sender or establish the sender&#8217;s
@@ -87,7 +77,7 @@ subtitle: Mastering Bitcoin Cash
                 </div>
               </div>
               <div class="sect3">
-                <h4 id="tx_propagation">Propagating Transactions on the Bitcoin Cash Network</h4>
+                <h4 class='yellow' id="tx_propagation">Propagating Transactions on the Bitcoin Cash Network</h4>
                 <div class="paragraph">
                   <p>Once a bitcoin cash transaction is sent to any node connected to the bitcoin cash network, the transaction will be validated by that node. If valid, that node will propagate it to the other nodes to which it is connected, and a success message will be
                     returned synchronously to the originator. If the transaction is invalid, the node will reject it and synchronously return a rejection message to the originator.</p>
@@ -100,12 +90,12 @@ subtitle: Mastering Bitcoin Cash
                 </div>
                 <div class="paragraph">
                   <p>The bitcoin cash network is designed to propagate transactions and blocks to all nodes in an efficient and resilient manner that is resistant to attacks. To prevent spamming, denial-of-service attacks, or other nuisance attacks against the bitcoin cash
-                    system, every node independently validates every transaction before propagating it further. A malformed transaction will not get beyond one node. The rules by which transactions are validated are explained in more detail in <a href="#tx_verification">[tx_verification]</a>.</p>
+                    system, every node independently validates every transaction before propagating it further. A malformed transaction will not get beyond one node.</p>
                 </div>
               </div>
             </div>
             <div class="sect2">
-              <h3 id="tx_structure">Transaction Structure</h3>
+              <h3 class='yellow' id="tx_structure">Transaction Structure</h3>
               <div class="paragraph">
                 <p>A transaction is a <em>data structure</em> that encodes a transfer of value from a source of funds, called an <em>input</em>, to a destination, called an <em>output</em>. Transaction inputs and outputs are not related to accounts or identities.
                   Instead, you should think of them as bitcoin cash amounts—chunks of bitcoin cash—being locked with a specific secret that only the owner, or person who knows the secret, can unlock. A transaction contains a number of fields, as shown in <a href="#tx_data_structure">The structure of a transaction</a>.</p>
@@ -201,7 +191,7 @@ subtitle: Mastering Bitcoin Cash
               </div>
             </div>
             <div class="sect2">
-              <h3 id="tx_inputs_outputs">Transaction Outputs and Inputs</h3>
+              <h3 class='yellow' id="tx_inputs_outputs">Transaction Outputs and Inputs</h3>
               <div class="paragraph">
                 <p>The fundamental building block of a bitcoin cash transaction is an <em>unspent transaction output</em>, or UTXO. UTXO are indivisible chunks of bitcoin cash currency locked to a specific owner, recorded on the blockchain, and recognized as currency units
                   by the entire network. The bitcoin cash network tracks all available (unspent) UTXO currently numbering in the millions. Whenever a user receives bitcoin cash, that amount is recorded within the blockchain as a UTXO. Thus, a user&#8217;s bitcoin cash might
@@ -249,7 +239,7 @@ subtitle: Mastering Bitcoin Cash
               </div>
               <div class="paragraph">
                 <p>The exception to the output and input chain is a special type of transaction called the <em>coinbase</em> transaction, which is the first transaction in each block. This transaction is placed there by the "winning" miner and creates brand-new
-                  bitcoin cash payable to that miner as a reward for mining. This is how bitcoin cash&#8217;s money supply is created during the mining process, as we will see in <a href="#ch8">[ch8]</a>.</p>
+                  bitcoin cash payable to that miner as a reward for mining. This is how bitcoin cash&#8217;s money supply is created during the mining process, as we will see in <a href="mining-and-consensus.html">Mining and Consensus</a>.</p>
               </div>
               <div class="admonitionblock tip">
                 <table>
@@ -268,7 +258,7 @@ subtitle: Mastering Bitcoin Cash
                 </table>
               </div>
               <div class="sect3">
-                <h4 id="tx_outs">Transaction Outputs</h4>
+                <h4 class='yellow' id="tx_outs">Transaction Outputs</h4>
                 <div class="paragraph">
                   <p>Every bitcoin cash transaction creates outputs, which are recorded on the bitcoin cash ledger. Almost all of these outputs, with one exception (see <a href="#op_return">Data Output (OP_RETURN)</a>) create spendable chunks of bitcoin cash called <em>unspent transaction outputs</em>            or UTXO, which are then recognized by the whole network and available for the owner to spend in a future transaction. Sending someone bitcoin cash is creating an unspent transaction output (UTXO) registered to their address and available for them
                     to spend.</p>
@@ -338,88 +328,67 @@ subtitle: Mastering Bitcoin Cash
                   </tbody>
                 </table>
                 <div class="paragraph">
-                  <p>In <a href="#get_utxo">A script that calls the blockchain.info API to find the UTXO related to an address</a>, we use the blockchain.info API to find the unspent outputs (UTXO) of a specific address.</p>
+                  <p>In <a href="#get_utxo">A script that calls <code>BITBOX.Address.utxo</code> to find the UTXO related to an address</a>, we use the <code>BITBOX.Address</code> class to find the unspent outputs (UTXO) of a specific address.</p>
                 </div>
-                <div id="get_utxo" class="exampleblock">
-                  <div class="title">Example 1. A script that calls the blockchain.info API to find the UTXO related to an address</div>
+                <div id="get_utxo" class=" paragraph exampleblock">
+                  <div class="title">Example 1. A script that calls <code>BITBOX.Address.utxo</code> to find the UTXO related to an address</div>
                   <div class="content">
                     <div class="listingblock">
                       <div class="content">
-                      <SyntaxHighlighter language='text' style={ocean}>{`
-import json
-import requests
+                        <pre>
+                          <code>
+    BITBOX.Address.utxo('bitcoincash:qpcxf2sv9hjw08nvpgffpamfus9nmksm3chv5zqtnz').then((result) => {
+      console.log(result);
+    }, (err) => {
+      console.log(err);
+    });
 
-# example address
-address = '1Dorian4RoXcnBv9hnQ4Y2C1an6NJ4UrjX'
-
-# The API URL is https://blockchain.info/unspent?active=&lt;address&gt;
-# It returns a JSON object with a list "unspent_outputs", containing UTXO, like this:
-#{	"unspent_outputs":[
-#   {
-#     "tx_hash":"ebadfaa92f1fd29e2fe296eda702c48bd11ffd52313e986e99ddad9084062167",
-#     "tx_index":51919767,
-#     "tx_output_n": 1,
-#     "script":"76a9148c7e252f8d64b0b6e313985915110fcfefcf4a2d88ac",
-#     "value": 8000000,
-#     "value_hex": "7a1200",
-#     "confirmations":28691
-#   },
-# ...
-#]}
-
-resp = requests.get('https://blockchain.info/unspent?active=%s' % address)
-utxo_set = json.loads(resp.text)["unspent_outputs"]
-
-for utxo in utxo_set:
-print "%s:%d - %ld Satoshis" % (utxo['tx_hash'], utxo['tx_output_n'], utxo['value'])
-                      `}</SyntaxHighlighter>
+    Returns the following:
+    [{ txid:
+    'cc27be8846276612dfce5924b7be96556212f0f0e62bd17641732175edb9911e',
+    vout: 0,
+    scriptPubKey: '76a9147064aa0c2de4e79e6c0a1290f769e40b3dda1b8e88ac',
+    amount: 0.00007021,
+    satoshis: 7021,
+    height: 527155,
+    confirmations: 11879,
+    legacyAddress: '1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA',
+    cashAddress: 'bitcoincash:qpcxf2sv9hjw08nvpgffpamfus9nmksm3chv5zqtnz' } ]
+                          </code>
+                        </pre>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="paragraph">
-                  <p>Running the script, we see a list of transaction IDs, a colon, the index number of the specific unspent transaction output (UTXO), and the value of that UTXO in satoshis. The locking script is not shown in the output in <a href="#get_utxo_run">Running the get-utxo.py script</a>.</p>
-                </div>
-                <div id="get_utxo_run" class="exampleblock">
-                  <div class="title">Example 2. Running the get-utxo.py script</div>
-                  <div class="content">
-                    <div class="listingblock">
-                      <div class="content">
-                        <pre class="highlight"><code class="language-bash" data-lang="bash">$ python get-utxo.py
-        ebadfaa92f1fd29e2fe296eda702c48bd11ffd52313e986e99ddad9084062167:1 - 8000000 Satoshis
-        6596fd070679de96e405d52b51b8e1d644029108ec4cbfe451454486796a1ecf:0 - 16050000 Satoshis
-        74d788804e2aae10891d72753d1520da1206e6f4f20481cc1555b7f2cb44aca0:0 - 5000000 Satoshis
-        b2affea89ff82557c60d635a2a3137b8f88f12ecec85082f7d0a1f82ee203ac4:0 - 10000000 Satoshis
-        ...</code></pre>
-                      </div>
-                    </div>
-                  </div>
+                  <p>Running the script, we see an array of objects representing unspent transaction outputs which are available to this address.</p>
                 </div>
                 <div class="sect4">
-                  <h5 id="_spending_conditions_encumbrances">Spending conditions (encumbrances)</h5>
+                  <h5 class='yellow' id="_spending_conditions_encumbrances">Spending conditions (encumbrances)</h5>
                   <div class="paragraph">
                     <p>Transaction outputs associate a specific amount (in satoshis) to a specific <em>encumbrance</em> or locking script that defines the condition that must be met to spend that amount. In most cases, the locking script will lock the output to
-                      a specific bitcoin cash address, thereby transferring ownership of that amount to the new owner. When Alice paid Bob&#8217;s Cafe for a cup of coffee, her transaction created a 0.015 bitcoin cash output <em>encumbered</em> or locked to the cafe&#8217;s
-                      bitcoin cash address. That 0.015 bitcoin cash output was recorded on the blockchain and became part of the Unspent Transaction Output set, meaning it showed in Bob&#8217;s wallet as part of the available balance. When Bob chooses to spend that amount,
+                      a specific bitcoin cash address, thereby transferring ownership of that amount to the new owner. When Alice paid Bob&#8217;s Cafe for a cup of coffee, her transaction created a 0.00208507 bitcoin cash output <em>encumbered</em> or locked to the cafe&#8217;s
+                      bitcoin cash address. That 0.00208507 bitcoin cash output was recorded on the blockchain and became part of the Unspent Transaction Output set, meaning it showed in Bob&#8217;s wallet as part of the available balance. When Bob chooses to spend that amount,
                       his transaction will release the encumbrance, unlocking the output by providing an unlocking script containing a signature from Bob&#8217;s private key.</p>
                   </div>
                 </div>
               </div>
               <div class="sect3">
-                <h4 id="tx_inputs">Transaction Inputs</h4>
+                <h4 class='yellow' id="tx_inputs">Transaction Inputs</h4>
                 <div class="paragraph">
                   <p>In simple terms, transaction inputs are pointers to UTXO. They point to a specific UTXO by reference to the transaction hash and sequence number where the UTXO is recorded in the blockchain. To spend UTXO, a transaction input also includes unlocking
                     scripts that satisfy the spending conditions set by the UTXO. The unlocking script is usually a signature proving ownership of the bitcoin cash address that is in the locking script.</p>
                 </div>
                 <div class="paragraph">
-                  <p>When users make a payment, their wallet constructs a transaction by selecting from the available UTXO. For example, to make a 0.015 bitcoin cash payment, the wallet app may select a 0.01 UTXO and a 0.005 UTXO, using them both to add up to the desired
+                  <p>When users make a payment, their wallet constructs a transaction by selecting from the available UTXO. For example, to make a 0.00208507 bitcoin cash payment, the wallet app may select a 0.002 UTXO and a 0.00008507 UTXO, using them both to add up to the desired
                     payment amount.</p>
                 </div>
-                <div class="paragraph">
+                <!-- <div class="paragraph">
+                TODO: Port to BITBOX
                   <p>In <a href="#select_utxo">A script for calculating how much total bitcoin cash will be issued</a>, we show the use of a "greedy" algorithm to select from available UTXO in order to make a specific payment amount. In the example, the available UTXO
-                    are provided as a constant array, but in reality, the available UTXO would be retrieved with an RPC call to Bitcoin Core, or to a third-party API as shown in <a href="#get_utxo">A script that calls the blockchain.info API to find the UTXO related to an address</a>.</p>
+                    are provided as a constant array, but in reality, the available UTXO would be retrieved with an RPC call to <code>bitcoind</code>, or to a third-party API as shown in <a href="#get_utxo">A script that calls the blockchain.info API to find the UTXO related to an address</a>.</p>
                 </div>
-                <div id="select_utxo" class="exampleblock">
+                <div id="select_utxo" class="paragraph exampleblock">
                   <div class="title">Example 3. A script for calculating how much total bitcoin cash will be issued</div>
                   <div class="content">
                     <div class="listingblock">
@@ -499,7 +468,7 @@ print "%s:%d - %ld Satoshis" % (utxo['tx_hash'], utxo['tx_output_n'], utxo['valu
                   <p>If we run the <em>select-utxo.py</em> script without a parameter, it will attempt to construct a set of UTXO (and change) for a payment of 55,000,000 satoshis (0.55 bitcoin cash). If you provide a target payment amount as a parameter, the script
                     will select UTXO to make that target payment amount. In <a href="#select_utxo_run">Running the select-utxo.py script</a>, we run the script trying to make a payment of 0.5 bitcoin cash or 50,000,000 satoshis.</p>
                 </div>
-                <div id="select_utxo_run" class="exampleblock">
+                <div id="select_utxo_run" class="paragraph exampleblock">
                   <div class="title">Example 4. Running the select-utxo.py script</div>
                   <div class="content">
                     <div class="listingblock">
@@ -510,7 +479,7 @@ print "%s:%d - %ld Satoshis" % (utxo['tx_hash'], utxo['tx_output_n'], utxo['valu
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <div class="paragraph">
                   <p>Once the UTXO is selected, the wallet then produces unlocking scripts containing signatures for each of the UTXO, thereby making them spendable by satisfying their locking script conditions. The wallet adds these UTXO references and unlocking
                     scripts as inputs to the transaction. <a href="#tx_in_structure">The structure of a transaction input</a> shows the structure of a transaction input.</p>
@@ -582,7 +551,8 @@ print "%s:%d - %ld Satoshis" % (utxo['tx_hash'], utxo['tx_output_n'], utxo['valu
                     </tr>
                   </tbody>
                 </table>
-                <div class="admonitionblock note">
+                <!-- <div class="admonitionblock note">
+                TODO confirm locktime is disabled in BCH
                   <table>
                     <tbody>
                       <tr>
@@ -598,12 +568,12 @@ print "%s:%d - %ld Satoshis" % (utxo['tx_hash'], utxo['tx_output_n'], utxo['valu
                       </tr>
                     </tbody>
                   </table>
-                </div>
+                </div> -->
               </div>
               <div class="sect3">
-                <h4 id="tx_fees">Transaction Fees</h4>
+                <h4 class='yellow' id="tx_fees">Transaction Fees</h4>
                 <div class="paragraph">
-                  <p>Most transactions include transaction fees, which compensate the bitcoin cash miners for securing the network. Mining and the fees and rewards collected by miners are discussed in more detail in <a href="#ch8">[ch8]</a>. This section examines how
+                  <p>Most transactions include transaction fees, which compensate the bitcoin cash miners for securing the network. Mining and the fees and rewards collected by miners are discussed in more detail in <a href="mining-and-consensus.html">Mining and Consensus</a>. This section examines how
                     transaction fees are included in a typical transaction. Most wallets calculate and include transaction fees automatically. However, if you are constructing transactions programmatically, or using a command-line interface, you must manually
                     account for and include these fees.</p>
                 </div>
@@ -618,17 +588,11 @@ print "%s:%d - %ld Satoshis" % (utxo['tx_hash'], utxo['tx_output_n'], utxo['valu
                     might be processed eventually; however, including transaction fees encourages priority processing.</p>
                 </div>
                 <div class="paragraph">
-                  <p>Over time, the way transaction fees are calculated and the effect they have on transaction prioritization has been evolving. At first, transaction fees were fixed and constant across the network. Gradually, the fee structure has been relaxed
-                    so that it may be influenced by market forces, based on network capacity and transaction volume. The current minimum transaction fee is fixed at 0.0001 bitcoin cash or a tenth of a milli-bitcoin per kilobyte, recently decreased from one milli-bitcoin cash.
-                    Most transactions are less than one kilobyte; however, those with multiple inputs or outputs can be larger. In future revisions of the bitcoin cash protocol, it is expected that wallet applications will use statistical analysis to calculate the
-                    most appropriate fee to attach to a transaction based on the average fees of recent transactions.</p>
-                </div>
-                <div class="paragraph">
-                  <p>The current algorithm used by miners to prioritize transactions for inclusion in a block based on their fees is examined in detail in <a href="#ch8">[ch8]</a>.</p>
+                  <p>The current algorithm used by miners to prioritize transactions for inclusion in a block based on their fees is examined in detail in <a href="mining-and-consensus.html">Mining and Consensus</a>.</p>
                 </div>
               </div>
               <div class="sect3">
-                <h4 id="_adding_fees_to_transactions">Adding Fees to Transactions</h4>
+                <h4 class='yellow' id="_adding_fees_to_transactions">Adding Fees to Transactions</h4>
                 <div class="paragraph">
                   <p>The data structure of transactions does not have a field for fees. Instead, fees are implied as the difference between the sum of inputs and the sum of outputs. Any excess amount that remains after all outputs have been deducted from all inputs
                     is the fee that is collected by the miners.</p>
@@ -664,32 +628,17 @@ print "%s:%d - %ld Satoshis" % (utxo['tx_hash'], utxo['tx_output_n'], utxo['valu
                   </table>
                 </div>
                 <div class="paragraph">
-                  <p>Let&#8217;s see how this works in practice, by looking at Alice&#8217;s coffee purchase again. Alice wants to spend 0.015 bitcoin cash to pay for coffee. To ensure this transaction is processed promptly, she will want to include a transaction fee,
-                    say 0.001. That will mean that the total cost of the transaction will be 0.016. Her wallet must therefore source a set of UTXO that adds up to 0.016 bitcoin cash or more and, if necessary, create change. Let&#8217;s say her wallet has a 0.2-bitcoin cash
-                    UTXO available. It will therefore need to consume this UTXO, create one output to Bob&#8217;s Cafe for 0.015, and a second output with 0.184 bitcoin cash in change back to her own wallet, leaving 0.001 bitcoin cash unallocated, as an implicit fee for
+                  <p>Let&#8217;s see how this works in practice, by looking at Alice&#8217;s coffee purchase again. Alice wants to spend 0.00208507 bitcoin cash to pay for coffee. To ensure this transaction is processed promptly, she will want to include a transaction fee of 1 satoshi per byte. That will mean that the total cost of the transaction will be 0.00208750. Her wallet must therefore source a set of UTXO that adds up to 0.00208750 bitcoin cash or more and, if necessary, create change. Let&#8217;s say her wallet has a 0.00277257-bitcoin cash
+                    UTXO available. It will therefore need to consume this UTXO, create one output to Bob&#8217;s Cafe for 0.00208507, and a second output with 0.00068507 bitcoin cash in change back to her own wallet, leaving 0.00000243 bitcoin cash unallocated, as an implicit fee for
                     the transaction.</p>
-                </div>
-                <div class="paragraph">
-                  <p>Now let&#8217;s look at a different scenario. Eugenia, our children&#8217;s charity director in the Philippines, has completed a fundraiser to purchase school books for the children. She received several thousand small donations from people
-                    all around the world, totaling 50 bitcoin cash, so her wallet is full of very small payments (UTXO). Now she wants to purchase hundreds of school books from a local publisher, paying in bitcoin cash.</p>
-                </div>
-                <div class="paragraph">
-                  <p>As Eugenia&#8217;s wallet application tries to construct a single larger payment transaction, it must source from the available UTXO set, which is composed of many smaller amounts. That means that the resulting transaction will source from more
-                    than a hundred small-value UTXO as inputs and only one output, paying the book publisher. A transaction with that many inputs will be larger than one kilobyte, perhaps 2 to 3 kilobytes in size. As a result, it will require a higher fee than
-                    the minimal network fee of 0.0001 bitcoin cash.</p>
-                </div>
-                <div class="paragraph">
-                  <p>Eugenia&#8217;s wallet application will calculate the appropriate fee by measuring the size of the transaction and multiplying that by the per-kilobyte fee. Many wallets will overpay fees for larger transactions to ensure the transaction is
-                    processed promptly. The higher fee is not because Eugenia is spending more money, but because her transaction is more complex and larger in size—the fee is independent of the transaction&#8217;s bitcoin cash value.</p>
                 </div>
               </div>
             </div>
             <div class="sect2">
-              <h3 id="tx_chains">Transaction Chaining and Orphan Transactions</h3>
+              <h3 class='yellow' id="tx_chains">Transaction Chaining and Orphan Transactions</h3>
               <div class="paragraph">
                 <p>As we have seen, transactions form a chain, whereby one transaction spends the outputs of the previous transaction (known as the parent) and creates outputs for a subsequent transaction (known as the child). Sometimes an entire chain of transactions
-                  depending on each other—say a parent, child, and grandchild transaction—are created at the same time, to fulfill a complex transactional workflow that requires valid children to be signed before the parent is signed. For example, this is a technique
-                  used in CoinJoin transactions where multiple parties join transactions together to protect their privacy.</p>
+                  depending on each other—say a parent, child, and grandchild transaction—are created at the same time, to fulfill a complex transactional workflow that requires valid children to be signed before the parent is signed.  </p>
               </div>
               <div class="paragraph">
                 <p>When a chain of transactions is transmitted across the network, they don&#8217;t always arrive in the same order. Sometimes, the child might arrive before the parent. In that case, the nodes that see a child first can see that it references a
@@ -704,7 +653,7 @@ print "%s:%d - %ld Satoshis" % (utxo['tx_hash'], utxo['tx_output_n'], utxo['valu
               </div>
             </div>
             <div class="sect2">
-              <h3 id="tx_script">Transaction Scripts and Script Language</h3>
+              <h3 class='yellow' id="tx_script">Transaction Scripts and Script Language</h3>
               <div class="paragraph">
                 <p>Bitcoin Cash clients validate transactions by executing a script, written in a Forth-like scripting language. Both the locking script (encumbrance) placed on a UTXO and the unlocking script that usually contains a signature are written in this scripting
                   language. When a transaction is validated, the unlocking script in each input is executed alongside the corresponding locking script to see if it satisfies the spending condition.</p>
@@ -735,7 +684,7 @@ print "%s:%d - %ld Satoshis" % (utxo['tx_hash'], utxo['tx_output_n'], utxo['valu
                 </table>
               </div>
               <div class="sect3">
-                <h4 id="_script_construction_lock_unlock">Script Construction (Lock + Unlock)</h4>
+                <h4 class='yellow' id="_script_construction_lock_unlock">Script Construction (Lock + Unlock)</h4>
                 <div class="paragraph">
                   <p>Bitcoin Cash&#8217;s transaction validation engine relies on two types of scripts to validate transactions: a locking script and an unlocking script.</p>
                 </div>
@@ -770,13 +719,13 @@ print "%s:%d - %ld Satoshis" % (utxo['tx_hash'], utxo['tx_output_n'], utxo['valu
                 </div>
                 <div id="scriptSig_and_scriptPubKey" class="imageblock">
                   <div class="content">
-                    <img src="../img/mastering-bitcoin-cash/msbt_0501.png" alt="scriptSig_and_scriptPubKey" />
+                    <img class='gui' src="../img/mastering-bitcoin-cash/msbt_0501.png" alt="scriptSig_and_scriptPubKey" />
                   </div>
                   <div class="title">Figure 1. Combining scriptSig and scriptPubKey to evaluate a transaction script</div>
                 </div>
               </div>
               <div class="sect3">
-                <h4 id="tx_script_language">Scripting Language</h4>
+                <h4 class='yellow' id="tx_script_language">Scripting Language</h4>
                 <div class="paragraph">
                   <p>The bitcoin cash transaction script language, called <em>Script</em>, is a Forth-like reverse-polish notation stack-based execution language. If that sounds like gibberish, you probably haven&#8217;t studied 1960&#8217;s programming languages. Script
                     is a very simple language that was designed to be limited in scope and executable on a range of hardware, perhaps as simple as an embedded device, such as a handheld calculator. It requires minimal processing and cannot do many of the fancy
@@ -843,7 +792,7 @@ print "%s:%d - %ld Satoshis" % (utxo['tx_hash'], utxo['tx_output_n'], utxo['valu
                 </div>
                 <div id="simplemath_script" class="imageblock">
                   <div class="content">
-                    <img src="../img/mastering-bitcoin-cash/msbt_0502.png" alt="TxScriptSimpleMathExample" />
+                    <img class='gui' src="../img/mastering-bitcoin-cash/msbt_0502.png" alt="TxScriptSimpleMathExample" />
                   </div>
                   <div class="title">Figure 2. Bitcoin Cash&#8217;s script validation doing simple math</div>
                 </div>
@@ -857,7 +806,7 @@ print "%s:%d - %ld Satoshis" % (utxo['tx_hash'], utxo['tx_output_n'], utxo['valu
                         <td class="content">
                           <div class="paragraph">
                             <p>Transactions are valid if the top result on the stack is TRUE (noted as &amp;#x7b;0x01&amp;#x7d;), any other non-zero value or if the stack is empty after script execution. Transactions are invalid if the top value on the stack is FALSE
-                              (a zero-length empty value, noted as &amp;#x7b;&amp;#x7d;) or if script execution is halted explicitly by an operator, such as OP_VERIFY, OP_RETURN, or a conditional terminator such as OP_ENDIF. See <a href="#tx_script_ops">[tx_script_ops]</a>                    for details.</p>
+                              (a zero-length empty value, noted as &amp;#x7b;&amp;#x7d;) or if script execution is halted explicitly by an operator, such as OP_VERIFY, OP_RETURN, or a conditional terminator such as OP_ENDIF.</p>
                           </div>
                         </td>
                       </tr>
@@ -866,7 +815,7 @@ print "%s:%d - %ld Satoshis" % (utxo['tx_hash'], utxo['tx_output_n'], utxo['valu
                 </div>
               </div>
               <div class="sect3">
-                <h4 id="_turing_incompleteness">Turing Incompleteness</h4>
+                <h4 class='yellow' id="_turing_incompleteness">Turing Incompleteness</h4>
                 <div class="paragraph">
                   <p>The bitcoin cash transaction script language contains many operators, but is deliberately limited in one important way—there are no loops or complex flow control capabilities other than conditional flow control. This ensures that the language is
                     not <em>Turing Complete</em>, meaning that scripts have limited complexity and predictable execution times. Script is not a general-purpose language. These limitations ensure that the language cannot be used to create an infinite loop or other
@@ -875,7 +824,7 @@ print "%s:%d - %ld Satoshis" % (utxo['tx_hash'], utxo['tx_output_n'], utxo['valu
                 </div>
               </div>
               <div class="sect3">
-                <h4 id="_stateless_verification">Stateless Verification</h4>
+                <h4 class='yellow' id="_stateless_verification">Stateless Verification</h4>
                 <div class="paragraph">
                   <p>The bitcoin cash transaction script language is stateless, in that there is no state prior to execution of the script, or state saved after execution of the script. Therefore, all the information needed to execute a script is contained within the
                     script. A script will predictably execute the same way on any system. If your system verifies a script, you can be sure that every other system in the bitcoin cash network will also verify the script, meaning that a valid transaction is valid for
@@ -884,7 +833,7 @@ print "%s:%d - %ld Satoshis" % (utxo['tx_hash'], utxo['tx_output_n'], utxo['valu
               </div>
             </div>
             <div class="sect2">
-              <h3 id="std_tx">Standard Transactions</h3>
+              <h3 class='yellow' id="std_tx">Standard Transactions</h3>
               <div class="paragraph">
                 <p>In the first few years of bitcoin cash&#8217;s development, the developers introduced some limitations in the types of scripts that could be processed by the reference client. These limitations are encoded in a function called isStandard(), which defines
                   five types of "standard" transactions. These limitations are temporary and might be lifted by the time you read this. Until then, the five standard types of transaction scripts are the only ones that will be accepted by the reference client
@@ -898,13 +847,13 @@ print "%s:%d - %ld Satoshis" % (utxo['tx_hash'], utxo['tx_output_n'], utxo['valu
                 <p>The five standard types of transaction scripts are pay-to-public-key-hash (P2PKH), public-key, multi-signature (limited to 15 keys), pay-to-script-hash (P2SH), and data output (OP_RETURN), which are described in more detail in the following sections.</p>
               </div>
               <div class="sect3">
-                <h4 id="p2pkh">Pay-to-Public-Key-Hash (P2PKH)</h4>
+                <h4 class='yellow' id="p2pkh">Pay-to-Public-Key-Hash (P2PKH)</h4>
                 <div class="paragraph">
                   <p>The vast majority of transactions processed on the bitcoin cash network are P2PKH transactions. These contain a locking script that encumbers the output with a public key hash, more commonly known as a bitcoin cash address. Transactions that pay a bitcoin cash
                     address contain P2PKH scripts. An output locked by a P2PKH script can be unlocked (spent) by presenting a public key and a digital signature created by the corresponding private key.</p>
                 </div>
                 <div class="paragraph">
-                  <p>For example, let&#8217;s look at Alice&#8217;s payment to Bob&#8217;s Cafe again. Alice made a payment of 0.015 bitcoin cash to the cafe&#8217;s bitcoin cash address. That transaction output would have a locking script of the form:</p>
+                  <p>For example, let&#8217;s look at Alice&#8217;s payment to Bob&#8217;s Cafe again. Alice made a payment of 0.00208507 bitcoin cash to the cafe&#8217;s bitcoin cash address. That transaction output would have a locking script of the form:</p>
                 </div>
                 <div class="listingblock">
                   <div class="content">
@@ -941,13 +890,13 @@ print "%s:%d - %ld Satoshis" % (utxo['tx_hash'], utxo['tx_output_n'], utxo['valu
                 </div>
                 <div id="P2PubKHash1" class="imageblock">
                   <div class="content">
-                    <img src="../img/mastering-bitcoin-cash/msbt_0503.png" alt="Tx_Script_P2PubKeyHash_1" />
+                    <img class='gui' src="../img/mastering-bitcoin-cash/msbt_0503.png" alt="Tx_Script_P2PubKeyHash_1" />
                   </div>
                   <div class="title">Figure 3. Evaluating a script for a P2PKH transaction (Part 1 of 2)</div>
                 </div>
               </div>
               <div class="sect3">
-                <h4 id="p2pk">Pay-to-Public-Key</h4>
+                <h4 class='yellow' id="p2pk">Pay-to-Public-Key</h4>
                 <div class="paragraph">
                   <p>Pay-to-public-key is a simpler form of a bitcoin cash payment than pay-to-public-key-hash. With this script form, the public key itself is stored in the locking script, rather than a public-key-hash as with P2PKH earlier, which is much shorter. Pay-to-public-key-hash
                     was invented by Satoshi to make bitcoin cash addresses shorter, for ease of use. Pay-to-public-key is now most often seen in coinbase transactions, generated by older mining software that has not been updated to use P2PKH.</p>
@@ -981,13 +930,13 @@ print "%s:%d - %ld Satoshis" % (utxo['tx_hash'], utxo['tx_output_n'], utxo['valu
                 </div>
                 <div id="P2PubKHash2" class="imageblock">
                   <div class="content">
-                    <img src="../img/mastering-bitcoin-cash/msbt_0504.png" alt="Tx_Script_P2PubKeyHash_2" />
+                    <img class='gui' src="../img/mastering-bitcoin-cash/msbt_0504.png" alt="Tx_Script_P2PubKeyHash_2" />
                   </div>
                   <div class="title">Figure 4. Evaluating a script for a P2PKH transaction (Part 2 of 2)</div>
                 </div>
               </div>
               <div class="sect3">
-                <h4 id="multisig">Multi-Signature</h4>
+                <h4 class='yellow' id="multisig">Multi-Signature</h4>
                 <div class="paragraph">
                   <p>Multi-signature scripts set a condition where N public keys are recorded in the script and at least M of those must provide signatures to release the encumbrance. This is also known as an M-of-N scheme, where N is the total number of keys and
                     M is the threshold of signatures required for validation. For example, a 2-of-3 multi-signature is one where three public keys are listed as potential signers and at least two of those must be used to create signatures for a valid transaction
@@ -1054,7 +1003,7 @@ print "%s:%d - %ld Satoshis" % (utxo['tx_hash'], utxo['tx_output_n'], utxo['valu
                 </div>
               </div>
               <div class="sect3">
-                <h4 id="op_return">Data Output (OP_RETURN)</h4>
+                <h4 class='yellow' id="op_return">Data Output (OP_RETURN)</h4>
                 <div class="paragraph">
                   <p>Bitcoin Cash&#8217;s distributed and timestamped ledger, the blockchain, has potential uses far beyond payments. Many developers have tried to use the transaction scripting language to take advantage of the security and resilience of the system for
                     applications such as digital notary services, stock certificates, and smart contracts. Early attempts to use bitcoin cash&#8217;s script language for these purposes involved creating transaction outputs that recorded data on the blockchain; for
@@ -1068,7 +1017,7 @@ print "%s:%d - %ld Satoshis" % (utxo['tx_hash'], utxo['tx_output_n'], utxo['valu
                     forever increase, or "bloat."</p>
                 </div>
                 <div class="paragraph">
-                  <p>In version 0.9 of the Bitcoin Core client, a compromise was reached with the introduction of the OP_RETURN operator. OP_RETURN allows developers to add 80 bytes of nonpayment data to a transaction output. However, unlike the use of "fake" UTXO,
+                  <p>A compromise was reached with the introduction of the OP_RETURN operator. OP_RETURN allows developers to add 220 bytes of nonpayment data to a transaction output. However, unlike the use of "fake" UTXO,
                     the OP_RETURN operator creates an explicitly <em>provably unspendable</em> output, which does not need to be stored in the UTXO set. OP_RETURN outputs are recorded on the blockchain, so they consume disk space and contribute to the increase
                     in the blockchain&#8217;s size, but they are not stored in the UTXO set and therefore do not bloat the UTXO memory pool and burden full nodes with the cost of more expensive RAM.</p>
                 </div>
@@ -1081,7 +1030,7 @@ print "%s:%d - %ld Satoshis" % (utxo['tx_hash'], utxo['tx_output_n'], utxo['valu
                   </div>
                 </div>
                 <div class="paragraph">
-                  <p>The data portion is limited to 80 bytes and most often represents a hash, such as the output from the SHA256 algorithm (32 bytes). Many applications put a prefix in front of the data to help identify the application. For example, the <a href="http://proofofexistence.com">Proof of Existence</a>            digital notarization service uses the 8-byte prefix "DOCPROOF," which is ASCII encoded as 44f4350524f4f46 in hexadecimal.</p>
+                  <p>The data portion is limited to 220 bytes and most often represents a hash, such as the output from the SHA256 algorithm (32 bytes). Many applications put a prefix in front of the data to help identify the application per the <a href='https://github.com/Lokad/Terab/blob/master/spec/opreturn-prefix-guideline.md'>Terab 4-byte prefix guideline for OP_RETURN on Bitcoin Cash</a>.</p>
                 </div>
                 <div class="paragraph">
                   <p>Keep in mind that there is no "unlocking script" that corresponds to OP_RETURN that could possibly be used to "spend" an OP_RETURN output. The whole point of OP_RETURN is that you can&#8217;t spend the money locked in that output, and therefore
@@ -1092,10 +1041,6 @@ print "%s:%d - %ld Satoshis" % (utxo['tx_hash'], utxo['tx_output_n'], utxo['valu
                 <div class="paragraph">
                   <p>A standard transaction (one that conforms to the isStandard() checks) can have only one OP_RETURN output. However, a single OP_RETURN output can be combined in a transaction with outputs of any other type.</p>
                 </div>
-                <div class="paragraph">
-                  <p>Two new command-line options have been added in Bitcoin Core as of version 0.10. The option datacarrier controls relay and mining of OP_RETURN transactions, with the default set to "1" to allow them. The option datacarriersize takes a numeric
-                    argument specifying the maximum size in bytes of the OP_RETURN data, 40 bytes by default.</p>
-                </div>
                 <div class="admonitionblock note">
                   <table>
                     <tbody>
@@ -1105,8 +1050,7 @@ print "%s:%d - %ld Satoshis" % (utxo['tx_hash'], utxo['tx_output_n'], utxo['valu
                         </td>
                         <td class="content">
                           <div class="paragraph">
-                            <p>OP_RETURN was initially proposed with a limit of 80 bytes, but the limit was reduced to 40 bytes when the feature was released. In February 2015, in version 0.10 of Bitcoin Core, the limit was raised back to 80 bytes. Nodes may choose
-                              not to relay or mine OP_RETURN, or only relay and mine OP_RETURN containing less than 80 bytes of data.</p>
+                            <p>OP_RETURN was initially proposed with a limit of 80 bytes, but the limit was raised to 220 bytes of data on the May 15th 2018 BCH network upgrade.</p>
                           </div>
                         </td>
                       </tr>
@@ -1115,12 +1059,12 @@ print "%s:%d - %ld Satoshis" % (utxo['tx_hash'], utxo['tx_output_n'], utxo['valu
                 </div>
               </div>
               <div class="sect3">
-                <h4 id="p2sh">Pay-to-Script-Hash (P2SH)</h4>
+                <h4 class='yellow' id="p2sh">Pay-to-Script-Hash (P2SH)</h4>
                 <div class="paragraph">
                   <p>Pay-to-script-hash (P2SH) was introduced in 2012 as a powerful new type of transaction that greatly simplifies the use of complex transaction scripts. To explain the need for P2SH, let&#8217;s look at a practical example.</p>
                 </div>
                 <div class="paragraph">
-                  <p>In <a href="#ch01_intro_what_is_bitcoin">[ch01_intro_what_is_bitcoin]</a> we introduced Mohammed, an electronics importer based in Dubai. Mohammed&#8217;s company uses bitcoin cash&#8217;s multi-signature feature extensively for its corporate accounts.
+                  <p>In <a href="what-is-bitcoin-cash.html">What is Bitcoin Cash</a> we introduced Mohammed, an electronics importer based in Dubai. Mohammed&#8217;s company uses bitcoin cash&#8217;s multi-signature feature extensively for its corporate accounts.
                     Multi-signature scripts are one of the most common uses of bitcoin cash&#8217;s advanced scripting capabilities and are a very powerful feature. Mohammed&#8217;s company uses a multi-signature script for all customer payments, known in accounting
                     terms as "accounts receivable," or AR. With the multi-signature scheme, any payments made by customers are locked in such a way that they require at least two signatures to release, from Mohammed and one of his partners or from his attorney
                     who has a backup key. A multi-signature scheme like that offers corporate governance controls and protects against theft, embezzlement, or loss.</p>
@@ -1263,9 +1207,9 @@ print "%s:%d - %ld Satoshis" % (utxo['tx_hash'], utxo['tx_output_n'], utxo['valu
                   </div>
                 </div>
                 <div class="sect4">
-                  <h5 id="_pay_to_script_hash_addresses">Pay-to-script-hash addresses</h5>
+                  <h5 class='yellow' id="_pay_to_script_hash_addresses">Pay-to-script-hash addresses</h5>
                   <div class="paragraph">
-                    <p>Another important part of the P2SH feature is the ability to encode a script hash as an address, as defined in BIP0013. P2SH addresses are Base58Check encodings of the 20-byte hash of a script, just like bitcoin cash addresses are Base58Check encodings
+                    <p>Another important part of the P2SH feature is the ability to encode a script hash as an address, as defined in <a href=''>BIP0013</a>. P2SH addresses are Base58Check encodings of the 20-byte hash of a script, just like bitcoin cash addresses are Base58Check encodings
                       of the 20-byte hash of a public key. P2SH addresses use the version prefix "5", which results in Base58Check-encoded addresses that start with a "3". For example, Mohammed&#8217;s complex script, hashed and Base58Check-encoded as a P2SH
                       address becomes 39RF6JqABiHdYHkfChV6USGMe6Nsr66Gzw. Now, Mohammed can give this "address" to his customers and they can use almost any bitcoin cash wallet to make a simple payment, as if it were a bitcoin cash address. The 3 prefix gives them a hint
                       that this is a special type of address, one corresponding to a script instead of a public key, but otherwise it works in exactly the same way as a payment to a bitcoin cash address.</p>
@@ -1275,7 +1219,7 @@ print "%s:%d - %ld Satoshis" % (utxo['tx_hash'], utxo['tx_output_n'], utxo['valu
                   </div>
                 </div>
                 <div class="sect4">
-                  <h5 id="_benefits_of_pay_to_script_hash">Benefits of pay-to-script-hash</h5>
+                  <h5 class='yellow' id="_benefits_of_pay_to_script_hash">Benefits of pay-to-script-hash</h5>
                   <div class="paragraph">
                     <p>The pay-to-script-hash feature offers the following benefits compared to the direct use of complex scripts in locking outputs:</p>
                   </div>
@@ -1303,13 +1247,13 @@ print "%s:%d - %ld Satoshis" % (utxo['tx_hash'], utxo['tx_output_n'], utxo['valu
                   </div>
                 </div>
                 <div class="sect4">
-                  <h5 id="_redeem_script_and_isstandard_validation">Redeem script and isStandard validation</h5>
+                  <h5 class='yellow' id="_redeem_script_and_isstandard_validation">Redeem script and isStandard validation</h5>
                   <div class="paragraph">
-                    <p>Prior to version 0.9.2 of the Bitcoin Core client, pay-to-script-hash was limited to the standard types of bitcoin cash transaction scripts, by the isStandard() function. That means that the redeem script presented in the spending transaction could
+                    <p>Prior to version 0.9.2, pay-to-script-hash was limited to the standard types of bitcoin cash transaction scripts, by the isStandard() function. That means that the redeem script presented in the spending transaction could
                       only be one of the standard types: P2PK, P2PKH, or multi-sig nature, excluding OP_RETURN and P2SH itself.</p>
                   </div>
                   <div class="paragraph">
-                    <p>As of version 0.9.2 of the Bitcoin Core client, P2SH transactions can contain any valid script, making the P2SH standard much more flexible and allowing for experimentation with many novel and complex types of transactions.</p>
+                    <p>As of version 0.9.2, P2SH transactions can contain any valid script, making the P2SH standard much more flexible and allowing for experimentation with many novel and complex types of transactions.</p>
                   </div>
                   <div class="paragraph">
                     <p>Note that you are not able to put a P2SH inside a P2SH redeem script, because the P2SH specification is not recursive. You are also still not able to use OP_RETURN in a redeem script because OP_RETURN cannot be redeemed by definition.</p>
@@ -1351,4 +1295,4 @@ print "%s:%d - %ld Satoshis" % (utxo['tx_hash'], utxo['tx_output_n'], utxo['valu
       </div>
     </div>
   </div>
-</section> -->
+</section>
