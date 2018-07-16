@@ -26,20 +26,20 @@ subtitle: Mastering Bitcoin Cash
             <div class="sect2">
               <h3 class='yellow' id="_introduction">Introduction</h3>
               <div class="paragraph">
-                <p>Ownership of bitcoin cash is established through <em>digital keys</em>, <em>bitcoin cash addresses</em>, and <em>digital signatures</em>. The digital keys are not actually stored in the network, but are instead created and stored by users in a file, or
-                  simple database, called a <em>wallet</em>. The digital keys in a user&#8217;s wallet are completely independent of the bitcoin cash protocol and can be generated and managed by the user&#8217;s wallet software without reference to the blockchain
-                  or access to the Internet. Keys enable many of the interesting properties of bitcoin cash, including de-centralized trust and control, ownership attestation, and the cryptographic-proof security model.</p>
+                <p>Ownership of Bitcoin Cash is established through <em>digital keys</em>, <em>Bitcoin Cash addresses</em>, and <em>digital signatures</em>. The digital keys are not actually stored in the network, but are instead created and stored by users in a file, or
+                  simple database, called a <em>wallet</em>. The digital keys in a user&#8217;s wallet are completely independent of the Bitcoin Cash protocol and can be generated and managed by the user&#8217;s wallet software without reference to the blockchain
+                  or access to the Internet. Keys enable many of the interesting properties of Bitcoin Cash, including de-centralized trust and control, ownership attestation, and the cryptographic-proof security model.</p>
               </div>
               <div class="paragraph">
-                <p>Every bitcoin cash transaction requires a valid signature to be included in the blockchain, which can only be generated with valid digital keys; therefore, anyone with a copy of those keys has control of the bitcoin cash in that account. Keys come in pairs
+                <p>Every Bitcoin Cash transaction requires a valid signature to be included in the blockchain, which can only be generated with valid digital keys; therefore, anyone with a copy of those keys has control of the Bitcoin Cash in that account. Keys come in pairs
                   consisting of a private (secret) key and a public key. Think of the public key as similar to a bank account number and the private key as similar to the secret PIN, or signature on a check that provides control over the account. These digital
-                  keys are very rarely seen by the users of bitcoin cash. For the most part, they are stored inside the wallet file and managed by the bitcoin cash wallet software.</p>
+                  keys are very rarely seen by the users of Bitcoin Cash. For the most part, they are stored inside the wallet file and managed by the Bitcoin Cash wallet software.</p>
               </div>
               <div class="paragraph">
-                <p>In the payment portion of a bitcoin cash transaction, the recipient&#8217;s public key is represented by its digital fingerprint, called a <em>bitcoin cash address</em>, which is used in the same way as the beneficiary name on a check (i.e., "Pay to the
-                  order of"). In most cases, a bitcoin cash address is generated from and corresponds to a public key. However, not all bitcoin cash addresses represent public keys; they can also represent other beneficiaries such as scripts, as we will see later in this
-                  chapter. This way, bitcoin cash addresses abstract the recipient of funds, making transaction destinations flexible, similar to paper checks: a single payment instrument that can be used to pay into people&#8217;s accounts, pay into company accounts,
-                  pay for bills, or pay to cash. The bitcoin cash address is the only representation of the keys that users will routinely see, because this is the part they need to share with the world.</p>
+                <p>In the payment portion of a Bitcoin Cash transaction, the recipient&#8217;s public key is represented by its digital fingerprint, called a <em>Bitcoin Cash address</em>, which is used in the same way as the beneficiary name on a check (i.e., "Pay to the
+                  order of"). In most cases, a Bitcoin Cash address is generated from and corresponds to a public key. However, not all Bitcoin Cash addresses represent public keys; they can also represent other beneficiaries such as scripts, as we will see later in this
+                  chapter. This way, Bitcoin Cash addresses abstract the recipient of funds, making transaction destinations flexible, similar to paper checks: a single payment instrument that can be used to pay into people&#8217;s accounts, pay into company accounts,
+                  pay for bills, or pay to cash. The Bitcoin Cash address is the only representation of the keys that users will routinely see, because this is the part they need to share with the world.</p>
               </div>
               <div class="paragraph">
                 <p>In this chapter we will introduce wallets, which contain cryptographic keys. We will look at how keys are generated, stored, and managed. We will review the various encoding formats used to represent private and public keys, addresses, and script
@@ -56,15 +56,15 @@ subtitle: Mastering Bitcoin Cash
                     Bitcoin Cash uses elliptic curve multiplication as the basis for its public key cryptography.</p>
                 </div>
                 <div class="paragraph">
-                  <p>In bitcoin cash, we use public key cryptography to create a key pair that controls access to bitcoins. The key pair consists of a private key and&#8212;&#8203;derived from it&#8212;&#8203;a unique public key. The public key is used to receive the bitcoin cash,
-                    and the private key is used to sign transactions to spend the bitcoin cash.</p>
+                  <p>In Bitcoin Cash, we use public key cryptography to create a key pair that controls access to bitcoins. The key pair consists of a private key and&#8212;&#8203;derived from it&#8212;&#8203;a unique public key. The public key is used to receive the Bitcoin Cash,
+                    and the private key is used to sign transactions to spend the Bitcoin Cash.</p>
                 </div>
                 <div class="paragraph">
                   <p>There is a mathematical relationship between the public and the private key that allows the private key to be used to generate signatures on messages. This signature can be validated against the public key without revealing the private key.</p>
                 </div>
                 <div class="paragraph">
-                  <p>When spending bitcoin cash, the current bitcoin cash owner presents her public key and a signature (different each time, but created from the same private key) in a transaction to spend those bitcoins. Through the presentation of the public key and signature,
-                    everyone in the bitcoin cash network can verify and accept the transaction as valid, confirming that the person transferring the bitcoin cash owned them at the time of the transfer.</p>
+                  <p>When spending Bitcoin Cash, the current Bitcoin Cash owner presents her public key and a signature (different each time, but created from the same private key) in a transaction to spend those bitcoins. Through the presentation of the public key and signature,
+                    everyone in the Bitcoin Cash network can verify and accept the transaction as valid, confirming that the person transferring the Bitcoin Cash owned them at the time of the transfer.</p>
                 </div>
                 <div class="admonitionblock tip">
                   <table>
@@ -86,21 +86,21 @@ subtitle: Mastering Bitcoin Cash
               <div class="sect3">
                 <h4 class='yellow' id="private_public_keys">Private and Public Keys</h4>
                 <div class="paragraph">
-                  <p>A bitcoin cash wallet contains a collection of key pairs, each consisting of a private key and a public key. The private key (k) is a number, usually picked at random. From the private key, we use elliptic curve multiplication, a one-way cryptographic
-                    function, to generate a public key (K). From the public key (K), we use a one-way cryptographic hash function to generate a bitcoin cash address (A). In this section, we will start with generating the private key, look at the elliptic curve math
-                    that is used to turn that into a public key, and finally, generate a bitcoin cash address from the public key. The relationship between private key, public key, and bitcoin cash address is shown in <a href="#k_to_K_to_A">Private key, public key, and bitcoin cash address</a>.</p>
+                  <p>A Bitcoin Cash wallet contains a collection of key pairs, each consisting of a private key and a public key. The private key (k) is a number, usually picked at random. From the private key, we use elliptic curve multiplication, a one-way cryptographic
+                    function, to generate a public key (K). From the public key (K), we use a one-way cryptographic hash function to generate a Bitcoin Cash address (A). In this section, we will start with generating the private key, look at the elliptic curve math
+                    that is used to turn that into a public key, and finally, generate a Bitcoin Cash address from the public key. The relationship between private key, public key, and Bitcoin Cash address is shown in <a href="#k_to_K_to_A">Private key, public key, and Bitcoin Cash address</a>.</p>
                 </div>
                 <div id="k_to_K_to_A" class="imageblock">
                   <div class="content">
                     <img src="../img/mastering-bitcoin-cash/msbt_0401.png" alt="privk_to_pubK_to_addressA" />
                   </div>
-                  <div class="title">Figure 1. Private key, public key, and bitcoin cash address</div>
+                  <div class="title">Figure 1. Private key, public key, and Bitcoin Cash address</div>
                 </div>
               </div>
               <div class="sect3">
                 <h4 class='yellow' id="private_keys">Private Keys</h4>
                 <div class="paragraph">
-                  <p>A private key is simply a number, picked at random. Ownership and control over the private key is the root of user control over all funds associated with the corresponding bitcoin cash address. The private key is used to create signatures that are
+                  <p>A private key is simply a number, picked at random. Ownership and control over the private key is the root of user control over all funds associated with the corresponding Bitcoin Cash address. The private key is used to create signatures that are
                     required to spend bitcoins by proving ownership of funds used in a transaction. The private key must remain secret at all times, because revealing it to third parties is equivalent to giving them control over the bitcoins secured by that key.
                     The private key must also be backed up and protected from accidental loss, because if it&#8217;s lost it cannot be recovered and the funds secured by it are forever lost, too.</p>
                 </div>
@@ -113,7 +113,7 @@ subtitle: Mastering Bitcoin Cash
                         </td>
                         <td class="content">
                           <div class="paragraph">
-                            <p>The bitcoin cash private key is just a number. You can pick your private keys randomly using just a coin, pencil, and paper: toss a coin 256 times and you have the binary digits of a random private key you can use in a bitcoin cash wallet. The
+                            <p>The Bitcoin Cash private key is just a number. You can pick your private keys randomly using just a coin, pencil, and paper: toss a coin 256 times and you have the binary digits of a random private key you can use in a Bitcoin Cash wallet. The
                               public key can then be generated from the private key.</p>
                           </div>
                         </td>
@@ -124,12 +124,12 @@ subtitle: Mastering Bitcoin Cash
                 <div class="sect4">
                   <h5 class='yellow' id="_generating_a_private_key_from_a_random_number">Generating a private key from a random number</h5>
                   <div class="paragraph">
-                    <p>The first and most important step in generating keys is to find a secure source of entropy, or randomness. Creating a bitcoin cash key is essentially the same as "Pick a number between 1 and 2<sup>256</sup>." The exact method you use to pick that
+                    <p>The first and most important step in generating keys is to find a secure source of entropy, or randomness. Creating a Bitcoin Cash key is essentially the same as "Pick a number between 1 and 2<sup>256</sup>." The exact method you use to pick that
                       number does not matter as long as it is not predictable or repeatable. Bitcoin Cash software uses the underlying operating system&#8217;s random number generators to produce 256 bits of entropy (randomness). Usually, the OS random number generator
                       is initialized by a human source of randomness, which is why you may be asked to wiggle your mouse around for a few seconds. For the truly paranoid, nothing beats dice, pencil, and paper.</p>
                   </div>
                   <div class="paragraph">
-                    <p>More accurately, the private key can be any number between 1 and n - 1, where n is a constant (n = 1.158 * 10<sup>77</sup>, slightly less than 2<sup>256</sup>) defined as the order of the elliptic curve used in bitcoin cash (see <a href="#elliptic_curve">Elliptic Curve Cryptography Explained</a>).
+                    <p>More accurately, the private key can be any number between 1 and n - 1, where n is a constant (n = 1.158 * 10<sup>77</sup>, slightly less than 2<sup>256</sup>) defined as the order of the elliptic curve used in Bitcoin Cash (see <a href="#elliptic_curve">Elliptic Curve Cryptography Explained</a>).
                       To create such a key, we randomly pick a 256-bit number and check that it is less than n - 1. In programming terms, this is usually achieved by feeding a larger string of random bits, collected from a cryptographically secure source of randomness,
                       into the SHA256 hash algorithm that will conveniently produce a 256-bit number. If the result is less than n - 1, we have a suitable private key. Otherwise, we simply try again with another random number.</p>
                   </div>
@@ -189,7 +189,7 @@ subtitle: Mastering Bitcoin Cash
                   <p>Elliptic curve cryptography is a type of asymmetric or public-key cryptography based on the discrete logarithm problem as expressed by addition and multiplication on the points of an elliptic curve.</p>
                 </div>
                 <div class="paragraph">
-                  <p><a href="#ecc-curve">An elliptic curve</a> is an example of an elliptic curve, similar to that used by bitcoin cash.</p>
+                  <p><a href="#ecc-curve">An elliptic curve</a> is an example of an elliptic curve, similar to that used by Bitcoin Cash.</p>
                 </div>
                 <div id="ecc-curve" class="imageblock">
                   <div class="content">
@@ -232,7 +232,7 @@ subtitle: Mastering Bitcoin Cash
                 <div class="paragraph">
                   <p>Because this curve is defined over a finite field of prime order instead of over the real numbers, it looks like a pattern of dots scattered in two dimensions, which makes it difficult to visualize. However, the math is identical as that of
                     an elliptic curve over the real numbers. As an example, <a href="#ecc-over-F17-math">Elliptic curve cryptography: visualizing an elliptic curve over F(p), with p=17</a> shows the same elliptic curve over a much smaller finite field of prime
-                    order 17, showing a pattern of dots on a grid. The secp256k1 bitcoin cash elliptic curve can be thought of as a much more complex pattern of dots on a unfathomably large grid.</p>
+                    order 17, showing a pattern of dots on a grid. The secp256k1 Bitcoin Cash elliptic curve can be thought of as a much more complex pattern of dots on a unfathomably large grid.</p>
                 </div>
                 <div id="ecc-over-F17-math" class="imageblock">
                   <div class="content">
@@ -302,7 +302,7 @@ subtitle: Mastering Bitcoin Cash
                 <h4 class='yellow' id="public_key_derivation">Generating a Public Key</h4>
                 <div class="paragraph">
                   <p>Starting with a private key in the form of a randomly generated number <em>k</em>, we multiply it by a predetermined point on the curve called the <em>generator point</em> <em>G</em> to produce another point somewhere else on the curve, which
-                    is the corresponding public key <em>K</em>. The generator point is specified as part of the secp256k1 standard and is always the same for all keys in bitcoin cash:</p>
+                    is the corresponding public key <em>K</em>. The generator point is specified as part of the secp256k1 standard and is always the same for all keys in Bitcoin Cash:</p>
                 </div>
                 <div class="stemblock">
                   <div class="content">
@@ -314,8 +314,8 @@ subtitle: Mastering Bitcoin Cash
                   </div>
                 </div>
                 <div class="paragraph">
-                  <p>where k is the private key, G is the generator point, and K is the resulting public key, a point on the curve. Because the generator point is always the same for all bitcoin cash users, a private key k multiplied with G will always result in the
-                    same public key K. The relationship between k and K is fixed, but can only be calculated in one direction, from k to K. That&#8217;s why a bitcoin cash address (derived from K) can be shared with anyone and does not reveal the user&#8217;s private
+                  <p>where k is the private key, G is the generator point, and K is the resulting public key, a point on the curve. Because the generator point is always the same for all Bitcoin Cash users, a private key k multiplied with G will always result in the
+                    same public key K. The relationship between k and K is fixed, but can only be calculated in one direction, from k to K. That&#8217;s why a Bitcoin Cash address (derived from K) can be shared with anyone and does not reveal the user&#8217;s private
                     key (k).</p>
                 </div>
                 <div class="admonitionblock tip">
@@ -371,7 +371,7 @@ subtitle: Mastering Bitcoin Cash
                         </td>
                         <td class="content">
                           <div class="paragraph">
-                            <p>Most bitcoin cash implementations use the <a href="http://bit.ly/1ql7bn8">OpenSSL cryptographic library</a> to do the elliptic curve math. For example, to derive the public key, the function EC_POINT_mul() is used.</p>
+                            <p>Most Bitcoin Cash implementations use the <a href="http://bit.ly/1ql7bn8">OpenSSL cryptographic library</a> to do the elliptic curve math. For example, to derive the public key, the function EC_POINT_mul() is used.</p>
                           </div>
                         </td>
                       </tr>
@@ -393,8 +393,8 @@ subtitle: Mastering Bitcoin Cash
             <div class="sect2">
               <h3 class='yellow' id="_bitcoin_addresses">Legacy Bitcoin Cash Addresses</h3>
               <div class="paragraph">
-                <p>A bitcoin cash address is a string of digits and characters that can be shared with anyone who wants to send you money. Addresses produced from public keys consist of a string of numbers and letters, beginning with the digit "1". Here&#8217;s an example
-                  of a bitcoin cash address:</p>
+                <p>A Bitcoin Cash address is a string of digits and characters that can be shared with anyone who wants to send you money. Addresses produced from public keys consist of a string of numbers and letters, beginning with the digit "1". Here&#8217;s an example
+                  of a Bitcoin Cash address:</p>
               </div>
               <div class="listingblock">
                 <div class="content">
@@ -402,15 +402,15 @@ subtitle: Mastering Bitcoin Cash
                 </div>
               </div>
               <div class="paragraph">
-                <p>The bitcoin cash address is what appears most commonly in a transaction as the "recipient" of the funds. If we were to compare a bitcoin cash transaction to a paper check, the bitcoin cash address is the beneficiary, which is what we write on the line after
+                <p>The Bitcoin Cash address is what appears most commonly in a transaction as the "recipient" of the funds. If we were to compare a Bitcoin Cash transaction to a paper check, the Bitcoin Cash address is the beneficiary, which is what we write on the line after
                   "Pay to the order of." On a paper check, that beneficiary can sometimes be the name of a bank account holder, but can also include corporations, institutions, or even cash. Because paper checks do not need to specify an account, but rather use
-                  an abstract name as the recipient of funds, that makes paper checks very flexible as payment instruments. Bitcoin transactions use a similar abstraction, the bitcoin cash address, to make them very flexible. A bitcoin cash address can represent the owner
-                  of a private/public key pair, or it can represent something else, such as a payment script. For now, let&#8217;s examine the simple case, a bitcoin cash address that represents, and is derived from, a
+                  an abstract name as the recipient of funds, that makes paper checks very flexible as payment instruments. Bitcoin transactions use a similar abstraction, the Bitcoin Cash address, to make them very flexible. A Bitcoin Cash address can represent the owner
+                  of a private/public key pair, or it can represent something else, such as a payment script. For now, let&#8217;s examine the simple case, a Bitcoin Cash address that represents, and is derived from, a
                   public key.</p>
               </div>
               <div class="paragraph">
-                <p>The bitcoin cash address is derived from the public key through the use of one-way cryptographic hashing. A "hashing algorithm" or simply "hash algorithm" is a one-way function that produces a fingerprint or "hash" of an arbitrary-sized input. Cryptographic
-                  hash functions are used extensively in bitcoin cash: in bitcoin cash addresses, in script addresses, and in the mining proof-of-work algorithm. The algorithms used to make a bitcoin cash address from a public key are the Secure Hash Algorithm (SHA) and the
+                <p>The Bitcoin Cash address is derived from the public key through the use of one-way cryptographic hashing. A "hashing algorithm" or simply "hash algorithm" is a one-way function that produces a fingerprint or "hash" of an arbitrary-sized input. Cryptographic
+                  hash functions are used extensively in Bitcoin Cash: in Bitcoin Cash addresses, in script addresses, and in the mining proof-of-work algorithm. The algorithms used to make a Bitcoin Cash address from a public key are the Secure Hash Algorithm (SHA) and the
                   RACE Integrity Primitives Evaluation Message Digest (RIPEMD), specifically SHA256 and RIPEMD160.</p>
               </div>
               <div class="paragraph">
@@ -427,7 +427,7 @@ subtitle: Mastering Bitcoin Cash
                 </div>
               </div>
               <div class="paragraph">
-                <p>where K is the public key and A is the resulting bitcoin cash address.</p>
+                <p>where K is the public key and A is the resulting Bitcoin Cash address.</p>
               </div>
               <div class="admonitionblock tip">
                 <table>
@@ -438,7 +438,7 @@ subtitle: Mastering Bitcoin Cash
                       </td>
                       <td class="content">
                         <div class="paragraph">
-                          <p>A bitcoin cash address is <em>not</em> the same as a public key. Bitcoin Cash addresses are derived from a public key using a one-way function.</p>
+                          <p>A Bitcoin Cash address is <em>not</em> the same as a public key. Bitcoin Cash addresses are derived from a public key using a one-way function.</p>
                         </div>
                       </td>
                     </tr>
@@ -447,14 +447,14 @@ subtitle: Mastering Bitcoin Cash
               </div>
               <div class="paragraph">
                 <p>Legacy Bitcoin Cash addresses are almost always presented to users in an encoding called "Base58Check" (see <a href="#base58">Base58 and Base58Check Encoding</a>), which uses 58 characters (a Base58 number system) and a checksum to help human readability,
-                  avoid ambiguity, and protect against errors in address transcription and entry. Base58Check is also used in many other ways in bitcoin cash, whenever there is a need for a user to read and correctly transcribe a number, such as a bitcoin cash address,
-                  a private key, an encrypted key, or a script hash. In the next section we will examine the mechanics of Base58Check encoding and decoding, and the resulting representations. <a href="#pubkey_to_address">Public key to bitcoin cash address: conversion of a public key into a bitcoin cash address</a>          illustrates the conversion of a public key into a bitcoin cash address.</p>
+                  avoid ambiguity, and protect against errors in address transcription and entry. Base58Check is also used in many other ways in Bitcoin Cash, whenever there is a need for a user to read and correctly transcribe a number, such as a Bitcoin Cash address,
+                  a private key, an encrypted key, or a script hash. In the next section we will examine the mechanics of Base58Check encoding and decoding, and the resulting representations. <a href="#pubkey_to_address">Public key to Bitcoin Cash address: conversion of a public key into a Bitcoin Cash address</a>          illustrates the conversion of a public key into a Bitcoin Cash address.</p>
               </div>
               <div id="pubkey_to_address" class="imageblock">
                 <div class="content">
                   <img src="../img/mastering-bitcoin-cash/msbt_0405.png" alt="pubkey_to_address" />
                 </div>
-                <div class="title">Figure 5. Public key to bitcoin cash address: conversion of a public key into a bitcoin cash address</div>
+                <div class="title">Figure 5. Public key to Bitcoin Cash address: conversion of a public key into a Bitcoin Cash address</div>
               </div>
               <div class="sect3">
                 <h4 class='yellow' id="base58">Base58 and Base58Check Encoding</h4>
@@ -462,12 +462,12 @@ subtitle: Mastering Bitcoin Cash
                   <p>In order to represent long numbers in a compact way, using fewer symbols, many computer systems use mixed-alphanumeric representations with a base (or radix) higher than 10. For example, whereas the traditional decimal system uses the 10 numerals
                     0 through 9, the hexadecimal system uses 16, with the letters A through F as the six additional symbols. A number represented in hexadecimal format is shorter than the equivalent decimal representation. Even more compact, Base-64 representation
                     uses 26 lower-case letters, 26 capital letters, 10 numerals, and two more characters such as "+" and "/" to transmit binary data over text-based media such as email. Base-64 is most commonly used to add binary attachments to email. Base58
-                    is a text-based binary-encoding format developed for use in bitcoin cash and used in many other cryptocurrencies. It offers a balance between compact representation, readability, and error detection and prevention. Base58 is a subset of Base64,
+                    is a text-based binary-encoding format developed for use in Bitcoin Cash and used in many other cryptocurrencies. It offers a balance between compact representation, readability, and error detection and prevention. Base58 is a subset of Base64,
                     using the upper- and lowercase letters and numbers, but omitting some characters that are frequently mistaken for one another and can appear identical when displayed in certain fonts. Specifically, Base58 is Base64 without the 0 (number zero),
                     O (capital o), l (lower L), I (capital i), and the symbols "\+" and "/". Or, more simply, it is a set of lower and capital letters and numbers without the four (0, O, l, I) just mentioned.</p>
                 </div>
                 <div id="base58alphabet" class="exampleblock">
-                  <div class="title">Example 1. bitcoin cash&#8217;s Base58 alphabet</div>
+                  <div class="title">Example 1. Bitcoin Cash&#8217;s Base58 alphabet</div>
                   <div class="content">
                     <div class="listingblock">
                       <div class="content">
@@ -479,11 +479,11 @@ subtitle: Mastering Bitcoin Cash
                 <div class="paragraph">
                   <p>To add extra security against typos or transcription errors, Base58Check is a Base58 encoding format, which has a built-in error-checking code. The checksum is an additional four bytes added to the end of the data
                     that is being encoded. The checksum is derived from the hash of the encoded data and can therefore be used to detect and prevent transcription and typing errors. When presented with a Base58Check code, the decoding software will calculate
-                    the checksum of the data and compare it to the checksum included in the code. If the two do not match, that indicates that an error has been introduced and the Base58Check data is invalid. For example, this prevents a mistyped bitcoin cash address
+                    the checksum of the data and compare it to the checksum included in the code. If the two do not match, that indicates that an error has been introduced and the Base58Check data is invalid. For example, this prevents a mistyped Bitcoin Cash address
                     from being accepted by the wallet software as a valid destination, an error that would otherwise result in loss of funds.</p>
                 </div>
                 <div class="paragraph">
-                  <p>To convert data (a number) into a Base58Check format, we first add a prefix to the data, called the "version byte," which serves to easily identify the type of data that is encoded. For example, in the case of a bitcoin cash address the prefix is
+                  <p>To convert data (a number) into a Base58Check format, we first add a prefix to the data, called the "version byte," which serves to easily identify the type of data that is encoded. For example, in the case of a Bitcoin Cash address the prefix is
                     zero (0x00 in hex), whereas the prefix used when encoding a private key is 128 (0x80 in hex). A list of common version prefixes is shown in <a href="#base58check_versions">Base58Check version prefix and encoded result examples</a>.</p>
                 </div>
                 <div class="paragraph">
@@ -498,7 +498,7 @@ subtitle: Mastering Bitcoin Cash
                   <p>From the resulting 32-byte hash (hash-of-a-hash), we take only the first four bytes. These four bytes serve as the error-checking code, or checksum. The checksum is concatenated (appended) to the end.</p>
                 </div>
                 <div class="paragraph">
-                  <p>The result is composed of three items: a prefix, the data, and a checksum. This result is encoded using the Base58 alphabet described previously. <a href="#base58check_encoding">Base58Check encoding: a Base58, versioned, and checksummed format for unambiguously encoding bitcoin cash data</a>            illustrates the Base58Check encoding process.</p>
+                  <p>The result is composed of three items: a prefix, the data, and a checksum. This result is encoded using the Base58 alphabet described previously. <a href="#base58check_encoding">Base58Check encoding: a Base58, versioned, and checksummed format for unambiguously encoding Bitcoin Cash data</a>            illustrates the Base58Check encoding process.</p>
                 </div>
                 <div id="base58check_encoding" class="imageblock">
                   <div class="content">
@@ -507,9 +507,9 @@ subtitle: Mastering Bitcoin Cash
                   <div class="title">Figure 6. Base58Check encoding: a Base58, versioned, and checksummed format for unambiguously encoding bitcoin data</div>
                 </div>
                 <div class="paragraph">
-                  <p>In bitcoin cash legacy addresses, the data presented to the user is Base58Check-encoded to make it compact, easy to read, and easy to detect errors. The version prefix in Base58Check encoding is used to create easily distinguishable formats, which when encoded
+                  <p>In Bitcoin Cash legacy addresses, the data presented to the user is Base58Check-encoded to make it compact, easy to read, and easy to detect errors. The version prefix in Base58Check encoding is used to create easily distinguishable formats, which when encoded
                     in Base58 contain specific characters at the beginning of the Base58Check-encoded payload. These characters make it easy for humans to identify the type of data that is encoded and how to use it. This is what differentiates, for example, a
-                    Base58Check-encoded bitcoin cash address that starts with a 1 from a Base58Check-encoded private key WIF format that starts with a 5. Some example version prefixes and the resulting Base58 characters are shown in <a href="#base58check_versions">Base58Check version prefix and encoded result examples</a>.</p>
+                    Base58Check-encoded Bitcoin Cash address that starts with a 1 from a Base58Check-encoded private key WIF format that starts with a 5. Some example version prefixes and the resulting Base58 characters are shown in <a href="#base58check_versions">Base58Check version prefix and encoded result examples</a>.</p>
                 </div>
                   <table id="base58check_versions" class="tableblock frame-all grid-all stretch">
                     <caption class="title">Table 1. Base58Check version prefix and encoded result examples</caption>
@@ -590,10 +590,10 @@ subtitle: Mastering Bitcoin Cash
                     </tbody>
                   </table>
                   <div class="paragraph">
-                    <p>Let&#8217;s look at the complete process of creating a bitcoin cash address, from a private key, to a public key (a point on the elliptic curve), to a double-hashed address and finally, the Base58Check encoding. The C++ code in <a href="#addr_example">Creating a Base58Check-encoded bitcoin cash address from a private key</a>              shows the complete step-by-step process, from private key to Base58Check-encoded bitcoin cash address. The code example uses the libbitcoin library for some helper functions.</p>
+                    <p>Let&#8217;s look at the complete process of creating a Bitcoin Cash address, from a private key, to a public key (a point on the elliptic curve), to a double-hashed address and finally, the Base58Check encoding. The C++ code in <a href="#addr_example">Creating a Base58Check-encoded Bitcoin Cash address from a private key</a>              shows the complete step-by-step process, from private key to Base58Check-encoded Bitcoin Cash address. The code example uses the libbitcoin library for some helper functions.</p>
                   </div>
                   <div id="addr_example" class="exampleblock">
-                    <div class="title">Example 2. Creating a Base58Check-encoded bitcoin cash address from a private key</div>
+                    <div class="title">Example 2. Creating a Base58Check-encoded Bitcoin Cash address from a private key</div>
                     <div class="content">
                       <div class="listingblock">
                         <div class="content">
@@ -647,7 +647,7 @@ return 0;
                     </div>
                   </div>
                   <div class="paragraph">
-                    <p>The code uses a predefined private key so that it produces the same bitcoin cash address every time it is run, as shown in <a href="#addr_example_run">Compiling and running the addr code</a>.</p>
+                    <p>The code uses a predefined private key so that it produces the same Bitcoin Cash address every time it is run, as shown in <a href="#addr_example_run">Compiling and running the addr code</a>.</p>
                   </div>
                   <div id="addr_example_run" class="exampleblock">
                     <div class="title">Example 3. Compiling and running the addr code</div>
@@ -779,7 +779,7 @@ return 0;
                 <div class="sect4">
                   <h5 class='yellow' id="_decode_from_base58check">Decode from Base58Check</h5>
                   <div class="paragraph">
-                    <p>The Bitcoin Explorer commands make it easy to write shell scripts and command-line "pipes" that manipulate bitcoin cash keys, addresses, and transactions. You can use Bitcoin Explorer to decode the Base58Check
+                    <p>The Bitcoin Explorer commands make it easy to write shell scripts and command-line "pipes" that manipulate Bitcoin Cash keys, addresses, and transactions. You can use Bitcoin Explorer to decode the Base58Check
                       format on the command line.</p>
                   </div>
                   <div class="paragraph">
@@ -881,8 +881,8 @@ version 128
                   <h5 class='yellow' id="comp_pub">Compressed public keys</h5>
                   <div class="paragraph">
                     <p>
-                      Compressed public keys were introduced to bitcoin cash to reduce the size of transactions and conserve disk space on nodes that store the bitcoin cash blockchain database. Most transactions include the public key, required to validate the owner&#8217;s
-                        credentials and spend the bitcoin cash. Each public key requires 520 bits (prefix \+ x \+ y), which when multiplied by several hundred transactions per block, or tens of thousands of transactions per day, adds a significant amount of data to
+                      Compressed public keys were introduced to Bitcoin Cash to reduce the size of transactions and conserve disk space on nodes that store the Bitcoin Cash blockchain database. Most transactions include the public key, required to validate the owner&#8217;s
+                        credentials and spend the Bitcoin Cash. Each public key requires 520 bits (prefix \+ x \+ y), which when multiplied by several hundred transactions per block, or tens of thousands of transactions per day, adds a significant amount of data to
                         the blockchain.</p>
                   </div>
                   <div class="paragraph">
@@ -915,19 +915,19 @@ version 128
                   </div>
                   <div class="paragraph">
                     <p>This compressed public key corresponds to the same private key, meaning that it is generated from the same private key. However, it looks different from the uncompressed public key. More importantly, if we convert this compressed public key
-                      to a bitcoin cash address using the double-hash function (RIPEMD160(SHA256(K))) it will produce a <em>different</em> bitcoin cash address. This can be confusing, because it means that a single private key can produce a public key expressed in two
-                      different formats (compressed and uncompressed) that produce two different bitcoin cash addresses. However, the private key is identical for both bitcoin cash addresses.</p>
+                      to a Bitcoin Cash address using the double-hash function (RIPEMD160(SHA256(K))) it will produce a <em>different</em> Bitcoin Cash address. This can be confusing, because it means that a single private key can produce a public key expressed in two
+                      different formats (compressed and uncompressed) that produce two different Bitcoin Cash addresses. However, the private key is identical for both Bitcoin Cash addresses.</p>
                   </div>
                   <div class="paragraph">
-                    <p>Compressed public keys are gradually becoming the default across bitcoin cash clients, which is having a significant impact on reducing the size of transactions and therefore the blockchain. However, not all clients support compressed public keys
+                    <p>Compressed public keys are gradually becoming the default across Bitcoin Cash clients, which is having a significant impact on reducing the size of transactions and therefore the blockchain. However, not all clients support compressed public keys
                       yet. Newer clients that support compressed public keys have to account for transactions from older clients that do not support compressed public keys. This is especially important when a wallet application is importing private keys from
-                      another bitcoin cash wallet application, because the new wallet needs to scan the blockchain to find transactions corresponding to these imported keys. Which bitcoin cash addresses should the bitcoin cash wallet scan for? The bitcoin cash addresses produced
-                      by uncompressed public keys, or the bitcoin cash addresses produced by compressed public keys? Both are valid bitcoin cash addresses, and can be signed for by the private key, but they are different addresses!</p>
+                      another Bitcoin Cash wallet application, because the new wallet needs to scan the blockchain to find transactions corresponding to these imported keys. Which Bitcoin Cash addresses should the Bitcoin Cash wallet scan for? The Bitcoin Cash addresses produced
+                      by uncompressed public keys, or the Bitcoin Cash addresses produced by compressed public keys? Both are valid Bitcoin Cash addresses, and can be signed for by the private key, but they are different addresses!</p>
                   </div>
                   <div class="paragraph">
-                    <p>To resolve this issue, when private keys are exported from a wallet, the Wallet Import Format that is used to represent them is implemented differently in newer bitcoin cash wallets, to indicate that these private keys have been used to produce
-                      <em>compressed</em> public keys and therefore <em>compressed</em> bitcoin cash addresses. This allows the importing wallet to distinguish between private keys originating from older or newer wallets and search the blockchain for transactions
-                      with bitcoin cash addresses corresponding to the uncompressed, or the compressed, public keys, respectively. Let&#8217;s look at how this works in more detail, in the next section.</p>
+                    <p>To resolve this issue, when private keys are exported from a wallet, the Wallet Import Format that is used to represent them is implemented differently in newer Bitcoin Cash wallets, to indicate that these private keys have been used to produce
+                      <em>compressed</em> public keys and therefore <em>compressed</em> Bitcoin Cash addresses. This allows the importing wallet to distinguish between private keys originating from older or newer wallets and search the blockchain for transactions
+                      with Bitcoin Cash addresses corresponding to the uncompressed, or the compressed, public keys, respectively. Let&#8217;s look at how this works in more detail, in the next section.</p>
                   </div>
                 </div>
                 <div class="sect4">
@@ -944,8 +944,8 @@ version 128
                       uncompressed public keys and addresses.</p>
                   </div>
                   <div class="paragraph">
-                    <p>If a bitcoin cash wallet is able to implement compressed public keys, it will use those in all transactions. The private keys in the wallet will be used to derive the public key points on the curve, which will be compressed. The compressed public
-                      keys will be used to produce bitcoin cash addresses and those will be used in transactions. When exporting private keys from a new wallet that implements compressed public keys, the Wallet Import Format is modified, with the addition of a one-byte
+                    <p>If a Bitcoin Cash wallet is able to implement compressed public keys, it will use those in all transactions. The private keys in the wallet will be used to derive the public key points on the curve, which will be compressed. The compressed public
+                      keys will be used to produce Bitcoin Cash addresses and those will be used in transactions. When exporting private keys from a new wallet that implements compressed public keys, the Wallet Import Format is modified, with the addition of a one-byte
                       suffix 01 to the private key. The resulting Base58Check-encoded private key is called a "Compressed WIF" and starts with the letter K or L, instead of starting with "5" as is the case with WIF-encoded (non-compressed) keys from older wallets.</p>
                   </div>
                   <div class="paragraph">
@@ -1003,7 +1003,7 @@ version 128
                           </td>
                           <td class="content">
                             <div class="paragraph">
-                              <p>"Compressed private keys" is a misnomer! They are not compressed; rather, the WIF-compressed format signifies that they should only be used to derive compressed public keys and their corresponding bitcoin cash addresses. Ironically, a "WIF-compressed"
+                              <p>"Compressed private keys" is a misnomer! They are not compressed; rather, the WIF-compressed format signifies that they should only be used to derive compressed public keys and their corresponding Bitcoin Cash addresses. Ironically, a "WIF-compressed"
                                 encoded private key is one byte longer because it has the added 01 suffix to distinguish it from an "uncompressed" one.</p>
                             </div>
                           </td>
@@ -1017,7 +1017,7 @@ version 128
             <div class="sect2">
               <h3 class='yellow' id="_implementing_keys_and_addresses_in_python">Implementing Keys and Addresses in Python</h3>
               <div class="paragraph">
-                <p>The most comprehensive bitcoin cash library in Python is <a href="https://github.com/vbuterin/pybitcointools">pybitcointools</a> by Vitalik Buterin. In <a href="#key-to-address_script">Key and address generation and formatting with the pybitcointools library</a>,
+                <p>The most comprehensive Bitcoin Cash library in Python is <a href="https://github.com/vbuterin/pybitcointools">pybitcointools</a> by Vitalik Buterin. In <a href="#key-to-address_script">Key and address generation and formatting with the pybitcointools library</a>,
                   we use the pybitcointools library (imported as "bitcoin") to generate and display keys and addresses in various formats.</p>
               </div>
               <div id="key-to-address_script" class="exampleblock">
@@ -1095,10 +1095,10 @@ Bitcoin Cash Address (b58check) is: 14cxpo3MBCYYWCgF74SWTdcmxipnGUsPw3
                 </div>
               </div>
               <div class="paragraph">
-                <p><a href="#ec_math">A script demonstrating elliptic curve math used for bitcoin cash keys</a> is another example, using the Python ECDSA library for the elliptic curve math and without using any specialized bitcoin cash libraries.</p>
+                <p><a href="#ec_math">A script demonstrating elliptic curve math used for Bitcoin Cash keys</a> is another example, using the Python ECDSA library for the elliptic curve math and without using any specialized Bitcoin Cash libraries.</p>
               </div>
               <div id="ec_math" class="exampleblock">
-                <div class="title">Example 6. A script demonstrating elliptic curve math used for bitcoin cash keys</div>
+                <div class="title">Example 6. A script demonstrating elliptic curve math used for Bitcoin Cash keys</div>
                 <div class="content">
                   <div class="listingblock">
                     <div class="content">
@@ -1175,7 +1175,7 @@ Bitcoin Cash Address (b58check) is: 14cxpo3MBCYYWCgF74SWTdcmxipnGUsPw3
                         <div class="paragraph">
                           <p>The example above uses os.urandom, which reflects a cryptographically secure random number generator (CSRNG) provided by the underlying operating system. In the case of an UNIX-like operating system such as Linux, it draws from /dev/urandom;
                             and in the case of Windows, calls CryptGenRandom(). If a suitable randomness source is not found, NotImplementedError will be raised. While the random number generator used here is for demonstration purposes, it is <em>not</em> appropriate
-                            for generating production-quality bitcoin cash keys as it is not implemented with sufficient security.</p>
+                            for generating production-quality Bitcoin Cash keys as it is not implemented with sufficient security.</p>
                         </div>
                       </td>
                     </tr>
@@ -1228,10 +1228,10 @@ Bitcoin Cash Address (b58check) is: 14cxpo3MBCYYWCgF74SWTdcmxipnGUsPw3
               <div class="sect3">
                 <h4 class='yellow' id="random_wallet">Nondeterministic (Random) Wallets</h4>
                 <div class="paragraph">
-                  <p>In the first bitcoin cash clients, wallets were simply collections of randomly generated private keys. This type of wallet is called a <em>Type-0 nondeterministic wallet</em>. For example, the Bitcoin Cash Core client pregenerates 100 random private keys
+                  <p>In the first Bitcoin Cash clients, wallets were simply collections of randomly generated private keys. This type of wallet is called a <em>Type-0 nondeterministic wallet</em>. For example, the Bitcoin Cash Core client pregenerates 100 random private keys
                     when first started and generates more keys as needed, using each key only once. This type of wallet is nicknamed "Just a Bunch Of Keys," or JBOK, and such wallets are being replaced with deterministic wallets because they are cumbersome to
                     manage, back up, and import. The disadvantage of random keys is that if you generate many of them you must keep copies of all of them, meaning that the wallet must be backed up frequently. Each key must be backed up, or the funds it controls
-                    are irrevocably lost if the wallet becomes inaccessible. This conflicts directly with the principle of avoiding address re-use, by using each bitcoin cash address for only one transaction. Address re-use reduces privacy by associating multiple
+                    are irrevocably lost if the wallet becomes inaccessible. This conflicts directly with the principle of avoiding address re-use, by using each Bitcoin Cash address for only one transaction. Address re-use reduces privacy by associating multiple
                     transactions and addresses with each other. A Type-0 nondeterministic wallet is a poor choice of wallet, especially if you want to avoid address re-use because that means managing many keys, which creates the need for frequent backups. <a href="#Type0_wallet">Type-0 nondeterministic (random) wallet: a collection of randomly generated keys</a> shows a nondeterministic
                     wallet, containing a loose collection of random keys.</p>
                 </div>
@@ -1457,7 +1457,7 @@ Bitcoin Cash Address (b58check) is: 14cxpo3MBCYYWCgF74SWTdcmxipnGUsPw3
                         </td>
                         <td class="content">
                           <div class="paragraph">
-                            <p>If you are implementing a bitcoin cash wallet, it should be built as an HD wallet following the BIP0032 and BIP0044 standards.</p>
+                            <p>If you are implementing a Bitcoin Cash wallet, it should be built as an HD wallet following the BIP0032 and BIP0044 standards.</p>
                           </div>
                         </td>
                       </tr>
@@ -1547,7 +1547,7 @@ Bitcoin Cash Address (b58check) is: 14cxpo3MBCYYWCgF74SWTdcmxipnGUsPw3
                       child chain code, the child key cannot be used to derive any grandchildren either. You need both the child private key and the child chain code to start a new branch and derive grandchildren.</p>
                   </div>
                   <div class="paragraph">
-                    <p>So what can the child private key be used for on its own? It can be used to make a public key and a bitcoin cash address. Then, it can be used to sign transactions to spend anything paid to that address.</p>
+                    <p>So what can the child private key be used for on its own? It can be used to make a public key and a Bitcoin Cash address. Then, it can be used to sign transactions to spend anything paid to that address.</p>
                   </div>
                   <div class="admonitionblock tip">
                     <table>
@@ -1558,7 +1558,7 @@ Bitcoin Cash Address (b58check) is: 14cxpo3MBCYYWCgF74SWTdcmxipnGUsPw3
                           </td>
                           <td class="content">
                             <div class="paragraph">
-                              <p>A child private key, the corresponding public key, and the bitcoin cash address are all indistinguishable from keys and addresses created randomly. The fact that they are part of a sequence is not visible, outside of the HD wallet function
+                              <p>A child private key, the corresponding public key, and the Bitcoin Cash address are all indistinguishable from keys and addresses created randomly. The fact that they are part of a sequence is not visible, outside of the HD wallet function
                                 that created them. Once created, they operate exactly as "normal" keys.</p>
                             </div>
                           </td>
@@ -1629,16 +1629,16 @@ Bitcoin Cash Address (b58check) is: 14cxpo3MBCYYWCgF74SWTdcmxipnGUsPw3
                   </div>
                   <div class="paragraph">
                     <p>This shortcut can be used to create very secure public-key-only deployments where a server or application has a copy of an extended public key and no private keys whatsoever. That kind of deployment can produce an infinite number of public
-                      keys and bitcoin cash addresses, but cannot spend any of the money sent to those addresses. Meanwhile, on another, more secure server, the extended private key can derive all the corresponding private keys to sign transactions and spend the money.</p>
+                      keys and Bitcoin Cash addresses, but cannot spend any of the money sent to those addresses. Meanwhile, on another, more secure server, the extended private key can derive all the corresponding private keys to sign transactions and spend the money.</p>
                   </div>
                   <div class="paragraph">
-                    <p>One common application of this solution is to install an extended public key on a web server that serves an ecommerce application. The web server can use the public key derivation function to create a new bitcoin cash address for every transaction
-                      (e.g., for a customer shopping cart). The web server will not have any private keys that would be vulnerable to theft. Without HD wallets, the only way to do this is to generate thousands of bitcoin cash addresses on a separate secure server
+                    <p>One common application of this solution is to install an extended public key on a web server that serves an ecommerce application. The web server can use the public key derivation function to create a new Bitcoin Cash address for every transaction
+                      (e.g., for a customer shopping cart). The web server will not have any private keys that would be vulnerable to theft. Without HD wallets, the only way to do this is to generate thousands of Bitcoin Cash addresses on a separate secure server
                       and then preload them on the ecommerce server. That approach is cumbersome and requires constant maintenance to ensure that the ecommerce server doesn&#8217;t "run out" of keys.</p>
                   </div>
                   <div class="paragraph">
                     <p>Another common application of this solution is for cold-storage or hardware wallets. In that scenario, the extended private key can be stored on a paper wallet or hardware device (such as a Trezor hardware wallet), while the extended public
-                      key can be kept online. The user can create "receive" addresses at will, while the private keys are safely stored offline. To spend the funds, the user can use the extended private key on an offline signing bitcoin cash client or sign transactions
+                      key can be kept online. The user can create "receive" addresses at will, while the private keys are safely stored offline. To spend the funds, the user can use the extended private key on an offline signing Bitcoin Cash client or sign transactions
                       on the hardware wallet device (e.g., Trezor). <a href="#CKDpub">Extending a parent public key to create a child public key</a> illustrates the mechanism for extending a parent public key to derive child public keys.</p>
                   </div>
                   <div id="CKDpub" class="imageblock">
@@ -1777,13 +1777,13 @@ Bitcoin Cash Address (b58check) is: 14cxpo3MBCYYWCgF74SWTdcmxipnGUsPw3
                     <p>The first-level "purpose" is always set to 44'. The second-level "coin_type" specifies the type of cryptocurrency coin, allowing for multicurrency HD wallets where each currency has its own subtree under the second level. Bitcoin Cash's coin type is <code>145'</code>. Here is a <a href='https://github.com/satoshilabs/slips/blob/master/slip-0044.md'>full list of BIP44 coin codes</a>.</p>
                   </div>
                   <div class="paragraph">
-                    <p>The third level of the tree is "account," which allows users to subdivide their wallets into separate logical subaccounts, for accounting or organizational purposes. For example, an HD wallet might contain two bitcoin cash "accounts":
+                    <p>The third level of the tree is "account," which allows users to subdivide their wallets into separate logical subaccounts, for accounting or organizational purposes. For example, an HD wallet might contain two Bitcoin Cash "accounts":
                       <code>m/44'/145'/0'</code> and <code>m/44'/145'/1'</code>. Each account is the root of its own subtree.</p>
                   </div>
                   <div class="paragraph">
                     <p>On the fourth level, "change," an HD wallet has two subtrees, one for creating receiving addresses and one for creating change addresses. Note that whereas the previous levels used hardened derivation, this level uses normal derivation. This
                       is to allow this level of the tree to export extended public keys for use in a nonsecured environment. Usable addresses are derived by the HD wallet as children of the fourth level, making the fifth level of the tree the "address_index."
-                      For example, the third receiving address for bitcoin cash payments in the primary account would be M/44'/145'/0'/0/2. <a href="#table_4-9">BIP0044 HD wallet structure examples</a> shows a few more examples.</p>
+                      For example, the third receiving address for Bitcoin Cash payments in the primary account would be M/44'/145'/0'/0/2. <a href="#table_4-9">BIP0044 HD wallet structure examples</a> shows a few more examples.</p>
                   </div>
                   <table id="table_4-9" class="tableblock frame-all grid-all stretch">
                     <caption class="title">Table 9. BIP0044 HD wallet structure examples</caption>
@@ -1799,7 +1799,7 @@ Bitcoin Cash Address (b58check) is: 14cxpo3MBCYYWCgF74SWTdcmxipnGUsPw3
                           <p class="tableblock">M/44'/145'/0'/0/2</p>
                         </td>
                         <td class="tableblock halign-left valign-top">
-                          <p class="tableblock">The third receiving public key for the primary bitcoin cash account</p>
+                          <p class="tableblock">The third receiving public key for the primary Bitcoin Cash account</p>
                         </td>
                       </tr>
                       <tr>
@@ -1807,7 +1807,7 @@ Bitcoin Cash Address (b58check) is: 14cxpo3MBCYYWCgF74SWTdcmxipnGUsPw3
                           <p class="tableblock">M/44'/145'/3'/1/14</p>
                         </td>
                         <td class="tableblock halign-left valign-top">
-                          <p class="tableblock">The fifteenth change-address public key for the fourth bitcoin cash account</p>
+                          <p class="tableblock">The fifteenth change-address public key for the fourth Bitcoin Cash account</p>
                         </td>
                       </tr>
                     </tbody>
@@ -1863,7 +1863,7 @@ Bitcoin Cash Address (b58check) is: 14cxpo3MBCYYWCgF74SWTdcmxipnGUsPw3
                     Keeping the private key private is much harder when you need to store backups of the private key to avoid losing it. A private key stored in a wallet that is encrypted by a password might be secure, but that wallet needs to be backed up. At
                     times, users need to move keys from one wallet to another—to upgrade or replace the wallet software, for example. Private key backups might also be stored on paper (see <a href="#paper_wallets">Paper Wallets</a>) or on external storage media,
                     such as a USB flash drive. But what if the backup itself is stolen or lost? These conflicting security goals led to the introduction of a portable and convenient standard for encrypting private keys in a way that can be understood by many
-                    different wallets and bitcoin cash clients, standardized by Bitcoin Improvement Proposal 38 or <a href="https://github.com/bitcoin/bips/blob/master/bip-0038.mediawiki">BIP0038</a>.</p>
+                    different wallets and Bitcoin Cash clients, standardized by Bitcoin Improvement Proposal 38 or <a href="https://github.com/bitcoin/bips/blob/master/bip-0038.mediawiki">BIP0038</a>.</p>
                 </div>
                 <div class="paragraph">
                   <p>BIP0038 proposes a common standard for encrypting private keys with a passphrase and encoding them with Base58Check so that they can be stored securely on backup media, transported securely between wallets, or kept in any other conditions where
@@ -1871,7 +1871,7 @@ Bitcoin Cash Address (b58check) is: 14cxpo3MBCYYWCgF74SWTdcmxipnGUsPw3
                     commercial and military applications.</p>
                 </div>
                 <div class="paragraph">
-                  <p>A BIP0038 encryption scheme takes as input a bitcoin cash private key, encoded in the Wallet Import Format (WIF). Additionally, the BIP0038 encryption scheme takes a passphrase—a long password—usually
+                  <p>A BIP0038 encryption scheme takes as input a Bitcoin Cash private key, encoded in the Wallet Import Format (WIF). Additionally, the BIP0038 encryption scheme takes a passphrase—a long password—usually
                     composed of several words or a complex string of alphanumeric characters. The result of the BIP0038 encryption scheme is a Base58Check-encoded encrypted private key that begins with the prefix 6P. If you see a key that starts with 6P, that
                     means it is encrypted and requires a passphrase in order to convert (decrypt) it back into a WIF-formatted private key that can be used in any wallet. Many wallet applications now recognize BIP0038-encrypted private keys and will
                     prompt the user for a passphrase to decrypt and import the key. Using BITBOX you can encode and decode WIFs per BIP00038:</p>
@@ -1897,24 +1897,24 @@ BITBOX.BitcoinCash.decryptBIP38('6PYUAPLwLSEjWSAfoe9NTSPkMZXnJA8j8EFJtKaeSnP18RC
 
                 <div class="paragraph">
                   <p>The most common use case for BIP0038 encrypted keys is for paper wallets that can be used to back up private keys on a piece of paper. As long as the user selects a strong passphrase, a paper wallet with BIP0038 encrypted private keys is incredibly
-                    secure and a great way to create offline bitcoin cash storage (also known as "cold storage").</p>
+                    secure and a great way to create offline Bitcoin Cash storage (also known as "cold storage").</p>
                 </div>
               </div>
               <div class="sect3">
                 <h4 class='yellow' id="p2sh_addresses">Pay-to-Script Hash (P2SH) and Multi-Sig Addresses</h4>
                 <div class="paragraph">
-                  <p>As we know, traditional bitcoin cash addresses begin with the number “1” and are derived from the public key, which is derived from the private key. Although anyone can send bitcoin cash to a “1” address, that bitcoin cash can only be spent by presenting the
+                  <p>As we know, traditional Bitcoin Cash addresses begin with the number “1” and are derived from the public key, which is derived from the private key. Although anyone can send Bitcoin Cash to a “1” address, that Bitcoin Cash can only be spent by presenting the
                     corresponding private key signature and public key hash.</p>
                 </div>
                 <div class="paragraph">
-                  <p>Legacy Bitcoin Cash addresses that begin with the number “3” are pay-to-script hash (P2SH) addresses, sometimes erroneously called multi-signature or multi-sig addresses. They designate the beneficiary of a bitcoin cash transaction as the hash of a script, instead
+                  <p>Legacy Bitcoin Cash addresses that begin with the number “3” are pay-to-script hash (P2SH) addresses, sometimes erroneously called multi-signature or multi-sig addresses. They designate the beneficiary of a Bitcoin Cash transaction as the hash of a script, instead
                     of the owner of a public key. The feature was introduced in January 2012 with Bitcoin Improvement Proposal 16, or <a href='https://github.com/bitcoin/bips/blob/master/bip-0016.mediawiki'>BIP0016</a> and is being widely adopted because it provides the opportunity to add functionality
-                    to the address itself. Unlike transactions that "send" funds to traditional “1” bitcoin cash addresses, also known as pay-to-public-key-hash (P2PKH), funds sent to “3” addresses require something more than the presentation of one public key hash
+                    to the address itself. Unlike transactions that "send" funds to traditional “1” Bitcoin Cash addresses, also known as pay-to-public-key-hash (P2PKH), funds sent to “3” addresses require something more than the presentation of one public key hash
                     and one private key signature as proof of ownership. The requirements are designated at the time the address is created, within the script, and all inputs to this address will be encumbered with the same requirements.</p>
                 </div>
                 <div class="paragraph">
                   <p>A pay-to-script hash address is created from a transaction script, which defines who can spend a transaction output. Encoding a pay-to-script hash address involves using the same double-hash
-                    function as used during creation of a bitcoin cash address, only applied on the script instead of the public key:</p>
+                    function as used during creation of a Bitcoin Cash address, only applied on the script instead of the public key:</p>
                 </div>
                 <div class="listingblock">
                   <div class="content">
@@ -1950,7 +1950,7 @@ BITBOX.BitcoinCash.decryptBIP38('6PYUAPLwLSEjWSAfoe9NTSPkMZXnJA8j8EFJtKaeSnP18RC
                 <div class="sect4">
                   <h5 class='yellow' id="_multi_signature_addresses_and_p2sh">Multi-signature addresses and P2SH</h5>
                   <div class="paragraph">
-                    <p>Currently, the most common implementation of the P2SH function is the multi-signature address script. As the name implies, the underlying script requires more than one signature to prove ownership and therefore spend funds. The bitcoin cash multi-signature
+                    <p>Currently, the most common implementation of the P2SH function is the multi-signature address script. As the name implies, the underlying script requires more than one signature to prove ownership and therefore spend funds. The Bitcoin Cash multi-signature
                       feature is designed to require M signatures (also known as the “threshold”) from a total of N keys, known as an M-of-N multi-sig, where M is equal to or less than N. For example, Bob the coffee shop owner from could use a multi-signature address requiring 1-of-2 signatures from a key belonging to him and a key belonging to his spouse, ensuring either of them could sign to spend a transaction output locked to this address. This would be similar
                       to a “joint account” as implemented in traditional banking where either spouse can spend with a single signature. Or Gopesh, the web designer paid by Bob to create a website, might have a 2-of-3 multi-signature address for his business that
                       ensures that no funds can be spent unless at least two of the business partners sign a transaction.</p>
@@ -1963,9 +1963,9 @@ BITBOX.BitcoinCash.decryptBIP38('6PYUAPLwLSEjWSAfoe9NTSPkMZXnJA8j8EFJtKaeSnP18RC
               <div class="sect3">
                 <h4 class='yellow' id="_vanity_addresses">Vanity Addresses</h4>
                 <div class="paragraph">
-                  <p>Vanity addresses are valid bitcoin cash addresses that contain human-readable messages. For example, 1LoveBPzzD72PUXLzCkYAtGFYmK5vYNR33 is a valid address that contains the letters forming the word "Love" as the first four Base-58 letters. Vanity
-                    addresses require generating and testing billions of candidate private keys, until one derives a bitcoin cash address with the desired pattern. Although there are some optimizations in the vanity generation algorithm, the process essentially involves
-                    picking a private key at random, deriving the public key, deriving the bitcoin cash address, and checking to see if it matches the desired vanity pattern, repeating billions of times until a match is found.</p>
+                  <p>Vanity addresses are valid Bitcoin Cash addresses that contain human-readable messages. For example, 1LoveBPzzD72PUXLzCkYAtGFYmK5vYNR33 is a valid address that contains the letters forming the word "Love" as the first four Base-58 letters. Vanity
+                    addresses require generating and testing billions of candidate private keys, until one derives a Bitcoin Cash address with the desired pattern. Although there are some optimizations in the vanity generation algorithm, the process essentially involves
+                    picking a private key at random, deriving the public key, deriving the Bitcoin Cash address, and checking to see if it matches the desired vanity pattern, repeating billions of times until a match is found.</p>
                 </div>
                 <div class="paragraph">
                   <p>Once a vanity address matching the desired pattern is found, the private key from which it was derived can be used by the owner to spend bitcoins in exactly the same way as any other address. Vanity addresses are no less or more secure than
@@ -1973,14 +1973,14 @@ BITBOX.BitcoinCash.decryptBIP38('6PYUAPLwLSEjWSAfoe9NTSPkMZXnJA8j8EFJtKaeSnP18RC
                     address.</p>
                 </div>
                 <div class="paragraph">
-                  <p>In <a href="what-is-bitcoin-cash.html">What is Bitcoin Cash</a>, we introduced Eugenia, a children&#8217;s charity director operating in the Philippines. Let&#8217;s say that Eugenia is organizing a bitcoin cash fundraising drive and wants
-                    to use a vanity bitcoin cash address to publicize the fundraising. Eugenia will create a vanity address that starts with "1Kids" to promote the children&#8217;s charity fundraiser. Let&#8217;s see how this vanity address will be created and what
+                  <p>In <a href="what-is-bitcoin-cash.html">What is Bitcoin Cash</a>, we introduced Eugenia, a children&#8217;s charity director operating in the Philippines. Let&#8217;s say that Eugenia is organizing a Bitcoin Cash fundraising drive and wants
+                    to use a vanity Bitcoin Cash address to publicize the fundraising. Eugenia will create a vanity address that starts with "1Kids" to promote the children&#8217;s charity fundraiser. Let&#8217;s see how this vanity address will be created and what
                     it means for the security of Eugenia&#8217;s charity.</p>
                 </div>
                 <div class="sect4">
                   <h5 class='yellow' id="_generating_vanity_addresses">Generating vanity addresses</h5>
                   <div class="paragraph">
-                    <p>It&#8217;s important to realize that a bitcoin cash address is simply a number represented by symbols in the Base58 alphabet. The search for a pattern like "1Kids" can be seen as searching for an address in the range from 1Kids11111111111111111111111111111
+                    <p>It&#8217;s important to realize that a Bitcoin Cash address is simply a number represented by symbols in the Base58 alphabet. The search for a pattern like "1Kids" can be seen as searching for an address in the range from 1Kids11111111111111111111111111111
                       to 1Kidszzzzzzzzzzzzzzzzzzzzzzzzzzzzz. There are approximately 58<sup>29</sup> (approximately 1.4 * 10<sup>51</sup>) addresses in that range, all starting with "1Kids". <a href="#table_4-11">The range of vanity addresses starting with "1Kids"</a>              shows the range of addresses that have the prefix 1Kids.</p>
                   </div>
                   <table id="table_4-11" class="tableblock frame-all grid-all stretch">
@@ -2023,7 +2023,7 @@ BITBOX.BitcoinCash.decryptBIP38('6PYUAPLwLSEjWSAfoe9NTSPkMZXnJA8j8EFJtKaeSnP18RC
                     </tbody>
                   </table>
                   <div class="paragraph">
-                    <p>Let&#8217;s look at the pattern "1Kids" as a number and see how frequently we might find this pattern in a bitcoin cash address (see <a href="#table_4-12">The frequency of a vanity pattern (1KidsCharity) and average time-to-find on a desktop PC</a>).
+                    <p>Let&#8217;s look at the pattern "1Kids" as a number and see how frequently we might find this pattern in a Bitcoin Cash address (see <a href="#table_4-12">The frequency of a vanity pattern (1KidsCharity) and average time-to-find on a desktop PC</a>).
                       An average desktop computer PC, without any specialized hardware, can search approximately 100,000 keys per second.</p>
                   </div>
                   <table id="table_4-12" class="tableblock frame-all grid-all stretch">
@@ -2195,7 +2195,7 @@ BITBOX.BitcoinCash.decryptBIP38('6PYUAPLwLSEjWSAfoe9NTSPkMZXnJA8j8EFJtKaeSnP18RC
                   </table>
                   <div class="paragraph">
                     <p>As you can see, Eugenia won&#8217;t be creating the vanity address "1KidsCharity" any time soon, even if she had access to several thousand computers. Each additional character increases the difficulty by a factor of 58. Patterns with more
-                      than seven characters are usually found by specialized hardware, such as custom-built desktops with multiple graphical processing units (GPUs). These are often repurposed bitcoin cash mining "rigs" that are no longer profitable for bitcoin cash mining
+                      than seven characters are usually found by specialized hardware, such as custom-built desktops with multiple graphical processing units (GPUs). These are often repurposed Bitcoin Cash mining "rigs" that are no longer profitable for Bitcoin Cash mining
                       but can be used to find vanity addresses. Vanity searches on GPU systems are many orders of magnitude faster than on a general-purpose CPU.</p>
                   </div>
                   <div class="paragraph">
@@ -2298,7 +2298,7 @@ return true;
                           <td class="content">
                             <div class="paragraph">
                               <p>The example above uses std::random_device. Depending on the implementation it may reflect a cryptographically secure random number generator (CSRNG) provided by the underlying operating system. In the case of UNIX-like operating system
-                                such as Linux, it draws from /dev/urandom. While the random number generator used here is for demonstration purposes, it is <em>not</em> appropriate for generating production-quality bitcoin cash keys as it is not implemented with sufficient
+                                such as Linux, it draws from /dev/urandom. While the random number generator used here is for demonstration purposes, it is <em>not</em> appropriate for generating production-quality Bitcoin Cash keys as it is not implemented with sufficient
                                 security.</p>
                             </div>
                           </td>
@@ -2406,16 +2406,16 @@ return true;
               <div class="sect3">
                 <h4 class='yellow' id="paper_wallets">Paper Wallets</h4>
                 <div class="paragraph">
-                  <p>Paper wallets are bitcoin cash private keys printed on paper. Often the paper wallet also includes the corresponding bitcoin cash address for convenience, but this is not necessary because it can be derived from the private key. Paper wallets are a very
-                    effective way to create backups or offline bitcoin cash storage, also known as "cold storage." As a backup mechanism, a paper wallet can provide security against the loss of key due to a computer mishap such as a hard drive failure, theft, or accidental
+                  <p>Paper wallets are Bitcoin Cash private keys printed on paper. Often the paper wallet also includes the corresponding Bitcoin Cash address for convenience, but this is not necessary because it can be derived from the private key. Paper wallets are a very
+                    effective way to create backups or offline Bitcoin Cash storage, also known as "cold storage." As a backup mechanism, a paper wallet can provide security against the loss of key due to a computer mishap such as a hard drive failure, theft, or accidental
                     deletion. As a "cold storage" mechanism, if the paper wallet keys are generated offline and never stored on a computer system, they are much more secure against hackers, key-loggers, and other online computer threats.</p>
                 </div>
                 <div class="paragraph">
-                  <p>Paper wallets come in many shapes, sizes, and designs, but at a very basic level are just a key and an address printed on paper. <a href="#table_4-14">Simplest form of a paper wallet—a printout of the bitcoin cash address and private key.</a> shows
+                  <p>Paper wallets come in many shapes, sizes, and designs, but at a very basic level are just a key and an address printed on paper. <a href="#table_4-14">Simplest form of a paper wallet—a printout of the Bitcoin Cash address and private key.</a> shows
                     the simplest form of a paper wallet.</p>
                 </div>
                 <table id="table_4-14" class="tableblock frame-all grid-all stretch">
-                  <caption class="title">Table 14. Simplest form of a paper wallet—a printout of the bitcoin cash address and private key.</caption>
+                  <caption class="title">Table 14. Simplest form of a paper wallet—a printout of the Bitcoin Cash address and private key.</caption>
                   <thead>
                     <tr>
                       <th class="tableblock halign-left valign-top">Public Address</th>
@@ -2434,7 +2434,7 @@ return true;
                   </tbody>
                 </table>
                 <div class="paragraph">
-                  <p>Paper wallets can be generated easily using a tool such as the client-side JavaScript generator at <a href='https://tools.bitcoin.com/paper-wallet'>Bitcoin.com's Paper wallet generator</a>. Put these paper wallets in a fireproof safe and "send" bitcoin cash to their bitcoin cash address, to implement a simple yet highly effective "cold storage" solution.</p>
+                  <p>Paper wallets can be generated easily using a tool such as the client-side JavaScript generator at <a href='https://tools.bitcoin.com/paper-wallet'>Bitcoin.com's Paper wallet generator</a>. Put these paper wallets in a fireproof safe and "send" Bitcoin Cash to their Bitcoin Cash address, to implement a simple yet highly effective "cold storage" solution.</p>
                 </div>
                 <div id="paper_wallet_simple" class="imageblock">
                   <div class="content">
