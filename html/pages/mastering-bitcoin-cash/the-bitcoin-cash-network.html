@@ -30,7 +30,7 @@ secondSubtitle: Peer-to-peer network architecture on top of the Internet
                 <h3 id="_peer_to_peer_network_architecture">Peer-to-Peer Network Architecture</h3>
                 <div class="paragraph">
                   <p>Bitcoin Cash is structured as a peer-to-peer network architecture on top of the Internet. The term peer-to-peer, or P2P, means that the computers that participate in the network are peers to each other, that they are all equal, that there are no "special"
-                    nodes, and that all nodes share the burden of providing network services. The network nodes interconnect in a mesh network with a "flat" topology. There is no server, no centralized service, and no hierarchy within the network. Nodes in a peer-to-peer
+                    nodes, and that all nodes share the burden of providing network services. The network nodes interconnect in a near complete graph network with a "flat" topology. There is no server, no centralized service, and no hierarchy within the network. Nodes in a peer-to-peer
                     network both provide and consume services at the same time with reciprocity acting as the incentive for participation. Peer-to-peer networks are inherently resilient, decentralized, and open. The preeminent example of a P2P network architecture
                     was the early Internet itself, where nodes on the IP network were equal. Today&#8217;s Internet architecture is more hierarchical, but the Internet Protocol still retains its flat-topology essence. Beyond Bitcoin Cash, the largest and most successful
                     application of P2P technologies is file sharing with Napster as the pioneer and BitTorrent as the most recent evolution of the architecture.</p>
@@ -186,8 +186,8 @@ secondSubtitle: Peer-to-peer network architecture on top of the Internet
                 </div>
                 <div class="paragraph">
                   <p>A node must connect to a few different peers in order to establish diverse paths into the Bitcoin Cash network. Paths are not reliable—nodes come and go—and so the node must continue to discover new nodes as it loses old connections as well as assist
-                    other nodes when they bootstrap. Only one connection is needed to bootstrap, because the first node can offer introductions to its peer nodes and those peers can offer further introductions. It&#8217;s also unnecessary and wasteful of network
-                    resources to connect to more than a handful of nodes. After bootstrapping, a node will remember its most recent successful peer connections, so that if it is rebooted it can quickly reestablish connections with its former peer network. If none
+                    other nodes when they bootstrap. Only one connection is needed to bootstrap, because the first node can offer introductions to its peer nodes and those peers can offer further introductions. Since mining nodes are incentivized to connect to other miners to maximize propagation speed and efficiency, a miner may have thousands of connections.
+                    After bootstrapping, a node will remember its most recent successful peer connections, so that if it is rebooted it can quickly reestablish connections with its former peer network. If none
                     of the former peers respond to its connection request, the node can use the seed nodes to bootstrap again.</p>
                 </div>
                 <div class="paragraph">
