@@ -11,7 +11,7 @@ BROWSERS:
   - "Opera >= 12"
 
 # The name of your .css and .js files
-FILENAME: "ap"
+FILENAME: "apps"
 
 # Include temp/holder.min.js in the output directory for placeholder images
 INCLUDE_HOLDER: false
