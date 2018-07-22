@@ -56,7 +56,7 @@ subtitle: Mastering Bitcoin Cash
                   <p>The "previous block hash" field is inside the block header and thereby affects the <em>current</em> block&#8217;s hash. The child&#8217;s own identity changes if the parent&#8217;s identity changes. When the parent is modified in any way, the
                     parent&#8217;s hash changes. The parent&#8217;s changed hash necessitates a change in the "previous block hash" pointer of the child. This in turn causes the child&#8217;s hash to change, which requires a change in the pointer of the grandchild,
                     which in turn changes the grandchild, and so on. This cascade effect ensures that once a block has many generations following it, it cannot be changed without forcing a recalculation of all subsequent blocks. Because such a recalculation would
-                    require enormous computation, the existence of a long chain of blocks makes the blockchain&#8217;s deep history immutable, which is a key feature of bitcoin cash&#8217;s security.</p>
+                    require enormous computation, the existence of a long chain of blocks makes the blockchain&#8217;s deep history immutable, which is a key feature of Bitcoin Cash&#8217;s security.</p>
                 </div>
                 <div class="paragraph">
                   <p>One way to think about the blockchain is like layers in a geological formation, or glacier core sample. The surface layers might change with the seasons, or even be blown away before they have time to settle. But once you go a few inches deep,
@@ -223,7 +223,7 @@ subtitle: Mastering Bitcoin Cash
                 <h3 id="block_hash">Block Identifiers: Block Header Hash and Block Height</h3>
                 <div class="paragraph">
                   <p>The primary identifier of a block is its cryptographic hash, a digital fingerprint, made by hashing the block header twice through the SHA256 algorithm. The resulting 32-byte hash is called the <em>block hash</em> but is more accurately the <em>block header hash</em>,
-                    <phrase role="keep-together">because only the block header is used to compute it. For example,</phrase> 000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f is the block hash of the first bitcoin cash block ever created. The block hash identifies a block uniquely
+                    <phrase role="keep-together">because only the block header is used to compute it. For example,</phrase> 000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f is the block hash of the first Bitcoin Cash block ever created. The block hash identifies a block uniquely
                     and unambiguously and can be independently derived by any node by simply hashing the block header.</p>
                 </div>
                 <div class="paragraph">
@@ -242,7 +242,7 @@ subtitle: Mastering Bitcoin Cash
                 <div class="paragraph">
                   <p>Unlike the block hash, the block height is not a unique identifier. Although a single block will always have a specific and invariant block height, the reverse is not true—the block height does not always identify a single block. Two or more blocks
                     might have the same block height, competing for the same position in the blockchain. This scenario is discussed in detail in the section <a href="#forks">[forks]</a>. The block height is also not a part of the block&#8217;s data structure; it
-                    is not stored within the block. Each node dynamically identifies a block&#8217;s position (height) in the blockchain when it is received from the bitcoin cash network. The block height might also be stored as metadata in an indexed database table
+                    is not stored within the block. Each node dynamically identifies a block&#8217;s position (height) in the blockchain when it is received from the Bitcoin Cash network. The block height might also be stored as metadata in an indexed database table
                     for faster retrieval.</p>
                 </div>
                 <div class="admonitionblock tip">
@@ -268,7 +268,7 @@ subtitle: Mastering Bitcoin Cash
                     arrive at the genesis block.</p>
                 </div>
                 <div class="paragraph">
-                  <p>Every node always starts with a blockchain of at least one block because the genesis block is statically encoded within the bitcoin cash client software, such that it cannot be altered. Every node always "knows" the genesis block&#8217;s hash and structure,
+                  <p>Every node always starts with a blockchain of at least one block because the genesis block is statically encoded within the Bitcoin Cash client software, such that it cannot be altered. Every node always "knows" the genesis block&#8217;s hash and structure,
                     the fixed time it was created, and even the single transaction within. Thus, every node has the starting point for the blockchain, a secure "root" from which to build a trusted blockchain.</p>
                 </div>
                 <div class="paragraph">
@@ -323,8 +323,8 @@ subtitle: Mastering Bitcoin Cash
                 </div>
                 <div class="paragraph">
                   <p>The genesis block contains a hidden message within it. The coinbase transaction input contains the text "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks." This message was intended to offer proof of the earliest date this
-                    block was created, by referencing the headline of the British newspaper <em>The Times</em>. It also serves as a tongue-in-cheek reminder of the importance of an independent monetary system, with bitcoin cash&#8217;s launch occurring at the same time
-                    as an unprecedented worldwide monetary crisis. The message was embedded in the first block by Satoshi Nakamoto, bitcoin cash&#8217;s creator.</p>
+                    block was created, by referencing the headline of the British newspaper <em>The Times</em>. It also serves as a tongue-in-cheek reminder of the importance of an independent monetary system, with Bitcoin Cash&#8217;s launch occurring at the same time
+                    as an unprecedented worldwide monetary crisis. The message was embedded in the first block by Satoshi Nakamoto, Bitcoin Cash&#8217;s creator.</p>
                 </div>
               </div>
               <div class="sect2">
@@ -337,7 +337,7 @@ subtitle: Mastering Bitcoin Cash
                   <p>Let&#8217;s assume, for example, that a node has 277,314 blocks in the local copy of the blockchain. The last block the node knows about is block 277,314, with a block header hash of 00000000000000027e7ba6fe7bad39faf3b5a83daed765f05f7d1b71a1632249.</p>
                 </div>
                 <div class="paragraph">
-                  <p>The bitcoin cash node then receives a new block from the network, which it parses as follows:</p>
+                  <p>The Bitcoin Cash node then receives a new block from the network, which it parses as follows:</p>
                 </div>
                 <div class="listingblock">
                   <div class="content">
@@ -371,7 +371,7 @@ subtitle: Mastering Bitcoin Cash
               <div class="sect2">
                 <h3 id="merkle_trees">Merkle Trees</h3>
                 <div class="paragraph">
-                  <p>Each block in the bitcoin cash blockchain contains a summary of all the transactions in the block, using a <em>merkle tree</em>.</p>
+                  <p>Each block in the Bitcoin Cash blockchain contains a summary of all the transactions in the block, using a <em>merkle tree</em>.</p>
                 </div>
                 <div class="paragraph">
                   <p>A <em>merkle tree</em>, also known as a <em>binary hash tree</em>, is a data structure used for efficiently summarizing and verifying the integrity of large sets of data. Merkle trees are binary trees containing cryptographic hashes. The term
@@ -384,8 +384,8 @@ subtitle: Mastering Bitcoin Cash
                   <div class="title">Figure 1. Blocks linked in a chain, by reference to the previous block header hash</div>
                 </div>
                 <div class="paragraph">
-                  <p>Merkle trees are used in bitcoin cash to summarize all the transactions in a block, producing an overall digital fingerprint of the entire set of transactions, providing a very efficient process to verify whether a transaction is included in a block.
-                    A Merkle tree is constructed by recursively hashing pairs of nodes until there is only one hash, called the <em>root</em>, or <em>merkle root</em>. The cryptographic hash algorithm used in bitcoin cash&#8217;s merkle trees is SHA256 applied twice,
+                  <p>Merkle trees are used in Bitcoin Cash to summarize all the transactions in a block, producing an overall digital fingerprint of the entire set of transactions, providing a very efficient process to verify whether a transaction is included in a block.
+                    A Merkle tree is constructed by recursively hashing pairs of nodes until there is only one hash, called the <em>root</em>, or <em>merkle root</em>. The cryptographic hash algorithm used in Bitcoin Cash&#8217;s merkle trees is SHA256 applied twice,
                     also known as double-SHA256.</p>
                 </div>
                 <div class="paragraph">
@@ -429,13 +429,13 @@ subtitle: Mastering Bitcoin Cash
                   <div class="title">Figure 3. Duplicating one data element achieves an even number of data elements</div>
                 </div>
                 <div class="paragraph">
-                  <p>The same method for constructing a tree from four transactions can be generalized to construct trees of any size. In bitcoin cash it is common to have several hundred to more than a thousand transactions in a single block, which are summarized in exactly
+                  <p>The same method for constructing a tree from four transactions can be generalized to construct trees of any size. In Bitcoin Cash it is common to have several hundred to more than a thousand transactions in a single block, which are summarized in exactly
                     the same way, producing just 32 bytes of data as the single merkle root. In <a href="#merkle_tree_large">A merkle tree summarizing many data elements</a>, you will see a tree built from 16 transactions. Note that although the root looks bigger
                     than the leaf nodes in the diagram, it is the exact same size, just 32 bytes. Whether there is one transaction or a hundred thousand transactions in the block, the merkle root always summarizes them into 32 bytes.</p>
                 </div>
                 <div class="paragraph">
                   <p>To prove that a specific transaction is included in a block, a node only needs to produce log~2~(N) 32-byte hashes, constituting an <em>authentication path</em> or <em>merkle path</em> connecting the specific transaction to the root of the tree.
-                    This is especially important as the number of transactions increases, because the base-2 logarithm of the number of transactions increases much more slowly. This allows bitcoin cash nodes to efficiently produce paths of 10 or 12 hashes (320–384 bytes),
+                    This is especially important as the number of transactions increases, because the base-2 logarithm of the number of transactions increases much more slowly. This allows Bitcoin Cash nodes to efficiently produce paths of 10 or 12 hashes (320–384 bytes),
                     which can provide proof of a single transaction out of more than a thousand transactions in a megabyte-size block.</p>
                 </div>
                 <div id="merkle_tree_large" class="imageblock">

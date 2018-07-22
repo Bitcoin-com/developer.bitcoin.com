@@ -4,7 +4,7 @@ title: Bitcoin.com Developer Platform | Mastering Bitcoin Cash
 banner: hero.jpeg
 H1: The Bitcoin Cash Network
 subtitle: Mastering Bitcoin Cash
-secondSubtitle:
+secondSubtitle: Peer-to-peer network architecture on top of the Internet
 ---
 
 {{> nested-navigation}}
@@ -13,26 +13,16 @@ secondSubtitle:
 
 {{> mastering-bitcoin-cash-header}}
 
-<div class="underline-section">
-  <div class="container">
-  <div class="row">
-    <div class="col-12 text-center">
-      <div class="icon yellow">
-        <i class="fab fa-btc" aria-hidden="true"></i>
-      </div>
-      <h4 class="gray mt-5">Coming soon</h4>
-    </div>
-  </div>
-  </div>
-</div>
-
-<!-- <section class="bounties masteringBitcoin">
+<section class="bounties masteringBitcoin">
   <div class="container">
 
     <div class="row">
       <div class="col-12">
         <p>The following is based on <a href='https://github.com/bitcoinbook/bitcoinbook'>Mastering Bitcoin</a> by Andreas M. Antonopoulos <a href='https://github.com/bitcoinbook/bitcoinbook#mastering-bitcoin---first-edition'>First Edition</a> which is licensed under <a href='https://creativecommons.org/licenses/by-sa/4.0/'>Creative Commons Attribution-ShareAlike</a>.</p>
       </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
         <div>
           <div class="sect1">
             <div class="sectionbody">
@@ -42,7 +32,7 @@ secondSubtitle:
                   <p>Bitcoin Cash is structured as a peer-to-peer network architecture on top of the Internet. The term peer-to-peer, or P2P, means that the computers that participate in the network are peers to each other, that they are all equal, that there are no "special"
                     nodes, and that all nodes share the burden of providing network services. The network nodes interconnect in a mesh network with a "flat" topology. There is no server, no centralized service, and no hierarchy within the network. Nodes in a peer-to-peer
                     network both provide and consume services at the same time with reciprocity acting as the incentive for participation. Peer-to-peer networks are inherently resilient, decentralized, and open. The preeminent example of a P2P network architecture
-                    was the early Internet itself, where nodes on the IP network were equal. Today&#8217;s Internet architecture is more hierarchical, but the Internet Protocol still retains its flat-topology essence. Beyond bitcoin cash, the largest and most successful
+                    was the early Internet itself, where nodes on the IP network were equal. Today&#8217;s Internet architecture is more hierarchical, but the Internet Protocol still retains its flat-topology essence. Beyond Bitcoin Cash, the largest and most successful
                     application of P2P technologies is file sharing with Napster as the pioneer and BitTorrent as the most recent evolution of the architecture.</p>
                 </div>
                 <div class="paragraph">
@@ -50,33 +40,33 @@ secondSubtitle:
                     of control is a core design principle and that can only be achieved and maintained by a flat, decentralized P2P consensus network.</p>
                 </div>
                 <div class="paragraph">
-                  <p>The term "bitcoin cash network" refers to the collection of nodes running the bitcoin cash P2P protocol. In addition to the bitcoin cash P2P protocol, there are other protocols such as Stratum, which are used for mining and lightweight or mobile wallets. These
-                    additional protocols are provided by gateway routing servers that access the bitcoin cash network using the bitcoin cash P2P protocol, and then extend that network to nodes running other protocols. For example, Stratum servers connect Stratum mining nodes
-                    via the Stratum protocol to the main bitcoin cash network and bridge the Stratum protocol to the bitcoin cash P2P protocol. We use the term "extended bitcoin cash network" to refer to the overall network that includes the bitcoin cash P2P protocol, pool-mining
-                    protocols, the Stratum protocol, and any other related protocols connecting the components of the bitcoin cash system.</p>
+                  <p>The term "Bitcoin Cash network" refers to the collection of nodes running the Bitcoin Cash P2P protocol. In addition to the Bitcoin Cash P2P protocol, there are other protocols such as Stratum, which are used for mining and lightweight or mobile wallets. These
+                    additional protocols are provided by gateway routing servers that access the Bitcoin Cash network using the Bitcoin Cash P2P protocol, and then extend that network to nodes running other protocols. For example, Stratum servers connect Stratum mining nodes
+                    via the Stratum protocol to the main Bitcoin Cash network and bridge the Stratum protocol to the Bitcoin Cash P2P protocol. We use the term "extended Bitcoin Cash network" to refer to the overall network that includes the Bitcoin Cash P2P protocol, pool-mining
+                    protocols, the Stratum protocol, and any other related protocols connecting the components of the Bitcoin Cash system.</p>
                 </div>
               </div>
               <div class="sect2">
                 <h3 id="_nodes_types_and_roles">Nodes Types and Roles</h3>
                 <div class="paragraph">
-                  <p>Although nodes in the bitcoin cash P2P network are equal, they may take on different roles depending on the functionality they are supporting. A bitcoin cash node is a collection of functions: routing, the blockchain database, mining, and wallet services.
-                    A full node with all four of these functions is shown in <a href="#full_node_reference">A bitcoin cash network node with all four functions: wallet, miner, full blockchain database, and network routing</a>.</p>
+                  <p>Although nodes in the Bitcoin Cash P2P network are equal, they may take on different roles depending on the functionality they are supporting. A Bitcoin Cash node is a collection of functions: routing, the blockchain database, mining, and wallet services.
+                    A full node with all four of these functions is shown in <a href="#full_node_reference">A Bitcoin Cash network node with all four functions: wallet, miner, full blockchain database, and network routing</a>.</p>
                 </div>
                 <div id="full_node_reference" class="imageblock">
                   <div class="content">
                     <img src="../img/mastering-bitcoin-cash/msbt_0601.png" alt="FullNodeReferenceClient_Small" />
                   </div>
-                  <div class="title">Figure 1. A bitcoin cash network node with all four functions: wallet, miner, full blockchain database, and network routing</div>
+                  <div class="title">Figure 1. A Bitcoin Cash network node with all four functions: wallet, miner, full blockchain database, and network routing</div>
                 </div>
                 <div class="paragraph">
                   <p>All nodes include the routing function to participate in the network and might include other functionality. All nodes validate and propagate transactions and blocks, and discover and maintain connections to peers. In the full-node example in
                     <a
-                      href="#full_node_reference">A bitcoin cash network node with all four functions: wallet, miner, full blockchain database, and network routing</a>, the routing function is indicated by an orange circle named "Network Routing Node."</p>
+                      href="#full_node_reference">A Bitcoin Cash network node with all four functions: wallet, miner, full blockchain database, and network routing</a>, the routing function is indicated by an orange circle named "Network Routing Node."</p>
                 </div>
                 <div class="paragraph">
                   <p>Some nodes, called full nodes, also maintain a complete and up-to-date copy of the blockchain. Full nodes can autonomously and authoritatively verify any transaction without external reference. Some nodes maintain only a subset of the blockchain
                     and verify transactions using a method called <em>simplified payment verification</em>, or SPV. These nodes are known as SPV or lightweight nodes. In the full-node example in the figure, the full-node blockchain database function is indicated
-                    by a blue circle named "Full Blockchain." In <a href="#bitcoin_network">The extended bitcoin cash network showing various node types, gateways, and protocols</a>, SPV nodes are drawn without the blue circle, showing that they do not have a full copy
+                    by a blue circle named "Full Blockchain." In <a href="#bitcoin_network">The extended Bitcoin Cash network showing various node types, gateways, and protocols</a>, SPV nodes are drawn without the blue circle, showing that they do not have a full copy
                     of the blockchain.</p>
                 </div>
                 <div class="paragraph">
@@ -84,60 +74,59 @@ secondSubtitle:
                     in pool mining and depending on a pool server to maintain a full node. The mining function is shown in the full node as a black circle named "Miner."</p>
                 </div>
                 <div class="paragraph">
-                  <p>User wallets might be part of a full node, as is usually the case with desktop bitcoin cash clients. Increasingly, many user wallets, especially those running on resource-constrained devices such as smartphones, are SPV nodes. The wallet function is
-                    shown in <a href="#full_node_reference">A bitcoin cash network node with all four functions: wallet, miner, full blockchain database, and network routing</a> as a green circle named "Wallet".</p>
+                  <p>User wallets might be part of a full node, as is usually the case with desktop Bitcoin Cash clients. Increasingly, many user wallets, especially those running on resource-constrained devices such as smartphones, are SPV nodes. The wallet function is
+                    shown in <a href="#full_node_reference">A Bitcoin Cash network node with all four functions: wallet, miner, full blockchain database, and network routing</a> as a green circle named "Wallet".</p>
                 </div>
                 <div class="paragraph">
-                  <p>In addition to the main node types on the bitcoin cash P2P protocol, there are servers and nodes running other protocols, such as specialized mining pool protocols and lightweight client-access protocols.</p>
+                  <p>In addition to the main node types on the Bitcoin Cash P2P protocol, there are servers and nodes running other protocols, such as specialized mining pool protocols and lightweight client-access protocols.</p>
                 </div>
                 <div class="paragraph">
-                  <p><a href="#node_type_ledgend">Different types of nodes on the extended bitcoin cash network</a> shows the most common node types on the extended bitcoin cash network.</p>
+                  <p><a href="#node_type_ledgend">Different types of nodes on the extended Bitcoin Cash network</a> shows the most common node types on the extended Bitcoin Cash network.</p>
                 </div>
               </div>
               <div class="sect2">
                 <h3 id="_the_extended_bitcoin_network">The Extended Bitcoin Cash Network</h3>
                 <div class="paragraph">
-                  <p>The main bitcoin cash network, running the bitcoin cash P2P protocol, consists of between 7,000 and 10,000 listening nodes running various versions of the bitcoin cash reference client (Bitcoin Core) and a few hundred nodes running various other implementations
-                    of the bitcoin cash P2P protocol, such as BitcoinJ, Libbitcoin, and btcd. A small percentage of the nodes on the bitcoin cash P2P network are also mining nodes, competing in the mining process, validating transactions, and creating new blocks. Various
-                    large companies interface with the bitcoin cash network by running full-node clients based on the Bitcoin Core client, with full copies of the blockchain and a network node, but without mining or wallet functions. These nodes act as network edge
+                  <p>The main Bitcoin Cash network, running the Bitcoin Cash P2P protocol, consists of thousands of listening nodes running various versions of the Bitcoin Cash client. A small percentage of the nodes on the Bitcoin Cash P2P network are also mining nodes, competing in the mining process, validating transactions, and creating new blocks. Various
+                    large companies interface with the Bitcoin Cash network by running full-node clients, with full copies of the blockchain and a network node, but without mining or wallet functions. These nodes act as network edge
                     routers, allowing various other services (exchanges, wallets, block explorers, merchant payment processing) to be built on top.</p>
                 </div>
                 <div class="paragraph">
-                  <p>The extended bitcoin cash network includes the network running the bitcoin cash P2P protocol, described earlier, as well as nodes running specialized protocols. Attached to the main bitcoin cash P2P network are a number of pool servers and protocol gateways
+                  <p>The extended Bitcoin Cash network includes the network running the Bitcoin Cash P2P protocol, described earlier, as well as nodes running specialized protocols. Attached to the main Bitcoin Cash P2P network are a number of pool servers and protocol gateways
                     that connect nodes running other protocols. These other protocol nodes are mostly pool mining nodes (see <a href="#ch8">[ch8]</a>) and lightweight wallet clients, which do not carry a full copy of the blockchain.</p>
                 </div>
                 <div class="paragraph">
-                  <p><a href="#bitcoin_network">The extended bitcoin cash network showing various node types, gateways, and protocols</a> shows the extended bitcoin cash network with the various types of nodes, gateway servers, edge routers, and wallet clients and the various
+                  <p><a href="#bitcoin_network">The extended Bitcoin Cash network showing various node types, gateways, and protocols</a> shows the extended Bitcoin Cash network with the various types of nodes, gateway servers, edge routers, and wallet clients and the various
                     protocols they use to connect to each other.</p>
                 </div>
                 <div id="node_type_ledgend" class="imageblock">
                   <div class="content">
                     <img src="../img/mastering-bitcoin-cash/msbt_0602.png" alt="BitcoinNodeTypes" />
                   </div>
-                  <div class="title">Figure 2. Different types of nodes on the extended bitcoin cash network</div>
+                  <div class="title">Figure 2. Different types of nodes on the extended Bitcoin Cash network</div>
                 </div>
                 <div id="bitcoin_network" class="imageblock">
                   <div class="content">
                     <img src="../img/mastering-bitcoin-cash/msbt_0603.png" alt="BitcoinNetwork" />
                   </div>
-                  <div class="title">Figure 3. The extended bitcoin cash network showing various node types, gateways, and protocols</div>
+                  <div class="title">Figure 3. The extended Bitcoin Cash network showing various node types, gateways, and protocols</div>
                 </div>
               </div>
               <div class="sect2">
                 <h3 id="_network_discovery">Network Discovery</h3>
                 <div class="paragraph">
-                  <p>When a new node boots up, it must discover other bitcoin cash nodes on the network in order to participate. To start this process, a new node must discover at least one existing node on the network and connect to it. The geographic location of other
-                    nodes is irrelevant; the bitcoin cash network topology is not geographically defined. Therefore, any existing bitcoin cash nodes can be selected at random.</p>
+                  <p>When a new node boots up, it must discover other Bitcoin Cash nodes on the network in order to participate. To start this process, a new node must discover at least one existing node on the network and connect to it. The geographic location of other
+                    nodes is irrelevant; the Bitcoin Cash network topology is not geographically defined. Therefore, any existing Bitcoin Cash nodes can be selected at random.</p>
                 </div>
                 <div class="paragraph">
-                  <p>To connect to a known peer, nodes establish a TCP connection, usually to port 8333 (the port generally known as the one used by bitcoin cash), or an alternative port if one is provided. Upon establishing a connection, the node will start a "handshake"
+                  <p>To connect to a known peer, nodes establish a TCP connection, usually to port 8333 (the port generally known as the one used by Bitcoin Cash), or an alternative port if one is provided. Upon establishing a connection, the node will start a "handshake"
                     (see <a href="#network_handshake">The initial handshake between peers</a>) by transmitting a version message, which contains basic identifying information, including:</p>
                 </div>
                 <div class="dlist">
                   <dl>
                     <dt class="hdlist1">PROTOCOL_VERSION</dt>
                     <dd>
-                      <p>A constant that defines the bitcoin cash P2P protocol version the client "speaks" (e.g., 70002)</p>
+                      <p>A constant that defines the Bitcoin Cash P2P protocol version the client "speaks" (e.g., 70002)</p>
                     </dd>
                     <dt class="hdlist1">nLocalServices</dt>
                     <dd>
@@ -157,7 +146,7 @@ secondSubtitle:
                     </dd>
                     <dt class="hdlist1">subver</dt>
                     <dd>
-                      <p>A sub-version showing the type of software running on this node (e.g., "/Satoshi:0.9.2.1/")+</p>
+                      <p>A sub-version showing the type of software running on this node (e.g., "/Bitcoin ABC:0.17.1(EB32.0)/")+</p>
                     </dd>
                     <dt class="hdlist1">BestHeight</dt>
                     <dd>
@@ -166,19 +155,16 @@ secondSubtitle:
                   </dl>
                 </div>
                 <div class="paragraph">
-                  <p>(See <a href="http://bit.ly/1qlsC7w">GitHub</a> for an example of the version network message.)</p>
-                </div>
-                <div class="paragraph">
                   <p>The peer node responds with verack to acknowledge and establish a connection, and optionally sends its own version message if it wishes to reciprocate the connection and connect back as a peer.</p>
                 </div>
                 <div class="paragraph">
-                  <p>How does a new node find peers? The first method is to query DNS using a number of "DNS seeds," which are DNS servers that provide a list of IP addresses of bitcoin cash nodes. Some of those DNS seeds provide a static list of IP addresses of stable
-                    bitcoin cash listening nodes. Some of the DNS seeds are custom implementations of BIND (Berkeley Internet Name Daemon) that return a random subset from a list of bitcoin cash node addresses collected by a crawler or a long-running bitcoin cash node. The Bitcoin Cash
-                    Core client contains the names of five different DNS seeds. The diversity of ownership and diversity of implementation of the different DNS seeds offers a high level or reliability for the initial bootstrapping process. In the Bitcoin Core client,
+                  <p>How does a new node find peers? The first method is to query DNS using a number of "DNS seeds," which are DNS servers that provide a list of IP addresses of Bitcoin Cash nodes. Some of those DNS seeds provide a static list of IP addresses of stable
+                    Bitcoin Cash listening nodes. Some of the DNS seeds are custom implementations of BIND (Berkeley Internet Name Daemon) that return a random subset from a list of Bitcoin Cash node addresses collected by a crawler or a long-running Bitcoin Cash node. The Bitcoin Cash
+                    client contains the names of five different DNS seeds. The diversity of ownership and diversity of implementation of the different DNS seeds offers a high level or reliability for the initial bootstrapping process. In the Bitcoin Cash client,
                     the option to use the DNS seeds is controlled by the option switch -dnsseed (set to 1 by default, to use the DNS seed).</p>
                 </div>
                 <div class="paragraph">
-                  <p>Alternatively, a bootstrapping node that knows nothing of the network must be given the IP address of at least one bitcoin cash node, after which it can establish connections through further introductions. The command-line argument -seednode can be
+                  <p>Alternatively, a bootstrapping node that knows nothing of the network must be given the IP address of at least one Bitcoin Cash node, after which it can establish connections through further introductions. The command-line argument -seednode can be
                     used to connect to one node just for introductions, using it as a seed. After the initial seed node is used to form introductions, the client will disconnect from it and use the newly discovered peers.</p>
                 </div>
                 <div id="network_handshake" class="imageblock">
@@ -199,57 +185,74 @@ secondSubtitle:
                   <div class="title">Figure 5. Address propagation and discovery</div>
                 </div>
                 <div class="paragraph">
-                  <p>A node must connect to a few different peers in order to establish diverse paths into the bitcoin cash network. Paths are not reliable—nodes come and go—and so the node must continue to discover new nodes as it loses old connections as well as assist
+                  <p>A node must connect to a few different peers in order to establish diverse paths into the Bitcoin Cash network. Paths are not reliable—nodes come and go—and so the node must continue to discover new nodes as it loses old connections as well as assist
                     other nodes when they bootstrap. Only one connection is needed to bootstrap, because the first node can offer introductions to its peer nodes and those peers can offer further introductions. It&#8217;s also unnecessary and wasteful of network
                     resources to connect to more than a handful of nodes. After bootstrapping, a node will remember its most recent successful peer connections, so that if it is rebooted it can quickly reestablish connections with its former peer network. If none
                     of the former peers respond to its connection request, the node can use the seed nodes to bootstrap again.</p>
                 </div>
                 <div class="paragraph">
-                  <p>On a node running the Bitcoin Core client, you can list the peer connections with the command getpeerinfo:</p>
+                  <p>With BITBOX you can list the peer connections with the command getpeerinfo:</p>
                 </div>
                 <div class="listingblock">
                   <div class="content">
-                    <pre class="highlight"><code class="language-bash" data-lang="bash">$ bitcoin-cli getpeerinfo</code></pre>
-                  </div>
-                </div>
-                <div class="listingblock">
-                  <div class="content">
-                    <SyntaxHighlighter language='text' style={ocean}>{`
-            [
-              {
-                  "addr" : "85.213.199.39:8333",
-                  "services" : "00000001",
-                  "lastsend" : 1405634126,
-                  "lastrecv" : 1405634127,
-                  "bytessent" : 23487651,
-                  "bytesrecv" : 138679099,
-                  "conntime" : 1405021768,
-                  "pingtime" : 0.00000000,
-                  "version" : 70002,
-                  "subver" : "/Satoshi:0.9.2.1/",
-                  "inbound" : false,
-                  "startingheight" : 310131,
-                  "banscore" : 0,
-                  "syncnode" : true
-              },
-              {
-                  "addr" : "58.23.244.20:8333",
-                  "services" : "00000001",
-                  "lastsend" : 1405634127,
-                  "lastrecv" : 1405634124,
-                  "bytessent" : 4460918,
-                  "bytesrecv" : 8903575,
-                  "conntime" : 1405559628,
-                  "pingtime" : 0.00000000,
-                  "version" : 70001,
-                  "subver" : "/Satoshi:0.8.6/",
-                  "inbound" : false,
-                  "startingheight" : 311074,
-                  "banscore" : 0,
-                  "syncnode" : false
-              }
-          ]
-                    `}</SyntaxHighlighter>
+                    <pre class="highlight"><code class="language-javascript" data-lang="javascript">
+    BITBOX.Network.getPeerInfo().then((result) => {
+    console.log(result);
+    }, (err) => {
+    console.log(err);
+    });
+
+    // returns
+    [  { id: 99286,
+    addr: '96.126.122.17:53402',
+    addrlocal: '138.68.54.100:8333',
+    services: '0000000000000025',
+    relaytxes: true,
+    lastsend: 1531631325,
+    lastrecv: 1531631325,
+    bytessent: 498405940,
+    bytesrecv: 1813804,
+    conntime: 1531630964,
+    timeoffset: 0,
+    pingtime: 1.456465,
+    minping: 0.046046,
+    pingwait: 0.661831,
+    version: 70015,
+    subver: '/Bitcoin ABC:0.17.1(EB32.0)/',
+    inbound: true,
+    addnode: false,
+    startingheight: 40272,
+    banscore: 0,
+    synced_headers: -1,
+    synced_blocks: -1,
+    inflight: [],
+    whitelisted: false,
+    bytessent_per_msg:
+     { addr: 30442,
+       block: 498371828,
+       feefilter: 32,
+       getheaders: 1053,
+       headers: 106,
+       inv: 2004,
+       ping: 128,
+       pong: 128,
+       sendcmpct: 33,
+       sendheaders: 24,
+       verack: 24,
+       version: 138 },
+    bytesrecv_per_msg:
+     { addr: 1390,
+       feefilter: 32,
+       getaddr: 24,
+       getdata: 1810862,
+       getheaders: 1053,
+       ping: 128,
+       pong: 96,
+       sendcmpct: 33,
+       sendheaders: 24,
+       verack: 24,
+       version: 138 } } ]
+        </code></pre>
                   </div>
                 </div>
                 <div class="paragraph">
@@ -264,23 +267,18 @@ secondSubtitle:
               <div class="sect2">
                 <h3 id="_full_nodes">Full Nodes</h3>
                 <div class="paragraph">
-                  <p>Full nodes are nodes that maintain a full blockchain with all transactions. More accurately, they probably should be called "full blockchain nodes." In the early years of bitcoin cash, all nodes were full nodes and currently the Bitcoin Core client
-                    is a full blockchain node. In the past two years, however, new forms of bitcoin cash clients have been introduced that do not maintain a full blockchain but run as lightweight clients. We&#8217;ll examine these in more detail in the next section.</p>
+                  <p>Full nodes are nodes that maintain a full blockchain with all transactions. More accurately, they probably should be called "full blockchain nodes." In the early years of Bitcoin Cash, all nodes were full nodes and currently the Bitcoin Cash client
+                    is a full blockchain node. In the past two years, however, new forms of Bitcoin Cash clients have been introduced that do not maintain a full blockchain but run as lightweight clients. We&#8217;ll examine these in more detail in the next section.</p>
                 </div>
                 <div class="paragraph">
-                  <p>Full blockchain nodes maintain a complete and up-to-date copy of the bitcoin cash blockchain with all the transactions, which they independently build and verify, starting with the very first block (genesis block) and building up to the latest known
+                  <p>Full blockchain nodes maintain a complete and up-to-date copy of the Bitcoin Cash blockchain with all the transactions, which they independently build and verify, starting with the very first block (genesis block) and building up to the latest known
                     block in the network. A full blockchain node can independently and authoritatively verify any transaction without recourse or reliance on any other node or source of information. The full blockchain node relies on the network to receive updates
                     about new blocks of transactions, which it then verifies and incorporates into its local copy of the blockchain.</p>
                 </div>
                 <div class="paragraph">
-                  <p>Running a full blockchain node gives you the pure bitcoin cash experience: independent verification of all transactions without the need to rely on, or trust, any other systems. It&#8217;s easy to tell if you&#8217;re running a full node because it
-                    requires 20+ gigabytes of persistent storage (disk space) to store the full blockchain. If you need a lot of disk and it takes two to three days to sync to the network, you are running a full node. That is the price of complete independence
+                  <p>Running a full blockchain node gives you the pure Bitcoin Cash experience: independent verification of all transactions without the need to rely on, or trust, any other systems. It&#8217;s easy to tell if you&#8217;re running a full node because it
+                    requires 100+ gigabytes of persistent storage (disk space) to store the full blockchain. If you need a lot of disk and it takes two to three days to sync to the network, you are running a full node. That is the price of complete independence
                     and freedom from central authority.</p>
-                </div>
-                <div class="paragraph">
-                  <p>There are a few alternative implementations of full blockchain bitcoin cash clients, built using different programming languages and software architectures. However, the most common implementation is the reference client Bitcoin Core, also known as
-                    the Satoshi client. More than 90% of the nodes on the bitcoin cash network run various versions of Bitcoin Core. It is identified as "Satoshi" in the sub-version string sent in the version message and shown by the command getpeerinfo as we saw earlier;
-                    for example, /Satoshi:0.8.6/.</p>
                 </div>
               </div>
               <div class="sect2">
@@ -302,7 +300,7 @@ secondSubtitle:
                   <p>Let&#8217;s assume, for example, that a node only has the genesis block. It will then receive an inv message from its peers containing the hashes of the next 500 blocks in the chain. It will start requesting blocks from all of its connected peers,
                     spreading the load and ensuring that it doesn&#8217;t overwhelm any peer with requests. The node keeps track of how many blocks are "in transit" per peer connection, meaning blocks that it has requested but not received, checking that it does
                     not exceed a limit (MAX_BLOCKS_IN_TRANSIT_PER_PEER). This way, if it needs a lot of blocks, it will only request new ones as previous requests are fulfilled, allowing the peers to control the pace of updates and not overwhelming the network.
-                    As each block is received, it is added to the blockchain, as we will see in <a href="#blockchain">[blockchain]</a>. As the local blockchain is gradually built up, more blocks are requested and received, and the process continues until the node
+                    As each block is received, it is added to the blockchain, as we will see in <a href="the-blockchain.html">The Blockchain</a>. As the local blockchain is gradually built up, more blocks are requested and received, and the process continues until the node
                     catches up to the rest of the network.</p>
                 </div>
                 <div class="paragraph">
@@ -313,8 +311,8 @@ secondSubtitle:
               <div class="sect2">
                 <h3 id="spv_nodes">Simplified Payment Verification (SPV) Nodes</h3>
                 <div class="paragraph">
-                  <p>Not all nodes have the ability to store the full blockchain. Many bitcoin cash clients are designed to run on space- and power-constrained devices, such as smartphones, tablets, or embedded systems. For such devices, a <em>simplified payment verification</em>          (SPV) method is used to allow them to operate without storing the full blockchain. These types of clients are called SPV clients or lightweight clients. As bitcoin cash adoption surges, the SPV node is becoming the most common form of bitcoin cash node,
-                    especially for bitcoin cash wallets.</p>
+                  <p>Not all nodes have the ability to store the full blockchain. Many Bitcoin Cash clients are designed to run on space- and power-constrained devices, such as smartphones, tablets, or embedded systems. For such devices, a <em>simplified payment verification</em>          (SPV) method is used to allow them to operate without storing the full blockchain. These types of clients are called SPV clients or lightweight clients. As Bitcoin Cash adoption surges, the SPV node is becoming the most common form of Bitcoin Cash node,
+                    especially for Bitcoin Cash wallets.</p>
                 </div>
                 <div class="paragraph">
                   <p>SPV nodes download only the block headers and do not download the transactions included in each block. The resulting chain of blocks, without transactions, is 1,000 times smaller than the full blockchain. SPV nodes cannot construct a full picture
@@ -339,7 +337,7 @@ secondSubtitle:
                 </div>
                 <div class="paragraph">
                   <p>For example, when examining a transaction in block 300,000, a full node links all 300,000 blocks down to the genesis block and builds a full database of UTXO, establishing the validity of the transaction by confirming that the UTXO remains unspent.
-                    An SPV node cannot validate whether the UTXO is unspent. Instead, the SPV node will establish a link between the transaction and the block that contains it, using a <em>merkle path</em> (see <a href="#merkle_trees">[merkle_trees]</a>). Then,
+                    An SPV node cannot validate whether the UTXO is unspent. Instead, the SPV node will establish a link between the transaction and the block that contains it, using a <em>merkle path</em>. Then,
                     the SPV node waits until it sees the six blocks 300,001 through 300,006 piled on top of the block containing the transaction and verifies it by establishing its depth under blocks 300,006 to 300,001. The fact that other nodes on the network
                     accepted block 300,000 and then did the necessary work to produce six more blocks on top of it is proof, by proxy, that the transaction was not a double-spend.</p>
                 </div>
@@ -348,7 +346,7 @@ secondSubtitle:
                     of work in the chain of blocks. However, a transaction&#8217;s existence can be "hidden" from an SPV node. An SPV node can definitely prove that a transaction exists but cannot verify that a transaction, such as a double-spend of the same UTXO,
                     doesn&#8217;t exist because it doesn&#8217;t have a record of all transactions. This vulnerability can be used in a denial-of-service attack or for a double-spending attack against SPV nodes. To defend against this, an SPV node needs to connect
                     randomly to several nodes, to increase the probability that it is in contact with at least one honest node. This need to randomly connect means that SPV nodes also are vulnerable to network partitioning attacks or Sybil attacks, where they are
-                    connected to fake nodes or fake networks and do not have access to honest nodes or the real bitcoin cash network.</p>
+                    connected to fake nodes or fake networks and do not have access to honest nodes or the real Bitcoin Cash network.</p>
                 </div>
                 <div class="paragraph">
                   <p>For most practical purposes, well-connected SPV nodes are secure enough, striking the right balance between resource needs, practicality, and security. For infallible security, however, nothing beats running a full blockchain node.</p>
@@ -383,11 +381,11 @@ secondSubtitle:
                 </div>
                 <div class="paragraph">
                   <p>Because SPV nodes need to retrieve specific transactions in order to selectively verify them, they also create a privacy risk. Unlike full blockchain nodes, which collect all transactions within each block, the SPV node&#8217;s requests for specific
-                    data can inadvertently reveal the addresses in their wallet. For example, a third party monitoring a network could keep track of all the transactions requested by a wallet on an SPV node and use those to associate bitcoin cash addresses with the
+                    data can inadvertently reveal the addresses in their wallet. For example, a third party monitoring a network could keep track of all the transactions requested by a wallet on an SPV node and use those to associate Bitcoin Cash addresses with the
                     user of that wallet, destroying the user&#8217;s privacy.</p>
                 </div>
                 <div class="paragraph">
-                  <p>Shortly after the introduction of SPV/lightweight nodes, the bitcoin cash developers added a feature called <em>bloom filters</em> to address the privacy risks of SPV nodes. Bloom filters allow SPV nodes to receive a subset of the transactions without
+                  <p>Shortly after the introduction of SPV/lightweight nodes, the Bitcoin Cash developers added a feature called <em>bloom filters</em> to address the privacy risks of SPV nodes. Bloom filters allow SPV nodes to receive a subset of the transactions without
                     revealing precisely which addresses they are interested in, through a filtering mechanism that uses probabilities rather than fixed patterns.</p>
                 </div>
               </div>
@@ -484,7 +482,7 @@ secondSubtitle:
                   <div class="title">Figure 12. Testing the existence of pattern "Y" in the bloom filter. The result is a definitive negative match, meaning "Definitely Not!"</div>
                 </div>
                 <div class="paragraph">
-                  <p>Bitcoin&#8217;s implementation of bloom filters is described in Bitcoin Improvement Proposal 37 (BIP0037). See <a href="#appdxbitcoinimpproposals">[appdxbitcoinimpproposals]</a> or visit <a href="http://bit.ly/1x6qCiO">GitHub</a>.</p>
+                  <p>Bitcoin&#8217;s implementation of bloom filters is described in Bitcoin Improvement Proposal 37 (<a href='https://github.com/bitcoin/bips/blob/master/bip-0037.mediawiki'>BIP0037</a>).</p>
                 </div>
               </div>
               <div class="sect2">
@@ -495,7 +493,7 @@ secondSubtitle:
                     are sent to the node.</p>
                 </div>
                 <div class="paragraph">
-                  <p>In response to a getdata message from the node, peers will send a merkleblock message that contains only block headers for blocks matching the filter and a merkle path (see <a href="#merkle_trees">[merkle_trees]</a>) for each matching transaction.
+                  <p>In response to a getdata message from the node, peers will send a merkleblock message that contains only block headers for blocks matching the filter and a merkle path for each matching transaction.
                     The peer will then also send tx messages containing the transactions matched by the filter.</p>
                 </div>
                 <div class="paragraph">
@@ -506,7 +504,7 @@ secondSubtitle:
               <div class="sect2">
                 <h3 id="transaction_pools">Transaction Pools</h3>
                 <div class="paragraph">
-                  <p>Almost every node on the bitcoin cash network maintains a temporary list of unconfirmed transactions called the <em>memory pool</em>, <em>mempool</em>, or <em>transaction pool</em>. Nodes use this pool to keep track of transactions that are known to
+                  <p>Almost every node on the Bitcoin Cash network maintains a temporary list of unconfirmed transactions called the <em>memory pool</em>, <em>mempool</em>, or <em>transaction pool</em>. Nodes use this pool to keep track of transactions that are known to
                     the network but are not yet included in the blockchain. For example, a node that holds a user&#8217;s wallet will use the transaction pool to track incoming payments to the user&#8217;s wallet that have been received on the network but are not
                     yet confirmed.</p>
                 </div>
@@ -528,7 +526,7 @@ secondSubtitle:
                     are gradually populated with new transactions received on the network.</p>
                 </div>
                 <div class="paragraph">
-                  <p>Some implementations of the bitcoin cash client also maintain a UTXO database or UTXO pool, which is the set of all unspent outputs on the blockchain. Although the name "UTXO pool" sounds similar to the transaction pool, it represents a different set
+                  <p>Some implementations of the Bitcoin Cash client also maintain a UTXO database or UTXO pool, which is the set of all unspent outputs on the blockchain. Although the name "UTXO pool" sounds similar to the transaction pool, it represents a different set
                     of data. Unlike the transaction and orphan pools, the UTXO pool is not initialized empty but instead contains millions of entries of unspent transaction outputs, including some dating back to 2009. The UTXO pool may be housed in local memory
                     or as an indexed database table on persistent storage.</p>
                 </div>
@@ -537,12 +535,13 @@ secondSubtitle:
                     the network and therefore will vary little between nodes. Furthermore, the transaction and orphan pools only contain unconfirmed transactions, while the UTXO pool only contains confirmed outputs.</p>
                 </div>
               </div>
-              <div class="sect2">
+              <!-- <div class="sect2">
+              TODO: Confirm alert message status on BCH
                 <h3 id="_alert_messages">Alert Messages</h3>
                 <div class="paragraph">
-                  <p>Alert messages are a seldom used function, but are nevertheless implemented in most nodes. Alert messages are bitcoin cash&#8217;s "emergency broadcast system," a means by which the core bitcoin cash developers can send an emergency text message to all
-                    bitcoin cash nodes. This feature is implemented to allow the core developer team to notify all bitcoin cash users of a serious problem in the bitcoin cash network, such as a critical bug that requires user action. The alert system has only been used a handful
-                    of times, most notably in early 2013 when a critical database bug caused a multiblock fork to occur in the bitcoin cash blockchain.</p>
+                  <p>Alert messages are a seldom used function, but are nevertheless implemented in most nodes. Alert messages are Bitcoin Cash&#8217;s "emergency broadcast system," a means by which the Bitcoin Cash developers can send an emergency text message to all
+                    Bitcoin Cash nodes. This feature is implemented to allow the developer team to notify all Bitcoin Cash users of a serious problem in the Bitcoin Cash network, such as a critical bug that requires user action. The alert system has only been used a handful
+                    of times, most notably in early 2013 when a critical database bug caused a multiblock fork to occur in the Bitcoin Cash blockchain.</p>
                 </div>
                 <div class="paragraph">
                   <p>Alert messages are propagated by the alert message. The alert message contains several fields, including:</p>
@@ -563,7 +562,7 @@ secondSubtitle:
                     </dd>
                     <dt class="hdlist1">MinVer, MaxVer</dt>
                     <dd>
-                      <p>The range of bitcoin cash protocol versions that this alert applies to</p>
+                      <p>The range of Bitcoin Cash protocol versions that this alert applies to</p>
                     </dd>
                     <dt class="hdlist1">subVer</dt>
                     <dd>
@@ -576,7 +575,7 @@ secondSubtitle:
                   </dl>
                 </div>
                 <div class="paragraph">
-                  <p>Alerts are cryptographically signed by a public key. The corresponding private key is held by a few select members of the core development team. The digital signature ensures that fake alerts will not be propagated on the network.</p>
+                  <p>Alerts are cryptographically signed by a public key. The corresponding private key is held by a few select members of the development team. The digital signature ensures that fake alerts will not be propagated on the network.</p>
                 </div>
                 <div class="paragraph">
                   <p>Each node receiving this alert message will verify it, check for expiration, and propagate it to all its peers, thus ensuring rapid propagation across the entire network. In addition to propagating the alert, the nodes might implement a user interface
@@ -587,10 +586,10 @@ secondSubtitle:
                     alertnotify command is set to generate an email message to the administrator of the node, containing the alert message. The alert is also displayed as a pop-up dialog in the graphical user interface (bitcoin-Qt) if it is running.</p>
                 </div>
                 <div class="paragraph">
-                  <p>Other implementations of the bitcoin cash protocol might handle the alert in different ways. Many hardware-embedded bitcoin cash mining systems do not implement the alert message function because they have no user interface. It is strongly recommended that
+                  <p>Other implementations of the Bitcoin Cash protocol might handle the alert in different ways. Many hardware-embedded Bitcoin Cash mining systems do not implement the alert message function because they have no user interface. It is strongly recommended that
                     miners running such mining systems subscribe to alerts via a mining pool operator or by running a lightweight node just for alert purposes.</p>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -604,4 +603,4 @@ secondSubtitle:
       </div>
     </div>
   </div>
-</section> -->
+</section>

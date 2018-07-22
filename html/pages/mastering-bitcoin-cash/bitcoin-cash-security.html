@@ -25,19 +25,19 @@ subtitle: Mastering Bitcoin Cash
           <div class="sect1">
             <div class="sectionbody">
               <div class="paragraph">
-                <p>Securing bitcoin cash is challenging because bitcoin cash is not an abstract reference to value, like a balance in a bank account. Bitcoin Cash is very much like digital cash or gold. You&#8217;ve probably heard the expression, "Possession is nine-tenths of the
-                  law." Well, in bitcoin cash, possession is ten-tenths of the law. Possession of the keys to unlock the bitcoin cash is equivalent to possession of cash or a chunk of precious metal. You can lose it, misplace it, have it stolen, or accidentally give the
+                <p>Securing Bitcoin Cash is challenging because Bitcoin Cash is not an abstract reference to value, like a balance in a bank account. Bitcoin Cash is very much like digital cash or gold. You&#8217;ve probably heard the expression, "Possession is nine-tenths of the
+                  law." Well, in Bitcoin Cash, possession is ten-tenths of the law. Possession of the keys to unlock the Bitcoin Cash is equivalent to possession of cash or a chunk of precious metal. You can lose it, misplace it, have it stolen, or accidentally give the
                   wrong amount to someone. In every one of these cases, users have no recourse, just as if they dropped cash on a public sidewalk.</p>
               </div>
               <div class="paragraph">
-                <p>However, bitcoin cash has capabilities that cash, gold, and bank accounts do not. A bitcoin cash wallet, containing your keys, can be backed up like any file. It can be stored in multiple copies, even printed on paper for hard-copy backup. You can&#8217;t
-                  "back up" cash, gold, or bank accounts. Bitcoin Cash is different enough from anything that has come before that we need to think about bitcoin cash security in a novel way too.</p>
+                <p>However, Bitcoin Cash has capabilities that cash, gold, and bank accounts do not. A Bitcoin Cash wallet, containing your keys, can be backed up like any file. It can be stored in multiple copies, even printed on paper for hard-copy backup. You can&#8217;t
+                  "back up" cash, gold, or bank accounts. Bitcoin Cash is different enough from anything that has come before that we need to think about Bitcoin Cash security in a novel way too.</p>
               </div>
               <div class="sect2">
                 <h3 class='yellow' id="_security_principles">Security Principles</h3>
                 <div class="paragraph">
-                  <p>The core principle in bitcoin cash is decentralization and it has important implications for security. A centralized model, such as a traditional bank or payment network, depends on access control and vetting to keep bad actors out of the system. By
-                    comparison, a decentralized system like bitcoin cash pushes the responsibility and control to the users. Because security of the network is based on proof of work, not access control, the network can be open and no encryption is required for bitcoin cash
+                  <p>The core principle in Bitcoin Cash is decentralization and it has important implications for security. A centralized model, such as a traditional bank or payment network, depends on access control and vetting to keep bad actors out of the system. By
+                    comparison, a decentralized system like Bitcoin Cash pushes the responsibility and control to the users. Because security of the network is based on proof of work, not access control, the network can be open and no encryption is required for Bitcoin Cash
                     traffic.</p>
                 </div>
                 <div class="paragraph">
@@ -47,31 +47,31 @@ subtitle: Mastering Bitcoin Cash
                     theft and must take action to prevent fraudulent use of the compromised accounts.</p>
                 </div>
                 <div class="paragraph">
-                  <p>Bitcoin Cash is dramatically different. A bitcoin cash transaction authorizes only a specific value to a specific recipient and cannot be forged or modified. It does not reveal any private information, such as the identities of the parties, and cannot be
-                    used to authorize additional payments. Therefore, a bitcoin cash payment network does not need to be encrypted or protected from eavesdropping. In fact, you can broadcast bitcoin cash transactions over an open public channel, such as unsecured WiFi or
+                  <p>Bitcoin Cash is dramatically different. A Bitcoin Cash transaction authorizes only a specific value to a specific recipient and cannot be forged or modified. It does not reveal any private information, such as the identities of the parties, and cannot be
+                    used to authorize additional payments. Therefore, a Bitcoin Cash payment network does not need to be encrypted or protected from eavesdropping. In fact, you can broadcast Bitcoin Cash transactions over an open public channel, such as unsecured WiFi or
                     Bluetooth, with no loss of security.</p>
                 </div>
                 <div class="paragraph">
                   <p>Bitcoin Cash&#8217;s decentralized security model puts a lot of power in the hands of the users. With that power comes responsibility for maintaining the secrecy of the keys. For most users that is not easy to do, especially on general-purpose computing
-                    devices such as Internet-connected smartphones or laptops. Although bitcoin cash&#8217;s decentralized model prevents the type of mass compromise seen with credit cards, many users are not able to adequately secure their keys and get hacked, one
+                    devices such as Internet-connected smartphones or laptops. Although Bitcoin Cash&#8217;s decentralized model prevents the type of mass compromise seen with credit cards, many users are not able to adequately secure their keys and get hacked, one
                     by one.</p>
                 </div>
                 <div class="sect3">
-                  <h4 class='yellow' id="_developing_bitcoin cash_systems_securely">Developing Bitcoin Cash Systems Securely</h4>
+                  <h4 class='yellow' id="_developing_Bitcoin Cash_systems_securely">Developing Bitcoin Cash Systems Securely</h4>
                   <div class="paragraph">
-                    <p>The most important principle for bitcoin cash developers is decentralization. Most developers will be familiar with centralized security models and might be tempted to apply these models to their bitcoin cash applications, with disastrous results.</p>
+                    <p>The most important principle for Bitcoin Cash developers is decentralization. Most developers will be familiar with centralized security models and might be tempted to apply these models to their Bitcoin Cash applications, with disastrous results.</p>
                   </div>
                   <div class="paragraph">
                     <p>Bitcoin Cash&#8217;s security relies on decentralized control over keys and on independent transaction validation by miners. If you want to leverage Bitcoin Cash&#8217;s security, you need to ensure that you remain within the Bitcoin Cash security model. In
                       simple terms: don&#8217;t take control of keys away from users and don&#8217;t take transactions off the blockchain.</p>
                   </div>
                   <div class="paragraph">
-                    <p>For example, many early bitcoin cash exchanges concentrated all user funds in a single "hot" wallet with keys stored on a single server. Such a design removes control from users and centralizes control over keys in a single system. Many such systems
+                    <p>For example, many early Bitcoin Cash exchanges concentrated all user funds in a single "hot" wallet with keys stored on a single server. Such a design removes control from users and centralizes control over keys in a single system. Many such systems
                       have been hacked, with disastrous consequences for their customers.</p>
                   </div>
                   <div class="paragraph">
                     <p>Another common mistake is to take transactions "off blockchain" in a misguided effort to reduce transaction fees or accelerate transaction processing. An "off blockchain" system will record transactions on an internal, centralized ledger and
-                      only occasionally synchronize them to the bitcoin cash blockchain. This practice, again, substitutes decentralized bitcoin cash security with a proprietary and centralized approach. When transactions are off blockchain, improperly secured centralized
+                      only occasionally synchronize them to the Bitcoin Cash blockchain. This practice, again, substitutes decentralized Bitcoin Cash security with a proprietary and centralized approach. When transactions are off blockchain, improperly secured centralized
                       ledgers can be falsified, diverting funds and depleting reserves, unnoticed.</p>
                   </div>
                   <div class="paragraph">
@@ -92,16 +92,16 @@ subtitle: Mastering Bitcoin Cash
                   </div>
                   <div class="paragraph">
                     <p>Bitcoin Cash security architecture is different. In Bitcoin Cash, the consensus system creates a trusted public ledger that is completely decentralized. A correctly validated blockchain uses the genesis block as the root of trust, building a chain of
-                      trust up to the current block. Bitcoin Cash systems can and should use the blockchain as their root of trust. When designing a complex bitcoin cash application that consists of services on many different systems, you should carefully examine the security
+                      trust up to the current block. Bitcoin Cash systems can and should use the blockchain as their root of trust. When designing a complex Bitcoin Cash application that consists of services on many different systems, you should carefully examine the security
                       architecture in order to ascertain where trust is being placed. Ultimately, the only thing that should be explicitly trusted is a fully validated blockchain. If your application explicitly or implicitly vests trust in anything but the blockchain,
                       that should be a source of concern because it introduces vulnerability. A good method to evaluate the security architecture of your application is to consider each individual component and evaluate a hypothetical scenario where that component
                       is completely compromised and under the control of a malicious actor. Take each component of your application, in turn, and assess the impacts on the overall security if that component is compromised. If your application is no longer secure
-                      when components are compromised, that shows you have misplaced trust in those components. A bitcoin cash application without vulnerabilities should be vulnerable only to a compromise of the bitcoin cash consensus mechanism, meaning that its root of
-                      trust is based on the strongest part of the bitcoin cash security architecture.</p>
+                      when components are compromised, that shows you have misplaced trust in those components. A Bitcoin Cash application without vulnerabilities should be vulnerable only to a compromise of the Bitcoin Cash consensus mechanism, meaning that its root of
+                      trust is based on the strongest part of the Bitcoin Cash security architecture.</p>
                   </div>
                   <div class="paragraph">
-                    <p>The numerous examples of hacked bitcoin cash exchanges serve to underscore this point because their security architecture and design fails even under the most casual scrutiny. These centralized implementations had invested trust explicitly in numerous
-                      components outside the bitcoin cash blockchain, such as hot wallets, centralized ledger databases, vulnerable encryption keys, and similar schemes.</p>
+                    <p>The numerous examples of hacked Bitcoin Cash exchanges serve to underscore this point because their security architecture and design fails even under the most casual scrutiny. These centralized implementations had invested trust explicitly in numerous
+                      components outside the Bitcoin Cash blockchain, such as hot wallets, centralized ledger databases, vulnerable encryption keys, and similar schemes.</p>
                   </div>
                 </div>
               </div>
@@ -110,7 +110,7 @@ subtitle: Mastering Bitcoin Cash
                 <div class="paragraph">
                   <p>Humans have used physical security controls for thousands of years. By comparison, our experience with digital security is less than 50 years old. Modern general-purpose operating systems are not very secure and not particularly suited to storing
                     digital money. Our computers are constantly exposed to external threats via always-on Internet connections. They run thousands of software components from hundreds of authors, often with unconstrained access to the user&#8217;s files. A single
-                    piece of rogue software, among the many thousands installed on your computer, can compromise your keyboard and files, stealing any bitcoin cash stored in wallet applications. The level of computer maintenance required to keep a computer virus-free
+                    piece of rogue software, among the many thousands installed on your computer, can compromise your keyboard and files, stealing any Bitcoin Cash stored in wallet applications. The level of computer maintenance required to keep a computer virus-free
                     and trojan-free is beyond the skill level of all but a tiny minority of computer users.</p>
                 </div>
                 <div class="paragraph">
@@ -120,8 +120,8 @@ subtitle: Mastering Bitcoin Cash
                     thefts. Bitcoin Cash escalates this problem because it doesn&#8217;t need to be fenced or laundered; it is intrinsic value within a digital asset.</p>
                 </div>
                 <div class="paragraph">
-                  <p>Fortunately, bitcoin cash also creates the incentives to improve computer security. Whereas previously the risk of computer compromise was vague and indirect, bitcoin cash makes these risks clear and obvious. Holding bitcoin cash on a computer serves to focus
-                    the user&#8217;s mind on the need for improved computer security. As a direct result of the proliferation and increased adoption of bitcoin cash and other digital currencies, we have seen an escalation in both hacking techniques and security solutions.
+                  <p>Fortunately, Bitcoin Cash also creates the incentives to improve computer security. Whereas previously the risk of computer compromise was vague and indirect, Bitcoin Cash makes these risks clear and obvious. Holding Bitcoin Cash on a computer serves to focus
+                    the user&#8217;s mind on the need for improved computer security. As a direct result of the proliferation and increased adoption of Bitcoin Cash and other digital currencies, we have seen an escalation in both hacking techniques and security solutions.
                     In simple terms, hackers now have a very juicy target and users have a clear incentive to defend themselves.</p>
                 </div>
                 <div class="paragraph">
@@ -129,43 +129,43 @@ subtitle: Mastering Bitcoin Cash
                     escrow. In the following sections we will examine various best practices for practical user security.</p>
                 </div>
                 <div class="sect3">
-                  <h4 class='yellow' id="_physical_bitcoin cash_storage">Physical Bitcoin Cash Storage</h4>
+                  <h4 class='yellow' id="_physical_Bitcoin Cash_storage">Physical Bitcoin Cash Storage</h4>
                   <div class="paragraph">
-                    <p>Because most users are far more comfortable with physical security than information security, a very effective method for protecting bitcoin cash is to convert them into physical form. Bitcoin Cash keys are nothing more than long numbers. This means
-                      that they can be stored in a physical form, such as printed on paper or etched on a metal coin. Securing the keys then becomes as simple as physically securing the printed copy of the bitcoin cash keys. A set of bitcoin cash keys that is printed on
-                      paper is called a "paper wallet," and there are many free tools that can be used to create them. Keeping bitcoin cash offline is called <em>cold storage</em> and it is one of the most effective security techniques. A cold storage system is one where the keys are generated on an offline system (one never connected to the Internet)
+                    <p>Because most users are far more comfortable with physical security than information security, a very effective method for protecting Bitcoin Cash is to convert them into physical form. Bitcoin Cash keys are nothing more than long numbers. This means
+                      that they can be stored in a physical form, such as printed on paper or etched on a metal coin. Securing the keys then becomes as simple as physically securing the printed copy of the Bitcoin Cash keys. A set of Bitcoin Cash keys that is printed on
+                      paper is called a "paper wallet," and there are many free tools that can be used to create them. Keeping Bitcoin Cash offline is called <em>cold storage</em> and it is one of the most effective security techniques. A cold storage system is one where the keys are generated on an offline system (one never connected to the Internet)
                       and stored offline either on paper or on digital media, such as a USB memory stick.</p>
                   </div>
                 </div>
                 <div class="sect3">
                   <h4 class='yellow' id="_hardware_wallets">Hardware Wallets</h4>
                   <div class="paragraph">
-                    <p>In the long term, bitcoin cash security increasingly will take the form of hardware tamper-proof wallets. Unlike a smartphone or desktop computer, a bitcoin cash hardware wallet has just one purpose: to hold bitcoin cash securely. Without general-purpose
-                      software to compromise and with limited interfaces, hardware wallets can deliver an almost foolproof level of security to nonexpert users. I expect to see hardware wallets become the predominant method of bitcoin cash storage. For an example of
+                    <p>In the long term, Bitcoin Cash security increasingly will take the form of hardware tamper-proof wallets. Unlike a smartphone or desktop computer, a Bitcoin Cash hardware wallet has just one purpose: to hold Bitcoin Cash securely. Without general-purpose
+                      software to compromise and with limited interfaces, hardware wallets can deliver an almost foolproof level of security to nonexpert users. I expect to see hardware wallets become the predominant method of Bitcoin Cash storage. For an example of
                       such a hardware wallet, see the <a href="https://trezor.io/">Trezor</a>.</p>
                   </div>
                 </div>
                 <div class="sect3">
                   <h4 class='yellow' id="_balancing_risk">Balancing Risk</h4>
                   <div class="paragraph">
-                    <p>Although most users are rightly concerned about bitcoin cash theft, there is an even bigger risk. Data files get lost all the time. If they contain bitcoin cash, the loss is much more painful. In the effort to secure their bitcoin cash wallets, users must
-                      be very careful not to go too far and end up losing the bitcoin cash. In July of 2011, a well-known bitcoin awareness and education project lost almost 7,000 bitcoin. In their effort to prevent theft, the owners had implemented a complex series
-                      of encrypted backups. In the end they accidentally lost the encryption keys, making the backups worthless and losing a fortune. Like hiding money by burying it in the desert, if you secure your bitcoin cash too well you might not be able to find
+                    <p>Although most users are rightly concerned about Bitcoin Cash theft, there is an even bigger risk. Data files get lost all the time. If they contain Bitcoin Cash, the loss is much more painful. In the effort to secure their Bitcoin Cash wallets, users must
+                      be very careful not to go too far and end up losing the Bitcoin Cash. In July of 2011, a well-known bitcoin awareness and education project lost almost 7,000 bitcoin. In their effort to prevent theft, the owners had implemented a complex series
+                      of encrypted backups. In the end they accidentally lost the encryption keys, making the backups worthless and losing a fortune. Like hiding money by burying it in the desert, if you secure your Bitcoin Cash too well you might not be able to find
                       it again.</p>
                   </div>
                 </div>
                 <div class="sect3">
                   <h4 class='yellow' id="_diversifying_risk">Diversifying Risk</h4>
                   <div class="paragraph">
-                    <p>Would you carry your entire net worth in cash in your wallet? Most people would consider that reckless, yet bitcoin cash users often keep all their bitcoin cash in a single wallet. Instead, users should spread the risk among multiple and diverse bitcoin cash
-                      wallets. Prudent users will keep only a small fraction, perhaps less than 5%, of their bitcoin cash in an online or mobile wallet as "pocket change." The rest should be split between a few different storage mechanisms, such as a desktop wallet
+                    <p>Would you carry your entire net worth in cash in your wallet? Most people would consider that reckless, yet Bitcoin Cash users often keep all their Bitcoin Cash in a single wallet. Instead, users should spread the risk among multiple and diverse Bitcoin Cash
+                      wallets. Prudent users will keep only a small fraction, perhaps less than 5%, of their Bitcoin Cash in an online or mobile wallet as "pocket change." The rest should be split between a few different storage mechanisms, such as a desktop wallet
                       and offline (cold storage).</p>
                   </div>
                 </div>
                 <div class="sect3">
                   <h4 class='yellow' id="_multi_sig_and_governance">Multi-sig and Governance</h4>
                   <div class="paragraph">
-                    <p>Whenever a company or individual stores large amounts of bitcoin cash, they should consider using a multi-signature bitcoin cash address. Multi-signature addresses secure funds by requiring more than one signature to make a payment. The signing keys should
+                    <p>Whenever a company or individual stores large amounts of Bitcoin Cash, they should consider using a multi-signature Bitcoin Cash address. Multi-signature addresses secure funds by requiring more than one signature to make a payment. The signing keys should
                       be stored in a number of different locations and under the control of different people. In a corporate environment, for example, the keys should be generated independently and held by several company executives, to ensure no single person
                       can compromise the funds. Multi-signature addresses can also offer redundancy, where a single person holds several keys that are stored in different locations.</p>
                   </div>
@@ -174,11 +174,11 @@ subtitle: Mastering Bitcoin Cash
                   <h4 class='yellow' id="_survivability">Survivability</h4>
                   <div class="paragraph">
                     <p>One important security consideration that is often overlooked is availability, especially in the context of incapacity or death of the key holder. Bitcoin Cash users are told to use complex passwords and keep their keys secure and private, not sharing
-                      them with anyone. Unfortunately, that practice makes it almost impossible for the user&#8217;s family to recover any funds if the user is not available to unlock them. In most cases, in fact, the families of bitcoin cash users might be completely
-                      unaware of the existence of the bitcoin cash funds.</p>
+                      them with anyone. Unfortunately, that practice makes it almost impossible for the user&#8217;s family to recover any funds if the user is not available to unlock them. In most cases, in fact, the families of Bitcoin Cash users might be completely
+                      unaware of the existence of the Bitcoin Cash funds.</p>
                   </div>
                   <div class="paragraph">
-                    <p>If you have a lot of bitcoin cash, you should consider sharing access details with a trusted relative or lawyer. A more complex survivability scheme can be set up with multi-signature access and estate planning through a lawyer specialized as a "digital
+                    <p>If you have a lot of Bitcoin Cash, you should consider sharing access details with a trusted relative or lawyer. A more complex survivability scheme can be set up with multi-signature access and estate planning through a lawyer specialized as a "digital
                       asset executor."</p>
                   </div>
                 </div>
@@ -186,7 +186,7 @@ subtitle: Mastering Bitcoin Cash
               <div class="sect2">
                 <h3 class='yellow' id="_conclusion">Conclusion</h3>
                 <div class="paragraph">
-                  <p>Bitcoin Cash is a completely new, unprecedented, and complex technology. Over time we will develop better security tools and practices that are easier to use by nonexperts. For now, bitcoin cash users can use many of the tips discussed here to enjoy a secure
+                  <p>Bitcoin Cash is a completely new, unprecedented, and complex technology. Over time we will develop better security tools and practices that are easier to use by nonexperts. For now, Bitcoin Cash users can use many of the tips discussed here to enjoy a secure
                     and trouble-free experience.</p>
                 </div>
               </div>
