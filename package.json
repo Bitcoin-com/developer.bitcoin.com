@@ -1,6 +1,6 @@
 {
   "name": "bitcoin-bootstrap-panini",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A rapid prototyping starter for Bootstrap 4 using Panini, Sass, and Gulp.",
   "main": "gulpfile.js",
   "devDependencies": {
