@@ -36,15 +36,14 @@ secondSubtitle: Javascript that scales
           <li>Visual Studio Code is the recommended IDE for feature rich TypeScript tooling and debugging support, but other may work as well.</li>
         </ul>
         <h3 class="yellow">Tutorial</h3>
-        <p>Create a new project using <code>bitbox new <project-name> --scaffold node</code> which will leverage the existing BITBOX tooling to setup a new Node.js project directory with a <code>package.json</code> file and other template files.</p>
+        <p>Create a new project using <code>bitbox new &lt;project-name&gt; --scaffold node</code> which will leverage the existing BITBOX tooling to setup a new Node.js project directory with a <code>package.json</code> file and other template files.</p>
         <p><img class='gui' src="../img/tutorials/new-bitbox-node.png" alt="new BITBOX nodeJS project" /></p>
         <p>Initiate TypeScript for the project by typing <code>tsc --init</code> within the project directory. This will generate a file called <code>tsconfig.ts</code> which will contain many configurable options for your TypeScript project.  We’ll update the “libs” property to equal <code>[“es2015”]</code> as shown in the capture below. This will allow use of Promises (used heavily by BITBOX sdk) within our TypeScript code by including the ES2015 (aka., EcmaScript 6) library.</p>
         <p><img class='gui' src="../img/tutorials/tsconfig.png" alt="tsconfig" /></p>
         <p>Add <code>@types/node</code> as a dependency to the package.json file as shown in the image below. Then run <code>npm install</code>.</p>
         <p><img class='gui' src="../img/tutorials/add-typings-dep.png" alt="add typings" /></p>
-        <p>Rename <code>index.js</code> to <code>index.ts</code> that was created by the scaffolding system so that the IDE and TypeScript compiler can recognize the file as a TypeScript file instead of a JavaScript file.</p>
-        <p>Import the TypeScript interface for BITBOX by adding a new the import statement at the top of the <code>index.ts</code> file to match the format illustrated below. Notice that we pull in <code>&lt;IBITBOXCli&gt;</code> in line 1 which is simply an interface which we apply to the newly created BITBOX object in line 3 (using <code>&lt;IBITBOXCli&gt;</code>). This will allow us to see all of the methods and properties available to us moving forward.</p>
-        <p>The following illustrates the code required to import and applying the IBITBOXCli TypeScript interface to the normal BITBOXCli variable (to enable TypeScript support):</p>
+        <p>Rename <code>index.js</code> to <code>index.ts</code> so that the IDE and TypeScript compiler can recognize the file as a TypeScript file instead of a JavaScript file.</p>
+        <p>The import statements need to be updated for TypeScript to match the following:</p>
         <p><img class='gui' src="../img/tutorials/import-bitbox-interface.png" alt="import interface" /></p>
         <p>Now we can access the BITBOX namespaces, methods, and properties through our IDE as illustrated in the following screen capture:</p>
         <p><img class='gui' src="../img/tutorials/bitbox-namespaces.png" alt="bitbox namespaces" /></p>

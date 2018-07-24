@@ -2,7 +2,7 @@
 
   {
   "title": "BITBOX now has TypeScript support",
-  "excerpt": "In this article I will demonstrate how to get started with TypeScript using the BITBOX scaffolding tool for Node.js.  To enable TypeScript some minor modifications to the generated code are required, each shown in this article. All of the code used in this tutorial can be found <a href='https://github.com/Bitcoin-com/bitbox-ts-example'>on github",
+  "excerpt": "Unit testing and statically typed programming languages can help reduce the number of errors and bugs when writing software, and this can be especially important when building cryptocurrency related applications. In this article we demonstrate how to get started with TypeScript using the BITBOX scaffolding tool for Node.js. To enable TypeScript some minor modifications to the generated code are required, each shown in this article. All of the code used in this tutorial can be found <a href='https://github.com/Bitcoin-com/bitbox-ts-example'>on github",
   "href": "tutorials/bitbox-typescript-support.html"
   },
 
