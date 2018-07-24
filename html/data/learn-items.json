@@ -11,19 +11,6 @@
   "title": "Tutorials",
   "excerpt": "Step by step instructions to build Bitcoin Cash apps from scratch. See real world examples get built and have your own working copies to bootstrap your project from.",
   "href": "tutorials.html"
-  },
-
-  {
-  "title": "Human Interface Guidelines",
-  "excerpt": "Digital money is new to the human experience. How should designers and app developers create experiences to best on-ramp humanity to such a crucial technology?",
-  "href": "human-interface-guidelines.html"
-
-  },
-
-  {
-  "title": "Insights",
-  "excerpt": "Learn from developers who have already shipped successful apps. What worked and what would they do different?",
-  "href": "insights.html"
   }
 
 ]

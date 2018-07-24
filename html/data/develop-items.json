@@ -10,18 +10,6 @@
   "title": "GUI",
   "excerpt": "BIP44 development wallet. Convert between cashaddr/legacy addresses. Create QR codes for WIF, XPub and XPrivs. Sign and verify messages.",
   "href": "gui.html"
-  },
-
-  {
-  "title": "REST",
-  "excerpt": "The BCH JSON RPC over HTTP including a fully documented and interactive GUI which developers can use to test their ideas and confirm their code is making proper API calls.",
-  "href": "rest.html"
-  },
-
-  {
-  "title": "Cloud",
-  "excerpt": "Blockchain-as-a-Service. Infrastructure to deploy and scale your apps. An ecosystem of add-ons for data, monitoring, logging, metrics, testing and more all built w/ BITBOX.",
-  "href": "cloud.html"
   }
 
 ]
