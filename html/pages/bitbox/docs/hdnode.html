@@ -665,8 +665,86 @@ title: Bitcoin.com Developer Platform | HDNode Documentation
   BITBOX.HDNode.verify(hdnode2, buf, signature);
   // false
             </code></pre>
-      </div>
 
+        <h3 id='createAccount'><code>createAccount</code></h3>
+        <p>
+        Create <a href='https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki#the-default-wallet-layout'>BIP32</a> account. Has `getChainAddress` and `nextChainAddress` helper methods.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+        hdNodes: Array of HDNodes
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+        account
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
+  // create mnemonic
+  let mnemonic = BITBOX.Mnemonic.generate(128);
+  // create root seed buffer
+  let rootSeedBuffer = BITBOX.Mnemonic.toSeed(mnemonic);
+  // create master hd node
+  let masterHDNode = BITBOX.HDNode.fromSeed(rootSeedBuffer);
+  // derive child node
+  let childNode = masterHDNode.derivePath("m/44'/145'/0'/0");
+  // create account
+  let account = BITBOX.HDNode.createAccount([childNode]);
+        </pre></code>
+
+        <h3 id='getChainAddress'><code>getChainAddress</code></h3>
+        <p>
+        Returns the latest address from account
+        </p>
+        <h4>Result</h4>
+        <p>
+        address
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
+  // create mnemonic
+  let mnemonic = BITBOX.Mnemonic.generate(128);
+  // create root seed buffer
+  let rootSeedBuffer = BITBOX.Mnemonic.toSeed(mnemonic);
+  // create master hd node
+  let masterHDNode = BITBOX.HDNode.fromSeed(rootSeedBuffer);
+  // derive child node
+  let childNode = masterHDNode.derivePath("m/44'/145'/0'/0");
+  // create account
+  let account = BITBOX.HDNode.createAccount([childNode]);
+  account.getChainAddress(0)
+  // 1EsibxXqzxzcor7eS34dSGrZp1kb3nQFFr
+        </pre></code>
+
+        <h3 id='nextChainAddress'><code>nextChainAddress</code></h3>
+        <p>
+        Moves the most recent address forward for account
+        </p>
+        <h4>Result</h4>
+        <p>
+        address
+        </p>
+        <h4>Examples</h4>
+        <pre><code>
+  // create mnemonic
+  let mnemonic = BITBOX.Mnemonic.generate(128);
+  // create root seed buffer
+  let rootSeedBuffer = BITBOX.Mnemonic.toSeed(mnemonic);
+  // create master hd node
+  let masterHDNode = BITBOX.HDNode.fromSeed(rootSeedBuffer);
+  // derive child node
+  let childNode = masterHDNode.derivePath("m/44'/145'/0'/0");
+  // create account
+  let account = BITBOX.HDNode.createAccount([childNode]);
+  account.getChainAddress(0)
+  // 1EsibxXqzxzcor7eS34dSGrZp1kb3nQFFr
+  account.nextChainAddress(0)
+  account.getChainAddress(0)
+  // 1JBApcAMD3riimPxABg2pNvwLumP9DEpxD
+        </pre></code>
+      </div>
     </div>
   </div>
 </section>
