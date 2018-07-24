@@ -1,6 +1,12 @@
 [
 
   {
+  "title": "BITBOX now has TypeScript support",
+  "excerpt": "In this article I will demonstrate how to get started with TypeScript using the BITBOX scaffolding tool for Node.js.  To enable TypeScript some minor modifications to the generated code are required, each shown in this article. All of the code used in this tutorial can be found <a href='https://github.com/Bitcoin-com/bitbox-ts-example'>on github",
+  "href": "tutorials/bitbox-typescript-support.html"
+  },
+
+  {
   "title": "Memopress",
   "excerpt": "Memo and BlockPress are two very popular on-chain social networks. They use a clever OP_RETURN prefixed protocol to write your actions to the blockchain. Later clients can read that data from the chain and recreate your account’s actions. This represents a truly decentralized and censorship resistant social network and it’s only possible on Bitcoin Cash.",
   "href": "tutorials/memopress.html"
