@@ -1,6 +1,12 @@
 [
 
   {
+  "title": "Getting Started with the BITBOX SDK",
+  "excerpt": "BITBOX is an incredibly powerful and intuitive SDK which lets developers build world class applications quicky. It’s built with modern web tech which is familiar to developers all over the world. We launched developer.bitcoin.com to help beginners and old pros hone their blockchain dev skills. The goal of this article is to show the first steps needed to set up your development environment and start playing around with the BITBOX SDK.",
+  "href": "tutorials/getting-started.html"
+  },
+
+  {
   "title": "BITBOX now has TypeScript support",
   "excerpt": "Unit testing and statically typed programming languages can help reduce the number of errors and bugs when writing software, and this can be especially important when building cryptocurrency related applications. In this article we demonstrate how to get started with TypeScript using the BITBOX scaffolding tool for Node.js. To enable TypeScript some minor modifications to the generated code are required, each shown in this article. All of the code used in this tutorial can be found <a href='https://github.com/Bitcoin-com/bitbox-ts-example'>on github",
   "href": "tutorials/bitbox-typescript-support.html"
