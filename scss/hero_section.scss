@@ -145,6 +145,17 @@ clip-path: polygon(70% 0, 100% 9%, 100% 86%, 73% 100%, 0 86%, 0 10%);
   }
 }
 
+.bitbox-hero {
+  a {
+    color:#fff;
+    transition: color 250ms ease-in-out;
+    &:hover, &:focus {
+      text-decoration:none;
+      color:#ccc;
+    }
+  }
+}
+
 .top-banner {
   .top-banner-title {
     text-align:center;
