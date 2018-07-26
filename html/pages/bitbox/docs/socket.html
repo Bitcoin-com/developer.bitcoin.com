@@ -29,7 +29,15 @@ title: Bitcoin.com Developer Platform | Price Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            restURL <code>String</code>: Defaults to <code>https://rest.bitbox.earth</code>
+            config <code>Object</code>: with properties:
+            <ol>
+              <li>
+                restURL <code>String</code>: optional, Defaults to <code>https://rest.bitbox.earth</code>
+              </li>
+              <li>
+                callback <code>Function</code>: optional
+              </li>
+            </ol>
           </li>
         </ol>
         <h4>Result</h4>
@@ -39,7 +47,7 @@ title: Bitcoin.com Developer Platform | Price Documentation
         <h4>Examples</h4>
         <pre><code>
   // instance of Socket
-  let socket = new BITBOX.Socket();
+  let socket = new BITBOX.Socket({callback: () => {console.log('connected')}, restURL: 'https://rest.bitbox.earth'})
         </code></pre>
 
         <h3 id='listen'><code>listen</code></h3>
@@ -58,7 +66,7 @@ title: Bitcoin.com Developer Platform | Price Documentation
         </p>
         <h4>Examples</h4>
         <pre><code>
-  let socket = new BITBOX.Socket();
+  let socket = new BITBOX.Socket({callback: () => {console.log('connected')}, restURL: 'https://rest.bitbox.earth'})
   socket.listen('transactions', (message) => {
     console.log(message)
 
