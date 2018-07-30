@@ -32,7 +32,7 @@ title: Bitcoin.com Developer Platform | Price Documentation
             config <code>Object</code>: with properties:
             <ol>
               <li>
-                restURL <code>String</code>: optional, Defaults to <code>https://rest.bitbox.earth</code>
+                restURL <code>String</code>: optional, Defaults to <code>https://rest.bitcoin.com</code>
               </li>
               <li>
                 callback <code>Function</code>: optional
@@ -47,7 +47,7 @@ title: Bitcoin.com Developer Platform | Price Documentation
         <h4>Examples</h4>
         <pre><code>
   // instance of Socket
-  let socket = new BITBOX.Socket({callback: () => {console.log('connected')}, restURL: 'https://rest.bitbox.earth'})
+  let socket = new BITBOX.Socket({callback: () => {console.log('connected')}, restURL: 'https://rest.bitcoin.com'})
         </code></pre>
 
         <h3 id='listen'><code>listen</code></h3>
@@ -66,7 +66,7 @@ title: Bitcoin.com Developer Platform | Price Documentation
         </p>
         <h4>Examples</h4>
         <pre><code>
-  let socket = new BITBOX.Socket({callback: () => {console.log('connected')}, restURL: 'https://rest.bitbox.earth'})
+  let socket = new BITBOX.Socket({callback: () => {console.log('connected')}, restURL: 'https://rest.bitcoin.com'})
   socket.listen('transactions', (message) => {
     console.log(message)
 
