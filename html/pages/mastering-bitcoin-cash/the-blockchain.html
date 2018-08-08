@@ -12,19 +12,6 @@ subtitle: Mastering Bitcoin Cash
 
 {{> mastering-bitcoin-cash-header}}
 
-<div class="underline-section">
-  <div class="container">
-  <div class="row">
-    <div class="col-12 text-center">
-      <div class="icon yellow">
-        <i class="fab fa-btc" aria-hidden="true"></i>
-      </div>
-      <h4 class="gray mt-5">Coming soon</h4>
-    </div>
-  </div>
-  </div>
-</div>
-<!--
 <section class="bounties masteringBitcoin">
   <div class="container">
 
@@ -32,13 +19,16 @@ subtitle: Mastering Bitcoin Cash
       <div class="col-12">
         <p>The following is based on <a href='https://github.com/bitcoinbook/bitcoinbook'>Mastering Bitcoin</a> by Andreas M. Antonopoulos <a href='https://github.com/bitcoinbook/bitcoinbook#mastering-bitcoin---first-edition'>First Edition</a> which is licensed under <a href='https://creativecommons.org/licenses/by-sa/4.0/'>Creative Commons Attribution-ShareAlike</a>.</p>
       </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
         <div>
           <div class="sect1">
             <div class="sectionbody">
               <div class="sect2">
                 <h3 id="_introduction">Introduction</h3>
                 <div class="paragraph">
-                  <p>The blockchain data structure is an ordered, back-linked list of blocks of transactions. The blockchain can be stored as a flat file, or in a simple database. The Bitcoin Core client stores the blockchain metadata using Google&#8217;s LevelDB
+                  <p>The blockchain data structure is an ordered, back-linked list of blocks of transactions. The blockchain can be stored as a flat file, or in a simple database. The Bitcoin ABC client stores the blockchain metadata using Google&#8217;s LevelDB
                     database. Blocks are linked "back," each referring to the previous block in the chain. The blockchain is often visualized as a vertical stack, with blocks layered on top of each other and the first block serving as the foundation of the stack.
                     The visualization of blocks stacked on top of each other results in the use of terms such as "height" to refer to the distance from the first block, and "top" or "tip" to refer to the most recently added block.</p>
                 </div>
@@ -49,7 +39,7 @@ subtitle: Mastering Bitcoin Cash
                 </div>
                 <div class="paragraph">
                   <p>Although a block has just one parent, it can temporarily have multiple children. Each of the children refers to the same block as its parent and contains the same (parent) hash in the "previous block hash" field. Multiple children arise during
-                    a blockchain "fork," a temporary situation that occurs when different blocks are discovered almost simultaneously by different miners (see <a href="#forks">[forks]</a>). Eventually, only one child block becomes part of the blockchain and the
+                    a blockchain "fork," a temporary situation that occurs when different blocks are discovered almost simultaneously by different miners. Eventually, only one child block becomes part of the blockchain and the
                     "fork" is resolved. Even though a block may have more than one child, each block can have only one parent. This is because a block has one single "previous block hash" field referencing its single parent.</p>
                 </div>
                 <div class="paragraph">
@@ -70,7 +60,7 @@ subtitle: Mastering Bitcoin Cash
                 <h3 id="_structure_of_a_block">Structure of a Block</h3>
                 <div class="paragraph">
                   <p>A block is a container data structure that aggregates transactions for inclusion in the public ledger, the blockchain. The block is made of a header, containing metadata, followed by a long list of transactions that make up the bulk of its size.
-                    The block header is 80 bytes, whereas the average transaction is at least 250 bytes and the average block contains more than 500 transactions. A complete block, with all transactions, is therefore 1,000 times larger than the block header.
+                    The block header is 80 bytes, whereas the average transaction is at least 250 bytes. A complete 32MB Bitcoin Cash block would contain nearly 128,000 transactions. A complete block, with all transactions, is therefore 400,000 times larger than the block header.
                     <a
                       href="#block_structure1">The structure of a block</a> describes the structure of a block.</p>
                 </div>
@@ -135,7 +125,7 @@ subtitle: Mastering Bitcoin Cash
                 <h3 id="block_header">Block Header</h3>
                 <div class="paragraph">
                   <p>The block header consists of three sets of block metadata. First, there is a reference to a previous block hash, which connects this block to the previous block in the blockchain. The second set of metadata, namely the <em>difficulty</em>, <em>timestamp</em>,
-                    and <em>nonce</em>, relate to the mining competition, as detailed in <a href="#ch8">[ch8]</a>. The third piece of metadata is the merkle tree root, a data structure used to efficiently summarize all the transactions in the block. <a href="#block_header_structure_ch07">The structure of the block header</a>          describes the structure of a block header.</p>
+                    and <em>nonce</em>, relate to the mining competition. The third piece of metadata is the merkle tree root, a data structure used to efficiently summarize all the transactions in the block. <a href="#block_header_structure_ch07">The structure of the block header</a>          describes the structure of a block header.</p>
                 </div>
                 <table id="block_header_structure_ch07" class="tableblock frame-all grid-all stretch">
                   <caption class="title">Table 2. The structure of the block header</caption>
@@ -216,7 +206,7 @@ subtitle: Mastering Bitcoin Cash
                   </tbody>
                 </table>
                 <div class="paragraph">
-                  <p>The nonce, difficulty target, and timestamp are used in the mining process and will be discussed in more detail in <a href="#ch8">[ch8]</a>.</p>
+                  <p>The nonce, difficulty target, and timestamp are used in the mining process.</p>
                 </div>
               </div>
               <div class="sect2">
@@ -236,12 +226,12 @@ subtitle: Mastering Bitcoin Cash
                     <phrase role="keep-together">
                       <emphasis>block height</emphasis>. The first block ever created is at block height 0 (zero) and is the</phrase>
                     <phrase role="keep-together">same block that was previously referenced by the following block hash</phrase> 000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f. A block can thus be identified two ways: by referencing the block hash or by referencing the block
-                    height. Each subsequent block added "on top" of that first block is one position "higher" in the blockchain, like boxes stacked one on top of the other. The block height on January 1, 2014, was approximately 278,000, meaning there were 278,000
+                    height. Each subsequent block added "on top" of that first block is one position "higher" in the blockchain, like boxes stacked one on top of the other. The block height on August 7, 2018, was approximately 542400, meaning there were 524,000
                     blocks stacked on top of the first block created in January 2009.</p>
                 </div>
                 <div class="paragraph">
                   <p>Unlike the block hash, the block height is not a unique identifier. Although a single block will always have a specific and invariant block height, the reverse is not true—the block height does not always identify a single block. Two or more blocks
-                    might have the same block height, competing for the same position in the blockchain. This scenario is discussed in detail in the section <a href="#forks">[forks]</a>. The block height is also not a part of the block&#8217;s data structure; it
+                    might have the same block height, competing for the same position in the blockchain. The block height is also not a part of the block&#8217;s data structure; it
                     is not stored within the block. Each node dynamically identifies a block&#8217;s position (height) in the blockchain when it is received from the Bitcoin Cash network. The block height might also be stored as metadata in an indexed database table
                     for faster retrieval.</p>
                 </div>
@@ -272,7 +262,7 @@ subtitle: Mastering Bitcoin Cash
                     the fixed time it was created, and even the single transaction within. Thus, every node has the starting point for the blockchain, a secure "root" from which to build a trusted blockchain.</p>
                 </div>
                 <div class="paragraph">
-                  <p>See the statically encoded genesis block inside the Bitcoin Core client, in <a href="http://bit.ly/1x6rcwP">chainparams.cpp</a>.</p>
+                  <p>See the statically encoded genesis block inside the Bitcoin ABC client, in <a href="https://github.com/Bitcoin-ABC/bitcoin-abc/blob/4fd0b1ba61892f8f1f7af4e540169425531d3bbd/src/chainparams.cpp#L46">chainparams.cpp</a>.</p>
                 </div>
                 <div class="paragraph">
                   <p>The following identifier hash belongs to the genesis block:</p>
@@ -286,22 +276,32 @@ subtitle: Mastering Bitcoin Cash
                   <p>You can search for that block hash in any block explorer website, such as blockchain.info, and you will find a page describing the contents of this block, with a URL containing that hash:</p>
                 </div>
                 <div class="paragraph">
-                  <p><a href="https://blockchain.info/block/000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f" class="bare">https://blockchain.info/block/000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f</a></p>
+                  <p><a href="https://explorer.bitcoin.com/bch/block/000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f" class="bare">https://explorer.bitcoin.com/bch/block/000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f</a></p>
                 </div>
                 <div class="paragraph">
-                  <p><a href="https://blockexplorer.com/block/000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f" class="bare">https://blockexplorer.com/block/000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f</a></p>
-                </div>
-                <div class="paragraph">
-                  <p>Using the Bitcoin Core reference client on the command line:</p>
+                  <p>Using BITBOX</p>
                 </div>
                 <div class="listingblock">
+                  <div class="content">
+                    <pre class="highlight"><code class="language-javascript" data-lang="javascript">
+BITBOX.Block.details('000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f').then((result) => {
+console.log(result);
+}, (err) => {
+console.log(err);
+});
+                    </code></pre>
+                  </div>
+                </div>
+                <div class="paragraph">
+                  <p>Using the Bitcoin ABC reference client on the command line:</p>
+                </div>
                   <div class="content">
                     <pre>$ bitcoind getblock 000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f</pre>
                   </div>
                 </div>
                 <div class="listingblock">
                   <div class="content">
-                    <SyntaxHighlighter language='text' style={ocean}>{`
+                    <pre class="highlight"><code class="language-javascript" data-lang="javascript">
 {
 "hash" : "000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f",
 "confirmations" : 308321,
@@ -318,7 +318,7 @@ subtitle: Mastering Bitcoin Cash
 "difficulty" : 1.00000000,
 "nextblockhash" : "00000000839a8e6886ab5951d76f411475428afc90947ee320161bbf18eb6048"
 }
-                    `}</SyntaxHighlighter>
+                    </code></pre>
                   </div>
                 </div>
                 <div class="paragraph">
@@ -341,7 +341,7 @@ subtitle: Mastering Bitcoin Cash
                 </div>
                 <div class="listingblock">
                   <div class="content">
-                    <SyntaxHighlighter language='text' style={ocean}>{`
+                    <pre class="highlight"><code class="language-javascript" data-lang="javascript">
 {
 "size" : 43560,
 "version" : 2,
@@ -360,7 +360,7 @@ subtitle: Mastering Bitcoin Cash
 "05cfd38f6ae6aa83674cc99e4d75a1458c165b7ab84725eda41d018a09176634"
 ]
 }
-                    `}</SyntaxHighlighter>
+                    </code></pre>
                   </div>
                 </div>
                 <div class="paragraph">
@@ -588,14 +588,14 @@ subtitle: Mastering Bitcoin Cash
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-12">
-        <p>Previous chapter: <a href='/mastering-bitcoin-cash/the-bitcoin-cash-network.html'>The Bitcoin Cash Network</a></p>
-        <p>Next chapter: <a href='/mastering-bitcoin-cash/mining-and-consensus.html'>Mining and Consensus</a></p>
-      </div>
-      <div class="col-12">
-        <p>See an error? Want to make an improvement? Clone the <a href='https://github.com/Bitcoin-com/developer.bitcoin.com'>developer.bitcoin.com repo</a> and create a pull request.</p>
+        <div class="col-12">
+          <p>Previous chapter: <a href='/mastering-bitcoin-cash/the-bitcoin-cash-network.html'>The Bitcoin Cash Network</a></p>
+          <p>Next chapter: <a href='/mastering-bitcoin-cash/mining-and-consensus.html'>Mining and Consensus</a></p>
+        </div>
+        <div class="col-12">
+          <p>See an error? Want to make an improvement? Clone the <a href='https://github.com/Bitcoin-com/developer.bitcoin.com'>developer.bitcoin.com repo</a> and create a pull request.</p>
+        </div>
       </div>
     </div>
   </div>
-</section> -->
+</section>
