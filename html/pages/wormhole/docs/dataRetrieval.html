@@ -1,0 +1,455 @@
+---
+layout: default
+title: Bitcoin.com Developer Platform | DataRetrieval Documentation
+---
+
+{{> double-nested-navigation}}
+
+{{> wormhole-docs-submenu}}
+
+<section class="bounties">
+  <div class="container">
+    <div class="section-title text-center pb-4">
+      <h1 class="gray bold">Wormhole Documentation</h1>
+    </div>
+    <div class="row">
+
+      <div class="col-12 col-md-3 mb-4 text-center">
+
+        {{> wormhole-docs-menu}}
+
+      </div>
+
+      <div class="col-12 col-md-9 language-javascript">
+        <h2 id='configuration' class="contentSubHead isCenter"><i class="fas fa-database"></i> DataRetrieval</h2>
+        <h3 id='getAllBalancesForAddress'><code>getAllBalancesForAddress</code></h3>
+        <p>
+          Returns a list of all token balances for a given address.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            address (string, required)
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          array <code>Array</code> of JSON Objects
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+  Wormhole.DataRetrieval.getAllBalancesForAddress("bitcoincash:qz2xevhqsp6mewh32lj8hjm8av4jxwwjggs8rph83j").then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+        </code></pre>
+
+        <h3 id='getAllBalancesForId'><code>getAllBalancesForId</code></h3>
+        <p>
+          Returns a list of token balances for a given currency or property identifier.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            propertyId (number, required): The property identifier
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          array <code>Array</code> of JSON Objects
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+  Wormhole.DataRetrieval.getAllBalancesForId(1).then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+        </code></pre>
+
+        <h3 id='getBalance'><code>getBalance</code></h3>
+        <p>
+          Returns the token balance for a given address and property.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            address (string, required): The address
+          </li>
+          <li>
+            propertyId (number, required): The property identifier
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          obj <code>Object</code>
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+  Wormhole.DataRetrieval.getBalance("bitcoincash:qz2xevhqsp6mewh32lj8hjm8av4jxwwjggs8rph83j", 1).then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+        </code></pre>
+
+        <h3 id='getBalancesHash'><code>getBalancesHash</code></h3>
+        <p>
+          Returns a hash of the balances for the property.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            propertyId (number, required): The property to hash balances for
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          obj <code>Object</code>
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+  Wormhole.DataRetrieval.getBalancesHash(31).then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+        </code></pre>
+
+        <h3 id='getCrowdSale'><code>getCrowdSale</code></h3>
+        <p>
+          Returns information about a crowdsale.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            propertyId (number, required): The identifier of the crowdsale
+          </li>
+          <li>
+            verbose (boolean, optional): list crowdsale participants (default: false)
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          obj <code>Object</code>
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+  Wormhole.DataRetrieval.getCrowdSale(3, true).then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+        </code></pre>
+
+        <h3 id='getCurrentConsensusHash'><code>getCurrentConsensusHash</code></h3>
+        <p>
+          Returns the consensus hash for all balances for the current block.
+        </p>
+        <h4>Result</h4>
+        <p>
+          obj <code>Object</code>
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+  Wormhole.DataRetrieval.getCurrentConsensusHash().then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+
+  // { block: 1250268,
+  // blockhash: '00000000000002d60ea1e020b5da0732f7fab9330fe25137fc5b1eb0fb7269cf',
+  // consensushash: 'b6af1e33348a01dbf32b554ab71b65f8b5ade6ea0d8fd5123c1b27da57a22fe5' }
+        </code></pre>
+
+        <h3 id='getFeeShare'><code>getFeeShare</code></h3>
+        <p>
+          Returns the percentage share of fees distribution applied to the wallet (default) or address (if supplied).
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            address (string, optional) retrieve the fee share for the supplied address
+          </li>
+          <li>
+            ecosystem (number, optional) the ecosystem to check the fee share (1 for main ecosystem, 2 for test ecosystem)
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          array <code>Array</code> of JSON Objects
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+  Wormhole.DataRetrieval.getFeeShare("bitcoincash:qz2xevhqsp6mewh32lj8hjm8av4jxwwjggs8rph83j", 1).then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+        </code></pre>
+
+        <h3 id='getGrants'><code>getGrants</code></h3>
+        <p>
+          Returns information about granted and revoked units of managed tokens.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            propertyId (number, required) The identifier of the managed tokens to lookup
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          obj <code>Object</code>
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+  Wormhole.DataRetrieval.getGrants(31).then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+        </code></pre>
+
+        <h3 id='getInfo'><code>getInfo</code></h3>
+        <p>
+          Returns various state information of the client and protocol.
+        </p>
+        <h4>Result</h4>
+        <p>
+          obj <code>Object</code>
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+  Wormhole.DataRetrieval.getInfo().then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+        </code></pre>
+
+        <h3 id='getPayload'><code>getPayload</code></h3>
+        <p>
+          Get the payload for an Omni transaction.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            txid (string, required) The hash of the transaction to retrieve payload
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          obj <code>Object</code>
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+  Wormhole.DataRetrieval.getPayload("1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d").then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+        </code></pre>
+
+        <h3 id='getProperty'><code>getProperty</code></h3>
+        <p>
+          Returns details for about the tokens or smart property to lookup.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            propertyId (number, required) The identifier of the tokens or property
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          obj <code>Object</code>
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+  Wormhole.DataRetrieval.getProperty(3).then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+        </code></pre>
+
+        <h3 id='getSeedBlocks'><code>getSeedBlocks</code></h3>
+        <p>
+          Returns a list of blocks containing Omni transactions for use in seed block filtering.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            startBlock (number, required) The first block to look for Omni transactions (inclusive)
+          </li>
+          <li>
+            endBlock (number, required) The last block to look for Omni transactions (inclusive)
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          obj <code>Object</code>
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+  Wormhole.DataRetrieval.getSeedBlocks(290000, 300000).then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+        </code></pre>
+
+        <h3 id='getSTO'><code>getSTO</code></h3>
+        <p>
+          Get information and recipients of a send-to-owners transaction.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            txid (string, required) The hash of the transaction to lookup
+          </li>
+          <li>
+            recipientFilter (string, optional) A filter for recipients (wallet by default, '*' for all)
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          obj <code>Object</code>
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+  Wormhole.DataRetrieval.getSTO("1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d", "*").then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+        </code></pre>
+
+        <h3 id='getTransaction'><code>getTransaction</code></h3>
+        <p>
+          Get detailed information about an Omni transaction.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            txid (string, required) The hash of the transaction to lookup
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          obj <code>Object</code>
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+  Wormhole.DataRetrieval.getTransaction("1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d").then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+        </code></pre>
+
+        <h3 id='listBlockTransactions'><code>listBlockTransactions</code></h3>
+        <p>
+          Lists all Omni transactions in a block.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            index (number, required) The block height or block index
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          arr <code>Array</code> of strings
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+  Wormhole.DataRetrieval.listBlockTransactions("1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d").then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+        </code></pre>
+
+        <h3 id='listPendingTransactions'><code>listPendingTransactions</code></h3>
+        <p>
+          Returns a list of unconfirmed Omni transactions, pending in the memory pool.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            address (string, optional) Address filter (default: '' for no filter)
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          arr <code>Array</code> of JSON objects
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+  Wormhole.DataRetrieval.listPendingTransactions().then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+        </code></pre>
+
+        <h3 id='listProperties'><code>listProperties</code></h3>
+        <p>
+          Lists all tokens or smart properties.
+        </p>
+        <h4>Result</h4>
+        <p>
+          arr <code>Array</code> of JSON objects
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+  Wormhole.DataRetrieval.listProperties().then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+        </code></pre>
+
+        <h3 id='listTransactions'><code>listTransactions</code></h3>
+        <p>
+          List wallet transactions, optionally filtered by an address and block boundaries.
+        </p>
+        <h4>Arguments</h4>
+        <h4>Result</h4>
+        <p>
+          arr <code>Array</code> of JSON objects
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+  Wormhole.DataRetrieval.listTransactions().then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+        </code></pre>
+      </div>
+    </div>
+  </div>
+</section>

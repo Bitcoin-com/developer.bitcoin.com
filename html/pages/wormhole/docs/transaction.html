@@ -1,0 +1,528 @@
+---
+layout: default
+title: Bitcoin.com Developer Platform | Transaction Documentation
+---
+
+{{> double-nested-navigation}}
+
+{{> wormhole-docs-submenu}}
+
+<section class="bounties">
+  <div class="container">
+    <div class="section-title text-center pb-4">
+      <h1 class="gray bold">Wormhole Documentation</h1>
+    </div>
+    <div class="row">
+
+      <div class="col-12 col-md-3 mb-4 text-center">
+
+        {{> wormhole-docs-menu}}
+
+      </div>
+
+      <div class="col-12 col-md-9 language-javascript">
+        <h2 id='configuration' class="contentSubHead isCenter"><i class="fab fa-btc"></i> Transaction</h2>
+        <h3 id='burnBCHGetWHC'><code>burnBCHGetWHC</code></h3>
+        <p>
+          Burn BCH to get WHC
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            amount (string, required) The burn bch amount, required minimum amount is 1BCH
+          </li>
+          <li>
+            redeemAddress (string, optional) The redeem bitcoin address
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          hash <code>String</code>: the hex-encoded transaction hash
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+  Wormhole.Transaction.burnBCHGetWHC(1, "qqzy3s0ueaxkf8hcffhtgkgew8c7f7g85um9a2g74r").then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+        </code></pre>
+
+        <h3 id='partiCrowSale'><code>partiCrowSale</code></h3>
+        <p>
+          Create and broadcast a participate crowsale transaction.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            fromAddress (string, required) The address to send from
+          </li>
+          <li>
+            toAddress (string, required) The address of the receiver
+          </li>
+          <li>
+            amount (string, required) The amount of WHC to participate crowsale
+          </li>
+          <li>
+            redeemAddress (string, optional) An address that can spend the transaction dust (sender by default)
+          </li>
+          <li>
+            referenceAmount (string, optional) A bitcoin amount that is sent to the receiver (minimal by default)
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          hash <code>String</code>: the hex-encoded transaction hash
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+  Wormhole.Transaction.partiCrowSale("qqxyplcfuxnm9z4usma2wmnu4kw9mexeug580mc3lx", "qqzy3s0ueaxkf8hcffhtgkgew8c7f7g85um9a2g74r", "100.0").then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+        </code></pre>
+
+        <h3 id='send'><code>send</code></h3>
+        <p>
+          Create and broadcast a simple send transaction.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            fromAddress (string, required) The address to send from
+          </li>
+          <li>
+            toAddress (string, required) The address of the receiver
+          </li>
+          <li>
+            propertyId (number, required) The identifier of the tokens to send
+          </li>
+          <li>
+            amount (string, required) The amount to send
+          </li>
+          <li>
+            redeemAddress (string, optional) An address that can spend the transaction dust (sender by default)
+          </li>
+          <li>
+            referenceAmount (string, optional) A bitcoin amount that is sent to the receiver (minimal by default)
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          hash <code>String</code>: the hex-encoded transaction hash
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+  Wormhole.Transaction.send("qqxyplcfuxnm9z4usma2wmnu4kw9mexeug580mc3lx", "qqzy3s0ueaxkf8hcffhtgkgew8c7f7g85um9a2g74r", 1, "100.0").then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+        </code></pre>
+
+        <h3 id='sendAll'><code>sendAll</code></h3>
+        <p>
+          Transfers all available tokens in the given ecosystem to the recipient.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            fromAddress (string, required) The address to send from
+          </li>
+          <li>
+            toAddress (string, required) The address of the receiver
+          </li>
+          <li>
+            ecosystem (number, required) The ecosystem of the tokens to send (1 for main ecosystem, 2 for test ecosystem)
+          </li>
+          <li>
+            redeemAddress (string, optional) An address that can spend the transaction dust (sender by default)
+          </li>
+          <li>
+            referenceAmount (string, optional) A bitcoin amount that is sent to the receiver (minimal by default)
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          hash <code>String</code>: the hex-encoded transaction hash
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+  Wormhole.Transaction.sendAll("qqxyplcfuxnm9z4usma2wmnu4kw9mexeug580mc3lx", "qqzy3s0ueaxkf8hcffhtgkgew8c7f7g85um9a2g74r", 2).then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+        </code></pre>
+
+        <h3 id='sendChangeIssuer'><code>sendChangeIssuer</code></h3>
+        <p>
+          Change the issuer on record of the given tokens.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            fromAddress (string, required) The address to send from
+          </li>
+          <li>
+            toAddress (string, required) The address of the receiver
+          </li>
+          <li>
+            propertyId (number, required) The identifier of the tokens
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          hash <code>String</code>: the hex-encoded transaction hash
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+  Wormhole.Transaction.sendChangeIssuer("qqxyplcfuxnm9z4usma2wmnu4kw9mexeug580mc3lx", "qqzy3s0ueaxkf8hcffhtgkgew8c7f7g85um9a2g74r", 3).then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+        </code></pre>
+
+        <h3 id='sendCloseCrowdSale'><code>sendCloseCrowdSale</code></h3>
+        <p>
+          Manually close a crowdsale.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            fromAddress (string, required) The address associated with the crowdsale to close
+          </li>
+          <li>
+            propertyId (number, required) The identifier of the crowdsale to close
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          hash <code>String</code>: the hex-encoded transaction hash
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+  Wormhole.Transaction.sendCloseCrowdSale("qqzy3s0ueaxkf8hcffhtgkgew8c7f7g85um9a2g74r", 70).then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+        </code></pre>
+
+        <h3 id='sendGrant'><code>sendGrant</code></h3>
+        <p>
+          Issue or grant new units of managed tokens.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            fromAddress (string, required) The address to send from
+          </li>
+          <li>
+            toAddress (string, required) The receiver of the tokens (sender by default, can be '')
+          </li>
+          <li>
+            propertyId (number, required) The identifier of the tokens to grant
+          </li>
+          <li>
+            amount (string, required) The amount of tokens to create
+          </li>
+          <li>
+            memo (string, optional) A text note attached to this transaction (none by default)
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          hash <code>String</code>: the hex-encoded transaction hash
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+  Wormhole.Transaction.sendGrant("qqzy3s0ueaxkf8hcffhtgkgew8c7f7g85um9a2g74r", "qq6tftuhukdagy5tthhnnx7xk9awhyc49us2h08xj4", 51, "7000").then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+        </code></pre>
+
+        <h3 id='sendIssuanceCrowdSale'><code>sendIssuanceCrowdSale</code></h3>
+        <p>
+          Create new tokens as crowdsale.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            fromAddress (string, required) The address to send from
+          </li>
+          <li>
+            ecosystem (string, required) The ecosystem to create the tokens in, must be 1
+          </li>
+          <li>
+            propertyPricision (number, required) The pricision of the tokens to create:[0, 8]
+          </li>
+          <li>
+            previousId (number, required) An identifier of a predecessor token (0 for new crowdsales)
+          </li>
+          <li>
+            category (string, required) A category for the new tokens (can be '')
+          </li>
+          <li>
+            subcategory (string, required) A subcategory for the new tokens  (can be '')
+          </li>
+          <li>
+            name (string, required) The name of the new tokens to create
+          </li>
+          <li>
+            url (string, required) An URL for further information about the new tokens (can be '')
+          </li>
+          <li>
+            data (string, required) A description for the new tokens (can be '')
+          </li>
+          <li>
+            propertyIdDesired (number, required) The identifier of a token eligible to participate in the crowdsale
+          </li>
+          <li>
+            tokensPerUnit (string, required) The amount of tokens granted per unit invested in the crowdsale
+          </li>
+          <li>
+            deadline (number, required) The deadline of the crowdsale as Unix timestamp
+          </li>
+          <li>
+            earlyBonus (number, required) An early bird bonus for participants in percent per week
+          </li>
+          <li>
+            undefine (number, required) The value must be 0
+          </li>
+          <li>
+            totalNumber (string, required) The number of tokens to create
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          hash <code>String</code>: the hex-encoded transaction hash
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+  Wormhole.Transaction.sendIssuanceCrowdSale("qqzy3s0ueaxkf8hcffhtgkgew8c7f7g85um9a2g74r", 1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "", "", 1, "100", 1483228800, 30, 2, 77868698).then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+        </code></pre>
+
+        <h3 id='sendIssuanceFixed'><code>sendIssuanceFixed</code></h3>
+        <p>
+          Create new tokens with fixed supply.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            fromAddress (string, required) The address to send from
+          </li>
+          <li>
+            ecosystem (string, required) The ecosystem to create the tokens in, must be 1
+          </li>
+          <li>
+            propertyPricision (number, required) The pricision of the tokens to create:[0, 8]
+          </li>
+          <li>
+            previousId (number, required) An identifier of a predecessor token (0 for new crowdsales)
+          </li>
+          <li>
+            category (string, required) A category for the new tokens (can be '')
+          </li>
+          <li>
+            subcategory (string, required) A subcategory for the new tokens  (can be '')
+          </li>
+          <li>
+            name (string, required) The name of the new tokens to create
+          </li>
+          <li>
+            url (string, required) An URL for further information about the new tokens (can be '')
+          </li>
+          <li>
+            data (string, required) A description for the new tokens (can be '')
+          </li>
+          <li>
+            totalNumber (string, required) The number of tokens to create
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          hash <code>String</code>: the hex-encoded transaction hash
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+  Wormhole.Transaction.sendIssuanceFixed("qqxyplcfuxnm9z4usma2wmnu4kw9mexeug580mc3lx", 1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "", "", "1000000").then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+        </code></pre>
+
+        <h3 id='sendIssuanceManaged'><code>sendIssuanceManaged</code></h3>
+        <p>
+          Create new tokens with manageable supply.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            fromAddress (string, required) The address to send from
+          </li>
+          <li>
+            ecosystem (string, required) The ecosystem to create the tokens in, must be 1
+          </li>
+          <li>
+            propertyPricision (number, required) The pricision of the tokens to create:[0, 8]
+          </li>
+          <li>
+            previousId (number, required) An identifier of a predecessor token (0 for new crowdsales)
+          </li>
+          <li>
+            category (string, required) A category for the new tokens (can be '')
+          </li>
+          <li>
+            subcategory (string, required) A subcategory for the new tokens  (can be '')
+          </li>
+          <li>
+            name (string, required) The name of the new tokens to create
+          </li>
+          <li>
+            url (string, required) An URL for further information about the new tokens (can be '')
+          </li>
+          <li>
+            data (string, required) A description for the new tokens (can be '')
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          hash <code>String</code>: the hex-encoded transaction hash
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+  Wormhole.Transaction.sendIssuanceManaged("qqxyplcfuxnm9z4usma2wmnu4kw9mexeug580mc3lx", 1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "", "").then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+        </code></pre>
+
+        <h3 id='sendRawTx'><code>sendRawTx</code></h3>
+        <p>
+          Broadcasts a raw Omni Layer transaction.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            fromAddress (string, required) The address to send from
+          </li>
+          <li>
+            rawTransaction (string, required) The hex-encoded raw transaction
+          </li>
+          <li>
+            referenceAddress (string, optional) A reference address (none by default)
+          </li>
+          <li>
+            redeemAddress (string, optional) An address that can spent the transaction dust (sender by default)
+          </li>
+          <li>
+            referenceAmount (string, optional) A bitcoin amount that is sent to the receiver (minimal by default)
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          hash <code>String</code>: the hex-encoded transaction hash
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+  Wormhole.Transaction.sendRawTx("qqxyplcfuxnm9z4usma2wmnu4kw9mexeug580mc3lx", "000000000000000100000000017d7840", "1EqTta1Rt8ixAA32DuC29oukbsSWU62qAV").then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+        </code></pre>
+
+        <h3 id='sendRevoke'><code>sendRevoke</code></h3>
+        <p>
+          Revoke units of managed tokens.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            fromAddress (string, required) The address to revoke the tokens from
+          </li>
+          <li>
+            propertyId (number, required) The identifier of the tokens to revoke
+          </li>
+          <li>
+            amount (string, required) The amount of tokens to revoke
+          </li>
+          <li>
+            memo (string, optional) A text note attached to this transaction (none by default)
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          hash <code>String</code>: the hex-encoded transaction hash
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+  Wormhole.Transaction.sendRevoke("qqxyplcfuxnm9z4usma2wmnu4kw9mexeug580mc3lx", 51, "100").then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+        </code></pre>
+
+        <h3 id='sendSTO'><code>sendSTO</code></h3>
+        <p>
+          Create and broadcast a send-to-owners transaction.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            fromAddress (string, required) The address to send from
+          </li>
+          <li>
+            propertyId (number, required) The identifier of the tokens to distribute
+          </li>
+          <li>
+            amount (string, required) The amount of tokens to distribute
+          </li>
+          <li>
+            redeemAddress (string, optional) An address that can spend the transaction dust (sender by default)
+          </li>
+          <li>
+            distributionProperty (number, optional) The identifier of the property holders to distribute to
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          hash <code>String</code>: the hex-encoded transaction hash
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+  Wormhole.Transaction.sendSTO("qqxyplcfuxnm9z4usma2wmnu4kw9mexeug580mc3lx", 51, "100").then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+        </code></pre>
+      </div>
+    </div>
+  </div>
+</section>

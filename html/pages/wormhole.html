@@ -1,0 +1,122 @@
+---
+layout: default
+title: Bitcoin.com Developer Platform | Wormhole
+banner: hero.jpeg
+H1: Wormhole
+subtitle: Experience a paradigm shift
+secondSubtitle: Smart contracts and Tokens for Bitcoin Cash
+---
+
+{{> wormhole-header}}
+
+<section class="bounties language-javascript">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-12">
+        <h3 class="yellow">Paradigm Shift</h3>
+        <p>Create new tokens with fixed or managed supplies. Create, participate in and close crowdsales. Grant or revoke managed tokens. Change the issuer on record for tokens. All on Bitcoin Cash.</p>
+        <p>Wormhole is a fully featured javascript framework which is powered by <a href='./bitbox.html'>BITBOX</a>. It offers Configuration, DataRetrieval, PayloadCreation, Transactions and much more. It’s powerful and intuitive APIs will have you creating smart contracts and tokens on Bitcoin Cash.</p>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-12 col-md-6 mb-4">
+        <h3 class="yellow">Tokens and Crowdsales</h3>
+        <p>Create tokens with fixed or managed supply. Issue new tokens in a crowdsale. Revoke units of managed tokens.</p>
+        <pre><code>
+// Issue new tokens with manageable supply
+Wormhole.PayloadCreation.issuanceManaged(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "", "").then((result) => {
+console.log(result);
+}, (err) => {
+console.log(err);
+});
+
+// Issue new tokens in a crowdsale
+Wormhole.PayloadCreation.issuanceCrowdsale(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "", "", 2, "100", 1483228800, 30, 2 192978657).then((result) => {
+console.log(result);
+}, (err) => {
+console.log(err);
+});
+
+// Revoke units of managed tokens
+Wormhole.PayloadCreation.revoke(51, "100").then((result) => {
+console.log(result);
+}, (err) => {
+console.log(err);
+});
+        </code></pre>
+        <a href="/wormhole/docs/payloadCreation.html" class="">Read More...</a>
+
+        <h3 class="yellow">Data Retrieval</h3>
+        <p>List tokens and smart contracts. Get balances and transactions. Return information about granted and revoked units of managed tokens.</p>
+        <pre><code>
+// Lists all tokens or smart properties.
+Wormhole.DataRetrieval.listProperties().then((result) => {
+console.log(result);
+}, (err) => {
+console.log(err);
+});
+
+// Returns a list of all token balances for a given address.
+Wormhole.DataRetrieval.getAllBalancesForAddress("bitcoincash:qz2xevhqsp6mewh32lj8hjm8av4jxwwjggs8rph83j").then((result) => {
+console.log(result);
+}, (err) => {
+console.log(err);
+});
+
+// Returns information about granted and revoked units of managed tokens.
+Wormhole.DataRetrieval.getGrants(31).then((result) => {
+console.log(result);
+}, (err) => {
+console.log(err);
+});
+        </code></pre>
+        <a href="/wormhole/docs/dataRetrieval.html" class="">Read More...</a>
+      </div>
+
+      <div class="col-12 col-md-6 mb-4">
+        <h3 class="yellow">Transactions</h3>
+        <p>Participate in Crowdsales. Change the issuer on record of the given tokens.</p>
+        <pre><code>
+// Create and broadcast a participate crowsale transaction.
+Wormhole.Transaction.partiCrowSale("qqxyplcfuxnm9z4usma2wmnu4kw9mexeug580mc3lx", "qqzy3s0ueaxkf8hcffhtgkgew8c7f7g85um9a2g74r", "100.0").then((result) => {
+console.log(result);
+}, (err) => {
+console.log(err);
+});
+
+// Change the issuer on record of the given tokens.
+Wormhole.Transaction.sendChangeIssuer("qqxyplcfuxnm9z4usma2wmnu4kw9mexeug580mc3lx", "qqzy3s0ueaxkf8hcffhtgkgew8c7f7g85um9a2g74r", 3).then((result) => {
+console.log(result);
+}, (err) => {
+console.log(err);
+});
+        </code></pre>
+        <a href="/wormhole/docs/transaction.html" class="">Read More...</a>
+
+        <h3 class="yellow">Configuration</h3>
+        <p>Sets the global flag that determines whether transactions are automatically committed and broadcast.</p>
+        <pre><code>
+Wormhole.Configuration.setAutoCommit(true).then((result) => {
+console.log(result);
+}, (err) => {
+console.log(err);
+});
+        </code></pre>
+        <a href="/wormhole/docs/configuration.html" class="">Read More...</a>
+
+        <h3 class="yellow">Built in console</h3>
+        <p>Custom REPL with the full Wormhole JSON RPC API built in. Test your ideas quickly with no overhead.</p>
+
+        <h3 class="yellow">100% documentation</h3>
+        <p>Every method, argument, data type and return value is documented in great detail.</p>
+
+        <h3 class="yellow">REST integration</h3>
+        <p>Have your app talk to Cloud via WormholeREST with no further setup needed.</p>
+      </div>
+    </div>
+  </div>
+</section>

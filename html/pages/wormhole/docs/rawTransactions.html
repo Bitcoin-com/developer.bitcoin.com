@@ -1,0 +1,177 @@
+---
+layout: default
+title: Bitcoin.com Developer Platform | RawTransactions Documentation
+---
+
+{{> double-nested-navigation}}
+
+{{> wormhole-docs-submenu}}
+
+<section class="bounties">
+  <div class="container">
+    <div class="section-title text-center pb-4">
+      <h1 class="gray bold">Wormhole Documentation</h1>
+    </div>
+    <div class="row">
+
+      <div class="col-12 col-md-3 mb-4 text-center">
+
+        {{> wormhole-docs-menu}}
+
+      </div>
+
+      <div class="col-12 col-md-9 language-javascript">
+        <h2 id='configuration' class="contentSubHead isCenter"><i class="fas fa-exchange-alt"></i> RawTransactions</h2>
+        <h3 id='change'><code>change</code></h3>
+        <p>
+          Adds a change output to the transaction.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            rawTx (string, required) The raw transaction to extend
+          </li>
+          <li>
+            prevTxs (string, required) A JSON array of transaction inputs
+          </li>
+          <li>
+            destination (number, required) The desired transaction fees
+          </li>
+          <li>
+            position (number, optional) The position of the change output (default: first position)
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          rawTx <code>String</code>: the hex-encoded modified raw transaction
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+  Wormhole.RawTransactions.change("0100000001b15ee60431ef57ec682790dec5a3c0d83a0c360633ea8308fbf6d5fc10a779670400000000ffffffff025c0d00000000000047512102f3e471222bb57a7d416c82bf81c627bfcd2bdc47f36e763ae69935bba4601ece21021580b888ff56feb27f17f08802ebed26258c23697d6a462d43fc13b565fda2dd52aeaa0a0000000000001976a914946cb2e08075bcbaf157e47bcb67eb2b2339d24288ac00000000", [{"txid":"6779a710fcd5f6fb0883ea3306360c3ad8c0a3c5de902768ec57ef3104e65eb1","vout":4,"scriptPubKey":"76a9147b25205fd98d462880a3e5b0541235831ae959e588ac","value":0.00068257}], "1CE8bBr1dYZRMnpmyYsFEoexa1YoPz2mfB", 0.00003500, 1).then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+        </code></pre>
+
+        <h3 id='input'><code>input</code></h3>
+        <p>
+          Adds a transaction input to the transaction.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            rawTx (string, required) The raw transaction to extend
+          </li>
+          <li>
+            txid (string, required) The hash of the input transaction
+          </li>
+          <li>
+            n (number, required) The index of the transaction output used as input
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          rawTx <code>String</code>: the hex-encoded modified raw transaction
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+  Wormhole.RawTransactions.input("01000000000000000000", "b006729017df05eda586df9ad3f8ccfee5be340aadf88155b784d1fc0e8342ee", 0).then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+        </code></pre>
+
+        <h3 id='opReturn'><code>opReturn</code></h3>
+        <p>
+          Adds a payload with class C (op-return) encoding to the transaction.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            rawTx (string, required) The raw transaction to extend
+          </li>
+          <li>
+            payload (string, required) The hex-encoded payload to add
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          rawTx <code>String</code>: the hex-encoded modified raw transaction
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+  Wormhole.RawTransactions.opReturn("01000000000000000000", "00000000000000020000000006dac2c0").then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+        </code></pre>
+
+        <h3 id='reference'><code>reference</code></h3>
+        <p>
+          Adds a reference output to the transaction.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            rawTx (string, required) The raw transaction to extend
+          </li>
+          <li>
+            destination (string, required) The reference address or destination
+          </li>
+          <li>
+            amount (number, optional) The optional reference amount (minimal by default)
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          rawTx <code>String</code>: the hex-encoded modified raw transaction
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+  Wormhole.RawTransactions.reference("0100000001a7a9402ecd77f3c9f745793c9ec805bfa2e14b89877581c734c774864247e6f50400000000ffffffff03aa0a0000000000001976a9146d18edfe073d53f84dd491dae1379f8fb0dfe5d488ac5c0d0000000000004751210252ce4bdd3ce38b4ebbc5a6e1343608230da508ff12d23d85b58c964204c4cef3210294cc195fc096f87d0f813a337ae7e5f961b1c8a18f1f8604a909b3a5121f065b52aeaa0a0000000000001976a914946cb2e08075bcbaf157e47bcb67eb2b2339d24288ac00000000", "1CE8bBr1dYZRMnpmyYsFEoexa1YoPz2mfB", 0.005).then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+        </code></pre>
+
+        <h3 id='decodeTransaction'><code>decodeTransaction</code></h3>
+        <p>
+          Decodes an Omni transaction.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            rawTx (string, required) The raw transaction to decode
+          </li>
+          <li>
+            prevTxs (string, optional) A JSON array of transaction inputs (default: none)
+          </li>
+          <li>
+            height (number, optional) The parsing block height (default: 0 for chain height)
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          rawTx <code>String</code>: the hex-encoded modified raw transaction
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+  Wormhole.RawTransactions.decodeTransaction("010000000163af14ce6d477e1c793507e32a5b7696288fa89705c0d02a3f66beb3c5b8afee0100000000ffffffff02ac020000000000004751210261ea979f6a06f9dafe00fb1263ea0aca959875a7073556a088cdfadcd494b3752102a3fd0a8a067e06941e066f78d930bfc47746f097fcd3f7ab27db8ddf37168b6b52ae22020000000000001976a914946cb2e08075bcbaf157e47bcb67eb2b2339d24288ac00000000", [{"txid":"eeafb8c5b3be663f2ad0c00597a88f2896765b2ae30735791c7e476dce14af63","vout":1,"scriptPubKey":"76a9149084c0bd89289bc025d0264f7f23148fb683d56c88ac","value":0.0001123}]).then((result) => {
+  console.log(result);
+  }, (err) => {
+  console.log(err);
+  });
+        </code></pre>
+      </div>
+    </div>
+  </div>
+</section>
