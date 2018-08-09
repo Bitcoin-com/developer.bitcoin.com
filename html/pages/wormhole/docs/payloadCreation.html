@@ -62,6 +62,7 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
   }, (err) => {
   console.log(err);
   });
+  // 0000004600000003
         </code></pre>
 
         <h3 id='closeCrowdSale'><code>closeCrowdSale</code></h3>
@@ -86,6 +87,7 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
   }, (err) => {
   console.log(err);
   });
+  // 0000003500000046
         </code></pre>
 
         <h3 id='grant'><code>grant</code></h3>
@@ -111,14 +113,14 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.PayloadCreation.grant(51, "7000").then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+    Wormhole.PayloadCreation.grant(51, "7000").then((result) => {
+    console.log(result);
+    }, (err) => {
+    console.log(err);
+    });
         </code></pre>
 
-        <h3 id='issuanceCrowdsale'><code>issuanceCrowdsale</code></h3>
+        <h3 id='crowdsale'><code>crowdsale</code></h3>
         <p>
           Creates the payload for a new tokens issuance with crowdsale.
         </p>
@@ -134,19 +136,19 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
             previousId (number, required) An identifier of a predecessor token (0 for new crowdsales)
           </li>
           <li>
-            category (string, required) A category for the new tokens (can be '')
+            category (string, required) A category for the new tokens
           </li>
           <li>
-            subcategory (string, required) A subcategory for the new tokens (can be '')
+            subcategory (string, required) A subcategory for the new tokens
           </li>
           <li>
             name (string, required) The name of the new tokens to create
           </li>
           <li>
-            url (string, required) An URL for further information about the new tokens (can be '')
+            url (string, required) An URL for further information about the new tokens
           </li>
           <li>
-            data (string, required) A description for the new tokens (can be '')
+            data (string, required) A description for the new tokens
           </li>
           <li>
             propertyIdDesired (number, required) The identifier of a token eligible to participate in the crowdsale
@@ -174,14 +176,14 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.PayloadCreation.issuanceCrowdsale(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "", "", 2, "100", 1483228800, 30, 2 192978657).then((result) => {
+  Wormhole.PayloadCreation.crowdsale(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens", 2, "100", 1483228800, 30, 0, 192978657).then((result) => {
   console.log(result);
   }, (err) => {
   console.log(err);
   });
         </code></pre>
 
-        <h3 id='issuanceFixed'><code>issuanceFixed</code></h3>
+        <h3 id='fixed'><code>fixed</code></h3>
         <p>
           Creates the payload for a new tokens issuance with fixed supply.
         </p>
@@ -197,19 +199,19 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
             previousId (number, required) An identifier of a predecessor token (0 for new crowdsales)
           </li>
           <li>
-            category (string, required) A category for the new tokens (can be '')
+            category (string, required) A category for the new tokens)
           </li>
           <li>
-            subcategory (string, required) A subcategory for the new tokens (can be '')
+            subcategory (string, required) A subcategory for the new tokens)
           </li>
           <li>
             name (string, required) The name of the new tokens to create
           </li>
           <li>
-            url (string, required) An URL for further information about the new tokens (can be '')
+            url (string, required) An URL for further information about the new tokens)
           </li>
           <li>
-            data (string, required) A description for the new tokens (can be '')
+            data (string, required) A description for the new tokens)
           </li>
           <li>
             amount (string, required) The number of tokens to create
@@ -222,14 +224,16 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.PayloadCreation.issuanceFixed(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "", "", "1000000").then((result) => {
+  Wormhole.PayloadCreation.fixed(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens", "1000000").then((result) => {
   console.log(result);
   }, (err) => {
   console.log(err);
   });
+
+  // 0000003201000100000000436f6d70616e69657300426974636f696e204d696e696e67005175616e74756d204d696e6572007777772e6578616d706c652e636f6d005175616e74756d204d696e657220546f6b656e73000000000000989680
         </code></pre>
 
-        <h3 id='issuanceManaged'><code>issuanceManaged</code></h3>
+        <h3 id='managed'><code>managed</code></h3>
         <p>
           Creates the payload for a new tokens issuance with manageable supply.
         </p>
@@ -245,19 +249,22 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
             previousId (number, required) An identifier of a predecessor token (0 for new crowdsales)
           </li>
           <li>
-            category (string, required) A category for the new tokens (can be '')
+            category (string, required) A category for the new tokens
           </li>
           <li>
-            subcategory (string, required) A subcategory for the new tokens (can be '')
+            subcategory (string, required) A subcategory for the new tokens
           </li>
           <li>
             name (string, required) The name of the new tokens to create
           </li>
           <li>
-            url (string, required) An URL for further information about the new tokens (can be '')
+            url (string, required) An URL for further information about the new tokens
           </li>
           <li>
-            data (string, required) A description for the new tokens (can be '')
+            data (string, required) A description for the new tokens
+          </li>
+          <li>
+            amount (string, required) The number of tokens to create
           </li>
         </ol>
         <h4>Result</h4>
@@ -267,7 +274,7 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.PayloadCreation.issuanceManaged(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "", "").then((result) => {
+  Wormhole.PayloadCreation.managed(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "", "").then((result) => {
   console.log(result);
   }, (err) => {
   console.log(err);
@@ -296,6 +303,8 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
   }, (err) => {
   console.log(err);
   });
+
+  // 000000010000000100000002540be400
         </code></pre>
 
         <h3 id='revoke'><code>revoke</code></h3>
@@ -345,11 +354,12 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.PayloadCreation.sendAll(51, "100").then((result) => {
+  Wormhole.PayloadCreation.sendAll(2, "100").then((result) => {
   console.log(result);
   }, (err) => {
   console.log(err);
   });
+  // 0000000402
         </code></pre>
 
         <h3 id='simpleSend'><code>simpleSend</code></h3>
@@ -377,6 +387,7 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
   }, (err) => {
   console.log(err);
   });
+  // 000000000000000100000002540be400
         </code></pre>
 
         <h3 id='STO'><code>STO</code></h3>
@@ -407,6 +418,8 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
   }, (err) => {
   console.log(err);
   });
+
+  // 0000000300000003000000000000138800000003
         </code></pre>
       </div>
     </div>
