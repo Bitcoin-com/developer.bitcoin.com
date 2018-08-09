@@ -114,11 +114,12 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
         <h4>Examples</h4>
 
         <pre><code>
-    Wormhole.PayloadCreation.grant(51, "7000").then((result) => {
+    Wormhole.PayloadCreation.grant(3, "7000").then((result) => {
     console.log(result);
     }, (err) => {
     console.log(err);
     });
+    // 00000037000000030000000000001b5800
         </code></pre>
 
         <h3 id='crowdsale'><code>crowdsale</code></h3>
@@ -177,11 +178,12 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.PayloadCreation.crowdsale(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens", 2, "100", 1483228800, 30, 0, 192978657).then((result) => {
+  Wormhole.PayloadCreation.crowdsale(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens", 1, "100", 1483228800, 30, 0, 192978657).then((result) => {
   console.log(result);
   }, (err) => {
   console.log(err);
   });
+  //  0000003301000100000000436f6d70616e69657300426974636f696e204d696e696e67005175616e74756d204d696e6572007777772e6578616d706c652e636f6d005175616e74756d204d696e657220546f6b656e73000000000100000002540be40000000000586846801e0000000000730634ca
         </code></pre>
 
         <h3 id='fixed'><code>fixed</code></h3>
@@ -329,7 +331,7 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.PayloadCreation.revoke(51, "100").then((result) => {
+  Wormhole.PayloadCreation.revoke(1, "100").then((result) => {
   console.log(result);
   }, (err) => {
   console.log(err);
@@ -417,7 +419,6 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
   }, (err) => {
   console.log(err);
   });
-
   // 0000000300000003000000000000138800000003
         </code></pre>
       </div>

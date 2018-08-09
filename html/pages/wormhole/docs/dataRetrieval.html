@@ -159,11 +159,27 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.DataRetrieval.getCrowdSale(3, true).then((result) => {
+  Wormhole.DataRetrieval.getCrowdSale(31, true).then((result) => {
   console.log(result);
   }, (err) => {
   console.log(err);
   });
+
+  // { propertyid: 31,
+  // name: 'qshuaifinalcrowsale',
+  // active: false,
+  // issuer: 'bchtest:qzk8qa7jp0w9cp7lxkghc6m0aqw3s9c7yg3s5v5m8n',
+  // propertyiddesired: 1,
+  // precision: '2',
+  // tokensperunit: '10.00000000',
+  // earlybonus: 10,
+  // starttime: 1533020017,
+  // deadline: 1533020340,
+  // amountraised: '0.00000000',
+  // tokensissued: '12345.12',
+  // addedissuertokens: '0.00',
+  // closedearly: false,
+  // maxtokens: false }
         </code></pre>
 
         <h3 id='getCurrentConsensusHash'><code>getCurrentConsensusHash</code></h3>
@@ -235,11 +251,22 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.DataRetrieval.getGrants(31).then((result) => {
+  Wormhole.DataRetrieval.getGrants(3).then((result) => {
   console.log(result);
   }, (err) => {
   console.log(err);
   });
+
+  // { propertyid: 3,
+  // name: 'test_token1',
+  // issuer: 'bchtest:qz04wg2jj75x34tge2v8w0l6r0repfcvcygv3t7sg5',
+  // creationtxid: '1c3f95acbd6eb38e2a7c26b12dc9138b4523c355a20944874bdc3c82f4c5e4e1',
+  // totaltokens: '90',
+  // issuances:
+  //  [ { txid: 'a1f2d0126a04296aad6f492a0ef8c1c1afb781efc6c5f37de105790a7debcf87',
+  //      revoke: '10' },
+  //    { txid: '6afffd7d14060b6e79c504c5f17596616eb99356b71d301b5b37df1df065b9a0',
+  //      grant: '100' } ] }
         </code></pre>
 
         <h3 id='getInfo'><code>getInfo</code></h3>
@@ -357,6 +384,7 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
   }, (err) => {
   console.log(err);
   });
+  // []
         </code></pre>
 
         <h3 id='getSTO'><code>getSTO</code></h3>
@@ -432,6 +460,7 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
   }, (err) => {
   console.log(err);
   });
+  // []
         </code></pre>
 
         <h3 id='listPendingTransactions'><code>listPendingTransactions</code></h3>
@@ -456,6 +485,7 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
   }, (err) => {
   console.log(err);
   });
+  // []
         </code></pre>
 
         <h3 id='listProperties'><code>listProperties</code></h3>
