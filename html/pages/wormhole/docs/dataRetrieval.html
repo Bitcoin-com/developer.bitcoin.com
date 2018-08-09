@@ -204,7 +204,7 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
   // consensushash: 'b6af1e33348a01dbf32b554ab71b65f8b5ade6ea0d8fd5123c1b27da57a22fe5' }
         </code></pre>
 
-        <h3 id='getFeeShare'><code>getFeeShare</code></h3>
+        <h3 id='feeShare'><code>feeShare</code></h3>
         <p>
           Returns the percentage share of fees distribution applied to the wallet (default) or address (if supplied).
         </p>
@@ -224,7 +224,7 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.DataRetrieval.getFeeShare("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 1).then((result) => {
+  Wormhole.DataRetrieval.feeShare("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 1).then((result) => {
   console.log(result);
   }, (err) => {
   console.log(err);
