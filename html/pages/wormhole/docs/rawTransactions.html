@@ -35,7 +35,7 @@ title: Bitcoin.com Developer Platform | RawTransactions Documentation
             prevTxs (string, required) A JSON array of transaction inputs
           </li>
           <li>
-            destination (number, required) The desired transaction fees
+            destination (string, required) The destination for the change
           </li>
           <li>
             fee (number, required) the desired transaction fees
@@ -51,7 +51,7 @@ title: Bitcoin.com Developer Platform | RawTransactions Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.RawTransactions.change("0100000001b15ee60431ef57ec682790dec5a3c0d83a0c360633ea8308fbf6d5fc10a779670400000000ffffffff025c0d00000000000047512102f3e471222bb57a7d416c82bf81c627bfcd2bdc47f36e763ae69935bba4601ece21021580b888ff56feb27f17f08802ebed26258c23697d6a462d43fc13b565fda2dd52aeaa0a0000000000001976a914946cb2e08075bcbaf157e47bcb67eb2b2339d24288ac00000000", [{"txid":"6779a710fcd5f6fb0883ea3306360c3ad8c0a3c5de902768ec57ef3104e65eb1","vout":4,"scriptPubKey":"76a9147b25205fd98d462880a3e5b0541235831ae959e588ac","value":0.00068257}], "1CE8bBr1dYZRMnpmyYsFEoexa1YoPz2mfB", 0.00003500, 1).then((result) => {
+  Wormhole.RawTransactions.change("0100000001b15ee60431ef57ec682790dec5a3c0d83a0c360633ea8308fbf6d5fc10a779670400000000ffffffff025c0d00000000000047512102f3e471222bb57a7d416c82bf81c627bfcd2bdc47f36e763ae69935bba4601ece21021580b888ff56feb27f17f08802ebed26258c23697d6a462d43fc13b565fda2dd52aeaa0a0000000000001976a914946cb2e08075bcbaf157e47bcb67eb2b2339d24288ac00000000", [{"txid":"6779a710fcd5f6fb0883ea3306360c3ad8c0a3c5de902768ec57ef3104e65eb1","vout":4,"scriptPubKey":"76a9147b25205fd98d462880a3e5b0541235831ae959e588ac","value":0.00068257}], "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 0.00003500, 1).then((result) => {
   console.log(result);
   }, (err) => {
   console.log(err);
