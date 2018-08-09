@@ -38,6 +38,7 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
   }, (err) => {
   console.log(err);
   });
+  // 00000044
         </code></pre>
 
         <h3 id='changeIssuer'><code>changeIssuer</code></h3>
@@ -263,9 +264,6 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
           <li>
             data (string, required) A description for the new tokens
           </li>
-          <li>
-            amount (string, required) The number of tokens to create
-          </li>
         </ol>
         <h4>Result</h4>
         <p>
@@ -274,7 +272,7 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.PayloadCreation.managed(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "", "").then((result) => {
+  Wormhole.PayloadCreation.managed(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens").then((result) => {
   console.log(result);
   }, (err) => {
   console.log(err);
