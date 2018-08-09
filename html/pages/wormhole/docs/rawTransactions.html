@@ -23,9 +23,9 @@ title: Bitcoin.com Developer Platform | RawTransactions Documentation
       <div class="col-12 col-md-9 language-javascript">
         <h2 id='configuration' class="contentSubHead isCenter"><i class="fas fa-exchange-alt"></i> RawTransactions</h2>
         <h3 id='change'><code>change</code></h3>
-        <p>
-          Adds a change output to the transaction.
-        </p>
+        <p>Adds a change output to the transaction. The provided inputs are not added to the transaction, but only used to determine the change. It is assumed that the inputs were previously added, for example via "createrawtransaction".</p>
+        <p>Optionally a position can be provided, where the change output should be inserted, starting with 0. If the number of outputs is smaller than the position, then the change output is added to the end. Change outputs should be inserted before reference outputs, and as per default, the change output is added to the first position.</p>
+        <p>If the change amount would be considered as dust, then no change output is added.</p>
         <h4>Arguments</h4>
         <ol>
           <li>
@@ -36,6 +36,9 @@ title: Bitcoin.com Developer Platform | RawTransactions Documentation
           </li>
           <li>
             destination (number, required) The desired transaction fees
+          </li>
+          <li>
+            fee (number, required) the desired transaction fees
           </li>
           <li>
             position (number, optional) The position of the change output (default: first position)
@@ -57,7 +60,7 @@ title: Bitcoin.com Developer Platform | RawTransactions Documentation
 
         <h3 id='input'><code>input</code></h3>
         <p>
-          Adds a transaction input to the transaction.
+          Adds a transaction input to the transaction. If no raw transaction is provided, a new transaction is created.
         </p>
         <h4>Arguments</h4>
         <ol>
@@ -87,7 +90,7 @@ title: Bitcoin.com Developer Platform | RawTransactions Documentation
 
         <h3 id='opReturn'><code>opReturn</code></h3>
         <p>
-          Adds a payload with class C (op-return) encoding to the transaction.
+          Adds a payload with class C (op-return) encoding to the transaction. If no raw transaction is provided, a new transaction is created. If the data encoding fails, then the transaction is not modified.
         </p>
         <h4>Arguments</h4>
         <ol>
@@ -114,7 +117,7 @@ title: Bitcoin.com Developer Platform | RawTransactions Documentation
 
         <h3 id='reference'><code>reference</code></h3>
         <p>
-          Adds a reference output to the transaction.
+          Adds a reference output to the transaction. If no raw transaction is provided, a new transaction is created. The output value is set to at least the dust threshold.
         </p>
         <h4>Arguments</h4>
         <ol>
