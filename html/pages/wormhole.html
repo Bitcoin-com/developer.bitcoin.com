@@ -28,14 +28,14 @@ secondSubtitle: Smart contracts and Tokens for Bitcoin Cash
         <p>Create tokens with fixed or managed supply. Issue new tokens in a crowdsale. Revoke units of managed tokens.</p>
         <pre><code>
 // Issue new tokens with manageable supply
-Wormhole.PayloadCreation.issuanceManaged(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "", "").then((result) => {
+Wormhole.PayloadCreation.managed(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "", "").then((result) => {
 console.log(result);
 }, (err) => {
 console.log(err);
 });
 
 // Issue new tokens in a crowdsale
-Wormhole.PayloadCreation.issuanceCrowdsale(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "", "", 2, "100", 1483228800, 30, 2 192978657).then((result) => {
+Wormhole.PayloadCreation.crowdsale(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "", "", 2, "100", 1483228800, 30, 2 192978657).then((result) => {
 console.log(result);
 }, (err) => {
 console.log(err);
@@ -54,21 +54,21 @@ console.log(err);
         <p>List tokens and smart contracts. Get balances and transactions. Return information about granted and revoked units of managed tokens.</p>
         <pre><code>
 // Lists all tokens or smart properties.
-Wormhole.DataRetrieval.listProperties().then((result) => {
+Wormhole.DataRetrieval.properties().then((result) => {
 console.log(result);
 }, (err) => {
 console.log(err);
 });
 
 // Returns a list of all token balances for a given address.
-Wormhole.DataRetrieval.getAllBalancesForAddress("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg").then((result) => {
+Wormhole.DataRetrieval.balancesForAddress("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg").then((result) => {
 console.log(result);
 }, (err) => {
 console.log(err);
 });
 
 // Returns information about granted and revoked units of managed tokens.
-Wormhole.DataRetrieval.getGrants(31).then((result) => {
+Wormhole.DataRetrieval.grants(31).then((result) => {
 console.log(result);
 }, (err) => {
 console.log(err);
@@ -89,7 +89,7 @@ console.log(err);
 });
 
 // Change the issuer on record of the given tokens.
-Wormhole.Transaction.sendChangeIssuer("qqxyplcfuxnm9z4usma2wmnu4kw9mexeug580mc3lx", "qqzy3s0ueaxkf8hcffhtgkgew8c7f7g85um9a2g74r", 3).then((result) => {
+Wormhole.Transaction.changeIssuer("qqxyplcfuxnm9z4usma2wmnu4kw9mexeug580mc3lx", "qqzy3s0ueaxkf8hcffhtgkgew8c7f7g85um9a2g74r", 3).then((result) => {
 console.log(result);
 }, (err) => {
 console.log(err);
@@ -100,7 +100,7 @@ console.log(err);
         <h3 class="yellow">Configuration</h3>
         <p>Sets the global flag that determines whether transactions are automatically committed and broadcast.</p>
         <pre><code>
-Wormhole.Configuration.setAutoCommit(true).then((result) => {
+Wormhole.Configuration.autoCommit(true).then((result) => {
 console.log(result);
 }, (err) => {
 console.log(err);
