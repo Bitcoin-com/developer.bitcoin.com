@@ -26,7 +26,7 @@ title: Bitcoin.com Developer Platform | New Documentation
         <p>Wormhole will generate a new app w/ empty <code>src/</code> and <code>test/</code> directories and a <code>wormhole.js</code> configured to connect to Bitcoin.com&rsquo;s Cloud.</p>
         <pre><code>Usage: new [options] &lt;name&gt;
 Options:
--r, --restURL &lt;restURL&gt;          The rest URL to use. default: https://wormholerest.bitcoin.com/v1/
+-r, --restURL &lt;restURL&gt;          The rest URL to use. default: https://wormholerest.example.com/v1/
 -e, --environment &lt;environment&gt;  environment of running BITBOX instance. Ex: production, staging. Default: development
 -h, --help                       output usage information
 
@@ -37,7 +37,7 @@ $ wormhole new helloEARTH
       <pre><code>exports.config = {
   networks: {
     development: {
-      restURL: 'https://wormholerest.bitcoin.com/v1/'
+      restURL: 'https://wormholerest.example.com/v1/'
     }
   }
 };
