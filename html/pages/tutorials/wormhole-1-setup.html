@@ -1,0 +1,56 @@
+---
+layout: default
+title: Bitcoin.com Developer Platform | Insights - Announcing Wormhole SDK
+banner: hero.jpeg
+H1: Wormhole
+subtitle: Experience a paradigm shift
+secondSubtitle: Tokens and Crowdsales on Bitcoin Cash
+---
+
+{{> nested-navigation}}
+
+{{> tutorial-header}}
+
+<section class="tutorials">
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-12">
+        <h3 class="yellow">Intro</h3>
+        <p>Tokens and Crowdsales on Bitcoin Cash are a paradigm shift. They'll allow developers and entreprenuers to quickly and efficiently raise the funds they need to take change the world, directly on Bitcoin Cash. This will be at the heart of the next wave of utility for the BCH network. Utility drives the network effect and with the release of <a href='../wormhole.html'>Wormhole</a>, powered by <a href='../bitbox.html'>BITBOX</a>, we're hoping to empower developers to create amazing tokens and crowdsales on Bitcoin Cash.</p>
+        <p>This tutorial will give you everything you need to start creating your own tokens and ICOs. It will consist of multiple parts. The first will be setting up your development environment. The second will be setting up a full node with <code>wormholed</code>. The last part will be creating tokens on testnet.</p>
+      </div>
+      <div class="col-12">
+        <h3 class="yellow">Getting Started</h3>
+        <p>The goal of this article is to show the first steps needed to set up your development environment and start checking out the Wormhole SDK.</p>
+        <p>In this post we&rsquo;ll cover the following:</p>
+        <ul>
+          <li>Prerequisites</li>
+          <li>Setting up your development environment</li>
+          <li>Installing Wormhole SDK</li>
+          <li>Running your first Wormhole code samples</li>
+        </ul>
+      </div>
+      <hr />
+      <div class="col-12">
+        <h3 class="yellow">Prerequisites</h3>
+        <p>Wormhole SDK is built around modern web technology. To hit the ground running you should have some basic Javascript skills. Javascript is a cornerstone of the Web and at the core of Wormhole SDK. If you&rsquo;re unfamiliar start by first going through these tutorials on <a href='https://www.w3schools.com/jS/default.asp'>Javascript</a>.</p>
+        <h4 class="yellow">Development Environment</h4>
+        <p>Wormhole SDK is a javascript framework built on nodeJS. To get started head to the <a href='https://nodejs.org/en/'>NodeJS</a> homepage and download their Long Term Support (LTS) release. Currently that is v8.11.3.</p>
+        <p><img class='gui' src="../img/tutorials/node-version.png" alt="nodejs download version" /></p>
+        <p>This also comes bundled with <code>npm</code> which is the &ldquo;Node Package Manager.&rdquo; You can confirm everything downloaded correctly by opening your terminal and running <code>node --version</code> and <code>npm --version</code>.</p>
+        <p><img class='gui' src="../img/tutorials/npm-version.png" alt="node and npm versions" /></p>
+        <p>Next you&rsquo;ll need a text editor to edit code. For that we suggest <a href='http://atom.io/'>Atom.io</a>. It&rsquo;s an open-source editor built and maintained by Github. It too is built with web tech so you can extend it with HTML, CSS and Javascript plugins and themes.</p>
+        <p><img class='gui' src="../img/tutorials/atomio.png" alt="atomIO logo" /></p>
+        <p>Finally you&rsquo;re ready to install Wormhole SDK. You can do that with <code>npm install wormholecash --global</code>. This will give you access to Wormhole <code>new</code> and <code>console</code>. To confirm it worked run <code>wormhole --version</code>. At the time of writing the latest version of Wormhole SDK is v0.1.21.</p>
+        <p><img class='gui' src="../img/tutorials/wormhole-version.png" alt="bitbox version" /></p>
+        <p>It should be noted that all of the above tools, NodeJS, NPM, AtomIO and Wormhole SDK all work on MacOS, Windows and Linux. The screenshots show MacOS but Wormhole SDK works across all platforms.</p>
+        <h3 class="yellow">Wormhole new</h3>
+        <p>Now that you have all the tools installed you&rsquo;re ready to start playing around with the Wormhole SDK. We want to make it as easy as possible for you to create a token or ICO on Bitcoin Cash so Wormhole has a <code>new</code> command which creates a basic directory structure and <code>wormhole.js</code> config file. To see it in action run <code>wormhole new lifeExtensionToken</code>.</p>
+        <p><img class='gui' src="../img/tutorials/wormhole-new.png" alt="worhole new" /></p>
+        <p>You've now got your development environment set up, Wormhole SDK installed and can create new apps you're gonna need a full node. In the next part we'll set up a Wormhole full node and configure <a href='https://github.com/Bitcoin-com/wormholerest.bitcoin.com'>wormholeREST</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>

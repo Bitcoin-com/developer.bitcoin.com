@@ -4,7 +4,7 @@ title: Bitcoin.com Developer Platform | Wormhole
 banner: hero.jpeg
 H1: Wormhole
 subtitle: Experience a paradigm shift
-secondSubtitle: Tokens and Crowdsales for Bitcoin Cash
+secondSubtitle: Tokens and Crowdsales on Bitcoin Cash
 ---
 
 {{> wormhole-header}}
@@ -16,7 +16,7 @@ secondSubtitle: Tokens and Crowdsales for Bitcoin Cash
       <div class="col-12">
         <h3 class="yellow">Paradigm Shift</h3>
         <p>Create your own Token. Launch a Crowdsale. Raise funds to change the world. All on Bitcoin Cash.</p>
-        <p>Wormhole is a fully featured javascript framework which is powered by <a href='./bitbox.html'>BITBOX</a>. It offers fixed and managed tokens, crowdsales and much more. It’s powerful and intuitive APIs will have you creating smart contracts and tokens on Bitcoin Cash.</p>
+        <p>Wormhole is a fully featured javascript framework which is powered by <a href='./bitbox.html'>BITBOX</a>. It offers fixed and managed tokens, crowdsales and much more. It’s powerful and intuitive APIs will have you creating tokens and ICOs on Bitcoin Cash.</p>
       </div>
 
     </div>
@@ -79,10 +79,10 @@ console.log(err);
 //   "confirmations": 0
 // }
         </code></pre>
-        <a href="/wormhole/docs/transaction.html" class="">Read More...</a>
+        <a href="/wormhole/docs/transaction.html#fixed" class="">Read More...</a>
 
         <h3 class="yellow">Tokens with managed supply</h3>
-        <p>Grand and revoke Time Machine Coins TMC</p>
+        <p>Grant and revoke Time Machine Coins TMC</p>
         <pre><code>
   Wormhole.Transaction.managed("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 1, 1, 0, "Companies", "Wormholes", "Time Machine", "www.example.com", "Time Machine Coins TMC").then((result) => {
   console.log(result);
@@ -149,14 +149,14 @@ console.log(err);
     console.log(err);
     });
         </code></pre>
-        <a href="/wormhole/docs/transaction.html" class="">Read More...</a>
+        <a href="/wormhole/docs/transaction.html#managed" class="">Read More...</a>
       </div>
 
       <div class="col-12 col-md-6 mb-4">
         <h3 class="yellow">Crowdsales</h3>
-        <p>Create Crowdsales. Sell your own tokens for WHC</p>
+        <p>Create Crowdsales. Sell your own tokens for WHC. Launch an ICO on Bitcoin Cash</p>
+        <p>Start a crowdsale where 100,000 Life Extension Tokens LET are going to be sold 100 LET for 1 WHC.</p>
         <pre><code>
-// Create and broadcast a participate crowsale transaction.
 Wormhole.Transaction.crowdSale("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 1, 1, 0, "Companies", "Singularity", "Life Extension", "www.example.com", "Life Extension Tokens LET", 1, "100", 1545696000, 30, 0, 100000).then((result) => {
  console.log(result);
  }, (err) => {
@@ -212,7 +212,7 @@ Wormhole.Transaction.crowdSale("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7e
   // }
 
                </code></pre>
-        <a href="/wormhole/docs/transaction.html" class="">Read More...</a>
+        <a href="/wormhole/docs/transaction.html#crowdSale" class="">Read More...</a>
 
         <h3 class="yellow">Data Retrieval</h3>
         <p>Over a dozen methods for checking balances, transactions, tokens and more.</p>
@@ -229,7 +229,7 @@ console.log(err);
 //  { propertyid: 109, balance: '10000.0', reserved: '0.0' },
 // { propertyid: 111, balance: '999000.0', reserved: '0.0' } ]
         </code></pre>
-        <a href="/wormhole/docs/configuration.html" class="">Read More...</a>
+        <a href="/wormhole/docs/dataRetrieval.html" class="">Read More...</a>
 
         <h3 class="yellow">Built in console</h3>
         <p>Custom REPL with the full Wormhole JSON RPC API built in. Test your ideas quickly with no overhead.</p>
@@ -238,7 +238,7 @@ console.log(err);
         <p>Every method, argument, data type and return value is documented in great detail.</p>
 
         <h3 class="yellow">REST integration</h3>
-        <p>Have your app talk to Cloud via WormholeREST with no further setup needed.</p>
+        <p>Have your app talk to <code>wormhold</code> via WormholeREST.</p>
       </div>
     </div>
   </div>
