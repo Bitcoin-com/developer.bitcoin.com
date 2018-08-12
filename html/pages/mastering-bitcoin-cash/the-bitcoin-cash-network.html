@@ -27,7 +27,7 @@ secondSubtitle: Peer-to-peer network architecture on top of the Internet
           <div class="sect1">
             <div class="sectionbody">
               <div class="sect2">
-                <h3 id="_peer_to_peer_network_architecture">Peer-to-Peer Network Architecture</h3>
+                <h3 class="yellow" id="_peer_to_peer_network_architecture">Peer-to-Peer Network Architecture</h3>
                 <div class="paragraph">
                   <p>Bitcoin Cash is structured as a peer-to-peer network architecture on top of the Internet. The term peer-to-peer, or P2P, means that the computers that participate in the network are peers to each other, that they are all equal, that there are no "special"
                     nodes, and that all nodes share the burden of providing network services. The network nodes interconnect in a mesh network with a "flat" topology. There is no server, no centralized service, and no hierarchy within the network. Nodes in a peer-to-peer
@@ -47,7 +47,7 @@ secondSubtitle: Peer-to-peer network architecture on top of the Internet
                 </div>
               </div>
               <div class="sect2">
-                <h3 id="_nodes_types_and_roles">Nodes Types and Roles</h3>
+                <h3 class="yellow" id="_nodes_types_and_roles">Nodes Types and Roles</h3>
                 <div class="paragraph">
                   <p>Although nodes in the Bitcoin Cash P2P network are equal, they may take on different roles depending on the functionality they are supporting. A Bitcoin Cash node is a collection of functions: routing, the blockchain database, mining, and wallet services.
                     A full node with all four of these functions is shown in <a href="#full_node_reference">A Bitcoin Cash network node with all four functions: wallet, miner, full blockchain database, and network routing</a>.</p>
@@ -85,7 +85,7 @@ secondSubtitle: Peer-to-peer network architecture on top of the Internet
                 </div>
               </div>
               <div class="sect2">
-                <h3 id="_the_extended_bitcoin_network">The Extended Bitcoin Cash Network</h3>
+                <h3 class="yellow" id="_the_extended_bitcoin_network">The Extended Bitcoin Cash Network</h3>
                 <div class="paragraph">
                   <p>The main Bitcoin Cash network, running the Bitcoin Cash P2P protocol, consists of thousands of listening nodes running various versions of the Bitcoin Cash client. A small percentage of the nodes on the Bitcoin Cash P2P network are also mining nodes, competing in the mining process, validating transactions, and creating new blocks. Various
                     large companies interface with the Bitcoin Cash network by running full-node clients, with full copies of the blockchain and a network node, but without mining or wallet functions. These nodes act as network edge
@@ -113,7 +113,7 @@ secondSubtitle: Peer-to-peer network architecture on top of the Internet
                 </div>
               </div>
               <div class="sect2">
-                <h3 id="_network_discovery">Network Discovery</h3>
+                <h3 class="yellow" id="_network_discovery">Network Discovery</h3>
                 <div class="paragraph">
                   <p>When a new node boots up, it must discover other Bitcoin Cash nodes on the network in order to participate. To start this process, a new node must discover at least one existing node on the network and connect to it. The geographic location of other
                     nodes is irrelevant; the Bitcoin Cash network topology is not geographically defined. Therefore, any existing Bitcoin Cash nodes can be selected at random.</p>
@@ -160,7 +160,7 @@ secondSubtitle: Peer-to-peer network architecture on top of the Internet
                 <div class="paragraph">
                   <p>How does a new node find peers? The first method is to query DNS using a number of "DNS seeds," which are DNS servers that provide a list of IP addresses of Bitcoin Cash nodes. Some of those DNS seeds provide a static list of IP addresses of stable
                     Bitcoin Cash listening nodes. Some of the DNS seeds are custom implementations of BIND (Berkeley Internet Name Daemon) that return a random subset from a list of Bitcoin Cash node addresses collected by a crawler or a long-running Bitcoin Cash node. The Bitcoin Cash
-                    client contains the names of five different DNS seeds. The diversity of ownership and diversity of implementation of the different DNS seeds offers a high level or reliability for the initial bootstrapping process. In the Bitcoin Cash client,
+                    client contains the names of five different DNS seeds. The diversity of ownership and diversity of implementation of the different DNS seeds offers a high level of reliability for the initial bootstrapping process. In the Bitcoin Cash client,
                     the option to use the DNS seeds is controlled by the option switch -dnsseed (set to 1 by default, to use the DNS seed).</p>
                 </div>
                 <div class="paragraph">
@@ -265,7 +265,7 @@ secondSubtitle: Peer-to-peer network architecture on top of the Internet
                 </div>
               </div>
               <div class="sect2">
-                <h3 id="_full_nodes">Full Nodes</h3>
+                <h3 class="yellow" id="_full_nodes">Full Nodes</h3>
                 <div class="paragraph">
                   <p>Full nodes are nodes that maintain a full blockchain with all transactions. More accurately, they probably should be called "full blockchain nodes." In the early years of Bitcoin Cash, all nodes were full nodes and currently the Bitcoin Cash client
                     is a full blockchain node. In the past two years, however, new forms of Bitcoin Cash clients have been introduced that do not maintain a full blockchain but run as lightweight clients. We&#8217;ll examine these in more detail in the next section.</p>
@@ -277,12 +277,12 @@ secondSubtitle: Peer-to-peer network architecture on top of the Internet
                 </div>
                 <div class="paragraph">
                   <p>Running a full blockchain node gives you the pure Bitcoin Cash experience: independent verification of all transactions without the need to rely on, or trust, any other systems. It&#8217;s easy to tell if you&#8217;re running a full node because it
-                    requires 100+ gigabytes of persistent storage (disk space) to store the full blockchain. If you need a lot of disk and it takes two to three days to sync to the network, you are running a full node. That is the price of complete independence
+                    requires 100+ gigabytes of persistent storage (disk space) to store the full blockchain. If you need a lot of disk space and it takes two to three days to sync to the network, you are running a full node. That is the price of complete independence
                     and freedom from central authority.</p>
                 </div>
               </div>
               <div class="sect2">
-                <h3 id="_exchanging_inventory">Exchanging "Inventory"</h3>
+                <h3 class="yellow" id="_exchanging_inventory">Exchanging "Inventory"</h3>
                 <div class="paragraph">
                   <p>The first thing a full node will do once it connects to peers is try to construct a complete blockchain. If it is a brand-new node and has no blockchain at all, it only knows one block, the genesis block, which is statically embedded in the client
                     software. Starting with block #0 (the genesis block), the new node will have to download hundreds of thousands of blocks to synchronize with the network and re-establish the full blockchain.</p>
@@ -309,7 +309,7 @@ secondSubtitle: Peer-to-peer network architecture on top of the Internet
                 </div>
               </div>
               <div class="sect2">
-                <h3 id="spv_nodes">Simplified Payment Verification (SPV) Nodes</h3>
+                <h3 class="yellow" id="spv_nodes">Simplified Payment Verification (SPV) Nodes</h3>
                 <div class="paragraph">
                   <p>Not all nodes have the ability to store the full blockchain. Many Bitcoin Cash clients are designed to run on space- and power-constrained devices, such as smartphones, tablets, or embedded systems. For such devices, a <em>simplified payment verification</em>          (SPV) method is used to allow them to operate without storing the full blockchain. These types of clients are called SPV clients or lightweight clients. As Bitcoin Cash adoption surges, the SPV node is becoming the most common form of Bitcoin Cash node,
                     especially for Bitcoin Cash wallets.</p>
@@ -390,7 +390,7 @@ secondSubtitle: Peer-to-peer network architecture on top of the Internet
                 </div>
               </div>
               <div class="sect2">
-                <h3 id="_bloom_filters">Bloom Filters</h3>
+                <h3 class="yellow" id="_bloom_filters">Bloom Filters</h3>
                 <div class="paragraph">
                   <p>A bloom filter is a probabilistic search filter, a way to describe a desired pattern without specifying it exactly. Bloom filters offer an efficient way to express a search pattern while protecting privacy. They are used by SPV nodes to ask their
                     peers for transactions matching a specific pattern, without revealing exactly which addresses they are searching for.</p>
@@ -486,7 +486,7 @@ secondSubtitle: Peer-to-peer network architecture on top of the Internet
                 </div>
               </div>
               <div class="sect2">
-                <h3 id="_bloom_filters_and_inventory_updates">Bloom Filters and Inventory Updates</h3>
+                <h3 class="yellow" id="_bloom_filters_and_inventory_updates">Bloom Filters and Inventory Updates</h3>
                 <div class="paragraph">
                   <p>Bloom filters are used to filter the transactions (and blocks containing them) that an SPV node receives from its peers. SPV nodes will create a filter that matches only the addresses held in the SPV node&#8217;s wallet. The SPV node will then
                     send a filterload message to the peer, containing the bloom filter to use on the connection. After a filter is established, the peer will then test each transaction&#8217;s outputs against the bloom filter. Only transactions that match the filter
@@ -502,7 +502,7 @@ secondSubtitle: Peer-to-peer network architecture on top of the Internet
                 </div>
               </div>
               <div class="sect2">
-                <h3 id="transaction_pools">Transaction Pools</h3>
+                <h3 class="yellow" id="transaction_pools">Transaction Pools</h3>
                 <div class="paragraph">
                   <p>Almost every node on the Bitcoin Cash network maintains a temporary list of unconfirmed transactions called the <em>memory pool</em>, <em>mempool</em>, or <em>transaction pool</em>. Nodes use this pool to keep track of transactions that are known to
                     the network but are not yet included in the blockchain. For example, a node that holds a user&#8217;s wallet will use the transaction pool to track incoming payments to the user&#8217;s wallet that have been received on the network but are not
