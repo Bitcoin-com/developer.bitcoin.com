@@ -4,7 +4,7 @@
 
 ### BITBOX
 
-Bitcoin.com’s new developer plaform is based on the popular BITBOX javascript framework which has been downlaoded 38,000+ times from 100+ countries. Offering utility methods for Mnemonics, HDNodes, ECPairs, Crypto, Address conversion, Transactions and much more.
+Bitcoin.com’s new developer plaform is based on the popular BITBOX javascript framework which has been downlaoded 39,000+ times from 100+ countries. Offering utility methods for Mnemonics, HDNodes, ECPairs, Crypto, Address conversion, Transactions and much more.
 
 ### REST
 
