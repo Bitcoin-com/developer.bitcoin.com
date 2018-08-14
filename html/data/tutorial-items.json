@@ -2,7 +2,7 @@
 
   {
   "title": "Wormhole Pt 3. Create tokens and crowdsales",
-  "excerpt": "In previous posts you set up your development environment and downloaded the Wormhole SDK. Next we set up a full Wormhole node and confirmed wormholeREST could speak to it. Finally we're ready to create our own tokens.",
+  "excerpt": "In <a href='./wormhole-1-setup.html'>post 1</a> we set up your development environment and downloaded the Wormhole SDK. In <a href='./wormhole-2-full-node.html'>post 2</a> we set up a full Wormhole node and confirmed wormholeREST could speak to it. Finally we're ready to create our own tokens.",
   "href": "tutorials/wormhole-3-tokens.html"
   },
 
