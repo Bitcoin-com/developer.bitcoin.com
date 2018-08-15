@@ -35,11 +35,14 @@ Options:
 $ wormhole new helloEARTH
 </code></pre>
       <h3 id="wormholeJS">wormhole.js</h3>
-      <p>Your <code>wormhole.js</code> file will contain the default settings to connect to Bitcoin.com&rsquo;s Cloud.</p>
+      <p>Your <code>wormhole.js</code> file will contain the default settings to connect to wormholeRES T.</p>
       <pre><code>exports.config = {
   networks: {
     development: {
-      restURL: 'https://wormholerest.example.com/v1/'
+      restURL: "https://trest.example.com/v1/"
+    },
+    production: {
+      restURL: "https://rest.example.com/v1/"
     }
   }
 };
