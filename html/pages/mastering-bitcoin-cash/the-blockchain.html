@@ -27,7 +27,7 @@ secondSubtitle: The history of all transactions
           <div class="sect1">
             <div class="sectionbody">
               <div class="sect2">
-                <h3 id="_introduction">Introduction</h3>
+                <h3 class="yellow" id="_introduction">Introduction</h3>
                 <div class="paragraph">
                   <p>The blockchain data structure is an ordered, back-linked list of blocks of transactions. The blockchain can be stored as a flat file, or in a simple database. The Bitcoin ABC client stores the blockchain metadata using Google&#8217;s LevelDB
                     database. Blocks are linked "back," each referring to the previous block in the chain. The blockchain is often visualized as a vertical stack, with blocks layered on top of each other and the first block serving as the foundation of the stack.
@@ -58,7 +58,7 @@ secondSubtitle: The history of all transactions
                 </div>
               </div>
               <div class="sect2">
-                <h3 id="_structure_of_a_block">Structure of a Block</h3>
+                <h3 class="yellow" id="_structure_of_a_block">Structure of a Block</h3>
                 <div class="paragraph">
                   <p>A block is a container data structure that aggregates transactions for inclusion in the public ledger, the blockchain. The block is made of a header, containing metadata, followed by a long list of transactions that make up the bulk of its size.
                     The block header is 80 bytes, whereas the average transaction is at least 250 bytes. A complete 32MB Bitcoin Cash block would contain nearly 128,000 transactions. A complete block, with all transactions, is therefore 400,000 times larger than the block header.
@@ -123,7 +123,7 @@ secondSubtitle: The history of all transactions
                 </table>
               </div>
               <div class="sect2">
-                <h3 id="block_header">Block Header</h3>
+                <h3 class="yellow" id="block_header">Block Header</h3>
                 <div class="paragraph">
                   <p>The block header consists of three sets of block metadata. First, there is a reference to a previous block hash, which connects this block to the previous block in the blockchain. The second set of metadata, namely the <em>difficulty</em>, <em>timestamp</em>,
                     and <em>nonce</em>, relate to the mining competition. The third piece of metadata is the merkle tree root, a data structure used to efficiently summarize all the transactions in the block. <a href="#block_header_structure_ch07">The structure of the block header</a>          describes the structure of a block header.</p>
@@ -211,7 +211,7 @@ secondSubtitle: The history of all transactions
                 </div>
               </div>
               <div class="sect2">
-                <h3 id="block_hash">Block Identifiers: Block Header Hash and Block Height</h3>
+                <h3 class="yellow" id="block_hash">Block Identifiers: Block Header Hash and Block Height</h3>
                 <div class="paragraph">
                   <p>The primary identifier of a block is its cryptographic hash, a digital fingerprint, made by hashing the block header twice through the SHA256 algorithm. The resulting 32-byte hash is called the <em>block hash</em> but is more accurately the <em>block header hash</em>,
                     <phrase role="keep-together">because only the block header is used to compute it. For example,</phrase> 000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f is the block hash of the first Bitcoin Cash block ever created. The block hash identifies a block uniquely
@@ -253,7 +253,7 @@ secondSubtitle: The history of all transactions
                 </div>
               </div>
               <div class="sect2">
-                <h3 id="_the_genesis_block">The Genesis Block</h3>
+                <h3 class="yellow" id="_the_genesis_block">The Genesis Block</h3>
                 <div class="paragraph">
                   <p>The first block in the blockchain is called the genesis block and was created in 2009. It is the common ancestor of all the blocks in the blockchain, meaning that if you start at any block and follow the chain backward in time, you will eventually
                     arrive at the genesis block.</p>
@@ -329,7 +329,7 @@ console.log(err);
                 </div>
               </div>
               <div class="sect2">
-                <h3 id="_linking_blocks_in_the_blockchain">Linking Blocks in the Blockchain</h3>
+                <h3 class="yellow" id="_linking_blocks_in_the_blockchain">Linking Blocks in the Blockchain</h3>
                 <div class="paragraph">
                   <p>Bitcoin Cash full nodes maintain a local copy of the blockchain, starting at the genesis block. The local copy of the blockchain is constantly updated as new blocks are found and used to extend the chain. As a node receives incoming blocks from the
                     network, it will validate these blocks and then link them to the existing blockchain. To establish a link, a node will examine the incoming block header and look for the "previous block hash."</p>
@@ -370,7 +370,7 @@ console.log(err);
                 </div>
               </div>
               <div class="sect2">
-                <h3 id="merkle_trees">Merkle Trees</h3>
+                <h3 class="yellow" id="merkle_trees">Merkle Trees</h3>
                 <div class="paragraph">
                   <p>Each block in the Bitcoin Cash blockchain contains a summary of all the transactions in the block, using a <em>merkle tree</em>.</p>
                 </div>
@@ -573,7 +573,7 @@ console.log(err);
                   </div>
               </div>
               <div class="sect2">
-                <h3 id="_merkle_trees_and_simplified_payment_verification_spv">Merkle Trees and Simplified Payment Verification (SPV)</h3>
+                <h3 class="yellow" id="_merkle_trees_and_simplified_payment_verification_spv">Merkle Trees and Simplified Payment Verification (SPV)</h3>
                 <div class="paragraph">
                   <p>Merkle trees are used extensively by SPV nodes. SPV nodes don&#8217;t have all transactions and do not download full blocks, just block headers. In order to verify that a transaction is included in a block, without having to download all the transactions
                     in the block, they use an authentication path, or merkle path.</p>
