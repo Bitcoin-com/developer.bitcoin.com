@@ -40,6 +40,12 @@ title: Bitcoin.com Developer Platform | BITBOX Getting Started Documentation
         <pre><code>npm install bitbox-cli --global</code></pre>
         <p>To use inside a command line script or client/server app:</p>
         <pre><code>npm install bitbox-cli --save</code></pre>
+        <h3 id="usage">Usage</h3>
+        Use the <a href='new.html'>scaffold generator</a>, or manually import BITBOX into your code:
+        <pre><code>
+let BITBOXCli = require('bitbox-cli/lib/bitbox-cli').default;
+let BITBOX = new BITBOXCli();
+        </code></pre>
       </div>
 
     </div>
