@@ -130,7 +130,7 @@ export const textBase = css`
       font-family: monospace;
     `}
 
-  ${props => props.title &&
+  ${props => props.isTitle &&
     css`
     margin-bottom: 10px !important;
       &::before {
