@@ -1,8 +1,8 @@
 // @flow
 
 const spacing = {
-  small: '16px',
-  medium: '22px',
+  small: '12px',
+  medium: '24px',
   large: '64px'
 }
 

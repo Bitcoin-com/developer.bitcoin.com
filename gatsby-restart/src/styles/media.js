@@ -5,8 +5,8 @@ import { css } from 'styled-components';
 // Define smallest size for each breakpoint.
 // small is same as no media query.
 const sizes = {
-  large: 1008,
-  medium: 641,
+  large: 1140,
+  medium: 720,
   small: 0
 };
 // Iterate through the sizes and create a media template

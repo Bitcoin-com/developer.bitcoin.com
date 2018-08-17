@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import media from 'styles/media'
 
 const Container = styled.div`
-  width: 100%;
+  width: 98%;
   padding: 1%;
 
   ${media.large`
