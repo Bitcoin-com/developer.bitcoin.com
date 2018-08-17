@@ -5,10 +5,10 @@ import HeaderBase from './headerBase'
 
 const H1 = HeaderBase.withComponent('h1').extend`
     font-size: ${16*3}px;
-    line-height: 1.25em;
+    line-height: 1.2em;
     ${media.large`
       font-size: ${16*3}px;
-      line-height: 1.05em;
+      line-height: 1.35em;
     `}
 `
 

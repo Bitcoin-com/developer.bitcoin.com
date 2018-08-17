@@ -3974,9 +3974,9 @@ gatsby-plugin-react-helmet@next:
   dependencies:
     "@babel/runtime" "7.0.0-beta.52"
 
-gatsby-plugin-styled-components@next:
-  version "3.0.0-beta.4"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-styled-components/-/gatsby-plugin-styled-components-3.0.0-beta.4.tgz#18198dcae1e0793f01814c53278b8b928b97b172"
+gatsby-plugin-styled-components@gatsby-plugin-styled-components@3.0.0-beta.3:
+  version "3.0.0-beta.3"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-styled-components/-/gatsby-plugin-styled-components-3.0.0-beta.3.tgz#da93c5feb4c87cac39733de6366e0eb15b35feca"
   dependencies:
     "@babel/runtime" "7.0.0-beta.52"
 
@@ -6998,6 +6998,10 @@ react-hot-loader@^4.1.0:
     prop-types "^15.6.1"
     react-lifecycles-compat "^3.0.4"
     shallowequal "^1.0.2"
+
+react-icons@^3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-3.0.5.tgz#9f22a319a48b562e052af2255a3dda8ded363d1c"
 
 react-is@^16.3.1:
   version "16.4.2"

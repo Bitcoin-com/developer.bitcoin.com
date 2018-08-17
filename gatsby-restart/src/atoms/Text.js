@@ -26,6 +26,7 @@ const sizeMap = {
 }
 
 export const textBase = css`
+  position: relative;
   font-size-adjust: 0.5;
   vertical-align: middle;
   transition: color 0.15s;
@@ -62,11 +63,8 @@ export const textBase = css`
 
 
   /* Margin */
-  ${props =>
-    props.nomargin &&
-    css`
-      margin: 0;
-    `}
+  
+  margin: 0;
 
   ${props =>
     props.margin &&
@@ -131,6 +129,20 @@ export const textBase = css`
     css`
       font-family: monospace;
     `}
+
+  ${props => props.title &&
+    css`
+    margin-bottom: 10px !important;
+      &::before {
+        content: "";
+        width: 80px;
+        border-bottom: 4px solid ${props => props.theme.primary};
+        position: absolute;
+        bottom: -10px;
+        
+      }
+    `
+  }
 `
 
 const Text = styled.p`

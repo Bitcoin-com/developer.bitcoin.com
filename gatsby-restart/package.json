@@ -10,11 +10,12 @@
     "gatsby-plugin-manifest": "next",
     "gatsby-plugin-offline": "next",
     "gatsby-plugin-react-helmet": "next",
-    "gatsby-plugin-styled-components": "next",
+    "gatsby-plugin-styled-components": "gatsby-plugin-styled-components@3.0.0-beta.3",
     "gatsby-source-filesystem": "next",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-helmet": "^5.2.0",
+    "react-icons": "^3.0.5",
     "styled-components": "^3.4.2"
   },
   "keywords": [

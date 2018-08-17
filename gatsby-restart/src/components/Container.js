@@ -10,8 +10,9 @@ const Container = styled.div`
   padding: 1%;
 
   ${media.large`
-    width: 1008px;
+    width: 1140px;
     padding: 0;
+    margin: 0 auto;
   `};
 `
 
