@@ -20,7 +20,7 @@ const Flourish = styled.div`
     height: 100%; 
     background: ${props => props.theme.primaryMuted};
     right: 0;
-    bottom: -48px;
+    bottom: -33px;
     z-index: -1;
     clip-path: polygon(70% 0,100% 9%,100% 86%,73% 100%,0 86%,0 10%);
 `

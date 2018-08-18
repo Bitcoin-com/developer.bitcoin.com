@@ -8,15 +8,22 @@ import { StaticQuery, graphql } from 'gatsby'
 import { defaultTheme } from 'styles/themes'
 import './base.css'
 
+import NavBar from 'components/NavBar';
+
 type Props = {
   children: React.Node,
+  location: Object
 }
 
 type Data = {
   site: { siteMetadata: { title: string } },
 }
 
-const DefaultLayout = ({ children }: Props) => (
+const Main = styled.div`
+  position: relative;
+`
+
+const DefaultLayout = ({ children, location }: Props) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -57,7 +64,10 @@ const DefaultLayout = ({ children }: Props) => (
           <script src="https://menu.cdn.bitcoindotcom.net/the-menu/dist/universal-menu.js" />
         </Helmet>
         <ThemeProvider theme={defaultTheme}>
-          <div>{children}</div>
+          <Main>
+            <NavBar location={location}/>
+            {children}
+          </Main>
         </ThemeProvider>
       </>
     )}

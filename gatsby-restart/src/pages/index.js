@@ -137,8 +137,12 @@ const SocialLinks = H2.extend`
 
 `
 
-const IndexPage = () => (
-  <DefaultLayout>
+type Props = {
+  location: Object
+}
+
+const IndexPage = ({location}: Props) => (
+  <DefaultLayout location={location}>
     <Hero image={HeroImg}>
       <HeroLayout>
         <HeroBlurbLayout>
