@@ -36,7 +36,7 @@ class InfoCard extends React.PureComponent<Props> {
     return (
       <Main>
         <H2>{title}</H2>
-        <Text>{text}</Text>
+        <Text muted>{text}</Text>
         <Right>
           {cta && <Link to={to}><Button round>{cta}</Button></Link>}
           {disabledcta && <Text muted2>{disabledcta}</Text>}
