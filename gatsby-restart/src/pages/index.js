@@ -15,6 +15,7 @@ import H2 from 'atoms/H2'
 import H1 from 'atoms/H1'
 import Button from 'atoms/Button'
 import Code from 'atoms/Code'
+import Input from 'atoms/Input';
 
 import media from 'styles/media'
 import spacing from 'styles/spacing'
@@ -24,7 +25,7 @@ import TechBannerImg from 'images/tech-banner.jpg'
 import LearnThumbImg from 'images/learn-thumb.jpg'
 import DevelopThumbImg from 'images/develop-thumb.jpg'
 
-import { FaCube, FaCogs, FaCreditCard, FaCartPlus } from 'react-icons/fa'
+import { FaCube, FaCogs, FaCreditCard, FaCartPlus, FaReddit, FaTwitter, FaFacebook, FaLinkedin } from 'react-icons/fa'
 
 const HeroLayout = styled.div`
   display: grid;
@@ -94,6 +95,7 @@ const StartedInfo = styled.div`
 
   display: grid;
   grid-template-columns: 1fr;
+  grid-template-rows: min-content min-content 1fr min-content;
   justify-items: center;
   grid-gap: ${spacing.medium};
 
@@ -103,6 +105,36 @@ const BubbleImg = styled.img`
   width: 150px;
   height: 150px;
   border-radius: 75px;
+  border: 3px solid ${props => props.theme.primary};
+`
+
+const ShareLayout = styled.div`
+  grid-template-columns: 1fr;
+  grid-gap: ${spacing.medium};
+  display: grid;
+  margin-top: ${spacing.large};
+  margin-bottom: ${spacing.large};
+  ${media.medium`
+    grid-template-columns: .5fr .5fr;
+  `}
+
+`
+
+const EmailCTA = styled.div` 
+  display: grid;
+  grid-gap: ${spacing.small};
+`
+
+const ShareCTA = styled.div`
+`
+
+const SocialLinks = H2.extend`
+  justify-content: end;
+  display: grid;
+  grid-template-columns: min-content min-content min-content min-content;
+  grid-template-rows: 1fr;
+  grid-gap: ${spacing.small};
+
 `
 
 const IndexPage = () => (
@@ -111,7 +143,7 @@ const IndexPage = () => (
       <HeroLayout>
         <HeroBlurbLayout>
           <H3 primary> Bitcoin.com Developer Platform</H3>
-          <H1 background>Change the world with Bitcoin Cash</H1>
+          <H1 background>Change the world with <br/> Bitcoin Cash</H1>
           <H3 background>Developer Tooling, Cloud, and Market</H3>
           <HeroButtonLayout>
             <Link to="/">
@@ -203,7 +235,6 @@ const IndexPage = () => (
       </FeaturesLayout>
     </Container>
     <Hero image={TechBannerImg}>
-      
         <H2 background isTitle>
           Get Started Today!
         </H2>
@@ -216,7 +247,7 @@ const IndexPage = () => (
             apps. Tutorials, blog posts, video streams and code snippets to help
             you go from being a hobbyist to a professional step by step.
           </Text>
-          <Button>Learn</Button>
+          <Button round>Learn</Button>
         </StartedInfo>
         <StartedInfo>
           <H3>Develop</H3>
@@ -224,11 +255,30 @@ const IndexPage = () => (
           <Text>
           With the power of Bitcoin Cash, the ease of BITBOX and the Bitcoin.com developer platform, you’ll create your most innovative apps ever.
           </Text>
-          <Button>Develop</Button>
+          <Button round style={{alignSelf: 'end'}}>Develop</Button>
         </StartedInfo>
       </GetStartedLayout>
     </Hero>
-    <Link to="/page-2/">Go to page 2</Link>
+
+    <Container>
+      <ShareLayout >
+        <EmailCTA>
+          <H3>Don’t miss out on updates</H3>
+          <Input placeholder='Name...' />
+          <Input placeholder='Email...' />
+          <Button primary round>Sign up</Button>
+        </EmailCTA>
+        <ShareCTA>
+          <H3 right>Share on... </H3>
+          <SocialLinks>
+            <FaReddit/ >
+            <FaTwitter/>
+            <FaFacebook/>
+            <FaLinkedin/>
+          </SocialLinks>
+        </ShareCTA>
+      </ShareLayout>
+    </Container>
   </DefaultLayout>
 )
 

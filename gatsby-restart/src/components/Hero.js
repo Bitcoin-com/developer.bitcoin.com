@@ -7,7 +7,7 @@ import spacing from 'styles/spacing'
 import Container from 'components/Container'
 
 const Main = styled.div`
-  padding: ${spacing.large};
+  padding: ${spacing.medium};
   background: url(${props => props.backgroundImage}) no-repeat top center;
   position: relative;
   background-color: ${props => props.theme.foreground};
