@@ -40,13 +40,15 @@ type Props = {
   },
 };
 
+const developBaseUrls = ['/develop', '/bitbox', '/wormhole', '/gui', '/rest'];
+
 class NavBar extends React.PureComponent<Props> {
   render() {
     const {location: { pathname} } = this.props;
 
     const homeActive = pathname === '/';
     const learnActive = pathname.includes('/learn')
-    const developActive = pathname.includes('/develop')
+    const developActive = developBaseUrls.reduce((prev, curr) => prev || pathname.includes(curr), false);
     const aboutActive = pathname.includes('/about')
 
     console.log(pathname);

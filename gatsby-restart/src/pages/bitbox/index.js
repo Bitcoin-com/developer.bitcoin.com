@@ -39,7 +39,7 @@ const BitboxPage = ({ location }: Props) => (
       <HeroLayout>
         <H3 primary>Incredibly powerful. Easy to learn.</H3>
         <H1 background>BITBOX</H1>
-        <H3>Powerful and intuitive APIs which will have you creating world class applications</H3>
+        <H3 background>Powerful and intuitive APIs which will have you creating world class applications</H3>
       </HeroLayout>
     </Hero>
     <Container>
