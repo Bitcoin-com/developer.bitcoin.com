@@ -150,10 +150,10 @@ const IndexPage = ({location}: Props) => (
           <H1 background>Change the world with <br/> Bitcoin Cash</H1>
           <H3 background>Developer Tooling, Cloud, and Market</H3>
           <HeroButtonLayout>
-            <Link to="/">
+            <Link to="/bitbox">
               <Button round>BITBOX SDK</Button>
             </Link>
-            <Link to="/">
+            <Link to="/wormhole">
               <Button round>Wormhole SDK</Button>
             </Link>
           </HeroButtonLayout>
@@ -170,7 +170,7 @@ const IndexPage = ({location}: Props) => (
           <Text background muted2>
             Install via NPM
           </Text>
-          <Code>npm install -g bitbox-cli</Code>
+          <Code language="bash">npm install -g bitbox-cli</Code>
         </SDKLayout>
       </HeroLayout>
     </Hero>
@@ -251,7 +251,7 @@ const IndexPage = ({location}: Props) => (
             apps. Tutorials, blog posts, video streams and code snippets to help
             you go from being a hobbyist to a professional step by step.
           </Text>
-          <Button round>Learn</Button>
+          <Link to='/learn'><Button round>Learn</Button></Link>
         </StartedInfo>
         <StartedInfo>
           <H3>Develop</H3>
@@ -259,7 +259,7 @@ const IndexPage = ({location}: Props) => (
           <Text>
           With the power of Bitcoin Cash, the ease of BITBOX and the Bitcoin.com developer platform, you’ll create your most innovative apps ever.
           </Text>
-          <Button round style={{alignSelf: 'end'}}>Develop</Button>
+          <Link to='/develop'><Button round style={{alignSelf: 'end'}}>Develop</Button></Link>
         </StartedInfo>
       </GetStartedLayout>
     </Hero>

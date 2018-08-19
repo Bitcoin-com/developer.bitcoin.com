@@ -32,8 +32,7 @@ const HeroLayout = styled.div`
 const CardLayout = styled.div`
   display: grid;
   padding-top: ${spacing.large};
-  grid-column-gap: ${spacing.medium};
-  grid-row-gap: ${spacing.large};
+  grid-gap: ${spacing.medium};
   grid-template-columns: 1fr;
   ${media.medium`
     grid-template-columns: repeat(auto-fit, minmax(400px, .5fr));

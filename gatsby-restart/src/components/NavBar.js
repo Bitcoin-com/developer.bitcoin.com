@@ -26,7 +26,7 @@ const NavLayout = styled.div`
 
 const NavItem = styled(Link)`
   ${textBase};
-  color: ${props => props.active ? props.theme.primary : props.theme.background};
+  color: ${props => props.isActive ? props.theme.primary : props.theme.background};
   text-decoration: none;
   margin-right: ${spacing.medium};
   &:hover {
@@ -57,10 +57,10 @@ class NavBar extends React.PureComponent<Props> {
       <Main>
         <Container>
             <NavLayout>
-              <NavItem to='/' active={homeActive}>Home</NavItem>
-              <NavItem to='/learn' active={learnActive}>Learn</NavItem>
-              <NavItem to='/develop' active={developActive}>Develop</NavItem>
-              <NavItem to='/about' active={aboutActive}>About</NavItem>
+              <NavItem to='/' isActive={homeActive}>Home</NavItem>
+              <NavItem to='/learn' isActive={learnActive}>Learn</NavItem>
+              <NavItem to='/develop' isActive={developActive}>Develop</NavItem>
+              <NavItem to='/about' isActive={aboutActive}>About</NavItem>
             </NavLayout>
         </Container>
       </Main>
