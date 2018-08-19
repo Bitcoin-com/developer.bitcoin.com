@@ -22,10 +22,10 @@ secondSubtitle: Stress testing the system
         <p><a href='https://twitter.com/SpendBCH_io' target='_blank'>@SpendBCH_io</a> created <a href='https://www.scale.cash' target='_blank'>Scale.cash</a>, powered by <a href='../bitbox.html' target='_blank'>BITBOX</a>, to allow anyone to be able to participate on Stress Test Day. You simply send some BCH to a newly generated address and scale.cash takes care of the rest. You can send tens of thousands of on-chain Bitcoin Cash Transactions per hour with no more effort than scanning a QR code.</p>
         <div class="row">
           <div class="col-sm-6">
-            <p><a href='https://stresstestbitcoin.cash' target='_blank'><img class='gui' src="../img/insights/scale-1.png" alt="" /></a></p>
+            <p><a href='https://stresstestbitcoin.cash' target='_blank'><img class='gui' src="../img/insights/scale-1.png" alt="Stresstest logo" /></a></p>
           </div>
           <div class="col-sm-6">
-            <p><a href='https://www.scale.cash' target='_blank'><img class='gui' src="../img/insights/scale-logo.png" alt="" /></a></p>
+            <p><a href='https://www.scale.cash' target='_blank'><img class='gui' src="../img/insights/scale-logo.png" alt="scale.cash logo" /></a></p>
           </div>
         </div>
       </div>
@@ -38,9 +38,9 @@ secondSubtitle: Stress testing the system
         <h3 id='usage' class="yellow">Usage</h3>
         <h4 id='createNewWallet' class="yellow">Create new wallet</h4>
         <p>SpendBCH deserves credit for making scale.cash extremely easy to use. The first time you show up simply click a 'Create New Wallet' button. This will create a new wallet which is local to your browser. This wallet is completely new and has never been seen or used by anyone before. It was created specifically for you to use for scale.cash.</p>
-        <p><img class='gui' src="../img/insights/scale-3.png" alt="" /></p>
+        <p><img class='gui' src="../img/insights/scale-3.png" alt="Create New Wallet" /></p>
         <p>After you click 'Create New Wallet', <a href='https://www.scale.cash' target='_blank'>Scale.cash</a> will create an address and QR code for you to deposit satoshis. Notice a private key in wallet import format (<strong>WIF</strong>), <strong>mnemonic</strong>, <strong>message</strong> and <strong>signature</strong> are also generated. These can be used later to recover any lost funds or to prove you sent these transactions for the stress test so it can be valuable to back them up in some way.</p>
-        <p><img class='gui' src="../img/insights/scale-4.png" alt="" /></p>
+        <p><img class='gui' src="../img/insights/scale-4.png" alt="QR Code" /></p>
 
         <hr />
 
@@ -49,23 +49,23 @@ secondSubtitle: Stress testing the system
         <p>In this example we're using the bitcoin.com mobile iOS wallet. We sent $1 and it created txid <a href='https://explorer.bitcoin.com/bch/tx/1467afce1d35fa4ada2feaeb1beba0573971783e2d1af271e3d6e9a4c660afa1' target='_blank'>1467afce1d35fa4ada2feaeb1beba0573971783e2d1af271e3d6e9a4c660afa1</a>.</p>
         <div class="row">
           <div class="col-sm-6">
-            <p><img class='gui' src="../img/insights/scale-5.png" alt="" /></p>
+            <p><img class='gui' src="../img/insights/scale-5.png" alt="bitcoin.com ios wallet shot 1" /></p>
           </div>
           <div class="col-sm-6">
-            <p><img class='gui' src="../img/insights/scale-6.png" alt="" /></p>
+            <p><img class='gui' src="../img/insights/scale-6.png" alt="bitcoin.com ios wallet shot 2" /></p>
           </div>
         </div>
         <p>Once your funding transaction has been sent go back to scale.cash and click the 'Refresh Balance' button. This will check the blockchain for your balance and show it on screen. In this example we have 181,274 satoshis for this stress test.</p>
         <div class="row">
           <div class="col-sm-6">
-            <p><img class='gui' src="../img/insights/scale-7.png" alt="" /></p>
+            <p><img class='gui' src="../img/insights/scale-7.png" alt="Refresh Balance 1" /></p>
           </div>
           <div class="col-sm-6">
-            <p><img class='gui' src="../img/insights/scale-8.png" alt="" /></p>
+            <p><img class='gui' src="../img/insights/scale-8.png" alt="Refresh Balance 2" /></p>
           </div>
         </div>
         <p>Note that it shows how many transactions will be created. Also it gives you the option to donate any dust or change satoshis to <a href='https://twitter.com/eatBCH' target='_blank'>@eatBCH</a>. At the bottom you'll see "Mempool Size" and "Your Total TX Sent." As your transactions are broadcast you'll see these numbers increase.</p>
-        <p><img class='gui' src="../img/insights/scale-9.png" alt="" /></p>
+        <p><img class='gui' src="../img/insights/scale-9.png" alt="Mempool Size" /></p>
 
         <hr />
 
@@ -74,18 +74,18 @@ secondSubtitle: Stress testing the system
         </p>
         <div class="row">
           <div class="col-sm-6">
-            <p><img class='gui' src="../img/insights/scale-10.png" alt="" /></p>
+            <p><img class='gui' src="../img/insights/scale-10.png" alt="Start Stresstest" /></p>
           </div>
           <div class="col-sm-6">
-            <p><img class='gui' src="../img/insights/scale-11.png" alt="" /></p>
+            <p><img class='gui' src="../img/insights/scale-11.png" alt="fan out txid" /></p>
           </div>
         </div>
         <p><strong>PLEASE BE AWARE that your fan-out transction requires 1 confirmation before the rest of your transactions will begin to broadcast</strong>. After the fan out transaction gets confirmed in 1 block scale.cash will begin sending out transactions in batches of 20 at 500txs per minute.</p>
-        <p><img class='gui' src="../img/insights/scale-13.png" alt="" /></p>
+        <p><img class='gui' src="../img/insights/scale-13.png" alt="Waiting for txs to configm" /></p>
         <p>You'll see the "Mempool Size" and "Your Total TX Sent" numbers climbing while scale.cash sends out txs.   Each transaction will contain an <code>OP_RETURN</code> with <code>stresstestbitcoin.cash</code>.</p>
-        <p><img class='gui' src="../img/insights/scale-12.png" alt="" /></p>
+        <p><img class='gui' src="../img/insights/scale-12.png" alt="Decoded OP_RETURN" /></p>
         <p>The last few will <a href='https://explorer.bitcoin.com/bch/tx/2dd7613cd53dd1997e296691a01993af5b63edf8b7f4c9252e60d1a2cfc82df2' target='_blank'>consolidate the utxo back to a single output</a> and donate your change to EatBCH.</p>
-        <p> <img class='gui' src="../img/insights/scale-14.png" alt="" /></p>
+        <p> <img class='gui' src="../img/insights/scale-14.png" alt="Consolidating UTXO" /></p>
       </div>
     </div>
 
@@ -98,7 +98,7 @@ secondSubtitle: Stress testing the system
         <pre><code>
 bitbox new scale.cash --scaffold react
         </code></pre>
-        <p> <img class='gui' src="../img/insights/scale-15.png" alt="" /></p>
+        <p> <img class='gui' src="../img/insights/scale-15.png" alt="new BITBOX app" /></p>
         <h4 id='mnemonic' class="yellow">mnemonic</h4>
         <p>This creates basic a BIP44 wallet in a react app with BITBOX already bundled. The scale.cash codebase also shows how to <a href='https://github.com/SpendBCH/bch-stresstest-web/blob/7e7300f192701bf256252c118fe8dd3d4d6d475b/src/stresstest-lib/wallet.js#L20' target='_blank'>create a mnemonic</a>.</p>
         <pre><code>
@@ -136,7 +136,7 @@ this.messageToSign = "stresstestbitcoin.cash";
 this.signature = BITBOX.BitcoinCash.signMessageWithPrivKey(this.node0WIF, this.messageToSign);
         </code></pre>
         <p>This is useful if you want to prove ownership of this address. You can share the <strong>address</strong>, <strong>Message</strong> and <strong>Message Signature Proof</strong> and using a tool like BITBOX GUI prove ownership.</p>
-        <p><img class='gui' src="../img/insights/scale-16.png" alt="" /></p>
+        <p><img class='gui' src="../img/insights/scale-16.png" alt="BITBOX GUI" /></p>
         <p>Or you can verify ownership with <code>bitbox-cli</code>.</p>
         <pre><code>
 BITBOX.BitcoinCash.verifyMessage('bitcoincash:qrxju3vcdctp8s9zx7224s2extas8gc2juyk5ayhyv', 'IEqQIvP0x1RP0GIFlWZonP7ObQQ2nWu8oATX5pq31ryTToDtrTgKb3JNZnAePcyZui7jgZt7oEzA7/q4FSlfL94=', 'stresstestbitcoin.cash')
