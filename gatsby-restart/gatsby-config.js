@@ -3,6 +3,13 @@ module.exports = {
     title: 'developer.bitcoin.com',
   },
   plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `data`,
+        path: `${__dirname}/src/data/`,
+      },
+    },
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-manifest`,
@@ -13,7 +20,7 @@ module.exports = {
         background_color: '#663399',
         theme_color: '#fab915',
         display: 'minimal-ui',
-        icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
+        icon: 'src/images/bitcoin.ico', // This path is relative to the root of the site.
       },
     },
     {
@@ -26,14 +33,13 @@ module.exports = {
         // gtmPreview: "YOUR_GOOGLE_TAGMANAGER_ENVIROMENT_PREVIEW_NAME",
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `files`,
-        path: `${__dirname}/src/`,
-      },
-    },
     'gatsby-plugin-offline',
     `gatsby-plugin-styled-components`,
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: ["gatsby-remark-component"]
+      }
+    }
   ],
 }

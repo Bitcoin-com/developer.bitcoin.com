@@ -57,10 +57,10 @@ class NavBar extends React.PureComponent<Props> {
       <Main>
         <Container>
             <NavLayout>
-              <NavItem to='/' isActive={homeActive}>Home</NavItem>
-              <NavItem to='/learn' isActive={learnActive}>Learn</NavItem>
-              <NavItem to='/develop' isActive={developActive}>Develop</NavItem>
-              <NavItem to='/about' isActive={aboutActive}>About</NavItem>
+              <NavItem monospace to='/' isActive={homeActive}>Home</NavItem>
+              <NavItem monospace to='/learn' isActive={learnActive}>Learn</NavItem>
+              <NavItem monospace to='/develop' isActive={developActive}>Develop</NavItem>
+              <NavItem monospace to='/about' isActive={aboutActive}>About</NavItem>
             </NavLayout>
         </Container>
       </Main>

@@ -17,13 +17,10 @@ import H1 from 'atoms/H1'
 import Button from 'atoms/Button'
 import Code from 'atoms/Code'
 
-// import SyntaxHighlighter from 'react-syntax-highlighter/prism'
-// import { solarizedlight } from 'react-syntax-highlighter/styles/prism'
-
 import media from 'styles/media'
 import spacing from 'styles/spacing'
 
-import HeroImg from 'images/develop-bitcoin-cash-header.jpg'
+import HeroImg from 'images/hero.jpeg'
 
 // import { FaCube, FaCogs, FaCreditCard, FaCartPlus, FaReddit, FaTwitter, FaFacebook, FaLinkedin } from 'react-icons/fa'
 
@@ -111,7 +108,7 @@ const BitboxPage = ({ location }: Props) => (
             mainnet and testnet support.
           </Text>
         </PreviewItem>
-        <PreviewItem to="/bitbotx/docs/mnemonic">
+        <PreviewItem to="/bitbox/docs/mnemonic">
           <H2>Mnemonics</H2>
           <Text>
             Create mnemonics from 128 bits to 256 bits in 8 languages including
@@ -128,7 +125,7 @@ BITBOX.Mnemonic.generate(128, BITBOX.Mnemonic.wordLists().french);
 // annonce ampleur sanglier peser acheter cultiver abroger embellir résoudre dialogue grappin lanterne`}
           </Code>
         </PreviewItem>
-        <PreviewItem to="/bitbotx/docs/hdnode">
+        <PreviewItem to="/bitbox/docs/hdnode">
           <H2>Transactions</H2>
           <Text>
             Pay to PubKey, Pay to PubKeyHash, Pay to MultiSig, Pay to ScriptHash
@@ -157,7 +154,7 @@ BITBOX.Transaction.details('a85fa3d831ab6b0305e7ff88d2d4941e25a810d4461635df5149
 });`}
           </Code>
         </PreviewItem>
-        <PreviewItem to="/bitbotx/docs/hdnode">
+        <PreviewItem to="/bitbox/docs/hdnode">
           <H2>Address conversion</H2>
           <Text>
             Convert between legacy and cash addresses on main or testnet.
@@ -188,7 +185,7 @@ BITBOX.Address.isTestnetAddress('bchtest:qph2v4mkxjgdqgmlyjx6njmey0ftrxlnggt9t0a
 // true`}
           </Code>
         </PreviewItem>
-        <PreviewItem to="/bitbotx/docs/hdnode">
+        <PreviewItem to="/bitbox/docs/hdnode">
           <H2>Unit Conversion</H2>
           <Text>Convert between satoshis and whole units or bits.</Text>
           <Code>
@@ -238,8 +235,8 @@ BITBOX.Script.opcodes.OP_BIN2NUM
 // 129`}
           </Code>
         </PreviewItem>
-        <PreviewItem to="/bitbotx/docs/hdnode">
-          <H2>Built in console</H2>
+        <PreviewItem to="/bitbox/docs/hdnode">
+          <H2>Built-in console</H2>
           <Text>
             Custom REPL with the full BITBOX and Bitcoin Cash JSON RPC API built
             in. Test your ideas quickly with no overhead.
@@ -254,7 +251,7 @@ BITBOX.Script.opcodes.OP_BIN2NUM
           </Text>
         </PreviewItem>
         <PreviewItem>
-          <H2>100% documentation</H2>
+          <H2>100% Documented</H2>
           <Text>
             Every method, argument, data type and return value is documented in
             great detail.

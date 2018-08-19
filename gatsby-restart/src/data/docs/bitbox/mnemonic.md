@@ -1,0 +1,5 @@
+---
+  title: Mnemonic
+---
+
+# MnemincS!
