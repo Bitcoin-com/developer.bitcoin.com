@@ -39,7 +39,26 @@ secondSubtitle: Stress testing the system
         <h4 id='createNewWallet' class="yellow">Create new wallet</h4>
         <p>SpendBCH deserves credit for making scale.cash extremely easy to use. The first time you show up simply click a 'Create New Wallet' button. This will create a new wallet which is local to your browser. This wallet is completely new and has never been seen or used by anyone before. It was created specifically for you to use for scale.cash.</p>
         <p><img class='gui' src="../img/insights/scale-3.png" alt="" /></p>
-        <p>After you click 'Create New Wallet', <a href='https://www.scale.cash' target='_blank'>Scale.cash</a> will create an address and QR code for you to deposit satoshis. Notice a private key in wallet import format (<strong>WIF</strong>), <strong>mnemonic</strong>, <strong>message</strong> and <strong>signature</strong> are also generated. These can be used later to recover any lost funds or to prove you sent these transactions for the stress test so it can be valuable to back them up in some way.</p>
+        <p>
+          After you click 'Create New Wallet', <a href='https://www.scale.cash' target='_blank'>Scale.cash</a> will create an address and QR code for you to deposit satoshis. Notice the prompt to save the following information:
+        </p>
+          <ul>
+            <li>
+              <strong>WIF</strong> A private key in wallet import format. Import your WIF to get back any dust or change after a stress test.
+            </li>
+            <li>
+              <strong>mnemonic</strong> The seed phrase for all addresses generated during the test. Import your mnemonic to recover any lost funds from an incomplete stress test, such as if your browser crashed during a stress test.
+            </li>
+            <li>
+              <strong>message</strong> The message included in every transaction you send.
+            </li>
+            <li>
+              <strong>signature</strong> Proof that you sent these transactions for the stress test.
+            </li>
+          </ul>
+          <p>
+            Your wallet is only ever accessed locally and all transactions are signed by your own computer, so it can be valuable to back that data up in some way.
+          </p>
         <p><img class='gui' src="../img/insights/scale-4.png" alt="" /></p>
 
         <hr />
@@ -84,7 +103,7 @@ secondSubtitle: Stress testing the system
         <p><img class='gui' src="../img/insights/scale-13.png" alt="" /></p>
         <p>You'll see the "Mempool Size" and "Your Total TX Sent" numbers climbing while scale.cash sends out txs.   Each transaction will contain an <code>OP_RETURN</code> with <code>stresstestbitcoin.cash</code>.</p>
         <p><img class='gui' src="../img/insights/scale-12.png" alt="" /></p>
-        <p>The last few will <a href='https://explorer.bitcoin.com/bch/tx/2dd7613cd53dd1997e296691a01993af5b63edf8b7f4c9252e60d1a2cfc82df2' target='_blank'>consolidate the utxo back to a single output</a> and donate your change to EatBCH.</p>
+        <p>Notice the last message, we still have 3 transactions remaining before the stress test can complete. The last few require one confirmation and will <a href='https://explorer.bitcoin.com/bch/tx/2dd7613cd53dd1997e296691a01993af5b63edf8b7f4c9252e60d1a2cfc82df2' target='_blank'>consolidate the utxo back to a single output</a> and (optionally) donate your dust and change to EatBCH. If the donation box is not checked, the remaining dust and change will be returned to your scale.cash wallet.</p>
         <p> <img class='gui' src="../img/insights/scale-14.png" alt="" /></p>
       </div>
     </div>
@@ -100,9 +119,24 @@ bitbox new scale.cash --scaffold react
         </code></pre>
         <p> <img class='gui' src="../img/insights/scale-15.png" alt="" /></p>
         <h4 id='mnemonic' class="yellow">mnemonic</h4>
-        <p>This creates basic a BIP44 wallet in a react app with BITBOX already bundled. The scale.cash codebase also shows how to <a href='https://github.com/SpendBCH/bch-stresstest-web/blob/7e7300f192701bf256252c118fe8dd3d4d6d475b/src/stresstest-lib/wallet.js#L20' target='_blank'>create a mnemonic</a>.</p>
+        <p>This creates a basic BIP44 wallet in a react app with BITBOX already bundled. The scale.cash codebase also shows how to <a href='https://github.com/SpendBCH/bch-stresstest-web/blob/7e7300f192701bf256252c118fe8dd3d4d6d475b/src/stresstest-lib/wallet.js#L20' target='_blank'>create a mnemonic</a>.</p>
         <pre><code>
 this.mnemonic = BITBOX.Mnemonic.generate(256)
+        </code></pre>
+        <p>Which can then be <a href='https://github.com/SpendBCH/bch-stresstest-web/blob/a4b0f3493f467efc32ff9a3f03ca0ad96a6f87f8/src/App.js#L17' target='_blank'>stored and reloaded</a> when your component mounts.</p>
+        <pre><code>
+componentDidMount() {
+  // Import wallet if stored locally
+  let mnemonic
+  if (window.scaleCashSettings.isTestnet) {
+    mnemonic = JSON.parse(localStorage.getItem('testnetMnemonic'))
+  } else {
+    mnemonic = JSON.parse(localStorage.getItem('mnemonic'))
+  }
+  if (mnemonic != null) {
+    this.createWallet(mnemonic)
+  }
+}
         </code></pre>
         <h4 id='hdnode' class="yellow">HDNode</h4>
         <p>It also shows how to create a root seed, BIP44 master HDNode, first external change node, privkeyWIF, ECPair, PubKey and <a href='https://github.com/SpendBCH/bch-stresstest-web/blob/7e7300f192701bf256252c118fe8dd3d4d6d475b/src/stresstest-lib/wallet.js#L25-L34' target='_blank'>address in legacy and cash format</a>.</p>
@@ -129,6 +163,10 @@ if (window.scaleCashSettings.isTestnet) {
   BITBOX = new BITBOXCli();
 }
         </code></pre>
+        <p>
+          By default BITBOX will connect to a mainnet REST API. However, BITBOX also supports passing in a restURL parameter so you can use the bitcoin.com REST testnet or your own REST API.
+        </p>
+
         <h4 id='signAndVerify' class="yellow">Sign and verify message</h4>
         <p>Every newly created address in scale.cash signs the message <code>stresstestbitcoin.cash</code> with <a href='https://github.com/SpendBCH/bch-stresstest-web/blob/7e7300f192701bf256252c118fe8dd3d4d6d475b/src/stresstest-lib/wallet.js#L43-L44' target='_blank'>it's private keys</a>.</p>
         <pre><code>
@@ -166,6 +204,42 @@ let hex = transactionBuilder.build().toHex()
         <p>The code is <a href='https://github.com/SpendBCH/bch-stresstest-web' target='_blank'>open source under the MIT license</a> so check out all the great ways BITBOX is used or clone it to use as a starting point for your own app.</p>
       </div>
     </div>
+
+    <hr />
+
+    <div class="row">
+      <div class="col-12">
+        <h3 id="" class="yellow">Recoving Funds</h3>
+        <p>
+          If a problem occurs during a running stress test, funds can be recovered with the <a href="https://electroncash.org/" target="_blank">Electron Cash wallet</a>.
+        </p>
+        <p>
+          Start by clicking File -> New/Restore to launch the 'Install Wizard'. Name the wallet anything you like. Electron Cash suggested wallet_1 here. Click next to choose the wallet type.
+        </p>
+        <p> <img class='gui' src="../img/insights/scale-recovery-1.png" alt="Fund recovery step 1" /></p>
+        <p>
+          Select 'Standard wallet'. Click next to choose your restore option.
+        </p>
+        <p> <img class='gui' src="../img/insights/scale-recovery-2.png" alt="Fund recovery step 2" /></p>
+        <p>
+          Select 'I already have a seed'. The seed referred to here is your mnemonic saved from scale.cash. Click next.
+        </p>
+        <p> <img class='gui' src="../img/insights/scale-recovery-3.png" alt="Fund recovery step 3" /></p>
+        <p>
+          Paste your mnemonic from scale.cash into the textbox. Click options and ensure you check 'BIP39 seed' then click OK. If it does not say 'BIP39 (checksum: ok)' look for and fix any letters missing from the words.
+        </p>
+        <p> <img class='gui' src="../img/insights/scale-recovery-4.png" alt="Fund recovery step 4" /></p>
+        <p>
+          The default derivation is for Bitcoin Cash addresses. Click Next.
+        </p>
+        <p> <img class='gui' src="../img/insights/scale-recovery-5.png" alt="Fund recovery step 5" /></p>
+        <p>
+          Your scale.cash wallet should now be ready for use in Electron Cash. The History tab will show the transactions made by scale.cash. Now you can recover your coins with the Send tab.
+        </p>
+        <p> <img class='gui' src="../img/insights/scale-recovery-6.png" alt="Fund recovery step 6" /></p>
+      </div>
+    </div>
+
     <hr />
     <div class="row">
       <div class="col-12">
