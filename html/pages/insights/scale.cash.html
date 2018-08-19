@@ -1,0 +1,178 @@
+---
+layout: default
+title: Bitcoin.com Developer Platform | Insights - Scale.cash
+banner: hero.jpeg
+H1: Scaling Bitcoin Cash
+subtitle: Pushing the limits
+secondSubtitle: Stress testing the system
+---
+
+{{> nested-navigation}}
+
+{{> tutorial-header}}
+
+<section class="tutorials language-javascript">
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-12">
+        <h2 id='stressTestBCH' class="yellow">Scale.cash</h2>
+        <p>Bitcoin Cash is uniquely suited to be the business friendly blockchain. It has capacity and scale on demand while keeping fees consistently low. The recently announced <a href='https://stresstestbitcoin.cash/'>Stress Test Day</a> is a community driven effort to create 5 million on-chain transactions on Sept 1st with the aim of showing the world that Bitcoin Cash is ready for prime time.</p>
+        <p><a href='https://twitter.com/SpendBCH_io'>@SpendBCH_io</a> created <a href='https://www.scale.cash' target='_blank'>Scale.cash</a>, powered by <a href='../bitbox.html' target='_blank'>BITBOX</a>, to allow anyone to be able to participate on Stress Test Day. You simply send some BCH to a newly generated address and scale.cash takes care of the rest. You can send tens of thousands of on-chain Bitcoin Cash Transactions per hour with no more effort than scanning a QR code.</p>
+        <div class="row">
+          <div class="col-sm-6">
+            <p><a href='https://stresstestbitcoin.cash' target='_blank'><img class='gui' src="../img/insights/scale-1.png" alt="" /></a></p>
+          </div>
+          <div class="col-sm-6">
+            <p><a href='https://www.scale.cash' target='_blank'><img class='gui' src="../img/insights/scale-logo.png" alt="" /></a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="row">
+      <div class="col-12">
+        <h3 id='usage' class="yellow">Usage</h3>
+        <h4 id='createNewWallet' class="yellow">Create new wallet</h4>
+        <p>SpendBCH deserves credit for making scale.cash extremely easy to use. The first time you show up simply click a 'Create New Wallet' button. This will create a new wallet which is local to your browser. This wallet is completely new and has never been seen or used by anyone before. It was created specifically for you to use for scale.cash.</p>
+        <p><img class='gui' src="../img/insights/scale-3.png" alt="" /></p>
+        <p>After you click 'Create New Wallet', <a href='https://www.scale.cash' target='_blank'>Scale.cash</a> will create an address and QR code for you to deposit satoshis. Notice a private key in wallet import format (WIF), mnemonic, message and signature are also generated. These can be used later to recover any lost funds or to prove you sent these transactions for the stress test so it can be valuable to back them up in some way.</p>
+        <p><img class='gui' src="../img/insights/scale-4.png" alt="" /></p>
+
+        <hr />
+
+        <h4 id='fundWallet' class="yellow">Fund wallet</h4>
+        <p>Download a <a href='https://wallet.bitcoin.com/' target='_blank'>Bitcoin Cash Wallet</a> and scan the QR code at scale.cash. Send the address between 15,000&ndash;1,300,000 satoshis&mdash;or at the time of this writing, between $0.08&ndash;$7.</p>
+        <p>In this example we're using the bitcoin.com mobile iOS wallet. We sent $1 and it created txid <a href='https://explorer.bitcoin.com/bch/tx/1467afce1d35fa4ada2feaeb1beba0573971783e2d1af271e3d6e9a4c660afa1' target='_blank'>1467afce1d35fa4ada2feaeb1beba0573971783e2d1af271e3d6e9a4c660afa1</a>.</p>
+        <div class="row">
+          <div class="col-sm-6">
+            <p><img class='gui' src="../img/insights/scale-5.png" alt="" /></p>
+          </div>
+          <div class="col-sm-6">
+            <p><img class='gui' src="../img/insights/scale-6.png" alt="" /></p>
+          </div>
+        </div>
+        <p>Once your funding transaction has been sent go back to scale.cash and click the 'Refresh Balance' button. This will check the blockchain for your balance and show it on screen. In this example we have 181,274 satoshis for this stress test.</p>
+        <div class="row">
+          <div class="col-sm-6">
+            <p><img class='gui' src="../img/insights/scale-7.png" alt="" /></p>
+          </div>
+          <div class="col-sm-6">
+            <p><img class='gui' src="../img/insights/scale-8.png" alt="" /></p>
+          </div>
+        </div>
+        <p>Note that it shows how many transactions will be created. Also it gives you the option to donate any dust or change satoshis to <a href='https://twitter.com/eatBCH' target='_blank'>@eatBCH</a>. At the bottom you'll see "Mempool Size" and "Your Total TX Sent." As your transactions are broadcast you'll see these numbers increase.</p>
+        <p><img class='gui' src="../img/insights/scale-9.png" alt="" /></p>
+
+        <hr />
+
+        <h4 id='stressTest' class="yellow">Launch Stress Test</h4>
+        <p>We're ready to launch the stress test. Click the 'Start Stresstest' button to create the first 'fan out' transaction, called so because it fans out from 1 input to many outputs. Here you can see it's a 1-to-28 w/ txid <a href='https://explorer.bitcoin.com/bch/tx/5730e2faf7e8c0dd6a6c58c77c7889315a83c2a7765f7bd56033ba37a504878a' target='_blank'>5730e2faf7e8c0dd6a6c58c77c7889315a83c2a7765f7bd56033ba37a504878a</a></p>
+        </p>
+        <div class="row">
+          <div class="col-sm-6">
+            <p><img class='gui' src="../img/insights/scale-10.png" alt="" /></p>
+          </div>
+          <div class="col-sm-6">
+            <p><img class='gui' src="../img/insights/scale-11.png" alt="" /></p>
+          </div>
+        </div>
+        <p><strong>PLEASE BE AWARE that your fan-out transction requires 1 confirmation before the rest of your transactions will beginn to broadcast</strong>. After the fan out transaction gets confirmed in 1 block scale.cash will begin sending out transactions in batches of 20 at 500txs per minute.</p>
+        <p><img class='gui' src="../img/insights/scale-13.png" alt="" /></p>
+        <p>You'll see the "Mempool Size" and "Your Total TX Sent" numbers climbing while scale.cash sends out txs.   Each transaction will contain an <code>OP_RETURN</code> with <code>stresstestbitcoin.cash</code>.</p>
+        <p><img class='gui' src="../img/insights/scale-12.png" alt="" /></p>
+        <p>The last few will <a href='https://explorer.bitcoin.com/bch/tx/2dd7613cd53dd1997e296691a01993af5b63edf8b7f4c9252e60d1a2cfc82df2' target='_blank'>consolidate the utxo back to a single output</a> and donate your change to EatBCH.</p>
+        <p> <img class='gui' src="../img/insights/scale-14.png" alt="" /></p>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="row">
+      <div class="col-12">
+        <h3 id='bitbox' class="yellow">BITBOX</h3>
+        <p>Scale.cash is a great example of an app which is powered by <a href='../bitbox.html' target='_blank'>BITBOX</a>. It was built from the ground up by leveraging <a href='../tutorials/bitbox-scaffolds.html'>scaffolds</a> which let you bootstrap a Bitcoin Cash app in under a minute in React, Angular, NextJS, VueJS and NodeJS.</p>
+        <pre><code>
+bitbox new scale.cash --scaffold react
+        </code></pre>
+        <p> <img class='gui' src="../img/insights/scale-15.png" alt="" /></p>
+        <h4 id='mnemonic' class="yellow">mnemonic</h4>
+        <p>This creates basic BIP44 wallet in a react app with BITBOX already bundled. The scale.cash codebase also shows how to <a href='https://github.com/SpendBCH/bch-stresstest-web/blob/7e7300f192701bf256252c118fe8dd3d4d6d475b/src/stresstest-lib/wallet.js#L20' target='_blank'>create a mnemonic</a>.</p>
+        <pre><code>
+this.mnemonic = BITBOX.Mnemonic.generate(256)
+        </code></pre>
+        <h4 id='hdnode' class="yellow">HDNode</h4>
+        <p>Create a root seed, BIP44 master HDNode, first external change node, privkeyWIF, ECPair, PubKey and <a href='https://github.com/SpendBCH/bch-stresstest-web/blob/7e7300f192701bf256252c118fe8dd3d4d6d475b/src/stresstest-lib/wallet.js#L25-L34' target='_blank'>address in legacy and cash format</a>.</p>
+        <pre><code>
+let rootSeed = BITBOX.Mnemonic.toSeed(this.mnemonic)
+let masterHDNode = BITBOX.HDNode.fromSeed(rootSeed, window.scaleCashSettings.networkString)
+this.hdNode = BITBOX.HDNode.derivePath(masterHDNode, "m/44'/145'/0'")
+this.node0 = BITBOX.HDNode.derivePath(this.hdNode, "0/0")
+this.node0WIF = BITBOX.ECPair.toWIF(BITBOX.HDNode.toKeyPair(this.node0))
+
+let ecpair = BITBOX.ECPair.fromWIF(this.node0WIF)
+this.node0LegacyAddress = BITBOX.ECPair.toLegacyAddress(ecpair)
+this.node0CashAddress = BITBOX.ECPair.toCashAddress(ecpair)
+this.pubKey = Buffer(BITBOX.ECPair.toPublicKey(ecpair), 'hex')
+        </code></pre>
+        <h4 id='rest' class="yellow">REST</h4>
+        <p>Scale.cash uses <a href='https://rest.bitcoin.com' target='_blank'>bitcoin.com's REST API</a> to send batch requests of tx <a href='https://github.com/SpendBCH/bch-stresstest-web/blob/master/src/stresstest-lib/utils.js#L3-L9' target='_blank'>data to the blockchain</a>.</p>
+        <pre><code>
+if (window.scaleCashSettings.isTestnet) {
+  BITBOX = new BITBOXCli({
+    restURL: 'https://trest.bitcoin.com/v1/'
+  })
+} else {
+  BITBOX = new BITBOXCli();
+}
+        </code></pre>
+        <h4 id='signAndVerify' class="yellow">Sign and verify message</h4>
+        <p>Every newly created address in scale.cash signs the message <code>stresstestbitcoin.cash</code> with <a href='https://github.com/SpendBCH/bch-stresstest-web/blob/7e7300f192701bf256252c118fe8dd3d4d6d475b/src/stresstest-lib/wallet.js#L43-L44' target='_blank'>it's private keys</a>.</p>
+        <pre><code>
+this.messageToSign = "stresstestbitcoin.cash";
+this.signature = BITBOX.BitcoinCash.signMessageWithPrivKey(this.node0WIF, this.messageToSign);
+        </code></pre>
+        <p>This is useful if you want to prove ownership of this address. You can share the address, Message and Message Signature Proof and using a tool like BITBOX GUI prove ownership.</p>
+        <p><img class='gui' src="../img/insights/scale-16.png" alt="" /></p>
+        <p>Or you can verify ownership with <code>bitbox-cli</code>.</p>
+        <pre><code>
+BITBOX.BitcoinCash.verifyMessage('bitcoincash:qrxju3vcdctp8s9zx7224s2extas8gc2juyk5ayhyv', 'IEqQIvP0x1RP0GIFlWZonP7ObQQ2nWu8oATX5pq31ryTToDtrTgKb3JNZnAePcyZui7jgZt7oEzA7/q4FSlfL94=', 'stresstestbitcoin.cash')
+// true
+        </code></pre>
+        <h4 id='encodeOpReturn' class="yellow">Encode OP_RETURN</h4>
+        <p>Scale.cash also <a href='https://github.com/SpendBCH/bch-stresstest-web/blob/master/src/stresstest-lib/utils.js#L11-L12' target='_blank'>shows how</a> to encode null data or <code>OP_RETURN</code> outputs.</p>
+        <pre><code>
+const opReturnTagText = "stresstestbitcoin.cash";
+const opReturnTagBuffer = BITBOX.Script.nullData.output.encode(Buffer.from(opReturnTagText, 'ascii'));
+        </code></pre>
+        <h4 id='transaction' class="yellow">Transaction</h4>
+        <p>Finally scale.cash <a href='https://github.com/SpendBCH/bch-stresstest-web/blob/master/src/stresstest-lib/utils.js#L183' target='_blank'>shows how</a> to create transactions with P2PKH inputs/outputs and an <code>OP_RETURN</code> output.</p>
+        <pre><code>
+let transactionBuilder = new BITBOX.TransactionBuilder(window.scaleCashSettings.networkString)
+transactionBuilder.addInput(wallet.txid, wallet.vout)
+transactionBuilder.addOutput(targetAddress, satoshisAfterFee)
+
+// write stresstestbitcoin.cash to the chain w/ OP_RETURN
+transactionBuilder.addOutput(opReturnTagBuffer, 0);
+
+let redeemScript
+transactionBuilder.sign(0, wallet.keyPair, redeemScript, transactionBuilder.hashTypes.SIGHASH_ALL, wallet.satoshis)
+
+let hex = transactionBuilder.build().toHex()
+        </code></pre>
+        <p>The code is open source under the MIT license <a href='https://github.com/SpendBCH/bch-stresstest-web' target='_blank'>Github Repo</a> so check out all the great ways BITBOX is used or clone it to use as a starting point for your own app.</p>
+      </div>
+    </div>
+    <hr />
+    <div class="row">
+      <div class="col-12">
+        <h3 id='summary' class="yellow">Summary</h3>
+        <p>Bitcoin Cash is uniquely suited to be the business friendly blockchain. It has capacity and scale on demand while keeping fees consistently low. SpendBCH created <a href='https://www.scale.cash/' target='_blank'>scale.cash</a>, which leverages BITBOX SDK and REST, to give the community a very user friendly way to participate in the upcoming Stress Test Day.</p>
+        <p>Scale.cash is the perfect example of an app which was bootstrapped with BITBOX scaffolds and then built leveraging mnemonics, HDNodes, ECPairs, Signing messages, creating transactions, writing to the blockchain with <code>OP_RETURN</code> and calling BITBOX REST.</p>
+      </div>
+    </div>
+  </div>
+</section>

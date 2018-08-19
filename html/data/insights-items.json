@@ -2,7 +2,13 @@
 
   {
   "title": "Developer.bitcoin.com",
-  "excerpt": "Today we're happy to announce the release of <a href='https://www.bitcoin.com/'>bitcoin.com</a>'s new developer platform <a href='https://developer.bitcoin.com/'>Developer.bitcoin.com</a>. Featuring the powerful <a href='../bitbox.html'>BITBOX SDK</a>, <a href='../rest.html'>REST</a>, <a href='../gui.html'>GUI</a>, <a href='../cloud.html'>Cloud</a> for deploying and scaling and a <a href='../market.html'>Market</a> for monetizing your work.",
+  "excerpt": "Bitcoin Cash is uniquely suited to be the business friendly blockchain. It has capacity and scale on demand while keeping fees consistently low. SpendBCH created <a href='https://www.scale.cash/' target='_blank'>scale.cash</a>, which leverages BITBOX SDK and REST, to give the community a very user friendly way to participate in the upcoming Stress Test Day.",
+  "href": "insights/scale.cash.html"
+  },
+
+  {
+  "title": "Developer.bitcoin.com",
+  "excerpt": "Today we're happy to announce the release of <a href='https://www.bitcoin.com/'>bitcoin.com</a>'s new developer platform <a href='https://developer.bitcoin.com/' target='_blank'>Developer.bitcoin.com</a>. Featuring the powerful <a href='../bitbox.html'>BITBOX SDK</a>, <a href='../rest.html'>REST</a>, <a href='../gui.html'>GUI</a>, <a href='../cloud.html'>Cloud</a> for deploying and scaling and a <a href='../market.html'>Market</a> for monetizing your work.",
   "href": "insights/developer.bitcoin.com.html"
   },
 
