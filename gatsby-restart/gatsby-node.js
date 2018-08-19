@@ -78,28 +78,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
 
     }
-
-    // console.log(slug)
-    // console.log(filename)
-    // console.log(crash)
-    // if (isArticle) {
-    //   // Remove #. from start of articles
-    //   const cleanedSlug = slug.replace(/\d+\./, '')
-    //   const fileNode = getNode(node.parent)
-
-    //   createNodeField({
-    //     node,
-    //     name: `slug`,
-    //     value: cleanedSlug,
-    //   })
-    //   createNodeField({
-    //     node,
-    //     name: `type`,
-    //     value: 'article',
-    //   })
-    // }
-
-    // }
   }
 }
 
@@ -124,23 +102,10 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-
   console.log('result')
   console.log(result);
   console.log('result****')
   const docs = result.data.docs.edges
-  // const terms = result.data.terms.edges
-
-  // Uncomment to only deploy published to prod
-  // const allowedArticles = articles.filter(article => {
-  //   console.log('article')
-  //   console.log(article)
-
-  //   return (
-  //     process.env.NODE_ENV === 'development' ||
-  //     article.node.frontmatter.published
-  //   )
-  // })
 
   docs.forEach(({ node }) => {
     createPage({
