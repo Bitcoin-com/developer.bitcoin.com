@@ -40,15 +40,15 @@ export const textBase = css`
       font-size: ${sizeMap['small'][props.size][0]};
       line-height: ${sizeMap['small'][props.size][1]};
     `} 
-    ${media.large`
-      font-size:  18px;
-      line-height: 24.75px;
-      ${props =>
-        props.size &&
-        css`
-          font-size: ${sizeMap['large'][props.size][0]};
-          line-height: ${sizeMap['large'][props.size][1]};
-        `}
+  ${media.large`
+    font-size:  18px;
+    line-height: 24.75px;
+    ${props =>
+      props.size &&
+      css`
+        font-size: ${sizeMap['large'][props.size][0]};
+        line-height: ${sizeMap['large'][props.size][1]};
+      `}
   `};
 
   
@@ -122,6 +122,12 @@ export const textBase = css`
     props.right &&
     css`
       text-align: right;
+    `}
+  ${props =>
+    props.centerVertical &&
+    css`
+      display: flex;
+      align-items: center;
     `}
 
   ${props =>

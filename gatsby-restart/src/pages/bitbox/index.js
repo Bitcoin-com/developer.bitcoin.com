@@ -57,9 +57,10 @@ const ItemLayout = styled.div`
 
 type ItemProps = {
   children: React.Node,
-  to: string,
+  to?: string,
   full?: boolean,
 }
+
 const PreviewItem = ({ children, to, full }: ItemProps) => (
   <ItemLayout full={full}>
     {children}
@@ -70,6 +71,7 @@ const PreviewItem = ({ children, to, full }: ItemProps) => (
     )}
   </ItemLayout>
 )
+
 type Props = {
   location: Object,
 }

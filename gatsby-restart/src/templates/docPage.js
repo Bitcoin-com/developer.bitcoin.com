@@ -5,9 +5,9 @@ import rehypeReact from 'rehype-react'
 import { graphql, Link } from 'gatsby'
 import Helmet from 'react-helmet'
 
-import { FaAngleLeft, FaAngleRight } from 'react-icons/fa'
+import { FaAngleLeft, FaAngleRight, FaEllipsisH } from 'react-icons/fa'
 
-import StyledLink from 'atoms/StyledLink'
+import StyledLink, { SmartLink } from 'atoms/StyledLink'
 import DefaultLayout from 'components/layouts/DefaultLayout.js'
 
 import Text from 'atoms/Text'
@@ -15,18 +15,44 @@ import H1 from 'atoms/H1'
 import H2 from 'atoms/H2'
 import H3 from 'atoms/H3'
 import Code from 'atoms/Code'
+import Pre from 'atoms/Pre'
+
+import { H2Md, H3Md, TextMd } from 'atoms/markdownAtoms';
+
 import Container from 'components/Container'
 
 import spacing from 'styles/spacing'
 
+// Short use inline custom component, long use codeblock
+const CodePreSplitter = ({ children }) => {
+  if (children[0].length > 100) {
+    return <Code fontSize={14}>{children}</Code>
+  }
+  return <Pre>{children}</Pre>
+}
+
+// Workaround as `CodePreSplitter` captures this case as well
+const PrePassthrough = ({children}) => (
+  <>
+  {children}
+  </>
+)
+
 const renderAst = new rehypeReact({
   createElement: React.createElement,
-  components: { p: Text, code: Code, h1: H1, h2: H2, h3: H3 },
+  components: {
+    p: TextMd,
+    pre: PrePassthrough,
+    code: CodePreSplitter,
+    h1: H1,
+    h2: H2Md,
+    h3: H3Md,
+    a: SmartLink,
+  },
 }).Compiler
 
 // Layout Components
-
-const DocLayout = Container.extend`
+const DocLayout = styled.div`
   padding-top: ${spacing.medium} !important;
   display: grid;
   grid-gap: ${spacing.medium};
@@ -39,21 +65,33 @@ const DocLayout = Container.extend`
 
 const SideNavLayout = styled.div`
   grid-area: nav;
-  /* background-color: pink; */
 `
 
 const BreadCrumbLayout = styled.div`
   grid-area: breadcrumbs;
   display: grid;
   grid-template-columns: repeat(3, max-content);
-  grid-gap: ${spacing.medium};
-  /* background-color: yellow; */
+  grid-gap: ${spacing.small};
 `
 
 const ContentLayout = styled.div`
   grid-area: content;
-  /* background-color: green; */
+  display: grid;
+  overflow: scroll;
+  grid-template-columns: 1fr;
+  & > div {
+    display: grid;
+  }
 `
+
+// TODO: Fill this out for all the docs, might need another argument to identify doc product
+const getIcon = (title: string): React.Node => {
+  const ItemIcon = {
+    mnemonic: <FaEllipsisH />,
+  }[title.toLowerCase()] || <FaAngleRight />
+
+  return ItemIcon
+}
 
 type Props = {
   data: Object,
@@ -68,17 +106,23 @@ class DocTemplate extends React.PureComponent<Props> {
     const relatedDocs = data.allMarkdownRemark.edges
 
     return (
+      
       <DefaultLayout location={location}>
         <Helmet
           title={`${doc.fields.product} ${doc.frontmatter.title} - ${
             data.site.siteMetadata.title
           }`}
         />
+        <Container>
         <DocLayout>
           <SideNavLayout>
             {relatedDocs.map(node => (
               <StyledLink to={node.node.fields.slug}>
-                <H3 monospace>{node.node.frontmatter.title}</H3>
+                <H3 monospace centerVertical>
+                  {getIcon(node.node.frontmatter.title)}
+                  &nbsp;
+                  {node.node.frontmatter.title}
+                </H3>
               </StyledLink>
             ))}
           </SideNavLayout>
@@ -88,13 +132,14 @@ class DocTemplate extends React.PureComponent<Props> {
                 {doc.fields.product} Docs
               </H2>
             </StyledLink>{' '}
-            <H2 style={{ display: 'flex', alignItems: 'center' }}>
-              <FaAngleRight />
-            </H2>{' '}
+            <H2 centerVertical>
+              {getIcon(doc.frontmatter.title)}
+            </H2>
             <H2>{doc.frontmatter.title}</H2>
           </BreadCrumbLayout>
           <ContentLayout>{renderAst(doc.htmlAst)}</ContentLayout>
         </DocLayout>
+        </Container>
       </DefaultLayout>
     )
   }
