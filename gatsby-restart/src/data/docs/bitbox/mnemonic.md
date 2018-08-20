@@ -1,5 +1,6 @@
 ---
   title: Mnemonic
+  icon: elipses
   ordinal: 1
 ---
 

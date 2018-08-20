@@ -5,7 +5,7 @@ import rehypeReact from 'rehype-react'
 import { graphql, Link } from 'gatsby'
 import Helmet from 'react-helmet'
 
-import { FaAngleLeft, FaAngleRight, FaEllipsisH } from 'react-icons/fa'
+import { FaAngleLeft, FaAngleRight, FaEllipsisH, FaPlus, FaHome, FaTerminal } from 'react-icons/fa'
 
 import StyledLink, { SmartLink } from 'atoms/StyledLink'
 import DefaultLayout from 'components/layouts/DefaultLayout.js'
@@ -14,6 +14,7 @@ import Text from 'atoms/Text'
 import H1 from 'atoms/H1'
 import H2 from 'atoms/H2'
 import H3 from 'atoms/H3'
+import Ul from 'atoms/Ul';
 import Code from 'atoms/Code'
 import Pre from 'atoms/Pre'
 
@@ -48,6 +49,7 @@ const renderAst = new rehypeReact({
     h2: H2Md,
     h3: H3Md,
     a: SmartLink,
+    ul: Ul,
   },
 }).Compiler
 
@@ -55,16 +57,22 @@ const renderAst = new rehypeReact({
 const DocLayout = styled.div`
   padding-top: ${spacing.medium} !important;
   display: grid;
-  grid-gap: ${spacing.medium};
+  grid-column-gap: ${spacing.medium};
+  grid-row-gap: ${spacing.small};
   grid-template-areas:
-    '. breadcrumbs'
-    'nav content';
-  grid-template-columns: max-content 1fr;
-  grid-template-rows: max-content 1fr;
+    'breadcrumbs .'
+    'content nav';
+  grid-template-columns: 1fr max-content;
+  grid-template-rows: max-content max-content;
 `
 
 const SideNavLayout = styled.div`
+
   grid-area: nav;
+`
+const SideNavSticky = styled.div`
+  position: sticky;
+  top: 100px;
 `
 
 const BreadCrumbLayout = styled.div`
@@ -82,13 +90,20 @@ const ContentLayout = styled.div`
   & > div {
     display: grid;
   }
+  .docActive { 
+    background-color: pink;
+
+  }
 `
 
 // TODO: Fill this out for all the docs, might need another argument to identify doc product
-const getIcon = (title: string): React.Node => {
+const getIcon = (icon: string): React.Node => {
   const ItemIcon = {
-    mnemonic: <FaEllipsisH />,
-  }[title.toLowerCase()] || <FaAngleRight />
+    elipses: <FaEllipsisH />,
+    plus: <FaPlus />,
+    home: <FaHome/>,
+    terminal: <FaTerminal />
+  }[icon.toLowerCase()] || <FaAngleRight />
 
   return ItemIcon
 }
@@ -116,15 +131,17 @@ class DocTemplate extends React.PureComponent<Props> {
         <Container>
         <DocLayout>
           <SideNavLayout>
+            <SideNavSticky>
             {relatedDocs.map(node => (
-              <StyledLink to={node.node.fields.slug}>
+              <StyledLink to={node.node.fields.slug} isActive={location.pathname === node.node.fields.slug}>
                 <H3 monospace centerVertical>
-                  {getIcon(node.node.frontmatter.title)}
+                  {getIcon(node.node.frontmatter.icon)}
                   &nbsp;
                   {node.node.frontmatter.title}
                 </H3>
               </StyledLink>
             ))}
+            </SideNavSticky>
           </SideNavLayout>
           <BreadCrumbLayout>
             <StyledLink to={doc.fields.product}>
@@ -133,7 +150,7 @@ class DocTemplate extends React.PureComponent<Props> {
               </H2>
             </StyledLink>{' '}
             <H2 centerVertical>
-              {getIcon(doc.frontmatter.title)}
+              {getIcon(doc.frontmatter.icon)}
             </H2>
             <H2>{doc.frontmatter.title}</H2>
           </BreadCrumbLayout>
@@ -158,6 +175,7 @@ export const query = graphql`
       htmlAst
       frontmatter {
         title
+        icon
       }
       fields {
         product
@@ -174,7 +192,8 @@ export const query = graphql`
         node {
           id
           frontmatter {
-            title
+            title 
+            icon
           }
           fields {
             slug
