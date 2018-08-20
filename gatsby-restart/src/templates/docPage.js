@@ -2,19 +2,19 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import rehypeReact from 'rehype-react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Helmet from 'react-helmet'
 
-import { FaAngleLeft } from 'react-icons/fa'
+import { FaAngleLeft, FaAngleRight } from 'react-icons/fa'
 
+import StyledLink from 'atoms/StyledLink'
 import DefaultLayout from 'components/layouts/DefaultLayout.js'
 
 import Text from 'atoms/Text'
+import H1 from 'atoms/H1'
+import H2 from 'atoms/H2'
+import H3 from 'atoms/H3'
 import Container from 'components/Container'
-// import StyledLink, { SmartLink } from 'components/StyledLink'
-
-// Markdown AST transforms;
-// import { Text, Title, H1, H2, H3 } from 'components/typography'
 
 import spacing from 'styles/spacing'
 
@@ -26,8 +26,9 @@ const renderAst = new rehypeReact({
 // Layout Components
 
 const DocLayout = Container.extend`
-  padding-top: ${spacing.medium};
+  padding-top: ${spacing.medium} !important;
   display: grid;
+  grid-gap: ${spacing.medium};
   grid-template-areas:
     '. breadcrumbs'
     'nav content';
@@ -37,12 +38,15 @@ const DocLayout = Container.extend`
 
 const SideNavLayout = styled.div`
   grid-area: nav;
-  background-color: pink;
+  /* background-color: pink; */
 `
 
 const BreadCrumbLayout = styled.div`
   grid-area: breadcrumbs;
-  background-color: yellow;
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  grid-gap: ${spacing.medium};
+  /* background-color: yellow; */
 `
 
 const ContentLayout = styled.div`
@@ -60,41 +64,27 @@ class DocTemplate extends React.PureComponent<Props> {
     const { data, location } = this.props
     const doc = data.markdownRemark
 
+    const relatedDocs = data.allMarkdownRemark.edges
+
+
     return (
       <DefaultLayout location={location}>
-        {/* <Helmet
-          title={`${doc.fields.product} - ${data.site.siteMetadata.title}`}
-        /> */}
+        <Helmet
+          title={`${doc.fields.product} ${doc.frontmatter.title} - ${data.site.siteMetadata.title}`}
+        />
         <DocLayout>
-          <SideNavLayout>side</SideNavLayout>
-          <BreadCrumbLayout>bread</BreadCrumbLayout>
+          <SideNavLayout>
+            {relatedDocs.map(node => (
+              <StyledLink to={node.node.fields.slug}>
+                <H3 monospace>{node.node.frontmatter.title}</H3>
+              </StyledLink>
+            ))}
+          </SideNavLayout>
+          <BreadCrumbLayout>
+            <StyledLink to={doc.fields.product}><H2 style={{textTransform: 'capitalize'}}>{doc.fields.product} Docs</H2></StyledLink> <H2 style={{display: 'flex', alignItems: 'center'}}><FaAngleRight/></H2> <H2>{doc.frontmatter.title}</H2>
+          </BreadCrumbLayout>
           <ContentLayout>{renderAst(doc.htmlAst)}</ContentLayout>
         </DocLayout>
-
-        {/* <Helmet
-          title={`${post.frontmatter.title} - ${data.site.siteMetadata.title}`}
-        />
-        <Main> */}
-        {/* <ArticleHero>
-            <div style={{ gridArea: 'back' }}>
-              <StyledLink to="/articles">
-                <H3Articles thin size="large" nomargin>
-                  <FaAngleLeft />
-                  Articles
-                </H3Articles>
-              </StyledLink>
-            </div>
-            <Title area="title">{post.frontmatter.title}</Title>
-            <MetaArea>
-              <Text nomargin>{post.frontmatter.date}</Text>
-              <Text nomargin> {post.timeToRead} min read</Text>
-              <Text nomargin mutedMore>
-                by: {post.frontmatter.author}
-              </Text>
-            </MetaArea>
-          </ArticleHero> */}
-
-        {/* </Main> */}
       </DefaultLayout>
     )
   }
@@ -114,11 +104,14 @@ export const query = graphql`
       frontmatter {
         title
       }
+      fields {
+        product
+      }
     }
     allMarkdownRemark(
-      sort: { fields: [frontmatter___ordinal], order: DESC }
+      sort: { fields: [frontmatter___ordinal] }
       filter: {
-        fields: { type: { eq: "doc" } } # add another filter to just match current type, pass in context
+        fields: { type: { eq: "docs" } } # add another filter to just match current type, pass in context
       }
     ) {
       totalCount
