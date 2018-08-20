@@ -14,13 +14,14 @@ import Text from 'atoms/Text'
 import H1 from 'atoms/H1'
 import H2 from 'atoms/H2'
 import H3 from 'atoms/H3'
+import Code from 'atoms/Code'
 import Container from 'components/Container'
 
 import spacing from 'styles/spacing'
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
-  components: { p: Text },
+  components: { p: Text, code: Code, h1: H1, h2: H2, h3: H3 },
 }).Compiler
 
 // Layout Components
@@ -51,7 +52,7 @@ const BreadCrumbLayout = styled.div`
 
 const ContentLayout = styled.div`
   grid-area: content;
-  background-color: green;
+  /* background-color: green; */
 `
 
 type Props = {
@@ -66,11 +67,12 @@ class DocTemplate extends React.PureComponent<Props> {
 
     const relatedDocs = data.allMarkdownRemark.edges
 
-
     return (
       <DefaultLayout location={location}>
         <Helmet
-          title={`${doc.fields.product} ${doc.frontmatter.title} - ${data.site.siteMetadata.title}`}
+          title={`${doc.fields.product} ${doc.frontmatter.title} - ${
+            data.site.siteMetadata.title
+          }`}
         />
         <DocLayout>
           <SideNavLayout>
@@ -81,7 +83,15 @@ class DocTemplate extends React.PureComponent<Props> {
             ))}
           </SideNavLayout>
           <BreadCrumbLayout>
-            <StyledLink to={doc.fields.product}><H2 style={{textTransform: 'capitalize'}}>{doc.fields.product} Docs</H2></StyledLink> <H2 style={{display: 'flex', alignItems: 'center'}}><FaAngleRight/></H2> <H2>{doc.frontmatter.title}</H2>
+            <StyledLink to={doc.fields.product}>
+              <H2 style={{ textTransform: 'capitalize' }}>
+                {doc.fields.product} Docs
+              </H2>
+            </StyledLink>{' '}
+            <H2 style={{ display: 'flex', alignItems: 'center' }}>
+              <FaAngleRight />
+            </H2>{' '}
+            <H2>{doc.frontmatter.title}</H2>
           </BreadCrumbLayout>
           <ContentLayout>{renderAst(doc.htmlAst)}</ContentLayout>
         </DocLayout>

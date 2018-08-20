@@ -18,9 +18,9 @@ h1, h2, h3, h4, h5, h6, button {
   font-size-adjust: 0.5;
 }
 
-#universal-footer {
+/* #universal-footer {
   margin-top: 0 !important;
-}
+} */
 #btctm-top {
   position: absolute !important;
 }

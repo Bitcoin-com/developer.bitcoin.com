@@ -44,9 +44,12 @@ const developBaseUrls = ['/develop', '/bitbox', '/wormhole', '/gui', '/rest'];
 
 class NavBar extends React.PureComponent<Props> {
   render() {
-    const {location: { pathname} } = this.props;
+    // const {location: { pathname} } = this.props;
+    const { location } = this.props;
 
-    const homeActive = pathname === '/';
+    const pathname = location ? location.pathname : '';
+
+    const homeActive = pathname === '/' || pathname==='';
     const learnActive = pathname.includes('/learn')
     const developActive = developBaseUrls.reduce((prev, curr) => prev || pathname.includes(curr), false);
     const aboutActive = pathname.includes('/about')
