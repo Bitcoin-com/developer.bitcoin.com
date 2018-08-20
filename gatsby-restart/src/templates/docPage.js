@@ -7,92 +7,75 @@ import Helmet from 'react-helmet'
 
 import { FaAngleLeft } from 'react-icons/fa'
 
-import DefaultLayout from 'components/layouts/DefaultLayout.js';
+import DefaultLayout from 'components/layouts/DefaultLayout.js'
 
-import Text from 'atoms/Text';
+import Text from 'atoms/Text'
 import Container from 'components/Container'
 // import StyledLink, { SmartLink } from 'components/StyledLink'
 
 // Markdown AST transforms;
 // import { Text, Title, H1, H2, H3 } from 'components/typography'
 
-
 import spacing from 'styles/spacing'
-
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
-  components: { "p": Text }
+  components: { p: Text },
 }).Compiler
 
-// const P = Text.extend`
-//   opacity: 0.9;
-//   max-width: 750px;
-// `
-
-// const renderAst = new rehypeReact({
-//   createElement: React.createElement,
-//   components: {
-//     p: P,
-//     h1: H1,
-//     h2: H2,
-//     h3: H3,
-//     a: SmartLink,
-//     // 'img': ImageSingle,
-//     'click-counter': ClickCounter,
-//     'art-box-1': ArtBox1,
-//   },
-// }).Compiler
-
 // Layout Components
-const Main = Container.extend`
-  padding-top: ${spacing.small};
-`
 
-const H3Articles = Text.extend`
-  display: grid;
-  grid-template-columns: min-content min-content;
-  align-items: center;
-`
-
-const ArticleHero = styled.div`
-  padding: ${spacing.large} 0;
+const DocLayout = Container.extend`
+  padding-top: ${spacing.medium};
   display: grid;
   grid-template-areas:
-    'back .'
-    'title title'
-    'meta meta';
-  grid-template-columns: min-content 1fr;
-  grid-template-rows: repeat(3, min-content);
+    '. breadcrumbs'
+    'nav content';
+  grid-template-columns: max-content 1fr;
+  grid-template-rows: max-content 1fr;
 `
 
-const MetaArea = styled.div`
-  grid-area: meta;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto min-content;
-  grid-column-gap: ${spacing.medium};
-  padding-left: ${spacing.small};
+const SideNavLayout = styled.div`
+  grid-area: nav;
+  background-color: pink;
+`
+
+const BreadCrumbLayout = styled.div`
+  grid-area: breadcrumbs;
+  background-color: yellow;
+`
+
+const ContentLayout = styled.div`
+  grid-area: content;
+  background-color: green;
 `
 
 type Props = {
   data: Object,
-  location: Object
+  location: Object,
 }
 
 class DocTemplate extends React.PureComponent<Props> {
   render() {
     const { data, location } = this.props
-    const post = data.markdownRemark
+    const doc = data.markdownRemark
 
     return (
       <DefaultLayout location={location}>
-        <p>testtest</p>
+        {/* <Helmet
+          title={`${doc.fields.product} - ${data.site.siteMetadata.title}`}
+        /> */}
+        <DocLayout>
+          <SideNavLayout>side</SideNavLayout>
+          <BreadCrumbLayout>bread</BreadCrumbLayout>
+          <ContentLayout>{renderAst(doc.htmlAst)}</ContentLayout>
+        </DocLayout>
+
         {/* <Helmet
           title={`${post.frontmatter.title} - ${data.site.siteMetadata.title}`}
         />
         <Main> */}
-          {/* <ArticleHero>
+        {/* <ArticleHero>
             <div style={{ gridArea: 'back' }}>
               <StyledLink to="/articles">
                 <H3Articles thin size="large" nomargin>
@@ -111,7 +94,6 @@ class DocTemplate extends React.PureComponent<Props> {
             </MetaArea>
           </ArticleHero> */}
 
-          {renderAst(post.htmlAst)}
         {/* </Main> */}
       </DefaultLayout>
     )
@@ -129,9 +111,27 @@ export const query = graphql`
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       htmlAst
-      timeToRead
       frontmatter {
         title
+      }
+    }
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___ordinal], order: DESC }
+      filter: {
+        fields: { type: { eq: "doc" } } # add another filter to just match current type, pass in context
+      }
+    ) {
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+          }
+          fields {
+            slug
+          }
+        }
       }
     }
   }
