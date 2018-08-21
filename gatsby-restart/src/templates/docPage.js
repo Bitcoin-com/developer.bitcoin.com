@@ -64,9 +64,9 @@ const DocLayout = styled.div`
   grid-column-gap: ${spacing.medium};
   grid-row-gap: ${spacing.small};
   grid-template-areas:
-    'breadcrumbs nav'
-    'content nav';
-  grid-template-columns: 1fr max-content;
+    'nav breadcrumbs'
+    'nav content';
+  grid-template-columns: max-content 1fr;
   grid-template-rows: max-content max-content;
 `
 
@@ -77,6 +77,9 @@ const SideNavLayout = styled.div`
 const SideNavSticky = styled.div`
   position: sticky;
   top: 68px;
+  display: grid;
+  grid-template-rows: min-content max-content min-content;
+  grid-gap: ${spacing.medium};
 `
 
 const BreadCrumbLayout = styled.div`
@@ -96,6 +99,10 @@ const ContentLayout = styled.div`
   }
 `
 
+const NavFooter = styled.div`
+  background-color: red;
+`
+
 // TODO: Fill this out for all the docs, might need another argument to identify doc product
 const getIcon = (icon: string): React.Node => {
   const ItemIcon = {
@@ -103,7 +110,7 @@ const getIcon = (icon: string): React.Node => {
     plus: <FaPlus />,
     home: <FaHome />,
     terminal: <FaTerminal />,
-    file: <FaFile />
+    file: <FaFile />,
   }[icon.toLowerCase()] || <FaAngleRight />
 
   return ItemIcon
@@ -132,26 +139,32 @@ class DocTemplate extends React.PureComponent<Props> {
           <DocLayout>
             <SideNavLayout>
               <SideNavSticky>
-                {relatedDocs.map(node => (
-                  <StyledLink
-                    to={node.node.fields.slug}
-                    isActive={location.pathname === node.node.fields.slug}
-                  >
-                    <H3 monospace centerVertical>
-                      {getIcon(node.node.frontmatter.icon)}
-                      &nbsp;
-                      {node.node.frontmatter.title}
-                    </H3>
-                  </StyledLink>
-                ))}
+                <StyledLink isActive to={`/${doc.fields.product}`}>
+                  <H2 isTitle>{doc.fields.product} docs</H2>
+                </StyledLink>
+                <div>
+                  {relatedDocs.map(node => (
+                    <StyledLink
+                      to={node.node.fields.slug}
+                      isActive={location.pathname === node.node.fields.slug}
+                    >
+                      <Text monospace centerVertical>
+                        {getIcon(node.node.frontmatter.icon)}
+                        &nbsp;
+                        {node.node.frontmatter.title}
+                      </Text>
+                    </StyledLink>
+                  ))}
+                </div>
+                <NavFooter>BitBox</NavFooter>
               </SideNavSticky>
             </SideNavLayout>
             <BreadCrumbLayout>
-              <StyledLink to={doc.fields.product}>
+              {/* <StyledLink to={doc.fields.product}>
                 <H2 style={{ textTransform: 'capitalize' }}>
                   {doc.fields.product} Docs
                 </H2>
-              </StyledLink>{' '}
+              </StyledLink>{' '} */}
               <H2 centerVertical>{getIcon(doc.frontmatter.icon)}</H2>
               <H2>{doc.frontmatter.title}</H2>
             </BreadCrumbLayout>
@@ -184,9 +197,7 @@ export const query = graphql`
     }
     allMarkdownRemark(
       sort: { fields: [frontmatter___ordinal] }
-      filter: {
-        fields: { type: { eq: "docs" }, product: { eq: $product} }
-      }
+      filter: { fields: { type: { eq: "docs" }, product: { eq: $product } } }
     ) {
       totalCount
       edges {
