@@ -17,7 +17,7 @@ const H2Md = H2.extend`
 `
 
 const H3Md = H3.extend`
-  margin-top: ${spacing.small};
+  margin-top: ${spacing.medium};
 `
 const H4Md = H4.extend`
   margin-top: ${spacing.small};

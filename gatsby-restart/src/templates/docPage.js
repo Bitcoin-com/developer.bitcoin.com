@@ -33,6 +33,7 @@ import { H1Md, H2Md, H3Md, H4Md, TextMd } from 'atoms/markdownAtoms'
 import Container from 'components/Container'
 
 import spacing from 'styles/spacing'
+import media from 'styles/media'
 import {getTitleDisplay} from 'utils/formatting';
 
 // Short use inline custom component, long use codeblock
@@ -66,12 +67,22 @@ const DocLayout = styled.div`
   padding-top: ${spacing.medium} !important;
   display: grid;
   grid-column-gap: ${spacing.medium};
-  grid-row-gap: ${spacing.small};
+  grid-row-gap: ${spacing.medium};
   grid-template-areas:
-    'nav breadcrumbs'
-    'nav content';
-  grid-template-columns: max-content 1fr;
-  grid-template-rows: max-content max-content;
+    'nav'
+    'breadcrumbs'
+    'content';
+  grid-template-columns: 1fr;
+  grid-template-rows: max-content max-content max-content;
+  
+  ${media.medium`
+    grid-template-areas:
+      'nav breadcrumbs'
+      'nav content';
+    grid-template-columns: max-content 1fr;
+    grid-template-rows: max-content max-content;
+
+  `}
 `
 
 const SideNavLayout = styled.div`
@@ -80,7 +91,7 @@ const SideNavLayout = styled.div`
 `
 const SideNavSticky = styled.div`
   position: sticky;
-  top: 68px;
+  top: 75px;
   display: grid;
   grid-template-rows: min-content max-content min-content;
   grid-gap: ${spacing.medium};
@@ -101,8 +112,18 @@ const ContentLayout = styled.div`
   & > div {
     display: grid;
   }
+  /* Remove margin from first element of markdown content */
+  & > div > *:first-child {
+    margin-top: 0 !important;
+  }
 `
-
+const NavLinks = styled.div`
+  display: grid;
+  grid-gap: ${spacing.tiny};
+  ${media.medium`
+    grid-gap: 0;
+  `}
+`
 const NavFooter = styled.div`
   display: grid;
 `
@@ -150,7 +171,7 @@ class DocTemplate extends React.Component<Props> {
                 <StyledLink isActive to={`/${doc.fields.product}`}>
                   <H2 isTitle>{getTitleDisplay(doc.fields.product)}</H2>
                 </StyledLink>
-                <div>
+                <NavLinks>
                   {relatedDocs.map(node => (
                     <StyledLink
                       to={node.node.fields.slug}
@@ -163,7 +184,7 @@ class DocTemplate extends React.Component<Props> {
                       </Text>
                     </StyledLink>
                   ))}
-                </div>
+                </NavLinks>
                 <NavFooter>
                   <Select onChange={this.changeDocs}>
                     <option
