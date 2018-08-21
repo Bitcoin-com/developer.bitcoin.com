@@ -68,7 +68,7 @@ const PreviewItem = ({ children, to, full }: ItemProps) => (
     {children}
     {to && (
       <Link to={to}>
-        <Button>More</Button>
+        <Button round>More</Button>
       </Link>
     )}
   </ItemLayout>

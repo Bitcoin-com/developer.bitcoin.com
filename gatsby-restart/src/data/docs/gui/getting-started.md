@@ -6,8 +6,6 @@
 
 ## GUI Setup
 
-## GUI Setup
-## GUI Setup
 ### MacOS
 
 Download the [app for MacOS](https://github.com/Bitcoin-com/bitbox-gui/releases/download/0.7.8/BITBOX-0.7.8.dmg). You can verify the files haven’t been tampered with by downloading them and running:
