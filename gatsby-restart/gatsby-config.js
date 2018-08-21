@@ -35,11 +35,22 @@ module.exports = {
     },
     'gatsby-plugin-offline',
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-sharp`,
     {
-      resolve: "gatsby-transformer-remark",
+      resolve: `gatsby-transformer-remark`,
       options: {
-        plugins: ["gatsby-remark-component"]
-      }
-    }
+        plugins: [
+          `gatsby-remark-copy-linked-files`,
+          `gatsby-transformer-sharp`,
+          `gatsby-plugin-sharp`,
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 900,
+            },
+          },
+        ],
+      },
+    },
   ],
 }

@@ -89,7 +89,7 @@ const BitboxPage = ({ location }: Props) => (
         <InstallCTA>
           <Text background>INSTALL VIA NPM</Text>
           <Code language="bash">{`npm install bitbox-cli --global`}</Code>
-          <Button round>Start Here</Button>
+          <Link to='/bitbox/docs/getting-started'><Button round>Start Here</Button></Link>
         </InstallCTA>
       </HeroLayout>
     </Hero>
