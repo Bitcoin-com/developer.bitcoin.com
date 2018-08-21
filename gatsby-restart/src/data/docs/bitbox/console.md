@@ -4,9 +4,7 @@
   ordinal: 3
 ---
 
-## `Console`
-
-Launch a console w/ the entire Bitcoin Cash RPC available as well as dozens of helper methods via a built in BITBOX object. Pass in an --environment flag to connect to environments defined in a local bitbox.js. By default console will connect to your development environment.
+Launch a console w/ the entire Bitcoin Cash RPC available as well as dozens of helper methods via a built in `BITBOX` object. Pass in an `--environment` flag to connect to environments defined in a local `bitbox.js`. By default console will connect to your development environment.
 
 ```bash
 $ bitbox console --environment production
@@ -39,4 +37,3 @@ BITBOX.Util                    BITBOX.config
 > let childNode = BITBOX.HDNode.derivePath(hdNode, "m/44'/145'/0'");
 > BITBOX.HDNode.toXPriv(childNode)
 // xprv9yHczLBaxwHo85o8mJVHSu1ghxEWM2QZcrvWFvHWXgkqfuqNz6EDNxv4wAPTBwX7nkrnBTPgdCZi7qyQAF72MF4KTq9UzzygDhvBajpwScs
-                

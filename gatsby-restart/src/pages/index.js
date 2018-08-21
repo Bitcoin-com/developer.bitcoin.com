@@ -120,7 +120,7 @@ const ShareLayout = styled.div`
 
 `
 
-const EmailCTA = styled.div` 
+const EmailCTA = styled.div`
   display: grid;
   grid-gap: ${spacing.small};
 `
@@ -161,7 +161,7 @@ const IndexPage = ({location}: Props) => (
         <SDKLayout>
           <H3 background>
             <FaCube />
-            &nbsp; BitBox SDK
+            &nbsp; BITBOX SDK
           </H3>
           <Text background>39,000+ downloads</Text>
 

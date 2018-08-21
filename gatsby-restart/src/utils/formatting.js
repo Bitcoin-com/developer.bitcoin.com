@@ -2,7 +2,7 @@
 
 
 const titleMap = {
-  'bitbox': 'BitBox',
+  'bitbox': 'BITBOX',
   'wormhole': 'Wormhole',
   'rest': 'REST',
   'gui': 'GUI',
