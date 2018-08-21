@@ -26,4 +26,5 @@ Creating korean legacy paper wallet
 
 ```
 
+### Example result
 ![image](/images/paper.png)

@@ -4,7 +4,7 @@
   ordinal: 0
 ---
 
-## `Welcome to Bitbox`
+## `Welcome to Wormhole`
 
 ### Dependencies 
 

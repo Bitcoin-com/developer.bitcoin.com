@@ -237,7 +237,7 @@ BITBOX.Script.opcodes.OP_BIN2NUM
 // 129`}
           </Code>
         </PreviewItem>
-        <PreviewItem to="/bitbox/docs/hdnode">
+        <PreviewItem to="bitbox/docs/console">
           <H2>Built-in console</H2>
           <Text>
             Custom REPL with the full BITBOX and Bitcoin Cash JSON RPC API built
