@@ -17,28 +17,3 @@ Blockchain-as-a-Service. Infrastructure to deploy and scale your apps. An ecosys
 ### Market
 
 Paid downloads, streaming media, in-app purchases, tokens and more ways for you to monetize.
-
-## Install / develop
-
-Make sure that you have the Gatsby CLI program installed:
-
-```sh
-  yarn install
-  yarn develop
-```
-
-## Build / deploy
-
-```sh
-  yarn build
-  > deploy build folder somewhere.
-```
-
-### Primary technologies
-
-* Gatsby v2
-* React
-* Markdown
-* graphql
-* styled-components
-* Love and care

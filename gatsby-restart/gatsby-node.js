@@ -42,10 +42,12 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     let slug = filePath;
 
     if(isDoc) {
-      let product = 'misc';
+      let product = 'other';
 
       const isBitbox = filePath.includes('/bitbox/')
       const isWormhole = filePath.includes('/wormhole/')
+      const isGui = filePath.includes('/gui/')
+      const isRest = filePath.includes('/rest/')
 
       if(isBitbox) {
         slug = `/bitbox/docs/${filename}`
@@ -54,6 +56,14 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       if(isWormhole) {
         slug = `/wormhole/docs/${filename}`
         product = 'wormhole'
+      }
+      if(isGui) {
+        slug = `/gui/docs/${filename}`
+        product = 'gui'
+      }
+      if(isRest) {
+        slug = `/rest/docs/${filename}`
+        product = 'rest'
       }
 
       createNodeField({
@@ -91,6 +101,7 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             fields {
               slug
+              product
             }
           }
         }
@@ -100,11 +111,14 @@ exports.createPages = async ({ graphql, actions }) => {
   const docs = result.data.docs.edges
 
   docs.forEach(({ node }) => {
+
+    const { slug, product} = node.fields;
     createPage({
-      path: node.fields.slug,
+      path: slug,
       component: path.resolve(`./src/templates/docPage.js`),
       context: {
-        slug: node.fields.slug,
+        slug,
+        product
       },
     })
   })

@@ -166,7 +166,7 @@ class DocTemplate extends React.PureComponent<Props> {
 export default DocTemplate
 
 export const query = graphql`
-  query DocQuery($slug: String!) {
+  query DocQuery($slug: String!, $product: String!) {
     site {
       siteMetadata {
         title
@@ -185,7 +185,7 @@ export const query = graphql`
     allMarkdownRemark(
       sort: { fields: [frontmatter___ordinal] }
       filter: {
-        fields: { type: { eq: "docs" } } # add another filter to just match current type, pass in context
+        fields: { type: { eq: "docs" }, product: { eq: $product} }
       }
     ) {
       totalCount
