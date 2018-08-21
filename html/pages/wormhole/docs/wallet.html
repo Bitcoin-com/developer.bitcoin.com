@@ -1,0 +1,72 @@
+---
+layout: default
+title: Bitcoin.com Developer Platform | Wallet Documentation
+---
+
+{{> double-nested-navigation}}
+
+{{> wormhole-docs-submenu}}
+
+<section class="bounties">
+  <div class="container">
+    <div class="section-title text-center pb-4">
+      <h1 class="gray bold">Wormhole Documentation</h1>
+    </div>
+    <div class="row">
+
+      <div class="col-12 col-md-3 mb-4 text-center">
+
+        {{> wormhole-docs-menu}}
+
+      </div>
+
+      <div class="col-12 col-md-9 language-javascript">
+        <h2 id='configuration' class="contentSubHead isCenter"><i class="fa fa-cog"></i> Wallet</h2>
+        <h3 id='newAddress'><code>newAddress</code></h3>
+        <p>Returns a new Bitcoin address for receiving payments</p>
+        <h4>Result</h4>
+        <p>
+          address <code>String</code>: new cash address
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+Wormhole.Wallet.newAddress().then((result) => {
+console.log(result);
+}, (err) => {
+console.log(err);
+});
+// bitcoincash:qzm47qz5ue99y9yl4aca7jnz7dwgdenl85jkfx3znl
+        </code></pre>
+
+        <h3 id='sendToAddress'><code>sendToAddress</code></h3>
+        <p>
+          Sets the global flag that determines whether transactions are automatically committed and broadcast.
+        </p>
+        <h4>Arguments</h4>
+        <ol>
+          <li>
+            address (string, required)
+          </li>
+          <li>
+            amount (number, required)
+          </li>
+        </ol>
+        <h4>Result</h4>
+        <p>
+          txid <code>String</code>: The transaction id.
+        </p>
+        <h4>Examples</h4>
+
+        <pre><code>
+Wormhole.Wallet.sendToAddress('bitcoincash:qr8phzdujywdng73dxqu3w794tphq76gjgwy4r8agj', 6.11424169).then((result) => {
+  console.log(result);
+}, (err) => {
+  console.log(err);
+});
+// 94851c22478c6ec835fc037cd7a788bcb6ca1405d2a95000cf6e4299deff10f1
+        </code></pre>
+      </div>
+    </div>
+  </div>
+</section>
