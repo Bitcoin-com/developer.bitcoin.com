@@ -614,22 +614,22 @@ title: Bitcoin.com Developer Platform | Address Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            address or addresses <code>String | Array</code> required: legacy or cashAddr or array of addresses
+            addresses <code>Array</code> required: Array with maximun of 20 legacy or cash addresses.
           </li>
         </ol>
         <h4>Result</h4>
         <p>
-          details <code>Object | Array</code>: Details about address including balance
+          details <code>Array</code>: Array of Objects w/ details about addresses including balance
         </p>
         <h4>Examples</h4>
         <pre><code>
-  BITBOX.Address.details('1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA').then((result) => {
+  BITBOX.Address.details(['1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA']).then((result) => {
     console.log(result);
   }, (err) => {
     console.log(err);
   });
 
-  // {
+  // [{
   //   "addrStr": "1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA",
   //   "balance": 0.36781097,
   //   "balanceSat": 36781097,
@@ -650,7 +650,7 @@ title: Bitcoin.com Developer Platform | Address Documentation
   //     "15102827c108566ea5daf725c09079c1a3f42ef99d1eb68ea8c584f7b16ab87a",
   //     "cc27be8846276612dfce5924b7be96556212f0f0e62bd17641732175edb9911e"
   //   ]
-  // }
+  // }]
 
   BITBOX.Address.details(['1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA', "bitcoincash:qp7ekaepv3wf2nq035hevcma4x9sxmp3w56048g6ra"]).then((result) => {
     console.log(result);
@@ -700,22 +700,22 @@ title: Bitcoin.com Developer Platform | Address Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            address or addresses <code>String | Array</code> required: legacy or cashAddr or array of addresses
+            addresses <code>Array</code> required: Array with maximun of 20 legacy or cash addresses.
           </li>
         </ol>
         <h4>Result</h4>
         <p>
-          utxo <code>Array</code>: utxo for address
-        </p>
+          utxo <code>Array</code>: Array of arrays with utxo for addresses
+          </p>
         <h4>Examples</h4>
         <pre><code>
-  BITBOX.Address.utxo('1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA').then((result) => {
+  BITBOX.Address.utxo(['1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA']).then((result) => {
     console.log(result);
   }, (err) => {
     console.log(err);
   });
 
-  // [
+  // [[
   //   {
   //     "address": "1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA",
   //     "txid": "f737485aaee3c10b13013fa109bb6294b099246134ca9885f4cc332dbc6c9bb4",
@@ -736,7 +736,7 @@ title: Bitcoin.com Developer Platform | Address Documentation
   //     "height": 528573,
   //     "confirmations": 239
   //   }
-  // ]
+  // ]]
 
   BITBOX.Address.utxo(['1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA', "bitcoincash:qp7ekaepv3wf2nq035hevcma4x9sxmp3w56048g6ra"]).then((result) => {
     console.log(result);
@@ -772,12 +772,12 @@ title: Bitcoin.com Developer Platform | Address Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            address or addresses <code>String | Array</code> required: legacy or cashAddr or array of addresses
+            addresses <code>Array</code> required: Array with maximun of 20 legacy or cash addresses.
           </li>
         </ol>
         <h4>Result</h4>
         <p>
-          unconfirmed <code>Array</code>: unconirmed transactions for address
+          unconfirmed <code>Array</code>: Array of arrays with unconfirmed transactions for addresses
         </p>
         <h4>Examples</h4>
         <pre><code>
@@ -787,7 +787,7 @@ title: Bitcoin.com Developer Platform | Address Documentation
     console.log(err);
   });
 
-  // [
+  // [[
   //   {
   //     "txid": "e0aadd861a06993e39af932bb0b9ad69e7b37ef5843a13c6724789e1c94f3513",
   //     "vout": 1,
@@ -799,7 +799,7 @@ title: Bitcoin.com Developer Platform | Address Documentation
   //     "legacyAddress": "1Fg4r9iDrEkCcDmHTy2T79EusNfhyQpu7W",
   //     "cashAddress": "bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c"
   //   }
-  // ];
+  // ]];
 
   BITBOX.Address.unconfirmed(['1Fg4r9iDrEkCcDmHTy2T79EusNfhyQpu7W', "bitcoincash:qp7ekaepv3wf2nq035hevcma4x9sxmp3w56048g6ra"]).then((result) => {
     console.log(result);
