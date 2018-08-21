@@ -28,7 +28,7 @@ title: Bitcoin.com Developer Platform | Blockchain Documentation
         </p>
         <h4>Result</h4>
         <p>
-          hex <code>string</code>: the block hash hex encoded
+          hex <code>String</code>: the block hash hex encoded
         </p>
         <h4>Examples</h4>
 
@@ -48,10 +48,10 @@ title: Bitcoin.com Developer Platform | Blockchain Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            blockhash (string, required) The block hash
+            blockhash <code>String</code> required: The block hash
           </li>
           <li>
-            verbose (boolean, optional, default=true) true for a json object, false for the hex encoded data
+            verbose <code>Boolean</code> optional: true for a json object, false for the hex encoded data
           </li>
         </ol>
         <h4>Examples</h4>
@@ -139,7 +139,7 @@ title: Bitcoin.com Developer Platform | Blockchain Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            height (numeric, required) The height index
+            heights <code>Array</code> required: Array with maximum of 20 block heights.
           </li>
         </ol>
         <h4>Result</h4>
@@ -148,12 +148,12 @@ title: Bitcoin.com Developer Platform | Blockchain Documentation
         </p>
         <h4>Examples</h4>
         <pre><code>
-  BITBOX.Blockchain.getBlockHash(0).then((result) => {
+  BITBOX.Blockchain.getBlockHash([0]).then((result) => {
   console.log(result);
   }, (err) => {
   console.log(err);
   });
-  // 000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f
+  // [ '000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f' ]
         </code></pre>
 
         <h3 id='getBlockHeader'><code>getBlockHeader</code></h3>
@@ -163,21 +163,21 @@ title: Bitcoin.com Developer Platform | Blockchain Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            hash (string, required) The block hash
+            hashes <code>Array</code> required: Array with maximum of 20 hashes.
           </li>
           <li>
-            verbose (boolean, optional, default=true) true for a json object, false for the hex encoded data
+            verbose <code>Boolean</code> optional: true for a json object, false for the hex encoded data. default=true
           </li>
         </ol>
         <h4>Examples</h4>
         <pre><code>
-  BITBOX.Blockchain.getBlockHeader("00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09").then((result) => {
+  BITBOX.Blockchain.getBlockHeader(["00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"]).then((result) => {
   console.log(result);
   }, (err) => {
   console.log(err);
   });
 
-  // { hash: '00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09',
+  // [{ hash: '00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09',
   // confirmations: 528236,
   // height: 1000,
   // version: 1,
@@ -190,7 +190,7 @@ title: Bitcoin.com Developer Platform | Blockchain Documentation
   // difficulty: 1,
   // chainwork: '000000000000000000000000000000000000000000000000000003e903e903e9',
   // previousblockhash: '0000000008e647742775a230787d66fdf92c46a48c896bfbc85cdc8acc67e87d',
-  // nextblockhash: '00000000a2887344f8db859e372e7e4bc26b23b9de340f725afbf2edb265b4c6' }
+  // nextblockhash: '00000000a2887344f8db859e372e7e4bc26b23b9de340f725afbf2edb265b4c6' }]
         </code></pre>
 
         <h3 id='getChainTips'><code>getChainTips</code></h3>
@@ -245,16 +245,16 @@ title: Bitcoin.com Developer Platform | Blockchain Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            txid (string, required): The transaction id (must be in mempool)
+            txids <code>Array</code> required: Array with maximum of 20 txids.
           </li>
           <li>
-            verbose (boolean, optional, default=false): True for a json object, false for array of transaction ids
+            verbose <code>Boolean</code> optional: True for a json object, false for array of transaction ids. default=false
           </li>
         </ol>
         <h4>Result</h4>
         <h4>Examples</h4>
         <pre><code>
-  BITBOX.Blockchain.getMempoolAncestors("fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33").then((result) => {
+  BITBOX.Blockchain.getMempoolAncestors(["fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33"]).then((result) => {
   console.log(result);
   }, (err) => {
   console.log(err);
@@ -268,15 +268,15 @@ title: Bitcoin.com Developer Platform | Blockchain Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            txid (string, required): The transaction id (must be in mempool)
+            txids <code>Array</code> required: Array with maximum of 20 txids.
           </li>
           <li>
-            verbose (boolean, optional, default=false): True for a json object, false for array of transaction ids
+            verbose <code>Boolean</code> optional: True for a json object, false for array of transaction ids. default=false
           </li>
         </ol>
         <h4>Examples</h4>
         <pre><code>
-  BITBOX.Blockchain.getMempoolDescendants("fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33").then((result) => {
+  BITBOX.Blockchain.getMempoolDescendants(["fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33"]).then((result) => {
   console.log(result);
   }, (err) => {
   console.log(err);
@@ -290,12 +290,12 @@ title: Bitcoin.com Developer Platform | Blockchain Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            txid (string, required): The transaction id (must be in mempool)
+            txids <code>Array</code> required: Array with maximum of 20 txids.
           </li>
         </ol>
         <h4>Examples</h4>
         <pre><code>
-  BITBOX.Blockchain.getMempoolEntry("fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33").then((result) => {
+  BITBOX.Blockchain.getMempoolEntry(["fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33"]).then((result) => {
   console.log(result);
   }, (err) => {
   console.log(err);
