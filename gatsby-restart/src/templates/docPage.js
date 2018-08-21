@@ -2,7 +2,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import rehypeReact from 'rehype-react'
-import { graphql, Link } from 'gatsby'
+import { graphql, Link, push } from 'gatsby'
 import Helmet from 'react-helmet'
 
 import {
@@ -13,6 +13,7 @@ import {
   FaHome,
   FaTerminal,
   FaFile,
+  FaWallet,
 } from 'react-icons/fa'
 
 import StyledLink, { SmartLink } from 'atoms/StyledLink'
@@ -25,12 +26,14 @@ import H3 from 'atoms/H3'
 import Ul from 'atoms/Ul'
 import Code from 'atoms/Code'
 import Pre from 'atoms/Pre'
+import Select from 'atoms/Select'
 
 import { H2Md, H3Md, TextMd } from 'atoms/markdownAtoms'
 
 import Container from 'components/Container'
 
 import spacing from 'styles/spacing'
+import {getTitleDisplay} from 'utils/formatting';
 
 // Short use inline custom component, long use codeblock
 const CodePreSplitter = ({ children }) => {
@@ -100,10 +103,10 @@ const ContentLayout = styled.div`
 `
 
 const NavFooter = styled.div`
-  background-color: red;
+  display: grid;
 `
 
-// TODO: Fill this out for all the docs, might need another argument to identify doc product
+// Whitelist of valid icons
 const getIcon = (icon: string): React.Node => {
   const ItemIcon = {
     elipses: <FaEllipsisH />,
@@ -111,8 +114,8 @@ const getIcon = (icon: string): React.Node => {
     home: <FaHome />,
     terminal: <FaTerminal />,
     file: <FaFile />,
+    wallet: <FaWallet />
   }[icon.toLowerCase()] || <FaAngleRight />
-
   return ItemIcon
 }
 
@@ -121,7 +124,11 @@ type Props = {
   location: Object,
 }
 
-class DocTemplate extends React.PureComponent<Props> {
+class DocTemplate extends React.Component<Props> {
+  changeDocs(event: SyntheticEvent) {
+    push(`/${event.target.value}`)
+  }
+
   render() {
     const { data, location } = this.props
     const doc = data.markdownRemark
@@ -131,7 +138,7 @@ class DocTemplate extends React.PureComponent<Props> {
     return (
       <DefaultLayout location={location}>
         <Helmet
-          title={`${doc.fields.product} ${doc.frontmatter.title} - ${
+          title={`${getTitleDisplay(doc.fields.product)}: ${doc.frontmatter.title} - ${
             data.site.siteMetadata.title
           }`}
         />
@@ -140,7 +147,7 @@ class DocTemplate extends React.PureComponent<Props> {
             <SideNavLayout>
               <SideNavSticky>
                 <StyledLink isActive to={`/${doc.fields.product}`}>
-                  <H2 isTitle>{doc.fields.product} docs</H2>
+                  <H2 isTitle>{getTitleDisplay(doc.fields.product)}</H2>
                 </StyledLink>
                 <div>
                   {relatedDocs.map(node => (
@@ -156,15 +163,37 @@ class DocTemplate extends React.PureComponent<Props> {
                     </StyledLink>
                   ))}
                 </div>
-                <NavFooter>BitBox</NavFooter>
+                <NavFooter>
+                  <Select onChange={this.changeDocs}>
+                    <option
+                      selected={'bitbox' === doc.fields.product}
+                      value={'bitbox/docs/getting-started'}
+                    >
+                      {getTitleDisplay('bitbox')}
+                    </option>
+                    <option
+                      selected={'wormhole' === doc.fields.product}
+                      value={'wormhole/docs/getting-started'}
+                    >
+                      {getTitleDisplay('wormhole')}
+                    </option>
+                    <option
+                      selected={'rest' === doc.fields.product}
+                      value={'rest/docs/getting-started'}
+                    >
+                      {getTitleDisplay('rest')}
+                    </option>
+                    <option
+                      selected={'gui' === doc.fields.product}
+                      value={'gui/docs/getting-started'}
+                    >
+                      {getTitleDisplay('gui')}
+                    </option>
+                  </Select>
+                </NavFooter>
               </SideNavSticky>
             </SideNavLayout>
             <BreadCrumbLayout>
-              {/* <StyledLink to={doc.fields.product}>
-                <H2 style={{ textTransform: 'capitalize' }}>
-                  {doc.fields.product} Docs
-                </H2>
-              </StyledLink>{' '} */}
               <H2 centerVertical>{getIcon(doc.frontmatter.icon)}</H2>
               <H2>{doc.frontmatter.title}</H2>
             </BreadCrumbLayout>

@@ -29,7 +29,7 @@ export const textBase = css`
   position: relative;
   font-size-adjust: 0.5;
   vertical-align: middle;
-  transition: color 0.15s;
+  transition: color 0.1s;
 
   font-size: 16px;
   line-height:20px;
