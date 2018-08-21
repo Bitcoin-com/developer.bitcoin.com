@@ -28,7 +28,7 @@ import Code from 'atoms/Code'
 import Pre from 'atoms/Pre'
 import Select from 'atoms/Select'
 
-import { H2Md, H3Md, TextMd } from 'atoms/markdownAtoms'
+import { H1Md, H2Md, H3Md, H4Md, TextMd } from 'atoms/markdownAtoms'
 
 import Container from 'components/Container'
 
@@ -52,9 +52,10 @@ const renderAst = new rehypeReact({
     p: TextMd,
     pre: PrePassthrough,
     code: CodePreSplitter,
-    h1: H1,
+    h1: H1Md,
     h2: H2Md,
     h3: H3Md,
+    h4: H4Md,
     a: SmartLink,
     ul: Ul,
   },
