@@ -3,8 +3,8 @@ layout: default
 title: Bitcoin.com Developer Platform | Tutorials - Websockets Scaffold
 banner: hero.jpeg
 H1: Websockets
-subtitle: Real time data
-secondSubtitle: Blocks and Transactions
+subtitle: Real time blockchain data
+secondSubtitle: Scaffold your next app
 ---
 
 {{> nested-navigation}}
@@ -19,7 +19,6 @@ secondSubtitle: Blocks and Transactions
       <div class="col-12">
         <h3 class="yellow">Intro</h3>
         <p>Websockets make possible an entirely new generation of apps which depend on real-time data. BITBOX SDK has websockets built in. Our new scaffold enables you to bootstrap a Bitcoin Cash React app with BITBOX and websockets integration in under a minute. Accelerate your workflow with BITBOX Scaffolds.</p>
-        <p><a  target='_blank' href='https://twitter.com/porlybe'>@porlybe</a>, creator of the <a  target='_blank' href='https://txhighway.com'>txhighway</a>, created an app which shows the power of websockets and let's you bootstrap your next great app.</ap>
       </div>
     </div>
 
@@ -28,7 +27,7 @@ secondSubtitle: Blocks and Transactions
     <div class="row">
       <div class="col-12">
         <h3 class="yellow">Donate BCH</h3>
-        <p>Donate BCH is another great app which is powered by <a  target='_blank' href='../bitbox.html'>BITBOX</a>. It lets you display logos and QR codes for donations.</p>
+        <p><a target='_blank' href='https://twitter.com/porlybe'>@porlybe</a> created Donate BCH, which shows the power of websockets and let's you bootstrap your next great app. It's powered by <a target='_blank' href='../bitbox.html'>BITBOX</a> and lets you display logos and QR codes for donations.</p>
         <p><img class='gui' src="../img/tutorials/websocket-scaffold-3.png" alt="Websocket scaffold homepage" /></p>
         <p>When a donation is made a modal appears showing the amount.</p>
         <div class="row">
@@ -69,17 +68,17 @@ npm start
         <h3 class="yellow">Leveraging BITBOX</h3>
         <p>Donate BCH shows very practical ways to leverage BITBOX when creating an app. It demonstrates unit and address conversion, calling REST and listening on a websocket.</p>
         <h4 class="yellow">Unit Conversion</h4>
-        <p>BITBOX can convert whole BCH units <a  target='_blank' href='../bitbox/docs/bitcoincash.html#toSatoshi'>to satoshis</a> as well as converting satoshis to <a  target='_blank' href='../bitbox/docs/bitcoincash.html#toBits'>bits</a> and back to <a  target='_blank' href='../bitbox/docs/bitcoincash.html#toBitcoinCash'>whole units</a>. The scaffold <a  target='_blank' href='https://github.com/Bitcoin-com/bitbox-scaffold-websockets/blob/master/src/App.js#L50'>converts satoshis</a> to whole BCH.</p>
+        <p>BITBOX can convert whole BCH units <a target='_blank' href='../bitbox/docs/bitcoincash.html#toSatoshi'>to satoshis</a> as well as converting satoshis to <a target='_blank' href='../bitbox/docs/bitcoincash.html#toBits'>bits</a> and back to <a target='_blank' href='../bitbox/docs/bitcoincash.html#toBitcoinCash'>whole units</a>. The scaffold <a target='_blank' href='https://github.com/Bitcoin-com/bitbox-scaffold-websockets/blob/master/src/App.js#L50'>converts satoshis</a> to whole BCH.</p>
         <pre><code>
 const value = BITBOX.BitcoinCash.toBitcoinCash(curr.satoshi);
         </code></pre>
         <h4 class="yellow">Address Conversion</h4>
-        <p>BITBOX has methods for converting <a  target='_blank' href='../bitbox/docs/address.html#toLegacyAddress'>cash address to legacy</a> and <a  target='_blank' href='../bitbox/docs/address.html#toCashAddress'>legacy to cash</a>. The scaffold <a  target='_blank' href='https://github.com/Bitcoin-com/bitbox-scaffold-websockets/blob/master/src/App.js#L97'>converts cash address to legacy address</a>.</p>
+        <p>BITBOX has methods for converting <a target='_blank' href='../bitbox/docs/address.html#toLegacyAddress'>cash address to legacy</a> and <a target='_blank' href='../bitbox/docs/address.html#toCashAddress'>legacy to cash</a>. The scaffold <a target='_blank' href='https://github.com/Bitcoin-com/bitbox-scaffold-websockets/blob/master/src/App.js#L97'>converts cash address to legacy address</a>.</p>
         <pre><code>
 const cashaddr = BITBOX.Address.toCashAddress(address)
         </code></pre>
         <h4 class="yellow">REST</h4>
-        <p>BITBOX SDK has <a  target='_blank' href='https://rest.bitcoin.com'>REST</a> integration bundled. The scaffold calls <a  target='_blank' href='https://github.com/Bitcoin-com/bitbox-scaffold-websockets/blob/master/src/App.js#L121'>Address.details</a> to get back utxo for an address.</p>
+        <p>BITBOX SDK has <a target='_blank' href='https://rest.bitcoin.com'>REST</a> integration bundled. The scaffold calls <a target='_blank' href='https://github.com/Bitcoin-com/bitbox-scaffold-websockets/blob/master/src/App.js#L121'>Address.details</a> to get back utxo for an address.</p>
         <pre><code>
 BITBOX.Address.details(addr)
 .then((result) => {
@@ -96,7 +95,7 @@ BITBOX.Address.details(addr)
 });
         </code></pre>
         <h4 class="yellow">Socket</h4>
-        <p>The <code>Socket</code> class lets you quickly get real-time blockchain data. First <a  target='_blank' href='../bitbox/docs/socket.html#constructor'>create an instance</a> and then <a  target='_blank' href='../bitbox/docs/socket.html#listen'> call listen</a>. Here's how the scaffold <a  target='_blank' href='https://github.com/Bitcoin-com/bitbox-scaffold-websockets/blob/master/src/App.js#L81'>updates the UI</a> after new tx data comes in.</p>
+        <p>The <code>Socket</code> class lets you quickly get real-time blockchain data. First <a target='_blank' href='../bitbox/docs/socket.html#constructor'>create an instance</a> and then <a target='_blank' href='../bitbox/docs/socket.html#listen'> call listen</a>. Here's how the scaffold <a target='_blank' href='https://github.com/Bitcoin-com/bitbox-scaffold-websockets/blob/master/src/App.js#L81'>updates the UI</a> after new tx data comes in.</p>
         <pre><code>
 const socket = new BITBOX.Socket()
 socket.listen('transactions', this.handleNewTx)

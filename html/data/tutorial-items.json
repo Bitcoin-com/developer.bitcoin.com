@@ -1,6 +1,12 @@
 [
 
   {
+  "title": "Real-time blockchain data with websockets",
+  "excerpt": "Websockets make possible an entirely new generation of apps which depend on real-time data. BITBOX SDK has websockets built in. Our new scaffold enables you to bootstrap a Bitcoin Cash React app with BITBOX and websockets integration in under a minute. Accelerate your workflow with BITBOX Scaffolds.",
+  "href": "tutorials/websocket-scaffold.html"
+  },
+
+  {
   "title": "Wormhole Pt 3. Create tokens and crowdsales",
   "excerpt": "In <a href='tutorials/wormhole-1-setup.html'>post 1</a> we set up your development environment and downloaded the Wormhole SDK. In <a href='tutorials/wormhole-2-full-node.html'>post 2</a> we set up a full Wormhole node and confirmed wormholeREST could speak to it. Finally we're ready to create our own tokens.",
   "href": "tutorials/wormhole-3-tokens.html"
@@ -64,12 +70,6 @@
   "title": "Utilities part 2",
   "excerpt": "HD Wallets are at the heart of most Bitcoin Cash apps. Being able to quickly create them can let developers create more exciting $BCH apps quicker than ever. Today we’re releasing 7 new utility methods to let you quickly generate mnemonics, root seeds, master private keys, HD wallets and then to sign and verify messages w/ keys from that wallet.",
   "href": "tutorials/utilities-part-2.html"
-  },
-
-  {
-  "title": "Paper Wallet Generator",
-  "excerpt": "Paper wallets let you print public and private keys as QR codes on to a piece of paper which can be stored offline. They are a very quick and convenient way to store coins safely (as long as the paper doesn’t degrade) and are much cheaper than a hardware wallet while maintaining much of the security",
-  "href": "tutorials/paper-wallet-generator.html"
   },
 
   {
