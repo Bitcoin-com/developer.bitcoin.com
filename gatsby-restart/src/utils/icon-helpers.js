@@ -26,6 +26,7 @@ import {
   FaPlug,
   FaArrowsAltV,
   FaCogs,
+  FaDatabase
 } from 'react-icons/fa'
 
 // Whitelist of valid icons
@@ -75,6 +76,8 @@ export const getIcon = (icon: string): React.Node => {
       return <FaArrowsAltV />
     case 'cogs':
       return <FaCogs />
+    case 'database':
+      return <FaDatabase />
     default:
       return <FaAngleRight />
   }

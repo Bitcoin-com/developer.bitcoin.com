@@ -1,6 +1,6 @@
 ---
   title: Console
-  icon: home
+  icon: terminal
   ordinal: 2
 ---
 

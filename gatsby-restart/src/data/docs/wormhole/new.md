@@ -1,6 +1,6 @@
 ---
   title: New
-  icon: home
+  icon: plus
   ordinal: 1
 ---
 

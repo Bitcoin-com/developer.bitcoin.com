@@ -1,6 +1,6 @@
 ---
   title: Wallet
-  icon: home
+  icon: wallet
   ordinal: 9
 ---
 

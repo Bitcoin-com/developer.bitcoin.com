@@ -1,6 +1,6 @@
 ---
   title: Transaction
-  icon: home
+  icon: bitcoin
   ordinal: 8
 ---
 

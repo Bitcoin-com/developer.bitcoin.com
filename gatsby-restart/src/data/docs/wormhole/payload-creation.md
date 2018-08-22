@@ -1,6 +1,6 @@
 ---
   title: PayloadCreation
-  icon: home
+  icon: plus
   ordinal: 6
 ---
 
