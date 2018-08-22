@@ -5,17 +5,6 @@ import rehypeReact from 'rehype-react'
 import { graphql, Link, push } from 'gatsby'
 import Helmet from 'react-helmet'
 
-import {
-  FaAngleLeft,
-  FaAngleRight,
-  FaEllipsisH,
-  FaPlus,
-  FaHome,
-  FaTerminal,
-  FaFile,
-  FaWallet,
-} from 'react-icons/fa'
-
 import StyledLink, { SmartLink } from 'atoms/StyledLink'
 import DefaultLayout from 'components/layouts/DefaultLayout.js'
 
@@ -34,7 +23,8 @@ import Container from 'components/Container'
 
 import spacing from 'styles/spacing'
 import media from 'styles/media'
-import {getTitleDisplay} from 'utils/formatting';
+import { getTitleDisplay } from 'utils/formatting'
+import { getIcon } from 'utils/icon-helpers';
 
 // Short use inline custom component, long use codeblock
 const CodePreSplitter = ({ children }) => {
@@ -74,7 +64,7 @@ const DocLayout = styled.div`
     'content';
   grid-template-columns: 1fr;
   grid-template-rows: max-content max-content max-content;
-  
+
   ${media.medium`
     grid-template-areas:
       'nav breadcrumbs'
@@ -82,7 +72,7 @@ const DocLayout = styled.div`
     grid-template-columns: max-content 1fr;
     grid-template-rows: max-content max-content;
 
-  `}
+  `};
 `
 
 const SideNavLayout = styled.div`
@@ -122,24 +112,11 @@ const NavLinks = styled.div`
   grid-gap: ${spacing.tiny};
   ${media.medium`
     grid-gap: 0;
-  `}
+  `};
 `
 const NavFooter = styled.div`
   display: grid;
 `
-
-// Whitelist of valid icons
-const getIcon = (icon: string): React.Node => {
-  const ItemIcon = {
-    elipses: <FaEllipsisH />,
-    plus: <FaPlus />,
-    home: <FaHome />,
-    terminal: <FaTerminal />,
-    file: <FaFile />,
-    wallet: <FaWallet />
-  }[icon.toLowerCase()] || <FaAngleRight />
-  return ItemIcon
-}
 
 type Props = {
   data: Object,
@@ -160,9 +137,9 @@ class DocTemplate extends React.Component<Props> {
     return (
       <DefaultLayout location={location}>
         <Helmet
-          title={`${getTitleDisplay(doc.fields.product)}: ${doc.frontmatter.title} - ${
-            data.site.siteMetadata.title
-          }`}
+          title={`${getTitleDisplay(doc.fields.product)}: ${
+            doc.frontmatter.title
+          } - ${data.site.siteMetadata.title}`}
         />
         <Container>
           <DocLayout>
@@ -174,10 +151,11 @@ class DocTemplate extends React.Component<Props> {
                 <NavLinks>
                   {relatedDocs.map(node => (
                     <StyledLink
+                      key={node.node.fields.slug}
                       to={node.node.fields.slug}
                       isActive={location.pathname === node.node.fields.slug}
                     >
-                      <Text monospace centerVertical>
+                      <Text monospace centerVertical size="small">
                         {getIcon(node.node.frontmatter.icon)}
                         &nbsp;
                         {node.node.frontmatter.title}
@@ -186,7 +164,7 @@ class DocTemplate extends React.Component<Props> {
                   ))}
                 </NavLinks>
                 <NavFooter>
-                  <Select onChange={this.changeDocs}>
+                  <Select onChange={this.changeDocs} size="small">
                     <option
                       selected={'bitbox' === doc.fields.product}
                       value={'bitbox/docs/getting-started'}
