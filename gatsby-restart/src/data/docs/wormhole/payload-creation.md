@@ -192,7 +192,7 @@ payload `String`: the hex\-encoded payload
       // 0000003601000100000000436f6d70616e69657300426974636f696e204d696e696e67005175616e74756d204d696e6572007777772e6578616d706c652e636f6d005175616e74756d204d696e657220546f6b656e7300
 
 
-### `partiCrwoSale`
+### `participateCrowdSale`
 
 Create the payload for a participate crowsale transaction
 
@@ -207,7 +207,7 @@ payload `String`: the hex\-encoded payload
 #### Examples
 
 
-      Wormhole.PayloadCreation.partiCrwoSale("100.0").then((result) => {
+      Wormhole.PayloadCreation.participateCrowdSale("100.0").then((result) => {
       console.log(result);
       }, (err) => {
       console.log(err);
