@@ -1,6 +1,6 @@
 ---
   title: DataRetrieval
-  icon: home
+  icon: database
   ordinal: 5
 ---
 

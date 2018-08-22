@@ -1,6 +1,6 @@
 ---
   title: Crypto
-  icon: cubes
+  icon: link
   ordinal: 8
 ---
 

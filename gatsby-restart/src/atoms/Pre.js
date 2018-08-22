@@ -6,7 +6,7 @@ import { textBase } from 'atoms/Text';
 
 import { defaultProps } from 'recompose'
 
-const Pre = defaultProps({monospace: true})(styled.div`
+const Pre = defaultProps({monospace: true})(styled.span`
   ${textBase};
   font-size: inherit !important;
   display: inline;

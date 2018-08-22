@@ -1,6 +1,6 @@
 ---
   title: Control
-  icon: cubes
+  icon: gamepad
   ordinal: 7
 ---
 

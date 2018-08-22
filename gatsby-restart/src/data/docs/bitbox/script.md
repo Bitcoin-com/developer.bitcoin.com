@@ -1,6 +1,6 @@
 ---
   title: Script
-  icon: cubes
+  icon: code
   ordinal: 15
 ---
 

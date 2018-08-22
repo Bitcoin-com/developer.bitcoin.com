@@ -1,6 +1,6 @@
 ---
   title: Configuration
-  icon: home
+  icon: cogs
   ordinal: 4
 ---
 

@@ -2,27 +2,14 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import rehypeReact from 'rehype-react'
-import { graphql, Link, push } from 'gatsby'
+import { graphql, push } from 'gatsby'
 import Helmet from 'react-helmet'
-
-import {
-  FaAngleLeft,
-  FaAngleRight,
-  FaEllipsisH,
-  FaPlus,
-  FaHome,
-  FaTerminal,
-  FaFile,
-  FaWallet,
-} from 'react-icons/fa'
 
 import StyledLink, { SmartLink } from 'atoms/StyledLink'
 import DefaultLayout from 'components/layouts/DefaultLayout.js'
 
 import Text from 'atoms/Text'
-import H1 from 'atoms/H1'
 import H2 from 'atoms/H2'
-import H3 from 'atoms/H3'
 import Ul from 'atoms/Ul'
 import Code from 'atoms/Code'
 import Pre from 'atoms/Pre'
@@ -34,7 +21,8 @@ import Container from 'components/Container'
 
 import spacing from 'styles/spacing'
 import media from 'styles/media'
-import {getTitleDisplay} from 'utils/formatting';
+import { getTitleDisplay } from 'utils/formatting'
+import { getIcon } from 'utils/icon-helpers'
 
 // Short use inline custom component, long use codeblock
 const CodePreSplitter = ({ children }) => {
@@ -74,7 +62,7 @@ const DocLayout = styled.div`
     'content';
   grid-template-columns: 1fr;
   grid-template-rows: max-content max-content max-content;
-  
+
   ${media.medium`
     grid-template-areas:
       'nav breadcrumbs'
@@ -82,7 +70,7 @@ const DocLayout = styled.div`
     grid-template-columns: max-content 1fr;
     grid-template-rows: max-content max-content;
 
-  `}
+  `};
 `
 
 const SideNavLayout = styled.div`
@@ -117,28 +105,42 @@ const ContentLayout = styled.div`
     margin-top: 0 !important;
   }
 `
-const NavLinks = styled.div`
+const LinksLayout = styled.div`
   display: grid;
   grid-gap: ${spacing.tiny};
   ${media.medium`
     grid-gap: 0;
-  `}
+  `};
 `
 const NavFooter = styled.div`
   display: grid;
 `
 
-// Whitelist of valid icons
-const getIcon = (icon: string): React.Node => {
-  const ItemIcon = {
-    elipses: <FaEllipsisH />,
-    plus: <FaPlus />,
-    home: <FaHome />,
-    terminal: <FaTerminal />,
-    file: <FaFile />,
-    wallet: <FaWallet />
-  }[icon.toLowerCase()] || <FaAngleRight />
-  return ItemIcon
+type NavProps = {
+  location: Object,
+  docs: Object[]
+}
+class NavLinks extends React.PureComponent<NavProps> {
+  render() {
+    const { docs, location } = this.props
+    return (
+      <LinksLayout>
+        {docs.map(node => (
+          <StyledLink
+            key={node.node.fields.slug}
+            to={node.node.fields.slug}
+            isActive={location.pathname === node.node.fields.slug}
+          >
+            <Text monospace centerVertical size="small">
+              {getIcon(node.node.frontmatter.icon)}
+              &nbsp;
+              {node.node.frontmatter.title}
+            </Text>
+          </StyledLink>
+        ))}
+      </LinksLayout>
+    )
+  }
 }
 
 type Props = {
@@ -146,8 +148,8 @@ type Props = {
   location: Object,
 }
 
-class DocTemplate extends React.Component<Props> {
-  changeDocs(event: SyntheticEvent) {
+class DocTemplate extends React.PureComponent<Props> {
+  changeDocs(event: SyntheticEvent<onSelect>) {
     push(`/${event.target.value}`)
   }
 
@@ -160,9 +162,9 @@ class DocTemplate extends React.Component<Props> {
     return (
       <DefaultLayout location={location}>
         <Helmet
-          title={`${getTitleDisplay(doc.fields.product)}: ${doc.frontmatter.title} - ${
-            data.site.siteMetadata.title
-          }`}
+          title={`${getTitleDisplay(doc.fields.product)}: ${
+            doc.frontmatter.title
+          } - ${data.site.siteMetadata.title}`}
         />
         <Container>
           <DocLayout>
@@ -171,22 +173,10 @@ class DocTemplate extends React.Component<Props> {
                 <StyledLink isActive to={`/${doc.fields.product}`}>
                   <H2 isTitle>{getTitleDisplay(doc.fields.product)}</H2>
                 </StyledLink>
-                <NavLinks>
-                  {relatedDocs.map(node => (
-                    <StyledLink
-                      to={node.node.fields.slug}
-                      isActive={location.pathname === node.node.fields.slug}
-                    >
-                      <Text monospace centerVertical>
-                        {getIcon(node.node.frontmatter.icon)}
-                        &nbsp;
-                        {node.node.frontmatter.title}
-                      </Text>
-                    </StyledLink>
-                  ))}
-                </NavLinks>
+                <NavLinks docs={relatedDocs} location={location} />
+
                 <NavFooter>
-                  <Select onChange={this.changeDocs}>
+                  <Select onChange={this.changeDocs} size="small">
                     <option
                       selected={'bitbox' === doc.fields.product}
                       value={'bitbox/docs/getting-started'}

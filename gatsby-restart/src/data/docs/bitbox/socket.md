@@ -1,6 +1,6 @@
 ---
   title: Socket
-  icon: cubes
+  icon: plug
   ordinal: 16
 ---
 

@@ -1,6 +1,6 @@
 ---
   title: Price
-  icon: cubes
+  icon: dollar-sign
   ordinal: 13
 ---
 

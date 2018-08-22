@@ -48,10 +48,6 @@ type Props = {
 class Hero extends React.PureComponent<Props> {
   render() {
     const { image, className } = this.props
-
-    console.log('hero')
-    console.log(className)
-
     return (
       <Main backgroundImage={image} className={className}>
         <Cover />

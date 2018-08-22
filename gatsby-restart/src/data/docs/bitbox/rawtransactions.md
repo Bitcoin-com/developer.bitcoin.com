@@ -1,6 +1,6 @@
 ---
   title: RawTransactions
-  icon: cubes
+  icon: exchange
   ordinal: 14
 ---
 

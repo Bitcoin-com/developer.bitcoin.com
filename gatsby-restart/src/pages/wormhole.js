@@ -8,7 +8,6 @@ import { Link } from 'gatsby'
 import DefaultLayout from 'components/layouts/DefaultLayout'
 import Hero from 'components/Hero'
 import Container from 'components/Container'
-import InfoCard from 'components/InfoCard'
 
 import Text from 'atoms/Text'
 import H3 from 'atoms/H3'

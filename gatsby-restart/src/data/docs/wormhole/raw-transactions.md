@@ -1,6 +1,6 @@
 ---
   title: RawTransactions
-  icon: home
+  icon: exchange
   ordinal: 7
 ---
 
