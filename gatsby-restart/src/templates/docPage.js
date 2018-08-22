@@ -117,19 +117,20 @@ const NavFooter = styled.div`
 `
 
 type NavProps = {
-  location: Object,
+  activeDoc: Object,
   docs: Object[]
 }
 class NavLinks extends React.PureComponent<NavProps> {
   render() {
-    const { docs, location } = this.props
+    const { docs, activeDoc } = this.props
+
     return (
       <LinksLayout>
         {docs.map(node => (
           <StyledLink
             key={node.node.fields.slug}
             to={node.node.fields.slug}
-            isActive={location.pathname === node.node.fields.slug}
+            isActive={node.node.fields.slug === activeDoc.fields.slug}
           >
             <Text monospace centerVertical size="small">
               {getIcon(node.node.frontmatter.icon)}
@@ -173,7 +174,7 @@ class DocTemplate extends React.PureComponent<Props> {
                 <StyledLink isActive to={`/${doc.fields.product}`}>
                   <H2 isTitle>{getTitleDisplay(doc.fields.product)}</H2>
                 </StyledLink>
-                <NavLinks docs={relatedDocs} location={location} />
+                <NavLinks docs={relatedDocs} activeDoc={doc} />
 
                 <NavFooter>
                   <Select onChange={this.changeDocs} size="small">
@@ -234,6 +235,7 @@ export const query = graphql`
       }
       fields {
         product
+        slug
       }
     }
     allMarkdownRemark(
