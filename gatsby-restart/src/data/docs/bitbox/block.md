@@ -1,5 +1,5 @@
 ---
-  title: block
+  title: Block
   icon: cube
   ordinal: 5
 ---

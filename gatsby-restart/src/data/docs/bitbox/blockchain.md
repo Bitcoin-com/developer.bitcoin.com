@@ -1,8 +1,9 @@
 ---
-  title: blockchain
+  title: Blockchain
   icon: cubes
   ordinal: 6
 ---
+
 ### `getBestBlockHash`
 
 Returns the hash of the best (tip) block in the longest blockchain.
