@@ -6,7 +6,7 @@ const Button = styled.button`
   border-radius: ${props => props.round ? '32px' : '3px'};
   cursor:pointer;
   touch-action: manipulation;
-  background-color: ${props => props.primary ? props.theme.primary : props.theme.secondary};
+  background-color: ${props => props.theme.primary};
   color: ${props => props.theme.background};
   border: none;
   padding: .65em 1.5em;
@@ -14,7 +14,7 @@ const Button = styled.button`
   font-weight: 800;
   width: fit-content;
   &:hover {
-    background-color: ${props => props.primary ? props.theme.secondary : props.theme.secondaryContrast};
+    background-color: ${props => props.theme.secondary};
   }
 
 `
