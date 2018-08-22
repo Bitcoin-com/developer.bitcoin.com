@@ -33,20 +33,17 @@ const NavItem = styled(Link)`
 `
 
 type Props = {
-  location: {
-    pathname: string,
-  },
+  pathname: string
 };
 
 const developBaseUrls = ['/develop', '/bitbox', '/wormhole', '/gui', '/rest'];
 
 class NavBar extends React.PureComponent<Props> {
   render() {
-    const { location } = this.props;
+    const { pathname } = this.props;
 
-    const pathname = location ? location.pathname : '';
-
-    const homeActive = pathname === '/' || pathname==='';
+    // final `//` is for SSR as it ads an extra `/` to path names
+    const homeActive = pathname === '/' || pathname==='' || pathname === '//';
     const learnActive = pathname.includes('/learn')
     const developActive = developBaseUrls.reduce((prev, curr) => prev || pathname.includes(curr), false);
     const aboutActive = pathname.includes('/about')

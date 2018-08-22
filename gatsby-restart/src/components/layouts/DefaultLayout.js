@@ -65,7 +65,7 @@ const DefaultLayout = ({ children, location }: Props) => (
         </Helmet>
         <ThemeProvider theme={defaultTheme}>
           <Main>
-            <NavBar location={location}/>
+            <NavBar pathname={location ? location.pathname : ''}/>
             {children}
           </Main>
         </ThemeProvider>
