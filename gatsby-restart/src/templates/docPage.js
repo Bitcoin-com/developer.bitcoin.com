@@ -2,16 +2,14 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import rehypeReact from 'rehype-react'
-import { graphql, Link, push } from 'gatsby'
+import { graphql, push } from 'gatsby'
 import Helmet from 'react-helmet'
 
 import StyledLink, { SmartLink } from 'atoms/StyledLink'
 import DefaultLayout from 'components/layouts/DefaultLayout.js'
 
 import Text from 'atoms/Text'
-import H1 from 'atoms/H1'
 import H2 from 'atoms/H2'
-import H3 from 'atoms/H3'
 import Ul from 'atoms/Ul'
 import Code from 'atoms/Code'
 import Pre from 'atoms/Pre'
@@ -24,7 +22,7 @@ import Container from 'components/Container'
 import spacing from 'styles/spacing'
 import media from 'styles/media'
 import { getTitleDisplay } from 'utils/formatting'
-import { getIcon } from 'utils/icon-helpers';
+import { getIcon } from 'utils/icon-helpers'
 
 // Short use inline custom component, long use codeblock
 const CodePreSplitter = ({ children }) => {
@@ -107,7 +105,7 @@ const ContentLayout = styled.div`
     margin-top: 0 !important;
   }
 `
-const NavLinks = styled.div`
+const LinksLayout = styled.div`
   display: grid;
   grid-gap: ${spacing.tiny};
   ${media.medium`
@@ -118,12 +116,39 @@ const NavFooter = styled.div`
   display: grid;
 `
 
+type NavProps = {
+  location: Object,
+  docs: Object[]
+}
+class NavLinks extends React.PureComponent<NavProps> {
+  render() {
+    const { docs, location } = this.props
+    return (
+      <LinksLayout>
+        {docs.map(node => (
+          <StyledLink
+            key={node.node.fields.slug}
+            to={node.node.fields.slug}
+            isActive={location.pathname === node.node.fields.slug}
+          >
+            <Text monospace centerVertical size="small">
+              {getIcon(node.node.frontmatter.icon)}
+              &nbsp;
+              {node.node.frontmatter.title}
+            </Text>
+          </StyledLink>
+        ))}
+      </LinksLayout>
+    )
+  }
+}
+
 type Props = {
   data: Object,
   location: Object,
 }
 
-class DocTemplate extends React.Component<Props> {
+class DocTemplate extends React.PureComponent<Props> {
   changeDocs(event: SyntheticEvent) {
     push(`/${event.target.value}`)
   }
@@ -148,21 +173,8 @@ class DocTemplate extends React.Component<Props> {
                 <StyledLink isActive to={`/${doc.fields.product}`}>
                   <H2 isTitle>{getTitleDisplay(doc.fields.product)}</H2>
                 </StyledLink>
-                <NavLinks>
-                  {relatedDocs.map(node => (
-                    <StyledLink
-                      key={node.node.fields.slug}
-                      to={node.node.fields.slug}
-                      isActive={location.pathname === node.node.fields.slug}
-                    >
-                      <Text monospace centerVertical size="small">
-                        {getIcon(node.node.frontmatter.icon)}
-                        &nbsp;
-                        {node.node.frontmatter.title}
-                      </Text>
-                    </StyledLink>
-                  ))}
-                </NavLinks>
+                <NavLinks docs={relatedDocs} location={location} />
+
                 <NavFooter>
                   <Select onChange={this.changeDocs} size="small">
                     <option

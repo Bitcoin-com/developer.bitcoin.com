@@ -3,10 +3,6 @@ import * as React from 'react'
 import SyntaxHighlighter from 'react-syntax-highlighter/prism'
 import { solarizedlight } from 'react-syntax-highlighter/styles/prism'
 
-// import Text from './Text';
-import styled, { css } from 'styled-components'
-
-import spacing from 'styles/spacing'
 
 type Props = {
   children: React.Node,

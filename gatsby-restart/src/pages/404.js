@@ -9,7 +9,7 @@ import Text from 'atoms/Text'
 type Props = {
   location: Object
 }
-const NotFoundPage = ({location}) => (
+const NotFoundPage = ({location}: Props) => (
   <DefaultLayout location={location}>
     <H1>NOT FOUND</H1>
     <Text>You just hit a route that doesn&#39;t exist... the sadness.</Text>

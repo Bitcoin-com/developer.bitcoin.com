@@ -3,15 +3,15 @@
 import palette from './palette';
 
 const defaultTheme = {
-  primary: '#fab915',
+  primary: palette.sun,
   primaryContrast: 'blue',
-  primaryMuted: '#fdf6e3',
-  secondary: '#4cca47',
-  secondaryContrast: '#478559',
-  foreground: '#151b1e',
-  foregroundMuted: '#444',
-  background: '#fff',
-  backgroundMuted: '#bbb',
+  primaryMuted: palette.oldLace,
+  secondary: palette.emerald,
+  secondaryContrast: palette.goblin,
+  foreground: palette.woodsmoke,
+  foregroundMuted: palette.tundora,
+  background: palette.white,
+  backgroundMuted: palette.silver,
 
 }
 
