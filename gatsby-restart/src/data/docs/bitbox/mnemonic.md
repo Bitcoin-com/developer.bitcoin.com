@@ -1,7 +1,7 @@
 ---
   title: Mnemonic
   icon: elipses
-  ordinal: 1
+  ordinal: 4
 ---
 
 ## `Mnemonic.generate`
@@ -63,42 +63,42 @@ mnemonic string a random mnemonic
 ```javascript
 // generate 16 bytes of entropy
 let entropy = BITBOX.Crypto.randomBytes(16);
-// 
+//
 // turn entropy to 12 word mnemonic
 BITBOX.Mnemonic.fromEntropy(entropy)
 // security question relief cruel nephew jump chest copper axis assist gift correct
 
 // generate 20 bytes of entropy
 let entropy = BITBOX.Crypto.randomBytes(20);
-// 
+//
 // turn entropy to 15 word mnemonic
 BITBOX.Mnemonic.fromEntropy(entropy)
 // impact hub pattern turkey cruel adult short moment make toe one actress roast yellow hurt
 
 // generate 24 bytes of entropy
 let entropy = BITBOX.Crypto.randomBytes(24);
-// 
+//
 // turn entropy to 18 word mnemonic
 BITBOX.Mnemonic.fromEntropy(entropy)
 // bid quantum chronic marriage swing affair record amateur enhance heart object mind spoon speak toast piece chef real
 
 // generate 28 bytes of entropy
 let entropy = BITBOX.Crypto.randomBytes(28);
-// 
+//
 // turn entropy to 21 word mnemonic
 BITBOX.Mnemonic.fromEntropy(entropy)
 // orchard rural giant okay tape pipe luggage clap bring wear ticket slot fiscal seminar crazy robot distance current dizzy swarm barrel
 
 // generate 32 bytes of entropy
 let entropy = BITBOX.Crypto.randomBytes(32);
-// 
+//
 // turn entropy to 24 word mnemonic
 BITBOX.Mnemonic.fromEntropy(entropy)
 // vibrant solution level obtain cheap damage october giant chalk cushion assist fossil spawn artist rice edit proof hotel process survey gas sausage mouse property
 
 // generate 16 bytes of entropy
 let entropy = BITBOX.Crypto.randomBytes(16);
-// 
+//
 // turn entropy to 12 japanese word mnemonic
 BITBOX.Mnemonic.fromEntropy(entropy.toString('hex'), BITBOX.Mnemonic.wordLists().japanese)
 // ぱそこん　にあう　にんめい　きどく　ちそう　せんきょ　かいが　きおく　いれる　いねむり　しいく　きかんしゃ
@@ -123,22 +123,22 @@ entropy `Buffer` entropy encoded as buffer
 // turn 12 word mnemonic to entropy
 let mnemonic = 'security question relief cruel nephew jump chest copper axis assist gift correct';
 BITBOX.Mnemonic.toEntropy(mnemonic)
-// 
+//
 
 // turn 15 word mnemonic to entropy
 let mnemonic = 'impact hub pattern turkey cruel adult short moment make toe one actress roast yellow hurt';
 BITBOX.Mnemonic.toEntropy(mnemonic)
-// 
+//
 
 // turn 18 word mnemonic to entropy
 let mnemonic = 'bid quantum chronic marriage swing affair record amateur enhance heart object mind spoon speak toast piece chef real';
 BITBOX.Mnemonic.toEntropy(mnemonic)
-// 
+//
 
 // turn 21 word mnemonic to entropy
 let mnemonic = 'orchard rural giant okay tape pipe luggage clap bring wear ticket slot fiscal seminar crazy robot distance current dizzy swarm barrel';
 BITBOX.Mnemonic.toEntropy(mnemonic)
-// 
+//
 
 // turn 24 word mnemonic to entropy
 let mnemonic = 'vibrant solution level obtain cheap damage october giant chalk cushion assist fossil spawn artist rice edit proof hotel process survey gas sausage mouse property';
@@ -218,7 +218,7 @@ BITBOX.Mnemonic.wordLists();
 //   spanish: []
 // }
 ```
-                    
+
 ## `toKeypairs`
 
 Returns an array of privateKeyWIF/publicAddress pairs. It generates the addresses as the nth external change address of the first account from that mnemonic w/ this derivation path: m/44’/145’/0’/0/n
@@ -235,7 +235,7 @@ Returns an array of privateKeyWIF/publicAddress pairs. It generates the addresse
 ```javascript
 // First create a mnemonic from 32 bytes of random entropy
 let entropy = BITBOX.Crypto.randomBytes(32);
-// 
+//
 let mnemonic = BITBOX.Mnemonic.fromEntropy(entropy);
 // symptom owner ridge follow buffalo choose stem depend million jar lemon claw color credit remove model pudding slot fiber west heavy ranch bird wet
 
@@ -252,7 +252,7 @@ BITBOX.Mnemonic.toKeypairs(mnemonic, 5)
 // { privateKeyWIF: 'Kz3qqJ8GFSSbDrBqtV7mfhBoDPkSmMKtp7Yk62psDgmRjyU8id8J',
 // address: 'bitcoincash:qp8xjllc75c2hgrpjy3f6kegtfqgmn72dqs0y20anv' } ]
 ```
-                    
+
 ## `findNearestWord`
 Returns nearest matching word from provided word list
 
