@@ -1,6 +1,6 @@
 ---
   title: Transaction
-  icon: cubes
+  icon: exchange
   ordinal: 17
 ---
 

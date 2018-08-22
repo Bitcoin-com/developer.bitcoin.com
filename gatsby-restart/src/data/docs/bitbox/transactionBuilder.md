@@ -1,6 +1,6 @@
 ---
   title: TransactionBuilder
-  icon: cubes
+  icon: arrows-vertical
   ordinal: 18
 ---
 

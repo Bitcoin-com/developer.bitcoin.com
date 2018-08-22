@@ -1,6 +1,6 @@
 ---
   title: ECPair
-  icon: cubes
+  icon: key
   ordinal: 9
 ---
 

@@ -1,6 +1,6 @@
 ---
   title: Generating
-  icon: cubes
+  icon: buromobelexperte
   ordinal: 10
 ---
 

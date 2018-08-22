@@ -1,6 +1,6 @@
 ---
   title: Mining
-  icon: cubes
+  icon: code-branch
   ordinal: 12
 ---
 
