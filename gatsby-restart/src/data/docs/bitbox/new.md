@@ -1,7 +1,7 @@
 ---
   title: New
   icon: plus
-  ordinal: 2
+  ordinal: 1
 ---
 
 BITBOX will generate a new app w/ empty `src/` and `test/` directories and a `bitbox.js` configured to connect to Bitcoin.com’s Cloud.
