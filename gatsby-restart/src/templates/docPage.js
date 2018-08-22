@@ -149,7 +149,7 @@ type Props = {
 }
 
 class DocTemplate extends React.PureComponent<Props> {
-  changeDocs(event: SyntheticEvent) {
+  changeDocs(event: SyntheticEvent<onSelect>) {
     push(`/${event.target.value}`)
   }
 

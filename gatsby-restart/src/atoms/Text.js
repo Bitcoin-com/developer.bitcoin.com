@@ -3,7 +3,6 @@
 /* eslint-disable */
 
 import styled, { css } from 'styled-components'
-// import chroma from 'chroma-js'
 
 import media from 'styles/media'
 import spacing from 'styles/spacing'
@@ -29,7 +28,6 @@ export const textBase = css`
   position: relative;
   font-size-adjust: 0.5;
   vertical-align: middle;
-  transition: color 0.1s;
 
   font-size: 16px;
   line-height:20px;
