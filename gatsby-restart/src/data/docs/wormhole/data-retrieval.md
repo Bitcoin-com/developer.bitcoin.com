@@ -10,7 +10,7 @@ Returns a list of all token balances for a given address.
 
 #### Arguments
 
-1.  address (string, required)
+1.  address `String` required
 
 #### Result
 
@@ -19,11 +19,7 @@ array `Array` of JSON Objects
 #### Examples
 
 
-      Wormhole.DataRetrieval.balancesForAddress("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg").then((result) => {
-      console.log(result);
-      }, (err) => {
-      console.log(err);
-      });
+      await Wormhole.DataRetrieval.balancesForAddress("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg");
 
       // [ { propertyid: 1,
       //  balance: '100.00106300',
@@ -36,7 +32,7 @@ Returns a list of token balances for a given currency or property identifier.
 
 #### Arguments
 
-1.  propertyId (number, required): The property identifier
+1.  propertyId `Number` required: The property identifier
 
 #### Result
 
@@ -45,11 +41,7 @@ array `Array` of JSON Objects
 #### Examples
 
 
-      Wormhole.DataRetrieval.balancesForId(1).then((result) => {
-      console.log(result);
-      }, (err) => {
-      console.log(err);
-      });
+      await Wormhole.DataRetrieval.balancesForId(1);
 
       // [{ address: 'bchtest:qqsjkzpg4vdzxaw95pealfnh78g7lnr7dquj3xd9z2',
       //   balance: '107.00019168',
@@ -65,8 +57,8 @@ Returns the token balance for a given address and property.
 
 #### Arguments
 
-1.  address (string, required): The address
-2.  propertyId (number, required): The property identifier
+1.  address `String` required: The address
+2.  propertyId `Number` required: The property identifier
 
 #### Result
 
@@ -75,10 +67,7 @@ obj `Object`
 #### Examples
 
 
-      Wormhole.DataRetrieval.balance("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 1).then((result) => {
-      console.log(result);
-      }, (err) => {
-      console.log(err);
+      await Wormhole.DataRetrieval.balance("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 1);
       });
 
       // { balance: '100.00106300', reserved: '0.00000000' }
@@ -90,7 +79,7 @@ Returns a hash of the balances for the property.
 
 #### Arguments
 
-1.  propertyId (number, required): The property to hash balances for
+1.  propertyId `Number` required: The property to hash balances for
 
 #### Result
 
@@ -99,11 +88,7 @@ obj `Object`
 #### Examples
 
 
-      Wormhole.DataRetrieval.balancesHash(31).then((result) => {
-      console.log(result);
-      }, (err) => {
-      console.log(err);
-      });
+      await Wormhole.DataRetrieval.balancesHash(31);
 
       // { block: 1250914,
       // blockhash: '000000000000001ad8258ac965843773d56a12979727245a910fb82f306b34e6',
@@ -117,8 +102,8 @@ Returns information about a crowdsale.
 
 #### Arguments
 
-1.  propertyId (number, required): The identifier of the crowdsale
-2.  verbose (boolean, optional): list crowdsale participants (default: false)
+1.  propertyId `Number` required: The identifier of the crowdsale
+2.  verbose `Boolean` optional: list crowdsale participants (default: false)
 
 #### Result
 
@@ -127,11 +112,7 @@ obj `Object`
 #### Examples
 
 
-      Wormhole.DataRetrieval.crowdSale(31, true).then((result) => {
-      console.log(result);
-      }, (err) => {
-      console.log(err);
-      });
+      await Wormhole.DataRetrieval.crowdSale(31, true);
 
       // { propertyid: 31,
       // name: 'qshuaifinalcrowsale',
@@ -161,11 +142,7 @@ obj `Object`
 #### Examples
 
 
-      Wormhole.DataRetrieval.currentConsensusHash().then((result) => {
-      console.log(result);
-      }, (err) => {
-      console.log(err);
-      });
+      await Wormhole.DataRetrieval.currentConsensusHash();
 
       // { block: 1250268,
       // blockhash: '00000000000002d60ea1e020b5da0732f7fab9330fe25137fc5b1eb0fb7269cf',
@@ -178,8 +155,8 @@ Returns the percentage share of fees distribution applied to the wallet (default
 
 #### Arguments
 
-1.  address (string, optional) retrieve the fee share for the supplied address
-2.  ecosystem (number, optional) the ecosystem to check the fee share (1 for main ecosystem, 2 for test ecosystem)
+1.  address `String` optional: retrieve the fee share for the supplied address
+2.  ecosystem `Number` optional: the ecosystem to check the fee share (1 for main ecosystem, 2 for test ecosystem)
 
 #### Result
 
@@ -188,11 +165,7 @@ array `Array` of JSON Objects
 #### Examples
 
 
-      Wormhole.DataRetrieval.feeShare("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 1).then((result) => {
-      console.log(result);
-      }, (err) => {
-      console.log(err);
-      });
+      await Wormhole.DataRetrieval.feeShare("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 1);
 
       // [ { address: 'bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg',
       // feeshare: '0.6912%' } ]
@@ -204,7 +177,7 @@ Returns information about granted and revoked units of managed tokens.
 
 #### Arguments
 
-1.  propertyId (number, required) The identifier of the managed tokens to lookup
+1.  propertyId `Number` required: The identifier of the managed tokens to lookup
 
 #### Result
 
@@ -213,11 +186,7 @@ obj `Object`
 #### Examples
 
 
-      Wormhole.DataRetrieval.grants(3).then((result) => {
-      console.log(result);
-      }, (err) => {
-      console.log(err);
-      });
+      await Wormhole.DataRetrieval.grants(3);
 
       // { propertyid: 3,
       // name: 'test_token1',
@@ -242,11 +211,7 @@ obj `Object`
 #### Examples
 
 
-      Wormhole.DataRetrieval.info().then((result) => {
-      console.log(result);
-      }, (err) => {
-      console.log(err);
-      });
+      await Wormhole.DataRetrieval.info();
 
       // { wormholeversion_int: 4000,
       // wormholeversion: '0.0.4',
@@ -265,7 +230,7 @@ Get the payload for an Omni transaction.
 
 #### Arguments
 
-1.  txid (string, required) The hash of the transaction to retrieve payload
+1.  txid `String` required: The hash of the transaction to retrieve payload
 
 #### Result
 
@@ -274,11 +239,7 @@ obj `Object`
 #### Examples
 
 
-      Wormhole.DataRetrieval.payload("000000000000000000000000000000000000000000000000000000000000000").then((result) => {
-      console.log(result);
-      }, (err) => {
-      console.log(err);
-      });
+      await Wormhole.DataRetrieval.payload("000000000000000000000000000000000000000000000000000000000000000");
 
 
 ### `property`
@@ -287,7 +248,7 @@ Returns details for about the tokens or smart property to lookup.
 
 #### Arguments
 
-1.  propertyId (number, required) The identifier of the tokens or property
+1.  propertyId `Number` required: The identifier of the tokens or property
 
 #### Result
 
@@ -296,11 +257,7 @@ obj `Object`
 #### Examples
 
 
-      Wormhole.DataRetrieval.property(3).then((result) => {
-      console.log(result);
-      }, (err) => {
-      console.log(err);
-      });
+      await Wormhole.DataRetrieval.property(3);
 
       // { propertyid: 3,
       // name: 'test_token1',
@@ -323,8 +280,8 @@ Returns a list of blocks containing Omni transactions for use in seed block filt
 
 #### Arguments
 
-1.  startBlock (number, required) The first block to look for Omni transactions (inclusive)
-2.  endBlock (number, required) The last block to look for Omni transactions (inclusive)
+1.  startBlock `Number` required: The first block to look for Omni transactions (inclusive)
+2.  endBlock `Number` required: The last block to look for Omni transactions (inclusive)
 
 #### Result
 
@@ -333,11 +290,7 @@ obj `Object`
 #### Examples
 
 
-      Wormhole.DataRetrieval.seedBlocks(290000, 300000).then((result) => {
-      console.log(result);
-      }, (err) => {
-      console.log(err);
-      });
+      await Wormhole.DataRetrieval.seedBlocks(290000, 300000);
       // []
 
 
@@ -347,8 +300,8 @@ Get information and recipients of a send\-to\-owners transaction.
 
 #### Arguments
 
-1.  txid (string, required) The hash of the transaction to lookup
-2.  recipientFilter (string, optional) A filter for recipients (wallet by default, '\*' for all)
+1.  txid `String` required: The hash of the transaction to lookup
+2.  recipientFilter `String` required: A filter for recipients (wallet by default, '\*' for all)
 
 #### Result
 
@@ -357,11 +310,7 @@ obj `Object`
 #### Examples
 
 
-      Wormhole.DataRetrieval.STO("000000000000000000000000000000000000000000000000000000000000000", "*").then((result) => {
-      console.log(result);
-      }, (err) => {
-      console.log(err);
-      });
+      await Wormhole.DataRetrieval.STO("000000000000000000000000000000000000000000000000000000000000000", "*");
 
 
 ### `transaction`
@@ -370,7 +319,7 @@ Get detailed information about an Omni transaction.
 
 #### Arguments
 
-1.  txid (string, required) The hash of the transaction to lookup
+1.  txid `String` required: The hash of the transaction to lookup
 
 #### Result
 
@@ -379,11 +328,7 @@ obj `Object`
 #### Examples
 
 
-      Wormhole.DataRetrieval.transaction("000000000000000000000000000000000000000000000000000000000000000").then((result) => {
-      console.log(result);
-      }, (err) => {
-      console.log(err);
-      });
+      await Wormhole.DataRetrieval.transaction("000000000000000000000000000000000000000000000000000000000000000");
 
 
 ### `blockTransactions`
@@ -392,7 +337,7 @@ Lists all Omni transactions in a block.
 
 #### Arguments
 
-1.  index (number, required) The block height or block index
+1.  index `Number` required: The block height or block index
 
 #### Result
 
@@ -401,11 +346,7 @@ arr `Array` of strings
 #### Examples
 
 
-      Wormhole.DataRetrieval.blockTransactions("0000000000009ae2ee5d085a0f3d20c8ace0c742af60269f44fc3e3af354b5cb").then((result) => {
-      console.log(result);
-      }, (err) => {
-      console.log(err);
-      });
+      await Wormhole.DataRetrieval.blockTransactions("0000000000009ae2ee5d085a0f3d20c8ace0c742af60269f44fc3e3af354b5cb");
       // []
 
 
@@ -415,7 +356,7 @@ Returns a list of unconfirmed Omni transactions, pending in the memory pool.
 
 #### Arguments
 
-1.  address (string, optional) Address filter (default: '' for no filter)
+1.  address `Number` optional: Address filter (default: '' for no filter)
 
 #### Result
 
@@ -424,11 +365,7 @@ arr `Array` of JSON objects
 #### Examples
 
 
-      Wormhole.DataRetrieval.pendingTransactions().then((result) => {
-      console.log(result);
-      }, (err) => {
-      console.log(err);
-      });
+      await Wormhole.DataRetrieval.pendingTransactions();
       // []
 
 
@@ -443,11 +380,7 @@ arr `Array` of JSON objects
 #### Examples
 
 
-      Wormhole.DataRetrieval.properties().then((result) => {
-      console.log(result);
-      }, (err) => {
-      console.log(err);
-      });
+      await Wormhole.DataRetrieval.properties();
 
       // [ { propertyid: 1,
       //   name: 'WHC',
@@ -478,11 +411,7 @@ arr `Array` of JSON objects
 #### Examples
 
 
-      Wormhole.DataRetrieval.transactions().then((result) => {
-      console.log(result);
-      }, (err) => {
-      console.log(err);
-      });
+      await Wormhole.DataRetrieval.transactions();
 
       // [ { txid: '66e83012877ad9a69a1a61eaadcef2086c74de573fec7c0b54173ff138ab1262',
       //  fee: '2726',

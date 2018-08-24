@@ -10,7 +10,7 @@ Sets the global flag that determines whether transactions are automatically comm
 
 #### Arguments
 
-1.  flag (boolean, required)
+1.  flag `Boolean` required
 
 #### Result
 
@@ -19,8 +19,4 @@ flag `boolean`
 #### Examples
 
 
-      Wormhole.Configuration.autoCommit(true).then((result) => {
-      console.log(result);
-      }, (err) => {
-      console.log(err);
-      });
+      await Wormhole.Configuration.autoCommit(true);
