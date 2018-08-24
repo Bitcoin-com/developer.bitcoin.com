@@ -29,7 +29,7 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            address (string, required)
+            address <code>String</code> required
           </li>
         </ol>
         <h4>Result</h4>
@@ -39,11 +39,7 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.DataRetrieval.balancesForAddress("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg").then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.DataRetrieval.balancesForAddress("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg");
 
   // [ { propertyid: 1,
   //  balance: '100.00106300',
@@ -57,7 +53,7 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            propertyId (number, required): The property identifier
+            propertyId <code>Number</code> required: The property identifier
           </li>
         </ol>
         <h4>Result</h4>
@@ -67,11 +63,7 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.DataRetrieval.balancesForId(1).then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.DataRetrieval.balancesForId(1);
 
   // [{ address: 'bchtest:qqsjkzpg4vdzxaw95pealfnh78g7lnr7dquj3xd9z2',
   //   balance: '107.00019168',
@@ -88,10 +80,10 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            address (string, required): The address
+            address <code>String</code> required: The address
           </li>
           <li>
-            propertyId (number, required): The property identifier
+            propertyId <code>Number</code> required: The property identifier
           </li>
         </ol>
         <h4>Result</h4>
@@ -101,10 +93,7 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.DataRetrieval.balance("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 1).then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
+  await Wormhole.DataRetrieval.balance("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 1);
   });
 
   // { balance: '100.00106300', reserved: '0.00000000' }
@@ -117,7 +106,7 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            propertyId (number, required): The property to hash balances for
+            propertyId <code>Number</code> required: The property to hash balances for
           </li>
         </ol>
         <h4>Result</h4>
@@ -127,11 +116,7 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.DataRetrieval.balancesHash(31).then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.DataRetrieval.balancesHash(31);
 
   // { block: 1250914,
   // blockhash: '000000000000001ad8258ac965843773d56a12979727245a910fb82f306b34e6',
@@ -146,10 +131,10 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            propertyId (number, required): The identifier of the crowdsale
+            propertyId <code>Number</code> required: The identifier of the crowdsale
           </li>
           <li>
-            verbose (boolean, optional): list crowdsale participants (default: false)
+            verbose <code>Boolean</code> optional: list crowdsale participants (default: false)
           </li>
         </ol>
         <h4>Result</h4>
@@ -159,11 +144,7 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.DataRetrieval.crowdSale(31, true).then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.DataRetrieval.crowdSale(31, true);
 
   // { propertyid: 31,
   // name: 'qshuaifinalcrowsale',
@@ -193,11 +174,7 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.DataRetrieval.currentConsensusHash().then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.DataRetrieval.currentConsensusHash();
 
   // { block: 1250268,
   // blockhash: '00000000000002d60ea1e020b5da0732f7fab9330fe25137fc5b1eb0fb7269cf',
@@ -211,10 +188,10 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            address (string, optional) retrieve the fee share for the supplied address
+            address <code>String</code> optional: retrieve the fee share for the supplied address
           </li>
           <li>
-            ecosystem (number, optional) the ecosystem to check the fee share (1 for main ecosystem, 2 for test ecosystem)
+            ecosystem <code>Number</code> optional: the ecosystem to check the fee share (1 for main ecosystem, 2 for test ecosystem)
           </li>
         </ol>
         <h4>Result</h4>
@@ -224,11 +201,7 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.DataRetrieval.feeShare("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 1).then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.DataRetrieval.feeShare("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 1);
 
   // [ { address: 'bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg',
   // feeshare: '0.6912%' } ]
@@ -241,7 +214,7 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            propertyId (number, required) The identifier of the managed tokens to lookup
+            propertyId <code>Number</code> required: The identifier of the managed tokens to lookup
           </li>
         </ol>
         <h4>Result</h4>
@@ -251,11 +224,7 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.DataRetrieval.grants(3).then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.DataRetrieval.grants(3);
 
   // { propertyid: 3,
   // name: 'test_token1',
@@ -280,11 +249,7 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.DataRetrieval.info().then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.DataRetrieval.info();
 
   // { wormholeversion_int: 4000,
   // wormholeversion: '0.0.4',
@@ -304,7 +269,7 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            txid (string, required) The hash of the transaction to retrieve payload
+            txid <code>String</code> required: The hash of the transaction to retrieve payload
           </li>
         </ol>
         <h4>Result</h4>
@@ -314,11 +279,7 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.DataRetrieval.payload("000000000000000000000000000000000000000000000000000000000000000").then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.DataRetrieval.payload("000000000000000000000000000000000000000000000000000000000000000");
         </code></pre>
 
         <h3 id='property'><code>property</code></h3>
@@ -328,7 +289,7 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            propertyId (number, required) The identifier of the tokens or property
+            propertyId <code>Number</code> required: The identifier of the tokens or property
           </li>
         </ol>
         <h4>Result</h4>
@@ -338,11 +299,7 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.DataRetrieval.property(3).then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.DataRetrieval.property(3);
 
   // { propertyid: 3,
   // name: 'test_token1',
@@ -366,10 +323,10 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            startBlock (number, required) The first block to look for Omni transactions (inclusive)
+            startBlock <code>Number</code> required: The first block to look for Omni transactions (inclusive)
           </li>
           <li>
-            endBlock (number, required) The last block to look for Omni transactions (inclusive)
+            endBlock <code>Number</code> required: The last block to look for Omni transactions (inclusive)
           </li>
         </ol>
         <h4>Result</h4>
@@ -379,11 +336,7 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.DataRetrieval.seedBlocks(290000, 300000).then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.DataRetrieval.seedBlocks(290000, 300000);
   // []
         </code></pre>
 
@@ -394,10 +347,10 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            txid (string, required) The hash of the transaction to lookup
+            txid <code>String</code> required: The hash of the transaction to lookup
           </li>
           <li>
-            recipientFilter (string, optional) A filter for recipients (wallet by default, '*' for all)
+            recipientFilter <code>String</code> required: A filter for recipients (wallet by default, '*' for all)
           </li>
         </ol>
         <h4>Result</h4>
@@ -407,11 +360,7 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.DataRetrieval.STO("000000000000000000000000000000000000000000000000000000000000000", "*").then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.DataRetrieval.STO("000000000000000000000000000000000000000000000000000000000000000", "*");
         </code></pre>
 
         <h3 id='transaction'><code>transaction</code></h3>
@@ -421,7 +370,7 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            txid (string, required) The hash of the transaction to lookup
+            txid <code>String</code> required: The hash of the transaction to lookup
           </li>
         </ol>
         <h4>Result</h4>
@@ -431,11 +380,7 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.DataRetrieval.transaction("000000000000000000000000000000000000000000000000000000000000000").then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.DataRetrieval.transaction("000000000000000000000000000000000000000000000000000000000000000");
         </code></pre>
 
         <h3 id='blockTransactions'><code>blockTransactions</code></h3>
@@ -445,7 +390,7 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            index (number, required) The block height or block index
+            index <code>Number</code> required: The block height or block index
           </li>
         </ol>
         <h4>Result</h4>
@@ -455,11 +400,7 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.DataRetrieval.blockTransactions("0000000000009ae2ee5d085a0f3d20c8ace0c742af60269f44fc3e3af354b5cb").then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.DataRetrieval.blockTransactions("0000000000009ae2ee5d085a0f3d20c8ace0c742af60269f44fc3e3af354b5cb");
   // []
         </code></pre>
 
@@ -470,7 +411,7 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            address (string, optional) Address filter (default: '' for no filter)
+            address <code>Number</code> optional: Address filter (default: '' for no filter)
           </li>
         </ol>
         <h4>Result</h4>
@@ -480,11 +421,7 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.DataRetrieval.pendingTransactions().then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.DataRetrieval.pendingTransactions();
   // []
         </code></pre>
 
@@ -499,11 +436,7 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.DataRetrieval.properties().then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.DataRetrieval.properties();
 
   // [ { propertyid: 1,
   //   name: 'WHC',
@@ -533,11 +466,7 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.DataRetrieval.transactions().then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.DataRetrieval.transactions();
 
   // [ { txid: '66e83012877ad9a69a1a61eaadcef2086c74de573fec7c0b54173ff138ab1262',
   //  fee: '2726',

@@ -33,11 +33,7 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.PayloadCreation.burnBCH().then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.PayloadCreation.burnBCH();
   // 00000044
         </code></pre>
 
@@ -48,7 +44,7 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            propertyId (number, required) The identifier of the tokens
+            propertyId <code>Number</code> required: The identifier of the tokens
           </li>
         </ol>
         <h4>Result</h4>
@@ -58,11 +54,7 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.PayloadCreation.changeIssuer(3).then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.PayloadCreation.changeIssuer(3);
   // 0000004600000003
         </code></pre>
 
@@ -73,7 +65,7 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            propertyId (number, required) The identifier of the crowdsale to close
+            propertyId <code>Number</code> required: The identifier of the crowdsale to close
           </li>
         </ol>
         <h4>Result</h4>
@@ -83,11 +75,7 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.PayloadCreation.closeCrowdSale(70).then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.PayloadCreation.closeCrowdSale(70);
   // 0000003500000046
         </code></pre>
 
@@ -98,13 +86,13 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            propertyId (number, required) The identifier of the tokens to grant
+            propertyId <code>Number</code> required: The identifier of the tokens to grant
           </li>
           <li>
-            amount (string, required) The amount of tokens to create
+            amount <code>String</code> required: The amount of tokens to create
           </li>
           <li>
-            memo (string, optional) A text note attached to this transaction (none by default)
+            memo <code>String</code> optional: A text note attached to this transaction (none by default)
           </li>
         </ol>
         <h4>Result</h4>
@@ -114,11 +102,7 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
         <h4>Examples</h4>
 
         <pre><code>
-    Wormhole.PayloadCreation.grant(3, "7000").then((result) => {
-    console.log(result);
-    }, (err) => {
-    console.log(err);
-    });
+    await Wormhole.PayloadCreation.grant(3, "7000");
     // 00000037000000030000000000001b5800
         </code></pre>
 
@@ -129,46 +113,46 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            ecosystem (string, required) The ecosystem to create the tokens in, must be 1
+            ecosystem <code>String</code> required: The ecosystem to create the tokens in, must be 1
           </li>
           <li>
-            propertyPrecision (number, required) The precision of the tokens to create:[0, 8]
+            propertyPrecision <code>Number</code> required: The precision of the tokens to create:[0, 8]
           </li>
           <li>
-            previousId (number, required) An identifier of a predecessor token (0 for new crowdsales)
+            previousId <code>Number</code> required: An identifier of a predecessor token (0 for new crowdsales)
           </li>
           <li>
-            category (string, required) A category for the new tokens
+            category <code>String</code> required: A category for the new tokens
           </li>
           <li>
-            subcategory (string, required) A subcategory for the new tokens
+            subcategory <code>String</code> required: A subcategory for the new tokens
           </li>
           <li>
-            name (string, required) The name of the new tokens to create
+            name <code>String</code> required: The name of the new tokens to create
           </li>
           <li>
-            url (string, required) An URL for further information about the new tokens
+            url <code>String</code> required: An URL for further information about the new tokens
           </li>
           <li>
-            data (string, required) A description for the new tokens
+            data <code>String</code> required: A description for the new tokens
           </li>
           <li>
-            propertyIdDesired (number, required) The identifier of a token eligible to participate in the crowdsale
+            propertyIdDesired <code>Number</code> required: The identifier of a token eligible to participate in the crowdsale
           </li>
           <li>
-            tokensPerUnit (string, required) The amount of tokens granted per unit invested in the crowdsale
+            tokensPerUnit <code>String</code> required: The amount of tokens granted per unit invested in the crowdsale
           </li>
           <li>
-            deadline (number, required) The deadline of the crowdsale as Unix timestamp
+            deadline <code>Number</code> required: The deadline of the crowdsale as Unix timestamp
           </li>
           <li>
-            earlyBonus (number, required) An early bird bonus for participants in percent per week
+            earlyBonus <code>Number</code> required: An early bird bonus for participants in percent per week
           </li>
           <li>
-            undefine (number, required) The value must be 0
+            undefine <code>Number</code> required: The value must be 0
           </li>
           <li>
-            totalNumber (string, required) The number of tokens to create
+            totalNumber <code>String</code> required: The number of tokens to create
           </li>
         </ol>
         <h4>Result</h4>
@@ -178,11 +162,7 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.PayloadCreation.crowdsale(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens", 1, "100", 1483228800, 30, 0, 192978657).then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.PayloadCreation.crowdsale(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens", 1, "100", 1483228800, 30, 0, 192978657);
   //  0000003301000100000000436f6d70616e69657300426974636f696e204d696e696e67005175616e74756d204d696e6572007777772e6578616d706c652e636f6d005175616e74756d204d696e657220546f6b656e73000000000100000002540be40000000000586846801e0000000000730634ca
         </code></pre>
 
@@ -193,31 +173,31 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            ecosystem (string, required) The ecosystem to create the tokens in, must be 1
+            ecosystem <code>String</code> required: The ecosystem to create the tokens in, must be 1
           </li>
           <li>
-            propertyPrecision (number, required) The precision of the tokens to create:[0, 8]
+            propertyPrecision <code>Number</code> required: The precision of the tokens to create:[0, 8]
           </li>
           <li>
-            previousId (number, required) An identifier of a predecessor token (0 for new crowdsales)
+            previousId <code>Number</code> required: An identifier of a predecessor token (0 for new crowdsales)
           </li>
           <li>
-            category (string, required) A category for the new tokens)
+            category <code>String</code> required: A category for the new tokens)
           </li>
           <li>
-            subcategory (string, required) A subcategory for the new tokens)
+            subcategory <code>String</code> required: A subcategory for the new tokens)
           </li>
           <li>
-            name (string, required) The name of the new tokens to create
+            name <code>String</code> required: The name of the new tokens to create
           </li>
           <li>
-            url (string, required) An URL for further information about the new tokens)
+            url <code>String</code> required: An URL for further information about the new tokens)
           </li>
           <li>
-            data (string, required) A description for the new tokens)
+            data <code>String</code> required: A description for the new tokens)
           </li>
           <li>
-            amount (string, required) The number of tokens to create
+            amount <code>String</code> required: The number of tokens to create
           </li>
         </ol>
         <h4>Result</h4>
@@ -227,11 +207,7 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.PayloadCreation.fixed(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens", "1000000").then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.PayloadCreation.fixed(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens", "1000000");
 
   // 0000003201000100000000436f6d70616e69657300426974636f696e204d696e696e67005175616e74756d204d696e6572007777772e6578616d706c652e636f6d005175616e74756d204d696e657220546f6b656e73000000000000989680
         </code></pre>
@@ -243,28 +219,28 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            ecosystem (string, required) The ecosystem to create the tokens in, must be 1
+            ecosystem <code>String</code> required: The ecosystem to create the tokens in, must be 1
           </li>
           <li>
-            propertyPrecision (number, required) The precision of the tokens to create:[0, 8]
+            propertyPrecision <code>Number</code> required: The precision of the tokens to create:[0, 8]
           </li>
           <li>
-            previousId (number, required) An identifier of a predecessor token (0 for new crowdsales)
+            previousId <code>Number</code> required: An identifier of a predecessor token (0 for new crowdsales)
           </li>
           <li>
-            category (string, required) A category for the new tokens
+            category <code>String</code> required: A category for the new tokens
           </li>
           <li>
-            subcategory (string, required) A subcategory for the new tokens
+            subcategory <code>String</code> required: A subcategory for the new tokens
           </li>
           <li>
-            name (string, required) The name of the new tokens to create
+            name <code>String</code> required: The name of the new tokens to create
           </li>
           <li>
-            url (string, required) An URL for further information about the new tokens
+            url <code>String</code> required: An URL for further information about the new tokens
           </li>
           <li>
-            data (string, required) A description for the new tokens
+            data  <code>String</code> required: A description for the new tokens
           </li>
         </ol>
         <h4>Result</h4>
@@ -274,11 +250,7 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.PayloadCreation.managed(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens").then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.PayloadCreation.managed(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens");
   // 0000003601000100000000436f6d70616e69657300426974636f696e204d696e696e67005175616e74756d204d696e6572007777772e6578616d706c652e636f6d005175616e74756d204d696e657220546f6b656e7300
         </code></pre>
 
@@ -289,7 +261,7 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            amount (string, required) The amount of WHC to particrowsale
+            <code>String</code> required: The amount of WHC to particrowsale
           </li>
         </ol>
         <h4>Result</h4>
@@ -299,11 +271,7 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.PayloadCreation.partiCrwoSale("100.0").then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.PayloadCreation.partiCrwoSale("100.0");
 
   // 000000010000000100000002540be400
         </code></pre>
@@ -315,13 +283,13 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            propertyId (number, required) The identifier of the tokens to revoke
+            propertyId <code>String</code> required: The identifier of the tokens to revoke
           </li>
           <li>
-            amount (string, required) The amount of tokens to revoke
+            amount <code>String</code> required: The amount of tokens to revoke
           </li>
           <li>
-            memo (string, optional) A text note attached to this transaction (none by default)
+            memo <code>String</code> optional: A text note attached to this transaction (none by default)
           </li>
         </ol>
         <h4>Result</h4>
@@ -331,11 +299,7 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.PayloadCreation.revoke(1, "100").then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.PayloadCreation.revoke(1, "100");
         </code></pre>
 
         <h3 id='sendAll'><code>sendAll</code></h3>
@@ -345,7 +309,7 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            ecosystem (number, required) The ecosystem of the tokens to send (1 for main ecosystem, 2 for test ecosystem)
+            ecosystem <code>Number</code> required: The ecosystem of the tokens to send (1 for main ecosystem, 2 for test ecosystem)
           </li>
         </ol>
         <h4>Result</h4>
@@ -355,11 +319,7 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.PayloadCreation.sendAll(2, "100").then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.PayloadCreation.sendAll(2, "100");
   // 0000000402
         </code></pre>
 
@@ -370,10 +330,10 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            propertyId (number, required) The identifier of the tokens to send
+            propertyId <code>Number</code> required: The identifier of the tokens to send
           </li>
           <li>
-            amount (string, required) The amount to send
+            amount <code>String</code> required: The amount to send
           </li>
         </ol>
         <h4>Result</h4>
@@ -383,11 +343,7 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.PayloadCreation.simpleSend(1, "100.0").then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.PayloadCreation.simpleSend(1, "100.0");
   // 000000000000000100000002540be400
         </code></pre>
 
@@ -398,13 +354,13 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            propertyId (number, required) The identifier of the tokens to distribute
+            propertyId <code>Number</code> required: The identifier of the tokens to distribute
           </li>
           <li>
-            amount (string, required) The amount to distribute
+            amount <code>String</code> required: The amount to distribute
           </li>
           <li>
-            distributionProperty (number, optional) The identifier of the property holders to distribute to
+            distributionProperty <code>Number</code> optional: The identifier of the property holders to distribute to
           </li>
         </ol>
         <h4>Result</h4>
@@ -414,11 +370,7 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.PayloadCreation.STO(3, "5000").then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.PayloadCreation.STO(3, "5000");
   // 0000000300000003000000000000138800000003
         </code></pre>
       </div>

@@ -29,7 +29,7 @@ title: Bitcoin.com Developer Platform | Configuration Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            flag (boolean, required)
+            flag <code>Boolean</code> required
           </li>
         </ol>
         <h4>Result</h4>
@@ -39,11 +39,7 @@ title: Bitcoin.com Developer Platform | Configuration Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.Configuration.autoCommit(true).then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.Configuration.autoCommit(true);
         </code></pre>
       </div>
     </div>

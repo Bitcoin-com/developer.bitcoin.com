@@ -42,11 +42,7 @@ title: Bitcoin.com Developer Platform | Transaction Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.Transaction.burnBCHGetWHC(1, "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg").then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.Transaction.burnBCHGetWHC(1, "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg");
         </code></pre>
 
         <h3 id='partiCrowSale'><code>partiCrowSale</code></h3>
@@ -78,11 +74,7 @@ title: Bitcoin.com Developer Platform | Transaction Documentation
         <h4>Examples</h4>
 
         <pre><code>
-    Wormhole.Transaction.partiCrowSale("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", "100.0").then((result) => {
-    console.log(result);
-    }, (err) => {
-    console.log(err);
-    });
+    await Wormhole.Transaction.partiCrowSale("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", "100.0"));
         </code></pre>
 
         <h3 id='send'><code>send</code></h3>
@@ -117,11 +109,7 @@ title: Bitcoin.com Developer Platform | Transaction Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.Transaction.send("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 1, "100.0").then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.Transaction.send("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 1, "100.0");
         </code></pre>
 
         <h3 id='all'><code>all</code></h3>
@@ -153,11 +141,7 @@ title: Bitcoin.com Developer Platform | Transaction Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.Transaction.all("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 2).then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.Transaction.all("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 2);
         </code></pre>
 
         <h3 id='changeIssuer'><code>changeIssuer</code></h3>
@@ -183,11 +167,7 @@ title: Bitcoin.com Developer Platform | Transaction Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.Transaction.changeIssuer("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 3).then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.Transaction.changeIssuer("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 3);
         </code></pre>
 
         <h3 id='closeCrowdSale'><code>closeCrowdSale</code></h3>
@@ -210,11 +190,7 @@ title: Bitcoin.com Developer Platform | Transaction Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.Transaction.closeCrowdSale("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", 70).then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.Transaction.closeCrowdSale("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", 70);
         </code></pre>
 
         <h3 id='grant'><code>grant</code></h3>
@@ -246,11 +222,7 @@ title: Bitcoin.com Developer Platform | Transaction Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.Transaction.grant("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 51, "7000").then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.Transaction.grant("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 51, "7000");
         </code></pre>
 
         <h3 id='crowdSale'><code>crowdSale</code></h3>
@@ -312,11 +284,7 @@ title: Bitcoin.com Developer Platform | Transaction Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.Transaction.crowdSale("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", 1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens", 1, "100", 1483228800, 30, 0, 77868698).then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.Transaction.crowdSale("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", 1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens", 1, "100", 1483228800, 30, 0, 77868698);
         </code></pre>
 
         <h3 id='fixed'><code>fixed</code></h3>
@@ -363,11 +331,7 @@ title: Bitcoin.com Developer Platform | Transaction Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.Transaction.fixed("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", 1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens", "1000000").then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.Transaction.fixed("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", 1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens", "1000000");
         </code></pre>
 
         <h3 id='managed'><code>managed</code></h3>
@@ -411,11 +375,7 @@ title: Bitcoin.com Developer Platform | Transaction Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.Transaction.managed("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", 1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens").then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.Transaction.managed("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", 1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens");
         </code></pre>
 
         <h3 id='rawTx'><code>rawTx</code></h3>
@@ -447,11 +407,7 @@ title: Bitcoin.com Developer Platform | Transaction Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.Transaction.rawTx("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", "000000000000000100000000017d7840", "1EqTta1Rt8ixAA32DuC29oukbsSWU62qAV").then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.Transaction.rawTx("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", "000000000000000100000000017d7840", "1EqTta1Rt8ixAA32DuC29oukbsSWU62qAV");
         </code></pre>
 
         <h3 id='revoke'><code>revoke</code></h3>
@@ -480,11 +436,7 @@ title: Bitcoin.com Developer Platform | Transaction Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.Transaction.revoke("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", 1, "100").then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.Transaction.revoke("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", 1, "100");
         </code></pre>
 
         <h3 id='STO'><code>STO</code></h3>
@@ -516,11 +468,7 @@ title: Bitcoin.com Developer Platform | Transaction Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  Wormhole.Transaction.STO("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", 51, "100").then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+  await Wormhole.Transaction.STO("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", 51, "100");
         </code></pre>
       </div>
     </div>
