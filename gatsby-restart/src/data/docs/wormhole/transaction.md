@@ -20,11 +20,7 @@ hash `String`: the hex\-encoded transaction hash
 #### Examples
 
 
-      Wormhole.Transaction.burnBCHGetWHC(1, "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg").then((result) => {
-      console.log(result);
-      }, (err) => {
-      console.log(err);
-      });
+      await Wormhole.Transaction.burnBCHGetWHC(1, "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg");
 
 
 ### `partiCrowSale`
@@ -46,11 +42,7 @@ hash `String`: the hex\-encoded transaction hash
 #### Examples
 
 
-        Wormhole.Transaction.partiCrowSale("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", "100.0").then((result) => {
-        console.log(result);
-        }, (err) => {
-        console.log(err);
-        });
+        await Wormhole.Transaction.partiCrowSale("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", "100.0"));
 
 
 ### `send`
@@ -73,11 +65,7 @@ hash `String`: the hex\-encoded transaction hash
 #### Examples
 
 
-      Wormhole.Transaction.send("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 1, "100.0").then((result) => {
-      console.log(result);
-      }, (err) => {
-      console.log(err);
-      });
+      await Wormhole.Transaction.send("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 1, "100.0");
 
 
 ### `all`
@@ -99,11 +87,7 @@ hash `String`: the hex\-encoded transaction hash
 #### Examples
 
 
-      Wormhole.Transaction.all("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 2).then((result) => {
-      console.log(result);
-      }, (err) => {
-      console.log(err);
-      });
+      await Wormhole.Transaction.all("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 2);
 
 
 ### `changeIssuer`
@@ -123,11 +107,7 @@ hash `String`: the hex\-encoded transaction hash
 #### Examples
 
 
-      Wormhole.Transaction.changeIssuer("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 3).then((result) => {
-      console.log(result);
-      }, (err) => {
-      console.log(err);
-      });
+      await Wormhole.Transaction.changeIssuer("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 3);
 
 
 ### `closeCrowdSale`
@@ -146,11 +126,7 @@ hash `String`: the hex\-encoded transaction hash
 #### Examples
 
 
-      Wormhole.Transaction.closeCrowdSale("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", 70).then((result) => {
-      console.log(result);
-      }, (err) => {
-      console.log(err);
-      });
+      await Wormhole.Transaction.closeCrowdSale("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", 70);
 
 
 ### `grant`
@@ -172,11 +148,7 @@ hash `String`: the hex\-encoded transaction hash
 #### Examples
 
 
-      Wormhole.Transaction.grant("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 51, "7000").then((result) => {
-      console.log(result);
-      }, (err) => {
-      console.log(err);
-      });
+      await Wormhole.Transaction.grant("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 51, "7000");
 
 
 ### `crowdSale`
@@ -208,11 +180,7 @@ hash `String`: the hex\-encoded transaction hash
 #### Examples
 
 
-      Wormhole.Transaction.crowdSale("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", 1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens", 1, "100", 1483228800, 30, 0, 77868698).then((result) => {
-      console.log(result);
-      }, (err) => {
-      console.log(err);
-      });
+      await Wormhole.Transaction.crowdSale("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", 1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens", 1, "100", 1483228800, 30, 0, 77868698);
 
 
 ### `fixed`
@@ -239,11 +207,7 @@ hash `String`: the hex\-encoded transaction hash
 #### Examples
 
 
-      Wormhole.Transaction.fixed("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", 1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens", "1000000").then((result) => {
-      console.log(result);
-      }, (err) => {
-      console.log(err);
-      });
+      await Wormhole.Transaction.fixed("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", 1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens", "1000000");
 
 
 ### `managed`
@@ -269,11 +233,7 @@ hash `String`: the hex\-encoded transaction hash
 #### Examples
 
 
-      Wormhole.Transaction.managed("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", 1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens").then((result) => {
-      console.log(result);
-      }, (err) => {
-      console.log(err);
-      });
+      await Wormhole.Transaction.managed("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", 1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens");
 
 
 ### `rawTx`
@@ -295,11 +255,7 @@ hash `String`: the hex\-encoded transaction hash
 #### Examples
 
 
-      Wormhole.Transaction.rawTx("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", "000000000000000100000000017d7840", "1EqTta1Rt8ixAA32DuC29oukbsSWU62qAV").then((result) => {
-      console.log(result);
-      }, (err) => {
-      console.log(err);
-      });
+      await Wormhole.Transaction.rawTx("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", "000000000000000100000000017d7840", "1EqTta1Rt8ixAA32DuC29oukbsSWU62qAV");
 
 
 ### `revoke`
@@ -320,11 +276,7 @@ hash `String`: the hex\-encoded transaction hash
 #### Examples
 
 
-      Wormhole.Transaction.revoke("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", 1, "100").then((result) => {
-      console.log(result);
-      }, (err) => {
-      console.log(err);
-      });
+      await Wormhole.Transaction.revoke("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", 1, "100");
 
 
 ### `STO`
@@ -346,8 +298,4 @@ hash `String`: the hex\-encoded transaction hash
 #### Examples
 
 
-      Wormhole.Transaction.STO("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", 51, "100").then((result) => {
-      console.log(result);
-      }, (err) => {
-      console.log(err);
-      });
+      await Wormhole.Transaction.STO("bchtest:qq8k9aa764m2q7hruz45wddpn0r4e3ke8uvd9vlzv8", 51, "100");
