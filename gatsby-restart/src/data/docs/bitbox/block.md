@@ -19,11 +19,10 @@ details `Object`: Details about Block
 #### Examples
 
 ```js
-BITBOX.Block.details('000000001c6aeec19265e9cc3ded8ba5ef5e63fae7747f30bf9c02c7bc8883f0').then((result) => {
-console.log(result);
-}, (err) => {
-console.log(err);
-});
+(async () => {
+  let details = await BITBOX.Block.details('000000001c6aeec19265e9cc3ded8ba5ef5e63fae7747f30bf9c02c7bc8883f0');
+  console.log(details);
+})()
 
 // {
 //   "hash": "000000001c6aeec19265e9cc3ded8ba5ef5e63fae7747f30bf9c02c7bc8883f0",
