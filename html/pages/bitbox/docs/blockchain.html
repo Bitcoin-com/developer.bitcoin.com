@@ -33,12 +33,11 @@ title: Bitcoin.com Developer Platform | Blockchain Documentation
         <h4>Examples</h4>
 
         <pre><code>
-  BITBOX.Blockchain.getBestBlockHash().then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
-  // 241decef88889efac8e6ce428a8ac696fdde5972eceed97e1fb58d6106af31d5
+(async () => {
+  let getBestBlockHash = await BITBOX.Blockchain.getBestBlockHash();
+  console.log(getBestBlockHash);
+})()
+// 241decef88889efac8e6ce428a8ac696fdde5972eceed97e1fb58d6106af31d5
         </code></pre>
 
         <h3 id='getBlock'><code>getBlock</code></h3>
@@ -56,29 +55,28 @@ title: Bitcoin.com Developer Platform | Blockchain Documentation
         </ol>
         <h4>Examples</h4>
         <pre><code>
-  BITBOX.Blockchain.getBlock("00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09").then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+(async () => {
+  let getBlock = await BITBOX.Blockchain.getBlock("00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09");
+  console.log(getBlock);
+})()
 
-  // { hash: '00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09',
-  // confirmations: 528236,
-  // size: 216,
-  // height: 1000,
-  // version: 1,
-  // versionHex: '00000001',
-  // merkleroot: 'fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33',
-  // tx:
-  //  [ 'fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33' ],
-  // time: 1232346882,
-  // mediantime: 1232344831,
-  // nonce: 2595206198,
-  // bits: '1d00ffff',
-  // difficulty: 1,
-  // chainwork: '000000000000000000000000000000000000000000000000000003e903e903e9',
-  // previousblockhash: '0000000008e647742775a230787d66fdf92c46a48c896bfbc85cdc8acc67e87d',
-  // nextblockhash: '00000000a2887344f8db859e372e7e4bc26b23b9de340f725afbf2edb265b4c6' }
+// { hash: '00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09',
+// confirmations: 528236,
+// size: 216,
+// height: 1000,
+// version: 1,
+// versionHex: '00000001',
+// merkleroot: 'fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33',
+// tx:
+//  [ 'fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33' ],
+// time: 1232346882,
+// mediantime: 1232344831,
+// nonce: 2595206198,
+// bits: '1d00ffff',
+// difficulty: 1,
+// chainwork: '000000000000000000000000000000000000000000000000000003e903e903e9',
+// previousblockhash: '0000000008e647742775a230787d66fdf92c46a48c896bfbc85cdc8acc67e87d',
+// nextblockhash: '00000000a2887344f8db859e372e7e4bc26b23b9de340f725afbf2edb265b4c6' }
         </code></pre>
 
         <h3 id='getBlockchainInfo'><code>getBlockchainInfo</code></h3>
@@ -87,31 +85,30 @@ title: Bitcoin.com Developer Platform | Blockchain Documentation
         </p>
         <h4>Examples</h4>
         <pre><code>
-  BITBOX.Blockchain.getBlockchainInfo().then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+(async () => {
+  let getBlockchainInfo = await BITBOX.Blockchain.getBlockchainInfo();
+  console.log(getBlockchainInfo);
+})()
 
-  // { chain: 'main',
-  // blocks: 529235,
-  // headers: 529235,
-  // bestblockhash: '00000000000000000108641af52e01a447b1f9d801571f93a0f20a8cbf80c236',
-  // difficulty: 702784497476.8376,
-  // mediantime: 1525727823,
-  // verificationprogress: 0.9999892037620548,
-  // chainwork: '00000000000000000000000000000000000000000099f5e1cf7d4e462a493a51',
-  // pruned: false,
-  // softforks:
-  //  [ { id: 'bip34', version: 2, reject: [Object] },
-  //    { id: 'bip66', version: 3, reject: [Object] },
-  //    { id: 'bip65', version: 4, reject: [Object] } ],
-  // bip9_softforks:
-  //  { csv:
-  //     { status: 'active',
-  //       startTime: 1462060800,
-  //       timeout: 1493596800,
-  //       since: 419328 } } }
+// { chain: 'main',
+// blocks: 529235,
+// headers: 529235,
+// bestblockhash: '00000000000000000108641af52e01a447b1f9d801571f93a0f20a8cbf80c236',
+// difficulty: 702784497476.8376,
+// mediantime: 1525727823,
+// verificationprogress: 0.9999892037620548,
+// chainwork: '00000000000000000000000000000000000000000099f5e1cf7d4e462a493a51',
+// pruned: false,
+// softforks:
+//  [ { id: 'bip34', version: 2, reject: [Object] },
+//    { id: 'bip66', version: 3, reject: [Object] },
+//    { id: 'bip65', version: 4, reject: [Object] } ],
+// bip9_softforks:
+//  { csv:
+//     { status: 'active',
+//       startTime: 1462060800,
+//       timeout: 1493596800,
+//       since: 419328 } } }
         </code></pre>
 
         <h3 id='getBlockCount'><code>getBlockCount</code></h3>
@@ -124,12 +121,11 @@ title: Bitcoin.com Developer Platform | Blockchain Documentation
         </p>
         <h4>Examples</h4>
         <pre><code>
-  BITBOX.Blockchain.getBlockCount().then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
-  // 529235
+(async () => {
+  let getBlockCount = await BITBOX.Blockchain.getBlockCount();
+  console.log(getBlockCount);
+})()
+// 529235
         </code></pre>
 
         <h3 id='getBlockHash'><code>getBlockHash</code></h3>
@@ -148,12 +144,11 @@ title: Bitcoin.com Developer Platform | Blockchain Documentation
         </p>
         <h4>Examples</h4>
         <pre><code>
-  BITBOX.Blockchain.getBlockHash([0]).then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
-  // [ '000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f' ]
+(async () => {
+  let getBlockHash = await BITBOX.Blockchain.getBlockHash([0]);
+  console.log(getBlockHash);
+})()
+// [ '000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f' ]
         </code></pre>
 
         <h3 id='getBlockHeader'><code>getBlockHeader</code></h3>
@@ -171,26 +166,25 @@ title: Bitcoin.com Developer Platform | Blockchain Documentation
         </ol>
         <h4>Examples</h4>
         <pre><code>
-  BITBOX.Blockchain.getBlockHeader(["00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"]).then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+(async () => {
+  let getBlockHeader = await BITBOX.Blockchain.getBlockHeader(["00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"]);
+  console.log(getBlockHeader);
+})()
 
-  // [{ hash: '00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09',
-  // confirmations: 528236,
-  // height: 1000,
-  // version: 1,
-  // versionHex: '00000001',
-  // merkleroot: 'fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33',
-  // time: 1232346882,
-  // mediantime: 1232344831,
-  // nonce: 2595206198,
-  // bits: '1d00ffff',
-  // difficulty: 1,
-  // chainwork: '000000000000000000000000000000000000000000000000000003e903e903e9',
-  // previousblockhash: '0000000008e647742775a230787d66fdf92c46a48c896bfbc85cdc8acc67e87d',
-  // nextblockhash: '00000000a2887344f8db859e372e7e4bc26b23b9de340f725afbf2edb265b4c6' }]
+// [{ hash: '00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09',
+// confirmations: 528236,
+// height: 1000,
+// version: 1,
+// versionHex: '00000001',
+// merkleroot: 'fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33',
+// time: 1232346882,
+// mediantime: 1232344831,
+// nonce: 2595206198,
+// bits: '1d00ffff',
+// difficulty: 1,
+// chainwork: '000000000000000000000000000000000000000000000000000003e903e903e9',
+// previousblockhash: '0000000008e647742775a230787d66fdf92c46a48c896bfbc85cdc8acc67e87d',
+// nextblockhash: '00000000a2887344f8db859e372e7e4bc26b23b9de340f725afbf2edb265b4c6' }]
         </code></pre>
 
         <h3 id='getChainTips'><code>getChainTips</code></h3>
@@ -199,24 +193,23 @@ title: Bitcoin.com Developer Platform | Blockchain Documentation
         </p>
         <h4>Examples</h4>
         <pre><code>
-  BITBOX.Blockchain.getChainTips().then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+(async () => {
+  let getChainTips = await BITBOX.Blockchain.getChainTips();
+  console.log(getChainTips);
+})()
 
-  // [ { height: 529235,
-  //   hash: '00000000000000000108641af52e01a447b1f9d801571f93a0f20a8cbf80c236',
-  //   branchlen: 0,
-  //   status: 'active' },
-  // { height: 527442,
-  //   hash: '0000000000000000014cbf7b7aa12e52dd97db4b1ba5f39dccae37773af9272e',
-  //   branchlen: 1,
-  //   status: 'invalid' },
-  // { height: 526861,
-  //   hash: '00000000000000000225b070818bbafd95842ecbd25edf39bff54a7aa5c8fd10',
-  //   branchlen: 1,
-  //   status: 'valid-headers' } ]
+// [ { height: 529235,
+//   hash: '00000000000000000108641af52e01a447b1f9d801571f93a0f20a8cbf80c236',
+//   branchlen: 0,
+//   status: 'active' },
+// { height: 527442,
+//   hash: '0000000000000000014cbf7b7aa12e52dd97db4b1ba5f39dccae37773af9272e',
+//   branchlen: 1,
+//   status: 'invalid' },
+// { height: 526861,
+//   hash: '00000000000000000225b070818bbafd95842ecbd25edf39bff54a7aa5c8fd10',
+//   branchlen: 1,
+//   status: 'valid-headers' } ]
         </code></pre>
 
         <h3 id='getDifficulty'><code>getDifficulty</code></h3>
@@ -229,13 +222,12 @@ title: Bitcoin.com Developer Platform | Blockchain Documentation
         </p>
         <h4>Examples</h4>
         <pre><code>
-  BITBOX.Blockchain.getDifficulty().then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+(async () => {
+  let getDifficulty = await BITBOX.Blockchain.getDifficulty();
+  console.log(getDifficulty);
+})()
 
-  // 702784497476.8376
+// 702784497476.8376
         </code></pre>
 
         <h3 id='getMempoolAncestors'><code>getMempoolAncestors</code></h3>
@@ -254,11 +246,10 @@ title: Bitcoin.com Developer Platform | Blockchain Documentation
         <h4>Result</h4>
         <h4>Examples</h4>
         <pre><code>
-  BITBOX.Blockchain.getMempoolAncestors(["fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33"]).then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+(async () => {
+  let getMempoolAncestors = await BITBOX.Blockchain.getMempoolAncestors(["fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33"]);
+  console.log(getMempoolAncestors);
+})()
         </code></pre>
 
         <h3 id='getMempoolDescendants'><code>getMempoolDescendants</code></h3>
@@ -276,11 +267,10 @@ title: Bitcoin.com Developer Platform | Blockchain Documentation
         </ol>
         <h4>Examples</h4>
         <pre><code>
-  BITBOX.Blockchain.getMempoolDescendants(["fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33"]).then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+(async () => {
+  let getMempoolDescendants = await BITBOX.Blockchain.getMempoolDescendants(["fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33"]);
+  console.log(getMempoolDescendants);
+})()
         </code></pre>
 
         <h3 id='getMempoolEntry'><code>getMempoolEntry</code></h3>
@@ -295,11 +285,10 @@ title: Bitcoin.com Developer Platform | Blockchain Documentation
         </ol>
         <h4>Examples</h4>
         <pre><code>
-  BITBOX.Blockchain.getMempoolEntry(["fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33"]).then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+(async () => {
+  let getMempoolEntry = await BITBOX.Blockchain.getMempoolEntry(["fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33"]);
+  console.log(getMempoolEntry);
+})()
         </code></pre>
 
         <h3 id='getMempoolInfo'><code>getMempoolInfo</code></h3>
@@ -308,17 +297,16 @@ title: Bitcoin.com Developer Platform | Blockchain Documentation
         </p>
         <h4>Examples</h4>
         <pre><code>
-  BITBOX.Blockchain.getMempoolInfo().then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+(async () => {
+  let getMempoolInfo = await BITBOX.Blockchain.getMempoolInfo();
+  console.log(getMempoolInfo);
+})()
 
-  // { size: 257,
-  // bytes: 98257,
-  // usage: 365840,
-  // maxmempool: 300000000,
-  // mempoolminfee: 0 }
+// { size: 257,
+// bytes: 98257,
+// usage: 365840,
+// maxmempool: 300000000,
+// mempoolminfee: 0 }
         </code></pre>
 
         <h3 id='getRawMempool'><code>getRawMempool</code></h3>
@@ -333,28 +321,27 @@ title: Bitcoin.com Developer Platform | Blockchain Documentation
         </ol>
         <h4>Examples</h4>
         <pre><code>
-  BITBOX.Blockchain.getRawMempool(true).then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+(async () => {
+  let getRawMempool = await BITBOX.Blockchain.getRawMempool(true);
+  console.log(getRawMempool);
+})()
 
-  // [  {'2ae541af20db6f2b50410f418af56e349d08877d685f6cf54df54658e892db7a':
-  //  { size: 237,
-  //    fee: 0.00000238,
-  //    modifiedfee: 0.00000238,
-  //    time: 1525732015,
-  //    height: 529235,
-  //    startingpriority: 0,
-  //    currentpriority: 0,
-  //    descendantcount: 10,
-  //    descendantsize: 2376,
-  //    descendantfees: 2380,
-  //    ancestorcount: 3,
-  //    ancestorsize: 712,
-  //    ancestorfees: 714,
-  //    depends:
-  //     [ 'e25682caafc7000645d59f4c11d8d594b2943979b9d8fafb9f946e2b35c21b7e' ] },]
+// [  {'2ae541af20db6f2b50410f418af56e349d08877d685f6cf54df54658e892db7a':
+//  { size: 237,
+//    fee: 0.00000238,
+//    modifiedfee: 0.00000238,
+//    time: 1525732015,
+//    height: 529235,
+//    startingpriority: 0,
+//    currentpriority: 0,
+//    descendantcount: 10,
+//    descendantsize: 2376,
+//    descendantfees: 2380,
+//    ancestorcount: 3,
+//    ancestorsize: 712,
+//    ancestorfees: 714,
+//    depends:
+//     [ 'e25682caafc7000645d59f4c11d8d594b2943979b9d8fafb9f946e2b35c21b7e' ] },]
         </code></pre>
 
         <h3 id='getTxOut'><code>getTxOut</code></h3>
@@ -375,13 +362,12 @@ title: Bitcoin.com Developer Platform | Blockchain Documentation
         </ol>
         <h4>Examples</h4>
         <pre><code>
-  BITBOX.Blockchain.getTxOut("e25682caafc7000645d59f4c11d8d594b2943979b9d8fafb9f946e2b35c21b7e", 1).then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+(async () => {
+  let getTxOut = await BITBOX.Blockchain.getTxOut("e25682caafc7000645d59f4c11d8d594b2943979b9d8fafb9f946e2b35c21b7e", 1);
+  console.log(getTxOut);
+})()
 
-  // null
+// null
         </code></pre>
 
         <h3 id='getTxOutProof'><code>getTxOutProof</code></h3>
@@ -405,13 +391,12 @@ title: Bitcoin.com Developer Platform | Blockchain Documentation
         </p>
         <h4>Examples</h4>
         <pre><code>
-  BITBOX.Blockchain.getTxOutProof(["e25682caafc7000645d59f4c11d8d594b2943979b9d8fafb9f946e2b35c21b7e", "d16662463fd98eb96c8f6898d58a4461ac3d0120f4d0aea601d72b37759f261c"]).then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+(async () => {
+  let getTxOutProof = await BITBOX.Blockchain.getTxOutProof(["e25682caafc7000645d59f4c11d8d594b2943979b9d8fafb9f946e2b35c21b7e", "d16662463fd98eb96c8f6898d58a4461ac3d0120f4d0aea601d72b37759f261c"]);
+  console.log(getTxOutProof);
+})()
 
-  // Not all transactions found in specified or retrieved block
+// Not all transactions found in specified or retrieved block
         </code></pre>
 
         <h3 id='preciousBlock'><code>preciousBlock</code></h3>
@@ -426,11 +411,10 @@ title: Bitcoin.com Developer Platform | Blockchain Documentation
         </ol>
         <h4>Examples</h4>
         <pre><code>
-  BITBOX.Blockchain.preciousBlock("00000000000000000108641af52e01a447b1f9d801571f93a0f20a8cbf80c236").then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+(async () => {
+  let preciousBlock = await BITBOX.Blockchain.preciousBlock("00000000000000000108641af52e01a447b1f9d801571f93a0f20a8cbf80c236");
+  console.log(preciousBlock);
+})()
         </code></pre>
 
         <h3 id='pruneBlockchain'><code>pruneBlockchain</code></h3>
@@ -446,11 +430,10 @@ title: Bitcoin.com Developer Platform | Blockchain Documentation
         </p>
         <h4>Examples</h4>
         <pre><code>
-  BITBOX.Blockchain.pruneBlockchain(1000).then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+(async () => {
+  let pruneBlockchain = await BITBOX.Blockchain.pruneBlockchain(1000);
+  console.log(pruneBlockchain);
+})()
         </code></pre>
 
         <h3 id='verifyChain'><code>verifyChain</code></h3>
@@ -472,12 +455,11 @@ title: Bitcoin.com Developer Platform | Blockchain Documentation
         </p>
         <h4>Examples</h4>
         <pre><code>
-  BITBOX.Blockchain.verifyChain().then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
-  // true
+(async () => {
+  let verifyChain = await BITBOX.Blockchain.verifyChain();
+  console.log(verifyChain);
+})()
+// true
         </code></pre>
 
         <h3 id='verifyTxOutProof'><code>verifyTxOutProof</code></h3>
@@ -496,11 +478,10 @@ title: Bitcoin.com Developer Platform | Blockchain Documentation
         </p>
         <h4>Examples</h4>
         <pre><code>
-  BITBOX.Blockchain.verifyTxOutProof("proof").then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+(async () => {
+  let verifyTxOutProof = await BITBOX.Blockchain.verifyTxOutProof("proof");
+  console.log(verifyTxOutProof);
+})()
         </code></pre>
       </div>
     </div>

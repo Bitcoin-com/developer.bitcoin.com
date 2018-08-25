@@ -28,23 +28,22 @@ title: Bitcoin.com Developer Platform | Control Documentation
         </p>
         <h4>Examples</h4>
         <pre><code>
-  BITBOX.Control.getInfo().then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+(async () => {
+  let getInfo = await BITBOX.Control.getInfo();
+  console.log(getInfo);
+})()
 
-  // { version: 170000,
-  // protocolversion: 70015,
-  // blocks: 529235,
-  // timeoffset: 0,
-  // connections: 35,
-  // proxy: '',
-  // difficulty: 702784497476.8376,
-  // testnet: false,
-  // paytxfee: 0,
-  // relayfee: 0.00001,
-  // errors: '' }
+// { version: 170000,
+// protocolversion: 70015,
+// blocks: 529235,
+// timeoffset: 0,
+// connections: 35,
+// proxy: '',
+// difficulty: 702784497476.8376,
+// testnet: false,
+// paytxfee: 0,
+// relayfee: 0.00001,
+// errors: '' }
             </code></pre>
 
         <h3 id='getMemoryInfo'><code>getMemoryInfo</code></h3>
@@ -54,19 +53,18 @@ title: Bitcoin.com Developer Platform | Control Documentation
         <h4>Result</h4>
         <h4>Examples</h4>
         <pre><code>
-  BITBOX.Control.getMemoryInfo().then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+(async () => {
+  let getMemoryInfo = await BITBOX.Control.getMemoryInfo();
+  console.log(getMemoryInfo);
+})()
 
-  // { locked:
-  //  { used: 0,
-  //    free: 65536,
-  //    total: 65536,
-  //    locked: 65536,
-  //    chunks_used: 0,
-  //    chunks_free: 1 } }
+// { locked:
+//  { used: 0,
+//    free: 65536,
+//    total: 65536,
+//    locked: 65536,
+//    chunks_used: 0,
+//    chunks_free: 1 } }
             </code></pre>
       </div>
 

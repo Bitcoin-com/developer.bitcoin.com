@@ -29,29 +29,28 @@ title: Bitcoin.com Developer Platform | Generating Documentation
         <h4>Arguments</h4>
         <ol>
           <li>
-            nblocks (numeric, required): How many blocks are generated immediately.
+            nblocks <code>Number</code> required: How many blocks are generated immediately.
           </li>
           <li>
-            address (string, required): The address to send the newly generated bitcoin to.
+            address <code>String</code> required: The address to send the newly generated bitcoin to.
           </li>
           <li>
-            maxtries (numeric, optional): How many iterations to try (default = 1000000).
+            maxtries <code>Number</code> optional: How many iterations to try (default = 1000000).
           </li>
         </ol>
         <h4>Result</h4>
         <p>
-          [ blockhashes ] (array): hashes of blocks generated
+          [ blockhashes ] <code>Array</code>: hashes of blocks generated
         </p>
         <h4>Examples</h4>
         <pre><code>
-  BITBOX.Generating.generateToAddress(11, 'bitcoincash:qzhhrxcdlxdsw3xuw8nz3c4476fdz69uq5gewr0lxg').then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+(async () => {
+  let generateToAddress = await BITBOX.Generating.generateToAddress(11, 'bitcoincash:qzhhrxcdlxdsw3xuw8nz3c4476fdz69uq5gewr0lxg');
+  console.log(generateToAddress);
+})()
 
-  // []
-              </code></pre>
+// []
+        </code></pre>
       </div>
 
     </div>

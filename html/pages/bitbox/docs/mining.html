@@ -41,11 +41,10 @@ title: Bitcoin.com Developer Platform | Mining Documentation
 
         <h4>Examples</h4>
         <pre><code>
-  BITBOX.Mining.getMiningInfo().then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+(async () => {
+  let getMiningInfo = await BITBOX.Mining.getMiningInfo();
+  console.log(getMiningInfo);
+})()
         </code></pre>
 
         <h3 id='getNetworkHashps'><code>getNetworkHashps</code></h3>
@@ -67,11 +66,10 @@ title: Bitcoin.com Developer Platform | Mining Documentation
         </p>
         <h4>Examples</h4>
         <pre><code>
-  BITBOX.Mining.getNetworkHashps().then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
-  });
+(async () => {
+  let getNetworkHashps = await BITBOX.Mining.getNetworkHashps();
+  console.log(getNetworkHashps);
+})()
         </code></pre>
       </div>
     </div>
