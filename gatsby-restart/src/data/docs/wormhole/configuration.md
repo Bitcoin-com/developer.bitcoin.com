@@ -19,4 +19,7 @@ flag `boolean`
 #### Examples
 
 
-      await Wormhole.Configuration.autoCommit(true);
+    (async () => {
+      let config = await Wormhole.Configuration.autoCommit(true);
+      console.log(config);
+    })()

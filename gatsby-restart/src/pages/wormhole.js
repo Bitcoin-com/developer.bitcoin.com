@@ -98,8 +98,7 @@ const BitboxPage = ({ location }: Props) => (
         <PreviewItem full>
           <H2>Paradigm Shift</H2>
           <Text>
-            Create your own Token. Launch a Crowdsale. Raise funds to change the
-            world. All on Bitcoin Cash.
+            Create your own Token. Launch a Crowdsale. Raise funds to change the world. All on Bitcoin Cash.
           </Text>
           <Text>
             Wormhole is a fully featured javascript framework powered by{' '}
@@ -111,84 +110,210 @@ const BitboxPage = ({ location }: Props) => (
         </PreviewItem>
         <PreviewItem to="/wormhole/docs/transactions">
           <H2>Tokens with fixed supply</H2>
+          <Text>Create 1,000,000 Quantum Miner Tokens QMT</Text>
           <Code>
             {`
-// Create 1,000,000 Quantum Miner Tokens QMT
-Wormhole.Transaction.fixed("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens QMT", "1000000").then((result) => {
-console.log(result);
-}, (err) => {
-console.log(err);
-});
-
-// Send an investor 1000 QMT
-Wormhole.Transaction.send("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", "bchtest:qr4g79cjapp02s3zs59gtu3dxu7sgwvp8gmnh9rw97", 111, "1000.0").then((result) => {
-  console.log(result);
-  }, (err) => {
-  console.log(err);
+(async () => {
+  let fixed = await Wormhole.Transaction.fixed("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens QMT", "1000000");
+})()
+// {
+//   "txid": "8d2e358edcddadbaa4e0f7c9e3fe2ff7e128c4bed6d3a6a67af6aa5922c7bcd8",
+//   "fee": "622",
+//   "sendingaddress": "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg",
+//   "ismine": true,
+//   "version": 0,
+//   "type_int": 50,
+//   "type": "Create Property - Fixed",
+//   "propertyid": 111,
+//   "precision": "1",
+//   "ecosystem": "main",
+//   "category": "Companies",
+//   "subcategory": "Bitcoin Mining",
+//   "propertyname": "Quantum Miner",
+//   "data": "Quantum Miner Tokens QMT",
+//   "url": "www.example.com",
+//   "amount": "1000000.0",
+//   "valid": true,
+//   "blockhash": "0000000000000207be3053b98a450daa4b6b3fef94039e940a2df34f17298906",
+//   "blocktime": 1533864446,
+//   "positioninblock": 2,
+//   "block": 1251064,
+//   "confirmations": 3
+// }
+`}
+          </Code>
+        </PreviewItem>
+        <PreviewItem to="/wormhole/docs/transactions">
+          <Text>Send an investor 1000 QMT</Text>
+          <Code>
+            {`
+(async () => {
+  let send = await Wormhole.Transaction.send("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", "bchtest:qr4g79cjapp02s3zs59gtu3dxu7sgwvp8gmnh9rw97", 111, "1000.0");
+})()
+// {
+//   "txid": "f90c52d4d2fea37fcd73bb88f04d553495585b0b27bae4125f99d06ddb43777f",
+//   "fee": "520",
+//   "sendingaddress": "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg",
+//   "referenceaddress": "bchtest:qr4g79cjapp02s3zs59gtu3dxu7sgwvp8gmnh9rw97",
+//   "ismine": true,
+//   "version": 0,
+//   "type_int": 0,
+//   "type": "Simple Send",
+//   "propertyid": 111,
+//   "precision": "1",
+//   "amount": "1000.0",
+//   "confirmations": 0
+// }
 `}
           </Code>
         </PreviewItem>
         <PreviewItem to="/wormhole/docs/transaction">
           <H2>Crowdsales</H2>
-          <Text>
-            Create Crowdsales. Sell your own tokens for WHC. Launch an ICO on
-            Bitcoin Cash
-          </Text>
-          <Text />
+          <Text>Create Crowdsales. Sell your own tokens for WHC. Launch an ICO on Bitcoin Cash</Text>
+          <Text>Start a crowdsale where 100,000 Life Extension Tokens LET are going to be sold 100 LET for 1 WHC.</Text>
           <Code>
-            {`// Start a crowdsale where 100,000 Life Extension Tokens LET 
-// are going to be sold 100 LET for 1 WHC. 
-Wormhole.Transaction.crowdSale("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 1, 1, 0, "Companies", "Singularity", "Life Extension", "www.example.com", "Life Extension Tokens LET", 1, "100", 1545696000, 30, 0, 100000).then((result) => {
-console.log(result);
-}, (err) => {
-console.log(err);
-});
+            {`
+(async () => {
+  let crowdSale = await Wormhole.Transaction.crowdSale("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 1, 1, 0, "Companies", "Singularity", "Life Extension", "www.example.com", "Life Extension Tokens LET", 1, "100", 1545696000, 30, 0, 100000);
+})()
 
-// Purchase 100 LET for 1 WHC
-Wormhole.Transaction.partiCrowSale("bchtest:qr4g79cjapp02s3zs59gtu3dxu7sgwvp8gmnh9rw97", "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", "1").then((result) => {
-console.log(result);
-}, (err) => {
-console.log(err);
-});
+ // {
+   // "txid": "aa5ed83708d0889d25691a27668fe5a6a406cab24191afae7d78bb867a324641",
+   // "fee": "664",
+   // "sendingaddress": "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg",
+   // "ismine": true,
+   // "version": 0,
+   // "type_int": 51,
+   // "type": "Create Property - Variable",
+   // "precision": "1",
+   // "ecosystem": "main",
+   // "category": "Companies",
+   // "subcategory": "Singularity",
+   // "propertyname": "Life Extension",
+   // "data": "Life Extension Tokens LET",
+   // "url": "www.example.com",
+   // "propertyiddesired": 1,
+   // "tokensperunit": "100.00000000",
+   // "deadline": 1545696000,
+   // "earlybonus": 30,
+   // "amount": "100000.0",
+   // "valid": false,
+   // "invalidreason": "Sender has an active crowdsale",
+   // "blockhash": "000000008795bcff8e503ae1e2114ae006f8942d2b0840a0d7142f5255192349",
+   // "blocktime": 1533867018,
+   // "positioninblock": 6,
+   // "block": 1251070,
+   // "confirmations": 1
+ // }
+`}
+          </Code>
+        </PreviewItem>
+        <PreviewItem to="/wormhole/docs/transaction">
+          <Text>
+            Purchase 100 LET for 1 WHC
+          </Text>
+          <Code>
+            {`
+(async () => {
+  let partipateCrowdSale = await Wormhole.Transaction.partipateCrowdSale("bchtest:qr4g79cjapp02s3zs59gtu3dxu7sgwvp8gmnh9rw97", "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", "1");
+})()
+// {
+// "txid": "b8b26698c4d3783c1618253aa280ccbafd8912ef20ba1e7a3dcebd2d8d8915de",
+// "fee": "520",
+// "sendingaddress": "bchtest:qr4g79cjapp02s3zs59gtu3dxu7sgwvp8gmnh9rw97",
+// "referenceaddress": "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg",
+// "ismine": true,
+// "version": 0,
+// "type_int": 1,
+// "type": "Crowdsale Purchase",
+// "confirmations": 0
+// }
 `}
           </Code>
         </PreviewItem>
         <PreviewItem to="/wormhole/docs/transactions">
           <H2>Tokens with managed supply</H2>
+          <Text>Grant and revoke Time Machine Coins TMC</Text>
           <Code>
-{`// Grant and revoke Time Machine Coins TMC
-Wormhole.Transaction.managed("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 1, 1, 0, "Companies", "Wormholes", "Time Machine", "www.example.com", "Time Machine Coins TMC").then((result) => {
-  console.log(result);
-}, (err) => {
-  console.log(err);
-});
-  
-// Grant 42 TMC to a time traveler
-Wormhole.Transaction.grant("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", "bchtest:qr4g79cjapp02s3zs59gtu3dxu7sgwvp8gmnh9rw97", 112, "42").then((result) => {
-  console.log(result);
-}, (err) => {
-  console.log(err);
-});
-
-// Revoke 11 TMC from a time traveler
-Wormhole.Transaction.revoke("bchtest:qr4g79cjapp02s3zs59gtu3dxu7sgwvp8gmnh9rw97", 112, "11").then((result) => {
-  console.log(result);
-}, (err) => {
-  console.log(err);
-});
+{`
+(async () => {
+  let managed = await Wormhole.Transaction.managed("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 1, 1, 0, "Companies", "Wormholes", "Time Machine", "www.example.com", "Time Machine Coins TMC");
+})()
+// {
+// "txid": "c55413fe980aca75da8853b38e7fe7f297f35f68e28f12e298c191b3b8680eab",
+// "fee": "589",
+// "sendingaddress": "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg",
+// "ismine": true,
+// "version": 0,
+// "type_int": 54,
+// "type": "Create Property - Manual",
+// "propertyid": 112,
+// "precision": "1",
+// "ecosystem": "main",
+// "category": "Companies",
+// "subcategory": "Wormholes",
+// "propertyname": "Time Machine",
+// "data": "Time Machine Coins TMC",
+// "url": "www.example.com",
+// "amount": "0.0",
+// "valid": true,
+// "blockhash": "000000000000035e8b852479a65e3170fb7059d82e984d7f57cacae38062fcce",
+// "blocktime": 1533865624,
+// "positioninblock": 6,
+// "block": 1251068,
+// "confirmations": 1
+// }
+`}
+          </Code>
+        </PreviewItem>
+        <PreviewItem to="/wormhole/docs/transactions">
+          <Text>Grant 42 TMC to a time traveler</Text>
+          <Code>
+{`
+(async () => {
+  let grant = await Wormhole.Transaction.grant("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", "bchtest:qr4g79cjapp02s3zs59gtu3dxu7sgwvp8gmnh9rw97", 112, "42");
+})()
+// {
+//   "txid": "2fdfe48825ce9cf4f2a885867f27903930aff055fd36345b9ba5edfd6f29c592",
+//   "fee": "522",
+//   "sendingaddress": "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg",
+//   "referenceaddress": "bchtest:qr4g79cjapp02s3zs59gtu3dxu7sgwvp8gmnh9rw97",
+//   "ismine": true,
+// "version": 0,
+//   "type_int": 55,
+//   "type": "Grant Property Tokens",
+//   "propertyid": 112,
+//   "precision": "1",
+//   "amount": "42.0",
+//   "valid": true,
+//   "blockhash": "000000008795bcff8e503ae1e2114ae006f8942d2b0840a0d7142f5255192349",
+//   "blocktime": 1533867018,
+//   "positioninblock": 5,
+//   "block": 1251070,
+//   "confirmations": 1
+// }
+`}
+          </Code>
+        </PreviewItem>
+        <PreviewItem to="/wormhole/docs/transactions">
+          <Text>Revoke 11 TMC from a time traveler</Text>
+          <Code>
+{`
+  (async () => {
+    let revoke = await Wormhole.Transaction.revoke("bchtest:qr4g79cjapp02s3zs59gtu3dxu7sgwvp8gmnh9rw97", 112, "11");
+  })()
 `}
           </Code>
         </PreviewItem>
         <PreviewItem to="/wormhole/docs/data-retrieval">
           <H2>Data Retrieval</H2>
           <Text>Over a dozen methods for checking balances, transactions, tokens and more.</Text>
+          <Text>Check the balances of all tokens for a single address</Text>
           <Code>
-            {`// Check the balances of all tokens for a single address
-Wormhole.DataRetrieval.balancesForAddress("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg").then((result) => {
-  console.log(result);
-}, (err) => {
-  console.log(err);
-})  ;
+            {`
+(async () => {
+  let balancesForAddress = await Wormhole.DataRetrieval.balancesForAddress("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg");
+})()
 
 // [ { propertyid: 1, balance: '93.00105957', reserved: '0.00000000' },
 //   { propertyid: 108, balance: '1496.0', reserved: '0.0' },
