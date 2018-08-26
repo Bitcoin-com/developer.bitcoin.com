@@ -28,7 +28,7 @@ secondSubtitle: Tokens and Crowdsales on Bitcoin Cash
         <p>Create 1,000,000 Quantum Miner Tokens QMT</p>
         <pre><code>
 let wormhole = async () => {
-  let fixed = await Wormhole.PayloadCreation.fixed(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens", "1000000");
+  let fixed = await Wormhole.PayloadCreation.fixed(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens QMT", "1000000");
   let utxo = await BITBOX.Address.utxo([cashAddress]);
   let rawTx = await Wormhole.RawTransactions.create([utxo[0][0]], {});
   let opReturn = await Wormhole.RawTransactions.opReturn(rawTx, fixed);
@@ -73,7 +73,7 @@ let wormhole = async () => {
         <p>Send an investor 1000 QMT</p>
         <pre><code>
 let main = async () => {
-  let ssPayload = await Wormhole.PayloadCreation.simpleSend(183, "2000.5");
+  let ssPayload = await Wormhole.PayloadCreation.simpleSend(111, "1000.0");
   let utxo = await BITBOX.Address.utxo([cashAddress]);
   let rawTx = await Wormhole.RawTransactions.create([utxo[0][1]], {});
   let opReturn = await Wormhole.RawTransactions.opReturn(rawTx, ssPayload);
@@ -111,7 +111,7 @@ let main = async () => {
         <p>Grant and revoke Time Machine Coins TMC</p>
         <pre><code>
 let wormhole = async () => {
-  let managed = await Wormhole.PayloadCreation.managed(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "BITBOX");
+  let managed = await Wormhole.PayloadCreation.managed(1, 1, 0, "Companies", "Wormholes", "Time Machine", "www.example.com", "Time Machine Coins TMC");
   let utxo = await BITBOX.Address.utxo([cashAddress]);
   let rawTx = await Wormhole.RawTransactions.create([utxo[0][0]], {});
   let opReturn = await Wormhole.RawTransactions.opReturn(rawTx, managed);
@@ -223,7 +223,7 @@ let wormhole = async () => {
         <p>Start a crowdsale where 100,000 Life Extension Tokens LET are going to be sold 100 LET for 1 WHC.</p>
         <pre><code>
 let wormhole = async () => {
-  let crowdsale = await Wormhole.PayloadCreation.crowdsale(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens", 1, "100", 1583228800, 0, 0, 10000);
+  let crowdsale = await Wormhole.PayloadCreation.crowdsale(1, 1, 0, "Companies", "Singularity", "Life Extension", "www.example.com", "Life Extension Tokens LET", 1, "100", 1545696000, 0, 0, 10000);
   let utxo = await Wormhole.Address.utxo([cashAddress]);
   let rawTx = await Wormhole.RawTransactions.create([utxo[0][0]], {});
   let opReturn = await Wormhole.RawTransactions.opReturn(rawTx, crowdsale);
