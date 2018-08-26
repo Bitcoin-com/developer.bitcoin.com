@@ -21,7 +21,7 @@ title: Bitcoin.com Developer Platform | RawTransactions Documentation
       </div>
 
       <div class="col-12 col-md-9 language-javascript">
-        <h2 id='configuration' class="contentSubHead isCenter"><i class="fas fa-exchange-alt"></i> RawTransactions</h2>
+        <h2 id='RawTransactions' class="contentSubHead isCenter"><i class="fas fa-exchange-alt"></i> RawTransactions</h2>
         <h3 id='change'><code>change</code></h3>
         <p>Adds a change output to the transaction. The provided inputs are not added to the transaction, but only used to determine the change. It is assumed that the inputs were previously added, for example via "createrawtransaction".</p>
         <p>Optionally a position can be provided, where the change output should be inserted, starting with 0. If the number of outputs is smaller than the position, then the change output is added to the end. Change outputs should be inserted before reference outputs, and as per default, the change output is added to the first position.</p>

@@ -21,7 +21,7 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
       </div>
 
       <div class="col-12 col-md-9 language-javascript">
-        <h2 id='configuration' class="contentSubHead isCenter"><i class="fas fa-plus"></i> PayloadCreation</h2>
+        <h2 id='PayloadCreation' class="contentSubHead isCenter"><i class="fas fa-plus"></i> PayloadCreation</h2>
         <h3 id='burnBCH'><code>burnBCH</code></h3>
         <p>
           Creates the payload to burn bch to get whc.
@@ -294,8 +294,8 @@ title: Bitcoin.com Developer Platform | PayloadCreation Documentation
 
         <pre><code>
 (async () => {
-  let managed = await Wormhole.PayloadCreation.participateCrowdSale("100.0");
-  console.log(managed);
+  let participateCrowdSale = await Wormhole.PayloadCreation.participateCrowdSale("100.0");
+  console.log(participateCrowdSale);
 })()
 
 // 000000010000000100000002540be400
