@@ -113,9 +113,24 @@ const BitboxPage = ({ location }: Props) => (
           <Text>Create 1,000,000 Quantum Miner Tokens QMT</Text>
           <Code>
             {`
-(async () => {
-  let fixed = await Wormhole.Transaction.fixed("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens QMT", "1000000");
-})()
+let wormhole = async () => {
+  let fixed = await Wormhole.PayloadCreation.fixed(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens QMT", "1000000");
+  let utxo = await BITBOX.Address.utxo([cashAddress]);
+  let rawTx = await Wormhole.RawTransactions.create([utxo[0][0]], {});
+  let opReturn = await Wormhole.RawTransactions.opReturn(rawTx, fixed);
+  let ref = await Wormhole.RawTransactions.reference(opReturn, cashAddress);
+  let changeHex = await Wormhole.RawTransactions.change(ref, [utxo[0][0]], cashAddress, 0.0006);
+
+  let tx = Wormhole.Transaction.fromHex(changeHex)
+  let tb = Wormhole.Transaction.fromTransaction(tx)
+
+  let keyPair = Wormhole.HDNode.toKeyPair(change);
+  let redeemScript;
+  tb.sign(0, keyPair, redeemScript, 0x01, utxo[0][0].satoshis);
+  let builtTx = tb.build()
+  let txHex = builtTx.toHex();
+  await BITBOX.RawTransactions.sendRawTransaction(txHex);
+}
 // {
 //   "txid": "8d2e358edcddadbaa4e0f7c9e3fe2ff7e128c4bed6d3a6a67af6aa5922c7bcd8",
 //   "fee": "622",
@@ -147,9 +162,24 @@ const BitboxPage = ({ location }: Props) => (
           <Text>Send an investor 1000 QMT</Text>
           <Code>
             {`
-(async () => {
-  let send = await Wormhole.Transaction.send("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", "bchtest:qr4g79cjapp02s3zs59gtu3dxu7sgwvp8gmnh9rw97", 111, "1000.0");
-})()
+let main = async () => {
+  let ssPayload = await Wormhole.PayloadCreation.simpleSend(111, "1000.0");
+  let utxo = await BITBOX.Address.utxo([cashAddress]);
+  let rawTx = await Wormhole.RawTransactions.create([utxo[0][1]], {});
+  let opReturn = await Wormhole.RawTransactions.opReturn(rawTx, ssPayload);
+  let ref = await Wormhole.RawTransactions.reference(opReturn, cashAddress1);
+  let changeHex = await Wormhole.RawTransactions.change(ref, [utxo[0][1]], cashAddress, 0.0006);
+
+  let tx = Wormhole.Transaction.fromHex(changeHex)
+  let tb = Wormhole.Transaction.fromTransaction(tx)
+
+  let keyPair = Wormhole.HDNode.toKeyPair(change);
+  let redeemScript;
+  tb.sign(0, keyPair, redeemScript, 0x01, utxo[0][1].satoshis);
+  let builtTx = tb.build()
+  let txHex = builtTx.toHex();
+  await BITBOX.RawTransactions.sendRawTransaction(txHex);
+}
 // {
 //   "txid": "f90c52d4d2fea37fcd73bb88f04d553495585b0b27bae4125f99d06ddb43777f",
 //   "fee": "520",
@@ -173,9 +203,24 @@ const BitboxPage = ({ location }: Props) => (
           <Text>Start a crowdsale where 100,000 Life Extension Tokens LET are going to be sold 100 LET for 1 WHC.</Text>
           <Code>
             {`
-(async () => {
-  let crowdSale = await Wormhole.Transaction.crowdSale("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 1, 1, 0, "Companies", "Singularity", "Life Extension", "www.example.com", "Life Extension Tokens LET", 1, "100", 1545696000, 30, 0, 100000);
-})()
+let wormhole = async () => {
+  let crowdsale = await Wormhole.PayloadCreation.crowdsale(1, 1, 0, "Companies", "Singularity", "Life Extension", "www.example.com", "Life Extension Tokens LET", 1, "100", 1545696000, 0, 0, 100000);
+  let utxo = await Wormhole.Address.utxo([cashAddress]);
+  let rawTx = await Wormhole.RawTransactions.create([utxo[0][0]], {});
+  let opReturn = await Wormhole.RawTransactions.opReturn(rawTx, crowdsale);
+  let ref = await Wormhole.RawTransactions.reference(opReturn, cashAddress);
+  let changeHex = await Wormhole.RawTransactions.change(ref, [utxo[0][0]], cashAddress, 0.0006);
+
+  let tx = Wormhole.Transaction.fromHex(changeHex)
+  let tb = Wormhole.Transaction.fromTransaction(tx)
+
+  let keyPair = Wormhole.HDNode.toKeyPair(change);
+  let redeemScript;
+  tb.sign(0, keyPair, redeemScript, 0x01, utxo[0][0].satoshis);
+  let builtTx = tb.build()
+  let txHex = builtTx.toHex();
+  await Wormhole.RawTransactions.sendRawTransaction(txHex);
+}
 
  // {
    // "txid": "aa5ed83708d0889d25691a27668fe5a6a406cab24191afae7d78bb867a324641",
@@ -214,9 +259,25 @@ const BitboxPage = ({ location }: Props) => (
           </Text>
           <Code>
             {`
-(async () => {
-  let partipateCrowdSale = await Wormhole.Transaction.partipateCrowdSale("bchtest:qr4g79cjapp02s3zs59gtu3dxu7sgwvp8gmnh9rw97", "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", "1");
-})()
+et wormhole = async () => {
+  let participateCrowdSale = await Wormhole.PayloadCreation.participateCrowdSale("1");
+
+  let utxo = await Wormhole.Address.utxo([cashAddress]);
+  let rawTx = await Wormhole.RawTransactions.create([utxo[0][0]], {});
+  let opReturn = await Wormhole.RawTransactions.opReturn(rawTx, participateCrowdSale);
+  let ref = await Wormhole.RawTransactions.reference(opReturn, cashAddress2);
+  let changeHex = await Wormhole.RawTransactions.change(ref, [utxo[0][0]], cashAddress, 0.0006);
+
+  let tx = Wormhole.Transaction.fromHex(changeHex)
+  let tb = Wormhole.Transaction.fromTransaction(tx)
+
+  let keyPair = Wormhole.HDNode.toKeyPair(change);
+  let redeemScript;
+  tb.sign(0, keyPair, redeemScript, 0x01, utxo.satoshis);
+  let builtTx = tb.build()
+  let txHex = builtTx.toHex();
+  await Wormhole.RawTransactions.sendRawTransaction(txHex);
+}
 // {
 // "txid": "b8b26698c4d3783c1618253aa280ccbafd8912ef20ba1e7a3dcebd2d8d8915de",
 // "fee": "520",
