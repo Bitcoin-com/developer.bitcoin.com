@@ -105,7 +105,7 @@ let main = async () => {
 //   "confirmations": 0
 // }
         </code></pre>
-        <a href="/wormhole/docs/transaction.html#fixed" class="">Read More...</a>
+        <a href="/wormhole/docs/payloadCreation.html#fixed" class="">Read More...</a>
 
         <h3 class="yellow">Tokens with managed supply</h3>
         <p>Grant and revoke Time Machine Coins TMC</p>
@@ -156,7 +156,7 @@ let wormhole = async () => {
         <p>Grant 42 TMC to a time traveler</p>
         <pre><code>
 let wormhole = async () => {
-  let grant = await Wormhole.PayloadCreation.grant(186, "23456");
+  let grant = await Wormhole.PayloadCreation.grant(112, "42");
   let utxo = await BITBOX.Address.utxo([cashAddress]);
   let rawTx = await Wormhole.RawTransactions.create([utxo[0][3]], {});
   let opReturn = await Wormhole.RawTransactions.opReturn(rawTx, grant);
@@ -196,7 +196,7 @@ let wormhole = async () => {
         <p>Revoke 11 TMC from a time traveler</p>
         <pre><code>
 let wormhole = async () => {
-  let revoke = await Wormhole.PayloadCreation.revoke(184, "7000.0");
+  let revoke = await Wormhole.PayloadCreation.revoke(112, "11");
   let utxo = await BITBOX.Address.utxo([cashAddress]);
   let rawTx = await Wormhole.RawTransactions.create([utxo[0][0]], {});
   let opReturn = await Wormhole.RawTransactions.opReturn(rawTx, revoke);
@@ -214,7 +214,7 @@ let wormhole = async () => {
   await BITBOX.RawTransactions.sendRawTransaction(txHex);
 }
         </code></pre>
-        <a href="/wormhole/docs/transaction.html#managed" class="">Read More...</a>
+        <a href="/wormhole/docs/payloadCreation.html#managed" class="">Read More...</a>
       </div>
 
       <div class="col-12 col-md-6 mb-4">
@@ -302,7 +302,7 @@ let wormhole = async () => {
 // "confirmations": 0
 // }
                </code></pre>
-        <a href="/wormhole/docs/transaction.html#crowdSale" class="">Read More...</a>
+        <a href="/wormhole/docs/payloadCreation.html#crowdSale" class="">Read More...</a>
 
         <h3 class="yellow">Data Retrieval</h3>
         <p>Over a dozen methods for checking balances, transactions, tokens and more.</p>
