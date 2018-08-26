@@ -202,8 +202,8 @@ payload `String`: the hex\-encoded payload
 
 
     (async () => {
-      let managed = await Wormhole.PayloadCreation.participateCrowdSale("100.0");
-      console.log(managed);
+      let participateCrowdSale = await Wormhole.PayloadCreation.participateCrowdSale("100.0");
+      console.log(participateCrowdSale);
     })()
 
     // 000000010000000100000002540be400
