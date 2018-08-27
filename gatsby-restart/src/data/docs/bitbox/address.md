@@ -588,8 +588,13 @@ details `Array`: Array of Objects w/ details about addresses including balance
 
 
     (async () => {
-      let details = await BITBOX.Address.details(['1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA']);
-      console.log(details);
+      try {
+        let details = await BITBOX.Address.details(['1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA']);
+        console.log(details)
+      }
+      catch(error) {
+       console.error(error)
+      }
     })()
 
     // [{
@@ -616,8 +621,13 @@ details `Array`: Array of Objects w/ details about addresses including balance
     // }]
 
     (async () => {
-      let details = await BITBOX.Address.details(['1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA', "bitcoincash:qp7ekaepv3wf2nq035hevcma4x9sxmp3w56048g6ra"]);
-      console.log(details);
+      try {
+        let details = await BITBOX.Address.details(['1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA', "bitcoincash:qp7ekaepv3wf2nq035hevcma4x9sxmp3w56048g6ra"]);
+        console.log(details)
+      }
+      catch(error) {
+       console.error(error)
+      }
     })()
 
     // [ { balance: 0.36781097,
@@ -671,8 +681,13 @@ utxo `Array`: Array of arrays with utxo for addresses
 
 
     (async () => {
-      let utxo = await BITBOX.Address.utxo(['1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA']);
-      console.log(utxo);
+      try {
+        let utxo = await BITBOX.Address.utxo(['1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA']);
+        console.log(utxo);
+      }
+      catch(error) {
+       console.error(error)
+      }
     })()
 
     // [[
@@ -699,8 +714,13 @@ utxo `Array`: Array of arrays with utxo for addresses
     // ]]
 
     (async () => {
-      let utxo = await BITBOX.Address.utxo(['1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA', "bitcoincash:qp7ekaepv3wf2nq035hevcma4x9sxmp3w56048g6ra"]);
-      console.log(utxo);
+      try {
+        let utxo = await BITBOX.Address.utxo(['1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA', "bitcoincash:qp7ekaepv3wf2nq035hevcma4x9sxmp3w56048g6ra"]);
+        console.log(utxo);
+      }
+      catch(error) {
+       console.error(error)
+      }
     })()
 
     // [ [ { txid: 'f737485aaee3c10b13013fa109bb6294b099246134ca9885f4cc332dbc6c9bb4',
@@ -740,8 +760,13 @@ unconfirmed `Array`: Array of arrays with unconfirmed transactions for addresses
 
 
     (async () => {
-      let unconfirmed = await BITBOX.Address.unconfirmed(['1Fg4r9iDrEkCcDmHTy2T79EusNfhyQpu7W']);
-      console.log(unconfirmed);
+      try {
+        let unconfirmed = await BITBOX.Address.unconfirmed(['1Fg4r9iDrEkCcDmHTy2T79EusNfhyQpu7W']);
+        console.log(unconfirmed);
+      }
+      catch(error) {
+       console.error(error)
+      }
     })()
 
     // [[
@@ -759,8 +784,13 @@ unconfirmed `Array`: Array of arrays with unconfirmed transactions for addresses
     // ]];
 
     (async () => {
-      let unconfirmed = await BITBOX.Address.unconfirmed(['1Fg4r9iDrEkCcDmHTy2T79EusNfhyQpu7W', "bitcoincash:qp7ekaepv3wf2nq035hevcma4x9sxmp3w56048g6ra"])
-      console.log(unconfirmed);
+      try {
+        let unconfirmed = await BITBOX.Address.unconfirmed(['1Fg4r9iDrEkCcDmHTy2T79EusNfhyQpu7W', "bitcoincash:qp7ekaepv3wf2nq035hevcma4x9sxmp3w56048g6ra"])
+        console.log(unconfirmed);
+      }
+      catch(error) {
+       console.error(error)
+      }
     })()
 
     // [

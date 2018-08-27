@@ -16,8 +16,13 @@ Return information about the given bitcoin address.
 
 
     (async () => {
-      let validateAddress = await BITBOX.Util.validateAddress("bitcoincash:qzc86hrdufhcwlyzk7k82x77kfs2myekn57nv9cw5f");
-      console.log(validateAddress);
+      try {
+        let validateAddress = await BITBOX.Util.validateAddress("bitcoincash:qzc86hrdufhcwlyzk7k82x77kfs2myekn57nv9cw5f");
+        console.log(validateAddress);
+      }
+      catch(error) {
+       console.error(error)
+      }
     })()
 
     // { isvalid: true,

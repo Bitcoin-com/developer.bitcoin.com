@@ -27,8 +27,13 @@ Returns a json object containing mining\-related information.
 
 
     (async () => {
-      let getMiningInfo = await BITBOX.Mining.getMiningInfo();
-      console.log(getMiningInfo);
+      try {
+        let getMiningInfo = await BITBOX.Mining.getMiningInfo();
+        console.log(getMiningInfo);
+      }
+      catch(error) {
+       console.error(error)
+      }
     })()
 
 
@@ -49,6 +54,11 @@ x (numeric): Hashes per second estimated
 
 
     (async () => {
-      let getNetworkHashps = await BITBOX.Mining.getNetworkHashps();
-      console.log(getNetworkHashps);
+      try {
+        let getNetworkHashps = await BITBOX.Mining.getNetworkHashps();
+        console.log(getNetworkHashps);
+      }
+      catch(error) {
+       console.error(error)
+      }
     })()

@@ -21,8 +21,13 @@ details `Array`: Array of Objects with details about transactions
 
     // single txid
     (async () => {
-      let details = await BITBOX.Transaction.details('a85fa3d831ab6b0305e7ff88d2d4941e25a810d4461635df51490653822071a8');
-      console.log(details);
+      try {
+        let details = await BITBOX.Transaction.details('a85fa3d831ab6b0305e7ff88d2d4941e25a810d4461635df51490653822071a8');
+        console.log(details);
+      }
+      catch(error) {
+       console.error(error)
+      }
     })()
 
     // {
@@ -65,8 +70,13 @@ details `Array`: Array of Objects with details about transactions
 
     // array of txids
     (async () => {
-      let details = await BITBOX.Transaction.details(["a85fa3d831ab6b0305e7ff88d2d4941e25a810d4461635df51490653822071a8", "113f1fe1c454a56436d4f93c7c6e315d1ed985d111299e9c2a3e2d3d1e9f177f"]);
-      console.log(details);
+      try {
+        let details = await BITBOX.Transaction.details(["a85fa3d831ab6b0305e7ff88d2d4941e25a810d4461635df51490653822071a8", "113f1fe1c454a56436d4f93c7c6e315d1ed985d111299e9c2a3e2d3d1e9f177f"]);
+        console.log(details);
+      }
+      catch(error) {
+       console.error(error)
+      }
     })()
 
     // [ { txid: 'a85fa3d831ab6b0305e7ff88d2d4941e25a810d4461635df51490653822071a8',

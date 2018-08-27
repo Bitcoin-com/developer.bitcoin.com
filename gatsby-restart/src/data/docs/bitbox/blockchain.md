@@ -16,8 +16,13 @@ hex `String`: the block hash hex encoded
 
 
     (async () => {
-      let getBestBlockHash = await BITBOX.Blockchain.getBestBlockHash();
-      console.log(getBestBlockHash);
+      try {
+        let getBestBlockHash = await BITBOX.Blockchain.getBestBlockHash();
+        console.log(getBestBlockHash);
+      }
+      catch(error) {
+       console.error(error)
+      }
     })()
     // 241decef88889efac8e6ce428a8ac696fdde5972eceed97e1fb58d6106af31d5
 
@@ -35,8 +40,13 @@ If verbose is false, returns a string that is serialized, hex\-encoded data for 
 
 
     (async () => {
-      let getBlock = await BITBOX.Blockchain.getBlock("00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09");
-      console.log(getBlock);
+      try {
+        let getBlock = await BITBOX.Blockchain.getBlock("00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09");
+        console.log(getBlock);
+      }
+      catch(error) {
+       console.error(error)
+      }
     })()
 
     // { hash: '00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09',
@@ -66,8 +76,13 @@ Returns an object containing various state info regarding blockchain processing.
 
 
     (async () => {
-      let getBlockchainInfo = await BITBOX.Blockchain.getBlockchainInfo();
-      console.log(getBlockchainInfo);
+      try {
+        let getBlockchainInfo = await BITBOX.Blockchain.getBlockchainInfo();
+        console.log(getBlockchainInfo);
+      }
+      catch(error) {
+       console.error(error)
+      }
     })()
 
     // { chain: 'main',
@@ -103,8 +118,13 @@ n (numeric) The current block count
 
 
     (async () => {
-      let getBlockCount = await BITBOX.Blockchain.getBlockCount();
-      console.log(getBlockCount);
+      try {
+        let getBlockCount = await BITBOX.Blockchain.getBlockCount();
+        console.log(getBlockCount);
+      }
+      catch(error) {
+       console.error(error)
+      }
     })()
     // 529235
 
@@ -125,8 +145,13 @@ hash `string` The block hash
 
 
     (async () => {
-      let getBlockHash = await BITBOX.Blockchain.getBlockHash([0]);
-      console.log(getBlockHash);
+      try {
+        let getBlockHash = await BITBOX.Blockchain.getBlockHash([0]);
+        console.log(getBlockHash);
+      }
+      catch(error) {
+       console.error(error)
+      }
     })()
     // [ '000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f' ]
 
@@ -144,8 +169,13 @@ If verbose is false, returns a string that is serialized, hex\-encoded data for 
 
 
     (async () => {
-      let getBlockHeader = await BITBOX.Blockchain.getBlockHeader(["00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"]);
-      console.log(getBlockHeader);
+      try {
+        let getBlockHeader = await BITBOX.Blockchain.getBlockHeader(["00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"]);
+        console.log(getBlockHeader);
+      }
+      catch(error) {
+       console.error(error)
+      }
     })()
 
     // [{ hash: '00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09',
@@ -172,8 +202,13 @@ Return information about all known tips in the block tree, including the main ch
 
 
     (async () => {
-      let getChainTips = await BITBOX.Blockchain.getChainTips();
-      console.log(getChainTips);
+      try {
+        let getChainTips = await BITBOX.Blockchain.getChainTips();
+        console.log(getChainTips);
+      }
+      catch(error) {
+       console.error(error)
+      }
     })()
 
     // [ { height: 529235,
@@ -202,8 +237,13 @@ n.nnn (numeric): the proof\-of\-work difficulty as a multiple of the minimum dif
 
 
     (async () => {
-      let getDifficulty = await BITBOX.Blockchain.getDifficulty();
-      console.log(getDifficulty);
+      try {
+        let getDifficulty = await BITBOX.Blockchain.getDifficulty();
+        console.log(getDifficulty);
+      }
+      catch(error) {
+       console.error(error)
+      }
     })()
 
     // 702784497476.8376
@@ -224,8 +264,13 @@ If txid is in the mempool, returns all in\-mempool ancestors.
 
 
     (async () => {
-      let getMempoolAncestors = await BITBOX.Blockchain.getMempoolAncestors(["fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33"]);
-      console.log(getMempoolAncestors);
+      try {
+        let getMempoolAncestors = await BITBOX.Blockchain.getMempoolAncestors(["fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33"]);
+        console.log(getMempoolAncestors);
+      }
+      catch(error) {
+       console.error(error)
+      }
     })()
 
 
@@ -242,8 +287,13 @@ If txid is in the mempool, returns all in\-mempool descendants.
 
 
     (async () => {
-      let getMempoolDescendants = await BITBOX.Blockchain.getMempoolDescendants(["fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33"]);
-      console.log(getMempoolDescendants);
+      try {
+        let getMempoolDescendants = await BITBOX.Blockchain.getMempoolDescendants(["fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33"]);
+        console.log(getMempoolDescendants);
+      }
+      catch(error) {
+       console.error(error)
+      }
     })()
 
 
@@ -259,8 +309,13 @@ Returns mempool data for given transaction
 
 
     (async () => {
-      let getMempoolEntry = await BITBOX.Blockchain.getMempoolEntry(["fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33"]);
-      console.log(getMempoolEntry);
+      try {
+        let getMempoolEntry = await BITBOX.Blockchain.getMempoolEntry(["fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33"]);
+        console.log(getMempoolEntry);
+      }
+      catch(error) {
+       console.error(error)
+      }
     })()
 
 
@@ -272,8 +327,13 @@ Returns details on the active state of the TX memory pool.
 
 
     (async () => {
-      let getMempoolInfo = await BITBOX.Blockchain.getMempoolInfo();
-      console.log(getMempoolInfo);
+      try {
+        let getMempoolInfo = await BITBOX.Blockchain.getMempoolInfo();
+        console.log(getMempoolInfo);
+      }
+      catch(error) {
+       console.error(error)
+      }
     })()
 
     // { size: 257,
@@ -295,8 +355,13 @@ Returns all transaction ids in memory pool as a json array of string transaction
 
 
     (async () => {
-      let getRawMempool = await BITBOX.Blockchain.getRawMempool(true);
-      console.log(getRawMempool);
+      try {
+        let getRawMempool = await BITBOX.Blockchain.getRawMempool(true);
+        console.log(getRawMempool);
+      }
+      catch(error) {
+       console.error(error)
+      }
     })()
 
     // [  {'2ae541af20db6f2b50410f418af56e349d08877d685f6cf54df54658e892db7a':
@@ -331,8 +396,13 @@ Returns details about an unspent transaction output.
 
 
     (async () => {
-      let getTxOut = await BITBOX.Blockchain.getTxOut("e25682caafc7000645d59f4c11d8d594b2943979b9d8fafb9f946e2b35c21b7e", 1);
-      console.log(getTxOut);
+      try {
+        let getTxOut = await BITBOX.Blockchain.getTxOut("e25682caafc7000645d59f4c11d8d594b2943979b9d8fafb9f946e2b35c21b7e", 1);
+        console.log(getTxOut);
+      }
+      catch(error) {
+       console.error(error)
+      }
     })()
 
     // null
@@ -356,8 +426,13 @@ legacyAddress `string` legacy base 58 check encoded address
 
 
     (async () => {
-      let getTxOutProof = await BITBOX.Blockchain.getTxOutProof(["e25682caafc7000645d59f4c11d8d594b2943979b9d8fafb9f946e2b35c21b7e", "d16662463fd98eb96c8f6898d58a4461ac3d0120f4d0aea601d72b37759f261c"]);
-      console.log(getTxOutProof);
+      try {
+        let getTxOutProof = await BITBOX.Blockchain.getTxOutProof(["e25682caafc7000645d59f4c11d8d594b2943979b9d8fafb9f946e2b35c21b7e", "d16662463fd98eb96c8f6898d58a4461ac3d0120f4d0aea601d72b37759f261c"]);
+        console.log(getTxOutProof);
+      }
+      catch(error) {
+       console.error(error)
+      }
     })()
 
     // Not all transactions found in specified or retrieved block
@@ -375,8 +450,13 @@ Treats a block as if it were received before others with the same work. A later 
 
 
     (async () => {
-      let preciousBlock = await BITBOX.Blockchain.preciousBlock("00000000000000000108641af52e01a447b1f9d801571f93a0f20a8cbf80c236");
-      console.log(preciousBlock);
+      try {
+        let preciousBlock = await BITBOX.Blockchain.preciousBlock("00000000000000000108641af52e01a447b1f9d801571f93a0f20a8cbf80c236");
+        console.log(preciousBlock);
+      }
+      catch(error) {
+       console.error(error)
+      }
     })()
 
 
@@ -394,8 +474,13 @@ n (numeric): Height of the last block pruned.
 
 
     (async () => {
-      let pruneBlockchain = await BITBOX.Blockchain.pruneBlockchain(1000);
-      console.log(pruneBlockchain);
+      try {
+        let pruneBlockchain = await BITBOX.Blockchain.pruneBlockchain(1000);
+        console.log(pruneBlockchain);
+      }
+      catch(error) {
+       console.error(error)
+      }
     })()
 
 
@@ -416,8 +501,13 @@ true|false (boolean): Verified or not
 
 
     (async () => {
-      let verifyChain = await BITBOX.Blockchain.verifyChain();
-      console.log(verifyChain);
+      try {
+        let verifyChain = await BITBOX.Blockchain.verifyChain();
+        console.log(verifyChain);
+      }
+      catch(error) {
+       console.error(error)
+      }
     })()
     // true
 
@@ -438,6 +528,11 @@ Verifies that a proof points to a transaction in a block, returning the transact
 
 
     (async () => {
-      let verifyTxOutProof = await BITBOX.Blockchain.verifyTxOutProof("proof");
-      console.log(verifyTxOutProof);
+      try {
+        let verifyTxOutProof = await BITBOX.Blockchain.verifyTxOutProof("proof");
+        console.log(verifyTxOutProof);
+      }
+      catch(error) {
+       console.error(error)
+      }
     })()

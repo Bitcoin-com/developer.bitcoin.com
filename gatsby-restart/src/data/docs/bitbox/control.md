@@ -39,8 +39,13 @@ Returns an object containing information about memory usage.
 
 
     (async () => {
-      let getMemoryInfo = await BITBOX.Control.getMemoryInfo();
-      console.log(getMemoryInfo);
+      try {
+        let getMemoryInfo = await BITBOX.Control.getMemoryInfo();
+        console.log(getMemoryInfo);
+      }
+      catch(error) {
+       console.error(error)
+      }
     })()
 
     // { locked:
