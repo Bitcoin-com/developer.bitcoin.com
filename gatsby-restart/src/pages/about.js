@@ -19,15 +19,12 @@ import spacing from 'styles/spacing'
 
 import HeroImg from 'images/hero.jpeg'
 
-
 const HeroLayout = styled.div`
   display: grid;
   grid-gap: ${spacing.tiny};
 `
 
-const BitBoxLayout = styled.div`
-`
-
+const BitBoxLayout = styled.div``
 
 type Props = {
   location: Object,
@@ -43,10 +40,7 @@ const About = ({ location }: Props) => (
       </HeroLayout>
     </Hero>
     <Container>
-      <BitBoxLayout>
-
-      </BitBoxLayout>
-      
+      <BitBoxLayout />
     </Container>
   </DefaultLayout>
 )

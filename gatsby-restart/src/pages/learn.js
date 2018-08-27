@@ -7,6 +7,8 @@ import DefaultLayout from 'components/layouts/DefaultLayout'
 import Hero from 'components/Hero'
 import Container from 'components/Container'
 
+import {FaAngleRight } from 'react-icons/fa';
+
 import Text from 'atoms/Text'
 import H3 from 'atoms/H3'
 import H2 from 'atoms/H2'
@@ -14,20 +16,21 @@ import H1 from 'atoms/H1'
 import Button from 'atoms/Button'
 import StyledLink from 'atoms/StyledLink'
 
+import Ul from 'atoms/Ul'
+
 import media from 'styles/media'
 import spacing from 'styles/spacing'
 
 import HeroImg from 'images/learn-bitcoin-cash-header.jpg'
-
 
 const HeroLayout = styled.div`
   display: grid;
   grid-gap: ${spacing.tiny};
 `
 
-const PreviewLayout = styled.div`
+const SectionLayout = styled.div`
   display: grid;
-  padding-top: ${spacing.large};
+  padding-top: ${spacing.medium};
   grid-gap: ${spacing.medium};
   grid-template-columns: 1fr;
   ${media.medium`
@@ -36,29 +39,35 @@ const PreviewLayout = styled.div`
 `
 
 // const PreviewItem = styled.div`
-const ItemLayout = styled.div`
+const SectionItem = styled.div`
   display: grid;
   grid-gap: ${spacing.tiny};
   grid-auto-rows: min-content;
+  grid-template-rows: max-content 1fr max-content;
   grid-column: ${props => (props.full ? 'span 2' : 'auto')};
 `
 
-type ItemProps = {
-  children: React.Node,
-  to?: string,
-  full?: boolean,
-}
+const CTASection = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`
 
-const PreviewItem = ({ children, to, full }: ItemProps) => (
-  <ItemLayout full={full}>
-    {children}
-    {to && (
-      <StyledLink to={to}>
-        <Button round>More</Button>
-      </StyledLink>
-    )}
-  </ItemLayout>
-)
+// type ItemProps = {
+//   children: React.Node,
+//   to?: string,
+//   full?: boolean,
+// // }
+
+// // const PreviewItem = ({ children, to, full }: ItemProps) => (
+//   <ItemLayout full={full}>
+//     {children}
+//     {to && (
+//       <StyledLink to={to}>
+//         <Button round>More</Button>
+//       </StyledLink>
+//     )}
+//   </ItemLayout>
+// )
 
 type Props = {
   location: Object,
@@ -74,14 +83,42 @@ const Learn = ({ location }: Props) => (
       </HeroLayout>
     </Hero>
     <Container>
-      <PreviewLayout>
-        <PreviewItem full to="/gui/docs/getting-started">
-          <H2>Instant Blockchain</H2>
+      <SectionLayout>
+        <SectionItem>
+          <H2>Tutorials</H2>
           <Text>
-          Your own Bitcoin Cash blockchain to configure however you choose. It’s recreated from scratch each time you restart GUI. It doesn’t connect to the real network and only consists of transactions and blocks which you create locally so it’s quick and responsive.
+            Step by step instructions to build Bitcoin Cash apps from scratch.
+            See real world examples get built and have your own working copies
+            to bootstrap your project from.
           </Text>
-        </PreviewItem>
-      </PreviewLayout>
+          <CTASection>
+            <StyledLink to="/tutorials"><Text  centerVertical>Explore <FaAngleRight /></Text></StyledLink>
+          </CTASection>
+        </SectionItem>
+        <SectionItem>
+          <H2>Insights</H2>
+          <Text>
+            Learn from developers who have already shipped successful apps. What
+            worked and what would they do different?
+          </Text>
+          
+          <CTASection>
+            <StyledLink to="/insights"><Text  centerVertical>Explore <FaAngleRight /></Text></StyledLink>
+          </CTASection>
+        </SectionItem>
+        <SectionItem>
+          <H2>Mastering Bitcoin Cash</H2>
+          <Text>
+            Based on Mastering Bitcoin by Andreas M. Antonopoulos, Mastering
+            Bitcoin Cash is the ultimate guide to the bring your knowledge from
+            beginner to professional step by step.
+          </Text>
+          <CTASection>
+          <StyledLink to="/mastering-bitcoin-cash"><Text  centerVertical>Read <FaAngleRight /></Text></StyledLink>
+        </CTASection>
+        </SectionItem>
+        
+      </SectionLayout>
     </Container>
   </DefaultLayout>
 )

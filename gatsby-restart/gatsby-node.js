@@ -23,7 +23,6 @@ exports.onCreateWebpackConfig = ({
   })
 }
 
-
 // Generate GraphQL Schema
 exports.onCreateNode = ({ node, getNode, actions }) => {
   // fmImagesToRelative(node);
@@ -31,37 +30,35 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
   // Deal with markdown files
   if (node.internal.type === `MarkdownRemark`) {
-
     const filePath = createFilePath({ node, getNode })
-
-    const filename= filePath.split('/').slice(-2, -1)
-
+    const filename = filePath.split('/').slice(-2, -1)
 
     // Split by type;
     const isDoc = filePath.includes(`/docs/`)
-    let slug = filePath;
+    const isTutorial = filePath.includes('/tutorials/')
+    let slug = filePath
 
-    if(isDoc) {
-      let product = 'other';
+    if (isDoc) {
+      let product = 'other'
 
       const isBitbox = filePath.includes('/bitbox/')
       const isWormhole = filePath.includes('/wormhole/')
       const isGui = filePath.includes('/gui/')
       const isRest = filePath.includes('/rest/')
 
-      if(isBitbox) {
+      if (isBitbox) {
         slug = `/bitbox/docs/${filename}`
         product = 'bitbox'
       }
-      if(isWormhole) {
+      if (isWormhole) {
         slug = `/wormhole/docs/${filename}`
         product = 'wormhole'
       }
-      if(isGui) {
+      if (isGui) {
         slug = `/gui/docs/${filename}`
         product = 'gui'
       }
-      if(isRest) {
+      if (isRest) {
         slug = `/rest/docs/${filename}`
         product = 'rest'
       }
@@ -81,22 +78,34 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
         name: `product`,
         value: product,
       })
+    }
 
-
+    if (isTutorial) {
+      console.log('tutorial')
+      console.log(slug)
+      createNodeField({
+        node,
+        name: `slug`,
+        value: slug,
+      })
+      createNodeField({
+        node,
+        name: `type`,
+        value: 'tutorial'
+      });
+      
     }
   }
 }
 
-
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
+  // Create doc pages
   // Query graphQL data
-  const result = await graphql(`
+  const results = await graphql(`
     {
-      docs: allMarkdownRemark(
-        filter: { fields: { type: { eq: "docs" } } }
-      ) {
+      docs: allMarkdownRemark(filter: { fields: { type: { eq: "docs" } } }) {
         edges {
           node {
             fields {
@@ -106,20 +115,44 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      tutorials: allMarkdownRemark(filter: { fields: { type: { eq: "tutorial"}}}) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+          }
+        }
+      }
     }
   `)
-  const docs = result.data.docs.edges
-
+  const docs = results.data.docs.edges
   docs.forEach(({ node }) => {
-
-    const { slug, product} = node.fields;
+    const { slug, product } = node.fields
     createPage({
       path: slug,
       component: path.resolve(`./src/templates/docPage.js`),
       context: {
         slug,
-        product
+        product,
       },
     })
   })
+
+  const tutorials = results.data.tutorials.edges
+  tutorials.forEach(({node})=> {
+    const { slug } = node.fields;
+    createPage({
+      path: slug,
+      component: path.resolve('./src/templates/tutorialPage.js'),
+      context: {
+         slug
+      }
+    })
+  });
+
+  // // Create Tutorial pages
+  // const resultsTutorials = await graphql(`
+
+  // `)
 }
