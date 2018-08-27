@@ -29,16 +29,17 @@ const HeroLayout = styled.div`
   grid-gap: ${spacing.tiny};
 `
 
-const PreviewContainer = Container.extend`
-  margin-top: ${spacing.medium} !important;
+const PreviewLayout = styled.div`
+  margin-top: ${spacing.medium};
+  display: grid;
+  grid-gap: ${spacing.medium};
 `
 
 const TutorialPreviewLayout = styled.div`
   display: grid;
-  grid-gap: ${spacing.small};
+  grid-gap: ${spacing.tiny};
 `
-const TutorialHeaderLayout = styled.div`
-`
+const TutorialHeaderLayout = styled.div``
 
 type Props = {
   location: Object,
@@ -76,20 +77,26 @@ const Tutorials = ({ location, data }: Props) => {
           </H3>
         </HeroLayout>
       </Hero>
-      <PreviewContainer>
+      <Container>
+          <PreviewLayout>
         {tutorials.map(tutorial => (
           <TutorialPreviewLayout>
             <TutorialHeaderLayout>
-            <StyledLink to={tutorial.node.fields.slug}>
-              <H3>{tutorial.node.frontmatter.title} </H3>
-            </StyledLink>
-            <Text size="tiny">{tutorial.node.frontmatter.updatedAt}</Text>
+              <StyledLink to={tutorial.node.fields.slug}>
+                <H3>{tutorial.node.frontmatter.title} </H3>
+              </StyledLink>
+              <Text size="tiny">{tutorial.node.frontmatter.updatedAt}</Text>
             </TutorialHeaderLayout>
             <Text>{tutorial.node.excerpt}</Text>
-            <StyledLink to={tutorial.node.fields.slug}><Text centerVertical>Read more <FaAngleRight /></Text></StyledLink>
+            <StyledLink to={tutorial.node.fields.slug}>
+              <Text centerVertical>
+                Read more <FaAngleRight />
+              </Text>
+            </StyledLink>
           </TutorialPreviewLayout>
         ))}
-      </PreviewContainer>
+        </PreviewLayout>
+      </Container>
     </DefaultLayout>
   )
 }
@@ -104,7 +111,7 @@ export const query = graphql`
       }
     }
     allMarkdownRemark(
-      sort: { fields: [frontmatter___updatedAt] }
+      sort: { fields: [frontmatter___updatedAt], order: DESC }
       filter: { fields: { type: { eq: "tutorial" } } }
     ) {
       totalCount
