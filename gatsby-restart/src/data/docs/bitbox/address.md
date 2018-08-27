@@ -587,74 +587,82 @@ details `Array`: Array of Objects w/ details about addresses including balance
 #### Examples
 
 
-      BITBOX.Address.details(['1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA']).then((result) => {
-        console.log(result);
-      }, (err) => {
-        console.log(err);
-      });
+    (async () => {
+      try {
+        let details = await BITBOX.Address.details(['1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA']);
+        console.log(details)
+      }
+      catch(error) {
+       console.error(error)
+      }
+    })()
 
-      // [{
-      //   "addrStr": "1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA",
-      //   "balance": 0.36781097,
-      //   "balanceSat": 36781097,
-      //   "totalReceived": 0.36781097,
-      //   "totalReceivedSat": 36781097,
-      //   "totalSent": 0,
-      //   "totalSentSat": 0,
-      //   "unconfirmedBalance": 0,
-      //   "unconfirmedBalanceSat": 0,
-      //   "unconfirmedTxApperances": 0,
-      //   "txApperances": 7,
-      //   "transactions": [
-      //     "f737485aaee3c10b13013fa109bb6294b099246134ca9885f4cc332dbc6c9bb4",
-      //     "decd5b9c0c959e4e543182093e8f7f8bc7a6ecd96a8a062daaeff3667f8feca7",
-      //     "94e69a627a34ae27fca81d15fff4323a7ce1f7c275c7485762ce018221017632",
-      //     "e67c70787af7f3506263c9eda007f3d2d24bd750ff95b5c50a120d9118dfd807",
-      //     "8e5e00704a147d54028f94d52df7730e821b9c6cd4bd29494e5636f49c199d6a",
-      //     "15102827c108566ea5daf725c09079c1a3f42ef99d1eb68ea8c584f7b16ab87a",
-      //     "cc27be8846276612dfce5924b7be96556212f0f0e62bd17641732175edb9911e"
-      //   ]
-      // }]
+    // [{
+    //   "addrStr": "1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA",
+    //   "balance": 0.36781097,
+    //   "balanceSat": 36781097,
+    //   "totalReceived": 0.36781097,
+    //   "totalReceivedSat": 36781097,
+    //   "totalSent": 0,
+    //   "totalSentSat": 0,
+    //   "unconfirmedBalance": 0,
+    //   "unconfirmedBalanceSat": 0,
+    //   "unconfirmedTxApperances": 0,
+    //   "txApperances": 7,
+    //   "transactions": [
+    //     "f737485aaee3c10b13013fa109bb6294b099246134ca9885f4cc332dbc6c9bb4",
+    //     "decd5b9c0c959e4e543182093e8f7f8bc7a6ecd96a8a062daaeff3667f8feca7",
+    //     "94e69a627a34ae27fca81d15fff4323a7ce1f7c275c7485762ce018221017632",
+    //     "e67c70787af7f3506263c9eda007f3d2d24bd750ff95b5c50a120d9118dfd807",
+    //     "8e5e00704a147d54028f94d52df7730e821b9c6cd4bd29494e5636f49c199d6a",
+    //     "15102827c108566ea5daf725c09079c1a3f42ef99d1eb68ea8c584f7b16ab87a",
+    //     "cc27be8846276612dfce5924b7be96556212f0f0e62bd17641732175edb9911e"
+    //   ]
+    // }]
 
-      BITBOX.Address.details(['1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA', "bitcoincash:qp7ekaepv3wf2nq035hevcma4x9sxmp3w56048g6ra"]).then((result) => {
-        console.log(result);
-      }, (err) => {
-        console.log(err);
-      });
+    (async () => {
+      try {
+        let details = await BITBOX.Address.details(['1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA', "bitcoincash:qp7ekaepv3wf2nq035hevcma4x9sxmp3w56048g6ra"]);
+        console.log(details)
+      }
+      catch(error) {
+       console.error(error)
+      }
+    })()
 
-      // [ { balance: 0.36781097,
-      //   balanceSat: 36781097,
-      //   totalReceived: 0.36781097,
-      //   totalReceivedSat: 36781097,
-      //   totalSent: 0,
-      //   totalSentSat: 0,
-      //   unconfirmedBalance: 0,
-      //   unconfirmedBalanceSat: 0,
-      //   unconfirmedTxApperances: 0,
-      //   txApperances: 7,
-      //   transactions:
-      //    [ 'f737485aaee3c10b13013fa109bb6294b099246134ca9885f4cc332dbc6c9bb4',
-      //      'decd5b9c0c959e4e543182093e8f7f8bc7a6ecd96a8a062daaeff3667f8feca7',
-      //      '94e69a627a34ae27fca81d15fff4323a7ce1f7c275c7485762ce018221017632',
-      //      'e67c70787af7f3506263c9eda007f3d2d24bd750ff95b5c50a120d9118dfd807',
-      //      '8e5e00704a147d54028f94d52df7730e821b9c6cd4bd29494e5636f49c199d6a',
-      //      '15102827c108566ea5daf725c09079c1a3f42ef99d1eb68ea8c584f7b16ab87a',
-      //      'cc27be8846276612dfce5924b7be96556212f0f0e62bd17641732175edb9911e' ],
-      //   legacyAddress: '1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA',
-      //   cashAddress: 'bitcoincash:qpcxf2sv9hjw08nvpgffpamfus9nmksm3chv5zqtnz' },
-      // { balance: 0,
-      //   balanceSat: 0,
-      //   totalReceived: 0,
-      //   totalReceivedSat: 0,
-      //   totalSent: 0,
-      //   totalSentSat: 0,
-      //   unconfirmedBalance: 0,
-      //   unconfirmedBalanceSat: 0,
-      //   unconfirmedTxApperances: 0,
-      //   txApperances: 0,
-      //   transactions: [],
-      //   legacyAddress: '1CT9huFgxMFveRvzZ7zPPJNoaMm2Fo64VH',
-      //   cashAddress: 'bitcoincash:qp7ekaepv3wf2nq035hevcma4x9sxmp3w56048g6ra' } ]
+    // [ { balance: 0.36781097,
+    //   balanceSat: 36781097,
+    //   totalReceived: 0.36781097,
+    //   totalReceivedSat: 36781097,
+    //   totalSent: 0,
+    //   totalSentSat: 0,
+    //   unconfirmedBalance: 0,
+    //   unconfirmedBalanceSat: 0,
+    //   unconfirmedTxApperances: 0,
+    //   txApperances: 7,
+    //   transactions:
+    //    [ 'f737485aaee3c10b13013fa109bb6294b099246134ca9885f4cc332dbc6c9bb4',
+    //      'decd5b9c0c959e4e543182093e8f7f8bc7a6ecd96a8a062daaeff3667f8feca7',
+    //      '94e69a627a34ae27fca81d15fff4323a7ce1f7c275c7485762ce018221017632',
+    //      'e67c70787af7f3506263c9eda007f3d2d24bd750ff95b5c50a120d9118dfd807',
+    //      '8e5e00704a147d54028f94d52df7730e821b9c6cd4bd29494e5636f49c199d6a',
+    //      '15102827c108566ea5daf725c09079c1a3f42ef99d1eb68ea8c584f7b16ab87a',
+    //      'cc27be8846276612dfce5924b7be96556212f0f0e62bd17641732175edb9911e' ],
+    //   legacyAddress: '1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA',
+    //   cashAddress: 'bitcoincash:qpcxf2sv9hjw08nvpgffpamfus9nmksm3chv5zqtnz' },
+    // { balance: 0,
+    //   balanceSat: 0,
+    //   totalReceived: 0,
+    //   totalReceivedSat: 0,
+    //   totalSent: 0,
+    //   totalSentSat: 0,
+    //   unconfirmedBalance: 0,
+    //   unconfirmedBalanceSat: 0,
+    //   unconfirmedTxApperances: 0,
+    //   txApperances: 0,
+    //   transactions: [],
+    //   legacyAddress: '1CT9huFgxMFveRvzZ7zPPJNoaMm2Fo64VH',
+    //   cashAddress: 'bitcoincash:qp7ekaepv3wf2nq035hevcma4x9sxmp3w56048g6ra' } ]
 
 
 ### `utxo`
@@ -672,60 +680,68 @@ utxo `Array`: Array of arrays with utxo for addresses
 #### Examples
 
 
-      BITBOX.Address.utxo(['1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA']).then((result) => {
-        console.log(result);
-      }, (err) => {
-        console.log(err);
-      });
+    (async () => {
+      try {
+        let utxo = await BITBOX.Address.utxo(['1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA']);
+        console.log(utxo);
+      }
+      catch(error) {
+       console.error(error)
+      }
+    })()
 
-      // [[
-      //   {
-      //     "address": "1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA",
-      //     "txid": "f737485aaee3c10b13013fa109bb6294b099246134ca9885f4cc332dbc6c9bb4",
-      //     "vout": 0,
-      //     "scriptPubKey": "76a9147064aa0c2de4e79e6c0a1290f769e40b3dda1b8e88ac",
-      //     "amount": 0.299,
-      //     "satoshis": 29900000,
-      //     "height": 528796,
-      //     "confirmations": 16
-      //   },
-      //   {
-      //     "address": "1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA",
-      //     "txid": "decd5b9c0c959e4e543182093e8f7f8bc7a6ecd96a8a062daaeff3667f8feca7",
-      //     "vout": 0,
-      //     "scriptPubKey": "76a9147064aa0c2de4e79e6c0a1290f769e40b3dda1b8e88ac",
-      //     "amount": 0.04839108,
-      //     "satoshis": 4839108,
-      //     "height": 528573,
-      //     "confirmations": 239
-      //   }
-      // ]]
+    // [[
+    //   {
+    //     "address": "1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA",
+    //     "txid": "f737485aaee3c10b13013fa109bb6294b099246134ca9885f4cc332dbc6c9bb4",
+    //     "vout": 0,
+    //     "scriptPubKey": "76a9147064aa0c2de4e79e6c0a1290f769e40b3dda1b8e88ac",
+    //     "amount": 0.299,
+    //     "satoshis": 29900000,
+    //     "height": 528796,
+    //     "confirmations": 16
+    //   },
+    //   {
+    //     "address": "1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA",
+    //     "txid": "decd5b9c0c959e4e543182093e8f7f8bc7a6ecd96a8a062daaeff3667f8feca7",
+    //     "vout": 0,
+    //     "scriptPubKey": "76a9147064aa0c2de4e79e6c0a1290f769e40b3dda1b8e88ac",
+    //     "amount": 0.04839108,
+    //     "satoshis": 4839108,
+    //     "height": 528573,
+    //     "confirmations": 239
+    //   }
+    // ]]
 
-      BITBOX.Address.utxo(['1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA', "bitcoincash:qp7ekaepv3wf2nq035hevcma4x9sxmp3w56048g6ra"]).then((result) => {
-        console.log(result);
-      }, (err) => {
-        console.log(err);
-      });
+    (async () => {
+      try {
+        let utxo = await BITBOX.Address.utxo(['1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA', "bitcoincash:qp7ekaepv3wf2nq035hevcma4x9sxmp3w56048g6ra"]);
+        console.log(utxo);
+      }
+      catch(error) {
+       console.error(error)
+      }
+    })()
 
-      // [ [ { txid: 'f737485aaee3c10b13013fa109bb6294b099246134ca9885f4cc332dbc6c9bb4',
-      //     vout: 0,
-      //     scriptPubKey: '76a9147064aa0c2de4e79e6c0a1290f769e40b3dda1b8e88ac',
-      //     amount: 0.299,
-      //     satoshis: 29900000,
-      //     height: 528796,
-      //     confirmations: 478,
-      //     legacyAddress: '1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA',
-      //     cashAddress: 'bitcoincash:qpcxf2sv9hjw08nvpgffpamfus9nmksm3chv5zqtnz' },
-      //   { txid: 'decd5b9c0c959e4e543182093e8f7f8bc7a6ecd96a8a062daaeff3667f8feca7',
-      //     vout: 0,
-      //     scriptPubKey: '76a9147064aa0c2de4e79e6c0a1290f769e40b3dda1b8e88ac',
-      //     amount: 0.04839108,
-      //     satoshis: 4839108,
-      //     height: 528573,
-      //     confirmations: 701,
-      //     legacyAddress: '1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA',
-      //     cashAddress: 'bitcoincash:qpcxf2sv9hjw08nvpgffpamfus9nmksm3chv5zqtnz' }],
-      //     [] ]
+    // [ [ { txid: 'f737485aaee3c10b13013fa109bb6294b099246134ca9885f4cc332dbc6c9bb4',
+    //     vout: 0,
+    //     scriptPubKey: '76a9147064aa0c2de4e79e6c0a1290f769e40b3dda1b8e88ac',
+    //     amount: 0.299,
+    //     satoshis: 29900000,
+    //     height: 528796,
+    //     confirmations: 478,
+    //     legacyAddress: '1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA',
+    //     cashAddress: 'bitcoincash:qpcxf2sv9hjw08nvpgffpamfus9nmksm3chv5zqtnz' },
+    //   { txid: 'decd5b9c0c959e4e543182093e8f7f8bc7a6ecd96a8a062daaeff3667f8feca7',
+    //     vout: 0,
+    //     scriptPubKey: '76a9147064aa0c2de4e79e6c0a1290f769e40b3dda1b8e88ac',
+    //     amount: 0.04839108,
+    //     satoshis: 4839108,
+    //     height: 528573,
+    //     confirmations: 701,
+    //     legacyAddress: '1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA',
+    //     cashAddress: 'bitcoincash:qpcxf2sv9hjw08nvpgffpamfus9nmksm3chv5zqtnz' }],
+    //     [] ]
 
 
 ### `unconfirmed`
@@ -743,45 +759,53 @@ unconfirmed `Array`: Array of arrays with unconfirmed transactions for addresses
 #### Examples
 
 
-      BITBOX.Address.unconfirmed(['1Fg4r9iDrEkCcDmHTy2T79EusNfhyQpu7W']).then((result) => {
-        console.log(result);
-      }, (err) => {
-        console.log(err);
-      });
+    (async () => {
+      try {
+        let unconfirmed = await BITBOX.Address.unconfirmed(['1Fg4r9iDrEkCcDmHTy2T79EusNfhyQpu7W']);
+        console.log(unconfirmed);
+      }
+      catch(error) {
+       console.error(error)
+      }
+    })()
 
-      // [[
-      //   {
-      //     "txid": "e0aadd861a06993e39af932bb0b9ad69e7b37ef5843a13c6724789e1c94f3513",
-      //     "vout": 1,
-      //     "scriptPubKey": "76a914a0f531f4ff810a415580c12e54a7072946bb927e88ac",
-      //     "amount": 0.00008273,
-      //     "satoshis": 8273,
-      //     "confirmations": 0,
-      //     "ts": 1526680569,
-      //     "legacyAddress": "1Fg4r9iDrEkCcDmHTy2T79EusNfhyQpu7W",
-      //     "cashAddress": "bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c"
-      //   }
-      // ]];
+    // [[
+    //   {
+    //     "txid": "e0aadd861a06993e39af932bb0b9ad69e7b37ef5843a13c6724789e1c94f3513",
+    //     "vout": 1,
+    //     "scriptPubKey": "76a914a0f531f4ff810a415580c12e54a7072946bb927e88ac",
+    //     "amount": 0.00008273,
+    //     "satoshis": 8273,
+    //     "confirmations": 0,
+    //     "ts": 1526680569,
+    //     "legacyAddress": "1Fg4r9iDrEkCcDmHTy2T79EusNfhyQpu7W",
+    //     "cashAddress": "bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c"
+    //   }
+    // ]];
 
-      BITBOX.Address.unconfirmed(['1Fg4r9iDrEkCcDmHTy2T79EusNfhyQpu7W', "bitcoincash:qp7ekaepv3wf2nq035hevcma4x9sxmp3w56048g6ra"]).then((result) => {
-        console.log(result);
-      }, (err) => {
-        console.log(err);
-      });
+    (async () => {
+      try {
+        let unconfirmed = await BITBOX.Address.unconfirmed(['1Fg4r9iDrEkCcDmHTy2T79EusNfhyQpu7W', "bitcoincash:qp7ekaepv3wf2nq035hevcma4x9sxmp3w56048g6ra"])
+        console.log(unconfirmed);
+      }
+      catch(error) {
+       console.error(error)
+      }
+    })()
 
-      // [
-      //   [
-      //     {
-      //       "txid": "e0aadd861a06993e39af932bb0b9ad69e7b37ef5843a13c6724789e1c94f3513",
-      //       "vout": 1,
-      //       "scriptPubKey": "76a914a0f531f4ff810a415580c12e54a7072946bb927e88ac",
-      //       "amount": 0.00008273,
-      //       "satoshis": 8273,
-      //       "confirmations": 0,
-      //       "ts": 1526680569,
-      //       "legacyAddress": "1Fg4r9iDrEkCcDmHTy2T79EusNfhyQpu7W",
-      //       "cashAddress": "bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c"
-      //     }
-      //   ],
-      //   []
-      // ];
+    // [
+    //   [
+    //     {
+    //       "txid": "e0aadd861a06993e39af932bb0b9ad69e7b37ef5843a13c6724789e1c94f3513",
+    //       "vout": 1,
+    //       "scriptPubKey": "76a914a0f531f4ff810a415580c12e54a7072946bb927e88ac",
+    //       "amount": 0.00008273,
+    //       "satoshis": 8273,
+    //       "confirmations": 0,
+    //       "ts": 1526680569,
+    //       "legacyAddress": "1Fg4r9iDrEkCcDmHTy2T79EusNfhyQpu7W",
+    //       "cashAddress": "bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c"
+    //     }
+    //   ],
+    //   []
+    // ];

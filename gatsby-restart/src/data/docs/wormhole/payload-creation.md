@@ -15,8 +15,11 @@ payload `String`: the hex\-encoded payload
 #### Examples
 
 
-      await Wormhole.PayloadCreation.burnBCH();
-      // 00000044
+    (async () => {
+      let burnBCH = await Wormhole.PayloadCreation.burnBCH();
+      console.log(burnBCH);
+    })()
+    // 00000044
 
 
 ### `changeIssuer`
@@ -34,8 +37,11 @@ payload `String`: the hex\-encoded payload
 #### Examples
 
 
-      await Wormhole.PayloadCreation.changeIssuer(3);
-      // 0000004600000003
+    (async () => {
+      let changeIssuer = await Wormhole.PayloadCreation.changeIssuer(3);
+      console.log(changeIssuer);
+    })()
+    // 0000004600000003
 
 
 ### `closeCrowdSale`
@@ -53,8 +59,11 @@ payload `String`: the hex\-encoded payload
 #### Examples
 
 
-      await Wormhole.PayloadCreation.closeCrowdSale(70);
-      // 0000003500000046
+    (async () => {
+      let closeCrowdSale = await Wormhole.PayloadCreation.closeCrowdSale(70);
+      console.log(closeCrowdSale);
+    })()
+    // 0000003500000046
 
 
 ### `grant`
@@ -74,8 +83,11 @@ payload `String`: the hex\-encoded payload
 #### Examples
 
 
-        await Wormhole.PayloadCreation.grant(3, "7000");
-        // 00000037000000030000000000001b5800
+    (async () => {
+      let grant = await Wormhole.PayloadCreation.grant(3, "7000");
+      console.log(grant);
+    })()
+    // 00000037000000030000000000001b5800
 
 
 ### `crowdsale`
@@ -106,8 +118,11 @@ payload `String`: the hex\-encoded payload
 #### Examples
 
 
-      await Wormhole.PayloadCreation.crowdsale(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens", 1, "100", 1483228800, 30, 0, 192978657);
-      //  0000003301000100000000436f6d70616e69657300426974636f696e204d696e696e67005175616e74756d204d696e6572007777772e6578616d706c652e636f6d005175616e74756d204d696e657220546f6b656e73000000000100000002540be40000000000586846801e0000000000730634ca
+    (async () => {
+      let crowdsale = await Wormhole.PayloadCreation.crowdsale(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens", 1, "100", 1483228800, 30, 0, 192978657);
+      console.log(crowdsale);
+    })()
+    // 0000003301000100000000436f6d70616e69657300426974636f696e204d696e696e67005175616e74756d204d696e6572007777772e6578616d706c652e636f6d005175616e74756d204d696e657220546f6b656e73000000000100000002540be40000000000586846801e0000000000730634ca
 
 
 ### `fixed`
@@ -133,9 +148,12 @@ payload `String`: the hex\-encoded payload
 #### Examples
 
 
-      await Wormhole.PayloadCreation.fixed(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens", "1000000");
+    (async () => {
+      let fixed = await Wormhole.PayloadCreation.fixed(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens", "1000000");
+      console.log(fixed);
+    })()
 
-      // 0000003201000100000000436f6d70616e69657300426974636f696e204d696e696e67005175616e74756d204d696e6572007777772e6578616d706c652e636f6d005175616e74756d204d696e657220546f6b656e73000000000000989680
+    // 0000003201000100000000436f6d70616e69657300426974636f696e204d696e696e67005175616e74756d204d696e6572007777772e6578616d706c652e636f6d005175616e74756d204d696e657220546f6b656e73000000000000989680
 
 
 ### `managed`
@@ -160,11 +178,15 @@ payload `String`: the hex\-encoded payload
 #### Examples
 
 
-      await Wormhole.PayloadCreation.managed(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens");
-      // 0000003601000100000000436f6d70616e69657300426974636f696e204d696e696e67005175616e74756d204d696e6572007777772e6578616d706c652e636f6d005175616e74756d204d696e657220546f6b656e7300
+    (async () => {
+      let managed = await Wormhole.PayloadCreation.managed(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens");
+      console.log(managed);
+    })()
+
+    // 0000003601000100000000436f6d70616e69657300426974636f696e204d696e696e67005175616e74756d204d696e6572007777772e6578616d706c652e636f6d005175616e74756d204d696e657220546f6b656e7300
 
 
-### `partiCrwoSale`
+### `participateCrowdSale`
 
 Create the payload for a participate crowsale transaction
 
@@ -179,9 +201,12 @@ payload `String`: the hex\-encoded payload
 #### Examples
 
 
-      await Wormhole.PayloadCreation.partiCrwoSale("100.0");
+    (async () => {
+      let participateCrowdSale = await Wormhole.PayloadCreation.participateCrowdSale("100.0");
+      console.log(participateCrowdSale);
+    })()
 
-      // 000000010000000100000002540be400
+    // 000000010000000100000002540be400
 
 
 ### `revoke`
@@ -201,7 +226,10 @@ payload `String`: the hex\-encoded payload
 #### Examples
 
 
-      await Wormhole.PayloadCreation.revoke(1, "100");
+    (async () => {
+      let revoke = await Wormhole.PayloadCreation.revoke(105, "100");
+      console.log(revoke);
+    })()
 
 
 ### `sendAll`
@@ -219,8 +247,11 @@ payload `String`: the hex\-encoded payload
 #### Examples
 
 
-      await Wormhole.PayloadCreation.sendAll(2, "100");
-      // 0000000402
+    (async () => {
+      let sendAll = await Wormhole.PayloadCreation.sendAll(2, "100");
+      console.log(sendAll);
+    })()
+    // 0000000402
 
 
 ### `simpleSend`
@@ -239,8 +270,11 @@ payload `String`: the hex\-encoded payload
 #### Examples
 
 
-      await Wormhole.PayloadCreation.simpleSend(1, "100.0");
-      // 000000000000000100000002540be400
+    (async () => {
+      let simpleSend = await Wormhole.PayloadCreation.simpleSend(1, "100.0");
+      console.log(simpleSend);
+    })()
+    // 000000000000000100000002540be400
 
 
 ### `STO`
@@ -260,5 +294,8 @@ payload `String`: the hex\-encoded payload
 #### Examples
 
 
-      await Wormhole.PayloadCreation.STO(3, "5000");
-      // 0000000300000003000000000000138800000003
+    (async () => {
+      let simpleSend = await Wormhole.PayloadCreation.STO(3, "5000");
+      console.log(simpleSend);
+    })()
+    // 0000000300000003000000000000138800000003

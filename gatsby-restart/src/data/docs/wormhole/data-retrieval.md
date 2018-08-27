@@ -19,11 +19,14 @@ array `Array` of JSON Objects
 #### Examples
 
 
-      await Wormhole.DataRetrieval.balancesForAddress("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg");
+    (async () => {
+      let balances = await Wormhole.DataRetrieval.balancesForAddress("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg");
+      console.log(balances);
+    })()
 
-      // [ { propertyid: 1,
-      //  balance: '100.00106300',
-      //  reserved: '0.00000000' } ]
+    // [ { propertyid: 1,
+    //  balance: '100.00106300',
+    //  reserved: '0.00000000' } ]
 
 
 ### `balancesForId`
@@ -41,14 +44,20 @@ array `Array` of JSON Objects
 #### Examples
 
 
-      await Wormhole.DataRetrieval.balancesForId(1);
+    (async () => {
+      let balances = await Wormhole.DataRetrieval.balancesForId(108);
+      console.log(balances);
+    })()
 
-      // [{ address: 'bchtest:qqsjkzpg4vdzxaw95pealfnh78g7lnr7dquj3xd9z2',
-      //   balance: '107.00019168',
-      //   reserved: '0.00000000' },
-      // { address: 'bchtest:qrwzs53tdevyd5tqhcl7xn9acfayn90eu57xjpdv8d',
-      //   balance: '30.00000000',
-      //   reserved: '0.00000000' }]
+    // [ { address: 'bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg',
+    //     balance: '1496.0',
+    //     reserved: '0.0' },
+    //   { address: 'bchtest:qr4g79cjapp02s3zs59gtu3dxu7sgwvp8gmnh9rw97',
+    //     balance: '3.0',
+    //     reserved: '0.0' },
+    //   { address: 'bchtest:qztr275nr423fd79ap4ewlewktawz6t7xux7gdlm0t',
+    //     balance: '1.0',
+    //     reserved: '0.0' } ]
 
 
 ### `balance`
@@ -67,10 +76,12 @@ obj `Object`
 #### Examples
 
 
-      await Wormhole.DataRetrieval.balance("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 1);
-      });
+    (async () => {
+      let balance = await Wormhole.DataRetrieval.balance("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 1);
+      console.log(balance);
+    })()
 
-      // { balance: '100.00106300', reserved: '0.00000000' }
+    // { balance: '100.00106300', reserved: '0.00000000' }
 
 
 ### `balancesHash`
@@ -88,12 +99,15 @@ obj `Object`
 #### Examples
 
 
-      await Wormhole.DataRetrieval.balancesHash(31);
+    (async () => {
+      let balancesHash = await Wormhole.DataRetrieval.balancesHash(31);
+      console.log(balancesHash);
+    })()
 
-      // { block: 1250914,
-      // blockhash: '000000000000001ad8258ac965843773d56a12979727245a910fb82f306b34e6',
-      // propertyid: 31,
-      // balanceshash: '55b852781b9995a44c939b64e441ae2724b96f99c8f4fb9a141cfc9842c4b0e3' }
+    // { block: 1250914,
+    // blockhash: '000000000000001ad8258ac965843773d56a12979727245a910fb82f306b34e6',
+    // propertyid: 31,
+    // balanceshash: '55b852781b9995a44c939b64e441ae2724b96f99c8f4fb9a141cfc9842c4b0e3' }
 
 
 ### `crowdSale`
@@ -112,23 +126,26 @@ obj `Object`
 #### Examples
 
 
-      await Wormhole.DataRetrieval.crowdSale(31, true);
+    (async () => {
+      let crowdSale = await Wormhole.DataRetrieval.crowdSale(31, true);
+      console.log(crowdSale);
+    })()
 
-      // { propertyid: 31,
-      // name: 'qshuaifinalcrowsale',
-      // active: false,
-      // issuer: 'bchtest:qzk8qa7jp0w9cp7lxkghc6m0aqw3s9c7yg3s5v5m8n',
-      // propertyiddesired: 1,
-      // precision: '2',
-      // tokensperunit: '10.00000000',
-      // earlybonus: 10,
-      // starttime: 1533020017,
-      // deadline: 1533020340,
-      // amountraised: '0.00000000',
-      // tokensissued: '12345.12',
-      // addedissuertokens: '0.00',
-      // closedearly: false,
-      // maxtokens: false }
+    // { propertyid: 31,
+    // name: 'qshuaifinalcrowsale',
+    // active: false,
+    // issuer: 'bchtest:qzk8qa7jp0w9cp7lxkghc6m0aqw3s9c7yg3s5v5m8n',
+    // propertyiddesired: 1,
+    // precision: '2',
+    // tokensperunit: '10.00000000',
+    // earlybonus: 10,
+    // starttime: 1533020017,
+    // deadline: 1533020340,
+    // amountraised: '0.00000000',
+    // tokensissued: '12345.12',
+    // addedissuertokens: '0.00',
+    // closedearly: false,
+    // maxtokens: false }
 
 
 ### `currentConsensusHash`
@@ -142,11 +159,14 @@ obj `Object`
 #### Examples
 
 
-      await Wormhole.DataRetrieval.currentConsensusHash();
+    (async () => {
+      let currentConsensusHash = await Wormhole.DataRetrieval.currentConsensusHash();
+      console.log(currentConsensusHash);
+    })()
 
-      // { block: 1250268,
-      // blockhash: '00000000000002d60ea1e020b5da0732f7fab9330fe25137fc5b1eb0fb7269cf',
-      // consensushash: 'b6af1e33348a01dbf32b554ab71b65f8b5ade6ea0d8fd5123c1b27da57a22fe5' }
+    // { block: 1250268,
+    // blockhash: '00000000000002d60ea1e020b5da0732f7fab9330fe25137fc5b1eb0fb7269cf',
+    // consensushash: 'b6af1e33348a01dbf32b554ab71b65f8b5ade6ea0d8fd5123c1b27da57a22fe5' }
 
 
 ### `feeShare`
@@ -165,10 +185,13 @@ array `Array` of JSON Objects
 #### Examples
 
 
-      await Wormhole.DataRetrieval.feeShare("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 1);
+    (async () => {
+      let feeShare = await Wormhole.DataRetrieval.feeShare("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 1);
+      console.log(feeShare);
+    })()
 
-      // [ { address: 'bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg',
-      // feeshare: '0.6912%' } ]
+    // [ { address: 'bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg',
+    // feeshare: '0.6912%' } ]
 
 
 ### `grants`
@@ -186,18 +209,21 @@ obj `Object`
 #### Examples
 
 
-      await Wormhole.DataRetrieval.grants(3);
+    (async () => {
+      let grants = await Wormhole.DataRetrieval.grants(3);
+      console.log(grants);
+    })()
 
-      // { propertyid: 3,
-      // name: 'test_token1',
-      // issuer: 'bchtest:qz04wg2jj75x34tge2v8w0l6r0repfcvcygv3t7sg5',
-      // creationtxid: '1c3f95acbd6eb38e2a7c26b12dc9138b4523c355a20944874bdc3c82f4c5e4e1',
-      // totaltokens: '90',
-      // issuances:
-      //  [ { txid: 'a1f2d0126a04296aad6f492a0ef8c1c1afb781efc6c5f37de105790a7debcf87',
-      //      revoke: '10' },
-      //    { txid: '6afffd7d14060b6e79c504c5f17596616eb99356b71d301b5b37df1df065b9a0',
-      //      grant: '100' } ] }
+    // { propertyid: 3,
+    // name: 'test_token1',
+    // issuer: 'bchtest:qz04wg2jj75x34tge2v8w0l6r0repfcvcygv3t7sg5',
+    // creationtxid: '1c3f95acbd6eb38e2a7c26b12dc9138b4523c355a20944874bdc3c82f4c5e4e1',
+    // totaltokens: '90',
+    // issuances:
+    //  [ { txid: 'a1f2d0126a04296aad6f492a0ef8c1c1afb781efc6c5f37de105790a7debcf87',
+    //      revoke: '10' },
+    //    { txid: '6afffd7d14060b6e79c504c5f17596616eb99356b71d301b5b37df1df065b9a0',
+    //      grant: '100' } ] }
 
 
 ### `info`
@@ -211,17 +237,20 @@ obj `Object`
 #### Examples
 
 
-      await Wormhole.DataRetrieval.info();
+    (async () => {
+      let info = await Wormhole.DataRetrieval.info();
+      console.log(info);
+    })()
 
-      // { wormholeversion_int: 4000,
-      // wormholeversion: '0.0.4',
-      // bitcoincoreversion: '0.17.2',
-      // block: 1250914,
-      // blocktime: 1533771773,
-      // blocktransactions: 0,
-      // totaltrades: 0,
-      // totaltransactions: 784,
-      // alerts: [] }
+    // { wormholeversion_int: 4000,
+    // wormholeversion: '0.0.4',
+    // bitcoincoreversion: '0.17.2',
+    // block: 1250914,
+    // blocktime: 1533771773,
+    // blocktransactions: 0,
+    // totaltrades: 0,
+    // totaltransactions: 784,
+    // alerts: [] }
 
 
 ### `payload`
@@ -239,7 +268,10 @@ obj `Object`
 #### Examples
 
 
-      await Wormhole.DataRetrieval.payload("000000000000000000000000000000000000000000000000000000000000000");
+    (async () => {
+      let payload = await Wormhole.DataRetrieval.payload("000000000000000000000000000000000000000000000000000000000000000");
+      console.log(payload);
+    })()
 
 
 ### `property`
@@ -257,21 +289,24 @@ obj `Object`
 #### Examples
 
 
-      await Wormhole.DataRetrieval.property(3);
+    (async () => {
+      let property = await Wormhole.DataRetrieval.property(3);
+      console.log(property);
+    })()
 
-      // { propertyid: 3,
-      // name: 'test_token1',
-      // category: 'test managed token 0',
-      // subcategory: 'test',
-      // data: 'my data',
-      // url: 'www.testmanagedtoken.com',
-      // precision: 0,
-      // issuer: 'bchtest:qz04wg2jj75x34tge2v8w0l6r0repfcvcygv3t7sg5',
-      // creationtxid: '1c3f95acbd6eb38e2a7c26b12dc9138b4523c355a20944874bdc3c82f4c5e4e1',
-      // fixedissuance: false,
-      // managedissuance: true,
-      // freezingenabled: false,
-      // totaltokens: '90' }
+    // { propertyid: 3,
+    // name: 'test_token1',
+    // category: 'test managed token 0',
+    // subcategory: 'test',
+    // data: 'my data',
+    // url: 'www.testmanagedtoken.com',
+    // precision: 0,
+    // issuer: 'bchtest:qz04wg2jj75x34tge2v8w0l6r0repfcvcygv3t7sg5',
+    // creationtxid: '1c3f95acbd6eb38e2a7c26b12dc9138b4523c355a20944874bdc3c82f4c5e4e1',
+    // fixedissuance: false,
+    // managedissuance: true,
+    // freezingenabled: false,
+    // totaltokens: '90' }
 
 
 ### `seedBlocks`
@@ -290,8 +325,11 @@ obj `Object`
 #### Examples
 
 
-      await Wormhole.DataRetrieval.seedBlocks(290000, 300000);
-      // []
+    (async () => {
+      let seedBlocks = await Wormhole.DataRetrieval.seedBlocks(290000, 300000);
+      console.log(seedBlocks);
+    })()
+    // []
 
 
 ### `STO`
@@ -310,7 +348,11 @@ obj `Object`
 #### Examples
 
 
-      await Wormhole.DataRetrieval.STO("000000000000000000000000000000000000000000000000000000000000000", "*");
+    (async () => {
+      let STO = await Wormhole.DataRetrieval.STO("000000000000000000000000000000000000000000000000000000000000000", "*");
+      console.log(STO);
+    })()
+    // []
 
 
 ### `transaction`
@@ -328,7 +370,10 @@ obj `Object`
 #### Examples
 
 
-      await Wormhole.DataRetrieval.transaction("000000000000000000000000000000000000000000000000000000000000000");
+    (async () => {
+      let transaction = await Wormhole.DataRetrieval.transaction("000000000000000000000000000000000000000000000000000000000000000");
+      console.log(transaction);
+    })()
 
 
 ### `blockTransactions`
@@ -346,8 +391,11 @@ arr `Array` of strings
 #### Examples
 
 
-      await Wormhole.DataRetrieval.blockTransactions("0000000000009ae2ee5d085a0f3d20c8ace0c742af60269f44fc3e3af354b5cb");
-      // []
+    (async () => {
+      let blockTransactions = await Wormhole.DataRetrieval.blockTransactions("0000000000009ae2ee5d085a0f3d20c8ace0c742af60269f44fc3e3af354b5cb");
+      console.log(blockTransactions);
+    })()
+    // []
 
 
 ### `pendingTransactions`
@@ -365,8 +413,11 @@ arr `Array` of JSON objects
 #### Examples
 
 
-      await Wormhole.DataRetrieval.pendingTransactions();
-      // []
+    (async () => {
+      let pendingTransactions = await Wormhole.DataRetrieval.pendingTransactions();
+      console.log(pendingTransactions);
+    })()
+    // []
 
 
 ### `properties`
@@ -380,22 +431,25 @@ arr `Array` of JSON objects
 #### Examples
 
 
-      await Wormhole.DataRetrieval.properties();
+    (async () => {
+      let properties = await Wormhole.DataRetrieval.properties();
+      console.log(properties);
+    })()
 
-      // [ { propertyid: 1,
-      //   name: 'WHC',
-      //   category: 'N/A',
-      //   subcategory: 'N/A',
-      //   data: 'WHC serve as the binding between Bitcoin cash, smart properties and contracts created on the Wormhole.',
-      //   url: 'http://www.wormhole.cash',
-      //   precision: 0 },
-      // { propertyid: 3,
-      //   name: 'test_token1',
-      //   category: 'test managed token 0',
-      //   subcategory: 'test',
-      //   data: 'my data',
-      //   url: 'www.testmanagedtoken.com',
-      //   precision: 0 }]
+    // [ { propertyid: 1,
+    //   name: 'WHC',
+    //   category: 'N/A',
+    //   subcategory: 'N/A',
+    //   data: 'WHC serve as the binding between Bitcoin cash, smart properties and contracts created on the Wormhole.',
+    //   url: 'http://www.wormhole.cash',
+    //   precision: 0 },
+    // { propertyid: 3,
+    //   name: 'test_token1',
+    //   category: 'test managed token 0',
+    //   subcategory: 'test',
+    //   data: 'my data',
+    //   url: 'www.testmanagedtoken.com',
+    //   precision: 0 }]
 
 
 ### `transactions`
@@ -411,23 +465,26 @@ arr `Array` of JSON objects
 #### Examples
 
 
-      await Wormhole.DataRetrieval.transactions();
+    (async () => {
+      let transactions = await Wormhole.DataRetrieval.transactions();
+      console.log(transactions);
+    })()
 
-      // [ { txid: '66e83012877ad9a69a1a61eaadcef2086c74de573fec7c0b54173ff138ab1262',
-      //  fee: '2726',
-      //  sendingaddress: 'bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg',
-      //  referenceaddress: 'bchtest:qqqqqqqqqqqqqqqqqqqqqqqqqqqqqdmwgvnjkt8whc',
-      //  ismine: true,
-      //  version: 0,
-      //  type_int: 68,
-      //  type: 'Burn BCH Get WHC',
-      //  propertyid: 1,
-      //  precision: '0',
-      //  mature: true,
-      //  amount: '100.00106300',
-      //  valid: true,
-      //  blockhash: '0000000000009ae2ee5d085a0f3d20c8ace0c742af60269f44fc3e3af354b5cb',
-      //  blocktime: 1533529072,
-      //  positioninblock: 5,
-      //  block: 1250422,
-      //  confirmations: 498 } ]
+    // [ { txid: '66e83012877ad9a69a1a61eaadcef2086c74de573fec7c0b54173ff138ab1262',
+    //  fee: '2726',
+    //  sendingaddress: 'bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg',
+    //  referenceaddress: 'bchtest:qqqqqqqqqqqqqqqqqqqqqqqqqqqqqdmwgvnjkt8whc',
+    //  ismine: true,
+    //  version: 0,
+    //  type_int: 68,
+    //  type: 'Burn BCH Get WHC',
+    //  propertyid: 1,
+    //  precision: '0',
+    //  mature: true,
+    //  amount: '100.00106300',
+    //  valid: true,
+    //  blockhash: '0000000000009ae2ee5d085a0f3d20c8ace0c742af60269f44fc3e3af354b5cb',
+    //  blocktime: 1533529072,
+    //  positioninblock: 5,
+    //  block: 1250422,
+    //  confirmations: 498 } ]
