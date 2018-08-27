@@ -14,6 +14,7 @@ import H3 from 'atoms/H3'
 import H2 from 'atoms/H2'
 import H1 from 'atoms/H1'
 import Button from 'atoms/Button'
+import StyledLink from 'atoms/StyledLink'
 
 import media from 'styles/media'
 import spacing from 'styles/spacing'
@@ -63,9 +64,9 @@ const PreviewItem = ({ children, to, full }: ItemProps) => (
   <ItemLayout full={full}>
     {children}
     {to && (
-      <Link to={to}>
+      <StyledLink to={to}>
         <Button round>More</Button>
-      </Link>
+      </StyledLink>
     )}
   </ItemLayout>
 )
@@ -82,9 +83,9 @@ const RestPage = ({ location }: Props) => (
         <H1 background>REST</H1>
         <H3 background>REST layer for Bitcoin.com Cloud</H3>
         <InstallCTA>
-          <Link to="/rest/docs/getting-started">
+          <StyledLink to="/rest/docs/getting-started">
             <Button round>Start Here</Button>
-          </Link>
+          </StyledLink>
         </InstallCTA>
       </HeroLayout>
     </Hero>

@@ -14,7 +14,7 @@ BITBOX.HDNode                BITBOX.Mining                BITBOX.Mnemonic       
 BITBOX.Transaction           BITBOX.TransactionBuilder    BITBOX.Util
 ```
 
-### Quickly test your ideas
+### <a name="test-ideas"></a> Quickly test your ideas
 
 
 ```javascript

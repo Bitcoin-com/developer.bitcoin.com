@@ -9,6 +9,7 @@ import DefaultLayout from 'components/layouts/DefaultLayout'
 import Hero from 'components/Hero'
 import Container from 'components/Container'
 
+import StyledLink from 'atoms/StyledLink'
 import Text from 'atoms/Text'
 import H3 from 'atoms/H3'
 import H2 from 'atoms/H2'
@@ -64,9 +65,9 @@ const PreviewItem = ({ children, to, full }: ItemProps) => (
   <ItemLayout full={full}>
     {children}
     {to && (
-      <Link to={to}>
+      <StyledLink to={to}>
         <Button round>More</Button>
-      </Link>
+      </StyledLink>
     )}
   </ItemLayout>
 )
@@ -88,7 +89,7 @@ const BitboxPage = ({ location }: Props) => (
         <InstallCTA>
           <Text background>INSTALL VIA NPM</Text>
           <Code language="bash">{`npm install bitbox-cli --global`}</Code>
-          <Link to='/bitbox/docs/getting-started'><Button round>Start Here</Button></Link>
+          <StyledLink to='/bitbox/docs/getting-started'><Button round>Start Here</Button></StyledLink>
         </InstallCTA>
       </HeroLayout>
     </Hero>

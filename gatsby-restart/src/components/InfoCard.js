@@ -3,11 +3,16 @@ import React from 'react'
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 
+import StyledLink from 'atoms/StyledLink';
+
 import H2 from 'atoms/H2'
+import H3 from 'atoms/H3'
 import Text from 'atoms/Text'
 import Button from 'atoms/Button'
 
 import spacing from 'styles/spacing';
+
+import { FaAngleRight} from 'react-icons/fa'
 
 
 const Main = styled.div`
@@ -15,9 +20,10 @@ const Main = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: min-content 1fr min-content;
   grid-gap: ${spacing.small};
-  border: 1px solid ${props => props.theme.backgroundMuted};
+  border-bottom: 1px solid ${props => props.theme.primary};
+  border-top: 1px solid ${props => props.theme.primary};
   padding: ${spacing.small};
-  border-radius: 15px;
+  border-radius: 8px;
 `
 const Right = styled.div`
   display: flex;
@@ -35,10 +41,10 @@ class InfoCard extends React.PureComponent<Props> {
     const { title, text, to, cta, disabledcta} = this.props;
     return (
       <Main>
-        <H2>{title}</H2>
+        <H3>{title}</H3>
         <Text muted>{text}</Text>
         <Right>
-          {cta && <Link to={to}><Button round>{cta}</Button></Link>}
+          {cta && <StyledLink to={to} ><Button round>View <FaAngleRight /></Button></StyledLink>}
           {disabledcta && <Text muted2>{disabledcta}</Text>}
         </Right>
       </Main>
