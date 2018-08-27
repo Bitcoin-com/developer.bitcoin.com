@@ -36,6 +36,8 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     // Split by type;
     const isDoc = filePath.includes(`/docs/`)
     const isTutorial = filePath.includes('/tutorials/')
+    const isInsight = filePath.includes('/insights/')
+    const isChapter = filePath.includes('/mastering-bitcoin-cash/')
     let slug = filePath
 
     if (isDoc) {
@@ -81,8 +83,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     }
 
     if (isTutorial) {
-      console.log('tutorial')
-      console.log(slug)
       createNodeField({
         node,
         name: `slug`,
@@ -93,7 +93,32 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
         name: `type`,
         value: 'tutorial'
       });
-      
+    }
+
+    if (isInsight) {
+      createNodeField({
+        node,
+        name: `slug`,
+        value: slug,
+      })
+      createNodeField({
+        node,
+        name: `type`,
+        value: 'insight'
+      });
+    }
+
+    if (isChapter) {
+      createNodeField({
+        node,
+        name: `slug`,
+        value: slug,
+      })
+      createNodeField({
+        node,
+        name: `type`,
+        value: 'chapter'
+      });
     }
   }
 }
@@ -101,7 +126,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  // Create doc pages
   // Query graphQL data
   const results = await graphql(`
     {
@@ -124,8 +148,28 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      insights: allMarkdownRemark(filter: { fields: { type: { eq: "insight"}}}) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+          }
+        }
+      }
+      chapters: allMarkdownRemark(filter: { fields: { type: { eq: "chapter"}}}) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+          }
+        }
+      }
     }
   `)
+
+  // Generate doc pages
   const docs = results.data.docs.edges
   docs.forEach(({ node }) => {
     const { slug, product } = node.fields
@@ -139,12 +183,39 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
+  // Generate tutorial pages
   const tutorials = results.data.tutorials.edges
   tutorials.forEach(({node})=> {
     const { slug } = node.fields;
     createPage({
       path: slug,
       component: path.resolve('./src/templates/tutorialPage.js'),
+      context: {
+         slug
+      }
+    })
+  });
+
+  // Generate insight pages
+  const insights = results.data.insights.edges
+  insights.forEach(({node})=> {
+    const { slug } = node.fields;
+    createPage({
+      path: slug,
+      component: path.resolve('./src/templates/tutorialPage.js'),
+      context: {
+         slug
+      }
+    })
+  });
+
+  // Generate mastering-bitcoin-cash pages
+  const chapters = results.data.chapters.edges
+  chapters.forEach(({node})=> {
+    const { slug } = node.fields;
+    createPage({
+      path: slug,
+      component: path.resolve('./src/templates/chapterPage.js'),
       context: {
          slug
       }

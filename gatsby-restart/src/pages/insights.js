@@ -35,11 +35,11 @@ const PreviewLayout = styled.div`
   grid-gap: ${spacing.medium};
 `
 
-const TutorialPreviewLayout = styled.div`
+const PostPreviewLayout = styled.div`
   display: grid;
   grid-gap: ${spacing.tiny};
 `
-const TutorialHeaderLayout = styled.div``
+const PostHeaderLayout = styled.div``
 
 type Props = {
   location: Object,
@@ -58,39 +58,38 @@ type Props = {
   },
 }
 
-const Tutorials = ({ location, data }: Props) => {
+const Insights = ({ location, data }: Props) => {
   console.log('Tutorials')
   console.log(data)
-  const tutorials = data.allMarkdownRemark.edges
+  const posts = data.allMarkdownRemark.edges
 
   return (
     <DefaultLayout location={location}>
       <Hero image={HeroImg}>
         <HeroLayout>
-          <H1 background>Tutorials</H1>
+          <H1 background>Insights</H1>
           <H3 primary>
-            Real world examples to learn from and bootstrap your next Bitcoin
-            Cash project
+          Learn from developers who have shipped successful apps.
           </H3>
         </HeroLayout>
       </Hero>
       <Container>
           <PreviewLayout>
-        {tutorials.map(tutorial => (
-          <TutorialPreviewLayout>
-            <TutorialHeaderLayout>
+        {posts.map(tutorial => (
+          <PostPreviewLayout>
+            <PostHeaderLayout>
               <StyledLink to={tutorial.node.fields.slug}>
                 <H3>{tutorial.node.frontmatter.title} </H3>
               </StyledLink>
               <Text size="tiny">{tutorial.node.frontmatter.updatedAt}</Text>
-            </TutorialHeaderLayout>
+            </PostHeaderLayout>
             <Text>{tutorial.node.excerpt}</Text>
             <StyledLink to={tutorial.node.fields.slug}>
               <Text centerVertical>
                 Read more <FaAngleRight />
               </Text>
             </StyledLink>
-          </TutorialPreviewLayout>
+          </PostPreviewLayout>
         ))}
         </PreviewLayout>
       </Container>
@@ -98,10 +97,10 @@ const Tutorials = ({ location, data }: Props) => {
   )
 }
 
-export default Tutorials
+export default Insights
 
 export const query = graphql`
-  query TutorialsQuery {
+  query InsightsQuery {
     site {
       siteMetadata {
         title
@@ -109,7 +108,7 @@ export const query = graphql`
     }
     allMarkdownRemark(
       sort: { fields: [frontmatter___updatedAt], order: DESC }
-      filter: { fields: { type: { eq: "tutorial" } } }
+      filter: { fields: { type: { eq: "insight" } } }
     ) {
       totalCount
       edges {

@@ -52,23 +52,6 @@ const CTASection = styled.div`
   justify-content: flex-end;
 `
 
-// type ItemProps = {
-//   children: React.Node,
-//   to?: string,
-//   full?: boolean,
-// // }
-
-// // const PreviewItem = ({ children, to, full }: ItemProps) => (
-//   <ItemLayout full={full}>
-//     {children}
-//     {to && (
-//       <StyledLink to={to}>
-//         <Button round>More</Button>
-//       </StyledLink>
-//     )}
-//   </ItemLayout>
-// )
-
 type Props = {
   location: Object,
 }
@@ -77,9 +60,8 @@ const Learn = ({ location }: Props) => (
   <DefaultLayout location={location}>
     <Hero image={HeroImg}>
       <HeroLayout>
-        <H3 primary>Get started today!</H3>
         <H1 background>Learn</H1>
-        <H3 background>Go from hobbyist to professional step-by-step</H3>
+        <H3 primary>Go from hobbyist to professional step-by-step</H3>
       </HeroLayout>
     </Hero>
     <Container>
