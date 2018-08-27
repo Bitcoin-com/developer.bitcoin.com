@@ -14,14 +14,18 @@ hex `String`: the block hash hex encoded
 
 #### Examples
 
-```js
-BITBOX.Blockchain.getBestBlockHash().then((result) => {
-console.log(result);
-}, (err) => {
-console.log(err);
-});
-// 241decef88889efac8e6ce428a8ac696fdde5972eceed97e1fb58d6106af31d5
-```
+
+    (async () => {
+      try {
+        let getBestBlockHash = await BITBOX.Blockchain.getBestBlockHash();
+        console.log(getBestBlockHash);
+      }
+      catch(error) {
+       console.error(error)
+      }
+    })()
+    // 241decef88889efac8e6ce428a8ac696fdde5972eceed97e1fb58d6106af31d5
+
 
 ### `getBlock`
 
@@ -34,31 +38,35 @@ If verbose is false, returns a string that is serialized, hex\-encoded data for 
 
 #### Examples
 
-```js
-BITBOX.Blockchain.getBlock("00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09").then((result) => {
-console.log(result);
-}, (err) => {
-console.log(err);
-});
 
-// { hash: '00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09',
-// confirmations: 528236,
-// size: 216,
-// height: 1000,
-// version: 1,
-// versionHex: '00000001',
-// merkleroot: 'fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33',
-// tx:
-//  [ 'fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33' ],
-// time: 1232346882,
-// mediantime: 1232344831,
-// nonce: 2595206198,
-// bits: '1d00ffff',
-// difficulty: 1,
-// chainwork: '000000000000000000000000000000000000000000000000000003e903e903e9',
-// previousblockhash: '0000000008e647742775a230787d66fdf92c46a48c896bfbc85cdc8acc67e87d',
-// nextblockhash: '00000000a2887344f8db859e372e7e4bc26b23b9de340f725afbf2edb265b4c6' }
-```
+    (async () => {
+      try {
+        let getBlock = await BITBOX.Blockchain.getBlock("00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09");
+        console.log(getBlock);
+      }
+      catch(error) {
+       console.error(error)
+      }
+    })()
+
+    // { hash: '00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09',
+    // confirmations: 528236,
+    // size: 216,
+    // height: 1000,
+    // version: 1,
+    // versionHex: '00000001',
+    // merkleroot: 'fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33',
+    // tx:
+    //  [ 'fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33' ],
+    // time: 1232346882,
+    // mediantime: 1232344831,
+    // nonce: 2595206198,
+    // bits: '1d00ffff',
+    // difficulty: 1,
+    // chainwork: '000000000000000000000000000000000000000000000000000003e903e903e9',
+    // previousblockhash: '0000000008e647742775a230787d66fdf92c46a48c896bfbc85cdc8acc67e87d',
+    // nextblockhash: '00000000a2887344f8db859e372e7e4bc26b23b9de340f725afbf2edb265b4c6' }
+
 
 ### `getBlockchainInfo`
 
@@ -66,33 +74,37 @@ Returns an object containing various state info regarding blockchain processing.
 
 #### Examples
 
-```js
-BITBOX.Blockchain.getBlockchainInfo().then((result) => {
-console.log(result);
-}, (err) => {
-console.log(err);
-});
 
-// { chain: 'main',
-// blocks: 529235,
-// headers: 529235,
-// bestblockhash: '00000000000000000108641af52e01a447b1f9d801571f93a0f20a8cbf80c236',
-// difficulty: 702784497476.8376,
-// mediantime: 1525727823,
-// verificationprogress: 0.9999892037620548,
-// chainwork: '00000000000000000000000000000000000000000099f5e1cf7d4e462a493a51',
-// pruned: false,
-// softforks:
-//  [ { id: 'bip34', version: 2, reject: [Object] },
-//    { id: 'bip66', version: 3, reject: [Object] },
-//    { id: 'bip65', version: 4, reject: [Object] } ],
-// bip9_softforks:
-//  { csv:
-//     { status: 'active',
-//       startTime: 1462060800,
-//       timeout: 1493596800,
-//       since: 419328 } } }
-```
+    (async () => {
+      try {
+        let getBlockchainInfo = await BITBOX.Blockchain.getBlockchainInfo();
+        console.log(getBlockchainInfo);
+      }
+      catch(error) {
+       console.error(error)
+      }
+    })()
+
+    // { chain: 'main',
+    // blocks: 529235,
+    // headers: 529235,
+    // bestblockhash: '00000000000000000108641af52e01a447b1f9d801571f93a0f20a8cbf80c236',
+    // difficulty: 702784497476.8376,
+    // mediantime: 1525727823,
+    // verificationprogress: 0.9999892037620548,
+    // chainwork: '00000000000000000000000000000000000000000099f5e1cf7d4e462a493a51',
+    // pruned: false,
+    // softforks:
+    //  [ { id: 'bip34', version: 2, reject: [Object] },
+    //    { id: 'bip66', version: 3, reject: [Object] },
+    //    { id: 'bip65', version: 4, reject: [Object] } ],
+    // bip9_softforks:
+    //  { csv:
+    //     { status: 'active',
+    //       startTime: 1462060800,
+    //       timeout: 1493596800,
+    //       since: 419328 } } }
+
 
 ### `getBlockCount`
 
@@ -104,14 +116,18 @@ n (numeric) The current block count
 
 #### Examples
 
-```js
-BITBOX.Blockchain.getBlockCount().then((result) => {
-console.log(result);
-}, (err) => {
-console.log(err);
-});
-// 529235
-```
+
+    (async () => {
+      try {
+        let getBlockCount = await BITBOX.Blockchain.getBlockCount();
+        console.log(getBlockCount);
+      }
+      catch(error) {
+       console.error(error)
+      }
+    })()
+    // 529235
+
 
 ### `getBlockHash`
 
@@ -127,14 +143,18 @@ hash `string` The block hash
 
 #### Examples
 
-```js
-BITBOX.Blockchain.getBlockHash([0]).then((result) => {
-console.log(result);
-}, (err) => {
-console.log(err);
-});
-// [ '000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f' ]
-```
+
+    (async () => {
+      try {
+        let getBlockHash = await BITBOX.Blockchain.getBlockHash([0]);
+        console.log(getBlockHash);
+      }
+      catch(error) {
+       console.error(error)
+      }
+    })()
+    // [ '000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f' ]
+
 
 ### `getBlockHeader`
 
@@ -147,28 +167,32 @@ If verbose is false, returns a string that is serialized, hex\-encoded data for 
 
 #### Examples
 
-```js
-BITBOX.Blockchain.getBlockHeader(["00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"]).then((result) => {
-console.log(result);
-}, (err) => {
-console.log(err);
-});
 
-// [{ hash: '00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09',
-// confirmations: 528236,
-// height: 1000,
-// version: 1,
-// versionHex: '00000001',
-// merkleroot: 'fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33',
-// time: 1232346882,
-// mediantime: 1232344831,
-// nonce: 2595206198,
-// bits: '1d00ffff',
-// difficulty: 1,
-// chainwork: '000000000000000000000000000000000000000000000000000003e903e903e9',
-// previousblockhash: '0000000008e647742775a230787d66fdf92c46a48c896bfbc85cdc8acc67e87d',
-// nextblockhash: '00000000a2887344f8db859e372e7e4bc26b23b9de340f725afbf2edb265b4c6' }]
-```
+    (async () => {
+      try {
+        let getBlockHeader = await BITBOX.Blockchain.getBlockHeader(["00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"]);
+        console.log(getBlockHeader);
+      }
+      catch(error) {
+       console.error(error)
+      }
+    })()
+
+    // [{ hash: '00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09',
+    // confirmations: 528236,
+    // height: 1000,
+    // version: 1,
+    // versionHex: '00000001',
+    // merkleroot: 'fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33',
+    // time: 1232346882,
+    // mediantime: 1232344831,
+    // nonce: 2595206198,
+    // bits: '1d00ffff',
+    // difficulty: 1,
+    // chainwork: '000000000000000000000000000000000000000000000000000003e903e903e9',
+    // previousblockhash: '0000000008e647742775a230787d66fdf92c46a48c896bfbc85cdc8acc67e87d',
+    // nextblockhash: '00000000a2887344f8db859e372e7e4bc26b23b9de340f725afbf2edb265b4c6' }]
+
 
 ### `getChainTips`
 
@@ -176,26 +200,30 @@ Return information about all known tips in the block tree, including the main ch
 
 #### Examples
 
-```js
-BITBOX.Blockchain.getChainTips().then((result) => {
-console.log(result);
-}, (err) => {
-console.log(err);
-});
 
-// [ { height: 529235,
-//   hash: '00000000000000000108641af52e01a447b1f9d801571f93a0f20a8cbf80c236',
-//   branchlen: 0,
-//   status: 'active' },
-// { height: 527442,
-//   hash: '0000000000000000014cbf7b7aa12e52dd97db4b1ba5f39dccae37773af9272e',
-//   branchlen: 1,
-//   status: 'invalid' },
-// { height: 526861,
-//   hash: '00000000000000000225b070818bbafd95842ecbd25edf39bff54a7aa5c8fd10',
-//   branchlen: 1,
-//   status: 'valid-headers' } ]
-```
+    (async () => {
+      try {
+        let getChainTips = await BITBOX.Blockchain.getChainTips();
+        console.log(getChainTips);
+      }
+      catch(error) {
+       console.error(error)
+      }
+    })()
+
+    // [ { height: 529235,
+    //   hash: '00000000000000000108641af52e01a447b1f9d801571f93a0f20a8cbf80c236',
+    //   branchlen: 0,
+    //   status: 'active' },
+    // { height: 527442,
+    //   hash: '0000000000000000014cbf7b7aa12e52dd97db4b1ba5f39dccae37773af9272e',
+    //   branchlen: 1,
+    //   status: 'invalid' },
+    // { height: 526861,
+    //   hash: '00000000000000000225b070818bbafd95842ecbd25edf39bff54a7aa5c8fd10',
+    //   branchlen: 1,
+    //   status: 'valid-headers' } ]
+
 
 ### `getDifficulty`
 
@@ -207,15 +235,19 @@ n.nnn (numeric): the proof\-of\-work difficulty as a multiple of the minimum dif
 
 #### Examples
 
-```js
-BITBOX.Blockchain.getDifficulty().then((result) => {
-console.log(result);
-}, (err) => {
-console.log(err);
-});
 
-// 702784497476.8376
-```
+    (async () => {
+      try {
+        let getDifficulty = await BITBOX.Blockchain.getDifficulty();
+        console.log(getDifficulty);
+      }
+      catch(error) {
+       console.error(error)
+      }
+    })()
+
+    // 702784497476.8376
+
 
 ### `getMempoolAncestors`
 
@@ -230,13 +262,17 @@ If txid is in the mempool, returns all in\-mempool ancestors.
 
 #### Examples
 
-```js
-BITBOX.Blockchain.getMempoolAncestors(["fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33"]).then((result) => {
-console.log(result);
-}, (err) => {
-console.log(err);
-});
-```
+
+    (async () => {
+      try {
+        let getMempoolAncestors = await BITBOX.Blockchain.getMempoolAncestors(["fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33"]);
+        console.log(getMempoolAncestors);
+      }
+      catch(error) {
+       console.error(error)
+      }
+    })()
+
 
 ### `getMempoolDescendants`
 
@@ -249,13 +285,17 @@ If txid is in the mempool, returns all in\-mempool descendants.
 
 #### Examples
 
-```js
-BITBOX.Blockchain.getMempoolDescendants(["fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33"]).then((result) => {
-console.log(result);
-}, (err) => {
-console.log(err);
-});
-```
+
+    (async () => {
+      try {
+        let getMempoolDescendants = await BITBOX.Blockchain.getMempoolDescendants(["fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33"]);
+        console.log(getMempoolDescendants);
+      }
+      catch(error) {
+       console.error(error)
+      }
+    })()
+
 
 ### `getMempoolEntry`
 
@@ -267,13 +307,17 @@ Returns mempool data for given transaction
 
 #### Examples
 
-```js
-BITBOX.Blockchain.getMempoolEntry(["fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33"]).then((result) => {
-console.log(result);
-}, (err) => {
-console.log(err);
-});
-```
+
+    (async () => {
+      try {
+        let getMempoolEntry = await BITBOX.Blockchain.getMempoolEntry(["fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33"]);
+        console.log(getMempoolEntry);
+      }
+      catch(error) {
+       console.error(error)
+      }
+    })()
+
 
 ### `getMempoolInfo`
 
@@ -281,19 +325,23 @@ Returns details on the active state of the TX memory pool.
 
 #### Examples
 
-```js
-BITBOX.Blockchain.getMempoolInfo().then((result) => {
-console.log(result);
-}, (err) => {
-console.log(err);
-});
 
-// { size: 257,
-// bytes: 98257,
-// usage: 365840,
-// maxmempool: 300000000,
-// mempoolminfee: 0 }
-```
+    (async () => {
+      try {
+        let getMempoolInfo = await BITBOX.Blockchain.getMempoolInfo();
+        console.log(getMempoolInfo);
+      }
+      catch(error) {
+       console.error(error)
+      }
+    })()
+
+    // { size: 257,
+    // bytes: 98257,
+    // usage: 365840,
+    // maxmempool: 300000000,
+    // mempoolminfee: 0 }
+
 
 ### `getRawMempool`
 
@@ -305,30 +353,34 @@ Returns all transaction ids in memory pool as a json array of string transaction
 
 #### Examples
 
-```js
-BITBOX.Blockchain.getRawMempool(true).then((result) => {
-console.log(result);
-}, (err) => {
-console.log(err);
-});
 
-// [  {'2ae541af20db6f2b50410f418af56e349d08877d685f6cf54df54658e892db7a':
-//  { size: 237,
-//    fee: 0.00000238,
-//    modifiedfee: 0.00000238,
-//    time: 1525732015,
-//    height: 529235,
-//    startingpriority: 0,
-//    currentpriority: 0,
-//    descendantcount: 10,
-//    descendantsize: 2376,
-//    descendantfees: 2380,
-//    ancestorcount: 3,
-//    ancestorsize: 712,
-//    ancestorfees: 714,
-//    depends:
-//     [ 'e25682caafc7000645d59f4c11d8d594b2943979b9d8fafb9f946e2b35c21b7e' ] },]
-```
+    (async () => {
+      try {
+        let getRawMempool = await BITBOX.Blockchain.getRawMempool(true);
+        console.log(getRawMempool);
+      }
+      catch(error) {
+       console.error(error)
+      }
+    })()
+
+    // [  {'2ae541af20db6f2b50410f418af56e349d08877d685f6cf54df54658e892db7a':
+    //  { size: 237,
+    //    fee: 0.00000238,
+    //    modifiedfee: 0.00000238,
+    //    time: 1525732015,
+    //    height: 529235,
+    //    startingpriority: 0,
+    //    currentpriority: 0,
+    //    descendantcount: 10,
+    //    descendantsize: 2376,
+    //    descendantfees: 2380,
+    //    ancestorcount: 3,
+    //    ancestorsize: 712,
+    //    ancestorfees: 714,
+    //    depends:
+    //     [ 'e25682caafc7000645d59f4c11d8d594b2943979b9d8fafb9f946e2b35c21b7e' ] },]
+
 
 ### `getTxOut`
 
@@ -342,15 +394,19 @@ Returns details about an unspent transaction output.
 
 #### Examples
 
-```js
-BITBOX.Blockchain.getTxOut("e25682caafc7000645d59f4c11d8d594b2943979b9d8fafb9f946e2b35c21b7e", 1).then((result) => {
-console.log(result);
-}, (err) => {
-console.log(err);
-});
 
-// null
-```
+    (async () => {
+      try {
+        let getTxOut = await BITBOX.Blockchain.getTxOut("e25682caafc7000645d59f4c11d8d594b2943979b9d8fafb9f946e2b35c21b7e", 1);
+        console.log(getTxOut);
+      }
+      catch(error) {
+       console.error(error)
+      }
+    })()
+
+    // null
+
 
 ### `getTxOutProof`
 
@@ -368,15 +424,19 @@ legacyAddress `string` legacy base 58 check encoded address
 
 #### Examples
 
-```js
-BITBOX.Blockchain.getTxOutProof(["e25682caafc7000645d59f4c11d8d594b2943979b9d8fafb9f946e2b35c21b7e", "d16662463fd98eb96c8f6898d58a4461ac3d0120f4d0aea601d72b37759f261c"]).then((result) => {
-console.log(result);
-}, (err) => {
-console.log(err);
-});
 
-// Not all transactions found in specified or retrieved block
-```
+    (async () => {
+      try {
+        let getTxOutProof = await BITBOX.Blockchain.getTxOutProof(["e25682caafc7000645d59f4c11d8d594b2943979b9d8fafb9f946e2b35c21b7e", "d16662463fd98eb96c8f6898d58a4461ac3d0120f4d0aea601d72b37759f261c"]);
+        console.log(getTxOutProof);
+      }
+      catch(error) {
+       console.error(error)
+      }
+    })()
+
+    // Not all transactions found in specified or retrieved block
+
 
 ### `preciousBlock`
 
@@ -388,13 +448,17 @@ Treats a block as if it were received before others with the same work. A later 
 
 #### Examples
 
-```js
-BITBOX.Blockchain.preciousBlock("00000000000000000108641af52e01a447b1f9d801571f93a0f20a8cbf80c236").then((result) => {
-console.log(result);
-}, (err) => {
-console.log(err);
-});
-```
+
+    (async () => {
+      try {
+        let preciousBlock = await BITBOX.Blockchain.preciousBlock("00000000000000000108641af52e01a447b1f9d801571f93a0f20a8cbf80c236");
+        console.log(preciousBlock);
+      }
+      catch(error) {
+       console.error(error)
+      }
+    })()
+
 
 ### `pruneBlockchain`
 
@@ -408,13 +472,17 @@ n (numeric): Height of the last block pruned.
 
 #### Examples
 
-```js
-BITBOX.Blockchain.pruneBlockchain(1000).then((result) => {
-console.log(result);
-}, (err) => {
-console.log(err);
-});
-```
+
+    (async () => {
+      try {
+        let pruneBlockchain = await BITBOX.Blockchain.pruneBlockchain(1000);
+        console.log(pruneBlockchain);
+      }
+      catch(error) {
+       console.error(error)
+      }
+    })()
+
 
 ### `verifyChain`
 
@@ -431,14 +499,18 @@ true|false (boolean): Verified or not
 
 #### Examples
 
-```js
-BITBOX.Blockchain.verifyChain().then((result) => {
-console.log(result);
-}, (err) => {
-console.log(err);
-});
-// true
-```
+
+    (async () => {
+      try {
+        let verifyChain = await BITBOX.Blockchain.verifyChain();
+        console.log(verifyChain);
+      }
+      catch(error) {
+       console.error(error)
+      }
+    })()
+    // true
+
 
 ### `verifyTxOutProof`
 
@@ -454,10 +526,13 @@ Verifies that a proof points to a transaction in a block, returning the transact
 
 #### Examples
 
-```js
-BITBOX.Blockchain.verifyTxOutProof("proof").then((result) => {
-console.log(result);
-}, (err) => {
-console.log(err);
-});
-```
+
+    (async () => {
+      try {
+        let verifyTxOutProof = await BITBOX.Blockchain.verifyTxOutProof("proof");
+        console.log(verifyTxOutProof);
+      }
+      catch(error) {
+       console.error(error)
+      }
+    })()
