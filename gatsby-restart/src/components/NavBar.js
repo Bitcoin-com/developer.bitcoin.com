@@ -37,6 +37,7 @@ type Props = {
 };
 
 const developBaseUrls = ['/develop', '/bitbox', '/wormhole', '/gui', '/rest'];
+const learnBaseUrls = ['/learn', '/tutorials', '/insights', '/mastering-bitcoin-cash'];
 
 class NavBar extends React.PureComponent<Props> {
   render() {
@@ -44,7 +45,7 @@ class NavBar extends React.PureComponent<Props> {
 
     // final `//` is for SSR as it ads an extra `/` to path names
     const homeActive = pathname === '/' || pathname==='' || pathname === '//';
-    const learnActive = pathname.includes('/learn')
+    const learnActive = learnBaseUrls.reduce((prev, curr) => prev || pathname.includes(curr), false);
     const developActive = developBaseUrls.reduce((prev, curr) => prev || pathname.includes(curr), false);
     const aboutActive = pathname.includes('/about')
     return (

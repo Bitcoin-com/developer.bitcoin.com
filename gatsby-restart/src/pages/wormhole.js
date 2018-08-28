@@ -87,9 +87,9 @@ const BitboxPage = ({ location }: Props) => (
         <InstallCTA>
           <Text background>INSTALL VIA NPM</Text>
           <Code language="bash">{`npm install wormholecash --global`}</Code>
-          <Link to="/wormhole/docs/getting-started">
+          <StyledLink to="/wormhole/docs/getting-started">
             <Button round>Start Here</Button>
-          </Link>
+          </StyledLink>
         </InstallCTA>
       </HeroLayout>
     </Hero>

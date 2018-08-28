@@ -15,14 +15,14 @@ const Main = styled.div`
 `
 
 const Flourish = styled.div`
-    position: absolute;
-    width: 50%;
-    height: 100%; 
-    background: ${props => props.theme.primaryMuted};
-    right: 0;
-    bottom: -33px;
-    z-index: -1;
-    clip-path: polygon(70% 0,100% 9%,100% 86%,73% 100%,0 86%,0 10%);
+  position: absolute;
+  width: 50%;
+  height: 100%; 
+  background: ${props => props.theme.primaryMuted};
+  right: 0;
+  bottom: -33px;
+  z-index: -1;
+  clip-path: polygon(70% 0,100% 9%,100% 86%,73% 100%,0 86%,0 10%);
 `
 const Cover = styled.div`
   position: absolute;

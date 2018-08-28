@@ -16,6 +16,7 @@ import H1 from 'atoms/H1'
 import Button from 'atoms/Button'
 import Code from 'atoms/Code'
 import Input from 'atoms/Input';
+import StyledLink from 'atoms/StyledLink'
 
 import media from 'styles/media'
 import spacing from 'styles/spacing'
@@ -150,12 +151,12 @@ const IndexPage = ({location}: Props) => (
           <H1 background>Change the world with <br/> Bitcoin Cash</H1>
           <H3 background>Developer Tooling, Cloud, and Market</H3>
           <HeroButtonLayout>
-            <Link to="/bitbox">
+            <StyledLink to="/bitbox">
               <Button round>BITBOX SDK</Button>
-            </Link>
-            <Link to="/wormhole">
+            </StyledLink>
+            <StyledLink to="/wormhole">
               <Button round>Wormhole SDK</Button>
-            </Link>
+            </StyledLink>
           </HeroButtonLayout>
         </HeroBlurbLayout>
         <SDKLayout>
@@ -251,7 +252,7 @@ const IndexPage = ({location}: Props) => (
             apps. Tutorials, blog posts, video streams and code snippets to help
             you go from being a hobbyist to a professional step by step.
           </Text>
-          <Link to='/learn'><Button round>Learn</Button></Link>
+          <StyledLink to='/learn'><Button round>Learn</Button></StyledLink>
         </StartedInfo>
         <StartedInfo>
           <H3>Develop</H3>
@@ -259,7 +260,7 @@ const IndexPage = ({location}: Props) => (
           <Text>
           With the power of Bitcoin Cash, the ease of BITBOX and the Bitcoin.com developer platform, you’ll create your most innovative apps ever.
           </Text>
-          <Link to='/develop'><Button round style={{alignSelf: 'end'}}>Develop</Button></Link>
+          <StyledLink to='/develop'><Button round style={{alignSelf: 'end'}}>Develop</Button></StyledLink>
         </StartedInfo>
       </GetStartedLayout>
     </Hero>

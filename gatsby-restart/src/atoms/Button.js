@@ -2,20 +2,25 @@
 
 import styled from 'styled-components'
 
+import media from 'styles/media';
+
 const Button = styled.button`
-  border-radius: ${props => props.round ? '32px' : '3px'};
-  cursor:pointer;
-  touch-action: manipulation;
+  align-items: center;
   background-color: ${props => props.theme.primary};
-  color: ${props => props.theme.background};
+  border-radius: ${props => props.round ? '32px' : '3px'};
   border: none;
-  padding: .65em 1.5em;
-  font-size: ${16*1.1}px;
+  color: ${props => props.theme.background};
+  cursor:pointer;
+  display: flex;
   font-weight: 800;
+  padding: .65em 1.5em;
+  touch-action: manipulation;
   width: fit-content;
+  font-size: 16px;
   &:hover {
     background-color: ${props => props.theme.secondary};
   }
+
 
 `
 
