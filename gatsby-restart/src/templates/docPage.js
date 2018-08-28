@@ -72,7 +72,6 @@ const BreadCrumbLayout = styled.div`
 const ContentLayout = styled.div`
   grid-area: content;
   display: grid;
-  overflow: scroll;
   grid-template-columns: 1fr;
   & > div {
     display: grid;

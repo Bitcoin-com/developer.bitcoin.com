@@ -34,7 +34,6 @@ const PageLayout = styled.div`
 const TutorialHolder = styled.div`
   max-width: 820px;
   display: grid;
-  overflow: scroll;
   grid-template-columns: 1fr;
   word-break: break-word;
   & > div {
