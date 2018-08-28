@@ -1,6 +1,5 @@
 // @flow
 import * as React  from 'react';
-import rehypeReact from 'rehype-react'
 
 import { SmartLink } from 'atoms/StyledLink'
 import { H1Md, H2Md, H3Md, H4Md, TextMd } from 'atoms/markdownAtoms'

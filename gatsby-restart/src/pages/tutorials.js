@@ -61,8 +61,6 @@ type Props = {
 }
 
 const Tutorials = ({ location, data }: Props) => {
-  console.log('Tutorials')
-  console.log(data)
   const tutorials = data.allMarkdownRemark.edges
 
   return (
@@ -88,7 +86,7 @@ const Tutorials = ({ location, data }: Props) => {
             </TutorialHeaderLayout>
             <Text>{tutorial.node.frontmatter.description}</Text>
             <StyledLink to={tutorial.node.fields.slug}>
-              <Text centerVertical>
+              <Text bold centerVertical>
                 Read <FaAngleRight />
               </Text>
             </StyledLink>

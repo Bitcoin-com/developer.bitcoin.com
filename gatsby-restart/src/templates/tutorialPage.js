@@ -13,7 +13,6 @@ import StyledLink from 'atoms/StyledLink'
 import Text from 'atoms/Text'
 import H2 from 'atoms/H2'
 import H3 from 'atoms/H3'
-import Select from 'atoms/Select'
 
 import spacing from 'styles/spacing'
 import media from 'styles/media'
@@ -36,12 +35,12 @@ const PageLayout = styled.div`
 `
 
 // too wide is hard to read, limit to some amount;
-const ArticleHolder = styled.div`
+const TutorialHolder = styled.div`
   max-width: 820px;
   display: grid;
   overflow: scroll;
   grid-template-columns: 1fr;
-  word-break: break-all;
+  word-break: break-word;
   & > div {
     display: grid;
   }
@@ -56,7 +55,7 @@ type Props = {
   location: Object,
 }
 
-class DocTemplate extends React.PureComponent<Props> {
+class TutorialTemplate extends React.PureComponent<Props> {
   render() {
     const { data, location } = this.props
     const tutorial = data.markdownRemark
@@ -82,7 +81,7 @@ class DocTemplate extends React.PureComponent<Props> {
                   tutorial.frontmatter.publishedAt}
               </Text>
             </div>
-            <ArticleHolder>{renderAst(tutorial.htmlAst)}</ArticleHolder>
+            <TutorialHolder>{renderAst(tutorial.htmlAst)}</TutorialHolder>
           </PageLayout>
         </Container>
       </DefaultLayout>
@@ -90,7 +89,7 @@ class DocTemplate extends React.PureComponent<Props> {
   }
 }
 
-export default DocTemplate
+export default TutorialTemplate
 
 export const query = graphql`
   query TutorialQuery($slug: String!) {
