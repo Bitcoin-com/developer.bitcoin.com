@@ -7,6 +7,7 @@ import Helmet from 'react-helmet'
 
 import DefaultLayout from 'components/layouts/DefaultLayout.js'
 import Container from 'components/Container'
+import MasteringBitcoinCashAttribution from 'components/MasteringBitcoinCashAttribution';
 
 import StyledLink from 'atoms/StyledLink'
 import Text from 'atoms/Text'
@@ -18,7 +19,7 @@ import media from 'styles/media'
 import { getTitleDisplay } from 'utils/formatting'
 import { getIcon } from 'utils/icon-helpers'
 import { standardTransforms } from 'utils/markdown-helpers'
-import { FaAngleLeft } from 'react-icons/fa';
+import { FaAngleLeft } from 'react-icons/fa'
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
@@ -69,19 +70,22 @@ class ChapterTemplate extends React.PureComponent<Props> {
         <Container>
           <PageLayout>
             <div>
-            <StyledLink to="/mastering-bitcoin-cash">
-                <Text centerVertical bold><FaAngleLeft/>All Chapters</Text>
+              <StyledLink to="/mastering-bitcoin-cash">
+                <Text centerVertical bold>
+                  <FaAngleLeft />
+                  All Chapters
+                </Text>
               </StyledLink>
               <H1>Mastering Bitcoin Cash</H1>
-              
             </div>
+            <MasteringBitcoinCashAttribution />
             <div>
-              {/* <H2 muted2>Chapter {chapter.frontmatter.chapter}</H2> */}
               <H2>
                 {chapter.frontmatter.chapter}. {chapter.frontmatter.title}
               </H2>
               <Text muted2>Updated: {chapter.frontmatter.updatedAt}</Text>
             </div>
+            
             <ChapterHolder>{renderAst(chapter.htmlAst)}</ChapterHolder>
           </PageLayout>
         </Container>

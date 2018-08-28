@@ -23,6 +23,7 @@ import media from 'styles/media'
 import spacing from 'styles/spacing'
 
 import HeroImg from 'images/learn-bitcoin-cash-header.jpg'
+import MasteringBitcoinCashAttribution from 'components/MasteringBitcoinCashAttribution';
 
 const HeroLayout = styled.div`
   display: grid;
@@ -38,7 +39,7 @@ const PageLayout = styled.div`
 const ChapterLayout = styled.div`
   display: grid;
   grid-template-columns: max-content 1fr;
-  grid-row-gap: ${spacing.small};
+  grid-row-gap: ${spacing.tiny};
   grid-column-gap: ${spacing.tiny};
 `
 
@@ -67,20 +68,7 @@ const Learn = ({ location, data }: Props) => {
       </Hero>
       <Container>
         <PageLayout>
-          <Text muted size="small">
-            The following is based on{' '}
-            <SmartLink to="https://github.com/bitcoinbook/bitcoinbook">
-              Mastering Bitcoin
-            </SmartLink>{' '}
-            by Andreas M. Antonopoulos{' '}
-            <SmartLink to="https://github.com/bitcoinbook/bitcoinbook#mastering-bitcoin---first-edition">
-              First Edition
-            </SmartLink>{' '}
-            which is licensed under{' '}
-            <SmartLink to="https://creativecommons.org/licenses/by-sa/4.0/">
-              Creative Commons Attribution-ShareAlike
-            </SmartLink>
-          </Text>
+          <MasteringBitcoinCashAttribution />
           <H2>Chapters</H2>
           <ChapterLayout>
             {chapters.map(chapter => (
