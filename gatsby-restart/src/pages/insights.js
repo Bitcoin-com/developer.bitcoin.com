@@ -60,7 +60,7 @@ const Insights = ({ location, data }: Props) => {
     <DefaultLayout location={location}>
       <Hero image={HeroImg}>
         <HeroLayout>
-          <StyledLink subtle to="/learn">
+          <StyledLink to="/learn">
             <H3 centerVertical>
               {' '}
               <FaAngleLeft />
@@ -78,7 +78,7 @@ const Insights = ({ location, data }: Props) => {
           {posts.map(post => (
             <PostPreviewLayout>
               <PostHeaderLayout>
-                <StyledLink to={post.node.fields.slug}>
+                <StyledLink subtle to={post.node.fields.slug}>
                   <H3>{post.node.frontmatter.title} </H3>
                 </StyledLink>
                 <Text size="tiny">{post.node.frontmatter.updatedAt}</Text>
