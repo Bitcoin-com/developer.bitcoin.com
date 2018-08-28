@@ -60,31 +60,37 @@ const Insights = ({ location, data }: Props) => {
     <DefaultLayout location={location}>
       <Hero image={HeroImg}>
         <HeroLayout>
-          <StyledLink to="/learn"><H3 centerVertical> <FaAngleLeft />Learn</H3></StyledLink>
+          <StyledLink subtle to="/learn">
+            <H3 centerVertical>
+              {' '}
+              <FaAngleLeft />
+              Learn
+            </H3>
+          </StyledLink>
           <H1 background>Insights</H1>
           <H3 background>
-          Learn from developers who have shipped successful apps.
+            Learn from developers who have shipped successful apps.
           </H3>
         </HeroLayout>
       </Hero>
       <Container>
-          <PreviewLayout>
-        {posts.map(post => (
-          <PostPreviewLayout>
-            <PostHeaderLayout>
+        <PreviewLayout>
+          {posts.map(post => (
+            <PostPreviewLayout>
+              <PostHeaderLayout>
+                <StyledLink to={post.node.fields.slug}>
+                  <H3>{post.node.frontmatter.title} </H3>
+                </StyledLink>
+                <Text size="tiny">{post.node.frontmatter.updatedAt}</Text>
+              </PostHeaderLayout>
+              <Text>{post.node.frontmatter.description}</Text>
               <StyledLink to={post.node.fields.slug}>
-                <H3>{post.node.frontmatter.title} </H3>
+                <Text centerVertical bold>
+                  Read more <FaAngleRight />
+                </Text>
               </StyledLink>
-              <Text size="tiny">{post.node.frontmatter.updatedAt}</Text>
-            </PostHeaderLayout>
-            <Text>{post.node.frontmatter.description}</Text>
-            <StyledLink to={post.node.fields.slug}>
-              <Text centerVertical bold>
-                Read more <FaAngleRight />
-              </Text>
-            </StyledLink>
-          </PostPreviewLayout>
-        ))}
+            </PostPreviewLayout>
+          ))}
         </PreviewLayout>
       </Container>
     </DefaultLayout>
