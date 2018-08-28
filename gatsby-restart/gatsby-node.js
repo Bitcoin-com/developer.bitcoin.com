@@ -202,7 +202,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const { slug } = node.fields;
     createPage({
       path: slug,
-      component: path.resolve('./src/templates/tutorialPage.js'),
+      component: path.resolve('./src/templates/insightPage.js'),
       context: {
          slug
       }
@@ -221,9 +221,4 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     })
   });
-
-  // // Create Tutorial pages
-  // const resultsTutorials = await graphql(`
-
-  // `)
 }

@@ -8,7 +8,7 @@ import DefaultLayout from 'components/layouts/DefaultLayout'
 import Hero from 'components/Hero'
 import Container from 'components/Container'
 
-import { FaAngleRight } from 'react-icons/fa'
+import { FaAngleRight, FaAngleLeft } from 'react-icons/fa'
 
 import Text from 'atoms/Text'
 import H3 from 'atoms/H3'
@@ -52,8 +52,9 @@ const Learn = ({ location, data }: Props) => {
     <DefaultLayout location={location}>
       <Hero image={HeroImg}>
         <HeroLayout>
+          <StyledLink to="/learn"><H3 centerVertical> <FaAngleLeft />Learn</H3></StyledLink>
           <H1 background>Mastering Bitcoin Cash</H1>
-          <H3 primary>Build a foundation of knowledge</H3>
+          <H3 background>Build a foundation of knowledge</H3>
         </HeroLayout>
       </Hero>
       <Container>

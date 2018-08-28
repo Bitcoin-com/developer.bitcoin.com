@@ -8,7 +8,7 @@ import DefaultLayout from 'components/layouts/DefaultLayout'
 import Hero from 'components/Hero'
 import Container from 'components/Container'
 
-import { FaAngleRight } from 'react-icons/fa'
+import { FaAngleRight, FaAngleLeft } from 'react-icons/fa'
 
 import Text from 'atoms/Text'
 import H3 from 'atoms/H3'
@@ -67,8 +67,9 @@ const Tutorials = ({ location, data }: Props) => {
     <DefaultLayout location={location}>
       <Hero image={HeroImg}>
         <HeroLayout>
+          <StyledLink to="/learn"><H3 centerVertical> <FaAngleLeft />Learn</H3></StyledLink>
           <H1 background>Tutorials</H1>
-          <H3 primary>
+          <H3 background>
             Real world examples to learn from and bootstrap your next Bitcoin
             Cash project
           </H3>

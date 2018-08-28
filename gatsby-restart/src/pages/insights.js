@@ -8,7 +8,7 @@ import DefaultLayout from 'components/layouts/DefaultLayout'
 import Hero from 'components/Hero'
 import Container from 'components/Container'
 
-import { FaAngleRight } from 'react-icons/fa'
+import { FaAngleRight, FaAngleLeft } from 'react-icons/fa'
 
 import Text from 'atoms/Text'
 import H3 from 'atoms/H3'
@@ -59,32 +59,31 @@ type Props = {
 }
 
 const Insights = ({ location, data }: Props) => {
-  console.log('Tutorials')
-  console.log(data)
   const posts = data.allMarkdownRemark.edges
 
   return (
     <DefaultLayout location={location}>
       <Hero image={HeroImg}>
         <HeroLayout>
+          <StyledLink to="/learn"><H3 centerVertical> <FaAngleLeft />Learn</H3></StyledLink>
           <H1 background>Insights</H1>
-          <H3 primary>
+          <H3 background>
           Learn from developers who have shipped successful apps.
           </H3>
         </HeroLayout>
       </Hero>
       <Container>
           <PreviewLayout>
-        {posts.map(tutorial => (
+        {posts.map(post => (
           <PostPreviewLayout>
             <PostHeaderLayout>
-              <StyledLink to={tutorial.node.fields.slug}>
-                <H3>{tutorial.node.frontmatter.title} </H3>
+              <StyledLink to={post.node.fields.slug}>
+                <H3>{post.node.frontmatter.title} </H3>
               </StyledLink>
-              <Text size="tiny">{tutorial.node.frontmatter.updatedAt}</Text>
+              <Text size="tiny">{post.node.frontmatter.updatedAt}</Text>
             </PostHeaderLayout>
-            <Text>{tutorial.node.excerpt}</Text>
-            <StyledLink to={tutorial.node.fields.slug}>
+            <Text>{post.node.frontmatter.description}</Text>
+            <StyledLink to={post.node.fields.slug}>
               <Text centerVertical>
                 Read more <FaAngleRight />
               </Text>
@@ -117,6 +116,7 @@ export const query = graphql`
           excerpt
           frontmatter {
             title
+            description
             updatedAt(formatString: "MMMM Do, YYYY")
             publishedAt(formatString: "MMMM Do, YYYY")
           }
