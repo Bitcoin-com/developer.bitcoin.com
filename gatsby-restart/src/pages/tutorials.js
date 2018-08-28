@@ -80,7 +80,7 @@ const Tutorials = ({ location, data }: Props) => {
         {tutorials.map((tutorial, idx) => (
           <TutorialPreviewLayout key={idx}>
             <TutorialHeaderLayout>
-              <StyledLink to={tutorial.node.fields.slug}>
+              <StyledLink subtle to={tutorial.node.fields.slug}>
                 <H3>{tutorial.node.frontmatter.title} </H3>
               </StyledLink>
               <Text size="tiny">{tutorial.node.frontmatter.updatedAt}</Text>
