@@ -3,27 +3,22 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
+import { FaAngleLeft } from 'react-icons/fa'
 
 import DefaultLayout from 'components/layouts/DefaultLayout'
 import Hero from 'components/Hero'
 import Container from 'components/Container'
+import MasteringBitcoinCashAttribution from 'components/MasteringBitcoinCashAttribution';
 
-import { FaAngleRight, FaAngleLeft } from 'react-icons/fa'
-
-import Text from 'atoms/Text'
 import H3 from 'atoms/H3'
 import H2 from 'atoms/H2'
 import H1 from 'atoms/H1'
-import Button from 'atoms/Button'
-import StyledLink, { SmartLink } from 'atoms/StyledLink'
+import StyledLink from 'atoms/StyledLink'
 
-import Ul from 'atoms/Ul'
-
-import media from 'styles/media'
 import spacing from 'styles/spacing'
 
 import HeroImg from 'images/learn-bitcoin-cash-header.jpg'
-import MasteringBitcoinCashAttribution from 'components/MasteringBitcoinCashAttribution';
+
 
 const HeroLayout = styled.div`
   display: grid;

@@ -3,8 +3,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { Link } from 'gatsby'
-
 import DefaultLayout from 'components/layouts/DefaultLayout'
 import Hero from 'components/Hero'
 import Container from 'components/Container'
@@ -21,8 +19,6 @@ import media from 'styles/media'
 import spacing from 'styles/spacing'
 
 import HeroImg from 'images/hero.jpeg'
-
-// import { FaCube, FaCogs, FaCreditCard, FaCartPlus, FaReddit, FaTwitter, FaFacebook, FaLinkedin } from 'react-icons/fa'
 
 const HeroLayout = styled.div`
   display: grid;

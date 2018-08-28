@@ -2,8 +2,9 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import rehypeReact from 'rehype-react'
-import { graphql, push } from 'gatsby'
+import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
+import { FaAngleLeft } from 'react-icons/fa'
 
 import DefaultLayout from 'components/layouts/DefaultLayout.js'
 import Container from 'components/Container'
@@ -15,11 +16,9 @@ import H1 from 'atoms/H1'
 import H2 from 'atoms/H2'
 
 import spacing from 'styles/spacing'
-import media from 'styles/media'
-import { getTitleDisplay } from 'utils/formatting'
-import { getIcon } from 'utils/icon-helpers'
+
 import { standardTransforms } from 'utils/markdown-helpers'
-import { FaAngleLeft } from 'react-icons/fa'
+
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,

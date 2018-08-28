@@ -1,18 +1,16 @@
 // @flow
 import React from 'react'
 import styled from 'styled-components';
-import { Link } from 'gatsby';
+import { FaAngleRight} from 'react-icons/fa'
 
 import StyledLink from 'atoms/StyledLink';
-
-import H2 from 'atoms/H2'
 import H3 from 'atoms/H3'
 import Text from 'atoms/Text'
 import Button from 'atoms/Button'
 
 import spacing from 'styles/spacing';
 
-import { FaAngleRight} from 'react-icons/fa'
+
 
 
 const Main = styled.div`
