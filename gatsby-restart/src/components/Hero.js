@@ -9,6 +9,7 @@ import Container from 'components/Container'
 const Main = styled.div`
   padding: ${spacing.medium};
   background: url(${props => props.backgroundImage}) no-repeat top center;
+  background-size: cover;
   position: relative;
   background-color: ${props => props.theme.foreground};
   padding:${spacing.large} 0;
