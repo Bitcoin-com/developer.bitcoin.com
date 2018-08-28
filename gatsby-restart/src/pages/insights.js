@@ -84,7 +84,7 @@ const Insights = ({ location, data }: Props) => {
             </PostHeaderLayout>
             <Text>{post.node.frontmatter.description}</Text>
             <StyledLink to={post.node.fields.slug}>
-              <Text centerVertical>
+              <Text centerVertical bold>
                 Read more <FaAngleRight />
               </Text>
             </StyledLink>

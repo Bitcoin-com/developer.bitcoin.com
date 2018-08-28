@@ -37,7 +37,9 @@ const PageLayout = styled.div`
 
 const ChapterLayout = styled.div`
   display: grid;
-  grid-gap: ${spacing.small};
+  grid-template-columns: max-content 1fr;
+  grid-row-gap: ${spacing.small};
+  grid-column-gap: ${spacing.tiny};
 `
 
 type Props = {
@@ -52,19 +54,25 @@ const Learn = ({ location, data }: Props) => {
     <DefaultLayout location={location}>
       <Hero image={HeroImg}>
         <HeroLayout>
-          <StyledLink to="/learn"><H3 centerVertical> <FaAngleLeft />Learn</H3></StyledLink>
+          <StyledLink to="/learn">
+            <H3 centerVertical>
+              {' '}
+              <FaAngleLeft />
+              Learn
+            </H3>
+          </StyledLink>
           <H1 background>Mastering Bitcoin Cash</H1>
           <H3 background>Build a foundation of knowledge</H3>
         </HeroLayout>
       </Hero>
       <Container>
         <PageLayout>
-          <Text>
+          <Text muted size="small">
             The following is based on{' '}
             <SmartLink to="https://github.com/bitcoinbook/bitcoinbook">
               Mastering Bitcoin
             </SmartLink>{' '}
-            by Andreas M. Antonopoulos
+            by Andreas M. Antonopoulos{' '}
             <SmartLink to="https://github.com/bitcoinbook/bitcoinbook#mastering-bitcoin---first-edition">
               First Edition
             </SmartLink>{' '}
@@ -76,12 +84,14 @@ const Learn = ({ location, data }: Props) => {
           <H2>Chapters</H2>
           <ChapterLayout>
             {chapters.map(chapter => (
-              <H3>
-                {chapter.node.frontmatter.chapter}.
-                <StyledLink to={chapter.node.fields.slug}>
-                  {chapter.node.frontmatter.title}
-                </StyledLink>
-              </H3>
+              <React.Fragment key={chapter.node.frontmatter.slug}>
+                <H3 monospace>{chapter.node.frontmatter.chapter}.</H3>
+                <H3>
+                  <StyledLink to={chapter.node.fields.slug}>
+                    {chapter.node.frontmatter.title}
+                  </StyledLink>
+                </H3>
+              </React.Fragment>
             ))}
           </ChapterLayout>
         </PageLayout>
@@ -100,7 +110,7 @@ export const query = graphql`
       }
     }
     allMarkdownRemark(
-      sort: { fields: [frontmatter___chapter], order: DESC }
+      sort: { fields: [frontmatter___chapter], order: ASC }
       filter: { fields: { type: { eq: "chapter" } } }
     ) {
       totalCount
