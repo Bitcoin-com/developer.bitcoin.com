@@ -38,6 +38,8 @@ const PreviewLayout = styled.div`
 const TutorialPreviewLayout = styled.div`
   display: grid;
   grid-gap: ${spacing.tiny};
+  padding-left: ${spacing.tiny};
+  border-left: 2px solid ${props => props.theme.primary};
 `
 const TutorialHeaderLayout = styled.div``
 
@@ -76,18 +78,18 @@ const Tutorials = ({ location, data }: Props) => {
       </Hero>
       <Container>
           <PreviewLayout>
-        {tutorials.map(tutorial => (
-          <TutorialPreviewLayout>
+        {tutorials.map((tutorial, idx) => (
+          <TutorialPreviewLayout key={idx}>
             <TutorialHeaderLayout>
               <StyledLink to={tutorial.node.fields.slug}>
                 <H3>{tutorial.node.frontmatter.title} </H3>
               </StyledLink>
               <Text size="tiny">{tutorial.node.frontmatter.updatedAt}</Text>
             </TutorialHeaderLayout>
-            <Text>{tutorial.node.excerpt}</Text>
+            <Text>{tutorial.node.frontmatter.description}</Text>
             <StyledLink to={tutorial.node.fields.slug}>
               <Text centerVertical>
-                Read more <FaAngleRight />
+                Read <FaAngleRight />
               </Text>
             </StyledLink>
           </TutorialPreviewLayout>
@@ -118,6 +120,7 @@ export const query = graphql`
           excerpt
           frontmatter {
             title
+            description
             updatedAt(formatString: "MMMM Do, YYYY")
             publishedAt(formatString: "MMMM Do, YYYY")
           }

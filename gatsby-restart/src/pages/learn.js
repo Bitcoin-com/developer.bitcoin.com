@@ -7,7 +7,7 @@ import DefaultLayout from 'components/layouts/DefaultLayout'
 import Hero from 'components/Hero'
 import Container from 'components/Container'
 
-import {FaAngleRight } from 'react-icons/fa';
+import { FaAngleRight } from 'react-icons/fa'
 
 import Text from 'atoms/Text'
 import H3 from 'atoms/H3'
@@ -45,6 +45,8 @@ const SectionItem = styled.div`
   grid-auto-rows: min-content;
   grid-template-rows: max-content 1fr max-content;
   grid-column: ${props => (props.full ? 'span 2' : 'auto')};
+  border-left: 2px solid ${props => props.theme.primary};
+  padding-left: ${spacing.tiny};
 `
 
 const CTASection = styled.div`
@@ -74,7 +76,11 @@ const Learn = ({ location }: Props) => (
             to bootstrap your project from.
           </Text>
           <CTASection>
-            <StyledLink to="/tutorials"><Text  centerVertical>Explore <FaAngleRight /></Text></StyledLink>
+            <StyledLink to="/tutorials">
+              <Text centerVertical bold>
+                View <FaAngleRight />
+              </Text>
+            </StyledLink>
           </CTASection>
         </SectionItem>
         <SectionItem>
@@ -83,9 +89,13 @@ const Learn = ({ location }: Props) => (
             Learn from developers who have already shipped successful apps. What
             worked and what would they do different?
           </Text>
-          
+
           <CTASection>
-            <StyledLink to="/insights"><Text  centerVertical>Explore <FaAngleRight /></Text></StyledLink>
+            <StyledLink to="/insights">
+              <Text centerVertical bold>
+                View <FaAngleRight />
+              </Text>
+            </StyledLink>
           </CTASection>
         </SectionItem>
         <SectionItem>
@@ -96,10 +106,13 @@ const Learn = ({ location }: Props) => (
             beginner to professional step by step.
           </Text>
           <CTASection>
-          <StyledLink to="/mastering-bitcoin-cash"><Text  centerVertical>Read <FaAngleRight /></Text></StyledLink>
-        </CTASection>
+            <StyledLink to="/mastering-bitcoin-cash">
+              <Text centerVertical bold>
+                Read <FaAngleRight />
+              </Text>
+            </StyledLink>
+          </CTASection>
         </SectionItem>
-        
       </SectionLayout>
     </Container>
   </DefaultLayout>

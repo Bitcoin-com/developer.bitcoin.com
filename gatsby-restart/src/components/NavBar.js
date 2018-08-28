@@ -36,6 +36,7 @@ type Props = {
   pathname: string
 };
 
+// TODO: Better method of this to not have false positives like /tutorials/wormhole-3 triggering 2 tabs active
 const developBaseUrls = ['/develop', '/bitbox', '/wormhole', '/gui', '/rest'];
 const learnBaseUrls = ['/learn', '/tutorials', '/insights', '/mastering-bitcoin-cash'];
 
@@ -54,7 +55,7 @@ class NavBar extends React.PureComponent<Props> {
             <NavLayout>
               <NavItem monospace to='/' isActive={homeActive}>Home</NavItem>
               <NavItem monospace to='/learn' isActive={learnActive}>Learn</NavItem>
-              <NavItem monospace to='/develop' isActive={developActive}>Develop</NavItem>
+              <NavItem monospace to='/develop' isActive={developActive && !learnActive}>Develop</NavItem>
               <NavItem monospace to='/about' isActive={aboutActive}>About</NavItem>
             </NavLayout>
         </Container>

@@ -1,6 +1,7 @@
 ---
   title: Real-time blockchain data with websockets
   subtitle: Real time blockchain data to scaffold your next app
+  description: Learn how to build applications using real-time data from the BCH blockchain.
   publishedAt: 2018-07-06
   updatedAt: 2018-07-06
 ---
