@@ -1,6 +1,5 @@
 ---
   title: Wormhole Pt 3. Create tokens and crowdsales
-  subtitle: Raise funds on the blockchain
   description: Part 3 of the wormhole series.  In this we learn how to create, manage, and sell Wormhole based tokens.
   author: N/A
   publishedAt: 2018-07-05
