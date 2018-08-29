@@ -3,26 +3,22 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
+import { FaAngleLeft } from 'react-icons/fa'
 
 import DefaultLayout from 'components/layouts/DefaultLayout'
 import Hero from 'components/Hero'
 import Container from 'components/Container'
+import MasteringBitcoinCashAttribution from 'components/MasteringBitcoinCashAttribution';
 
-import { FaAngleRight } from 'react-icons/fa'
-
-import Text from 'atoms/Text'
 import H3 from 'atoms/H3'
 import H2 from 'atoms/H2'
 import H1 from 'atoms/H1'
-import Button from 'atoms/Button'
-import StyledLink, { SmartLink } from 'atoms/StyledLink'
+import StyledLink from 'atoms/StyledLink'
 
-import Ul from 'atoms/Ul'
-
-import media from 'styles/media'
 import spacing from 'styles/spacing'
 
 import HeroImg from 'images/learn-bitcoin-cash-header.jpg'
+
 
 const HeroLayout = styled.div`
   display: grid;
@@ -37,7 +33,9 @@ const PageLayout = styled.div`
 
 const ChapterLayout = styled.div`
   display: grid;
-  grid-gap: ${spacing.small};
+  grid-template-columns: max-content 1fr;
+  grid-row-gap: ${spacing.tiny};
+  grid-column-gap: ${spacing.tiny};
 `
 
 type Props = {
@@ -52,35 +50,31 @@ const Learn = ({ location, data }: Props) => {
     <DefaultLayout location={location}>
       <Hero image={HeroImg}>
         <HeroLayout>
+          <StyledLink to="/learn">
+            <H3 centerVertical>
+              {' '}
+              <FaAngleLeft />
+              Learn
+            </H3>
+          </StyledLink>
           <H1 background>Mastering Bitcoin Cash</H1>
-          <H3 primary>Build a foundation of knowledge</H3>
+          <H3 background>Build a foundation of knowledge</H3>
         </HeroLayout>
       </Hero>
       <Container>
         <PageLayout>
-          <Text>
-            The following is based on{' '}
-            <SmartLink to="https://github.com/bitcoinbook/bitcoinbook">
-              Mastering Bitcoin
-            </SmartLink>{' '}
-            by Andreas M. Antonopoulos
-            <SmartLink to="https://github.com/bitcoinbook/bitcoinbook#mastering-bitcoin---first-edition">
-              First Edition
-            </SmartLink>{' '}
-            which is licensed under{' '}
-            <SmartLink to="https://creativecommons.org/licenses/by-sa/4.0/">
-              Creative Commons Attribution-ShareAlike
-            </SmartLink>
-          </Text>
+          <MasteringBitcoinCashAttribution />
           <H2>Chapters</H2>
           <ChapterLayout>
             {chapters.map(chapter => (
-              <H3>
-                {chapter.node.frontmatter.chapter}.
-                <StyledLink to={chapter.node.fields.slug}>
-                  {chapter.node.frontmatter.title}
-                </StyledLink>
-              </H3>
+              <React.Fragment key={chapter.node.frontmatter.slug}>
+                <H3 monospace>{chapter.node.frontmatter.chapter}.</H3>
+                <H3>
+                  <StyledLink to={chapter.node.fields.slug}>
+                    {chapter.node.frontmatter.title}
+                  </StyledLink>
+                </H3>
+              </React.Fragment>
             ))}
           </ChapterLayout>
         </PageLayout>
@@ -99,7 +93,7 @@ export const query = graphql`
       }
     }
     allMarkdownRemark(
-      sort: { fields: [frontmatter___chapter], order: DESC }
+      sort: { fields: [frontmatter___chapter], order: ASC }
       filter: { fields: { type: { eq: "chapter" } } }
     ) {
       totalCount

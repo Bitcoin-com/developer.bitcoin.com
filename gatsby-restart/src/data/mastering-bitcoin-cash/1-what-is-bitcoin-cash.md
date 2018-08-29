@@ -1,7 +1,6 @@
 ---
   title: What is Bitcoin Cash (BCH)
   chapter: 1
-  subtitle: Real time blockchain data to scaffold your next app
   updatedAt: 2018-07-06
 ---
 Bitcoin Cash is a collection of concepts and technologies that form the basis of a digital money ecosystem. Units of currency called bitcoins are used to store and transmit value among participants in the Bitcoin Cash network. Bitcoin Cash users communicate with each other using the Bitcoin Cash protocol primarily via the Internet, although other transport networks can also be used. The Bitcoin Cash protocol stack, available as open source software, can be run on a wide range of computing devices, including laptops and smartphones, making the technology easily accessible.

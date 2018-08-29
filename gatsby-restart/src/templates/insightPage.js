@@ -8,17 +8,14 @@ import { FaAngleLeft } from 'react-icons/fa'
 
 import DefaultLayout from 'components/layouts/DefaultLayout.js'
 import Container from 'components/Container'
-import MasteringBitcoinCashAttribution from 'components/MasteringBitcoinCashAttribution';
 
 import StyledLink from 'atoms/StyledLink'
 import Text from 'atoms/Text'
-import H1 from 'atoms/H1'
 import H2 from 'atoms/H2'
+import H3 from 'atoms/H3'
 
 import spacing from 'styles/spacing'
-
 import { standardTransforms } from 'utils/markdown-helpers'
-
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
@@ -27,19 +24,14 @@ const renderAst = new rehypeReact({
   },
 }).Compiler
 
-type Props = {
-  data: Object,
-  location: Object,
-}
-
 const PageLayout = styled.div`
   display: grid;
   margin-top: ${spacing.medium};
-  grid-gap: ${spacing.small};
+  grid-gap: ${spacing.medium};
 `
 
-// TODO: DRY this AST holder div elsewhere
-const ChapterHolder = styled.div`
+// too wide is hard to read, limit to some amount;
+const InsightHolder = styled.div`
   max-width: 820px;
   display: grid;
   grid-template-columns: 1fr;
@@ -53,38 +45,38 @@ const ChapterHolder = styled.div`
   }
 `
 
-class ChapterTemplate extends React.PureComponent<Props> {
+type Props = {
+  data: Object,
+  location: Object,
+}
+
+class InsightTemplate extends React.PureComponent<Props> {
   render() {
     const { data, location } = this.props
-    const chapter = data.markdownRemark
+    const insight = data.markdownRemark
 
     return (
       <DefaultLayout location={location}>
         <Helmet
-          title={`${chapter.frontmatter.title} - ${
+          title={`${insight.frontmatter.title} - ${
             data.site.siteMetadata.title
           }`}
         />
         <Container>
           <PageLayout>
+            <StyledLink to="/insights">
+              <H3 centerVertical>
+                <FaAngleLeft /> Insights
+              </H3>
+            </StyledLink>
             <div>
-              <StyledLink to="/mastering-bitcoin-cash">
-                <Text centerVertical bold>
-                  <FaAngleLeft />
-                  All Chapters
-                </Text>
-              </StyledLink>
-              <H1>Mastering Bitcoin Cash</H1>
+              <H2>{insight.frontmatter.title}</H2>
+              <Text muted2>
+                {insight.frontmatter.updatedAt ||
+                  insight.frontmatter.publishedAt}
+              </Text>
             </div>
-            <MasteringBitcoinCashAttribution />
-            <div>
-              <H2>
-                {chapter.frontmatter.chapter}. {chapter.frontmatter.title}
-              </H2>
-              <Text muted2>Updated: {chapter.frontmatter.updatedAt}</Text>
-            </div>
-            
-            <ChapterHolder>{renderAst(chapter.htmlAst)}</ChapterHolder>
+            <InsightHolder>{renderAst(insight.htmlAst)}</InsightHolder>
           </PageLayout>
         </Container>
       </DefaultLayout>
@@ -92,10 +84,10 @@ class ChapterTemplate extends React.PureComponent<Props> {
   }
 }
 
-export default ChapterTemplate
+export default InsightTemplate
 
 export const query = graphql`
-  query ChapterQuery($slug: String!) {
+  query InsightQuery($slug: String!) {
     site {
       siteMetadata {
         title
@@ -105,8 +97,9 @@ export const query = graphql`
       htmlAst
       frontmatter {
         title
-        chapter
         updatedAt(formatString: "MMMM Do, YYYY")
+        publishedAt(formatString: "MMMM Do, YYYY")
+        author
       }
       fields {
         slug

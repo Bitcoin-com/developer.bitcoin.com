@@ -1,0 +1,6 @@
+---
+  title: The Bitcoin Cash network
+  chapter: 5
+  updatedAt: 2018-07-06
+---
+Bitcoin Cash is structured as a peer-to-peer network architecture on top of the Internet. The term peer-to-peer, or P2P, means that the computers that participate in the network are peers to each other, that they are all equal, that there are no 'special' nodes, and that all nodes share the burden of providing network services. The network nodes interconnect in a mesh network with a 'flat' topology. There is no server, no centralized service, and no hierarchy within the network. Nodes in a peer-to-peer network both provide and consume services at the same time with reciprocity acting as the incentive for participation. Peer-to-peer networks are inherently resilient, decentralized, and open. The preeminent example of a P2P network architecture was the early Internet itself, where nodes on the IP network were equal. Today’s Internet architecture is more hierarchical, but the Internet Protocol still retains its flat-topology essence.

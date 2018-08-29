@@ -1,6 +1,7 @@
 ---
   title: Scale.cash
   subtitle: Scaling Bitcoin Cash - stress testing the system
+  description: Bitcoin Cash Stress Test Day is a community driven effort to create 5 million on-chain transactions during September 1st, with the aim of showing the world that Bitcoin Cash is ready for prime time.
   publishedAt: 2018-07-06
   updatedAt: 2018-07-06
 ---

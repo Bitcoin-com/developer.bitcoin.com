@@ -8,18 +8,13 @@ import DefaultLayout from 'components/layouts/DefaultLayout'
 import Hero from 'components/Hero'
 import Container from 'components/Container'
 
-import { FaAngleRight } from 'react-icons/fa'
+import { FaAngleRight, FaAngleLeft } from 'react-icons/fa'
 
 import Text from 'atoms/Text'
 import H3 from 'atoms/H3'
-import H2 from 'atoms/H2'
 import H1 from 'atoms/H1'
-import Button from 'atoms/Button'
 import StyledLink from 'atoms/StyledLink'
 
-import Ul from 'atoms/Ul'
-
-import media from 'styles/media'
 import spacing from 'styles/spacing'
 
 import HeroImg from 'images/learn-bitcoin-cash-header.jpg'
@@ -38,6 +33,8 @@ const PreviewLayout = styled.div`
 const TutorialPreviewLayout = styled.div`
   display: grid;
   grid-gap: ${spacing.tiny};
+  padding-left: ${spacing.tiny};
+  border-left: 2px solid ${props => props.theme.primary};
 `
 const TutorialHeaderLayout = styled.div``
 
@@ -59,16 +56,15 @@ type Props = {
 }
 
 const Tutorials = ({ location, data }: Props) => {
-  console.log('Tutorials')
-  console.log(data)
   const tutorials = data.allMarkdownRemark.edges
 
   return (
     <DefaultLayout location={location}>
       <Hero image={HeroImg}>
         <HeroLayout>
+          <StyledLink to="/learn"><H3 centerVertical> <FaAngleLeft />Learn</H3></StyledLink>
           <H1 background>Tutorials</H1>
-          <H3 primary>
+          <H3 background>
             Real world examples to learn from and bootstrap your next Bitcoin
             Cash project
           </H3>
@@ -76,18 +72,18 @@ const Tutorials = ({ location, data }: Props) => {
       </Hero>
       <Container>
           <PreviewLayout>
-        {tutorials.map(tutorial => (
-          <TutorialPreviewLayout>
+        {tutorials.map((tutorial, idx) => (
+          <TutorialPreviewLayout key={idx}>
             <TutorialHeaderLayout>
-              <StyledLink to={tutorial.node.fields.slug}>
+              <StyledLink subtle to={tutorial.node.fields.slug}>
                 <H3>{tutorial.node.frontmatter.title} </H3>
               </StyledLink>
               <Text size="tiny">{tutorial.node.frontmatter.updatedAt}</Text>
             </TutorialHeaderLayout>
-            <Text>{tutorial.node.excerpt}</Text>
+            <Text>{tutorial.node.frontmatter.description}</Text>
             <StyledLink to={tutorial.node.fields.slug}>
-              <Text centerVertical>
-                Read more <FaAngleRight />
+              <Text bold centerVertical>
+                Read <FaAngleRight />
               </Text>
             </StyledLink>
           </TutorialPreviewLayout>
@@ -118,6 +114,7 @@ export const query = graphql`
           excerpt
           frontmatter {
             title
+            description
             updatedAt(formatString: "MMMM Do, YYYY")
             publishedAt(formatString: "MMMM Do, YYYY")
           }

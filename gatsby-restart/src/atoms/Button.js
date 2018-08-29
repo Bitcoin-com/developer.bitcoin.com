@@ -2,8 +2,6 @@
 
 import styled from 'styled-components'
 
-import media from 'styles/media';
-
 const Button = styled.button`
   align-items: center;
   background-color: ${props => props.theme.primary};

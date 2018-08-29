@@ -3,7 +3,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { Link } from 'gatsby'
 
 import DefaultLayout from 'components/layouts/DefaultLayout'
 import Hero from 'components/Hero'
