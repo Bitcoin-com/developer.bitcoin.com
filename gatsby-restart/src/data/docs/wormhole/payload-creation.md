@@ -10,7 +10,7 @@ Creates the payload to burn bch to get whc.
 
 #### Result
 
-payload `String`: the hex\-encoded payload
+payload `String`: the hex-encoded payload
 
 #### Examples
 
@@ -32,7 +32,7 @@ Creates the payload to change the issuer on record of the given tokens.
 
 #### Result
 
-payload `String`: the hex\-encoded payload
+payload `String`: the hex-encoded payload
 
 #### Examples
 
@@ -54,7 +54,7 @@ Creates the payload to manually close a crowdsale.
 
 #### Result
 
-payload `String`: the hex\-encoded payload
+payload `String`: the hex-encoded payload
 
 #### Examples
 
@@ -78,7 +78,7 @@ Creates the payload to issue or grant new units of managed tokens.
 
 #### Result
 
-payload `String`: the hex\-encoded payload
+payload `String`: the hex-encoded payload
 
 #### Examples
 
@@ -113,7 +113,7 @@ Creates the payload for a new tokens issuance with crowdsale.
 
 #### Result
 
-payload `String`: the hex\-encoded payload
+payload `String`: the hex-encoded payload
 
 #### Examples
 
@@ -143,7 +143,7 @@ Creates the payload for a new tokens issuance with fixed supply.
 
 #### Result
 
-payload `String`: the hex\-encoded payload
+payload `String`: the hex-encoded payload
 
 #### Examples
 
@@ -173,7 +173,7 @@ Creates the payload for a new tokens issuance with manageable supply.
 
 #### Result
 
-payload `String`: the hex\-encoded payload
+payload `String`: the hex-encoded payload
 
 #### Examples
 
@@ -196,7 +196,7 @@ Create the payload for a participate crowsale transaction
 
 #### Result
 
-payload `String`: the hex\-encoded payload
+payload `String`: the hex-encoded payload
 
 #### Examples
 
@@ -221,7 +221,7 @@ Creates the payload to revoke units of managed tokens.
 
 #### Result
 
-payload `String`: the hex\-encoded payload
+payload `String`: the hex-encoded payload
 
 #### Examples
 
@@ -242,7 +242,7 @@ Create the payload for a send all transaction.
 
 #### Result
 
-payload `String`: the hex\-encoded payload
+payload `String`: the hex-encoded payload
 
 #### Examples
 
@@ -265,7 +265,7 @@ Create the payload for a simple send transaction.
 
 #### Result
 
-payload `String`: the hex\-encoded payload
+payload `String`: the hex-encoded payload
 
 #### Examples
 
@@ -279,7 +279,7 @@ payload `String`: the hex\-encoded payload
 
 ### `STO`
 
-Creates the payload for a send\-to\-owners transaction
+Creates the payload for a send-to-owners transaction
 
 #### Arguments
 
@@ -289,13 +289,13 @@ Creates the payload for a send\-to\-owners transaction
 
 #### Result
 
-payload `String`: the hex\-encoded payload
+payload `String`: the hex-encoded payload
 
 #### Examples
 
 
     (async () => {
-      let simpleSend = await Wormhole.PayloadCreation.STO(3, "5000");
-      console.log(simpleSend);
+      let STO = await Wormhole.PayloadCreation.STO(3, "5000");
+      console.log(STO);
     })()
     // 0000000300000003000000000000138800000003

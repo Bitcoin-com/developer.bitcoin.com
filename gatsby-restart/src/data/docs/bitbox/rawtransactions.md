@@ -6,7 +6,7 @@
 
 ### `decodeRawTransaction`
 
-Return an Array of JSON objects representing the serialized, hex\-encoded transactions.
+Return an Array of JSON objects representing the serialized, hex-encoded transactions.
 
 #### Arguments
 
@@ -44,7 +44,7 @@ txs `Array`
 
 ### `decodeScript`
 
-Decode an Array of hex\-encoded scripts.
+Decode an Array of hex-encoded scripts.
 
 #### Arguments
 
@@ -74,7 +74,7 @@ decodedScripts `Array`
 
 ### `getRawTransaction`
 
-Return the raw transaction data. If verbose is 'true', returns an Object with information about 'txid'. If verbose is 'false' or omitted, returns a string that is serialized, hex\-encoded data for 'txid'.
+Return the raw transaction data. If verbose is 'true', returns an Object with information about 'txid'. If verbose is 'false' or omitted, returns a string that is serialized, hex-encoded data for 'txid'.
 
 #### Arguments
 
@@ -99,7 +99,7 @@ Return the raw transaction data. If verbose is 'true', returns an Object with in
 
 ### `sendRawTransaction`
 
-Submits raw transaction (serialized, hex\-encoded) to local node and network. Also see createrawtransaction and signrawtransaction calls.
+Submits raw transaction (serialized, hex-encoded) to local node and network. Also see createrawtransaction and signrawtransaction calls.
 
 #### Arguments
 

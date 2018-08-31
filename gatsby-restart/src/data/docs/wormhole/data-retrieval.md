@@ -169,31 +169,6 @@ obj `Object`
     // consensushash: 'b6af1e33348a01dbf32b554ab71b65f8b5ade6ea0d8fd5123c1b27da57a22fe5' }
 
 
-### `feeShare`
-
-Returns the percentage share of fees distribution applied to the wallet (default) or address (if supplied).
-
-#### Arguments
-
-1.  address `String` optional: retrieve the fee share for the supplied address
-2.  ecosystem `Number` optional: the ecosystem to check the fee share (1 for main ecosystem, 2 for test ecosystem)
-
-#### Result
-
-array `Array` of JSON Objects
-
-#### Examples
-
-
-    (async () => {
-      let feeShare = await Wormhole.DataRetrieval.feeShare("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 1);
-      console.log(feeShare);
-    })()
-
-    // [ { address: 'bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg',
-    // feeshare: '0.6912%' } ]
-
-
 ### `grants`
 
 Returns information about granted and revoked units of managed tokens.
@@ -334,7 +309,7 @@ obj `Object`
 
 ### `STO`
 
-Get information and recipients of a send\-to\-owners transaction.
+Get information and recipients of a send-to-owners transaction.
 
 #### Arguments
 
@@ -450,41 +425,3 @@ arr `Array` of JSON objects
     //   data: 'my data',
     //   url: 'www.testmanagedtoken.com',
     //   precision: 0 }]
-
-
-### `transactions`
-
-List wallet transactions, optionally filtered by an address and block boundaries.
-
-#### Arguments
-
-#### Result
-
-arr `Array` of JSON objects
-
-#### Examples
-
-
-    (async () => {
-      let transactions = await Wormhole.DataRetrieval.transactions();
-      console.log(transactions);
-    })()
-
-    // [ { txid: '66e83012877ad9a69a1a61eaadcef2086c74de573fec7c0b54173ff138ab1262',
-    //  fee: '2726',
-    //  sendingaddress: 'bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg',
-    //  referenceaddress: 'bchtest:qqqqqqqqqqqqqqqqqqqqqqqqqqqqqdmwgvnjkt8whc',
-    //  ismine: true,
-    //  version: 0,
-    //  type_int: 68,
-    //  type: 'Burn BCH Get WHC',
-    //  propertyid: 1,
-    //  precision: '0',
-    //  mature: true,
-    //  amount: '100.00106300',
-    //  valid: true,
-    //  blockhash: '0000000000009ae2ee5d085a0f3d20c8ace0c742af60269f44fc3e3af354b5cb',
-    //  blocktime: 1533529072,
-    //  positioninblock: 5,
-    //  block: 1250422,
-    //  confirmations: 498 } ]

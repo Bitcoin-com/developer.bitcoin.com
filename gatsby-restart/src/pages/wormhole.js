@@ -259,7 +259,7 @@ let wormhole = async () => {
           </Text>
           <Code>
             {`
-et wormhole = async () => {
+let wormhole = async () => {
   let participateCrowdSale = await Wormhole.PayloadCreation.participateCrowdSale("1");
 
   let utxo = await Wormhole.Address.utxo([cashAddress]);
