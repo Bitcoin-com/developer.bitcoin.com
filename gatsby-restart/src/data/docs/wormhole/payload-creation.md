@@ -16,8 +16,13 @@ payload `String`: the hex-encoded payload
 
 
     (async () => {
-      let burnBCH = await Wormhole.PayloadCreation.burnBCH();
-      console.log(burnBCH);
+      try {
+        let burnBCH = await Wormhole.PayloadCreation.burnBCH();
+        console.log(burnBCH);
+      }
+      catch(error) {
+        console.error(error)
+      }
     })()
     // 00000044
 
@@ -38,8 +43,13 @@ payload `String`: the hex-encoded payload
 
 
     (async () => {
-      let changeIssuer = await Wormhole.PayloadCreation.changeIssuer(3);
-      console.log(changeIssuer);
+      try {
+        let changeIssuer = await Wormhole.PayloadCreation.changeIssuer(3);
+        console.log(changeIssuer);
+      }
+      catch(error) {
+        console.error(error)
+      }
     })()
     // 0000004600000003
 
@@ -60,8 +70,13 @@ payload `String`: the hex-encoded payload
 
 
     (async () => {
-      let closeCrowdSale = await Wormhole.PayloadCreation.closeCrowdSale(70);
-      console.log(closeCrowdSale);
+      try {
+        let closeCrowdSale = await Wormhole.PayloadCreation.closeCrowdSale(70);
+        console.log(closeCrowdSale);
+      }
+      catch(error) {
+        console.error(error)
+      }
     })()
     // 0000003500000046
 
@@ -84,8 +99,13 @@ payload `String`: the hex-encoded payload
 
 
     (async () => {
-      let grant = await Wormhole.PayloadCreation.grant(3, "7000");
-      console.log(grant);
+      try {
+        let grant = await Wormhole.PayloadCreation.grant(3, "7000");
+        console.log(grant);
+      }
+      catch(error) {
+        console.error(error)
+      }
     })()
     // 00000037000000030000000000001b5800
 
@@ -119,8 +139,13 @@ payload `String`: the hex-encoded payload
 
 
     (async () => {
-      let crowdsale = await Wormhole.PayloadCreation.crowdsale(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens", 1, "100", 1483228800, 30, 0, 192978657);
-      console.log(crowdsale);
+      try {
+        let crowdsale = await Wormhole.PayloadCreation.crowdsale(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens", 1, "100", 1483228800, 30, 0, 192978657);
+        console.log(crowdsale);
+      }
+      catch(error) {
+        console.error(error)
+      }
     })()
     // 0000003301000100000000436f6d70616e69657300426974636f696e204d696e696e67005175616e74756d204d696e6572007777772e6578616d706c652e636f6d005175616e74756d204d696e657220546f6b656e73000000000100000002540be40000000000586846801e0000000000730634ca
 
@@ -149,8 +174,13 @@ payload `String`: the hex-encoded payload
 
 
     (async () => {
-      let fixed = await Wormhole.PayloadCreation.fixed(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens", "1000000");
-      console.log(fixed);
+      try {
+        let fixed = await Wormhole.PayloadCreation.fixed(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens", "1000000");
+        console.log(fixed);
+      }
+      catch(error) {
+        console.error(error)
+      }
     })()
 
     // 0000003201000100000000436f6d70616e69657300426974636f696e204d696e696e67005175616e74756d204d696e6572007777772e6578616d706c652e636f6d005175616e74756d204d696e657220546f6b656e73000000000000989680
@@ -179,8 +209,13 @@ payload `String`: the hex-encoded payload
 
 
     (async () => {
-      let managed = await Wormhole.PayloadCreation.managed(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens");
-      console.log(managed);
+      try {
+        let managed = await Wormhole.PayloadCreation.managed(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens");
+        console.log(managed);
+      }
+      catch(error) {
+        console.error(error)
+      }
     })()
 
     // 0000003601000100000000436f6d70616e69657300426974636f696e204d696e696e67005175616e74756d204d696e6572007777772e6578616d706c652e636f6d005175616e74756d204d696e657220546f6b656e7300
@@ -202,8 +237,13 @@ payload `String`: the hex-encoded payload
 
 
     (async () => {
-      let participateCrowdSale = await Wormhole.PayloadCreation.participateCrowdSale("100.0");
-      console.log(participateCrowdSale);
+      try {
+        let participateCrowdSale = await Wormhole.PayloadCreation.participateCrowdSale("100.0");
+        console.log(participateCrowdSale);
+      }
+      catch(error) {
+        console.error(error)
+      }
     })()
 
     // 000000010000000100000002540be400
@@ -227,8 +267,13 @@ payload `String`: the hex-encoded payload
 
 
     (async () => {
-      let revoke = await Wormhole.PayloadCreation.revoke(105, "100");
-      console.log(revoke);
+      try {
+        let revoke = await Wormhole.PayloadCreation.revoke(105, "100");
+        console.log(revoke);
+      }
+      catch(error) {
+        console.error(error)
+      }
     })()
 
 
@@ -248,8 +293,13 @@ payload `String`: the hex-encoded payload
 
 
     (async () => {
-      let sendAll = await Wormhole.PayloadCreation.sendAll(2, "100");
-      console.log(sendAll);
+      try {
+        let sendAll = await Wormhole.PayloadCreation.sendAll(2, "100");
+        console.log(sendAll);
+      }
+      catch(error) {
+        console.error(error)
+      }
     })()
     // 0000000402
 
@@ -271,8 +321,13 @@ payload `String`: the hex-encoded payload
 
 
     (async () => {
-      let simpleSend = await Wormhole.PayloadCreation.simpleSend(1, "100.0");
-      console.log(simpleSend);
+      try {
+        let simpleSend = await Wormhole.PayloadCreation.simpleSend(1, "100.0");
+        console.log(simpleSend);
+      }
+      catch(error) {
+        console.error(error)
+      }
     })()
     // 000000000000000100000002540be400
 
@@ -295,7 +350,12 @@ payload `String`: the hex-encoded payload
 
 
     (async () => {
-      let STO = await Wormhole.PayloadCreation.STO(3, "5000");
-      console.log(STO);
+      try {
+        let STO = await Wormhole.PayloadCreation.STO(3, "5000");
+        console.log(STO);
+      }
+      catch(error) {
+        console.error(error)
+      }
     })()
     // 0000000300000003000000000000138800000003

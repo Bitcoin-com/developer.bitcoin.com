@@ -20,8 +20,13 @@ array `Array` of JSON Objects
 
 
     (async () => {
-      let balances = await Wormhole.DataRetrieval.balancesForAddress("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg");
-      console.log(balances);
+      try {
+        let balances = await Wormhole.DataRetrieval.balancesForAddress("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg");
+        console.log(balances);
+      }
+      catch(error) {
+        console.error(error)
+      }
     })()
 
     // [ { propertyid: 1,
@@ -45,8 +50,13 @@ array `Array` of JSON Objects
 
 
     (async () => {
-      let balances = await Wormhole.DataRetrieval.balancesForId(108);
-      console.log(balances);
+      try {
+        let balances = await Wormhole.DataRetrieval.balancesForId(108);
+        console.log(balances);
+      }
+      catch(error) {
+        console.error(error)
+      }
     })()
 
     // [ { address: 'bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg',
@@ -77,8 +87,13 @@ obj `Object`
 
 
     (async () => {
-      let balance = await Wormhole.DataRetrieval.balance("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 1);
-      console.log(balance);
+      try {
+        let balance = await Wormhole.DataRetrieval.balance("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 1);
+        console.log(balance);
+      }
+      catch(error) {
+        console.error(error)
+      }
     })()
 
     // { balance: '100.00106300', reserved: '0.00000000' }
@@ -100,8 +115,13 @@ obj `Object`
 
 
     (async () => {
-      let balancesHash = await Wormhole.DataRetrieval.balancesHash(31);
-      console.log(balancesHash);
+      try {
+        let balancesHash = await Wormhole.DataRetrieval.balancesHash(31);
+        console.log(balancesHash);
+      }
+      catch(error) {
+        console.error(error)
+      }
     })()
 
     // { block: 1250914,
@@ -127,8 +147,13 @@ obj `Object`
 
 
     (async () => {
-      let crowdSale = await Wormhole.DataRetrieval.crowdSale(31, true);
-      console.log(crowdSale);
+      try {
+        let crowdSale = await Wormhole.DataRetrieval.crowdSale(31, true);
+        console.log(crowdSale);
+      }
+      catch(error) {
+        console.error(error)
+      }
     })()
 
     // { propertyid: 31,
@@ -160,8 +185,13 @@ obj `Object`
 
 
     (async () => {
-      let currentConsensusHash = await Wormhole.DataRetrieval.currentConsensusHash();
-      console.log(currentConsensusHash);
+      try {
+        let currentConsensusHash = await Wormhole.DataRetrieval.currentConsensusHash();
+        console.log(currentConsensusHash);
+      }
+      catch(error) {
+        console.error(error)
+      }
     })()
 
     // { block: 1250268,
@@ -185,8 +215,13 @@ obj `Object`
 
 
     (async () => {
-      let grants = await Wormhole.DataRetrieval.grants(3);
-      console.log(grants);
+      try {
+        let grants = await Wormhole.DataRetrieval.grants(3);
+        console.log(grants);
+      }
+      catch(error) {
+        console.error(error)
+      }
     })()
 
     // { propertyid: 3,
@@ -213,8 +248,13 @@ obj `Object`
 
 
     (async () => {
-      let info = await Wormhole.DataRetrieval.info();
-      console.log(info);
+      try {
+        let info = await Wormhole.DataRetrieval.info();
+        console.log(info);
+      }
+      catch(error) {
+        console.error(error)
+      }
     })()
 
     // { wormholeversion_int: 4000,
@@ -244,8 +284,13 @@ obj `Object`
 
 
     (async () => {
-      let payload = await Wormhole.DataRetrieval.payload("000000000000000000000000000000000000000000000000000000000000000");
-      console.log(payload);
+      try {
+        let payload = await Wormhole.DataRetrieval.payload("000000000000000000000000000000000000000000000000000000000000000");
+        console.log(payload);
+      }
+      catch(error) {
+        console.error(error)
+      }
     })()
 
 
@@ -265,8 +310,13 @@ obj `Object`
 
 
     (async () => {
-      let property = await Wormhole.DataRetrieval.property(3);
-      console.log(property);
+      try {
+        let property = await Wormhole.DataRetrieval.property(3);
+        console.log(property);
+      }
+      catch(error) {
+        console.error(error)
+      }
     })()
 
     // { propertyid: 3,
@@ -301,8 +351,13 @@ obj `Object`
 
 
     (async () => {
-      let seedBlocks = await Wormhole.DataRetrieval.seedBlocks(290000, 300000);
-      console.log(seedBlocks);
+      try {
+        let seedBlocks = await Wormhole.DataRetrieval.seedBlocks(290000, 300000);
+        console.log(seedBlocks);
+      }
+      catch(error) {
+        console.error(error)
+      }
     })()
     // []
 
@@ -324,8 +379,13 @@ obj `Object`
 
 
     (async () => {
-      let STO = await Wormhole.DataRetrieval.STO("000000000000000000000000000000000000000000000000000000000000000", "*");
-      console.log(STO);
+      try {
+        let STO = await Wormhole.DataRetrieval.STO("000000000000000000000000000000000000000000000000000000000000000", "*");
+        console.log(STO);
+      }
+      catch(error) {
+       console.error(error)
+      }
     })()
     // []
 
@@ -346,8 +406,13 @@ obj `Object`
 
 
     (async () => {
-      let transaction = await Wormhole.DataRetrieval.transaction("000000000000000000000000000000000000000000000000000000000000000");
-      console.log(transaction);
+      try {
+        let transaction = await Wormhole.DataRetrieval.transaction("000000000000000000000000000000000000000000000000000000000000000");
+        console.log(transaction);
+      }
+      catch(error) {
+       console.error(error)
+      }
     })()
 
 
@@ -367,8 +432,13 @@ arr `Array` of strings
 
 
     (async () => {
-      let blockTransactions = await Wormhole.DataRetrieval.blockTransactions("0000000000009ae2ee5d085a0f3d20c8ace0c742af60269f44fc3e3af354b5cb");
-      console.log(blockTransactions);
+      try {
+        let blockTransactions = await Wormhole.DataRetrieval.blockTransactions("0000000000009ae2ee5d085a0f3d20c8ace0c742af60269f44fc3e3af354b5cb");
+        console.log(blockTransactions);
+      }
+      catch(error) {
+       console.error(error)
+      }
     })()
     // []
 
@@ -389,8 +459,13 @@ arr `Array` of JSON objects
 
 
     (async () => {
-      let pendingTransactions = await Wormhole.DataRetrieval.pendingTransactions();
-      console.log(pendingTransactions);
+      try {
+        let pendingTransactions = await Wormhole.DataRetrieval.pendingTransactions();
+        console.log(pendingTransactions);
+      }
+      catch(error) {
+       console.error(error)
+      }
     })()
     // []
 
@@ -407,8 +482,13 @@ arr `Array` of JSON objects
 
 
     (async () => {
-      let properties = await Wormhole.DataRetrieval.properties();
-      console.log(properties);
+      try {
+        let properties = await Wormhole.DataRetrieval.properties();
+        console.log(properties);
+      }
+      catch(error) {
+       console.error(error)
+      }
     })()
 
     // [ { propertyid: 1,
