@@ -42,8 +42,13 @@ title: Bitcoin.com Developer Platform | Mining Documentation
         <h4>Examples</h4>
         <pre><code>
 (async () => {
-  let getMiningInfo = await BITBOX.Mining.getMiningInfo();
-  console.log(getMiningInfo);
+  try {
+    let getMiningInfo = await BITBOX.Mining.getMiningInfo();
+    console.log(getMiningInfo);
+  }
+  catch(error) {
+   console.error(error)
+  }
 })()
         </code></pre>
 
@@ -67,8 +72,13 @@ title: Bitcoin.com Developer Platform | Mining Documentation
         <h4>Examples</h4>
         <pre><code>
 (async () => {
-  let getNetworkHashps = await BITBOX.Mining.getNetworkHashps();
-  console.log(getNetworkHashps);
+  try {
+    let getNetworkHashps = await BITBOX.Mining.getNetworkHashps();
+    console.log(getNetworkHashps);
+  }
+  catch(error) {
+   console.error(error)
+  }
 })()
         </code></pre>
       </div>

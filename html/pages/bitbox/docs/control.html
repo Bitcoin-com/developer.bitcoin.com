@@ -54,8 +54,13 @@ title: Bitcoin.com Developer Platform | Control Documentation
         <h4>Examples</h4>
         <pre><code>
 (async () => {
-  let getMemoryInfo = await BITBOX.Control.getMemoryInfo();
-  console.log(getMemoryInfo);
+  try {
+    let getMemoryInfo = await BITBOX.Control.getMemoryInfo();
+    console.log(getMemoryInfo);
+  }
+  catch(error) {
+   console.error(error)
+  }
 })()
 
 // { locked:

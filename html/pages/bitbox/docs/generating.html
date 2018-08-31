@@ -45,8 +45,13 @@ title: Bitcoin.com Developer Platform | Generating Documentation
         <h4>Examples</h4>
         <pre><code>
 (async () => {
-  let generateToAddress = await BITBOX.Generating.generateToAddress(11, 'bitcoincash:qzhhrxcdlxdsw3xuw8nz3c4476fdz69uq5gewr0lxg');
-  console.log(generateToAddress);
+  try {
+    let generateToAddress = await BITBOX.Generating.generateToAddress(11, 'bitcoincash:qzhhrxcdlxdsw3xuw8nz3c4476fdz69uq5gewr0lxg');
+    console.log(generateToAddress);
+  }
+  catch(error) {
+   console.error(error)
+  }
 })()
 
 // []

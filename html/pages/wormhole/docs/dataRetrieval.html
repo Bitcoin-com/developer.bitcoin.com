@@ -40,8 +40,13 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
 
         <pre><code>
 (async () => {
-  let balances = await Wormhole.DataRetrieval.balancesForAddress("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg");
-  console.log(balances);
+  try {
+    let balances = await Wormhole.DataRetrieval.balancesForAddress("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg");
+    console.log(balances);
+  }
+  catch(error) {
+    console.error(error)
+  }
 })()
 
 // [ { propertyid: 1,
@@ -67,8 +72,13 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
 
         <pre><code>
 (async () => {
-  let balances = await Wormhole.DataRetrieval.balancesForId(108);
-  console.log(balances);
+  try {
+    let balances = await Wormhole.DataRetrieval.balancesForId(108);
+    console.log(balances);
+  }
+  catch(error) {
+    console.error(error)
+  }
 })()
 
 // [ { address: 'bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg',
@@ -103,8 +113,13 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
 
         <pre><code>
 (async () => {
-  let balance = await Wormhole.DataRetrieval.balance("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 1);
-  console.log(balance);
+  try {
+    let balance = await Wormhole.DataRetrieval.balance("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 1);
+    console.log(balance);
+  }
+  catch(error) {
+    console.error(error)
+  }
 })()
 
 // { balance: '100.00106300', reserved: '0.00000000' }
@@ -128,8 +143,13 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
 
         <pre><code>
 (async () => {
-  let balancesHash = await Wormhole.DataRetrieval.balancesHash(31);
-  console.log(balancesHash);
+  try {
+    let balancesHash = await Wormhole.DataRetrieval.balancesHash(31);
+    console.log(balancesHash);
+  }
+  catch(error) {
+    console.error(error)
+  }
 })()
 
 // { block: 1250914,
@@ -159,8 +179,13 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
 
         <pre><code>
 (async () => {
-  let crowdSale = await Wormhole.DataRetrieval.crowdSale(31, true);
-  console.log(crowdSale);
+  try {
+    let crowdSale = await Wormhole.DataRetrieval.crowdSale(31, true);
+    console.log(crowdSale);
+  }
+  catch(error) {
+    console.error(error)
+  }
 })()
 
 // { propertyid: 31,
@@ -192,42 +217,18 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
 
         <pre><code>
 (async () => {
-  let currentConsensusHash = await Wormhole.DataRetrieval.currentConsensusHash();
-  console.log(currentConsensusHash);
+  try {
+    let currentConsensusHash = await Wormhole.DataRetrieval.currentConsensusHash();
+    console.log(currentConsensusHash);
+  }
+  catch(error) {
+    console.error(error)
+  }
 })()
 
 // { block: 1250268,
 // blockhash: '00000000000002d60ea1e020b5da0732f7fab9330fe25137fc5b1eb0fb7269cf',
 // consensushash: 'b6af1e33348a01dbf32b554ab71b65f8b5ade6ea0d8fd5123c1b27da57a22fe5' }
-        </code></pre>
-
-        <h3 id='feeShare'><code>feeShare</code></h3>
-        <p>
-          Returns the percentage share of fees distribution applied to the wallet (default) or address (if supplied).
-        </p>
-        <h4>Arguments</h4>
-        <ol>
-          <li>
-            address <code>String</code> optional: retrieve the fee share for the supplied address
-          </li>
-          <li>
-            ecosystem <code>Number</code> optional: the ecosystem to check the fee share (1 for main ecosystem, 2 for test ecosystem)
-          </li>
-        </ol>
-        <h4>Result</h4>
-        <p>
-          array <code>Array</code> of JSON Objects
-        </p>
-        <h4>Examples</h4>
-
-        <pre><code>
-(async () => {
-  let feeShare = await Wormhole.DataRetrieval.feeShare("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 1);
-  console.log(feeShare);
-})()
-
-// [ { address: 'bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg',
-// feeshare: '0.6912%' } ]
         </code></pre>
 
         <h3 id='grants'><code>grants</code></h3>
@@ -248,8 +249,13 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
 
         <pre><code>
 (async () => {
-  let grants = await Wormhole.DataRetrieval.grants(3);
-  console.log(grants);
+  try {
+    let grants = await Wormhole.DataRetrieval.grants(3);
+    console.log(grants);
+  }
+  catch(error) {
+    console.error(error)
+  }
 })()
 
 // { propertyid: 3,
@@ -276,8 +282,13 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
 
         <pre><code>
 (async () => {
-  let info = await Wormhole.DataRetrieval.info();
-  console.log(info);
+  try {
+    let info = await Wormhole.DataRetrieval.info();
+    console.log(info);
+  }
+  catch(error) {
+    console.error(error)
+  }
 })()
 
 // { wormholeversion_int: 4000,
@@ -309,8 +320,13 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
 
         <pre><code>
 (async () => {
-  let payload = await Wormhole.DataRetrieval.payload("000000000000000000000000000000000000000000000000000000000000000");
-  console.log(payload);
+  try {
+    let payload = await Wormhole.DataRetrieval.payload("000000000000000000000000000000000000000000000000000000000000000");
+    console.log(payload);
+  }
+  catch(error) {
+    console.error(error)
+  }
 })()
         </code></pre>
 
@@ -332,8 +348,13 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
 
         <pre><code>
 (async () => {
-  let property = await Wormhole.DataRetrieval.property(3);
-  console.log(property);
+  try {
+    let property = await Wormhole.DataRetrieval.property(3);
+    console.log(property);
+  }
+  catch(error) {
+    console.error(error)
+  }
 })()
 
 // { propertyid: 3,
@@ -372,8 +393,13 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
 
         <pre><code>
 (async () => {
-  let seedBlocks = await Wormhole.DataRetrieval.seedBlocks(290000, 300000);
-  console.log(seedBlocks);
+  try {
+    let seedBlocks = await Wormhole.DataRetrieval.seedBlocks(290000, 300000);
+    console.log(seedBlocks);
+  }
+  catch(error) {
+    console.error(error)
+  }
 })()
 // []
         </code></pre>
@@ -399,8 +425,13 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
 
         <pre><code>
 (async () => {
-  let STO = await Wormhole.DataRetrieval.STO("000000000000000000000000000000000000000000000000000000000000000", "*");
-  console.log(STO);
+  try {
+    let STO = await Wormhole.DataRetrieval.STO("000000000000000000000000000000000000000000000000000000000000000", "*");
+    console.log(STO);
+  }
+  catch(error) {
+   console.error(error)
+  }
 })()
 // []
         </code></pre>
@@ -423,8 +454,13 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
 
         <pre><code>
 (async () => {
-  let transaction = await Wormhole.DataRetrieval.transaction("000000000000000000000000000000000000000000000000000000000000000");
-  console.log(transaction);
+  try {
+    let transaction = await Wormhole.DataRetrieval.transaction("000000000000000000000000000000000000000000000000000000000000000");
+    console.log(transaction);
+  }
+  catch(error) {
+   console.error(error)
+  }
 })()
         </code></pre>
 
@@ -446,8 +482,13 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
 
         <pre><code>
 (async () => {
-  let blockTransactions = await Wormhole.DataRetrieval.blockTransactions("0000000000009ae2ee5d085a0f3d20c8ace0c742af60269f44fc3e3af354b5cb");
-  console.log(blockTransactions);
+  try {
+    let blockTransactions = await Wormhole.DataRetrieval.blockTransactions("0000000000009ae2ee5d085a0f3d20c8ace0c742af60269f44fc3e3af354b5cb");
+    console.log(blockTransactions);
+  }
+  catch(error) {
+   console.error(error)
+  }
 })()
 // []
         </code></pre>
@@ -470,8 +511,13 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
 
         <pre><code>
 (async () => {
-  let pendingTransactions = await Wormhole.DataRetrieval.pendingTransactions();
-  console.log(pendingTransactions);
+  try {
+    let pendingTransactions = await Wormhole.DataRetrieval.pendingTransactions();
+    console.log(pendingTransactions);
+  }
+  catch(error) {
+   console.error(error)
+  }
 })()
 // []
         </code></pre>
@@ -488,8 +534,13 @@ title: Bitcoin.com Developer Platform | DataRetrieval Documentation
 
         <pre><code>
 (async () => {
-  let properties = await Wormhole.DataRetrieval.properties();
-  console.log(properties);
+  try {
+    let properties = await Wormhole.DataRetrieval.properties();
+    console.log(properties);
+  }
+  catch(error) {
+   console.error(error)
+  }
 })()
 
 // [ { propertyid: 1,

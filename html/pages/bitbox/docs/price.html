@@ -39,8 +39,13 @@ title: Bitcoin.com Developer Platform | Price Documentation
         <h4>Examples</h4>
         <pre><code>
 (async () => {
-  let current = await BITBOX.Price.current();
-  console.log(current);
+  try {
+    let current = await BITBOX.Price.current();
+    console.log(current);
+  }
+  catch(error) {
+   console.error(error)
+  }
 })()
 
 // {
