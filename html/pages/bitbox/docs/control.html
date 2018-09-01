@@ -29,8 +29,12 @@ title: Bitcoin.com Developer Platform | Control Documentation
         <h4>Examples</h4>
         <pre><code>
 (async () => {
-  let getInfo = await BITBOX.Control.getInfo();
-  console.log(getInfo);
+  try {
+    let getInfo = await BITBOX.Control.getInfo();
+    console.log(getInfo);
+  } catch(error) {
+   console.error(error)
+  }
 })()
 
 // { version: 170000,
@@ -44,35 +48,8 @@ title: Bitcoin.com Developer Platform | Control Documentation
 // paytxfee: 0,
 // relayfee: 0.00001,
 // errors: '' }
-            </code></pre>
-
-        <h3 id='getMemoryInfo'><code>getMemoryInfo</code></h3>
-        <p>
-          Returns an object containing information about memory usage.
-        </p>
-        <h4>Result</h4>
-        <h4>Examples</h4>
-        <pre><code>
-(async () => {
-  try {
-    let getMemoryInfo = await BITBOX.Control.getMemoryInfo();
-    console.log(getMemoryInfo);
-  }
-  catch(error) {
-   console.error(error)
-  }
-})()
-
-// { locked:
-//  { used: 0,
-//    free: 65536,
-//    total: 65536,
-//    locked: 65536,
-//    chunks_used: 0,
-//    chunks_free: 1 } }
-            </code></pre>
+        </code></pre>
       </div>
-
     </div>
   </div>
 </section>
