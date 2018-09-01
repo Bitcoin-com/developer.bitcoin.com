@@ -113,24 +113,28 @@ const BitboxPage = ({ location }: Props) => (
           <Text>Create 1,000,000 Quantum Miner Tokens QMT</Text>
           <Code>
             {`
-let wormhole = async () => {
-  let fixed = await Wormhole.PayloadCreation.fixed(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens QMT", "1000000");
-  let utxo = await BITBOX.Address.utxo([cashAddress]);
-  let rawTx = await Wormhole.RawTransactions.create([utxo[0][0]], {});
-  let opReturn = await Wormhole.RawTransactions.opReturn(rawTx, fixed);
-  let ref = await Wormhole.RawTransactions.reference(opReturn, cashAddress);
-  let changeHex = await Wormhole.RawTransactions.change(ref, [utxo[0][0]], cashAddress, 0.0006);
+(async () => {
+  try {
+    let fixed = await Wormhole.PayloadCreation.fixed(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens QMT", "1000000");
+    let utxo = await BITBOX.Address.utxo([cashAddress]);
+    let rawTx = await Wormhole.RawTransactions.create([utxo[0][0]], {});
+    let opReturn = await Wormhole.RawTransactions.opReturn(rawTx, fixed);
+    let ref = await Wormhole.RawTransactions.reference(opReturn, cashAddress);
+    let changeHex = await Wormhole.RawTransactions.change(ref, [utxo[0][0]], cashAddress, 0.0006);
 
-  let tx = Wormhole.Transaction.fromHex(changeHex)
-  let tb = Wormhole.Transaction.fromTransaction(tx)
+    let tx = Wormhole.Transaction.fromHex(changeHex)
+    let tb = Wormhole.Transaction.fromTransaction(tx)
 
-  let keyPair = Wormhole.HDNode.toKeyPair(change);
-  let redeemScript;
-  tb.sign(0, keyPair, redeemScript, 0x01, utxo[0][0].satoshis);
-  let builtTx = tb.build()
-  let txHex = builtTx.toHex();
-  await BITBOX.RawTransactions.sendRawTransaction(txHex);
-}
+    let keyPair = Wormhole.HDNode.toKeyPair(change);
+    let redeemScript;
+    tb.sign(0, keyPair, redeemScript, 0x01, utxo[0][0].satoshis);
+    let builtTx = tb.build()
+    let txHex = builtTx.toHex();
+    await BITBOX.RawTransactions.sendRawTransaction(txHex);
+  } catch(error) {
+   console.error(error)
+  }
+})()
 // {
 //   "txid": "8d2e358edcddadbaa4e0f7c9e3fe2ff7e128c4bed6d3a6a67af6aa5922c7bcd8",
 //   "fee": "622",
@@ -162,24 +166,28 @@ let wormhole = async () => {
           <Text>Send an investor 1000 QMT</Text>
           <Code>
             {`
-let main = async () => {
-  let ssPayload = await Wormhole.PayloadCreation.simpleSend(111, "1000.0");
-  let utxo = await BITBOX.Address.utxo([cashAddress]);
-  let rawTx = await Wormhole.RawTransactions.create([utxo[0][1]], {});
-  let opReturn = await Wormhole.RawTransactions.opReturn(rawTx, ssPayload);
-  let ref = await Wormhole.RawTransactions.reference(opReturn, cashAddress1);
-  let changeHex = await Wormhole.RawTransactions.change(ref, [utxo[0][1]], cashAddress, 0.0006);
+(async () => {
+  try {
+    let ssPayload = await Wormhole.PayloadCreation.simpleSend(111, "1000.0");
+    let utxo = await BITBOX.Address.utxo([cashAddress]);
+    let rawTx = await Wormhole.RawTransactions.create([utxo[0][1]], {});
+    let opReturn = await Wormhole.RawTransactions.opReturn(rawTx, ssPayload);
+    let ref = await Wormhole.RawTransactions.reference(opReturn, cashAddress1);
+    let changeHex = await Wormhole.RawTransactions.change(ref, [utxo[0][1]], cashAddress, 0.0006);
 
-  let tx = Wormhole.Transaction.fromHex(changeHex)
-  let tb = Wormhole.Transaction.fromTransaction(tx)
+    let tx = Wormhole.Transaction.fromHex(changeHex)
+    let tb = Wormhole.Transaction.fromTransaction(tx)
 
-  let keyPair = Wormhole.HDNode.toKeyPair(change);
-  let redeemScript;
-  tb.sign(0, keyPair, redeemScript, 0x01, utxo[0][1].satoshis);
-  let builtTx = tb.build()
-  let txHex = builtTx.toHex();
-  await BITBOX.RawTransactions.sendRawTransaction(txHex);
-}
+    let keyPair = Wormhole.HDNode.toKeyPair(change);
+    let redeemScript;
+    tb.sign(0, keyPair, redeemScript, 0x01, utxo[0][1].satoshis);
+    let builtTx = tb.build()
+    let txHex = builtTx.toHex();
+    await BITBOX.RawTransactions.sendRawTransaction(txHex);
+  } catch(error) {
+   console.error(error)
+  }
+})()
 // {
 //   "txid": "f90c52d4d2fea37fcd73bb88f04d553495585b0b27bae4125f99d06ddb43777f",
 //   "fee": "520",
@@ -203,24 +211,28 @@ let main = async () => {
           <Text>Start a crowdsale where 100,000 Life Extension Tokens LET are going to be sold 100 LET for 1 WHC.</Text>
           <Code>
             {`
-let wormhole = async () => {
-  let crowdsale = await Wormhole.PayloadCreation.crowdsale(1, 1, 0, "Companies", "Singularity", "Life Extension", "www.example.com", "Life Extension Tokens LET", 1, "100", 1545696000, 0, 0, 100000);
-  let utxo = await Wormhole.Address.utxo([cashAddress]);
-  let rawTx = await Wormhole.RawTransactions.create([utxo[0][0]], {});
-  let opReturn = await Wormhole.RawTransactions.opReturn(rawTx, crowdsale);
-  let ref = await Wormhole.RawTransactions.reference(opReturn, cashAddress);
-  let changeHex = await Wormhole.RawTransactions.change(ref, [utxo[0][0]], cashAddress, 0.0006);
+(async () => {
+  try {
+    let crowdsale = await Wormhole.PayloadCreation.crowdsale(1, 1, 0, "Companies", "Singularity", "Life Extension", "www.example.com", "Life Extension Tokens LET", 1, "100", 1545696000, 0, 0, 10000);
+    let utxo = await Wormhole.Address.utxo([cashAddress]);
+    let rawTx = await Wormhole.RawTransactions.create([utxo[0][0]], {});
+    let opReturn = await Wormhole.RawTransactions.opReturn(rawTx, crowdsale);
+    let ref = await Wormhole.RawTransactions.reference(opReturn, cashAddress);
+    let changeHex = await Wormhole.RawTransactions.change(ref, [utxo[0][0]], cashAddress, 0.0006);
 
-  let tx = Wormhole.Transaction.fromHex(changeHex)
-  let tb = Wormhole.Transaction.fromTransaction(tx)
+    let tx = Wormhole.Transaction.fromHex(changeHex)
+    let tb = Wormhole.Transaction.fromTransaction(tx)
 
-  let keyPair = Wormhole.HDNode.toKeyPair(change);
-  let redeemScript;
-  tb.sign(0, keyPair, redeemScript, 0x01, utxo[0][0].satoshis);
-  let builtTx = tb.build()
-  let txHex = builtTx.toHex();
-  await Wormhole.RawTransactions.sendRawTransaction(txHex);
-}
+    let keyPair = Wormhole.HDNode.toKeyPair(change);
+    let redeemScript;
+    tb.sign(0, keyPair, redeemScript, 0x01, utxo[0][0].satoshis);
+    let builtTx = tb.build()
+    let txHex = builtTx.toHex();
+    await Wormhole.RawTransactions.sendRawTransaction(txHex);
+  } catch(error) {
+   console.error(error)
+  }
+})()
 
  // {
    // "txid": "aa5ed83708d0889d25691a27668fe5a6a406cab24191afae7d78bb867a324641",
@@ -259,25 +271,29 @@ let wormhole = async () => {
           </Text>
           <Code>
             {`
-let wormhole = async () => {
-  let participateCrowdSale = await Wormhole.PayloadCreation.participateCrowdSale("1");
+(async () => {
+  try {
+    let participateCrowdSale = await Wormhole.PayloadCreation.participateCrowdSale("1");
 
-  let utxo = await Wormhole.Address.utxo([cashAddress]);
-  let rawTx = await Wormhole.RawTransactions.create([utxo[0][0]], {});
-  let opReturn = await Wormhole.RawTransactions.opReturn(rawTx, participateCrowdSale);
-  let ref = await Wormhole.RawTransactions.reference(opReturn, cashAddress2);
-  let changeHex = await Wormhole.RawTransactions.change(ref, [utxo[0][0]], cashAddress, 0.0006);
+    let utxo = await Wormhole.Address.utxo([cashAddress]);
+    let rawTx = await Wormhole.RawTransactions.create([utxo[0][0]], {});
+    let opReturn = await Wormhole.RawTransactions.opReturn(rawTx, participateCrowdSale);
+    let ref = await Wormhole.RawTransactions.reference(opReturn, cashAddress2);
+    let changeHex = await Wormhole.RawTransactions.change(ref, [utxo[0][0]], cashAddress, 0.0006);
 
-  let tx = Wormhole.Transaction.fromHex(changeHex)
-  let tb = Wormhole.Transaction.fromTransaction(tx)
+    let tx = Wormhole.Transaction.fromHex(changeHex)
+    let tb = Wormhole.Transaction.fromTransaction(tx)
 
-  let keyPair = Wormhole.HDNode.toKeyPair(change);
-  let redeemScript;
-  tb.sign(0, keyPair, redeemScript, 0x01, utxo.satoshis);
-  let builtTx = tb.build()
-  let txHex = builtTx.toHex();
-  await Wormhole.RawTransactions.sendRawTransaction(txHex);
-}
+    let keyPair = Wormhole.HDNode.toKeyPair(change);
+    let redeemScript;
+    tb.sign(0, keyPair, redeemScript, 0x01, utxo.satoshis);
+    let builtTx = tb.build()
+    let txHex = builtTx.toHex();
+    await Wormhole.RawTransactions.sendRawTransaction(txHex);
+  } catch(error) {
+   console.error(error)
+  }
+})()
 // {
 // "txid": "b8b26698c4d3783c1618253aa280ccbafd8912ef20ba1e7a3dcebd2d8d8915de",
 // "fee": "520",
@@ -298,7 +314,26 @@ let wormhole = async () => {
           <Code>
 {`
 (async () => {
-  let managed = await Wormhole.Transaction.managed("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", 1, 1, 0, "Companies", "Wormholes", "Time Machine", "www.example.com", "Time Machine Coins TMC");
+  try {
+    let managed = await Wormhole.PayloadCreation.managed(1, 1, 0, "Companies", "Wormholes", "Time Machine", "www.example.com", "Time Machine Coins TMC");
+    let utxo = await BITBOX.Address.utxo([cashAddress]);
+    let rawTx = await Wormhole.RawTransactions.create([utxo[0][0]], {});
+    let opReturn = await Wormhole.RawTransactions.opReturn(rawTx, managed);
+    let ref = await Wormhole.RawTransactions.reference(opReturn, cashAddress);
+    let changeHex = await Wormhole.RawTransactions.change(ref, [utxo[0][0]], cashAddress, 0.0006);
+
+    let tx = Wormhole.Transaction.fromHex(changeHex)
+    let tb = Wormhole.Transaction.fromTransaction(tx)
+
+    let keyPair = Wormhole.HDNode.toKeyPair(change);
+    let redeemScript;
+    tb.sign(0, keyPair, redeemScript, 0x01, utxo[0][0].satoshis);
+    let builtTx = tb.build()
+    let txHex = builtTx.toHex();
+    await BITBOX.RawTransactions.sendRawTransaction(txHex);
+  } catch(error) {
+   console.error(error)
+  }
 })()
 // {
 // "txid": "c55413fe980aca75da8853b38e7fe7f297f35f68e28f12e298c191b3b8680eab",
@@ -332,7 +367,26 @@ let wormhole = async () => {
           <Code>
 {`
 (async () => {
-  let grant = await Wormhole.Transaction.grant("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg", "bchtest:qr4g79cjapp02s3zs59gtu3dxu7sgwvp8gmnh9rw97", 112, "42");
+  try {
+    let grant = await Wormhole.PayloadCreation.grant(112, "42");
+    let utxo = await BITBOX.Address.utxo([cashAddress]);
+    let rawTx = await Wormhole.RawTransactions.create([utxo[0][3]], {});
+    let opReturn = await Wormhole.RawTransactions.opReturn(rawTx, grant);
+    let ref = await Wormhole.RawTransactions.reference(opReturn, cashAddress2);
+    let changeHex = await Wormhole.RawTransactions.change(ref, [utxo[0][3]], cashAddress, 0.0006);
+
+    let tx = Wormhole.Transaction.fromHex(changeHex)
+    let tb = Wormhole.Transaction.fromTransaction(tx)
+
+    let keyPair = Wormhole.HDNode.toKeyPair(change);
+    let redeemScript;
+    tb.sign(0, keyPair, redeemScript, 0x01, utxo.satoshis);
+    let builtTx = tb.build()
+    let txHex = builtTx.toHex();
+    await BITBOX.RawTransactions.sendRawTransaction(txHex);
+  } catch(error) {
+   console.error(error)
+  }
 })()
 // {
 //   "txid": "2fdfe48825ce9cf4f2a885867f27903930aff055fd36345b9ba5edfd6f29c592",
@@ -360,9 +414,28 @@ let wormhole = async () => {
           <Text>Revoke 11 TMC from a time traveler</Text>
           <Code>
 {`
-  (async () => {
-    let revoke = await Wormhole.Transaction.revoke("bchtest:qr4g79cjapp02s3zs59gtu3dxu7sgwvp8gmnh9rw97", 112, "11");
-  })()
+(async () => {
+  try {
+    let revoke = await Wormhole.PayloadCreation.revoke(112, "11");
+    let utxo = await BITBOX.Address.utxo([cashAddress]);
+    let rawTx = await Wormhole.RawTransactions.create([utxo[0][0]], {});
+    let opReturn = await Wormhole.RawTransactions.opReturn(rawTx, revoke);
+    let ref = await Wormhole.RawTransactions.reference(opReturn, cashAddress);
+    let changeHex = await Wormhole.RawTransactions.change(ref, [utxo[0][0]], cashAddress, 0.0006);
+
+    let tx = Wormhole.Transaction.fromHex(changeHex)
+    let tb = Wormhole.Transaction.fromTransaction(tx)
+
+    let keyPair = Wormhole.HDNode.toKeyPair(change);
+    let redeemScript;
+    tb.sign(0, keyPair, redeemScript, 0x01, utxo.satoshis);
+    let builtTx = tb.build()
+    let txHex = builtTx.toHex();
+    await BITBOX.RawTransactions.sendRawTransaction(txHex);
+  } catch(error) {
+   console.error(error)
+  }
+})()
 `}
           </Code>
         </PreviewItem>
@@ -373,7 +446,12 @@ let wormhole = async () => {
           <Code>
             {`
 (async () => {
-  let balancesForAddress = await Wormhole.DataRetrieval.balancesForAddress("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg");
+  try {
+    let balancesForAddress = await Wormhole.DataRetrieval.balancesForAddress("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg");
+    console.log(balancesForAddress);
+  } catch(error) {
+   console.error(error)
+  }
 })()
 
 // [ { propertyid: 1, balance: '93.00105957', reserved: '0.00000000' },
