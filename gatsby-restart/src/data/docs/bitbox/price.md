@@ -23,8 +23,7 @@ price `Object | number`: Price of all listed currencies or price of single reque
       try {
         let current = await BITBOX.Price.current();
         console.log(current);
-      }
-      catch(error) {
+      } catch(error) {
        console.error(error)
       }
     })()

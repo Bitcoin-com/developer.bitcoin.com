@@ -30,8 +30,7 @@ Returns a json object containing mining-related information.
       try {
         let getMiningInfo = await BITBOX.Mining.getMiningInfo();
         console.log(getMiningInfo);
-      }
-      catch(error) {
+      } catch(error) {
        console.error(error)
       }
     })()
@@ -43,8 +42,8 @@ Returns the estimated network hashes per second based on the last n blocks. Pass
 
 #### Arguments
 
-1.  nblocks <code>Number</code> optional, default=120: The number of blocks, or -1 for blocks since last difficulty change.
-2.  height <code>Number</code> optional, default=-1: To estimate at the time of the given height.
+1.  nblocks (numeric, optional, default=120): The number of blocks, or -1 for blocks since last difficulty change.
+2.  height (numeric, optional, default=-1): To estimate at the time of the given height.
 
 #### Result
 
@@ -57,8 +56,7 @@ x (numeric): Hashes per second estimated
       try {
         let getNetworkHashps = await BITBOX.Mining.getNetworkHashps();
         console.log(getNetworkHashps);
-      }
-      catch(error) {
+      } catch(error) {
        console.error(error)
       }
     })()

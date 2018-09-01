@@ -25,8 +25,7 @@ Mine blocks immediately to a specified address (before the RPC call returns)
       try {
         let generateToAddress = await BITBOX.Generating.generateToAddress(11, 'bitcoincash:qzhhrxcdlxdsw3xuw8nz3c4476fdz69uq5gewr0lxg');
         console.log(generateToAddress);
-      }
-      catch(error) {
+      } catch(error) {
        console.error(error)
       }
     })()

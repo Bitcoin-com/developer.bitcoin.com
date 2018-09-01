@@ -19,8 +19,7 @@ payload `String`: the hex-encoded payload
       try {
         let burnBCH = await Wormhole.PayloadCreation.burnBCH();
         console.log(burnBCH);
-      }
-      catch(error) {
+      } catch(error) {
         console.error(error)
       }
     })()
@@ -46,8 +45,7 @@ payload `String`: the hex-encoded payload
       try {
         let changeIssuer = await Wormhole.PayloadCreation.changeIssuer(3);
         console.log(changeIssuer);
-      }
-      catch(error) {
+      } catch(error) {
         console.error(error)
       }
     })()
@@ -73,8 +71,7 @@ payload `String`: the hex-encoded payload
       try {
         let closeCrowdSale = await Wormhole.PayloadCreation.closeCrowdSale(70);
         console.log(closeCrowdSale);
-      }
-      catch(error) {
+      } catch(error) {
         console.error(error)
       }
     })()
@@ -102,8 +99,7 @@ payload `String`: the hex-encoded payload
       try {
         let grant = await Wormhole.PayloadCreation.grant(3, "7000");
         console.log(grant);
-      }
-      catch(error) {
+      } catch(error) {
         console.error(error)
       }
     })()
@@ -142,8 +138,7 @@ payload `String`: the hex-encoded payload
       try {
         let crowdsale = await Wormhole.PayloadCreation.crowdsale(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens", 1, "100", 1483228800, 30, 0, 192978657);
         console.log(crowdsale);
-      }
-      catch(error) {
+      } catch(error) {
         console.error(error)
       }
     })()
@@ -177,8 +172,7 @@ payload `String`: the hex-encoded payload
       try {
         let fixed = await Wormhole.PayloadCreation.fixed(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens", "1000000");
         console.log(fixed);
-      }
-      catch(error) {
+      } catch(error) {
         console.error(error)
       }
     })()
@@ -212,8 +206,7 @@ payload `String`: the hex-encoded payload
       try {
         let managed = await Wormhole.PayloadCreation.managed(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens");
         console.log(managed);
-      }
-      catch(error) {
+      } catch(error) {
         console.error(error)
       }
     })()
@@ -240,8 +233,7 @@ payload `String`: the hex-encoded payload
       try {
         let participateCrowdSale = await Wormhole.PayloadCreation.participateCrowdSale("100.0");
         console.log(participateCrowdSale);
-      }
-      catch(error) {
+      } catch(error) {
         console.error(error)
       }
     })()
@@ -270,8 +262,7 @@ payload `String`: the hex-encoded payload
       try {
         let revoke = await Wormhole.PayloadCreation.revoke(105, "100");
         console.log(revoke);
-      }
-      catch(error) {
+      } catch(error) {
         console.error(error)
       }
     })()
@@ -296,8 +287,7 @@ payload `String`: the hex-encoded payload
       try {
         let sendAll = await Wormhole.PayloadCreation.sendAll(2, "100");
         console.log(sendAll);
-      }
-      catch(error) {
+      } catch(error) {
         console.error(error)
       }
     })()
@@ -324,8 +314,7 @@ payload `String`: the hex-encoded payload
       try {
         let simpleSend = await Wormhole.PayloadCreation.simpleSend(1, "100.0");
         console.log(simpleSend);
-      }
-      catch(error) {
+      } catch(error) {
         console.error(error)
       }
     })()
@@ -353,8 +342,7 @@ payload `String`: the hex-encoded payload
       try {
         let STO = await Wormhole.PayloadCreation.STO(3, "5000");
         console.log(STO);
-      }
-      catch(error) {
+      } catch(error) {
         console.error(error)
       }
     })()

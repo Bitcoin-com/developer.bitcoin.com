@@ -4,6 +4,16 @@
   ordinal: 17
 ---
 
+\--- layout: default title: Bitcoin.com Developer Platform | Transaction Documentation --- {{> double-nested-navigation}} {{> bitbox-docs-submenu}}
+
+BITBOX Documentation
+====================
+
+{{> bitbox-docs-menu}}
+
+Transaction
+-----------
+
 ### `details`
 
 Return details about a Transaction.
@@ -24,8 +34,7 @@ details `Array`: Array of Objects with details about transactions
       try {
         let details = await BITBOX.Transaction.details('a85fa3d831ab6b0305e7ff88d2d4941e25a810d4461635df51490653822071a8');
         console.log(details);
-      }
-      catch(error) {
+      } catch(error) {
        console.error(error)
       }
     })()
@@ -73,8 +82,7 @@ details `Array`: Array of Objects with details about transactions
       try {
         let details = await BITBOX.Transaction.details(["a85fa3d831ab6b0305e7ff88d2d4941e25a810d4461635df51490653822071a8", "113f1fe1c454a56436d4f93c7c6e315d1ed985d111299e9c2a3e2d3d1e9f177f"]);
         console.log(details);
-      }
-      catch(error) {
+      } catch(error) {
        console.error(error)
       }
     })()

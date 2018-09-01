@@ -12,8 +12,12 @@ Returns an object containing various state info.
 
 
     (async () => {
-      let getInfo = await BITBOX.Control.getInfo();
-      console.log(getInfo);
+      try {
+        let getInfo = await BITBOX.Control.getInfo();
+        console.log(getInfo);
+      } catch(error) {
+       console.error(error)
+      }
     })()
 
     // { version: 170000,
@@ -27,31 +31,3 @@ Returns an object containing various state info.
     // paytxfee: 0,
     // relayfee: 0.00001,
     // errors: '' }
-
-
-### `getMemoryInfo`
-
-Returns an object containing information about memory usage.
-
-#### Result
-
-#### Examples
-
-
-    (async () => {
-      try {
-        let getMemoryInfo = await BITBOX.Control.getMemoryInfo();
-        console.log(getMemoryInfo);
-      }
-      catch(error) {
-       console.error(error)
-      }
-    })()
-
-    // { locked:
-    //  { used: 0,
-    //    free: 65536,
-    //    total: 65536,
-    //    locked: 65536,
-    //    chunks_used: 0,
-    //    chunks_free: 1 } }
