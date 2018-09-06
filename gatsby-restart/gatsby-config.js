@@ -3,6 +3,7 @@ module.exports = {
     title: 'developer.bitcoin.com',
   },
   plugins: [
+    `gatsby-plugin-flow`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
