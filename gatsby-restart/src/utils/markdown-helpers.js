@@ -2,7 +2,16 @@
 import * as React from 'react'
 
 import { SmartLink } from 'atoms/StyledLink'
-import { H1Md, H2Md, H3Md, H4Md, TextMd, UlMd, OlMd } from 'atoms/markdownAtoms'
+import {
+  H1Md,
+  H2Md,
+  H3Md,
+  H4Md,
+  TextMd,
+  UlMd,
+  OlMd,
+  ImgMd,
+} from 'atoms/markdownAtoms'
 import Ul from 'atoms/Ul'
 import Li from 'atoms/Li'
 import Code from 'atoms/Code'
@@ -34,4 +43,5 @@ export const standardTransforms = {
   ul: UlMd,
   ol: OlMd,
   li: Li,
+  img: ImgMd,
 }

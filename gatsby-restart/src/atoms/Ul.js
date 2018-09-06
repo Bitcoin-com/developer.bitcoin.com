@@ -19,7 +19,7 @@ const Ul = styled.ul`
     position: relative;
     &:before {
       position: absolute;
-      top: 6px;
+      top: 4px;
       left: -16px;
       content: '';
       display: inline-block;

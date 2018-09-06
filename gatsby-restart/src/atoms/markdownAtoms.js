@@ -8,6 +8,7 @@ import H4 from './H4'
 import Text from './Text'
 import Ul from './Ul'
 import Ol from './Ol'
+import Img from './Img'
 import spacing from 'styles/spacing'
 
 const H1Md = H1.extend`
@@ -36,4 +37,8 @@ const OlMd = Ol.extend`
   margin-top: ${spacing.medium};
 `
 
-export { H1Md, H2Md, H3Md, H4Md, TextMd, UlMd, OlMd }
+const ImgMd = Img.extend`
+  margin-top: ${spacing.medium};
+`
+
+export { H1Md, H2Md, H3Md, H4Md, TextMd, UlMd, OlMd, ImgMd }

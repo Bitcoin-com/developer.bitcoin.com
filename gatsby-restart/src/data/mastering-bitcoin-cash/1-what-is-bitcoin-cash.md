@@ -48,7 +48,7 @@ The bitcoin network started in 2009, based on a reference implementation publish
 
 Satoshi Nakamoto withdrew from the public in April of 2011, leaving the responsibility of developing the code and network to a thriving group of volunteers. The identity of the person or people behind bitcoin is still unknown. However, neither Satoshi Nakamoto nor anyone else exerts control over the bitcoin system, which operates based on fully transparent mathematical principles. The invention itself is groundbreaking and has already spawned new science in the fields of distributed computing, economics, and econometrics.
 
-A Solution to a Distributed Computing Problem
+#### A Solution to a Distributed Computing Problem
 
 Satoshi Nakamoto’s invention is also a practical solution to a previously unsolved problem in distributed computing, known as the "Byzantine Generals' Problem." Briefly, the problem consists of trying to agree on a course of action by exchanging information over an unreliable and potentially compromised network. Satoshi Nakamoto’s solution, which uses the concept of proof-of-work to achieve consensus without a central trusted authority, represents a breakthrough in distributed computing science and has wide applicability beyond currency. It can be used to achieve consensus on decentralized networks to prove the fairness of elections, lotteries, asset registries, digital notarization, and more.
 
@@ -56,51 +56,51 @@ Satoshi Nakamoto’s invention is also a practical solution to a previously unso
 
 Bitcoin Cash is a technology, but it expresses money that is fundamentally a language for exchanging value between people. Let’s look at the people who are using bitcoin and some of the most common uses of the currency and protocol through their stories. We will reuse these stories throughout the book to illustrate the real-life uses of digital money and how they are made possible by the various technologies that are part of bitcoin.
 
-North American low-value retail
+#### North American low-value retail
 
 Alice lives in Northern California’s Bay Area. She has heard about bitcoin from her techie friends and wants to start using it. We will follow her story as she learns about bitcoin, acquires some, and then spends some of her bitcoin to buy a cup of coffee at Bob’s Cafe in Palo Alto. This story will introduce us to the software, the exchanges, and basic transactions from the perspective of a retail consumer.
 
-North American high-value retail
+#### North American high-value retail
 
 Carol is an art gallery owner in San Francisco. She sells expensive paintings for bitcoin. This story will introduce the risks of a "51%" consensus attack for retailers of high-value items.
 
-Offshore contract services
+#### Offshore contract services
 
 Bob, the cafe owner in Palo Alto, is building a new website. He has contracted with an Indian web developer, Gopesh, who lives in Bangalore, India. Gopesh has agreed to be paid in bitcoin. This story will examine the use of bitcoin for outsourcing, contract services, and international wire transfers.
 
-Charitable donations
+#### Charitable donations
 
 Eugenia is the director of a children’s charity in the Philippines. Recently she has discovered bitcoin and wants to use it to reach a whole new group of foreign and domestic donors to fundraise for her charity. She’s also investigating ways to use bitcoin to distribute funds quickly to areas of need. This story will show the use of bitcoin for global fundraising across currencies and borders and the use of an open ledger for transparency in charitable organizations.
 
-Import/export
+#### Import/export
 
 Mohammed is an electronics importer in Dubai. He’s trying to use bitcoin to buy electronics from the US and China for import into the UAE to accelerate the process of payments for imports. This story will show how bitcoin can be used for large business-to-business international payments tied to physical goods.
 
-Mining for bitcoin
+#### Mining for bitcoin
 
 Jing is a computer engineering student in Shanghai. He has built a "mining" rig to mine for bitcoins, using his engineering skills to supplement his income. This story will examine the "industrial" base of bitcoin: the specialized equipment used to secure the bitcoin network and issue new currency.
 
 Each of these stories is based on real people and real industries that are currently using bitcoin to create new markets, new industries, and innovative solutions to global economic issues.
 
-### Getting Started
+## Getting Started
 
 To join the bitcoin network and start using the currency, all a user has to do is download an application or use a web application. Because bitcoin is a standard, there are many implementations of the bitcoin client software. There is also a reference implementation, also known as the Satoshi client, which is managed as an open source project by a team of developers and is derived from the original implementation written by Satoshi Nakamoto.
 
 The three main forms of bitcoin clients are:
 
-Full client
+### Full client
 
 A full client, or "full node," is a client that stores the entire history of bitcoin transactions (every transaction by every user, ever), manages the users' wallets, and can initiate transactions directly on the bitcoin network. This is similar to a standalone email server, in that it handles all aspects of the protocol without relying on any other servers or third-party services.
 
-Lightweight client
+### Lightweight client
 
 A lightweight client stores the user’s wallet but relies on third-party–owned servers for access to the bitcoin transactions and network. The light client does not store a full copy of all transactions and therefore must trust the third-party servers for transaction validation. This is similar to a standalone email client that connects to a mail server for access to a mailbox, in that it relies on a third party for interactions with the network.
 
-Web client
+### Web client
 
 Web clients are accessed through a web browser and store the user’s wallet on a server owned by a third party. This is similar to webmail in that it relies entirely on a third-party server.
 
-Mobile Bitcoin Cash
+## Mobile Bitcoin Cash
 
 Mobile clients for smartphones, such as those based on the Android system, can either operate as full clients, lightweight clients, or web clients. Some mobile clients are synchronized with a web or desktop client, providing a multiplatform wallet across multiple devices but with a common source of funds.
 
@@ -112,23 +112,23 @@ For the purposes of this book, we will be demonstrating the use of a variety of 
 
 Alice, who we introduced in [Bitcoin Cash Uses, Users, and Their Stories](#user-stories), is not a technical user and only recently heard about bitcoin from a friend. She starts her journey by visiting the website [bitcoin.com](http://www.bitcoin.com), where she finds a selection of wallets.
 
-![Bitcoin.com's wallets](../img/mastering-bitcoin-cash/msbt_01_wallets.png)
+![Bitcoin.com's wallets](/images/mastering-bitcoin-cash/msbt_01_wallets.png)
 
 Alice follows a link from the bitcoin.com site to download and install a wallet on her desktop. Bitcoin.com’s wallet is available for Windows, MacOS and Linux desktops as well as iOS and Android mobile devices.
 
-Warning
+### Warning
 
 Bitcoin Cash wallets can often be protected by a password or passphrase. There are many bad actors attempting to break weak passwords, so take care to select one that cannot be easily broken. Use a combination of upper and lowercase characters, numbers, and symbols. Avoid personal information such as birth dates or names of sports teams. Avoid any words commonly found in dictionaries, in any language. If you can, use a password generator to create a completely random password that is at least 12 characters in length. Remember: Bitcoin Cash is money and can be instantly moved anywhere in the world. If it is not well protected, it can be easily stolen.
 
 Once Alice has downloaded and installed the Bitcoin.com wallet, she runs it and is greeted by a Welcome screen, as shown in [The Bitcoin.com wallet Welcome screen](#welcome).
 
-![Welcome](../img/mastering-bitcoin-cash/msbt_01_welcome.png)
+![Welcome](/images/mastering-bitcoin-cash/msbt_01_welcome.png)
 
 Figure 1. The Bitcoin.com wallet Welcome screen
 
 The wallet automatically creates a new Bitcoin Cash address for Alice, which Alice can see by clicking the Receive tab shown in [Alice’s new Bitcoin Cash address, in the Receive tab of the Bitcoin.com wallet](#request).
 
-![Receive](../img/mastering-bitcoin-cash/msbt_01_receive.png)
+![Receive](/images/mastering-bitcoin-cash/msbt_01_receive.png)
 
 Figure 2. Alice’s new Bitcoin Cash address, in the Receive tab of the Bitcoin.com Wallet
 
