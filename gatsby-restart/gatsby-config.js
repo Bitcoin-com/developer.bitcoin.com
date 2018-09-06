@@ -36,6 +36,7 @@ module.exports = {
     'gatsby-plugin-offline',
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-sharp`,
+
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -54,5 +55,7 @@ module.exports = {
         ],
       },
     },
+    `gatsby-plugin-robots-txt`,
+    `gatsby-plugin-sitemap`,
   ],
 }
