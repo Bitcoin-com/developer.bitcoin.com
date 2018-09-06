@@ -29,7 +29,6 @@ export const textBase = css`
   vertical-align: middle;
 
   vertical-align: middle;
-  transition: color 0.15s;
 
   /* Size */
   font-size: ${sizeMap['small']['normal'][0]};
@@ -141,19 +140,18 @@ export const textBase = css`
       text-transform: capitalize;
     `}
 
-  ${props => props.isTitle &&
+  ${props =>
+    props.isTitle &&
     css`
-    margin-bottom: 10px !important;
+      margin-bottom: 10px !important;
       &::before {
-        content: "";
+        content: '';
         width: 80px;
         border-bottom: 4px solid ${props => props.theme.primary};
         position: absolute;
         bottom: -10px;
-        
       }
-    `
-  }
+    `}
 `
 
 const Text = styled.p`
