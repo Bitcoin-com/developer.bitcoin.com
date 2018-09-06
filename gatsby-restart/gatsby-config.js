@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'developer.bitcoin.com',
+    siteUrl: 'https://developer.bitcoin.com',
   },
   plugins: [
     `gatsby-plugin-flow`,
