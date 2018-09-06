@@ -8,7 +8,7 @@ import { FaAngleLeft } from 'react-icons/fa'
 
 import DefaultLayout from 'components/layouts/DefaultLayout.js'
 import Container from 'components/Container'
-import MasteringBitcoinCashAttribution from 'components/MasteringBitcoinCashAttribution';
+import MasteringBitcoinCashAttribution from 'components/MasteringBitcoinCashAttribution'
 
 import StyledLink from 'atoms/StyledLink'
 import Text from 'atoms/Text'
@@ -18,7 +18,6 @@ import H2 from 'atoms/H2'
 import spacing from 'styles/spacing'
 
 import { standardTransforms } from 'utils/markdown-helpers'
-
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
@@ -83,7 +82,6 @@ class ChapterTemplate extends React.PureComponent<Props> {
               </H2>
               <Text muted2>Updated: {chapter.frontmatter.updatedAt}</Text>
             </div>
-            
             <ChapterHolder>{renderAst(chapter.htmlAst)}</ChapterHolder>
           </PageLayout>
         </Container>
