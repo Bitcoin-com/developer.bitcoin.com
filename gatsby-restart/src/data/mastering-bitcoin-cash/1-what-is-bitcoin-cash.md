@@ -116,9 +116,9 @@ Alice, who we introduced in [Bitcoin Cash Uses, Users, and Their Stories](#user-
 
 Alice follows a link from the bitcoin.com site to download and install a wallet on her desktop. Bitcoin.com’s wallet is available for Windows, MacOS and Linux desktops as well as iOS and Android mobile devices.
 
-### Warning
-
-Bitcoin Cash wallets can often be protected by a password or passphrase. There are many bad actors attempting to break weak passwords, so take care to select one that cannot be easily broken. Use a combination of upper and lowercase characters, numbers, and symbols. Avoid personal information such as birth dates or names of sports teams. Avoid any words commonly found in dictionaries, in any language. If you can, use a password generator to create a completely random password that is at least 12 characters in length. Remember: Bitcoin Cash is money and can be instantly moved anywhere in the world. If it is not well protected, it can be easily stolen.
+<tip nature="warning">
+  Bitcoin Cash wallets can often be protected by a password or passphrase. There are many bad actors attempting to break weak passwords, so take care to select one that cannot be easily broken. Use a combination of upper and lowercase characters, numbers, and symbols. Avoid personal information such as birth dates or names of sports teams. Avoid any words commonly found in dictionaries, in any language. If you can, use a password generator to create a completely random password that is at least 12 characters in length. Remember: Bitcoin Cash is money and can be instantly moved anywhere in the world. If it is not well protected, it can be easily stolen.
+</tip>
 
 Once Alice has downloaded and installed the Bitcoin.com wallet, she runs it and is greeted by a Welcome screen, as shown in [The Bitcoin.com wallet Welcome screen](#welcome).
 
@@ -136,9 +136,9 @@ The most important part of this screen is Alice’s _Bitcoin Cash address_. Like
 
 Alice can also print the QR code as a way to easily give her address to others without them having to type the long string of letters and numbers.
 
-Tip
-
-Bitcoin Cash addresses start with the letter `q` or `p`. Optionally they may begin with a `bitcoincash:` prefix. Like email addresses, they can be shared with other Bitcoin Cash users who can use them to send Bitcoin Cash directly to your wallet. Unlike email addresses, you can create new addresses as often as you like, all of which will direct funds to your wallet. A wallet is simply a collection of addresses and the keys that unlock the funds within. You can increase your privacy by using a different address for every transaction. There is practically no limit to the number of addresses a user can create.
+<tip>
+  Bitcoin Cash addresses start with the letter <pre>q</pre> or <pre>p</pre>. Optionally they may begin with a <pre>bitcoincash:</pre> prefix. Like email addresses, they can be shared with other Bitcoin Cash users who can use them to send Bitcoin Cash directly to your wallet. Unlike email addresses, you can create new addresses as often as you like, all of which will direct funds to your wallet. A wallet is simply a collection of addresses and the keys that unlock the funds within. You can increase your privacy by using a different address for every transaction. There is practically no limit to the number of addresses a user can create.
+</tip>
 
 Alice is now ready to start using her new Bitcoin Cash wallet.
 
@@ -146,22 +146,18 @@ Alice is now ready to start using her new Bitcoin Cash wallet.
 
 Bitcoin.com offers a faucet where you can get your first Bitcoin Cash for free. Go to [free.bitcoin.com](https://free.bitcoin.com/), sign in with your google account (to prevent abuse of the faucet) and enter your address and click “Receive Bitcoin Cash”.
 
-![Faucet 1](../img/mastering-bitcoin-cash/msbt_01_faucet_1.png)
+![Faucet 1](/images/mastering-bitcoin-cash/msbt_01_faucet_1.png)
 
 Nearly instantly you’ll see Bitcoin Cash arrive in your wallet.
 
-![Faucet 2](../img/mastering-bitcoin-cash/msbt_01_faucet_2.png)
+![Faucet 2](/images/img/mastering-bitcoin-cash/msbt_01_faucet_2.png)
 
 There are five other methods for getting Bitcoin Cash as a new user:
 
-- Buy from an exachange such as [Coinbase](http://coinbase.com/)
-
+- Buy from an exchange such as [Coinbase](http://coinbase.com/)
 - Find a friend who has Bitcoin Cash and buy some from him directly. Many Bitcoin Cash users start this way.
-
 - Use a classified service such as [localbitcoincash.org](https://www.localbitcoincash.org/) to find a seller in your area to buy Bitcoin Cash for cash in an in-person transaction.
-
 - Sell a product or service for Bitcoin Cash. If you’re a programmer, sell your programming skills.
-
 - Use a Bitcoin Cash ATM in your city. Find a Bitcoin Cash ATM close to you using an online map from [coinatmradar](https://coinatmradar.com/).
 
 #### Sending and Receiving Bitcoin Cash
@@ -174,7 +170,7 @@ Alice wants to convert just 10 US dollars into Bitcoin Cash, so as not to risk t
 
 Next, Joe has to figure out the exchange rate so that he can give the correct amount of Bitcoin Cash to Alice. There are hundreds of applications and websites that can provide the current market rate. We’ use the [Bitcoin.com Bitcoin Cash Converter](https://tools.bitcoin.com/bitcoin-cash-converter/) from Bitcoin.com.
 
-![converter](../img/mastering-bitcoin-cash/msbt_01_converter.png)
+![converter](/images/mastering-bitcoin-cash/msbt_01_converter.png)
 
 Figure 3. Bitcoin Cash price converter from Bitcoin.com
 
@@ -184,11 +180,11 @@ Once Joe has established a fair exchange price, he opens his mobile wallet appli
 
 Joe then enters the bitcoin value for the transaction, 0.0138 bitcoin. He carefully checks to make sure he has entered the correct amount, because he is about to transmit money and any mistake could be costly. Finally, he presses Send to transmit the transaction. Joe’s mobile bitcoin wallet constructs a transaction that assigns 0.0138 bitcoin to the address provided by Alice, sourcing the funds from Joe’s wallet and signing the transaction with Joe’s private keys. This tells the Bitcoin Cash network that Joe has authorized a transfer of value from one of his addresses to Alice’s new address. As the transaction is transmitted via the peer-to-peer protocol, it quickly propagates across the bitcoin cash network. In less than a second, most of the well-connected nodes in the network receive the transaction and see Alice’s address for the first time.
 
-![bought](../img/mastering-bitcoin-cash/msbt_01_bought.png)
+![bought](/images/mastering-bitcoin-cash/msbt_01_bought.png)
 
 If Alice has a smartphone or laptop with her, she will also be able to see the transaction. The Bitcoin Cash ledger—a constantly growing file that records every Bitcoin Cash transaction that has ever occurred—is public, meaning that all she has to do is look up her own address and see if any funds have been sent to it. She can do this quite easily at the explorer.bitcoin.com/bch website by entering her address in the search box. The website will show her a [page](https://explorer.bitcoin.com/bch/address/13wCzsosQfVSt86RNT1tegUKFhxmnpzoxw) listing all the transactions to and from that address. If Alice is watching that page, it will update to show a new transaction transferring 0.10 bitcoin to her balance soon after Joe hits Send.
 
-Confirmations
+### Confirmations
 
 At first, Alice’s address will show the transaction from Joe as "Unconfirmed." This means that the transaction has been propagated to the network but has not yet been included in the bitcoin transaction ledger, known as the blockchain. To be included, the transaction must be "picked up" by a miner and included in a block of transactions. Once a new block is created, in approximately 10 minutes, the transactions within the block will be accepted as "confirmed" by the network and can be spent. The transaction is seen by all instantly, but it is only "trusted" by all when it is included in a newly mined block.
 

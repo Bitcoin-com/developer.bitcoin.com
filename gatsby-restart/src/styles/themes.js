@@ -12,6 +12,7 @@ const defaultTheme = {
   foregroundMuted: palette.tundora,
   background: palette.white,
   backgroundMuted: palette.silver,
+  danger: '#e43e19'
 
 }
 

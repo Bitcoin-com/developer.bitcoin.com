@@ -16,6 +16,7 @@ import Ul from 'atoms/Ul'
 import Li from 'atoms/Li'
 import Code from 'atoms/Code'
 import Pre from 'atoms/Pre'
+import Tip from 'atoms/Tip';
 
 type BasicProps = {
   children: React.Node,
@@ -33,7 +34,7 @@ const PrePassthrough = ({ children }: BasicProps) => <>{children}</>
 
 export const standardTransforms = {
   p: TextMd,
-  pre: PrePassthrough,
+  pre: CodePreSplitter,
   code: CodePreSplitter,
   h1: H1Md,
   h2: H2Md,
@@ -44,4 +45,5 @@ export const standardTransforms = {
   ol: OlMd,
   li: Li,
   img: ImgMd,
+  tip: Tip,
 }

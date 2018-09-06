@@ -21,7 +21,6 @@ type Props = {
 // Refer here for relevant props
 // https://github.com/conorhastings/react-syntax-highlighter#props
 const Code = ({ children, fontSize, language = 'javascript' }: Props) => {
-  console.log(language)
   return (
     <SyntaxHighlighter
       language={language}

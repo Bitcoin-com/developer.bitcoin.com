@@ -26,27 +26,29 @@ const sizeMap = {
 
 export const textBase = css`
   position: relative;
-  font-size-adjust: 0.5;
   vertical-align: middle;
 
-  font-size: 16px;
-  line-height:20px;
+  vertical-align: middle;
+  transition: color 0.15s;
 
+  /* Size */
+  font-size: ${sizeMap['small']['normal'][0]};
+  line-height: ${sizeMap['small']['normal'][1]};
   ${props =>
     props.size &&
     css`
       font-size: ${sizeMap['small'][props.size][0]};
       line-height: ${sizeMap['small'][props.size][1]};
     `} 
-  ${media.large`
-    font-size:  18px;
-    line-height: 24.75px;
-    ${props =>
-      props.size &&
-      css`
-        font-size: ${sizeMap['large'][props.size][0]};
-        line-height: ${sizeMap['large'][props.size][1]};
-      `}
+    ${media.large`
+      font-size: ${sizeMap['large']['normal'][0]};
+      line-height: ${sizeMap['large']['normal'][1]};
+      ${props =>
+        props.size &&
+        css`
+          font-size: ${sizeMap['large'][props.size][0]};
+          line-height: ${sizeMap['large'][props.size][1]};
+        `}
   `};
 
   
@@ -132,6 +134,11 @@ export const textBase = css`
     props.monospace &&
     css`
       font-family: monospace;
+    `}
+  ${props =>
+    props.capitalize &&
+    css`
+      text-transform: capitalize;
     `}
 
   ${props => props.isTitle &&
