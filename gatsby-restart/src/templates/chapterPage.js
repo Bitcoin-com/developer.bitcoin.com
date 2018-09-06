@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import rehypeReact from 'rehype-react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import { FaAngleLeft } from 'react-icons/fa'
+import { FaAngleLeft, FaAngleRight } from 'react-icons/fa'
 
 import DefaultLayout from 'components/layouts/DefaultLayout.js'
 import Container from 'components/Container'
@@ -37,6 +37,11 @@ const PageLayout = styled.div`
   grid-gap: ${spacing.small};
 `
 
+const ChapterNav = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
+
 // TODO: DRY this AST holder div elsewhere
 const ChapterHolder = styled.div`
   max-width: 820px;
@@ -56,6 +61,20 @@ class ChapterTemplate extends React.PureComponent<Props> {
   render() {
     const { data, location } = this.props
     const chapter = data.markdownRemark
+
+    const allChapters = data.allMarkdownRemark.edges
+    const currentChapter = chapter.frontmatter.chapter
+
+    const nextChapter = allChapters.reduce((prev, curr) => {
+      if (prev) return prev
+      if (curr.node.frontmatter.chapter === currentChapter + 1) return curr
+      return null
+    }, null)
+    const prevChapter = allChapters.reduce((prev, curr) => {
+      if (prev) return prev
+      if (curr.node.frontmatter.chapter === currentChapter - 1) return curr
+      return null
+    }, null)
 
     return (
       <DefaultLayout location={location}>
@@ -83,6 +102,28 @@ class ChapterTemplate extends React.PureComponent<Props> {
               <Text muted2>Updated: {chapter.frontmatter.updatedAt}</Text>
             </div>
             <ChapterHolder>{renderAst(chapter.htmlAst)}</ChapterHolder>
+            <ChapterNav>
+              <div>
+                {prevChapter && (
+                  <StyledLink to={prevChapter.node.fields.slug}>
+                    <Text centerVertical>
+                      <FaAngleLeft /> Chapter{' '}
+                      {prevChapter.node.frontmatter.chapter}
+                    </Text>
+                  </StyledLink>
+                )}
+              </div>
+              <div>
+                {nextChapter && (
+                  <StyledLink to={nextChapter.node.fields.slug}>
+                    <Text centerVertical>
+                      Chapter {nextChapter.node.frontmatter.chapter}{' '}
+                      <FaAngleRight />
+                    </Text>
+                  </StyledLink>
+                )}
+              </div>
+            </ChapterNav>
           </PageLayout>
         </Container>
       </DefaultLayout>
@@ -108,6 +149,22 @@ export const query = graphql`
       }
       fields {
         slug
+      }
+    }
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___chapter], order: ASC }
+      filter: { fields: { type: { eq: "chapter" } } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            chapter
+          }
+          fields {
+            slug
+          }
+        }
       }
     }
   }
