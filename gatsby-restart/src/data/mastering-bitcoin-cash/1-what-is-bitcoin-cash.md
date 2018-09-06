@@ -122,15 +122,15 @@ Alice follows a link from the bitcoin.com site to download and install a wallet 
 
 Once Alice has downloaded and installed the Bitcoin.com wallet, she runs it and is greeted by a Welcome screen, as shown in [The Bitcoin.com wallet Welcome screen](#welcome).
 
+<spacer></spacer>
 ![Welcome](/images/mastering-bitcoin-cash/msbt_01_welcome.png)
-
-Figure 1. The Bitcoin.com wallet Welcome screen
+<image-caption>Figure 1. The Bitcoin.com wallet Welcome screen</image-caption>
 
 The wallet automatically creates a new Bitcoin Cash address for Alice, which Alice can see by clicking the Receive tab shown in [Alice’s new Bitcoin Cash address, in the Receive tab of the Bitcoin.com wallet](#request).
 
+<spacer></spacer>
 ![Receive](/images/mastering-bitcoin-cash/msbt_01_receive.png)
-
-Figure 2. Alice’s new Bitcoin Cash address, in the Receive tab of the Bitcoin.com Wallet
+<image-caption>Figure 2. Alice’s new Bitcoin Cash address, in the Receive tab of the Bitcoin.com Wallet</image-caption>
 
 The most important part of this screen is Alice’s _Bitcoin Cash address_. Like an email address, Alice can share this address and anyone can use it to send money directly to her new wallet. On the screen it appears as a long string of letters and numbers: bitcoincash:qp0fxfqz4hjw7jsghxjpthc04ukzjv324s956a6x46. Next to the wallet’s bitcoin address is a QR code, a form of barcode that contains the same information in a format that can be scanned by a smartphone camera. The QR code is the black-and-white square in the middle of the window. Alice can copy the Bitcoin Cash address or the QR code onto her clipboard by clicking either of each of them.
 
@@ -145,12 +145,12 @@ Alice is now ready to start using her new Bitcoin Cash wallet.
 #### Getting Your First Bitcoin Cash
 
 Bitcoin.com offers a faucet where you can get your first Bitcoin Cash for free. Go to [free.bitcoin.com](https://free.bitcoin.com/), sign in with your google account (to prevent abuse of the faucet) and enter your address and click “Receive Bitcoin Cash”.
-
+<spacer></spacer>
 ![Faucet 1](/images/mastering-bitcoin-cash/msbt_01_faucet_1.png)
-
-Nearly instantly you’ll see Bitcoin Cash arrive in your wallet.
-
-![Faucet 2](/images/img/mastering-bitcoin-cash/msbt_01_faucet_2.png)
+<image-caption>Nearly instantly you’ll see Bitcoin Cash arrive in your wallet</image-caption>
+<spacer></spacer>
+![Faucet 2](/images/mastering-bitcoin-cash/msbt_01_faucet_2.png)
+<spacer></spacer>
 
 There are five other methods for getting Bitcoin Cash as a new user:
 
@@ -171,8 +171,7 @@ Alice wants to convert just 10 US dollars into Bitcoin Cash, so as not to risk t
 Next, Joe has to figure out the exchange rate so that he can give the correct amount of Bitcoin Cash to Alice. There are hundreds of applications and websites that can provide the current market rate. We’ use the [Bitcoin.com Bitcoin Cash Converter](https://tools.bitcoin.com/bitcoin-cash-converter/) from Bitcoin.com.
 
 ![converter](/images/mastering-bitcoin-cash/msbt_01_converter.png)
-
-Figure 3. Bitcoin Cash price converter from Bitcoin.com
+<image-caption>Figure 3. Bitcoin Cash price converter from Bitcoin.com</image-caption>
 
 Joe determines the price of bitcoin to be approximately 725 US dollars per Bitcoin Cash. At that rate he should give Alice 0.0138 Bitcoin Cash, in return for the 10 US dollars she gave him.
 

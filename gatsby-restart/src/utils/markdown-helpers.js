@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react'
+import styled from 'styled-components'
 
 import { SmartLink } from 'atoms/StyledLink'
 import {
@@ -16,7 +17,10 @@ import Ul from 'atoms/Ul'
 import Li from 'atoms/Li'
 import Code from 'atoms/Code'
 import Pre from 'atoms/Pre'
-import Tip from 'atoms/Tip';
+import Tip from 'atoms/Tip'
+import Caption from 'atoms/Caption'
+
+import spacing from 'styles/spacing'
 
 type BasicProps = {
   children: React.Node,
@@ -32,6 +36,10 @@ const CodePreSplitter = ({ children }: BasicProps) => {
 // Workaround as `CodePreSplitter` captures this case as well
 const PrePassthrough = ({ children }: BasicProps) => <>{children}</>
 
+const Spacer = styled.div`
+  margin-top: ${spacing.large};
+`
+
 export const standardTransforms = {
   p: TextMd,
   pre: CodePreSplitter,
@@ -46,4 +54,6 @@ export const standardTransforms = {
   li: Li,
   img: ImgMd,
   tip: Tip,
+  ['image-caption']: Caption,
+  spacer: Spacer,
 }

@@ -1,7 +1,7 @@
 // @flow
 // Add Top margin to elements for use in markdown;
 
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 import H1 from './H1'
 import H2 from './H2'
@@ -11,6 +11,9 @@ import Text from './Text'
 import Ul from './Ul'
 import Ol from './Ol'
 import Img from './Img'
+
+import Caption from './Caption'
+
 import spacing from 'styles/spacing'
 
 const H1Md = H1.extend`
@@ -43,5 +46,4 @@ const ImgMd = Img.extend`
   margin-top: ${spacing.medium};
 `
 
-
-export { H1Md, H2Md, H3Md, H4Md, TextMd, UlMd, OlMd, ImgMd}
+export { H1Md, H2Md, H3Md, H4Md, TextMd, UlMd, OlMd, ImgMd }

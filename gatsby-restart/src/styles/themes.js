@@ -1,6 +1,6 @@
 // @flow
 
-import palette from './palette';
+import palette from './palette'
 
 const defaultTheme = {
   primary: palette.sun,
@@ -12,8 +12,7 @@ const defaultTheme = {
   foregroundMuted: palette.tundora,
   background: palette.white,
   backgroundMuted: palette.silver,
-  danger: '#e43e19'
-
+  danger: '#fa3f15',
 }
 
-export { defaultTheme};
+export { defaultTheme }
