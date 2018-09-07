@@ -8,7 +8,7 @@ import { FaAngleLeft } from 'react-icons/fa'
 import DefaultLayout from 'components/layouts/DefaultLayout'
 import Hero from 'components/Hero'
 import Container from 'components/Container'
-import MasteringBitcoinCashAttribution from 'components/MasteringBitcoinCashAttribution';
+import MasteringBitcoinCashAttribution from 'components/MasteringBitcoinCashAttribution'
 
 import H3 from 'atoms/H3'
 import H2 from 'atoms/H2'
@@ -18,7 +18,6 @@ import StyledLink from 'atoms/StyledLink'
 import spacing from 'styles/spacing'
 
 import HeroImg from 'images/learn-bitcoin-cash-header.jpg'
-
 
 const HeroLayout = styled.div`
   display: grid;
@@ -67,9 +66,15 @@ const Learn = ({ location, data }: Props) => {
           <H2>Chapters</H2>
           <ChapterLayout>
             {chapters.map(chapter => (
-              <React.Fragment key={chapter.node.frontmatter.slug}>
-                <H3 monospace>{chapter.node.frontmatter.chapter}.</H3>
-                <H3>
+              <React.Fragment
+                key={`${chapter.node.frontmatter.slug}-${
+                  chapter.node.frontmatter.chapter
+                }`}
+              >
+                <H3 key={chapter.node.frontmatter.chapter} monospace>
+                  {chapter.node.frontmatter.chapter}.
+                </H3>
+                <H3 key={chapter.node.frontmatter.slug}>
                   <StyledLink to={chapter.node.fields.slug}>
                     {chapter.node.frontmatter.title}
                   </StyledLink>
