@@ -9,7 +9,7 @@ The Bitcoin Cash system, unlike traditional banking and payment systems, is base
 
 Each example is based on an actual transaction made on the Bitcoin Cash network, simulating the interactions between the users (Joe, Alice, and Bob) by sending funds from one wallet to another. While tracking a transaction through the Bitcoin Cash network and blockchain, we will use a _blockchain explorer_ site to visualize each step. A blockchain explorer is a web application that operates as a Bitcoin Cash search engine, in that it allows you to search for addresses, transactions, and blocks and see the relationships and flows between them.
 
-### Popular blockchain explorers include:
+### Popular blockchain explorers include
 
 - [Explorer by Bitcoin.com](https://explorer.bitcoin.com/bch)
 - [Blockchair](https://blockchair.com/bitcoin-cash/blocks)
@@ -36,7 +36,7 @@ Total:
 
 <anchor name="payment-request-QR"></anchor>
 <spacer></spacer>
-![payment-request-QR](/images/mastering-bitcoin-cash/msbt_02_receive.png)
+![payment-request-image](/images/mastering-bitcoin-cash/msbt_02_receive.png)
 <image-caption>Figure 2. Payment request QR code (Hint: Try to scan this!)</image-caption>
 <spacer></spacer>
 
@@ -57,12 +57,12 @@ Transactions are like lines in a double-entry bookkeeping ledger. In simple term
 The transaction also contains proof of ownership for each amount of Bitcoin Cash (inputs) whose value is transferred, in the form of a digital signature from the owner, which can be independently validated by anyone. In Bitcoin Cash terms, "spending" is signing a transaction that transfers value from a previous transaction over to a new owner identified by a Bitcoin Cash address.
 
 <tip nature="note">
-  <i>Transactions</i> move value from <i>transaction inputs</i> to <i>transaction outputs</i>. An input is where the coin value is coming from, usually a previous transaction’s output. A transaction output assigns a new owner to the value by associating it with a key. The destination key is called an <i>encumbrance</i>. It imposes a requirement for a signature for the funds to be redeemed in future transactions. Outputs from one transaction can be used as inputs in a new transaction, thus creating a chain of ownership as the value is moved from address to address (see <a to="#blockchain-mnemonic">A chain of transactions, where the output of one transaction is the input of the next transaction</a>)
+  <i>Transactions</i> move value from <i>transaction inputs</i> to <i>transaction outputs</i>. An input is where the coin value is coming from, usually a previous transaction’s output. A transaction output assigns a new owner to the value by associating it with a key. The destination key is called an <i>encumbrance</i>. It imposes a requirement for a signature for the funds to be redeemed in future transactions. Outputs from one transaction can be used as inputs in a new transaction, thus creating a chain of ownership as the value is moved from address to address (see <link text="A chain of transactions, where the output of one transaction is the input of the next transaction" to="#blockchain-mnemonic"></link>)
 </tip>
 
 <anchor name="transaction-double-entry"></anchor>
 <spacer></spacer>
-![Transaction Double-Entry](/images/mastering-bitcoin-cash/transaction-as-double-entry-bookkepping.png)
+![TransactionDoubleEntry](/images/mastering-bitcoin-cash/transaction-as-double-entry-bookkepping.png)
 <image-caption>Figure 3. Transaction as double-entry bookkeeping</image-caption>
 
 <anchor name="blockchain-mnemonic"></anchor>
@@ -137,7 +137,7 @@ Example 2. Response to the lookup
 The response in [Response to the lookup](#example_2-2) shows one unspent output (one that has not been redeemed yet) under the ownership of Alice’s address 13wCzsosQfVSt86RNT1tegUKFhxmnpzoxw. The response includes the reference to the transaction in which this unspent output is contained (the payment from Joe) and its value in satoshis. With this information, Alice’s wallet application can construct a transaction to transfer that value to new owner addresses.
 
 <tip>
-View the <a to="https://explorer.bitcoin.com/bch/tx/3fd6e7fd56354a76072f84350023ead2da4427f5a17a223d16318de600dad76a">transation from Joe to Alice</a>
+  View the <link text="transaction from Joe to Alice" to="https://explorer.bitcoin.com/bch/tx/3fd6e7fd56354a76072f84350023ead2da4427f5a17a223d16318de600dad76a"></link>
 </tip>
 
 As you can see, Alice’s wallet contains enough bitcoins in a single unspent output to pay for the cup of coffee. Had this not been the case, Alice’s wallet application might have to "rummage" through a pile of smaller unspent outputs, like picking coins from a purse until it could find enough to pay for coffee. In both cases, there might be a need to get some change back, which we will see in the next section, as the wallet application creates the transaction outputs (payments).
@@ -156,8 +156,9 @@ The resulting transaction can be seen using a blockchain explorer web applicatio
 <spacer></spacer>
 ![Alice Coffee Transaction](/images/mastering-bitcoin-cash/msbt_02-tx-screenshot.png)
 <image-caption>Figure 8. Alice’s transaction to Bob’s Cafe</image-caption>
+
 <tip>
-View the <a to="https://explorer.bitcoin.com/bch/tx/adc95fb479339517d9685119873466b520e6005bffb0965e48afaf9d3494055d">transaction from Alice to Bob’s Cafe</a>
+View the <link text="transaction from Alice to Bob’s Cafe" <to="https://explorer.bitcoin.com/bch/tx/adc95fb479339517d9685119873466b520e6005bffb0965e48afaf9d3494055d"></link>
 </tip>
 
 <spacer></spacer>

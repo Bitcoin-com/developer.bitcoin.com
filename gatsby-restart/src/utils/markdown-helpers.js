@@ -66,6 +66,7 @@ export const standardTransforms = {
   li: Li,
   img: ImgMd,
   tip: Tip,
+  link: SmartLink,
   ['image-caption']: Caption,
   spacer: Spacer,
   anchor: Anchor,

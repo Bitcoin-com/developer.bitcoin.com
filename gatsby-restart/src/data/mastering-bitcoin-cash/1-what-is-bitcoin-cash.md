@@ -184,7 +184,6 @@ Joe then enters the bitcoin value for the transaction, 0.0138 bitcoin. He carefu
 
 <spacer></spacer>
 ![bought](/images/mastering-bitcoin-cash/msbt_01_bought.png)
-<spacer></spacer>
 
 If Alice has a smartphone or laptop with her, she will also be able to see the transaction. The Bitcoin Cash ledger—a constantly growing file that records every Bitcoin Cash transaction that has ever occurred—is public, meaning that all she has to do is look up her own address and see if any funds have been sent to it. She can do this quite easily at the explorer.bitcoin.com/bch website by entering her address in the search box. The website will show her a [page](https://explorer.bitcoin.com/bch/address/13wCzsosQfVSt86RNT1tegUKFhxmnpzoxw) listing all the transactions to and from that address. If Alice is watching that page, it will update to show a new transaction transferring 0.10 bitcoin to her balance soon after Joe hits Send.
 
