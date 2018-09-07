@@ -18,14 +18,14 @@ Each of these has a search function that can take an address, transaction hash, 
 
 #### Bitcoin Cash Overview
 
-In the overview diagram shown in [Bitcoin Cash overview](#bitcoin-overview), we see that the Bitcoin Cash system consists of users with wallets containing keys, transactions that are propagated across the network, and miners who produce (through competitive computation) the consensus blockchain, which is the authoritative ledger of all transactions. In this chapter, we will trace a single transaction as it travels across the network and examine the interactions between each part of the Bitcoin Cash system, at a high level. Subsequent chapters will delve into the technology behind wallets, mining, and merchant systems.
+In the overview diagram below, we see that the Bitcoin Cash system consists of users with wallets containing keys, transactions that are propagated across the network, and miners who produce (through competitive computation) the consensus blockchain, which is the authoritative ledger of all transactions. In this chapter, we will trace a single transaction as it travels across the network and examine the interactions between each part of the Bitcoin Cash system, at a high level. Subsequent chapters will delve into the technology behind wallets, mining, and merchant systems.
 
 ![Bitcoin Cash Overview](/images/mastering-bitcoin-cash/msbt_0201.png)
 <image-caption>Figure 1. Bitcoin Cash overview</image-caption>
 
 #### Buying a Cup of Coffee
 
-Alice, introduced in the previous chapter, is a new user who has just acquired her first Bitcoin Cash. Alice met with her friend Joe to exchange some cash for Bitcoin Cash. The transaction created by Joe funded Alice’s wallet with 0.0138 BCH. Now Alice will make her first retail transaction, buying a cup of coffee at Bob’s coffee shop in Palo Alto, California. Bob’s coffee shop recently started accepting Bitcoin Cash payments, by adding a Bitcoin Cash option to his point-of-sale system. The prices at Bob’s Cafe are listed in the local currency (US dollars), but at the register, customers have the option of paying in either dollars or Bitcoin Cash. Alice places her order for a cup of coffee and Bob enters the transaction at the register. The point-of-sale system will convert the total price from US dollars to Bitcoin Cash at the prevailing market rate and display the prices in both currencies, as well as show a QR code containing a _payment request_ for this transaction (see [Payment request QR code (Hint: Try to scan this!)](#payment-request-QR)):
+Alice, introduced in the previous chapter, is a new user who has just acquired her first Bitcoin Cash. Alice met with her friend Joe to exchange some cash for Bitcoin Cash. The transaction created by Joe funded Alice’s wallet with 0.0138 BCH. Now Alice will make her first retail transaction, buying a cup of coffee at Bob’s coffee shop in Palo Alto, California. Bob’s coffee shop recently started accepting Bitcoin Cash payments, by adding a Bitcoin Cash option to his point-of-sale system. The prices at Bob’s Cafe are listed in the local currency (US dollars), but at the register, customers have the option of paying in either dollars or Bitcoin Cash. Alice places her order for a cup of coffee and Bob enters the transaction at the register. The point-of-sale system will convert the total price from US dollars to Bitcoin Cash at the prevailing market rate and display the prices in both currencies, as well as show a QR code containing a _payment request_ for this transaction (see [Payment request QR code](#payment-request-QR) (Hint: Try to scan this!)
 
 ```bash
 Total:
@@ -33,7 +33,9 @@ Total:
     0.00208507 BCH
 ```
 
-![payment-request](/images/mastering-bitcoin-cash/msbt_02_receive.png)
+<anchor name="payment-request-QR"></anchor>
+
+![payment-request-QR](/images/mastering-bitcoin-cash/msbt_02_receive.png)
 <image-caption>Figure 2. Payment request QR code (Hint: Try to scan this!)</image-caption>
 
 Alice uses her smartphone to scan the barcode on display. Her smartphone shows a payment of 0.00208507 BCH to Bob's Cafe and she selects Send to authorize the payment. Within a few seconds (about the same amount of time as a credit card authorization), Bob would see the transaction on the register, completing the transaction.

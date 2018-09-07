@@ -44,6 +44,7 @@ module.exports = {
       options: {
         excerpt_separator: `<!-- end -->`,
         plugins: [
+          `gatsby-remark-component`,
           `gatsby-remark-autolink-headers`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-transformer-sharp`,
