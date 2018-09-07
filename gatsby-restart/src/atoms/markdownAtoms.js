@@ -12,8 +12,6 @@ import Ul from './Ul'
 import Ol from './Ol'
 import Img from './Img'
 
-import Caption from './Caption'
-
 import spacing from 'styles/spacing'
 
 const H1Md = H1.extend`
@@ -36,6 +34,9 @@ const TextMd = Text.extend`
 
 const UlMd = Ul.extend`
   margin-top: ${spacing.medium};
+  ${TextMd} {
+    margin-top: 0;
+  }
 `
 
 const OlMd = Ol.extend`
