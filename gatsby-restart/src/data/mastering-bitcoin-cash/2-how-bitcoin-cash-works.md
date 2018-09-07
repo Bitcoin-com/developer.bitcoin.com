@@ -116,8 +116,9 @@ Example 2. Response to the lookup
 The response in [Response to the lookup](#example_2-2) shows one unspent output (one that has not been redeemed yet) under the ownership of Alice’s address 13wCzsosQfVSt86RNT1tegUKFhxmnpzoxw. The response includes the reference to the transaction in which this unspent output is contained (the payment from Joe) and its value in satoshis. With this information, Alice’s wallet application can construct a transaction to transfer that value to new owner addresses.
 
 <tip>
-View the [transaction from Joe to Alice](https://explorer.bitcoin.com/bch/tx/3fd6e7fd56354a76072f84350023ead2da4427f5a17a223d16318de600dad76a).
+View the <a to="https://explorer.bitcoin.com/bch/tx/3fd6e7fd56354a76072f84350023ead2da4427f5a17a223d16318de600dad76a">transation from Joe to Alice</a>
 </tip>
+
 As you can see, Alice’s wallet contains enough bitcoins in a single unspent output to pay for the cup of coffee. Had this not been the case, Alice’s wallet application might have to "rummage" through a pile of smaller unspent outputs, like picking coins from a purse until it could find enough to pay for coffee. In both cases, there might be a need to get some change back, which we will see in the next section, as the wallet application creates the transaction outputs (payments).
 
 #### Creating the Outputs
@@ -131,11 +132,10 @@ Finally, for the transaction to be processed by the network in a timely fashion,
 The resulting transaction can be seen using a blockchain explorer web application, as shown in [Alice’s transaction to Bob’s Cafe](#transaction-alice).
 
 ![Alice Coffee Transaction](/images/mastering-bitcoin-cash/msbt_02-tx-screenshot.png)
-
-Figure 8. Alice’s transaction to Bob’s Cafe
+<image-caption>Figure 8. Alice’s transaction to Bob’s Cafe</image-caption>
 
 <tip>
-  View the [transaction from Alice to Bob’s Cafe](https://explorer.bitcoin.com/bch/tx/adc95fb479339517d9685119873466b520e6005bffb0965e48afaf9d3494055d).
+  View the <a to="https://explorer.bitcoin.com/bch/tx/adc95fb479339517d9685119873466b520e6005bffb0965e48afaf9d3494055d">transaction from Alice to Bob’s Cafe</a>
 </tip>
 
 #### Adding the Transaction to the Ledger
