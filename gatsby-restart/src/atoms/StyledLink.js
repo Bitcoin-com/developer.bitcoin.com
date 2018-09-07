@@ -1,17 +1,21 @@
 // @flow
-import * as React from 'react';
+import * as React from 'react'
 
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 
 const StyledLink = styled(Link)`
   text-decoration: none;
-  color: ${props => props.isActive ? props.theme.foreground : props.subtle ? props.theme.foreground : props.theme.primary};
+  color: ${props =>
+    props.isActive
+      ? props.theme.foreground
+      : props.subtle
+        ? props.theme.foreground
+        : props.theme.primary};
   &:hover {
     color: ${props => props.theme.secondary};
   }
 `
-
 
 const StyledA = StyledLink.withComponent('a')
 
@@ -20,9 +24,9 @@ type Props = {
   to: string,
 }
 
-class SmartLink extends React.Component<Props> {
+class SmartLink extends React.PureComponent<Props> {
   render() {
-    const {children, ...rest } = this.props
+    const { children, ...rest } = this.props
     const { to } = rest
 
     const internal = /^\/(?!\/)/.test(to)
@@ -44,4 +48,4 @@ class SmartLink extends React.Component<Props> {
 }
 export { SmartLink }
 
-export default StyledLink;
+export default StyledLink
