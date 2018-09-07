@@ -20,6 +20,7 @@ Each of these has a search function that can take an address, transaction hash, 
 
 In the overview diagram below, we see that the Bitcoin Cash system consists of users with wallets containing keys, transactions that are propagated across the network, and miners who produce (through competitive computation) the consensus blockchain, which is the authoritative ledger of all transactions. In this chapter, we will trace a single transaction as it travels across the network and examine the interactions between each part of the Bitcoin Cash system, at a high level. Subsequent chapters will delve into the technology behind wallets, mining, and merchant systems.
 
+<spacer></spacer>
 ![Bitcoin Cash Overview](/images/mastering-bitcoin-cash/msbt_0201.png)
 <image-caption>Figure 1. Bitcoin Cash overview</image-caption>
 
@@ -34,9 +35,10 @@ Total:
 ```
 
 <anchor name="payment-request-QR"></anchor>
-
+<spacer></spacer>
 ![payment-request-QR](/images/mastering-bitcoin-cash/msbt_02_receive.png)
 <image-caption>Figure 2. Payment request QR code (Hint: Try to scan this!)</image-caption>
+<spacer></spacer>
 
 Alice uses her smartphone to scan the barcode on display. Her smartphone shows a payment of 0.00208507 BCH to Bob's Cafe and she selects Send to authorize the payment. Within a few seconds (about the same amount of time as a credit card authorization), Bob would see the transaction on the register, completing the transaction.
 
@@ -55,14 +57,19 @@ Transactions are like lines in a double-entry bookkeeping ledger. In simple term
 The transaction also contains proof of ownership for each amount of Bitcoin Cash (inputs) whose value is transferred, in the form of a digital signature from the owner, which can be independently validated by anyone. In Bitcoin Cash terms, "spending" is signing a transaction that transfers value from a previous transaction over to a new owner identified by a Bitcoin Cash address.
 
 <tip nature="note">
-  <i>Transactions</i> move value from <i>transaction inputs</i> to <i>transaction outputs</i>. An input is where the coin value is coming from, usually a previous transaction’s output. A transaction output assigns a new owner to the value by associating it with a key. The destination key is called an <i>encumbrance</i>. It imposes a requirement for a signature for the funds to be redeemed in future transactions. Outputs from one transaction can be used as inputs in a new transaction, thus creating a chain of ownership as the value is moved from address to address (see [A chain of transactions, where the output of one transaction is the input of the next transaction](#blockchain-mnemonic)).
+  <i>Transactions</i> move value from <i>transaction inputs</i> to <i>transaction outputs</i>. An input is where the coin value is coming from, usually a previous transaction’s output. A transaction output assigns a new owner to the value by associating it with a key. The destination key is called an <i>encumbrance</i>. It imposes a requirement for a signature for the funds to be redeemed in future transactions. Outputs from one transaction can be used as inputs in a new transaction, thus creating a chain of ownership as the value is moved from address to address (see <a to="#blockchain-mnemonic">A chain of transactions, where the output of one transaction is the input of the next transaction</a>)
 </tip>
 
+<anchor name="transaction-double-entry"></anchor>
+<spacer></spacer>
 ![Transaction Double-Entry](/images/mastering-bitcoin-cash/transaction-as-double-entry-bookkepping.png)
 <image-caption>Figure 3. Transaction as double-entry bookkeeping</image-caption>
 
+<anchor name="blockchain-mnemonic"></anchor>
+<spacer></spacer>
 ![Transaction chain](/images/mastering-bitcoin-cash/chain-of-transactions.png)
 <image-caption>Figure 4. A chain of transactions, where the output of one transaction is the input of the next transaction</image-caption>
+<spacer></spacer>
 
 Alice’s payment to Bob’s Cafe uses a previous transaction as its input. In the previous chapter Alice received Bitcoin Cash from her friend Joe in return for cash. That transaction has a number of Bitcoin Cash locked (encumbered) against Alice’s key. Her new transaction to Bob’s Cafe references the previous transaction as an input and creates new outputs to pay for the cup of coffee and receive change. The transactions form a chain, where the inputs from the latest transaction correspond to outputs from previous transactions. Alice’s key provides the signature that unlocks those previous transaction outputs, thereby proving to the Bitcoin Cash network that she owns the funds. She attaches the payment for coffee to Bob’s address, thereby "encumbering" that output with the requirement that Bob produces a signature in order to spend that amount. This represents a transfer of value between Alice and Bob. This chain of transactions, from Joe to Alice to Bob, is illustrated in [A chain of transactions, where the output of one transaction is the input of the next transaction](#blockchain-mnemonic).
 
@@ -70,16 +77,24 @@ Alice’s payment to Bob’s Cafe uses a previous transaction as its input. In t
 
 The most common form of transaction is a simple payment from one address to another, which often includes some "change" returned to the original owner. This type of transaction has one input and two outputs and is shown in [Most common transaction](#transaction-common).
 
+<anchor name="transaction-common"></anchor>
+<spacer></spacer>
 ![Common Transaction](/images/mastering-bitcoin-cash/msbt_0205.png)
 <image-caption>Figure 5. Most common transaction</image-caption>
+<spacer></spacer>
 
 Another common form of transaction is one that aggregates several inputs into a single output (see [Transaction aggregating funds](#transaction-aggregating)). This represents the real-world equivalent of exchanging a pile of coins and currency notes for a single larger note. Transactions like these are sometimes generated by wallet applications to clean up lots of smaller amounts that were received as change for payments.
 
+<anchor name="transaction-aggregating"></anchor>
+<spacer></spacer>
 ![Aggregating Transaction](/images/mastering-bitcoin-cash/msbt_0206.png)
 <image-caption>Figure 6. Transaction aggregating funds</image-caption>
+<spacer></spacer>
 
 Finally, another transaction form that is seen often on the Bitcoin Cash ledger is a transaction that distributes one input to multiple outputs representing multiple recipients (see [Transaction distributing funds](#transaction-distributing)). This type of transaction is sometimes used by commercial entities to distribute funds, such as when processing payroll payments to multiple employees.
 
+<anchor name="transaction-distributing"></anchor>
+<spacer></spacer>
 ![Distributing Transaction](/images/mastering-bitcoin-cash/msbt_0207.png)
 <image-caption>Figure 7. Transaction distributing funds</image-caption>
 
@@ -93,12 +108,16 @@ Alice’s wallet application will first have to find inputs that can pay for the
 
 If the wallet application does not maintain a copy of unspent transaction outputs, it can query the Bitcoin Cash network to retrieve this information, using a variety of APIs available by different providers or by asking a full-index node using the Bitcoin Cash JSON RPC API. [Look up all the unspent outputs for Alice’s Bitcoin Cash address](#example_2-1) shows a RESTful API request, constructed as an HTTP GET command to a specific URL. This URL will return all the unspent transaction outputs for an address, giving any application the information it needs to construct transaction inputs for spending. We use the simple command-line HTTP client _cURL_ to retrieve the response.
 
+<anchor name="example_2-1"></anchor>
+<spacer></spacer>
 Example 1. Look up all the unspent outputs for Alice’s Bitcoin Cash address
 
 ```bash
 $ curl https://explorer.bitcoin.com/api/bch/addr/13wCzsosQfVSt86RNT1tegUKFhxmnpzoxw/utxo
 ```
 
+<anchor name="example_2-2"></anchor>
+<spacer></spacer>
 Example 2. Response to the lookup
 
 ```json
@@ -133,12 +152,15 @@ Finally, for the transaction to be processed by the network in a timely fashion,
 
 The resulting transaction can be seen using a blockchain explorer web application, as shown in [Alice’s transaction to Bob’s Cafe](#transaction-alice).
 
+<anchor name="transaction-alice"></anchor>
+<spacer></spacer>
 ![Alice Coffee Transaction](/images/mastering-bitcoin-cash/msbt_02-tx-screenshot.png)
 <image-caption>Figure 8. Alice’s transaction to Bob’s Cafe</image-caption>
-
 <tip>
-  View the <a to="https://explorer.bitcoin.com/bch/tx/adc95fb479339517d9685119873466b520e6005bffb0965e48afaf9d3494055d">transaction from Alice to Bob’s Cafe</a>
+View the <a to="https://explorer.bitcoin.com/bch/tx/adc95fb479339517d9685119873466b520e6005bffb0965e48afaf9d3494055d">transaction from Alice to Bob’s Cafe</a>
 </tip>
+
+<spacer></spacer>
 
 #### Adding the Transaction to the Ledger
 
@@ -162,7 +184,7 @@ If Bob’s Bitcoin Cash wallet application is directly connected to Alice’s wa
 
 ### Bitcoin Cash Mining
 
-The transaction is now propagated on the Bitcoin Cash network. It does not become part of the shared ledger (the _blockchain_) until it is verified and included in a block by a process called _mining_. See [Mining and Consensus](mining-and-consensus.html) for a detailed explanation.
+The transaction is now propagated on the Bitcoin Cash network. It does not become part of the shared ledger (the _blockchain_) until it is verified and included in a block by a process called _mining_. See [Mining and Consensus](/mastering-bitcoin-cash/7-mining-and-consensus/) for a detailed explanation.
 
 The Bitcoin Cash system of trust is based on computation. Transactions are bundled into _blocks_, which require an enormous amount of computation to prove, but only a small amount of computation to verify as proven. The mining process serves two purposes in Bitcoin Cash:
 
@@ -177,7 +199,7 @@ Jing started mining in 2010 using a very fast desktop computer to find a suitabl
 
 ### Mining Transactions in Blocks
 
-A transaction transmitted across the network is not verified until it becomes part of the global distributed ledger, the blockchain. Every 10 minutes on average, miners generate a new block that contains all the transactions since the last block. New transactions are constantly flowing into the network from user wallets and other applications. As these are seen by the Bitcoin Cash network nodes, they get added to a temporary pool of unverified transactions maintained by each node. As miners build a new block, they add unverified transactions from this pool to a new block and then attempt to solve a very hard problem (a.k.a., proof of work) to prove the validity of that new block. The process of mining is explained in detail in [Mining and Consensus](mining-and-consensus.html).
+A transaction transmitted across the network is not verified until it becomes part of the global distributed ledger, the blockchain. Every 10 minutes on average, miners generate a new block that contains all the transactions since the last block. New transactions are constantly flowing into the network from user wallets and other applications. As these are seen by the Bitcoin Cash network nodes, they get added to a temporary pool of unverified transactions maintained by each node. As miners build a new block, they add unverified transactions from this pool to a new block and then attempt to solve a very hard problem (a.k.a., proof of work) to prove the validity of that new block. The process of mining is explained in detail in [Mining and Consensus](/mastering-bitcoin-cash/7-mining-and-consensus/).
 
 Transactions are added to the new block, prioritized by the highest-fee transactions first and a few other criteria. Each miner starts the process of mining a new block of transactions as soon as he receives the previous block from the network, knowing he has lost that previous round of competition. He immediately creates a new block, fills it with transactions and the fingerprint of the previous block, and starts calculating the proof of work for the new block. Each miner includes a special transaction in his block, one that pays his own bitcoin cash address a reward of newly created bitcoins (currently 12.5 BCH per block). If he finds a solution that makes that block valid, he "wins" this reward because his successful block is added to the global blockchain and the reward transaction he included becomes spendable. Jing, who participates in a mining pool, has set up his software to create new blocks that assign the reward to a pool address. From there, a share of the reward is distributed to Jing and other miners in proportion to the amount of work they contributed in the last round.
 
@@ -189,8 +211,11 @@ A few minutes later, a new block, #538346, is mined by another miner. Because th
 
 In the diagram in [Alice’s transaction included in block #538345](#block-alice1) we can see block #538345, which contains Alice’s transaction. Below it are 538,344 blocks (including block #0), linked to each other in a chain of blocks (blockchain) all the way back to block #0, known as the _genesis block_. Over time, as the "height" in blocks increases, so does the computation difficulty for each block and the chain as a whole. The blocks mined after the one that contains Alice’s transaction act as further assurance, as they pile on more computation in a longer and longer chain. By convention, any block with more than six confirmations is considered irrevocable, because it would require an immense amount of computation to invalidate and recalculate six blocks.
 
+<anchor name="block-alice1"></anchor>
+<spacer></spacer>
 ![Alice’s transaction included in a block](/images/mastering-bitcoin-cash/transaction-included-in-a-block.png)
 <image-caption>Figure 9. Alice’s transaction included in block #538345</image-caption>
+<spacer></spacer>
 
 ### Spending the Transaction
 
@@ -200,5 +225,8 @@ Bob can now spend the output from this and other transactions, by creating his o
 
 As Bob spends the payments received from Alice and other customers, he extends the chain of transactions, which in turn are added to the global blockchain ledger for all to see and trust. Let’s assume that Bob pays his web designer Gopesh in Bangalore for a new website page. Now the chain of transactions will look like [Alice’s transaction as part of a transaction chain from Joe to Gopesh](#block-alice2).
 
+<anchor name="block-alice2"></anchor>
+<spacer></spacer>
 ![Alice’s transaction as part of a transaction chain](/images/mastering-bitcoin-cash/msbt_0210.png)
 <image-caption>Figure 10. Alice’s transaction as part of a transaction chain from Joe to Gopesh</image-caption>
+<spacer></spacer>

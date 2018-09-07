@@ -105,5 +105,16 @@ usage
 
 ```html
 // basic invisible anchor
-<anchor name="link-to-me"></anchor
+<anchor name="link-to-me"></anchor>
+```
+
+##### spacer
+
+Empty space until we can figure out a better solution
+
+usage
+
+```html
+// some extra spce
+<spacer></spacer>
 ```
