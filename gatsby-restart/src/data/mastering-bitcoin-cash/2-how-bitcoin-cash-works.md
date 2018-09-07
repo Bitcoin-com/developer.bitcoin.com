@@ -29,8 +29,8 @@ Alice, introduced in the previous chapter, is a new user who has just acquired h
 
 ```bash
 Total:
-      $1.50 USD
-      0.00208507 BCH
+    $1.50 USD
+    0.00208507 BCH
 ```
 
 ![payment-request](/images/mastering-bitcoin-cash/msbt_02_receive.png)

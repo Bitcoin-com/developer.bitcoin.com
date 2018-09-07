@@ -110,7 +110,7 @@ For the purposes of this book, we will be demonstrating the use of a variety of 
 
 #### Quick Start
 
-Alice, who we introduced in [Bitcoin Cash Uses, Users, and Their Stories](#user-stories), is not a technical user and only recently heard about bitcoin from a friend. She starts her journey by visiting the website [bitcoin.com](http://www.bitcoin.com), where she finds a selection of wallets.
+Alice, who we introduced in [Bitcoin Cash Uses, Users, and Their Stories](#bitcoin-cash-uses-users-and-their-stories), is not a technical user and only recently heard about bitcoin from a friend. She starts her journey by visiting the website [bitcoin.com](http://www.bitcoin.com), where she finds a selection of wallets.
 
 ![Bitcoin.com's wallets](/images/mastering-bitcoin-cash/msbt_01_wallets.png)
 
@@ -120,13 +120,13 @@ Alice follows a link from the bitcoin.com site to download and install a wallet 
   Bitcoin Cash wallets can often be protected by a password or passphrase. There are many bad actors attempting to break weak passwords, so take care to select one that cannot be easily broken. Use a combination of upper and lowercase characters, numbers, and symbols. Avoid personal information such as birth dates or names of sports teams. Avoid any words commonly found in dictionaries, in any language. If you can, use a password generator to create a completely random password that is at least 12 characters in length. Remember: Bitcoin Cash is money and can be instantly moved anywhere in the world. If it is not well protected, it can be easily stolen.
 </tip>
 
-Once Alice has downloaded and installed the Bitcoin.com wallet, she runs it and is greeted by a Welcome screen, as shown in [The Bitcoin.com wallet Welcome screen](#welcome).
+Once Alice has downloaded and installed the Bitcoin.com wallet, she runs it and is greeted by a Welcome screen, as shown in the Bitcoin.com wallet Welcome screen.<a id="welcome"></a>
 
 <spacer></spacer>
 ![Welcome](/images/mastering-bitcoin-cash/msbt_01_welcome.png)
 <image-caption>Figure 1. The Bitcoin.com wallet Welcome screen</image-caption>
 
-The wallet automatically creates a new Bitcoin Cash address for Alice, which Alice can see by clicking the Receive tab shown in [Alice’s new Bitcoin Cash address, in the Receive tab of the Bitcoin.com wallet](#request).
+The wallet automatically creates a new Bitcoin Cash address for Alice, which Alice can see by clicking the Receive tab shown in Alice’s new Bitcoin Cash address, in the Receive tab of the Bitcoin.com wallet. <a id="request"></a>
 
 <spacer></spacer>
 ![Receive](/images/mastering-bitcoin-cash/msbt_01_receive.png)
