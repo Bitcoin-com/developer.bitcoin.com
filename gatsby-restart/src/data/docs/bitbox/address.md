@@ -591,8 +591,7 @@ details `Array`: Array of Objects w/ details about addresses including balance
       try {
         let details = await BITBOX.Address.details(['1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA']);
         console.log(details)
-      }
-      catch(error) {
+      } catch(error) {
        console.error(error)
       }
     })()
@@ -624,8 +623,7 @@ details `Array`: Array of Objects w/ details about addresses including balance
       try {
         let details = await BITBOX.Address.details(['1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA', "bitcoincash:qp7ekaepv3wf2nq035hevcma4x9sxmp3w56048g6ra"]);
         console.log(details)
-      }
-      catch(error) {
+      } catch(error) {
        console.error(error)
       }
     })()
@@ -684,8 +682,7 @@ utxo `Array`: Array of arrays with utxo for addresses
       try {
         let utxo = await BITBOX.Address.utxo(['1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA']);
         console.log(utxo);
-      }
-      catch(error) {
+      } catch(error) {
        console.error(error)
       }
     })()
@@ -717,8 +714,7 @@ utxo `Array`: Array of arrays with utxo for addresses
       try {
         let utxo = await BITBOX.Address.utxo(['1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA', "bitcoincash:qp7ekaepv3wf2nq035hevcma4x9sxmp3w56048g6ra"]);
         console.log(utxo);
-      }
-      catch(error) {
+      } catch(error) {
        console.error(error)
       }
     })()
@@ -763,8 +759,7 @@ unconfirmed `Array`: Array of arrays with unconfirmed transactions for addresses
       try {
         let unconfirmed = await BITBOX.Address.unconfirmed(['1Fg4r9iDrEkCcDmHTy2T79EusNfhyQpu7W']);
         console.log(unconfirmed);
-      }
-      catch(error) {
+      } catch(error) {
        console.error(error)
       }
     })()
@@ -787,8 +782,7 @@ unconfirmed `Array`: Array of arrays with unconfirmed transactions for addresses
       try {
         let unconfirmed = await BITBOX.Address.unconfirmed(['1Fg4r9iDrEkCcDmHTy2T79EusNfhyQpu7W', "bitcoincash:qp7ekaepv3wf2nq035hevcma4x9sxmp3w56048g6ra"])
         console.log(unconfirmed);
-      }
-      catch(error) {
+      } catch(error) {
        console.error(error)
       }
     })()

@@ -6,7 +6,7 @@
 
 ### `getMiningInfo`
 
-Returns a json object containing mining\-related information.
+Returns a json object containing mining-related information.
 
 #### Result
 
@@ -30,8 +30,7 @@ Returns a json object containing mining\-related information.
       try {
         let getMiningInfo = await BITBOX.Mining.getMiningInfo();
         console.log(getMiningInfo);
-      }
-      catch(error) {
+      } catch(error) {
        console.error(error)
       }
     })()
@@ -39,12 +38,12 @@ Returns a json object containing mining\-related information.
 
 ### `getNetworkHashps`
 
-Returns the estimated network hashes per second based on the last n blocks. Pass in \[blocks\] to override # of blocks, \-1 specifies since last difficulty change. Pass in \[height\] to estimate the network speed at the time when a certain block was found.
+Returns the estimated network hashes per second based on the last n blocks. Pass in \[blocks\] to override # of blocks, -1 specifies since last difficulty change. Pass in \[height\] to estimate the network speed at the time when a certain block was found.
 
 #### Arguments
 
-1.  nblocks (numeric, optional, default=120): The number of blocks, or \-1 for blocks since last difficulty change.
-2.  height (numeric, optional, default=\-1): To estimate at the time of the given height.
+1.  nblocks (numeric, optional, default=120): The number of blocks, or -1 for blocks since last difficulty change.
+2.  height (numeric, optional, default=-1): To estimate at the time of the given height.
 
 #### Result
 
@@ -57,8 +56,7 @@ x (numeric): Hashes per second estimated
       try {
         let getNetworkHashps = await BITBOX.Mining.getNetworkHashps();
         console.log(getNetworkHashps);
-      }
-      catch(error) {
+      } catch(error) {
        console.error(error)
       }
     })()
