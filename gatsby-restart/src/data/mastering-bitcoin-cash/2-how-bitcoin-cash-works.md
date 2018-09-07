@@ -142,15 +142,15 @@ The resulting transaction can be seen using a blockchain explorer web applicatio
 
 The transaction created by Alice’s wallet application is 226 bytes long and contains everything necessary to confirm ownership of the funds and assign new owners. Now, the transaction must be transmitted to the Bitcoin Cash network where it will become part of the distributed ledger (the blockchain). In the next section we will see how a transaction becomes part of a new block and how the block is "mined." Finally, we will see how the new block, once added to the blockchain, is increasingly trusted by the network as more blocks are added.
 
-##### Transmitting the transaction
+#### Transmitting the transaction
 
 Because the transaction contains all the information necessary to process, it does not matter how or where it is transmitted to the Bitcoin Cash network. The Bitcoin Cash network is a peer-to-peer network, with each Bitcoin Cash client participating by connecting to several other Bitcoin Cash clients. The purpose of the Bitcoin Cash network is to propagate transactions and blocks to all participants.
 
-##### How it propagates
+#### How it propagates
 
 Alice’s wallet application can send the new transaction to any of the other Bitcoin Cash clients it is connected to over any Internet connection: wired, WiFi, or mobile. Her Bitcoin Cash wallet does not have to be connected to Bob’s Bitcoin Cash wallet directly and she does not have to use the Internet connection offered by the cafe, though both those options are possible, too. Any Bitcoin Cash network node (other client) that receives a valid transaction it has not seen before will immediately forward it to other nodes to which it is connected. Thus, the transaction rapidly propagates out across the peer-to-peer network, reaching a large percentage of the nodes within a few seconds.
 
-##### Bob’s view
+#### Bob’s view
 
 If Bob’s Bitcoin Cash wallet application is directly connected to Alice’s wallet application, Bob’s wallet application might be the first node to receive the transaction. However, even if Alice’s wallet sends the transaction through other nodes, it will reach Bob’s wallet within a few seconds. Bob’s wallet will immediately identify Alice’s transaction as an incoming payment because it contains outputs redeemable by Bob’s keys. Bob’s wallet application can also independently verify that the transaction is well formed, uses previously unspent inputs, and contains sufficient transaction fees to be included in the next block. At this point Bob can assume, with little risk, that the transaction will shortly be included in a block and confirmed.
 

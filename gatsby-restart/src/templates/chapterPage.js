@@ -39,7 +39,10 @@ const PageLayout = styled.div`
 
 const ChapterNav = styled.div`
   display: flex;
+  border-top: 2px solid ${props => props.theme.primary};
+  padding-top: ${spacing.medium};
   justify-content: space-between;
+  max-width: 820px;
 `
 
 // TODO: DRY this AST holder div elsewhere
@@ -102,11 +105,14 @@ class ChapterTemplate extends React.PureComponent<Props> {
               <Text muted2>Updated: {chapter.frontmatter.updatedAt}</Text>
             </div>
             <ChapterHolder>{renderAst(chapter.htmlAst)}</ChapterHolder>
+            <Text monospace muted2>
+              Chapter {chapter.frontmatter.chapter} End.
+            </Text>
             <ChapterNav>
               <div>
                 {prevChapter && (
                   <StyledLink to={prevChapter.node.fields.slug}>
-                    <Text centerVertical>
+                    <Text centerVertical monospace>
                       <FaAngleLeft /> Chapter{' '}
                       {prevChapter.node.frontmatter.chapter}
                     </Text>
@@ -116,7 +122,7 @@ class ChapterTemplate extends React.PureComponent<Props> {
               <div>
                 {nextChapter && (
                   <StyledLink to={nextChapter.node.fields.slug}>
-                    <Text centerVertical>
+                    <Text centerVertical monospace>
                       Chapter {nextChapter.node.frontmatter.chapter}{' '}
                       <FaAngleRight />
                     </Text>
