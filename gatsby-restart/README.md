@@ -96,3 +96,14 @@ usage
 // Note
 <tip nature="note">Notes for extra info</tip>
 ```
+
+##### anchor
+
+Anchor to link to if the auto-generated header anchors aren't working
+
+usage
+
+```html
+// basic invisible anchor
+<anchor name="link-to-me"></anchor
+```
