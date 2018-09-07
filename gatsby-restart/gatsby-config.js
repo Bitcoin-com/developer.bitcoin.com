@@ -1,8 +1,10 @@
 module.exports = {
   siteMetadata: {
     title: 'developer.bitcoin.com',
+    siteUrl: 'https://developer.bitcoin.com',
   },
   plugins: [
+    `gatsby-plugin-flow`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -36,6 +38,7 @@ module.exports = {
     'gatsby-plugin-offline',
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-sharp`,
+
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -47,12 +50,14 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 900,
+              maxWidth: 500,
               linkImagesToOriginal: false,
             },
           },
         ],
       },
     },
+    `gatsby-plugin-robots-txt`,
+    `gatsby-plugin-sitemap`,
   ],
 }

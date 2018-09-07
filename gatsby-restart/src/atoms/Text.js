@@ -26,27 +26,28 @@ const sizeMap = {
 
 export const textBase = css`
   position: relative;
-  font-size-adjust: 0.5;
   vertical-align: middle;
 
-  font-size: 16px;
-  line-height:20px;
+  vertical-align: middle;
 
+  /* Size */
+  font-size: ${sizeMap['small']['normal'][0]};
+  line-height: ${sizeMap['small']['normal'][1]};
   ${props =>
     props.size &&
     css`
       font-size: ${sizeMap['small'][props.size][0]};
       line-height: ${sizeMap['small'][props.size][1]};
     `} 
-  ${media.large`
-    font-size:  18px;
-    line-height: 24.75px;
-    ${props =>
-      props.size &&
-      css`
-        font-size: ${sizeMap['large'][props.size][0]};
-        line-height: ${sizeMap['large'][props.size][1]};
-      `}
+    ${media.large`
+      font-size: ${sizeMap['large']['normal'][0]};
+      line-height: ${sizeMap['large']['normal'][1]};
+      ${props =>
+        props.size &&
+        css`
+          font-size: ${sizeMap['large'][props.size][0]};
+          line-height: ${sizeMap['large'][props.size][1]};
+        `}
   `};
 
   
@@ -133,20 +134,24 @@ export const textBase = css`
     css`
       font-family: monospace;
     `}
-
-  ${props => props.isTitle &&
+  ${props =>
+    props.capitalize &&
     css`
-    margin-bottom: 10px !important;
+      text-transform: capitalize;
+    `}
+
+  ${props =>
+    props.isTitle &&
+    css`
+      margin-bottom: 10px !important;
       &::before {
-        content: "";
+        content: '';
         width: 80px;
         border-bottom: 4px solid ${props => props.theme.primary};
         position: absolute;
         bottom: -10px;
-        
       }
-    `
-  }
+    `}
 `
 
 const Text = styled.p`
