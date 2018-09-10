@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react'
 import styled from 'styled-components'
+import { defaultProps } from 'recompose'
 
 import { SmartLink } from 'atoms/StyledLink'
 import {
@@ -12,6 +13,7 @@ import {
   UlMd,
   OlMd,
   ImgMd,
+  ThMd,
 } from 'atoms/markdownAtoms'
 import Ul from 'atoms/Ul'
 import Li from 'atoms/Li'
@@ -58,6 +60,7 @@ export const standardTransforms = {
   p: TextMd,
   pre: CodePreSplitter,
   code: CodePreSplitter,
+  th: ThMd,
   h1: H1Md,
   h2: H2Md,
   h3: H3Md,
@@ -69,7 +72,8 @@ export const standardTransforms = {
   img: ImgMd,
   tip: Tip,
   link: SmartLink,
-  ['image-caption']: Caption,
+  ['image-caption']: defaultProps({ center: true })(Caption),
+  ['table-caption']: Caption,
   spacer: Spacer,
   anchor: Anchor,
 }

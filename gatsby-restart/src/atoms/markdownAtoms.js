@@ -14,6 +14,9 @@ import Img from './Img'
 
 import spacing from 'styles/spacing'
 
+const ThMd = styled.th`
+  white-space: nowrap;
+`
 const H1Md = H1.extend`
   margin-top: ${spacing.medium};
 `
@@ -47,4 +50,4 @@ const ImgMd = Img.extend`
   margin-top: ${spacing.medium};
 `
 
-export { H1Md, H2Md, H3Md, H4Md, TextMd, UlMd, OlMd, ImgMd }
+export { H1Md, H2Md, H3Md, H4Md, TextMd, UlMd, OlMd, ImgMd, ThMd }
