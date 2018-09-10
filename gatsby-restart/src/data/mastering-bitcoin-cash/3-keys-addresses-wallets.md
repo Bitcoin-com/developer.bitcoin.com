@@ -26,43 +26,45 @@ There is a mathematical relationship between the public and the private key that
 
 When spending Bitcoin Cash, the current Bitcoin Cash owner presents her public key and a signature (different each time, but created from the same private key) in a transaction to spend those bitcoins. Through the presentation of the public key and signature, everyone in the Bitcoin Cash network can verify and accept the transaction as valid, confirming that the person transferring the Bitcoin Cash owned them at the time of the transfer.
 
-Tip
-
-In most wallet implementations, the private and public keys are stored together as a _key pair_ for convenience. However, the public key can be calculated from the private key, so storing only the private key is also possible.
+<tip>
+  In most wallet implementations, the private and public keys are stored together as a <i>key pair</i> for convenience. However, the public key can be calculated from the private key, so storing only the private key is also possible.
+</tip>
 
 #### Private and Public Keys
 
 A Bitcoin Cash wallet contains a collection of key pairs, each consisting of a private key and a public key. The private key (k) is a number, usually picked at random. From the private key, we use elliptic curve multiplication, a one-way cryptographic function, to generate a public key (K). From the public key (K), we use a one-way cryptographic hash function to generate a Bitcoin Cash address (A). In this section, we will start with generating the private key, look at the elliptic curve math that is used to turn that into a public key, and finally, generate a Bitcoin Cash address from the public key. The relationship between private key, public key, and Bitcoin Cash address is shown in [Private key, public key, and Bitcoin Cash address](#k_to_K_to_A).
 
-![privk_to_pubK_to_addressA](../img/mastering-bitcoin-cash/msbt_0401.png)
-
-Figure 1. Private key, public key, and Bitcoin Cash address
+<anchor name="k_to_K_to_A"></anchor>
+<spacer></spacer>
+![payment-request-image](/images/mastering-bitcoin-cash/msbt_0401.png)
+<image-caption>Figure 1. Private key, public key, and Bitcoin Cash address</image-caption>
+<spacer></spacer>
 
 #### Private Keys
 
 A private key is simply a number, picked at random. Ownership and control over the private key is the root of user control over all funds associated with the corresponding Bitcoin Cash address. The private key is used to create signatures that are required to spend bitcoins by proving ownership of funds used in a transaction. The private key must remain secret at all times, because revealing it to third parties is equivalent to giving them control over the bitcoins secured by that key. The private key must also be backed up and protected from accidental loss, because if it’s lost it cannot be recovered and the funds secured by it are forever lost, too.
 
-Tip
-
-The Bitcoin Cash private key is just a number. You can pick your private keys randomly using just a coin, pencil, and paper: toss a coin 256 times and you have the binary digits of a random private key you can use in a Bitcoin Cash wallet. The public key can then be generated from the private key.
+<tip>
+  The Bitcoin Cash private key is just a number. You can pick your private keys randomly using just a coin, pencil, and paper: toss a coin 256 times and you have the binary digits of a random private key you can use in a Bitcoin Cash wallet. The public key can then be generated from the private key.
+</tip>
 
 ##### Generating a private key from a random number
 
-The first and most important step in generating keys is to find a secure source of entropy, or randomness. Creating a Bitcoin Cash key is essentially the same as "Pick a number between 1 and 2256." The exact method you use to pick that number does not matter as long as it is not predictable or repeatable. Bitcoin Cash software uses the underlying operating system’s random number generators to produce 256 bits of entropy (randomness). Usually, the OS random number generator is initialized by a human source of randomness, which is why you may be asked to wiggle your mouse around for a few seconds. For the truly paranoid, nothing beats dice, pencil, and paper.
+The first and most important step in generating keys is to find a secure source of entropy, or randomness. Creating a Bitcoin Cash key is essentially the same as "Pick a number between 1 and 2<sup>256</sup>." The exact method you use to pick that number does not matter as long as it is not predictable or repeatable. Bitcoin Cash software uses the underlying operating system’s random number generators to produce 256 bits of entropy (randomness). Usually, the OS random number generator is initialized by a human source of randomness, which is why you may be asked to wiggle your mouse around for a few seconds. For the truly paranoid, nothing beats dice, pencil, and paper.
 
-More accurately, the private key can be any number between 1 and n - 1, where n is a constant (n = 1.158 \* 1077, slightly less than 2256) defined as the order of the elliptic curve used in Bitcoin Cash (see [Elliptic Curve Cryptography Explained](#elliptic_curve)). To create such a key, we randomly pick a 256-bit number and check that it is less than n - 1. In programming terms, this is usually achieved by feeding a larger string of random bits, collected from a cryptographically secure source of randomness, into the SHA256 hash algorithm that will conveniently produce a 256-bit number. If the result is less than n - 1, we have a suitable private key. Otherwise, we simply try again with another random number.
+More accurately, the private key can be any number between 1 and n - 1, where n is a constant (n = 1.158 \* 10<sup>77</sup>, slightly less than 2<sup>256</sup>) defined as the order of the elliptic curve used in Bitcoin Cash (see [Elliptic Curve Cryptography Explained](#ecc-curve)). To create such a key, we randomly pick a 256-bit number and check that it is less than n - 1. In programming terms, this is usually achieved by feeding a larger string of random bits, collected from a cryptographically secure source of randomness, into the SHA256 hash algorithm that will conveniently produce a 256-bit number. If the result is less than n - 1, we have a suitable private key. Otherwise, we simply try again with another random number.
 
-Tip
-
-Do not write your own code to create a random number or use a "simple" random number generator offered by your programming language. Use a cryptographically secure pseudo-random number generator (CSPRNG) with a seed from a source of sufficient entropy. Study the documentation of the random number generator library you choose to make sure it is cryptographically secure. Correct implementation of the CSPRNG is critical to the security of the keys.
+<tip>
+  Do not write your own code to create a random number or use a "simple" random number generator offered by your programming language. Use a cryptographically secure pseudo-random number generator (CSPRNG) with a seed from a source of sufficient entropy. Study the documentation of the random number generator library you choose to make sure it is cryptographically secure. Correct implementation of the CSPRNG is critical to the security of the keys.
+</tip>
 
 The following is a randomly generated private key (k) shown in hexadecimal format (256 binary digits shown as 64 hexadecimal digits, each 4 bits):
 
-1E99423A4ED27608A15A2616A2B0E9E52CED330AC530EDCC32C8FFC6A526AEDD
+`1E99423A4ED27608A15A2616A2B0E9E52CED330AC530EDCC32C8FFC6A526AEDD`
 
-Tip
-
-The size of bitcoin’s private key space, 2256 is an unfathomably large number. It is approximately 1077 in decimal. The visible universe is estimated to contain 1080 atoms.
+<tip>
+  The size of bitcoin’s private key space, 2<sup>256</sup> is an unfathomably large number. It is approximately 10<sup>77</sup> in decimal. The visible universe is estimated to contain 10<sup>80</sup> atoms.
+</tip>
 
 #### Public Keys
 
@@ -74,41 +76,55 @@ Elliptic curve cryptography is a type of asymmetric or public-key cryptography b
 
 [An elliptic curve](#ecc-curve) is an example of an elliptic curve, similar to that used by Bitcoin Cash.
 
-![ecc-curve](../img/mastering-bitcoin-cash/msbt_0402.png)
-
-Figure 2. An elliptic curve
+<anchor name="ecc-curve"></anchor>
+<spacer></spacer>
+![ecc-curve](/images/mastering-bitcoin-cash/msbt_0402.png)
+<image-caption>Figure 2. An elliptic curve</image-caption>
+<spacer></spacer>
 
 Bitcoin Cash uses a specific elliptic curve and set of mathematical constants, as defined in a standard called secp256k1, established by the National Institute of Standards and Technology (NIST). The secp256k1 curve is defined by the following function, which produces an elliptic curve:
 
-                      `\[\begin{equation} {y^2 = (x^3 + 7)}~\text{over}~(\mathbb{F}_p) \end{equation}\]`
-
+```
+\[\begin{equation} {y^2 = (x^3 + 7)}~\text{over}~(\mathbb{F}_p) \end{equation}\]
+```
 
 or
 
-                      `\[\begin{equation} {y^2 \mod p = (x^3 + 7) \mod p} \end{equation}\]`
+```
+\[\begin{equation} {y^2 \mod p = (x^3 + 7) \mod p} \end{equation}\]
+```
 
+<spacer size="small"></spacer>
 
-                    `The _mod p_ (modulo prime number p) indicates that this curve is over a finite field of prime order _p_, also written as \(\(\mathbb{F}_p\)\), where p = 2256 – 232 – 29 – 28 – 27            – 26 – 24 – 1, a very large prime number.`
-
+```
+The mod p (modulo prime number p) indicates that this curve is over a finite field of prime order _p_, also written as \(\(\mathbb{F}_p\)\), where p = 2256 – 232 – 29 – 28 – 27            – 26 – 24 – 1, a very large prime number.
+```
 
 Because this curve is defined over a finite field of prime order instead of over the real numbers, it looks like a pattern of dots scattered in two dimensions, which makes it difficult to visualize. However, the math is identical as that of an elliptic curve over the real numbers. As an example, [Elliptic curve cryptography: visualizing an elliptic curve over F(p), with p=17](#ecc-over-F17-math) shows the same elliptic curve over a much smaller finite field of prime order 17, showing a pattern of dots on a grid. The secp256k1 Bitcoin Cash elliptic curve can be thought of as a much more complex pattern of dots on a unfathomably large grid.
 
-![ecc-over-F17-math](../img/mastering-bitcoin-cash/msbt_0403.png)
-
-Figure 3. Elliptic curve cryptography: visualizing an elliptic curve over F(p), with p=17
+<anchor name="ecc-over-F17-math"></anchor">
+<spacer></spacer>
+![ecc over F17 math](/images/mastering-bitcoin-cash/msbt_0403.png)
+<image-caption>Figure 3. Elliptic curve cryptography: visualizing an elliptic curve over F(p), with p=17</image-caption>
+<spacer></spacer>
 
 So, for example, the following is a point P with coordinates (x,y) that is a point on the secp256k1 curve. You can check this yourself using Python:
 
+```
 P = (55066263022277343669578718895168534326250603453777594175500187360389116729240, 32670510020758816978083085130507043184471273380659243275938904335757337482424)
+```
 
-    Python 3.4.0 (default, Mar 30 2014, 19:23:13)
-                          [GCC 4.2.1 Compatible Apple LLVM 5.1 (clang-503.0.38)] on darwin
-                          Type "help", "copyright", "credits" or "license" for more information.
-                          >>> p = 115792089237316195423570985008687907853269984665640564039457584007908834671663
-                          >>> x = 55066263022277343669578718895168534326250603453777594175500187360389116729240
-                          >>> y = 32670510020758816978083085130507043184471273380659243275938904335757337482424
-                          >>> (x ** 3 + 7 - y**2) % p
-                          0
+```python
+Python 3.4.0 (default, Mar 30 2014, 19:23:13)
+[GCC 4.2.1 Compatible Apple LLVM 5.1 (clang-503.0.38)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+
+>>> p = 115792089237316195423570985008687907853269984665640564039457584007908834671663
+>>> x = 55066263022277343669578718895168534326250603453777594175500187360389116729240
+>>> y = 32670510020758816978083085130507043184471273380659243275938904335757337482424
+>>> (x ** 3 + 7 - y**2) % p
+0
+```
 
 In elliptic curve math, there is a point called the "point at infinity," which roughly corresponds to the role of 0 in addition. On computers, it’s sometimes represented by x = y = 0 (which doesn’t satisfy the elliptic curve equation, but it’s an easy separate case that can be checked).
 
@@ -132,39 +148,44 @@ Now that we have defined addition, we can define multiplication in the standard 
 
 Starting with a private key in the form of a randomly generated number _k_, we multiply it by a predetermined point on the curve called the _generator point_ _G_ to produce another point somewhere else on the curve, which is the corresponding public key _K_. The generator point is specified as part of the secp256k1 standard and is always the same for all keys in Bitcoin Cash:
 
-                      `\[\begin{equation} {K = k * G} \end{equation}\]`
-
+`\[\begin{equation} {K = k * G} \end{equation}\]`
 
 where k is the private key, G is the generator point, and K is the resulting public key, a point on the curve. Because the generator point is always the same for all Bitcoin Cash users, a private key k multiplied with G will always result in the same public key K. The relationship between k and K is fixed, but can only be calculated in one direction, from k to K. That’s why a Bitcoin Cash address (derived from K) can be shared with anyone and does not reveal the user’s private key (k).
 
-Tip
-
-A private key can be converted into a public key, but a public key cannot be converted back into a private key because the math only works one way.
+<tip>
+  A private key can be converted into a public key, but a public key cannot be converted back into a private key because the math only works one way.
+</tip>
 
 Implementing the elliptic curve multiplication, we take the private key k generated previously and multiply it with the generator point G to find the public key K:
 
+```
 K = 1E99423A4ED27608A15A2616A2B0E9E52CED330AC530EDCC32C8FFC6A526AEDD \* G
+```
 
 Public Key K is defined as a point K = (x,y):
 
+```
 K = (x, y)
 
-                      where,
+where,
 
-                      x = F028892BAD7ED57D2FB57BF33081D5CFCF6F9ED3D3D7F159C2E2FFF579DC341A
-                      y = 07CF33DA18BD734C600B96A72BBC4749D5141C90EC8AC328AE52DDFE2E505BDB
+x = F028892BAD7ED57D2FB57BF33081D5CFCF6F9ED3D3D7F159C2E2FFF579DC341A
+y = 07CF33DA18BD734C600B96A72BBC4749D5141C90EC8AC328AE52DDFE2E505BDB
+```
 
 To visualize multiplication of a point with an integer, we will use the simpler elliptic curve over the real numbers—remember, the math is the same. Our goal is to find the multiple kG of the generator point G. That is the same as adding G to itself, k times in a row. In elliptic curves, adding a point to itself is the equivalent of drawing a tangent line on the point and finding where it intersects the curve again, then reflecting that point on the x-axis.
 
 [Elliptic curve cryptography: Visualizing the multiplication of a point G by an integer k on an elliptic curve](#ecc_illustrated) shows the process for deriving G, 2G, 4G, as a geometric operation on the curve.
 
-Tip
+<tip>
+Most Bitcoin Cash implementations use the <link to="http://bit.ly/1ql7bn8" text="OpenSSL cryptographic library"></link> to do the elliptic curve math. For example, to derive the public key, the function EC_POINT_mul() is used.
+</tip>
 
-Most Bitcoin Cash implementations use the [OpenSSL cryptographic library](http://bit.ly/1ql7bn8) to do the elliptic curve math. For example, to derive the public key, the function EC_POINT_mul() is used.
-
-![ecc_illustrated](../img/mastering-bitcoin-cash/msbt_0404.png)
-
-Figure 4. Elliptic curve cryptography: Visualizing the multiplication of a point G by an integer k on an elliptic curve
+<anchor name="ecc-illustrated"></anchor>
+<spacer></spacer>
+![ecc_illustrated](/images/mastering-bitcoin-cash/msbt_0404.png)
+<image-caption>Figure 4. Elliptic curve cryptography: Visualizing the multiplication of a point G by an integer k on an elliptic curve</image-caption>
+<spacer></spacer>
 
 ### Cash Addresses
 
@@ -174,7 +195,7 @@ Coming Soon
 
 A Bitcoin Cash address is a string of digits and characters that can be shared with anyone who wants to send you money. Addresses produced from public keys consist of a string of numbers and letters, beginning with the digit "1". Here’s an example of a Bitcoin Cash address:
 
-1J7mdg5rbQyUHENYdx39WVWK7fsLpEoXZy
+`1J7mdg5rbQyUHENYdx39WVWK7fsLpEoXZy`
 
 The Bitcoin Cash address is what appears most commonly in a transaction as the "recipient" of the funds. If we were to compare a Bitcoin Cash transaction to a paper check, the Bitcoin Cash address is the beneficiary, which is what we write on the line after "Pay to the order of." On a paper check, that beneficiary can sometimes be the name of a bank account holder, but can also include corporations, institutions, or even cash. Because paper checks do not need to specify an account, but rather use an abstract name as the recipient of funds, that makes paper checks very flexible as payment instruments. Bitcoin transactions use a similar abstraction, the Bitcoin Cash address, to make them very flexible. A Bitcoin Cash address can represent the owner of a private/public key pair, or it can represent something else, such as a payment script. For now, let’s examine the simple case, a Bitcoin Cash address that represents, and is derived from, a public key.
 
@@ -182,20 +203,22 @@ The Bitcoin Cash address is derived from the public key through the use of one-w
 
 Starting with the public key K, we compute the SHA256 hash and then compute the RIPEMD160 hash of the result, producing a 160-bit (20-byte) number:
 
-                    `\[\begin{equation} {A = RIPEMD160(SHA256(K))} \end{equation}\]`
-
+`\[\begin{equation} {A = RIPEMD160(SHA256(K))} \end{equation}\]`
 
 where K is the public key and A is the resulting Bitcoin Cash address.
 
-Tip
-
-A Bitcoin Cash address is _not_ the same as a public key. Bitcoin Cash addresses are derived from a public key using a one-way function.
+<tip>
+  A Bitcoin Cash address is <i>not</i> the same as a public key. Bitcoin Cash addresses are derived from a public key using a one-way function.
+</tip>
 
 Legacy Bitcoin Cash addresses are almost always presented to users in an encoding called "Base58Check" (see [Base58 and Base58Check Encoding](#base58)), which uses 58 characters (a Base58 number system) and a checksum to help human readability, avoid ambiguity, and protect against errors in address transcription and entry. Base58Check is also used in many other ways in Bitcoin Cash, whenever there is a need for a user to read and correctly transcribe a number, such as a Bitcoin Cash address, a private key, an encrypted key, or a script hash. In the next section we will examine the mechanics of Base58Check encoding and decoding, and the resulting representations. [Public key to Bitcoin Cash address: conversion of a public key into a Bitcoin Cash address](#pubkey_to_address) illustrates the conversion of a public key into a Bitcoin Cash address.
 
-![pubkey_to_address](../img/mastering-bitcoin-cash/msbt_0405.png)
+<anchor name="pubkey_to_adress>
+<spacer></spacer>
+![pubkey to address](/images/mastering-bitcoin-cash/msbt_0405.png)
+<image-caption>Figure 5. Public key to Bitcoin Cash address: conversion of a public key into a Bitcoin Cash address</image-caption>
 
-Figure 5. Public key to Bitcoin Cash address: conversion of a public key into a Bitcoin Cash address
+<anchor name="base58"></anchor>
 
 #### Base58 and Base58Check Encoding
 
@@ -203,7 +226,9 @@ In order to represent long numbers in a compact way, using fewer symbols, many c
 
 Example 1. Bitcoin Cash’s Base58 alphabet
 
+```
 123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz
+```
 
 To add extra security against typos or transcription errors, Base58Check is a Base58 encoding format, which has a built-in error-checking code. The checksum is an additional four bytes added to the end of the data that is being encoded. The checksum is derived from the hash of the encoded data and can therefore be used to detect and prevent transcription and typing errors. When presented with a Base58Check code, the decoding software will calculate the checksum of the data and compare it to the checksum included in the code. If the two do not match, that indicates that an error has been introduced and the Base58Check data is invalid. For example, this prevents a mistyped Bitcoin Cash address from being accepted by the wallet software as a valid destination, an error that would otherwise result in loss of funds.
 
@@ -211,15 +236,17 @@ To convert data (a number) into a Base58Check format, we first add a prefix to t
 
 Next, we compute the "double-SHA" checksum, meaning we apply the SHA256 hash-algorithm twice on the previous result (prefix and data):
 
-checksum = SHA256(SHA256(prefix+data))
+`checksum = SHA256(SHA256(prefix+data))`
 
 From the resulting 32-byte hash (hash-of-a-hash), we take only the first four bytes. These four bytes serve as the error-checking code, or checksum. The checksum is concatenated (appended) to the end.
 
 The result is composed of three items: a prefix, the data, and a checksum. This result is encoded using the Base58 alphabet described previously. [Base58Check encoding: a Base58, versioned, and checksummed format for unambiguously encoding Bitcoin Cash data](#base58check_encoding) illustrates the Base58Check encoding process.
 
-![Base58CheckEncoding](../img/mastering-bitcoin-cash/msbt_0406.png)
-
-Figure 6. Base58Check encoding: a Base58, versioned, and checksummed format for unambiguously encoding bitcoin data
+<anchor name="base58check_encoding"></anchor>
+<spacer></spacer>
+![Base 58 Check Encoding](/images/mastering-bitcoin-cash/msbt_0406.png)
+<image-caption>Figure 6. Base58Check encoding: a Base58, versioned, and checksummed format for unambiguously encoding bitcoin data</image-caption>
+<spacer></spacer>
 
 In Bitcoin Cash legacy addresses, the data presented to the user is Base58Check-encoded to make it compact, easy to read, and easy to detect errors. The version prefix in Base58Check encoding is used to create easily distinguishable formats, which when encoded in Base58 contain specific characters at the beginning of the Base58Check-encoded payload. These characters make it easy for humans to identify the type of data that is encoded and how to use it. This is what differentiates, for example, a Base58Check-encoded Bitcoin Cash address that starts with a 1 from a Base58Check-encoded private key WIF format that starts with a 5. Some example version prefixes and the resulting Base58 characters are shown in [Base58Check version prefix and encoded result examples](#base58check_versions).
 
@@ -1243,7 +1270,7 @@ return true;
 
 Note
 
-The example above uses std::random_device. Depending on the implementation it may reflect a cryptographically secure random number generator (CSRNG) provided by the underlying operating system. In the case of UNIX-like operating system such as Linux, it draws from /dev/urandom. While the random number generator used here is for demonstration purposes, it is _not_ appropriate for generating production-quality Bitcoin Cash keys as it is not implemented with sufficient security.
+The example above uses std::random*device. Depending on the implementation it may reflect a cryptographically secure random number generator (CSRNG) provided by the underlying operating system. In the case of UNIX-like operating system such as Linux, it draws from /dev/urandom. While the random number generator used here is for demonstration purposes, it is \_not* appropriate for generating production-quality Bitcoin Cash keys as it is not implemented with sufficient security.
 
 The example code must be compiled using a C compiler and linked against the libbitcoin library (which must be first installed on that system). To run the example, run the vanity-miner++ executable with no parameters (see [Compiling and running the vanity-miner example](#vanity_miner_run)) and it will attempt to find a vanity address starting with "1kid".
 
@@ -1323,7 +1350,6 @@ Figure 14. An example of a simple paper wallet from bitcoin.com
 You can also generate paper wallets with BITBOX's [paper wallet generator](../bitbox/docs/paper.html).
 
                     `bitbox paper`
-
 
 ![bitbox paper wallet](../img/paper.png)
 

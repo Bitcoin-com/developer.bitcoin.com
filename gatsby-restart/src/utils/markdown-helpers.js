@@ -25,6 +25,7 @@ import spacing from 'styles/spacing'
 type BasicProps = {
   children: React.Node,
 }
+
 // Short use inline custom component, long use codeblock
 const CodePreSplitter = ({ children }: BasicProps) => {
   if (children && children[0].length > 25) {
@@ -49,7 +50,8 @@ const Anchor = ({ name, children }: AnchorProps) => {
 }
 
 const Spacer = styled.div`
-  margin-top: ${spacing.large};
+  margin-top: ${props =>
+    props.size === 'small' ? spacing.small : spacing.large};
 `
 
 export const standardTransforms = {
