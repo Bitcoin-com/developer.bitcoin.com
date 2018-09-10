@@ -44,6 +44,8 @@ module.exports = {
       options: {
         excerpt_separator: `<!-- end -->`,
         plugins: [
+          `gatsby-remark-component`,
+          `gatsby-remark-autolink-headers`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-transformer-sharp`,
           `gatsby-plugin-sharp`,
@@ -51,7 +53,7 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 500,
-              linkImagesToOriginal: false,
+              linkImagesToOriginal: true,
             },
           },
         ],

@@ -19,13 +19,12 @@ const Ul = styled.ul`
     position: relative;
     &:before {
       position: absolute;
-      top: 4px;
+      top: 5px;
       left: -16px;
       content: '';
       display: inline-block;
-      height: 12px;
-      width: 12px;
-      margin-bottom: 2px;
+      height: 10px;
+      width: 10px;
       background-image: url(${Favicon});
       background-size: contain;
     }

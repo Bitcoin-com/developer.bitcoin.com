@@ -36,6 +36,18 @@ const CodePreSplitter = ({ children }: BasicProps) => {
 // Workaround as `CodePreSplitter` captures this case as well
 const PrePassthrough = ({ children }: BasicProps) => <>{children}</>
 
+type AnchorProps = {
+  name: string,
+  children?: React.Node,
+}
+const Anchor = ({ name, children }: AnchorProps) => {
+  return (
+    <div>
+      <a id={name}>{children}</a>
+    </div>
+  )
+}
+
 const Spacer = styled.div`
   margin-top: ${spacing.large};
 `
@@ -54,6 +66,8 @@ export const standardTransforms = {
   li: Li,
   img: ImgMd,
   tip: Tip,
+  link: SmartLink,
   ['image-caption']: Caption,
   spacer: Spacer,
+  anchor: Anchor,
 }

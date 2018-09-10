@@ -1,28 +1,33 @@
 // @flow
-import * as React from 'react';
+import * as React from 'react'
 
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 
 const StyledLink = styled(Link)`
   text-decoration: none;
-  color: ${props => props.isActive ? props.theme.foreground : props.subtle ? props.theme.foreground : props.theme.primary};
+  color: ${props =>
+    props.isActive
+      ? props.theme.foreground
+      : props.subtle
+        ? props.theme.foreground
+        : props.theme.primary};
   &:hover {
     color: ${props => props.theme.secondary};
   }
 `
 
-
 const StyledA = StyledLink.withComponent('a')
 
 type Props = {
   children: React.Node,
+  text?: string,
   to: string,
 }
 
-class SmartLink extends React.Component<Props> {
+class SmartLink extends React.PureComponent<Props> {
   render() {
-    const {children, ...rest } = this.props
+    const { children, text, ...rest } = this.props
     const { to } = rest
 
     const internal = /^\/(?!\/)/.test(to)
@@ -31,17 +36,17 @@ class SmartLink extends React.Component<Props> {
     if (internal) {
       return (
         <StyledLink to={to} {...rest}>
-          {children}
+          {text || children}
         </StyledLink>
       )
     }
     return (
       <StyledA href={to} target="_blank" {...rest}>
-        {children}
+        {text || children}
       </StyledA>
     )
   }
 }
 export { SmartLink }
 
-export default StyledLink;
+export default StyledLink

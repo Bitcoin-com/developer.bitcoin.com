@@ -13,6 +13,7 @@ const Pre = defaultProps({ monospace: true })(styled.span`
   padding: 0 ${spacing.tiny};
   background-color: ${props => props.theme.primaryMuted};
   color: ${props => props.theme.foreground};
+  overflow-y: scroll;
 `)
 
 export default Pre

@@ -21,10 +21,14 @@ const Main = styled.div`
     css`
       border-color: ${props => props.theme.danger};
     `};
+  ${props =>
+    props.nature === 'note' &&
+    css`
+      border-color: ${props => props.theme.secondary};
+    `};
 `
 
-const ContentHolder = styled.div`
-`
+const ContentHolder = styled.div``
 
 type Props = {
   nature: string,
@@ -43,9 +47,7 @@ class Tip extends React.PureComponent<Props> {
         <H3 capitalize nature={nature}>
           {nature}
         </H3>
-        <ContentHolder>
-          {children}
-        </ContentHolder>
+        <ContentHolder>{children}</ContentHolder>
       </Main>
     )
   }

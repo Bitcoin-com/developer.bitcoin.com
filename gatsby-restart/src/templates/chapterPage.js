@@ -39,7 +39,10 @@ const PageLayout = styled.div`
 
 const ChapterNav = styled.div`
   display: flex;
+  border-top: 2px solid ${props => props.theme.primary};
+  padding-top: ${spacing.medium};
   justify-content: space-between;
+  max-width: 820px;
 `
 
 // TODO: DRY this AST holder div elsewhere
@@ -60,26 +63,22 @@ const ChapterHolder = styled.div`
 class ChapterTemplate extends React.PureComponent<Props> {
   render() {
     const { data, location } = this.props
-    const chapter = data.markdownRemark
+    const chapterNode = data.markdownRemark
 
     const allChapters = data.allMarkdownRemark.edges
-    const currentChapter = chapter.frontmatter.chapter
+    const currentChapter = chapterNode.frontmatter.chapter
 
-    const nextChapter = allChapters.reduce((prev, curr) => {
-      if (prev) return prev
-      if (curr.node.frontmatter.chapter === currentChapter + 1) return curr
-      return null
-    }, null)
-    const prevChapter = allChapters.reduce((prev, curr) => {
-      if (prev) return prev
-      if (curr.node.frontmatter.chapter === currentChapter - 1) return curr
-      return null
-    }, null)
+    const prevChapter = allChapters.find(
+      item => item.node.frontmatter.chapter === currentChapter - 1
+    )
+    const nextChapter = allChapters.find(
+      item => item.node.frontmatter.chapter === currentChapter + 1
+    )
 
     return (
       <DefaultLayout location={location}>
         <Helmet
-          title={`${chapter.frontmatter.title} - ${
+          title={`${chapterNode.frontmatter.title} - ${
             data.site.siteMetadata.title
           }`}
         />
@@ -97,16 +96,22 @@ class ChapterTemplate extends React.PureComponent<Props> {
             <MasteringBitcoinCashAttribution />
             <div>
               <H2>
-                {chapter.frontmatter.chapter}. {chapter.frontmatter.title}
+                {chapterNode.frontmatter.chapter}.{' '}
+                {chapterNode.frontmatter.title}
               </H2>
-              <Text muted2>Updated: {chapter.frontmatter.updatedAt}</Text>
+              {chapterNode.frontmatter.updatedAt && (
+                <Text muted2>Updated: {chapterNode.frontmatter.updatedAt}</Text>
+              )}
             </div>
-            <ChapterHolder>{renderAst(chapter.htmlAst)}</ChapterHolder>
+            <ChapterHolder>{renderAst(chapterNode.htmlAst)}</ChapterHolder>
+            <Text monospace muted2>
+              Chapter {chapterNode.frontmatter.chapter} End.
+            </Text>
             <ChapterNav>
               <div>
                 {prevChapter && (
                   <StyledLink to={prevChapter.node.fields.slug}>
-                    <Text centerVertical>
+                    <Text centerVertical monospace>
                       <FaAngleLeft /> Chapter{' '}
                       {prevChapter.node.frontmatter.chapter}
                     </Text>
@@ -116,7 +121,7 @@ class ChapterTemplate extends React.PureComponent<Props> {
               <div>
                 {nextChapter && (
                   <StyledLink to={nextChapter.node.fields.slug}>
-                    <Text centerVertical>
+                    <Text centerVertical monospace>
                       Chapter {nextChapter.node.frontmatter.chapter}{' '}
                       <FaAngleRight />
                     </Text>
