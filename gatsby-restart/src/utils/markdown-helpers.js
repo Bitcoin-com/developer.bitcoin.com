@@ -53,7 +53,7 @@ const Anchor = ({ name, children }: AnchorProps) => {
 
 const Spacer = styled.div`
   margin-top: ${props =>
-    props.size === 'small' ? spacing.small : spacing.large};
+    props.size === 'small' ? spacing.small : spacing.medium};
 `
 
 export const standardTransforms = {

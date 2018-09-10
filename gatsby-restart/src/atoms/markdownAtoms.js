@@ -16,6 +16,7 @@ import spacing from 'styles/spacing'
 
 const ThMd = styled.th`
   white-space: nowrap;
+  text-align: left;
 `
 const H1Md = H1.extend`
   margin-top: ${spacing.medium};

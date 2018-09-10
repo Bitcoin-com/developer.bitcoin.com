@@ -250,9 +250,7 @@ The result is composed of three items: a prefix, the data, and a checksum. This 
 
 In Bitcoin Cash legacy addresses, the data presented to the user is Base58Check-encoded to make it compact, easy to read, and easy to detect errors. The version prefix in Base58Check encoding is used to create easily distinguishable formats, which when encoded in Base58 contain specific characters at the beginning of the Base58Check-encoded payload. These characters make it easy for humans to identify the type of data that is encoded and how to use it. This is what differentiates, for example, a Base58Check-encoded Bitcoin Cash address that starts with a 1 from a Base58Check-encoded private key WIF format that starts with a 5. Some example version prefixes and the resulting Base58 characters are shown in [Base58Check version prefix and encoded result examples](#base58check_versions).
 
-<spacer size="small"></spacer>
-Table 1. Base58Check version prefix and encoded result examples
-<spacer size="small"></spacer>
+<spacer></spacer>
 
 | Type                         | Version Prefix (hex) | Base58 result prefix |
 | ---------------------------- | :------------------: | :------------------: |
@@ -263,9 +261,14 @@ Table 1. Base58Check version prefix and encoded result examples
 | BIP38 Encrypted Private Key  |        0x0142        |          6P          |
 | BIP32 Extended Public Key    |      0x0488B21E      |         xpub         |
 
+<spacer size="small"></spacer>
+<table-caption>Table 1. Base58Check version prefix and encoded result examples</table-caption>
+<spacer></spacer>
+
 Let’s look at the complete process of creating a Bitcoin Cash address, from a private key, to a public key (a point on the elliptic curve), to a double-hashed address and finally, the Base58Check encoding. The C++ code in [Creating a Base58Check-encoded Bitcoin Cash address from a private key](#addr_example) shows the complete step-by-step process, from private key to Base58Check-encoded Bitcoin Cash address. The code example uses the libbitcoin library for some helper functions.
 
-Example 2. Creating a Base58Check-encoded Bitcoin Cash address from a private key
+<spacer></spacer>
+<table-caption>Example 2. Creating a Base58Check-encoded Bitcoin Cash address from a private key</table-caption>
 
 ```
 #include <bitcoin/bitcoin.hpp>
@@ -333,8 +336,7 @@ Both private and public keys can be represented in a number of different formats
 The private key can be represented in a number of different formats, all of which correspond to the same 256-bit number. [Private key representations (encoding formats)](#table_4-2) shows three common formats used to represent private keys.
 
 <anchor name="table_4-2"></anchor>
-
-Table 2. Private key representations (encoding formats)
+<spacer></spacer>
 
 | Type           | Prefix | Description                                                                     |
 | :------------- | :----- | :------------------------------------------------------------------------------ |
@@ -342,18 +344,22 @@ Table 2. Private key representations (encoding formats)
 | WIF            | 5      | Base58Check encoding:<br/>Base58 with version prefix of 128 and 32-bit checksum |
 | WIF-compressed | K or L | As above, with added suffix 0x01 before encoding                                |
 
+<spacer size="small"></spacer>
+<table-caption>Table 2. Private key representations (encoding formats)</table-caption>
 <spacer></spacer>
 
 [Example: Same key, different formats](#table_4-3) shows the private key generated in these three formats.
 <anchor name="table_4-3"></anchor>
-
-Table 3. Example: Same key, different formats
 
 | Format         | Private key                                                      |
 | :------------- | :--------------------------------------------------------------- |
 | Hex            | 1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd |
 | WIF            | 5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn              |
 | WIF-compressed | KxFC1jmwwCoACiCAWZ3eXa96mBM6tb3TYzGmf6YwgdGWZgawvrtJ             |
+
+<spacer size="small"></spacer>
+<table-caption>Table 3. Example: Same key, different formats</table-caption>
+<spacer></spacer>
 
 All of these representations are different ways of showing the same number, the same private key. They look different, but any one format can easily be converted to any other format.
 
@@ -475,13 +481,17 @@ If a Bitcoin Cash wallet is able to implement compressed public keys, it will us
 [Example: Same key, different formats](#table_4-4) shows the same key, encoded in WIF and WIF-compressed formats.
 <anchor name="table_4-4"></anchor>
 
-Table 4. Example: Same key, different formats
+<spacer>/spacer>
 
 | Format         | Private key                                                      |
 | :------------- | :--------------------------------------------------------------- |
 | Hex            | 1E99423A4ED27608A15A2616A2B0E9E52CED330AC530EDCC32C8FFC6A526AEDD |
 | WIF            | 5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn              |
 | WIF-compressed | KxFC1jmwwCoACiCAWZ3eXa96mBM6tb3TYzGmf6YwgdGWZgawvrtJ             |
+
+<spacer size="small"></spacer>
+<table-caption>Table 4. Example: Same key, different formats</table-caption>
+<spacer></spacer>
 
 <tip>
   "Compressed private keys" is a misnomer! They are not compressed; rather, the WIF-compressed format signifies that they should only be used to derive compressed public keys and their corresponding Bitcoin Cash addresses. Ironically, a "WIF-compressed" encoded private key is one byte longer because it has the added 01 suffix to distinguish it from an "uncompressed" one.
@@ -630,7 +640,7 @@ assert point1 == point
   The example above uses os.urandom, which reflects a cryptographically secure random number generator (CSRNG) provided by the underlying operating system. In the case of an UNIX-like operating system such as Linux, it draws from /dev/urandom; and in the case of Windows, calls CryptGenRandom(). If a suitable randomness source is not found, NotImplementedError will be raised. While the random number generator used here is for demonstration purposes, it is <i>not</i> appropriate for generating production-quality Bitcoin Cash keys as it is not implemented with sufficient security.
 </tip>
 
-Example 7. Installing the Python ECDSA library and running the ec_math.py script
+<table-caption>Example 7. Installing the Python ECDSA library and running the ec_math.py script</table-caption>
 
 ```bash
 $ # Install Python PIP package manager
@@ -692,7 +702,9 @@ BIP0039 defines the creation of a mnemonic code and seed as a follows:
 | 224            | 7               | 231                | 21          |
 | 256            | 8               | 264                | 24          |
 
+<spacer size="small"></spacer>
 <table-caption>Table 5. Mnemonic codes: entropy and word length</table-caption>
+<spacer></spacer>
 
 The mnemonic code represents 128 to 256 bits, which are used to derive a longer (512-bit) seed through the use of the key-stretching function PBKDF2. The resulting seed is used to create a deterministic wallet and all of its derived keys.
 
@@ -704,9 +716,9 @@ Tables and show some examples of mnemonic codes and the seeds they produce.
 | **Mnemonic (12 words)**      | army van defense carry jealous true garbage claim echo media make crunch                                                          |
 | **Seed (512 bits)**          | 3338a6d2ee71c7f28eb5b882159634cd46a898463e9d2d0980f8e80dfbba5b0fa0291e5fb88 8a599b44b93187be6ee3ab5fd3ead7dd646341b2cdb8d08d13bf7 |
 
-<table-caption>Table 6. 128-bit entropy mnemonic code and resulting seed</table-caption>
-
 <spacer size="small"></spacer>
+<table-caption>Table 6. 128-bit entropy mnemonic code and resulting seed</table-caption>
+<spacer></spacer>
 
 |                              |                                                                                                                                                     |
 | :--------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -714,7 +726,9 @@ Tables and show some examples of mnemonic codes and the seeds they produce.
 | **Mnemonic (24 words)**      | cake apple borrow silk endorse fitness top denial coil riot stay wolf luggage oxygen faint major edit measure invite love trap field dilemma oblige |
 | **Seed (512 bits)**          | 3972e432e99040f75ebe13a660110c3e29d131a2c808c7ee5f1631d0a977fcf473bee22 fce540af281bf7cdeade0dd2c1c795bd02f1e4049e205a0158906c343                   |
 
+<spacer size="small"></spacer>
 <table-caption>Table 7. 256-bit entropy mnemonic code and resulting seed</table-caption>
+<spacer></spacer>
 
 #### Hierarchical Deterministic Wallets (BIP0032/BIP0044)
 
@@ -856,7 +870,7 @@ Keys in an HD wallet are identified using a "path" naming convention, with each 
 The "ancestry" of a key is read from right to left, until you reach the master key from which it was derived. For example, identifier m/x/y/z describes the key that is the z-th child of key m/x/y, which is the y-th child of key m/x, which is the x-th child of m.
 
 <anchor name="table_4-8"></anchor>
-Table 8. HD wallet path examples
+<spacer></spacer>
 
 | HD path     | Key described                                                                                                      |
 | :---------- | :----------------------------------------------------------------------------------------------------------------- |
@@ -865,6 +879,10 @@ Table 8. HD wallet path examples
 | m/0'/0      | The first normal grandchild of the first hardened child (m/0')                                                     |
 | m/1/0       | The first grandchild private key of the second child (m/1)                                                         |
 | M/23/17/0/0 | The first great-great-grandchild public key of the first great-grandchild of the 18th grandchild of the 24th child |
+
+<spacer size="small"></spacer>
+<table-caption>Table 8. HD wallet path examples</table-caption>
+<spacer></spacer>
 
 #### Navigating the HD wallet tree structure
 
@@ -887,15 +905,16 @@ The third level of the tree is "account," which allows users to subdivide their 
 On the fourth level, "change," an HD wallet has two subtrees, one for creating receiving addresses and one for creating change addresses. Note that whereas the previous levels used hardened derivation, this level uses normal derivation. This is to allow this level of the tree to export extended public keys for use in a nonsecured environment. Usable addresses are derived by the HD wallet as children of the fourth level, making the fifth level of the tree the "address_index." For example, the third receiving address for Bitcoin Cash payments in the primary account would be M/44'/145'/0'/0/2. [BIP0044 HD wallet structure examples](#table_4-9) shows a few more examples.
 
 <anchor name="table_4-9"></anchor>
-
-Table 9. BIP0044 HD wallet structure examples
+<spacer></spacer>
 
 | HD path            | Key described                                                               |
 | :----------------- | :-------------------------------------------------------------------------- |
 | M/44'/145'/0'/0/2  | The third receiving public key for the primary Bitcoin Cash account         |
 | M/44'/145'/3'/1/14 | The fifteenth change-address public key for the fourth Bitcoin Cash account |
 
-<>
+<spacer size="small"></spacer>
+<table-caption>Table 9. BIP0044 HD wallet structure examples</table-caption>
+<spacer></spacer>
 
 #### Experimenting with HD wallets using Bitcoin Explorer
 
@@ -1021,111 +1040,37 @@ It’s important to realize that a Bitcoin Cash address is simply a number repre
 
 Let’s look at the pattern "1Kids" as a number and see how frequently we might find this pattern in a Bitcoin Cash address (see [The frequency of a vanity pattern (1KidsCharity) and average time-to-find on a desktop PC](#table_4-12)). An average desktop computer PC, without any specialized hardware, can search approximately 100,000 keys per second.
 
-Table 12. The frequency of a vanity pattern (1KidsCharity) and average time-to-find on a desktop PC
+<anchor name="table_4-12"></anchor>
+<spacer></spacer>
 
-Length
+| Length | Pattern      | Frequency            | Average search time |
+| :----- | :----------- | :------------------- | :------------------ |
+| 1      | 1k           | 1 in 58 keys         | < 1 millisecond     |
+| 2      | 1ki          | 1 in 3,564           | 50 millisecond      |
+| 3      | 1kid         | 1 in 195,000         | < 2 seconds         |
+| 4      | 1kids        | 1 in 11 million      | 1 minute            |
+| 5      | 1kidsC       | 1 in 656 million     | 1 hour              |
+| 6      | 1kidsCh      | 1 in 48 billion      | 2 days              |
+| 7      | 1kidsCha     | 1 in 2.2 trillion    | 3-4 months          |
+| 8      | 1kidsChar    | 1 in 128 trillion    | 13-18 years         |
+| 9      | 1kidsChari   | 1 in 7 quadrillion   | 800 years           |
+| 10     | 1kidsCharit  | 1 in 400 quadrillion | 46,000 years        |
+| 11     | 1kidsCharity | 1 in 23 quintillion  | 2.5 million years   |
 
-Pattern
-
-Frequency
-
-Average search time
-
-1
-
-1K
-
-1 in 58 keys
-
-< 1 milliseconds
-
-2
-
-1Ki
-
-1 in 3,364
-
-50 milliseconds
-
-3
-
-1Kid
-
-1 in 195,000
-
-< 2 seconds
-
-4
-
-1Kids
-
-1 in 11 million
-
-1 minute
-
-5
-
-1KidsC
-
-1 in 656 million
-
-1 hour
-
-6
-
-1KidsCh
-
-1 in 38 billion
-
-2 days
-
-7
-
-1KidsCha
-
-1 in 2.2 trillion
-
-3–4 months
-
-8
-
-1KidsChar
-
-1 in 128 trillion
-
-13–18 years
-
-9
-
-1KidsChari
-
-1 in 7 quadrillion
-
-800 years
-
-10
-
-1KidsCharit
-
-1 in 400 quadrillion
-
-46,000 years
-
-11
-
-1KidsCharity
-
-1 in 23 quintillion
-
-2.5 million years
+<spacer size="small"></spacer>
+<table-caption>Table 12. The frequency of a vanity pattern (1KidsCharity) and average time-to-find on a desktop PC</table-caption>
+<spacer></spacer>
 
 As you can see, Eugenia won’t be creating the vanity address "1KidsCharity" any time soon, even if she had access to several thousand computers. Each additional character increases the difficulty by a factor of 58. Patterns with more than seven characters are usually found by specialized hardware, such as custom-built desktops with multiple graphical processing units (GPUs). These are often repurposed Bitcoin Cash mining "rigs" that are no longer profitable for Bitcoin Cash mining but can be used to find vanity addresses. Vanity searches on GPU systems are many orders of magnitude faster than on a general-purpose CPU.
 
 Generating a vanity address is a brute-force exercise: try a random key, check the resulting address to see if it matches the desired pattern, repeat until successful. [Vanity address miner](#vanity_miner_code) shows an example of a "vanity miner," a program designed to find vanity addresses, written in C++. The example uses the libbitcoin library.
 
-Example 8. Vanity address miner
+<spacer size="small"></anchor>
+<anchor name="vanity_miner_code"></anchor>
+<table-caption>Example 8. Vanity address miner</table-caption>
 
-                            `#include <bitcoin/bitcoin.hpp>
+```c++
+#include <bitcoin/bitcoin.hpp>
 
 // The string we are searching for
 const std::string search = "1kid";
@@ -1197,34 +1142,39 @@ if (*it != std::tolower(*addr_it))
 return false;
 // Reached end of search string, so address matches.
 return true;
-}`
+}
+```
 
-Note
-
-The example above uses std::random*device. Depending on the implementation it may reflect a cryptographically secure random number generator (CSRNG) provided by the underlying operating system. In the case of UNIX-like operating system such as Linux, it draws from /dev/urandom. While the random number generator used here is for demonstration purposes, it is \_not* appropriate for generating production-quality Bitcoin Cash keys as it is not implemented with sufficient security.
+<tip nature="note">
+  The example above uses std::random_device. Depending on the implementation it may reflect a cryptographically secure random number generator (CSRNG) provided by the underlying operating system. In the case of UNIX-like operating system such as Linux, it draws from /dev/urandom. While the random number generator used here is for demonstration purposes, it is <i>not</i> appropriate for generating production-quality Bitcoin Cash keys as it is not implemented with sufficient security.
+</tip>
 
 The example code must be compiled using a C compiler and linked against the libbitcoin library (which must be first installed on that system). To run the example, run the vanity-miner++ executable with no parameters (see [Compiling and running the vanity-miner example](#vanity_miner_run)) and it will attempt to find a vanity address starting with "1kid".
 
-Example 9. Compiling and running the vanity-miner example
+<anchor name="vanity_miner_run"></anchor>
+<spacer size="small"></spacer>
+<table-caption>Example 9. Compiling and running the vanity-miner example</table-caption>
 
-    $ # Compile the code with g++
-                          $ g++ -o vanity-miner vanity-miner.cpp $(pkg-config --cflags --libs libbitcoin)
-                          $ # Run the example
-                          $ ./vanity-miner
-                          Found vanity address! 1KiDzkG4MxmovZryZRj8tK81oQRhbZ46YT
-                          Secret: 57cc268a05f83a23ac9d930bc8565bac4e277055f4794cbd1a39e5e71c038f3f
-                          $ # Run it again for a different result
-                          $ ./vanity-miner
-                          Found vanity address! 1Kidxr3wsmMzzouwXibKfwTYs5Pau8TUFn
-                          Secret: 7f65bbbbe6d8caae74a0c6a0d2d7b5c6663d71b60337299a1a2cf34c04b2a623
-                          # Use "time" to see how long it takes to find a result
-                          $ time ./vanity-miner
-                          Found vanity address! 1KidPWhKgGRQWD5PP5TAnGfDyfWp5yceXM
-                          Secret: 2a802e7a53d8aa237cd059377b616d2bfcfa4b0140bc85fa008f2d3d4b225349
+```bash
+$ # Compile the code with g++
+$ g++ -o vanity-miner vanity-miner.cpp $(pkg-config --cflags --libs libbitcoin)
+$ # Run the example
+$ ./vanity-miner
+Found vanity address! 1KiDzkG4MxmovZryZRj8tK81oQRhbZ46YT
+Secret: 57cc268a05f83a23ac9d930bc8565bac4e277055f4794cbd1a39e5e71c038f3f
+$ # Run it again for a different result
+$ ./vanity-miner
+Found vanity address! 1Kidxr3wsmMzzouwXibKfwTYs5Pau8TUFn
+Secret: 7f65bbbbe6d8caae74a0c6a0d2d7b5c6663d71b60337299a1a2cf34c04b2a623
+# Use "time" to see how long it takes to find a result
+$ time ./vanity-miner
+Found vanity address! 1KidPWhKgGRQWD5PP5TAnGfDyfWp5yceXM
+Secret: 2a802e7a53d8aa237cd059377b616d2bfcfa4b0140bc85fa008f2d3d4b225349
 
-                          real	0m8.868s
-                          user	0m8.828s
-                          sys	0m0.035s
+real	0m8.868s
+user	0m8.828s
+sys	0m0.035s
+```
 
 The example code will take a few seconds to find a match for the three-character pattern "kid", as we can see when we use the time Unix command to measure the execution time. Change the search pattern in the source code and see how much longer it takes for four- or five-character patterns!
 
@@ -1236,7 +1186,7 @@ Eugenia could advertise a randomly generated address (e.g., 1J7mdg5rbQyUHENYdx39
 
 In both cases, one of the risks of using a single fixed address (rather than a separate dynamic address per donor) is that a thief might be able to infiltrate your website and replace it with his own address, thereby diverting donations to himself. If you have advertised your donation address in a number of different places, your users may visually inspect the address before making a payment to ensure it is the same one they saw on your website, on your email, and on your flyer. In the case of a random address like 1J7mdg5rbQyUHENYdx39WVWK7fsLpEoXZy, the average user will perhaps inspect the first few characters "1J7mdg" and be satisfied that the address matches. Using a vanity address generator, someone with the intent to steal by substituting a similar-looking address can quickly generate addresses that match the first few characters, as shown in [Generating vanity addresses to match a random address](#table_4-13).
 
-Table 13. Generating vanity addresses to match a random address
+<anchor name="table_4-13"></anchor>
 
 **Original Random Address**
 
@@ -1254,6 +1204,10 @@ Table 13. Generating vanity addresses to match a random address
 
 1J7mdg5WxGENmwyJP9xuGhG5KRzu99BBCX
 
+<spacer size="small"></spacer>
+<table-caption>Table 13. Generating vanity addresses to match a random address</table-caption>
+<spacer></spacer>
+
 So does a vanity address increase security? If Eugenia generates the vanity address 1Kids33q44erFfpeXrmDSz7zEqG2FesZEN, users are likely to look at the vanity pattern word _and a few characters beyond_, for example noticing the "1Kids33" part of the address. That would force an attacker to generate a vanity address matching at least six characters (two more), expending an effort that is 3,364 times (58 × 58) higher than the effort Eugenia expended for her four-character vanity. Essentially, the effort Eugenia expends (or pays a vanity pool for) "pushes" the attacker into having to produce a longer pattern vanity. If Eugenia pays a pool to generate an 8-character vanity address, the attacker would be pushed into the realm of 10 characters, which is infeasible on a personal computer and expensive even with a custom vanity-mining rig or vanity pool. What is affordable for Eugenia becomes unaffordable for the attacker, especially if the potential reward of fraud is not high enough to cover the cost of the vanity address generation.
 
 #### Paper Wallets
@@ -1262,26 +1216,26 @@ Paper wallets are Bitcoin Cash private keys printed on paper. Often the paper wa
 
 Paper wallets come in many shapes, sizes, and designs, but at a very basic level are just a key and an address printed on paper. [Simplest form of a paper wallet—a printout of the Bitcoin Cash address and private key.](#table_4-14) shows the simplest form of a paper wallet.
 
-Table 14. Simplest form of a paper wallet—a printout of the Bitcoin Cash address and private key.
+<anchor name="table_4-14"></anchor>
+<spacer></spacer>
 
-Public Address
+| Public Address                             | Private Key (WIF)                                    |
+| :----------------------------------------- | :--------------------------------------------------- |
+| qzm6fykp2334qk3ku7ngxg0ef0jle9lm3u0wzez63k | KyBtP2nSmmDC6aFi4EJusCPv9Em3XL4FmNUtcGJghdyj54Swoo88 |
 
-Private Key (WIF)
-
-qzm6fykp2334qk3ku7ngxg0ef0jle9lm3u0wzez63k
-
-KyBtP2nSmmDC6aFi4EJusCPv9Em3XL4FmNUtcGJghdyj54Swoo88
+<spacer size="small"></spacer>
+<table-caption>Table 14. Simplest form of a paper wallet—a printout of the Bitcoin Cash address and private key.</table-caption>
+<spacer></spacer>
 
 Paper wallets can be generated easily using a tool such as the client-side JavaScript generator at [Bitcoin.com's Paper wallet generator](https://tools.bitcoin.com/paper-wallet). Put these paper wallets in a fireproof safe and "send" Bitcoin Cash to their Bitcoin Cash address, to implement a simple yet highly effective "cold storage" solution.
 
-![paper wallet](../img/mastering-bitcoin-cash/msbt_04_paper_wallet.png)
+<spacer></spacer>
+![paper wallet](/images/mastering-bitcoin-cash/msbt_04_paper_wallet.png)
+<image-caption>Figure 14. An example of a simple paper wallet from bitcoin.com</image-caption>
+<spacer></spacer>
 
-Figure 14. An example of a simple paper wallet from bitcoin.com
+You can also generate paper wallets with BITBOX's [paper wallet generator](/bitbox/docs/paper).
 
-You can also generate paper wallets with BITBOX's [paper wallet generator](../bitbox/docs/paper.html).
+![bitbox paper wallet](/images/mastering-bitcoin-cash/paper.png)
 
-                    `bitbox paper`
-
-![bitbox paper wallet](../img/paper.png)
-
-Figure 15. An example of a paper wallet created via BITBOX
+<image-caption>Figure 15. An example of a paper wallet created via BITBOX</image-caption>
