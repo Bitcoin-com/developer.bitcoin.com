@@ -5,10 +5,12 @@ import SyntaxHighlighter, {
   registerLanguage,
 } from 'react-syntax-highlighter/prism-light'
 import js from 'react-syntax-highlighter/languages/prism/javascript'
+import python from 'react-syntax-highlighter/languages/prism/python'
 import bash from 'react-syntax-highlighter/languages/prism/bash'
 
 import solarizedLight from 'react-syntax-highlighter/styles/prism/solarizedlight'
 
+registerLanguage('python', python)
 registerLanguage('javascript', js)
 registerLanguage('bash', bash)
 

@@ -10,13 +10,18 @@ const Wrapper = styled.div`
 `
 type Props = {
   children: React.Node,
+  center?: boolean,
 }
 
 class Caption extends React.PureComponent<Props> {
+  static defaultProps = {
+    center: false,
+  }
+
   render() {
-    const { children } = this.props
+    const { children, center } = this.props
     return (
-      <Wrapper monospace center>
+      <Wrapper monospace center={center}>
         {children}
       </Wrapper>
     )

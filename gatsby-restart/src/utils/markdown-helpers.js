@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react'
 import styled from 'styled-components'
+import { defaultProps } from 'recompose'
 
 import { SmartLink } from 'atoms/StyledLink'
 import {
@@ -12,6 +13,7 @@ import {
   UlMd,
   OlMd,
   ImgMd,
+  ThMd,
 } from 'atoms/markdownAtoms'
 import Ul from 'atoms/Ul'
 import Li from 'atoms/Li'
@@ -25,6 +27,7 @@ import spacing from 'styles/spacing'
 type BasicProps = {
   children: React.Node,
 }
+
 // Short use inline custom component, long use codeblock
 const CodePreSplitter = ({ children }: BasicProps) => {
   if (children && children[0].length > 25) {
@@ -49,13 +52,15 @@ const Anchor = ({ name, children }: AnchorProps) => {
 }
 
 const Spacer = styled.div`
-  margin-top: ${spacing.large};
+  margin-top: ${props =>
+    props.size === 'small' ? spacing.small : spacing.medium};
 `
 
 export const standardTransforms = {
   p: TextMd,
   pre: CodePreSplitter,
   code: CodePreSplitter,
+  th: ThMd,
   h1: H1Md,
   h2: H2Md,
   h3: H3Md,
@@ -67,7 +72,8 @@ export const standardTransforms = {
   img: ImgMd,
   tip: Tip,
   link: SmartLink,
-  ['image-caption']: Caption,
+  ['image-caption']: defaultProps({ center: true })(Caption),
+  ['table-caption']: Caption,
   spacer: Spacer,
   anchor: Anchor,
 }

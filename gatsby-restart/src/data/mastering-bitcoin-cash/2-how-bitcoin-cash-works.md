@@ -158,7 +158,7 @@ The resulting transaction can be seen using a blockchain explorer web applicatio
 <image-caption>Figure 8. Alice’s transaction to Bob’s Cafe</image-caption>
 
 <tip>
-View the <link text="transaction from Alice to Bob’s Cafe" <to="https://explorer.bitcoin.com/bch/tx/adc95fb479339517d9685119873466b520e6005bffb0965e48afaf9d3494055d"></link>
+View the <link text="transaction from Alice to Bob’s Cafe" to="https://explorer.bitcoin.com/bch/tx/adc95fb479339517d9685119873466b520e6005bffb0965e48afaf9d3494055d"></link>
 </tip>
 
 <spacer></spacer>
