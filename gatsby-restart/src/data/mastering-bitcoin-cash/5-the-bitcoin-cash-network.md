@@ -95,9 +95,9 @@ Once one or more connections are established, the new node will send an addr mes
 
 <anchor name="address_propagation"></anchor>
 <spacer></spacer>
-![AddressPropagation](/images//mastering-bitcoin-cash/msbt_0605.png)
+![AddressPropagation](/images/mastering-bitcoin-cash/msbt_0605.png)
 <image-caption>Figure 5. Address propagation and discovery</image-caption>
-<spacer></spacer
+<spacer></spacer>
 
 A node must connect to a few different peers in order to establish diverse paths into the Bitcoin Cash network. Paths are not reliable—nodes come and go—and so the node must continue to discover new nodes as it loses old connections as well as assist other nodes when they bootstrap. Only one connection is needed to bootstrap, because the first node can offer introductions to its peer nodes and those peers can offer further introductions. It’s also unnecessary and wasteful of network resources to connect to more than a handful of nodes. After bootstrapping, a node will remember its most recent successful peer connections, so that if it is rebooted it can quickly reestablish connections with its former peer network. If none of the former peers respond to its connection request, the node can use the seed nodes to bootstrap again.
 
@@ -205,7 +205,7 @@ SPV nodes download only the block headers and do not download the transactions i
 <spacer></spacer>
 ![InventorySynchronization](/images/mastering-bitcoin-cash/msbt_0606.png)
 <image-caption>Figure 6. Node synchronizing the blockchain by retrieving blocks from a peer</image-caption>
-<spacer></spacer
+<spacer></spacer>
 
 As an analogy, a full node is like a tourist in a strange city, equipped with a detailed map of every street and every address. By comparison, an SPV node is like a tourist in a strange city asking random strangers for turn-by-turn directions while knowing only one main avenue. Although both tourists can verify the existence of a street by visiting it, the tourist without a map doesn’t know what lies down any of the side streets and doesn’t know what other streets exist. Positioned in front of 23 Church Street, the tourist without a map cannot know if there are a dozen other "23 Church Street" addresses in the city and whether this is the right one. The mapless tourist’s best chance is to ask enough people and hope some of them are not trying to mug him.
 
@@ -227,7 +227,7 @@ To get the block headers, SPV nodes use a getheaders message instead of getblock
 <spacer></spacer>
 ![SPVSynchronization](/images/mastering-bitcoin-cash/msbt_0607.png)
 <image-caption>Figure 7. SPV node synchronizing the block headers</image-caption>
-<spacer></spacer
+<spacer></spacer>
 
 Because SPV nodes need to retrieve specific transactions in order to selectively verify them, they also create a privacy risk. Unlike full blockchain nodes, which collect all transactions within each block, the SPV node’s requests for specific data can inadvertently reveal the addresses in their wallet. For example, a third party monitoring a network could keep track of all the transactions requested by a wallet on an SPV node and use those to associate Bitcoin Cash addresses with the user of that wallet, destroying the user’s privacy.
 
@@ -251,7 +251,7 @@ In [An example of a simplistic bloom filter, with a 16-bit field and three hash 
 <spacer></spacer>
 ![Bloom1](/images/mastering-bitcoin-cash/msbt_0608.png)
 <image-caption>Figure 8. An example of a simplistic bloom filter, with a 16-bit field and three hash functions</image-caption>
-<spacer></spacer
+<spacer></spacer>
 
 The bloom filter is initialized so that the array of bits is all zeros. To add a pattern to the bloom filter, the pattern is hashed by each hash function in turn. Applying the first hash function to the input results in a number between 1 and N. The corresponding bit in the array (indexed from 1 to N) is found and set to 1, thereby recording the output of the hash function. Then, the next hash function is used to set another bit and so on. Once all M hash functions have been applied, the search pattern will be "recorded" in the bloom filter as M bits that have been changed from 0 to 1.
 
@@ -263,7 +263,7 @@ Adding a second pattern is as simple as repeating this process. The pattern is h
 <spacer></spacer>
 ![Bloom2](/images/mastering-bitcoin-cash/msbt_0609.png)
 <image-caption>Figure 9. Adding a pattern "A" to our simple bloom filter</image-caption>
-<spacer></spacer
+<spacer></spacer>
 
 [Adding a second pattern "B" to our simple bloom filter](#bloom3) is an example of adding a second pattern "B" to the simple bloom filter.
 
@@ -271,7 +271,7 @@ Adding a second pattern is as simple as repeating this process. The pattern is h
 <spacer></spacer>
 ![Bloom3](/images/mastering-bitcoin-cash/msbt_0610.png)
 <image-caption>Figure 10. Adding a second pattern "B" to our simple bloom filter</image-caption>
-<spacer></spacer
+<spacer></spacer>
 
 To test if a pattern is part of a bloom filter, the pattern is hashed by each hash function and the resulting bit pattern is tested against the bit array. If all the bits indexed by the hash functions are set to 1, then the pattern is _probably_ recorded in the bloom filter. Because the bits may be set because of overlap from multiple patterns, the answer is not certain, but is rather probabilistic. In simple terms, a bloom filter positive match is a "Maybe, Yes."
 
@@ -281,7 +281,7 @@ To test if a pattern is part of a bloom filter, the pattern is hashed by each ha
 <spacer></spacer>
 ![Bloom4](/images/mastering-bitcoin-cash/msbt_0611.png)
 <image-caption>Figure 11. Testing the existence of pattern "X" in the bloom filter. The result is probabilistic positive match, meaning "Maybe."</image-caption>
-<spacer></spacer
+<spacer></spacer>
 
 On the contrary, if a pattern is tested against the bloom filter and any one of the bits is set to 0, this proves that the pattern was not recorded in the bloom filter. A negative result is not a probability, it is a certainty. In simple terms, a negative match on a bloom filter is a "Definitely Not!"
 
@@ -291,7 +291,7 @@ On the contrary, if a pattern is tested against the bloom filter and any one of 
 <spacer></spacer>
 ![msbt 0612](/images/mastering-bitcoin-cash/msbt_0612.png)
 <image-caption>Figure 12. Testing the existence of pattern "Y" in the bloom filter. The result is a definitive negative match, meaning "Definitely Not!"</image-caption>
-<spacer></spacer
+<spacer></spacer>
 
 Bitcoin’s implementation of bloom filters is described in Bitcoin Improvement Proposal 37 ([BIP0037](https://github.com/bitcoin/bips/blob/master/bip-0037.mediawiki)).
 
