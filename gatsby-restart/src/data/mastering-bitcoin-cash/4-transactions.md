@@ -45,14 +45,14 @@ A transaction is a _data structure_ that encodes a transfer of value from a sour
 <anchor name="tx_data_structure"></anchor>
 <spacer></spacer>
 
-| Size               | Field          |                                    Description |
-| :----------------- | :------------- | ---------------------------------------------: |
+| Size               | Field          | Description                                    |
+| :----------------- | :------------- | :--------------------------------------------- |
 | 4 bytes            | Version        | Specifies which rules this transaction follows |
-| 1–9 bytes (VarInt) | Input Counter  |                   How many inputs are included |
-| Variable           | Inputs         |                 One or more transaction inputs |
-| 1–9 bytes (VarInt) | Output Counter |                  How many outputs are included |
-| variable           | Outputs        |                One or more transaction outputs |
-| 4 bytes            | Locktime       |               A Unix timestamp or block number |
+| 1–9 bytes (VarInt) | Input Counter  | How many inputs are included                   |
+| Variable           | Inputs         | One or more transaction inputs                 |
+| 1–9 bytes (VarInt) | Output Counter | How many outputs are included                  |
+| variable           | Outputs        | One or more transaction outputs                |
+| 4 bytes            | Locktime       | A Unix timestamp or block number               |
 
 <spacer size="small"></spacer>
 <table-caption>Table 1. The structure of a transaction</table-caption>
@@ -102,14 +102,14 @@ The transaction scripting language, used in the locking script mentioned previou
 <anchor name="tx_out_structure"></anchor>
 <spacer></spacer>
 
-| Size               | Field               |                                                  Description |
-| :----------------- | :------------------ | -----------------------------------------------------------: |
+| Size               | Field               | Description                                                  |
+| :----------------- | :------------------ | :----------------------------------------------------------- |
 | 8 bytes            | Amount              | Bitcoin Cash value in satoshis (10<sup>8</sup> Bitcoin Cash) |
-| 1–9 bytes (VarInt) | Locking-Script Size |                    Locking-Script length in bytes, to follow |
-| Variable           | Locking-Script      |  A script defining the conditions needed to spend the output |
-| 1–9 bytes (VarInt) | Output Counter      |                                How many outputs are included |
-| variable           | Outputs             |                              One or more transaction outputs |
-| 4 bytes            | Locktime            |                             A Unix timestamp or block number |
+| 1–9 bytes (VarInt) | Locking-Script Size | Locking-Script length in bytes, to follow                    |
+| Variable           | Locking-Script      | A script defining the conditions needed to spend the output  |
+| 1–9 bytes (VarInt) | Output Counter      | How many outputs are included                                |
+| variable           | Outputs             | One or more transaction outputs                              |
+| 4 bytes            | Locktime            | A Unix timestamp or block number                             |
 
 <spacer size="small"></spacer>
 <table-caption>Table 2. The structure of a transaction output</table-caption>
@@ -157,13 +157,13 @@ Once the UTXO is selected, the wallet then produces unlocking scripts containing
 <anchor name="tx_in_structure"></anchor>
 <spacer></spacer>
 
-| Size               | Field                 |                                                      Description |
-| :----------------- | :-------------------- | ---------------------------------------------------------------: |
-| 32 bytes           | Transaction Hash      |       Pointer to the transaction containing the UTXO to be spent |
-| 4 bytes            | Output Index          |         The index number of the UTXO to be spent; first one is 0 |
-| 1-9 bytes (VarInt) | Unlocking-Script Size |                      Unlocking-Script length in bytes, to follow |
+| Size               | Field                 | Description                                                      |
+| :----------------- | :-------------------- | :--------------------------------------------------------------- |
+| 32 bytes           | Transaction Hash      | Pointer to the transaction containing the UTXO to be spent       |
+| 4 bytes            | Output Index          | The index number of the UTXO to be spent; first one is 0         |
+| 1-9 bytes (VarInt) | Unlocking-Script Size | Unlocking-Script length in bytes, to follow                      |
 | Variable           | Unlocking-Script      | A script that fulfills the conditions of the UTXO locking script |
-| 4 bytes            | Sequence Number       |     Currently disabled Tx-replacement feature, set to 0xFFFFFFFF |
+| 4 bytes            | Sequence Number       | Currently disabled Tx-replacement feature, set to 0xFFFFFFFF     |
 
 <spacer size="small"></spacer>
 <table-caption>Table 3. The structure of a transaction input</table-caption>
@@ -237,7 +237,7 @@ First, the unlocking script is executed, using the stack execution engine. If th
 
 <anchor name="scriptSig_and_scriptPubKey"></anchor>
 <spacer></spacer>
-![scriptSig_and_scriptPubKey](../img/mastering-bitcoin-cash/msbt_0501.png)
+![scriptSig_and_scriptPubKey](/images/mastering-bitcoin-cash/msbt_0501.png)
 <image-caption>Figure 1. Combining scriptSig and scriptPubKey to evaluate a transaction script</image-caption>
 <spacer></spacer>
 
@@ -255,7 +255,9 @@ In [Bitcoin Cash’s script validation doing simple math](#simplemath_script), t
 
 The following is a slightly more complex script, which calculates 2 + 7 – 3 + 1. Notice that when the script contains several operators in a row, the stack allows the results of one operator to be acted upon by the next operator:
 
+```
 2 7 OP_ADD 3 OP_SUB 1 OP_ADD 7 OP_EQUAL
+```
 
 Try validating the preceding script yourself using pencil and paper. When the script execution ends, you should be left with the value TRUE on the stack.
 
@@ -263,15 +265,21 @@ Although most locking scripts refer to a Bitcoin Cash address or public key, the
 
 Use part of the arithmetic example script as the locking script:
 
+```
 3 OP_ADD 5 OP_EQUAL
+```
 
 which can be satisfied by a transaction containing an input with the unlocking script:
 
+```
 2
+```
 
 The validation software combines the locking and unlocking scripts and the resulting script is:
 
+```
 2 3 OP_ADD 5 OP_EQUAL
+```
 
 As we saw in the step-by-step example in [Bitcoin Cash’s script validation doing simple math](#simplemath_script), when this script is executed, the result is OP_TRUE, making the transaction valid. Not only is this a valid transaction output locking script, but the resulting UTXO could be spent by anyone with the arithmetic skills to know that the number 2 satisfies the script.
 
@@ -307,18 +315,24 @@ The vast majority of transactions processed on the Bitcoin Cash network are P2PK
 
 For example, let’s look at Alice’s payment to Bob’s Cafe again. Alice made a payment of 0.00208507 Bitcoin Cash to the cafe’s Bitcoin Cash address. That transaction output would have a locking script of the form:
 
+```
 OP_DUP OP_HASH160 <Cafe Public Key Hash> OP_EQUAL OP_CHECKSIG
+```
 
 The Cafe Public Key Hash is equivalent to the Bitcoin Cash address of the cafe, without the Base58Check encoding. Most applications would show the _public key hash_ in hexadecimal encoding and not the familiar Bitcoin Cash address Base58Check format that begins with a "1".
 
 The preceding locking script can be satisfied with an unlocking script of the form:
 
+```
 <Cafe Signature> <Cafe Public Key>
+```
 
 The two scripts together would form the following combined validation script:
 
+```
 <Cafe Signature> <Cafe Public Key> OP_DUP OP_HASH160
 <Cafe Public Key Hash> OP_EQUAL OP_CHECKSIG
+```
 
 When executed, this combined script will evaluate to TRUE if, and only if, the unlocking script matches the conditions set by the locking script. In other words, the result will be TRUE if the unlocking script has a valid signature from the cafe’s private key that corresponds to the public key hash set as an encumbrance.
 
@@ -336,21 +350,27 @@ Pay-to-public-key is a simpler form of a Bitcoin Cash payment than pay-to-public
 
 A pay-to-public-key locking script looks like this:
 
+```
 <Public Key A> OP_CHECKSIG
+```
 
 The corresponding unlocking script that must be presented to unlock this type of output is a simple signature, like this:
 
+```
 <Signature from Private Key A>
+```
 
 The combined script, which is validated by the transaction validation software, is:
 
+```
 <Signature from Private Key A> <Public Key A> OP_CHECKSIG
+```
 
 This script is a simple invocation of the CHECKSIG operator, which validates the signature as belonging to the correct key and returns TRUE on the stack.
 
 <anchor name="script_p2pkh2"></anchor>
 <spacer></spacer>
-![Tx_Script_P2PubKeyHash_2](/imagesmastering-bitcoin-cash/msbt_0504.png)
+![Tx_Script_P2PubKeyHash_2](/images/mastering-bitcoin-cash/msbt_0504.png)
 <image-caption>Figure 4. Evaluating a script for a P2PKH transaction (Part 2 of 2)</image-caption>
 <spacer></spacer>
 
@@ -360,27 +380,35 @@ Multi-signature scripts set a condition where N public keys are recorded in the 
 
 The general form of a locking script setting an M-of-N multi-signature condition is:
 
+```
 M <Public Key 1> <Public Key 2> ... <Public Key N> N OP_CHECKMULTISIG
+```
 
 where N is the total number of listed public keys and M is the threshold of required signatures to spend the output.
 
 A locking script setting a 2-of-3 multi-signature condition looks like this:
 
+```
 2 <Public Key A> <Public Key B> <Public Key C> 3 OP_CHECKMULTISIG
+```
 
 The preceding locking script can be satisfied with an unlocking script containing pairs of signatures and public keys:
 
+```
 OP_0 <Signature B> <Signature C>
+```
 
 or any combination of two signatures from the private keys corresponding to the three listed public keys.
 
-Note
-
-The prefix OP_0 is required because of a bug in the original implementation of CHECKMULTISIG where one item too many is popped off the stack. It is ignored by CHECKMULTISIG and is simply a placeholder.
+<tip nature="note">
+  The prefix OP_0 is required because of a bug in the original implementation of CHECKMULTISIG where one item too many is popped off the stack. It is ignored by CHECKMULTISIG and is simply a placeholder.
+</tip>
 
 The two scripts together would form the combined validation script:
 
+```
 OP_0 <Signature B> <Signature C> 2 <Public Key A> <Public Key B> <Public Key C> 3 OP_CHECKMULTISIG
+```
 
 When executed, this combined script will evaluate to TRUE if, and only if, the unlocking script matches the conditions set by the locking script. In this case, the condition is whether the unlocking script has a valid signature from the two private keys that correspond to two of the three public keys set as an encumbrance.
 
@@ -392,9 +420,11 @@ The use of Bitcoin Cash’s blockchain to store data unrelated to Bitcoin Cash p
 
 A compromise was reached with the introduction of the OP*RETURN operator. OP_RETURN allows developers to add 220 bytes of nonpayment data to a transaction output. However, unlike the use of "fake" UTXO, the OP_RETURN operator creates an explicitly \_provably unspendable* output, which does not need to be stored in the UTXO set. OP_RETURN outputs are recorded on the blockchain, so they consume disk space and contribute to the increase in the blockchain’s size, but they are not stored in the UTXO set and therefore do not bloat the UTXO memory pool and burden full nodes with the cost of more expensive RAM.
 
+```
 OP_RETURN scripts look like this:
 
 OP_RETURN <data>
+```
 
 The data portion is limited to 220 bytes and most often represents a hash, such as the output from the SHA256 algorithm (32 bytes). Many applications put a prefix in front of the data to help identify the application per the [Terab 4-byte prefix guideline for OP_RETURN on Bitcoin Cash](https://github.com/Lokad/Terab/blob/master/spec/opreturn-prefix-guideline.md).
 
@@ -449,32 +479,46 @@ Let’s look at Mohammed’s company, the complex multi-signature script, and th
 
 First, the multi-signature script that Mohammed’s company uses for all incoming payments from customers:
 
+```
 2 <Mohammed's Public Key> <Partner1 Public Key> <Partner2 Public Key> <Partner3 Public Key> <Attorney Public Key> 5 OP_CHECKMULTISIG
+```
 
 If the placeholders are replaced by actual public keys (shown here as 520-bit numbers starting with 04) you can see that this script becomes very long:
 
+```
 2
 04C16B8698A9ABF84250A7C3EA7EEDEF9897D1C8C6ADF47F06CF73370D74DCCA01CDCA79DCC5C395D7EEC6984D83F1F50C900A24DD47F569FD4193AF5DE762C58704A2192968D8655D6A935BEAF2CA23E3FB87A3495E7AF308EDF08DAC3C1FCBFC2C75B4B0F4D0B1B70CD2423657738C0C2B1D5CE65C97D78D0E34224858008E8B49047E63248B75DB7379BE9CDA8CE5751D16485F431E46117B9D0C1837C9D5737812F393DA7D4420D7E1A9162F0279CFC10F1E8E8F3020DECDBC3C0DD389D99779650421D65CBD7149B255382ED7F78E946580657EE6FDA162A187543A9D85BAAA93A4AB3A8F044DADA618D087227440645ABE8A35DA8C5B73997AD343BE5C2AFD94A5043752580AFA1ECED3C68D446BCAB69AC0BA7DF50D56231BE0AABF1FDEEC78A6A45E394BA29A1EDF518C022DD618DA774D207D137AAB59E0B000EB7ED238F4D800 5 OP_CHECKMULTISIG
+```
 
 This entire script can instead be represented by a 20-byte cryptographic hash, by first applying the SHA256 hashing algorithm and then applying the RIPEMD160 algorithm on the result. The 20-byte hash of the preceding script is:
 
+```
 54c557e07dde5bb6cb791c7a540e0a4796f5e97e
+```
 
 A P2SH transaction locks the output to this hash instead of the longer script, using the locking script:
 
+```
 OP_HASH160 54c557e07dde5bb6cb791c7a540e0a4796f5e97e OP_EQUAL
+```
 
 which, as you can see, is much shorter. Instead of "pay to this 5-key multi-signature script," the P2SH equivalent transaction is "pay to a script with this hash." A customer making a payment to Mohammed’s company need only include this much shorter locking script in his payment. When Mohammed wants to spend this UTXO, they must present the original redeem script (the one whose hash locked the UTXO) and the signatures necessary to unlock it, like this:
 
+```
 <Sig1> <Sig2> <2 PK1 PK2 PK3 PK4 PK5 5 OP_CHECKMULTISIG>
+```
 
 The two scripts are combined in two stages. First, the redeem script is checked against the locking script to make sure the hash matches:
 
+```
 <2 PK1 PK2 PK3 PK4 PK5 5 OP_CHECKMULTISIG> OP_HASH160 <redeem scriptHash> OP_EQUAL
+```
 
 If the redeem script hash matches, the unlocking script is executed on its own, to unlock the redeem script:
 
+```
 <Sig1> <Sig2> 2 PK1 PK2 PK3 PK4 PK5 5 OP_CHECKMULTISIG
+```
 
 ##### Pay-to-script-hash addresses
 
@@ -487,15 +531,10 @@ P2SH addresses hide all of the complexity, so that the person making a payment d
 The pay-to-script-hash feature offers the following benefits compared to the direct use of complex scripts in locking outputs:
 
 - Complex scripts are replaced by shorter fingerprints in the transaction output, making the transaction smaller.
-
 - Scripts can be coded as an address, so the sender and the sender’s wallet don’t need complex engineering to implement P2SH.
-
 - P2SH shifts the burden of constructing the script to the recipient, not the sender.
-
 - P2SH shifts the burden in data storage for the long script from the output (which is in the UTXO set) to the input (stored on the blockchain).
-
 - P2SH shifts the burden in data storage for the long script from the present time (payment) to a future time (when it is spent).
-
 - P2SH shifts the transaction fee cost of a long script from the sender to the recipient, who has to include the long redeem script to spend it.
 
 ##### Redeem script and isStandard validation
@@ -508,6 +547,6 @@ Note that you are not able to put a P2SH inside a P2SH redeem script, because th
 
 Note that because the redeem script is not presented to the network until you attempt to spend a P2SH output, if you lock an output with the hash of an invalid transaction it will be processed regardless. However, you will not be able to spend it because the spending transaction, which includes the redeem script, will not be accepted because it is an invalid script. This creates a risk, because you can lock Bitcoin Cash in a P2SH that cannot be spent later. The network will accept the P2SH encumbrance even if it corresponds to an invalid redeem script, because the script hash gives no indication of the script it represents.
 
-Warning
-
-P2SH locking scripts contain the hash of a redeem script, which gives no clues as to the content of the redeem script itself. The P2SH transaction will be considered valid and accepted even if the redeem script is invalid. You might accidentally lock Bitcoin Cash in such a way that it cannot later be spent.
+<tip nature="warning">
+  P2SH locking scripts contain the hash of a redeem script, which gives no clues as to the content of the redeem script itself. The P2SH transaction will be considered valid and accepted even if the redeem script is invalid. You might accidentally lock Bitcoin Cash in such a way that it cannot later be spent.
+</tip>
