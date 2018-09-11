@@ -42,51 +42,23 @@ The Bitcoin Cash network is designed to propagate transactions and blocks to all
 
 A transaction is a _data structure_ that encodes a transfer of value from a source of funds, called an _input_, to a destination, called an _output_. Transaction inputs and outputs are not related to accounts or identities. Instead, you should think of them as Bitcoin Cash amounts—chunks of Bitcoin Cash—being locked with a specific secret that only the owner, or person who knows the secret, can unlock. A transaction contains a number of fields, as shown in [The structure of a transaction](#tx_data_structure).
 
-Table 1. The structure of a transaction
+<anchor name="tx_data_structure"></anchor>
+<spacer></spacer>
 
-Size
+| Size               | Field          |                                    Description |
+| :----------------- | :------------- | ---------------------------------------------: |
+| 4 bytes            | Version        | Specifies which rules this transaction follows |
+| 1–9 bytes (VarInt) | Input Counter  |                   How many inputs are included |
+| Variable           | Inputs         |                 One or more transaction inputs |
+| 1–9 bytes (VarInt) | Output Counter |                  How many outputs are included |
+| variable           | Outputs        |                One or more transaction outputs |
+| 4 bytes            | Locktime       |               A Unix timestamp or block number |
 
-Field
+<spacer size="small"></spacer>
+<table-caption>Table 1. The structure of a transaction</table-caption>
+<spacer></spacer>
 
-Description
-
-4 bytes
-
-Version
-
-Specifies which rules this transaction follows
-
-1–9 bytes (VarInt)
-
-Input Counter
-
-How many inputs are included
-
-Variable
-
-Inputs
-
-One or more transaction inputs
-
-1–9 bytes (VarInt)
-
-Output Counter
-
-How many outputs are included
-
-Variable
-
-Outputs
-
-One or more transaction outputs
-
-4 bytes
-
-Locktime
-
-A Unix timestamp or block number
-
-Transaction Locktime
+#### Transaction Locktime
 
 Locktime, also known as nLockTime from the variable name used in the reference client, defines the earliest time that a transaction is valid and can be relayed on the network or added to the blockchain. It is set to zero in most transactions to indicate immediate propagation and execution. If locktime is nonzero and below 500 million, it is interpreted as a block height, meaning the transaction is not valid and is not relayed or included in the blockchain prior to the specified block height. If it is above 500 million, it is interpreted as a Unix Epoch timestamp (seconds since Jan-1-1970) and the transaction is not valid prior to the specified time. Transactions with locktime specifying a future block or time must be held by the originating system and transmitted to the Bitcoin Cash network only after they become valid. The use of locktime is equivalent to postdating a paper check.
 
@@ -94,9 +66,9 @@ Locktime, also known as nLockTime from the variable name used in the reference c
 
 The fundamental building block of a Bitcoin Cash transaction is an _unspent transaction output_, or UTXO. UTXO are indivisible chunks of Bitcoin Cash currency locked to a specific owner, recorded on the blockchain, and recognized as currency units by the entire network. The Bitcoin Cash network tracks all available (unspent) UTXO currently numbering in the millions. Whenever a user receives Bitcoin Cash, that amount is recorded within the blockchain as a UTXO. Thus, a user’s Bitcoin Cash might be scattered as UTXO amongst hundreds of transactions and hundreds of blocks. In effect, there is no such thing as a stored balance of a Bitcoin Cash address or account; there are only scattered UTXO, locked to specific owners. The concept of a user’s Bitcoin Cash balance is a derived construct created by the wallet application. The wallet calculates the user’s balance by scanning the blockchain and aggregating all UTXO belonging to that user.
 
-Tip
-
-There are no accounts or balances in Bitcoin Cash; there are only _unspent transaction outputs_ (UTXO) scattered in the blockchain.
+<tip>
+  There are no accounts or balances in Bitcoin Cash; there are only _unspent transaction outputs_ (UTXO) scattered in the blockchain.
+</tip>
 
 A UTXO can have an arbitrary value denominated as a multiple of satoshis. Just like dollars can be divided down to two decimal places as cents, bitcoins can be divided down to eight decimal places as satoshis. Although UTXO can be any arbitrary value, once created it is indivisible just like a coin that cannot be cut in half. If a UTXO is larger than the desired value of a transaction, it must still be consumed in its entirety and change must be generated in the transaction. In other words, if you have a 20 Bitcoin Cash UTXO and want to pay 1 Bitcoin Cash, your transaction must consume the entire 20 Bitcoin Cash UTXO and produce two outputs: one paying 1 Bitcoin Cash to your desired recipient and another paying 19 Bitcoin Cash in change back to your wallet. As a result, most Bitcoin Cash transactions will generate change.
 
@@ -108,11 +80,11 @@ As with real life, the Bitcoin Cash application can use several strategies to sa
 
 The UTXO consumed by a transaction are called transaction inputs, and the UTXO created by a transaction are called transaction outputs. This way, chunks of Bitcoin Cash value move forward from owner to owner in a chain of transactions consuming and creating UTXO. Transactions consume UTXO by unlocking it with the signature of the current owner and create UTXO by locking it to the Bitcoin Cash address of the new owner.
 
-The exception to the output and input chain is a special type of transaction called the _coinbase_ transaction, which is the first transaction in each block. This transaction is placed there by the "winning" miner and creates brand-new Bitcoin Cash payable to that miner as a reward for mining. This is how Bitcoin Cash’s money supply is created during the mining process, as we will see in [Mining and Consensus](mining-and-consensus.html).
+The exception to the output and input chain is a special type of transaction called the _coinbase_ transaction, which is the first transaction in each block. This transaction is placed there by the "winning" miner and creates brand-new Bitcoin Cash payable to that miner as a reward for mining. This is how Bitcoin Cash’s money supply is created during the mining process, as we will see in [Mining and Consensus](/mastering-bitcoin-cash/7-mining-and-consensus/).
 
-Tip
-
-What comes first? Inputs or outputs, the chicken or the egg? Strictly speaking, outputs come first because coinbase transactions, which generate new Bitcoin Cash, have no inputs and create outputs from nothing.
+<tip>
+  What comes first? Inputs or outputs, the chicken or the egg? Strictly speaking, outputs come first because coinbase transactions, which generate new Bitcoin Cash, have no inputs and create outputs from nothing.
+</tip>
 
 #### Transaction Outputs
 
@@ -123,59 +95,50 @@ UTXO are tracked by every full-node Bitcoin Cash client as a data set called the
 Transaction outputs consist of two parts:
 
 - An amount of Bitcoin Cash, denominated in _satoshis_, the smallest Bitcoin Cash unit
-
 - A _locking script_, also known as an "encumbrance" that "locks" this amount by specifying the conditions that must be met to spend the output
 
 The transaction scripting language, used in the locking script mentioned previously, is discussed in detail in [Transaction Scripts and Script Language](#tx_script). [The structure of a transaction output](#tx_out_structure) shows the structure of a transaction output.
 
-Table 2. The structure of a transaction output
+<anchor name="tx_out_structure"></anchor>
+<spacer></spacer>
 
-Size
+| Size               | Field               |                                                  Description |
+| :----------------- | :------------------ | -----------------------------------------------------------: |
+| 8 bytes            | Amount              | Bitcoin Cash value in satoshis (10<sup>8</sup> Bitcoin Cash) |
+| 1–9 bytes (VarInt) | Locking-Script Size |                    Locking-Script length in bytes, to follow |
+| Variable           | Locking-Script      |  A script defining the conditions needed to spend the output |
+| 1–9 bytes (VarInt) | Output Counter      |                                How many outputs are included |
+| variable           | Outputs             |                              One or more transaction outputs |
+| 4 bytes            | Locktime            |                             A Unix timestamp or block number |
 
-Field
-
-Description
-
-8 bytes
-
-Amount
-
-Bitcoin Cash value in satoshis (10\-8 Bitcoin Cash)
-
-1-9 bytes (VarInt)
-
-Locking-Script Size
-
-Locking-Script length in bytes, to follow
-
-Variable
-
-Locking-Script
-
-A script defining the conditions needed to spend the output
+<spacer size="small"></spacer>
+<table-caption>Table 2. The structure of a transaction output</table-caption>
+<spacer></spacer>
 
 In [A script that calls `BITBOX.Address.utxo` to find the UTXO related to an address](#get_utxo), we use the `BITBOX.Address` class to find the unspent outputs (UTXO) of a specific address.
 
-Example 1. A script that calls `BITBOX.Address.utxo` to find the UTXO related to an address
+<spacer></spacer>
+<table-caption>Example 1. A script that calls `BITBOX.Address.utxo` to find the UTXO related to an address</table-caption>
 
-                          `BITBOX.Address.utxo('bitcoincash:qpcxf2sv9hjw08nvpgffpamfus9nmksm3chv5zqtnz').then((result) => {
-      console.log(result);
-    }, (err) => {
-      console.log(err);
-    });
+```javascript
+BITBOX.Address.utxo('bitcoincash:qpcxf2sv9hjw08nvpgffpamfus9nmksm3chv5zqtnz').then((result) => {
+  console.log(result);
+}, (err) => {
+  console.log(err);
+});
 
-    Returns the following:
-    [{ txid:
-    'cc27be8846276612dfce5924b7be96556212f0f0e62bd17641732175edb9911e',
-    vout: 0,
-    scriptPubKey: '76a9147064aa0c2de4e79e6c0a1290f769e40b3dda1b8e88ac',
-    amount: 0.00007021,
-    satoshis: 7021,
-    height: 527155,
-    confirmations: 11879,
-    legacyAddress: '1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA',
-    cashAddress: 'bitcoincash:qpcxf2sv9hjw08nvpgffpamfus9nmksm3chv5zqtnz' } ]`
-
+Returns the following:
+[{ txid:
+'cc27be8846276612dfce5924b7be96556212f0f0e62bd17641732175edb9911e',
+vout: 0,
+scriptPubKey: '76a9147064aa0c2de4e79e6c0a1290f769e40b3dda1b8e88ac',
+amount: 0.00007021,
+satoshis: 7021,
+height: 527155,
+confirmations: 11879,
+legacyAddress: '1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA',
+cashAddress: 'bitcoincash:qpcxf2sv9hjw08nvpgffpamfus9nmksm3chv5zqtnz' } ]
+```
 
 Running the script, we see an array of objects representing unspent transaction outputs which are available to this address.
 
@@ -191,53 +154,30 @@ When users make a payment, their wallet constructs a transaction by selecting fr
 
 Once the UTXO is selected, the wallet then produces unlocking scripts containing signatures for each of the UTXO, thereby making them spendable by satisfying their locking script conditions. The wallet adds these UTXO references and unlocking scripts as inputs to the transaction. [The structure of a transaction input](#tx_in_structure) shows the structure of a transaction input.
 
-Table 3. The structure of a transaction input
+<anchor name="tx_in_structure"></anchor>
+<spacer></spacer>
 
-Size
+| Size               | Field                 |                                                      Description |
+| :----------------- | :-------------------- | ---------------------------------------------------------------: |
+| 32 bytes           | Transaction Hash      |       Pointer to the transaction containing the UTXO to be spent |
+| 4 bytes            | Output Index          |         The index number of the UTXO to be spent; first one is 0 |
+| 1-9 bytes (VarInt) | Unlocking-Script Size |                      Unlocking-Script length in bytes, to follow |
+| Variable           | Unlocking-Script      | A script that fulfills the conditions of the UTXO locking script |
+| 4 bytes            | Sequence Number       |     Currently disabled Tx-replacement feature, set to 0xFFFFFFFF |
 
-Field
-
-Description
-
-32 bytes
-
-Transaction Hash
-
-Pointer to the transaction containing the UTXO to be spent
-
-4 bytes
-
-Output Index
-
-The index number of the UTXO to be spent; first one is 0
-
-1-9 bytes (VarInt)
-
-Unlocking-Script Size
-
-Unlocking-Script length in bytes, to follow
-
-Variable
-
-Unlocking-Script
-
-A script that fulfills the conditions of the UTXO locking script.
-
-4 bytes
-
-Sequence Number
-
-Currently disabled Tx-replacement feature, set to 0xFFFFFFFF
+<spacer size="small"></spacer>
+<table-caption>Table 3. The structure of a transaction input</table-caption>
+<spacer></spacer>
 
 #### Transaction Fees
 
-Most transactions include transaction fees, which compensate the Bitcoin Cash miners for securing the network. Mining and the fees and rewards collected by miners are discussed in more detail in [Mining and Consensus](mining-and-consensus.html). This section examines how transaction fees are included in a typical transaction. Most wallets calculate and include transaction fees automatically. However, if you are constructing transactions programmatically, or using a command-line interface, you must manually account for and include these fees.
+Most transactions include transaction fees, which compensate the Bitcoin Cash miners for securing the network. Mining and the fees and rewards collected by miners are discussed in more detail in [Mining and Consensus](/mastering-bitcoin-cash/7-mining-and-consensus/). This section examines how transaction fees are included in a typical transaction. Most wallets calculate and include transaction fees automatically. However, if you are constructing transactions programmatically, or using a command-line interface, you must manually account for and include these fees.
 
 Transaction fees serve as an incentive to include (mine) a transaction into the next block and also as a disincentive against "spam" transactions or any kind of abuse of the system, by imposing a small cost on every transaction. Transaction fees are collected by the miner who mines the block that records the transaction on the blockchain.
 
 Transaction fees are calculated based on the size of the transaction in kilobytes, not the value of the transaction in Bitcoin Cash. Overall, transaction fees are set based on market forces within the Bitcoin Cash network. Miners prioritize transactions based on many different criteria, including fees, and might even process transactions for free under certain circumstances. Transaction fees affect the processing priority, meaning that a transaction with sufficient fees is likely to be included in the next-most–mined block, whereas a transaction with insufficient or no fees might be delayed, processed on a best-effort basis after a few blocks, or not processed at all. Transaction fees are not mandatory, and transactions without fees might be processed eventually; however, including transaction fees encourages priority processing.
 
-The current algorithm used by miners to prioritize transactions for inclusion in a block based on their fees is examined in detail in [Mining and Consensus](mining-and-consensus.html).
+The current algorithm used by miners to prioritize transactions for inclusion in a block based on their fees is examined in detail in [Mining and Consensus](/mastering-bitcoin-cash/7-mining-and-consensus/).
 
 #### Adding Fees to Transactions
 
@@ -245,15 +185,17 @@ The data structure of transactions does not have a field for fees. Instead, fees
 
 Transaction fees are implied, as the excess of inputs minus outputs:
 
+```
 Fees = Sum(Inputs) – Sum(Outputs)
+```
 
 This is a somewhat confusing element of transactions and an important point to understand, because if you are constructing your own transactions you must ensure you do not inadvertently include a very large fee by underspending the inputs. That means that you must account for all inputs, if necessary by creating change, or you will end up giving the miners a very big tip!
 
 For example, if you consume a 20-Bitcoin Cash UTXO to make a 1-Bitcoin Cash payment, you must include a 19-Bitcoin Cash change output back to your wallet. Otherwise, the 19-Bitcoin Cash "leftover" will be counted as a transaction fee and will be collected by the miner who mines your transaction in a block. Although you will receive priority processing and make a miner very happy, this is probably not what you intended.
 
-Warning
-
-If you forget to add a change output in a manually constructed transaction, you will be paying the change as a transaction fee. "Keep the change!" might not be what you intended.
+<tip nature="warning">
+  If you forget to add a change output in a manually constructed transaction, you will be paying the change as a transaction fee. "Keep the change!" might not be what you intended.
+</tip>
 
 Let’s see how this works in practice, by looking at Alice’s coffee purchase again. Alice wants to spend 0.00208507 Bitcoin Cash to pay for coffee. To ensure this transaction is processed promptly, she will want to include a transaction fee of 1 satoshi per byte. That will mean that the total cost of the transaction will be 0.00208750. Her wallet must therefore source a set of UTXO that adds up to 0.00208750 Bitcoin Cash or more and, if necessary, create change. Let’s say her wallet has a 0.00277257-Bitcoin Cash UTXO available. It will therefore need to consume this UTXO, create one output to Bob’s Cafe for 0.00208507, and a second output with 0.00068507 Bitcoin Cash in change back to her own wallet, leaving 0.00000243 Bitcoin Cash unallocated, as an implicit fee for the transaction.
 
@@ -273,9 +215,9 @@ Today, most transactions processed through the Bitcoin Cash network have the for
 
 This is only the tip of the iceberg of possibilities that can be expressed with this scripting language. In this section, we will demonstrate the components of the Bitcoin Cash transaction scripting language and show how it can be used to express complex conditions for spending and how those conditions can be satisfied by unlocking scripts.
 
-Tip
-
-Bitcoin Cash transaction validation is not based on a static pattern, but instead is achieved through the execution of a scripting language. This language allows for a nearly infinite variety of conditions to be expressed. This is how Bitcoin Cash gets the power of "programmable money."
+<tip>
+  Bitcoin Cash transaction validation is not based on a static pattern, but instead is achieved through the execution of a scripting language. This language allows for a nearly infinite variety of conditions to be expressed. This is how Bitcoin Cash gets the power of "programmable money."
+</tip>
 
 #### Script Construction (Lock + Unlock)
 
@@ -293,9 +235,11 @@ First, the unlocking script is executed, using the stack execution engine. If th
 
 [Combining scriptSig and scriptPubKey to evaluate a transaction script](#scriptSig_and_scriptPubKey) is an example of the unlocking and locking scripts for the most common type of Bitcoin Cash transaction (a payment to a public key hash), showing the combined script resulting from the concatenation of the unlocking and locking scripts prior to script validation.
 
+<anchor name="scriptSig_and_scriptPubKey"></anchor>
+<spacer></spacer>
 ![scriptSig_and_scriptPubKey](../img/mastering-bitcoin-cash/msbt_0501.png)
-
-Figure 1. Combining scriptSig and scriptPubKey to evaluate a transaction script
+<image-caption>Figure 1. Combining scriptSig and scriptPubKey to evaluate a transaction script</image-caption>
+<spacer></spacer>
 
 #### Scripting Language
 
@@ -331,13 +275,15 @@ The validation software combines the locking and unlocking scripts and the resul
 
 As we saw in the step-by-step example in [Bitcoin Cash’s script validation doing simple math](#simplemath_script), when this script is executed, the result is OP_TRUE, making the transaction valid. Not only is this a valid transaction output locking script, but the resulting UTXO could be spent by anyone with the arithmetic skills to know that the number 2 satisfies the script.
 
-![TxScriptSimpleMathExample](../img/mastering-bitcoin-cash/msbt_0502.png)
+<anchor name="simplemath_script"></anchor>
+<spacer></spacer>
+![TxScriptSimpleMathExample](/images/mastering-bitcoin-cash/msbt_0502.png)
+<image-caption>Figure 2. Bitcoin Cash’s script validation doing simple math</image-caption>
+<spacer></spacer>
 
-Figure 2. Bitcoin Cash’s script validation doing simple math
-
-Tip
-
-Transactions are valid if the top result on the stack is TRUE (noted as &#x7b;0x01&#x7d;), any other non-zero value or if the stack is empty after script execution. Transactions are invalid if the top value on the stack is FALSE (a zero-length empty value, noted as &#x7b;&#x7d;) or if script execution is halted explicitly by an operator, such as OP_VERIFY, OP_RETURN, or a conditional terminator such as OP_ENDIF.
+<tip>
+  Transactions are valid if the top result on the stack is TRUE (noted as &#x7b;0x01&#x7d;), any other non-zero value or if the stack is empty after script execution. Transactions are invalid if the top value on the stack is FALSE (a zero-length empty value, noted as &#x7b;&#x7d;) or if script execution is halted explicitly by an operator, such as OP_VERIFY, OP_RETURN, or a conditional terminator such as OP_ENDIF.
+</tip>
 
 #### Turing Incompleteness
 
@@ -378,9 +324,11 @@ When executed, this combined script will evaluate to TRUE if, and only if, the u
 
 Figures and show (in two parts) a step-by-step execution of the combined script, which will prove this is a valid transaction.
 
-![Tx_Script_P2PubKeyHash_1](../img/mastering-bitcoin-cash/msbt_0503.png)
-
-Figure 3. Evaluating a script for a P2PKH transaction (Part 1 of 2)
+<anchor name="script_p2pkh"></anchor>
+<spacer></spacer>
+![Tx_Script_P2PubKeyHash_1](/images/mastering-bitcoin-cash/msbt_0503.png)
+<image-caption>Figure 3. Evaluating a script for a P2PKH transaction (Part 1 of 2)</image-caption>
+<spacer></spacer>
 
 #### Pay-to-Public-Key
 
@@ -400,9 +348,11 @@ The combined script, which is validated by the transaction validation software, 
 
 This script is a simple invocation of the CHECKSIG operator, which validates the signature as belonging to the correct key and returns TRUE on the stack.
 
-![Tx_Script_P2PubKeyHash_2](../img/mastering-bitcoin-cash/msbt_0504.png)
-
-Figure 4. Evaluating a script for a P2PKH transaction (Part 2 of 2)
+<anchor name="script_p2pkh2"></anchor>
+<spacer></spacer>
+![Tx_Script_P2PubKeyHash_2](/imagesmastering-bitcoin-cash/msbt_0504.png)
+<image-caption>Figure 4. Evaluating a script for a P2PKH transaction (Part 2 of 2)</image-caption>
+<spacer></spacer>
 
 #### Multi-Signature
 
@@ -440,7 +390,7 @@ Bitcoin Cash’s distributed and timestamped ledger, the blockchain, has potenti
 
 The use of Bitcoin Cash’s blockchain to store data unrelated to Bitcoin Cash payments is a controversial subject. Many developers consider such use abusive and want to discourage it. Others view it as a demonstration of the powerful capabilities of blockchain technology and want to encourage such experimentation. Those who object to the inclusion of non-payment data argue that it causes "blockchain bloat," burdening those running full Bitcoin Cash nodes with carrying the cost of disk storage for data that the blockchain was not intended to carry. Moreover, such transactions create UTXO that cannot be spent, using the destination Bitcoin Cash address as a free-form 20-byte field. Because the address is used for data, it doesn’t correspond to a private key and the resulting UTXO can _never_ be spent; it’s a fake payment. These transactions that can never be spent are therefore never removed from the UTXO set and cause the size of the UTXO database to forever increase, or "bloat."
 
-A compromise was reached with the introduction of the OP_RETURN operator. OP_RETURN allows developers to add 220 bytes of nonpayment data to a transaction output. However, unlike the use of "fake" UTXO, the OP_RETURN operator creates an explicitly _provably unspendable_ output, which does not need to be stored in the UTXO set. OP_RETURN outputs are recorded on the blockchain, so they consume disk space and contribute to the increase in the blockchain’s size, but they are not stored in the UTXO set and therefore do not bloat the UTXO memory pool and burden full nodes with the cost of more expensive RAM.
+A compromise was reached with the introduction of the OP*RETURN operator. OP_RETURN allows developers to add 220 bytes of nonpayment data to a transaction output. However, unlike the use of "fake" UTXO, the OP_RETURN operator creates an explicitly \_provably unspendable* output, which does not need to be stored in the UTXO set. OP_RETURN outputs are recorded on the blockchain, so they consume disk space and contribute to the increase in the blockchain’s size, but they are not stored in the UTXO set and therefore do not bloat the UTXO memory pool and burden full nodes with the cost of more expensive RAM.
 
 OP_RETURN scripts look like this:
 
@@ -448,19 +398,19 @@ OP_RETURN <data>
 
 The data portion is limited to 220 bytes and most often represents a hash, such as the output from the SHA256 algorithm (32 bytes). Many applications put a prefix in front of the data to help identify the application per the [Terab 4-byte prefix guideline for OP_RETURN on Bitcoin Cash](https://github.com/Lokad/Terab/blob/master/spec/opreturn-prefix-guideline.md).
 
-Keep in mind that there is no "unlocking script" that corresponds to OP_RETURN that could possibly be used to "spend" an OP_RETURN output. The whole point of OP_RETURN is that you can’t spend the money locked in that output, and therefore it does not need to be held in the UTXO set as potentially spendable—OP_RETURN is _provably un-spendable_. OP_RETURN is usually an output with a zero Bitcoin Cash amount, because any Bitcoin Cash assigned to such an output is effectively lost forever. If an OP_RETURN is encountered by the script validation software, it results immediately in halting the execution of the validation script and marking the transaction as invalid. Thus, if you accidentally reference an OP_RETURN output as an input in a transaction, that transaction is invalid.
+Keep in mind that there is no "unlocking script" that corresponds to OP*RETURN that could possibly be used to "spend" an OP_RETURN output. The whole point of OP_RETURN is that you can’t spend the money locked in that output, and therefore it does not need to be held in the UTXO set as potentially spendable—OP_RETURN is \_provably un-spendable*. OP_RETURN is usually an output with a zero Bitcoin Cash amount, because any Bitcoin Cash assigned to such an output is effectively lost forever. If an OP_RETURN is encountered by the script validation software, it results immediately in halting the execution of the validation script and marking the transaction as invalid. Thus, if you accidentally reference an OP_RETURN output as an input in a transaction, that transaction is invalid.
 
 A standard transaction (one that conforms to the isStandard() checks) can have only one OP_RETURN output. However, a single OP_RETURN output can be combined in a transaction with outputs of any other type.
 
-Note
-
-OP_RETURN was initially proposed with a limit of 80 bytes, but the limit was raised to 220 bytes of data on the May 15th 2018 BCH network upgrade.
+<tip nature="note">
+  OP_RETURN was initially proposed with a limit of 80 bytes, but the limit was raised to 220 bytes of data on the May 15th 2018 BCH network upgrade.
+</tip>
 
 #### Pay-to-Script-Hash (P2SH)
 
 Pay-to-script-hash (P2SH) was introduced in 2012 as a powerful new type of transaction that greatly simplifies the use of complex transaction scripts. To explain the need for P2SH, let’s look at a practical example.
 
-In [What is Bitcoin Cash](what-is-bitcoin-cash.html) we introduced Mohammed, an electronics importer based in Dubai. Mohammed’s company uses Bitcoin Cash’s multi-signature feature extensively for its corporate accounts. Multi-signature scripts are one of the most common uses of Bitcoin Cash’s advanced scripting capabilities and are a very powerful feature. Mohammed’s company uses a multi-signature script for all customer payments, known in accounting terms as "accounts receivable," or AR. With the multi-signature scheme, any payments made by customers are locked in such a way that they require at least two signatures to release, from Mohammed and one of his partners or from his attorney who has a backup key. A multi-signature scheme like that offers corporate governance controls and protects against theft, embezzlement, or loss.
+In [What is Bitcoin Cash](/mastering-bitcoin-cash/1-what-is-bitcoin-cash/) we introduced Mohammed, an electronics importer based in Dubai. Mohammed’s company uses Bitcoin Cash’s multi-signature feature extensively for its corporate accounts. Multi-signature scripts are one of the most common uses of Bitcoin Cash’s advanced scripting capabilities and are a very powerful feature. Mohammed’s company uses a multi-signature script for all customer payments, known in accounting terms as "accounts receivable," or AR. With the multi-signature scheme, any payments made by customers are locked in such a way that they require at least two signatures to release, from Mohammed and one of his partners or from his attorney who has a backup key. A multi-signature scheme like that offers corporate governance controls and protects against theft, embezzlement, or loss.
 
 The resulting script is quite long and looks like this:
 
@@ -472,29 +422,26 @@ Pay-to-script-hash (P2SH) was developed to resolve these practical difficulties 
 
 In P2SH transactions, the locking script that is replaced by a hash is referred to as the _redeem script_ because it is presented to the system at redemption time rather than as a locking script. [Complex script without P2SH](#without_p2sh) shows the script without P2SH and [Complex script as P2SH](#with_p2sh) shows the same script encoded with P2SH.
 
-Table 4. Complex script without P2SH
+<anchor name="without_p2sh"></anchor>
+<spacer></spacer>
 
-Locking Script
+**Locking Script**: 2 PubKey1 PubKey2 PubKey3 PubKey4 PubKey5 5 OP_CHECKMULTISIG
+**Unlocking Script**: Sig1 Sig2
 
-2 PubKey1 PubKey2 PubKey3 PubKey4 PubKey5 5 OP_CHECKMULTISIG
+<spacer size="small"></spacer>
+<table-caption>Table 4. Complex script without P2SH</table-caption>
+<spacer></spacer>
 
-Unlocking Script
+<anchor name="without_p2sh"></anchor>
+<spacer></spacer>
 
-Sig1 Sig2
+**Redeem Script**: 2 PubKey1 PubKey2 PubKey3 PubKey4 PubKey5 5 OP_CHECKMULTISIG
+**Locking Script**: OP_HASH160 <20-byte hash of redeem script> OP_EQUAL
+**Unlocking Script**: Sig1 Sig2 redeem script
 
-Table 5. Complex script as P2SH
-
-Redeem Script
-
-2 PubKey1 PubKey2 PubKey3 PubKey4 PubKey5 5 OP_CHECKMULTISIG
-
-Locking Script
-
-OP_HASH160 <20-byte hash of redeem script> OP_EQUAL
-
-Unlocking Script
-
-Sig1 Sig2 redeem script
+<spacer size="small"></spacer>
+<table-caption>Table 5. Complex script as P2SH</table-caption>
+<spacer></spacer>
 
 As you can see from the tables, with P2SH the complex script that details the conditions for spending the output (redeem script) is not presented in the locking script. Instead, only a hash of it is in the locking script and the redeem script itself is presented later, as part of the unlocking script when the output is spent. This shifts the burden in fees and complexity from the sender to the recipient (spender) of the transaction.
 
