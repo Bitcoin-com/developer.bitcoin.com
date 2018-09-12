@@ -13,7 +13,7 @@ import H2 from 'atoms/H2'
 import H1 from 'atoms/H1'
 import Button from 'atoms/Button'
 import Code from 'atoms/Code'
-import Input from 'atoms/Input';
+import Input from 'atoms/Input'
 import StyledLink from 'atoms/StyledLink'
 
 import media from 'styles/media'
@@ -24,7 +24,16 @@ import TechBannerImg from 'images/tech-banner.jpg'
 import LearnThumbImg from 'images/learn-thumb.jpg'
 import DevelopThumbImg from 'images/develop-thumb.jpg'
 
-import { FaCube, FaCogs, FaCreditCard, FaCartPlus, FaReddit, FaTwitter, FaFacebook, FaLinkedin } from 'react-icons/fa'
+import {
+  FaCube,
+  FaCogs,
+  FaCreditCard,
+  FaCartPlus,
+  FaReddit,
+  FaTwitter,
+  FaFacebook,
+  FaLinkedin,
+} from 'react-icons/fa'
 
 const HeroLayout = styled.div`
   display: grid;
@@ -83,7 +92,7 @@ const GetStartedLayout = styled.div`
   margin-bottom: ${spacing.medium};
   ${media.medium`
     grid-template-columns: .5fr .5fr;
-  `}
+  `};
 `
 
 const StartedInfo = styled.div`
@@ -97,7 +106,6 @@ const StartedInfo = styled.div`
   grid-template-rows: min-content min-content 1fr min-content;
   justify-items: center;
   grid-gap: ${spacing.medium};
-
 `
 
 const BubbleImg = styled.img`
@@ -115,8 +123,7 @@ const ShareLayout = styled.div`
   margin-bottom: ${spacing.large};
   ${media.medium`
     grid-template-columns: .5fr .5fr;
-  `}
-
+  `};
 `
 
 const EmailCTA = styled.div`
@@ -124,8 +131,7 @@ const EmailCTA = styled.div`
   grid-gap: ${spacing.small};
 `
 
-const ShareCTA = styled.div`
-`
+const ShareCTA = styled.div``
 
 const SocialLinks = H2.extend`
   justify-content: end;
@@ -133,20 +139,21 @@ const SocialLinks = H2.extend`
   grid-template-columns: min-content min-content min-content min-content;
   grid-template-rows: 1fr;
   grid-gap: ${spacing.small};
-
 `
 
 type Props = {
-  location: Object
+  location: Object,
 }
 
-const IndexPage = ({location}: Props) => (
+const IndexPage = ({ location }: Props) => (
   <DefaultLayout location={location}>
     <Hero image={HeroImg}>
       <HeroLayout>
         <HeroBlurbLayout>
           <H3 primary> Bitcoin.com Developer Platform</H3>
-          <H1 background>Change the world with <br/> Bitcoin Cash</H1>
+          <H1 background>
+            Change the world with <br /> Bitcoin Cash
+          </H1>
           <H3 background>Developer Tooling, Cloud, and Market</H3>
           <HeroButtonLayout>
             <StyledLink to="/bitbox">
@@ -162,7 +169,7 @@ const IndexPage = ({location}: Props) => (
             <FaCube />
             &nbsp; BITBOX SDK
           </H3>
-          <Text background>39,000+ downloads</Text>
+          <Text background>42,000+ downloads</Text>
 
           <Text background>100+ countries</Text>
 
@@ -238,10 +245,10 @@ const IndexPage = ({location}: Props) => (
       </FeaturesLayout>
     </Container>
     <Hero image={TechBannerImg}>
-        <H2 background isTitle>
-          Get Started Today!
-        </H2>
-        <GetStartedLayout>
+      <H2 background isTitle>
+        Get Started Today!
+      </H2>
+      <GetStartedLayout>
         <StartedInfo>
           <H3>Learn</H3>
           <BubbleImg src={LearnThumbImg} />
@@ -250,34 +257,44 @@ const IndexPage = ({location}: Props) => (
             apps. Tutorials, blog posts, video streams and code snippets to help
             you go from being a hobbyist to a professional step by step.
           </Text>
-          <StyledLink to='/learn'><Button round>Learn</Button></StyledLink>
+          <StyledLink to="/learn">
+            <Button round>Learn</Button>
+          </StyledLink>
         </StartedInfo>
         <StartedInfo>
           <H3>Develop</H3>
           <BubbleImg src={DevelopThumbImg} />
           <Text>
-          With the power of Bitcoin Cash, the ease of BITBOX and the Bitcoin.com developer platform, you’ll create your most innovative apps ever.
+            With the power of Bitcoin Cash, the ease of BITBOX and the
+            Bitcoin.com developer platform, you’ll create your most innovative
+            apps ever.
           </Text>
-          <StyledLink to='/develop'><Button round style={{alignSelf: 'end'}}>Develop</Button></StyledLink>
+          <StyledLink to="/develop">
+            <Button round style={{ alignSelf: 'end' }}>
+              Develop
+            </Button>
+          </StyledLink>
         </StartedInfo>
       </GetStartedLayout>
     </Hero>
 
     <Container>
-      <ShareLayout >
+      <ShareLayout>
         <EmailCTA>
           <H3>Don’t miss out on updates</H3>
-          <Input placeholder='Name...' />
-          <Input placeholder='Email...' />
-          <Button primary round>Sign up</Button>
+          <Input placeholder="Name..." />
+          <Input placeholder="Email..." />
+          <Button primary round>
+            Sign up
+          </Button>
         </EmailCTA>
         <ShareCTA>
           <H3 right>Share on... </H3>
           <SocialLinks>
-            <FaReddit/ >
-            <FaTwitter/>
-            <FaFacebook/>
-            <FaLinkedin/>
+            <FaReddit />
+            <FaTwitter />
+            <FaFacebook />
+            <FaLinkedin />
           </SocialLinks>
         </ShareCTA>
       </ShareLayout>
