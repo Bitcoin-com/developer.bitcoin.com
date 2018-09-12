@@ -1,5 +1,6 @@
 ---
 title: Hello World
+author: Gabriel Cardona
 publishedAt: 2018-07-06
 updatedAt: 2018-07-06
 ---
