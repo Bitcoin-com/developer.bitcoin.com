@@ -246,8 +246,8 @@ The efficiency of merkle trees becomes obvious as the scale increases. [Merkle t
 <anchor name="block_structure"></anchor>
 <spacer></spacer>
 
-| Number of Transcations | Approx. size of block | Path size (hashes) | Path size (bytes) |     |
-| :--------------------- | :-------------------- | :----------------- | :---------------- | --- |
+| Number of Transcations | Approx. size of block | Path size (hashes) | Path size (bytes) |
+| :--------------------- | :-------------------- | :----------------- | :---------------- |
 | 16 Tx                  | 4 Kilobytes           | 4 hashes           | 128 bytes         |
 | 512 Tx                 | 128 Kilobytes         | 9 hashes           | 288 bytes         |
 | 2048 Tx                | 512 Kilobytes         | 11 hashes          | 352 bytes         |
