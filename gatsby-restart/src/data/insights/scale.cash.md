@@ -12,9 +12,9 @@ Bitcoin Cash is uniquely suited to be the business friendly blockchain. It has c
 
 [@SpendBCH_io](https://twitter.com/SpendBCH_io) created [Scale.cash](https://www.scale.cash), powered by [BITBOX](/bitbox), to allow anyone to be able to participate on Stress Test Day. You simply send some BCH to a newly generated address and scale.cash takes care of the rest. You can send tens of thousands of on-chain Bitcoin Cash Transactions per hour with no more effort than scanning a QR code.
 
-[![Stresstest logo](../img/insights/scale-1.png)](https://stresstestbitcoin.cash)
+[![Stresstest logo](/images/scale-1.png)](https://stresstestbitcoin.cash)
 
-[![scale.cash logo](../img/insights/scale-logo.png)](https://www.scale.cash)
+[![scale.cash logo](/images/scale-logo.png)](https://www.scale.cash)
 
 ---
 
@@ -24,7 +24,7 @@ Bitcoin Cash is uniquely suited to be the business friendly blockchain. It has c
 
 SpendBCH deserves credit for making scale.cash extremely easy to use. The first time you show up simply click a 'Create New Wallet' button. This will create a new wallet which is local to your browser. This wallet is completely new and has never been seen or used by anyone before. It was created specifically for you to use for scale.cash.
 
-![](../img/insights/scale-3.png)
+![](/images/scale-3.png)
 
 After you click 'Create New Wallet', [Scale.cash](https://www.scale.cash) will create an address and QR code for you to deposit satoshis. Notice the prompt to save the following information:
 
@@ -35,7 +35,7 @@ After you click 'Create New Wallet', [Scale.cash](https://www.scale.cash) will c
 
 Your wallet is only ever accessed locally and all transactions are signed by your own computer, so it can be valuable to back that data up in some way.
 
-![](../img/insights/scale-4.png)
+![](/images/scale-4.png)
 
 ---
 
@@ -45,19 +45,19 @@ Download a [Bitcoin Cash Wallet](https://wallet.bitcoin.com/) and scan the QR co
 
 In this example we're using the bitcoin.com mobile iOS wallet. We sent $1 and it created txid [1467afce1d35fa4ada2feaeb1beba0573971783e2d1af271e3d6e9a4c660afa1](https://explorer.bitcoin.com/bch/tx/1467afce1d35fa4ada2feaeb1beba0573971783e2d1af271e3d6e9a4c660afa1).
 
-![bitcoin.com ios wallet shot 1](/images/insights/scale-5.png)
+![bitcoin.com ios wallet shot 1](/images/scale-5.png)
 
-![bitcoin.com ios wallet shot 2](/images/insights/scale-6.png)
+![bitcoin.com ios wallet shot 2](/images/scale-6.png)
 
 Once your funding transaction has been sent go back to scale.cash and click the 'Refresh Balance' button. This will check the blockchain for your balance and show it on screen. In this example we have 181,274 satoshis for this stress test.
 
-![Refresh Balance 1](/images/insights/scale-7.png)
+![Refresh Balance 1](/images/scale-7.png)
 
-![Refresh Balance 2](/images/insights/scale-8.png)
+![Refresh Balance 2](/images/scale-8.png)
 
 Note that it shows how many transactions will be created. Also it gives you the option to donate any dust or change satoshis to [@eatBCH](https://twitter.com/eatBCH). At the bottom you'll see "Mempool Size" and "Your Total TX Sent." As your transactions are broadcast you'll see these numbers increase.
 
-![Mempool Size](/images/insights/scale-9.png)
+![Mempool Size](/images/scale-9.png)
 
 ---
 
@@ -65,21 +65,21 @@ Note that it shows how many transactions will be created. Also it gives you the 
 
 We're ready to launch the stress test. Click the 'Start Stresstest' button to create the first 'fan out' transaction, called so because it fans out from 1 input to many outputs. Here you can see it's a 1-to-28 w/ txid [5730e2faf7e8c0dd6a6c58c77c7889315a83c2a7765f7bd56033ba37a504878a](https://explorer.bitcoin.com/bch/tx/5730e2faf7e8c0dd6a6c58c77c7889315a83c2a7765f7bd56033ba37a504878a)
 
-![Start Stresstest](/images/insights/scale-10.png)
+![Start Stresstest](/images/scale-10.png)
 
-![fan out txid](/images/insights/scale-11.png)
+![fan out txid](/images/scale-11.png)
 
 **PLEASE BE AWARE that your fan-out transction requires 1 confirmation before the rest of your transactions will begin to broadcast**. After the fan out transaction gets confirmed in 1 block scale.cash will begin sending out transactions in batches of 20 at 500txs per minute.
 
-![Waiting for txs to configm](/images/insights/scale-13.png)
+![Waiting for txs to configm](/images/scale-13.png)
 
 You'll see the "Mempool Size" and "Your Total TX Sent" numbers climbing while scale.cash sends out txs. Each transaction will contain an `OP_RETURN` with `stresstestbitcoin.cash`.
 
-![](/images/insights/scale-12.png)
+![](/images/scale-12.png)
 
 Notice the last message, we still have 3 transactions remaining before the stress test can complete. The last few require one confirmation and will [consolidate the utxo back to a single output](https://explorer.bitcoin.com/bch/tx/2dd7613cd53dd1997e296691a01993af5b63edf8b7f4c9252e60d1a2cfc82df2) and (optionally) donate your dust and change to EatBCH. If the donation box is not checked, the remaining dust and change will be returned to your scale.cash wallet.
 
-![](/images/insights/scale-14.png)
+![](/images/scale-14.png)
 
 ---
 
@@ -91,7 +91,7 @@ Scale.cash is a great example of an app which is powered by [BITBOX](/bitbox). I
 bitbox new scale.cash --scaffold react
 ```
 
-![new BITBOX app](/images/insights/scale-15.png)
+![new BITBOX app](/images/scale-15.png)
 
 #### mnemonic
 
@@ -168,7 +168,7 @@ this.signature = BITBOX.BitcoinCash.signMessageWithPrivKey(
 
 This is useful if you want to prove ownership of this address. You can share the **address**, **Message** and **Message Signature Proof** and using a tool like BITBOX GUI prove ownership.
 
-![BITBOX GUI](/images/insights/scale-16.png)
+![BITBOX GUI](/images/scale-16.png)
 
 Or you can verify ownership with `bitbox-cli`.
 
@@ -228,27 +228,27 @@ If a problem occurs during a running stress test, funds can be recovered with th
 
 Start by clicking File -> New/Restore to launch the 'Install Wizard'. Name the wallet anything you like. Electron Cash suggested wallet_1 here. Click next to choose the wallet type.
 
-![Fund recovery step 1](/images/insights/scale-recovery-1.png)
+![Fund recovery step 1](/images/scale-recovery-1.png)
 
 Select 'Standard wallet'. Click next to choose your restore option.
 
-![Fund recovery step 2](/images/insights/scale-recovery-2.png)
+![Fund recovery step 2](/images/scale-recovery-2.png)
 
 Select 'I already have a seed'. The seed referred to here is your mnemonic saved from scale.cash. Click next.
 
-![Fund recovery step 3](/images/insights/scale-recovery-3.png)
+![Fund recovery step 3](/images/scale-recovery-3.png)
 
 Paste your mnemonic from scale.cash into the textbox. Click options and ensure you check 'BIP39 seed' then click OK. If it does not say 'BIP39 (checksum: ok)' look for and fix any letters missing from the words.
 
-![Fund recovery step 4](/images/insights/scale-recovery-4.png)
+![Fund recovery step 4](/images/scale-recovery-4.png)
 
 The default derivation is for Bitcoin Cash addresses. Click Next.
 
-![Fund recovery step 5](/images/insights/scale-recovery-5.png)
+![Fund recovery step 5](/images/scale-recovery-5.png)
 
 Your scale.cash wallet should now be ready for use in Electron Cash. The History tab will show the transactions made by scale.cash. Now you can recover your coins with the Send tab.
 
-![Fund recovery step 6](/images/insights/scale-recovery-6.png)
+![Fund recovery step 6](/images/scale-recovery-6.png)
 
 ---
 
@@ -258,4 +258,4 @@ Bitcoin Cash is uniquely suited to be the business friendly blockchain. It has c
 
 Scale.cash is the perfect example of an app which was bootstrapped with BITBOX scaffolds and then built leveraging mnemonics, HDNodes, ECPairs, signing messages, creating transactions, writing to the blockchain with `OP_RETURN` and calling BITBOX REST.
 
-[![](/images/insights/scale-logo.png)](https://www.scale.cash)
+[![](/images/scale-logo.png)](https://www.scale.cash)
