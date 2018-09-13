@@ -10,7 +10,7 @@ updatedAt: 2018-07-06
 
 Bitcoin Cash is uniquely suited to be the business friendly blockchain. It has capacity and scale on demand while keeping fees consistently low. The recently announced [Stress Test Day](https://stresstestbitcoin.cash/) is a community driven effort to create 5 million on-chain transactions on Sept 1st with the aim of showing the world that Bitcoin Cash is ready for prime time.
 
-[@SpendBCH_io](https://twitter.com/SpendBCH_io) created [Scale.cash](https://www.scale.cash), powered by [BITBOX](../bitbox.html), to allow anyone to be able to participate on Stress Test Day. You simply send some BCH to a newly generated address and scale.cash takes care of the rest. You can send tens of thousands of on-chain Bitcoin Cash Transactions per hour with no more effort than scanning a QR code.
+[@SpendBCH_io](https://twitter.com/SpendBCH_io) created [Scale.cash](https://www.scale.cash), powered by [BITBOX](/bitbox), to allow anyone to be able to participate on Stress Test Day. You simply send some BCH to a newly generated address and scale.cash takes care of the rest. You can send tens of thousands of on-chain Bitcoin Cash Transactions per hour with no more effort than scanning a QR code.
 
 [![Stresstest logo](../img/insights/scale-1.png)](https://stresstestbitcoin.cash)
 
