@@ -21,13 +21,15 @@ You can also paste in a private key in Wallet Import Format (WIF) to generate ca
 
 We’re using [bchaddr.js](https://github.com/bitcoincashjs/bchaddrjs) along w/ [qrcode.react](https://github.com/zpao/qrcode.react).
 
-    let wif = 'L3npdkC5BkLZP2d6orb5ZefXYZFzkiteDB5okSgyuYJeGXLH3QNA';
-            let ecpair = BITBOX.ECPair.fromWIF(wif);
-            let cashaddr = BITBOX.ECPair.toCashAddress(ecpair);
-            let base58Check = BITBOX.ECPair.toLegacyAddress(ecpair);
-            let cashaddrQR = <QRCode value={cashaddr} />;
-            let base58CheckQR = <QRCode value={base58Check} />;
-            let wifQR = <QRCode value={wif} />;
+```javascript
+let wif = 'L3npdkC5BkLZP2d6orb5ZefXYZFzkiteDB5okSgyuYJeGXLH3QNA'
+let ecpair = BITBOX.ECPair.fromWIF(wif)
+let cashaddr = BITBOX.ECPair.toCashAddress(ecpair)
+let base58Check = BITBOX.ECPair.toLegacyAddress(ecpair)
+let cashaddrQR = <QRCode value={cashaddr} />
+let base58CheckQR = <QRCode value={base58Check} />
+let wifQR = <QRCode value={wif} />
+```
 
 ### Sending actual funds
 
