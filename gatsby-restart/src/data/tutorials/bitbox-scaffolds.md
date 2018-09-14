@@ -12,7 +12,7 @@ When creating a new application on any platform too much time is spent setting e
 #### Setup
 
 1.  [Install `bitbox-cli`](https://www.npmjs.com/package/bitbox-cli) globally
-    - `npm install bitbox-cli --global`
+    `npm install bitbox-cli --global`
 
 ### React
 
@@ -21,17 +21,17 @@ To quickly create a [React app w/ BITBOX web bindings](https://github.com/Bitcoi
 #### Setup
 
 1.  Scaffold a React app w/ BITBOX web bindings
-    - `bitbox new myApp --scaffold react`
-2.  `cd` into new app
-    - `cd myApp/`
-3.  Install dependencies
-    - `npm install`
-4.  Start the app
-    - `npm start`
+    `bitbox new myApp --scaffold react`
+2.  `cd` into new app  
+    `cd myApp/`
+3.  Install dependencies  
+    `npm install`
+4.  Start the app  
+    `npm start`
 5.  Open a browser to `http://localhost:3000/` and confirm you are seeing a basic BIP44 wallet
 6.  Win
 
-![Hello BITBOX](../img/tutorials/bip44.png)
+![Hello BITBOX](/images/bip44.png)
 
 ### Angular
 
@@ -40,17 +40,17 @@ To quickly create an [Angular app w/ BITBOX web bindings](https://github.com/Bit
 #### Setup
 
 1.  Scaffold an Angular app w/ BITBOX web bindings
-    - `bitbox new myApp --scaffold angular`
+    `bitbox new myApp --scaffold angular`
 2.  `cd` into new app
-    - `cd myApp/`
+    `cd myApp/`
 3.  Install dependencies
-    - `npm install`
+    `npm install`
 4.  Start the app
-    - `npm start`
+    `npm start`
 5.  Open a browser to `http://localhost:4200/` and confirm you are seeing a basic BIP44 wallet
 6.  Win
 
-![Hello BITBOX](../img/tutorials/bip44.png)
+![Hello BITBOX](/images/bip44.png)
 
 ### Node
 
@@ -59,25 +59,27 @@ To quickly create a [Node JS app w/ BITBOX bindings](https://github.com/Bitcoin-
 #### Setup
 
 1.  Scaffold a NodeJS app w/ BITBOX bindings
-    - `bitbox new myApp --scaffold node`
+    `bitbox new myApp --scaffold node`
 2.  `cd` into new app
-    - `cd myApp/`
+    `cd myApp/`
 3.  Install dependencies
-    - `npm install`
+    `npm install`
 4.  Start the app
-    - `npm start`
+    `npm start`
 5.  Confirm you are seeing a basic BIP44 wallet
 6.  Win
 
-![Hello BITBOX](../img/tutorials/nodebip44.png)
+![Hello BITBOX](/images/nodebip44.png)
 
 ### Config
 
 By default your new app will connect to BITBOX Cloud over [REST](https://rest.bitcoin.com/). If you want to connect to your own REST services pass in a config object when instantiating `bitbox-cli`.
 
-    let BITBOX = new BITBOXCli({
-              restURL: 'my-rest-url'
-            });
+```
+let BITBOX = new BITBOXCli({
+    restURL: 'my-rest-url'
+});
+```
 
 ### Summary
 
