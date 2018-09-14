@@ -17,7 +17,7 @@ You can sign a message w/ any address in your BITBOX. It doesnâ€™t matter if itâ
 
 ![Converter](https://bigearth.github.io/bitblog/assets/verify-cashaddr.png)
 
-You can share this message, address and signature w/ anyone and they can verify that you are the owner of that address.
+You can share this message, address and signature with anyone and they can verify that you are the owner of that address.
 
 ### Verify a message
 
@@ -35,10 +35,21 @@ BITBOX supports the entire Bitcoin Cash RPC. [`bitbox-cli`](https://www.npmjs.co
 
 #### Sign
 
-    BITBOX.BitcoinCash.signMessageWithPrivKey('KxtpRDUJDiutLaTV8Vuavhb6h7zq9YV9ZKA3dU79PCgYmNVmkkvS', "EARTH");
-             // IIYVhlo2Z6TWFjYX1+YM+7vQKz0m+zYdSe4eYpFLuAQDEZXqll7lZC8Au22VI2LLP5x+IerZckVk3QQPsA3e8/8=
+```javascript
+BITBOX.BitcoinCash.signMessageWithPrivKey(
+  'KxtpRDUJDiutLaTV8Vuavhb6h7zq9YV9ZKA3dU79PCgYmNVmkkvS',
+  'EARTH'
+)
+// IIYVhlo2Z6TWFjYX1+YM+7vQKz0m+zYdSe4eYpFLuAQDEZXqll7lZC8Au22VI2LLP5x+IerZckVk3QQPsA3e8/8=
+```
 
 #### Verify
 
-    BITBOX.BitcoinCash.verifyMessage('bitcoincash:qp2zvw3zpk5xx43w4tve7mtekd9kaxwj4uenq9eupv', 'IIYVhlo2Z6TWFjYX1+YM+7vQKz0m+zYdSe4eYpFLuAQDEZXqll7lZC8Au22VI2LLP5x+IerZckVk3QQPsA3e8/8=', 'EARTH')
-            true
+```javascript
+BITBOX.BitcoinCash.verifyMessage(
+  'bitcoincash:qp2zvw3zpk5xx43w4tve7mtekd9kaxwj4uenq9eupv',
+  'IIYVhlo2Z6TWFjYX1+YM+7vQKz0m+zYdSe4eYpFLuAQDEZXqll7lZC8Au22VI2LLP5x+IerZckVk3QQPsA3e8/8=',
+  'EARTH'
+)
+true
+```

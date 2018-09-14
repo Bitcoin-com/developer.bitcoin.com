@@ -9,7 +9,7 @@ Bitcoin Cash is meant for people all over EARTH. Most of those people don’t sp
 
 ## wordLists
 
-[BITBOX.Mnemonic](/bitbox/docs/mnemonic.html#validate) now has a [wordLists](/bitbox/docs/mnemonic.html#wordLists) method which returns an object w/ the following keys:
+[BITBOX.Mnemonic](/bitbox/docs/mnemonic/#validate) now has a [wordLists](/bitbox/docs/mnemonic/#wordlists) method which returns an object w/ the following keys:
 
 ```javascript
 {
@@ -28,10 +28,10 @@ Each of these keys contains an array w/ 2048 words in that language. 4 `BITBOX.M
 
 The methods which now accepts a `wordslist` argument are
 
-- [generate](/bitbox/docs/mnemonic.html#generate)
-- [fromEntropy](/bitbox/docs/mnemonic.html#fromEntropy)
-- [toEntropy](/bitbox/docs/mnemonic.html#toEntropy)
-- [validate](/bitbox/docs/mnemonic.html#validate)
+- [generate](/bitbox/docs/mnemonic/#generate)
+- [fromEntropy](/bitbox/docs/mnemonic/#fromentropy)
+- [toEntropy](/bitbox/docs/mnemonic/#toentropy)
+- [validate](/bitbox/docs/mnemonic/#validate)
 
 ### Examples
 
