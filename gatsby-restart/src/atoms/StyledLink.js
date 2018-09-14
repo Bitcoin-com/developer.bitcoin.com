@@ -32,11 +32,8 @@ class SmartLink extends React.PureComponent<Props> {
     const { to, href } = rest
 
     const pattern = /^\/(?!\/)/
-    const internal = pattern.test(to) || pattern.test(href)
 
-    console.log(to)
-    console.log(rest)
-    console.log(href)
+    const internal = pattern.test(to) || pattern.test(href)
 
     // Use gatsby-link for internal links, and <a> for others
     if (internal) {

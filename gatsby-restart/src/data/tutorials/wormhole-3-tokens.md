@@ -9,7 +9,7 @@ updatedAt: 2018-07-03
 
 In [post 1](/tutorials/wormhole-1-setup/) we set up your development environment and downloaded the Wormhole SDK. In [post 2](/tutorials/wormhole-2-full-node/) we set up a full Wormhole node and confirmed wormholeREST could speak to it. Finally we're ready to create our own tokens.
 
-Wormhole supports 3 main types of tokens—[fixed supply](#tokenfixed), [managed supply](#tokenmanaged) and [crowdsales](#crowdsale). We'll look at each of those but first let's get some WormholeCash.
+Wormhole supports 3 main types of tokens—[fixed supply](/tutorials/wormhole-3-tokens/#tokenfixed), [managed supply](/tutorials/wormhole-3-tokens/#tokenmanaged) and [crowdsales](/tutorials/wormhole-3-tokens/#crowdsales). We'll look at each of those but first let's get some WormholeCash.
 
 ### Getting WormholeCash
 
@@ -42,6 +42,8 @@ When you call `/v1/dataRetrieval/balancesForAddress` it will return the balances
 Since every Wormhole transaction is just a BCH transaction w/ an `OP_RETURN` each step we're about to do will cost a small amount of BCH for a miner fee. I'm using [walletSendToAddress](http://localhost:3000/#/wallet/walletSendToAddress) to send just enough BCH to each address to cover the miner cost. I'm only showing it once in the screenshot below but I am doing it for each account that I send from.
 
 ![](/images/wormhole-3/wormhole-pt3-4.png)
+
+<anchor name="tokenfixed"></anchor>
 
 ### Token with fixed supply
 
@@ -93,6 +95,8 @@ This creates a txid [e2a68d3a062b3ed95702450d627e5ab2ba034586b11f2a46185728c0cc9
 Any time someone wants to board your time machine all they have to do is send you 1 TMT via `transaction/send`. Also scarcity drives value so a market could spring up around TMT as a greater number of people want to ride in the time machine but the TMT are limited in number.
 
 This works fine but what if someone loses their TMT? With a fixed supply you're unable to create new tokens. For that you need managed supply.
+
+<anchor name="tokenmanaged"></anchor>
 
 ### Token with managed supply
 
@@ -147,6 +151,8 @@ You can now confirm via [dataRetrieval/property](http://localhost:3000/#/dataRet
 ![](/images/wormhole-3/wormhole-pt3-17.png)
 
 Now that we've seen how to issue tokens with a fixed or managed supply let's check out how to launch a crowdsale/ICO.
+
+<anchor name="crowdsales"></anchor>
 
 ### Crowdsale/ICO
 
