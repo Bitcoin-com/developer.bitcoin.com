@@ -23,25 +23,28 @@ type Props = {
   children: React.Node,
   text?: string,
   to: string,
+  href?: string,
 }
 
 class SmartLink extends React.PureComponent<Props> {
   render() {
     const { children, text, ...rest } = this.props
-    const { to } = rest
+    const { to, href } = rest
 
-    const internal = /^\/(?!\/)/.test(to)
+    const pattern = /^\/(?!\/)/
+
+    const internal = pattern.test(to) || pattern.test(href)
 
     // Use gatsby-link for internal links, and <a> for others
     if (internal) {
       return (
-        <StyledLink to={to} {...rest}>
+        <StyledLink to={to || href} {...rest}>
           {text || children}
         </StyledLink>
       )
     }
     return (
-      <StyledA href={to} target="_blank" {...rest}>
+      <StyledA href={to || href} target="_blank" {...rest}>
         {text || children}
       </StyledA>
     )

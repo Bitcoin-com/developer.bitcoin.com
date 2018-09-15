@@ -13,7 +13,9 @@ Today we’re happy to announce that `bitbox-cli` has 100% of the Bitcoin ABC JS
 
 First install `bitbox-cli` via npm
 
-    npm install bitbox-cli --global
+```bash
+npm install bitbox-cli --global
+```
 
 This gives you access to the `bitbox` command line utility.
 
@@ -21,72 +23,96 @@ This gives you access to the `bitbox` command line utility.
 
 You can now have `bitbox` stub out an app scaffold and configuration. Here we’ll have it create a new app and give it the user, password and host of our running Bitcoin ABC node and set the environment to `production`.
 
-    bitbox new myApp
+```bash
+bitbox new myApp
+```
 
 This will create a scaffold directory structure for a new $BCH app along w/ a configuration file which looks like:
 
-    networks: {
-              development: {
-                restURL: "https://rest.bitcoin.com/v1/"
-              }
-            }
+```json
+networks: {
+    development: {
+        restURL: "https://rest.bitcoin.com/v1/"
+    }
+}
+```
 
 ### Console
 
 Now you can fire up `bitbox`’s console to send some commands to your running $BCH node.
 
-    bitbox console
+```bash
+bitbox console
+```
 
 This will load the console and create a `BITBOX` object w/ the entire $BCH JSON RPC available. That `BITBOX` object can send commands to the running Bitcoin ABC node that you configured in the previous step.
 
-    > BITBOX.Network.getNetworkInfo().then((result) => { console.log(result); }, (err) => { console.log(err); });
+```bash
+> BITBOX.Network.getNetworkInfo().then((result) => { console.log(result); }, (err) => { console.log(err); });
 
-            { version: 160200,
-              subversion: '/Bitcoin ABC:0.16.2(EB8.0)/',
-              protocolversion: 70015,
-              localservices: '0000000000000025',
-              localrelay: true,
-              timeoffset: 0,
-              networkactive: true,
-              connections: 15,
-              networks:
-               [ { name: 'ipv4',
-                   limited: false,
-                   reachable: true,
-                   proxy: '',
-                   proxy_randomize_credentials: false },
-                 { name: 'ipv6',
-                   limited: false,
-                   reachable: true,
-                   proxy: '',
-                   proxy_randomize_credentials: false },
-                 { name: 'onion',
-                   limited: true,
-                   reachable: false,
-                   proxy: '',
-                   proxy_randomize_credentials: false } ],
-              relayfee: 0.00001,
-              incrementalfee: 0.00001,
-              localaddresses: [ { address: 'ip.address.of.abc.node', port: 8333, score: 1964 } ],
-              warnings: '' }
+{ version: 160200,
+    subversion: '/Bitcoin ABC:0.16.2(EB8.0)/',
+    protocolversion: 70015,
+    localservices: '0000000000000025',
+    localrelay: true,
+    timeoffset: 0,
+    networkactive: true,
+    connections: 15,
+    networks: [
+        {
+            name: 'ipv4',
+            limited: false,
+            reachable: true,
+            proxy: '',
+            proxy_randomize_credentials: false
+        },
+        {
+            name: 'ipv6',
+            limited: false,
+            reachable: true,
+            proxy: '',
+            proxy_randomize_credentials: false
+        },
+        {
+            name: 'onion',
+            limited: true,
+            reachable: false,
+            proxy: '',
+            proxy_randomize_credentials: false
+        }
+    ],
+    relayfee: 0.00001,
+    incrementalfee: 0.00001,
+    localaddresses: [
+        { address: 'ip.address.of.abc.node', port: 8333, score: 1964 }
+    ],
+    warnings: ''
+}
+```
 
 ### Browser
 
 You can also use `BITBOX` from the browser. First install `bitbox-cli` locally w/ npm.
 
-    npm install bitbox-cli --save
+```bash
+npm install bitbox-cli --save
+```
 
 Next you need to `require` or `import` `BITBOXCli` into your app depending on if your are transpiling ES6 or not. Once you `require` `BITBOXCli` into your app you then create an instance of `BITBOX` and pass in a config object w/ the same values you used at the command line in the previous steps.
 
-    let BITBOXCli = require('bitbox-cli/lib/bitbox-cli').default;
-            let BITBOX = new BITBOXCli();
+```javascript
+let BITBOXCli = require('bitbox-cli/lib/bitbox-cli').default
+let BITBOX = new BITBOXCli()
 
-
-            BITBOX.getnetworkinfo()
-            .then((result) => {
-              console.log(result); },
-              (err) => { console.log(err); }
-            );
+BITBOX.getnetworkinfo().then(
+  result => {
+    console.log(result)
+  },
+  err => {
+    console.log(err)
+  }
+)
+```
 
 Again the entire Bitcoin Cash JSON RPC is available on the `BITBOX` object.
 

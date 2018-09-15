@@ -10,7 +10,7 @@ updatedAt: 2018-07-06
 
 AKARI’s focus is on enabling anyone to begin leveraging the many advantages of Bitcoin Cash and increase their economic freedom. One of the ways they do this is by providing a great experience through free and open-source online crowd-fundraising tools and Bitcoin Cash payment tools such as the website pay/donate buttons and APB.
 
-With the help of [BITBOX](../bitbox.html), AKARI’s unique approach to decentralized micro-crowdfunding and donating tools are helping users reach their Bitcoin Cash funding goals.
+With the help of [BITBOX](/bitbox), AKARI’s unique approach to decentralized micro-crowdfunding and donating tools are helping users reach their Bitcoin Cash funding goals.
 
 ### Creating an Effective Bitcoin Cash Crowdfunding Experience
 
@@ -30,80 +30,80 @@ A really popular feature of the donation pages and payment pages is the progress
 
 ### Code Samples
 
-[BITBOX](../bitbox.html) was fast and easy to interact with compared to other block explorer APIs and has been reliable, “We couldn’t have accomplished what we are doing at AKARI and at the rate that we aim to innovate without the timely help of BITBOX. The main connection was the AJAX function we created which allowed us to provide fundraisers with live updates on their fundraising campaigns. It uses AJAX to make a client-side link between the AKARI page and BITBOX to fetch live details from the crowdfunder's Bitcoin Cash Receiving Address and make live calculations based on that address, such as the percentage of their fundraising goal reached.”
+[BITBOX](/bitbox) was fast and easy to interact with compared to other block explorer APIs and has been reliable, “We couldn’t have accomplished what we are doing at AKARI and at the rate that we aim to innovate without the timely help of BITBOX. The main connection was the AJAX function we created which allowed us to provide fundraisers with live updates on their fundraising campaigns. It uses AJAX to make a client-side link between the AKARI page and BITBOX to fetch live details from the crowdfunder's Bitcoin Cash Receiving Address and make live calculations based on that address, such as the percentage of their fundraising goal reached.
 
-          `var delay = Math.floor(Math.random() * 5000) + 1000;
+```javascript
+var delay = Math.floor(Math.random() * 5000) + 1000;
 
 $.get("front_address.txt", function(address) {
-var bchaddress = address;
-var apiout = "https://rest.bitbox.earth/v1/address/details/"+bchaddress;
-window.apiout = apiout;
+  var bchaddress = address;
+  var apiout = "https://rest.bitbox.earth/v1/address/details/"+bchaddress;
+  window.apiout = apiout;
 });
 
-    $.get("front_goal.txt", function(response) {
-
-var goaltxt = response;
-window.value1 = parseFloat(goaltxt);
+$.get("front_goal.txt", function(response) {
+  var goaltxt = response;
+  window.value1 = parseFloat(goaltxt);
 });
 
-    $.get("front_currentgoalnum.txt", function(currentgoalnum) {
-
-var goalcount = currentgoalnum;
-window.value8 = (goalcount);
+$.get("front_currentgoalnum.txt", function(currentgoalnum) {
+  var goalcount = currentgoalnum;
+  window.value8 = (goalcount);
 });
 
 function polling(func, wait, times){
-var interv = function(w, t){
-return function(){
-if(typeof t === "undefined" || t-- > 0){
-setTimeout(interv, w);
-try{
-func.call(null);
-}
-catch(e){
-t = 0;
-throw e.toString();
-}
-}
-};
-}(wait, times);
-setTimeout(interv, wait);
+  var interv = function(w, t){
+    return function(){
+      if(typeof t === "undefined" || t-- > 0){
+        setTimeout(interv, w);
+        try{
+            func.call(null);
+        }
+        catch(e){
+            t = 0;
+            throw e.toString();
+        }
+      }
+    };
+  }(wait, times);
+  setTimeout(interv, wait);
 };
 
 polling(function(){
-$.ajax({
-type: "GET",
-contentType: 'application/json; charset=utf-8',
-url: window.apiout,
-success: function(data){
-document.getElementById('output').innerHTML = (data.totalReceived);
-var goal = value1;
-var percentage = (Math.floor((data.totalReceived / goal) _ 100));
-var percentofgoal = (Math.floor((data.totalReceived / goal) _ 100)+"%");
+  $.ajax({
+    type: "GET",
+    contentType: 'application/json; charset=utf-8',
+    url: window.apiout,
+    success: function(data){
+      document.getElementById('output').innerHTML = (data.totalReceived);
+      var goal = value1;
+      var percentage = (Math.floor((data.totalReceived / goal) _ 100));
+      var percentofgoal = (Math.floor((data.totalReceived / goal) _ 100)+"%");
 
-     document.getElementById('percent').innerHTML = (percentofgoal);
-     document.getElementById('goal').innerHTML = (goal);
-     document.getElementById('goalcount').innerHTML = (window.value8+' ');
+      document.getElementById('percent').innerHTML = (percentofgoal);
+      document.getElementById('goal').innerHTML = (goal);
+      document.getElementById('goalcount').innerHTML = (window.value8+' ');
 
-var quart = (percentage/4 | 0);
-var total = 100;
-var totalquart = (total/4);
-function repeat(s, n){
-return ((new Array(n+1)).join(s));
-}
-var barcount = (repeat('█', quart));
-var difference = (repeat('█', totalquart-quart));
-document.getElementById('bar').innerHTML = (barcount);
-document.getElementById('barfill').innerHTML = (difference);
-var processing = (data.unconfirmedBalance);
-if (processing > 0) {
-document.getElementById('output1').innerHTML = (data.unconfirmedBalance);
-return false;
-}
-console.log("polling");
-}
-});
-}, delay, 1);`
+      var quart = (percentage/4 | 0);
+      var total = 100;
+      var totalquart = (total/4);
+      function repeat(s, n){
+        return ((new Array(n+1)).join(s));
+      }
+      var barcount = (repeat('█', quart));
+      var difference = (repeat('█', totalquart-quart));
+      document.getElementById('bar').innerHTML = (barcount);
+      document.getElementById('barfill').innerHTML = (difference);
+      var processing = (data.unconfirmedBalance);
+      if (processing > 0) {
+        document.getElementById('output1').innerHTML = (data.unconfirmedBalance);
+        return false;
+      }
+      console.log("polling");
+    }
+  });
+}, delay, 1);
+```
 
 ### Summary
 

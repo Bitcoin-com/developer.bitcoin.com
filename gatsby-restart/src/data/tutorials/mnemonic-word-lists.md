@@ -9,64 +9,80 @@ Bitcoin Cash is meant for people all over EARTH. Most of those people don’t sp
 
 ## wordLists
 
-[BITBOX.Mnemonic](../bitbox/docs/mnemonic.html#validate) now has a [wordLists](../bitbox/docs/mnemonic.html#wordLists) method which returns an object w/ the following keys:
+[BITBOX.Mnemonic](/bitbox/docs/mnemonic/#validate) now has a [wordLists](/bitbox/docs/mnemonic/#wordlists) method which returns an object w/ the following keys:
 
-    {
-              chinese_simplified: [],
-              chinese_traditional: [],
-              english: [],
-              french: [],
-              italian: [],
-              japanese: [],
-              korean: [],
-              spanish: []
-            }
+```javascript
+{
+    chinese_simplified: [],
+    chinese_traditional: [],
+    english: [],
+    french: [],
+    italian: [],
+    japanese: [],
+    korean: [],
+    spanish: []
+}
+```
 
 Each of these keys contains an array w/ 2048 words in that language. 4 `BITBOX.Mnemonic` methods now accept that wordlist as their 2nd argument and will create and validate mnemonics in those languages.
 
 The methods which now accepts a `wordslist` argument are
 
-- [generate](../bitbox/docs/mnemonic.html#generate)
-- [fromEntropy](../bitbox/docs/mnemonic.html#fromEntropy)
-- [toEntropy](../bitbox/docs/mnemonic.html#toEntropy)
-- [validate](../bitbox/docs/mnemonic.html#validate)
+- [generate](/bitbox/docs/mnemonic/#generate)
+- [fromEntropy](/bitbox/docs/mnemonic/#fromentropy)
+- [toEntropy](/bitbox/docs/mnemonic/#toentropy)
+- [validate](/bitbox/docs/mnemonic/#validate)
 
 ### Examples
 
 #### Chinese simplified
 
-    BITBOX.Mnemonic.generate(128, BITBOX.Mnemonic.wordLists().chinese_simplified);
-            // 南 英 钉 油 冷 馏 扶 搬 特 规 波 顺
+```javascript
+BITBOX.Mnemonic.generate(128, BITBOX.Mnemonic.wordLists().chinese_simplified)
+// 南 英 钉 油 冷 馏 扶 搬 特 规 波 顺
+```
 
 #### Chinese traditional
 
-    BITBOX.Mnemonic.generate(128, BITBOX.Mnemonic.wordLists().chinese_traditional);
-            // 蒸 融 陣 默 甲 蓋 躺 靈 原 富 恆 份
+```javascript
+BITBOX.Mnemonic.generate(128, BITBOX.Mnemonic.wordLists().chinese_traditional)
+// 蒸 融 陣 默 甲 蓋 躺 靈 原 富 恆 份
+```
 
 #### French
 
-    BITBOX.Mnemonic.generate(128, BITBOX.Mnemonic.wordLists().french);
-            // annonce ampleur sanglier peser acheter cultiver abroger embellir résoudre dialogue grappin lanterne
+```javascript
+BITBOX.Mnemonic.generate(128, BITBOX.Mnemonic.wordLists().french)
+// annonce ampleur sanglier peser acheter cultiver abroger embellir résoudre dialogue grappin lanterne
+```
 
 #### Italian
 
-    BITBOX.Mnemonic.generate(128, BITBOX.Mnemonic.wordLists().italian);
-            // raschiato comodo petalo lira ipotesi mondina scettro ritmico bacino abrasivo attrito eletto
+```javascript
+BITBOX.Mnemonic.generate(128, BITBOX.Mnemonic.wordLists().italian)
+// raschiato comodo petalo lira ipotesi mondina scettro ritmico bacino abrasivo attrito eletto
+```
 
 #### Japanese
 
-    BITBOX.Mnemonic.generate(128, BITBOX.Mnemonic.wordLists().japanese);
-            // かいが　こける　つねづね　けおりもの　けむり　せんろ　しゃくほう　けんみん　あわせる　ひつぎ　みてい　たいない
+```javascript
+BITBOX.Mnemonic.generate(128, BITBOX.Mnemonic.wordLists().japanese)
+// かいが　こける　つねづね　けおりもの　けむり　せんろ　しゃくほう　けんみん　あわせる　ひつぎ　みてい　たいない
+```
 
 #### Korean
 
-    BITBOX.Mnemonic.generate(128, BITBOX.Mnemonic.wordLists().korean);
-            // 회색 제공 적성 만일 당장 확인 사람 화장 숫자 여군 대도시 하순
+```javascript
+BITBOX.Mnemonic.generate(128, BITBOX.Mnemonic.wordLists().korean)
+// 회색 제공 적성 만일 당장 확인 사람 화장 숫자 여군 대도시 하순
+```
 
 #### Spanish
 
-    BITBOX.Mnemonic.generate(128, BITBOX.Mnemonic.wordLists().spanish);
-            // combate hundir trauma edad élite medio grave pie aduana donar pimienta bodega
+```javascript
+BITBOX.Mnemonic.generate(128, BITBOX.Mnemonic.wordLists().spanish)
+// combate hundir trauma edad élite medio grave pie aduana donar pimienta bodega
+```
 
 ## BITBOX GUI
 

@@ -1,7 +1,7 @@
 ---
-  title: Getting Started
-  icon: home
-  ordinal: 0
+title: Getting Started
+icon: home
+ordinal: 0
 ---
 
 ## GUI Setup
@@ -10,13 +10,11 @@
 
 Download the [app for MacOS](https://github.com/Bitcoin-com/bitbox-gui/releases/download/0.7.8/BITBOX-0.7.8.dmg). You can verify the files haven’t been tampered with by downloading them and running:
 
-`
-$ openssl sha -sha256 path/to/BITBOX-0.7.8.dmg
-`
+`$ openssl sha -sha256 path/to/BITBOX-0.7.8.dmg`
 
 Verify the output matches the latest BITBOX release [checksum](https://github.com/Bitcoin-com/keys-n-hashes).
 
-### Windows and  Linux
+### Windows and Linux
 
 ```bash
 // Clone the git repo
@@ -31,18 +29,19 @@ $ npm run build
 // Launch app
 $ npm start
 ```
-<!-- 
+
+<!--
 
 ## `Welcome to Bitbox`
 
-### Dependencies 
+### Dependencies
 
 #### NodeJS
 `NodeJS` is a JavaScript runtime built on Chrome’s V8 engine. `npm` is the package manager for `NodeJS`
 
 ### MacOS and Linux
 
-When installing on Unix platforms we recommend nvm the node version manager. 
+When installing on Unix platforms we recommend nvm the node version manager.
 Steps to setup
 
 * Install nvm
