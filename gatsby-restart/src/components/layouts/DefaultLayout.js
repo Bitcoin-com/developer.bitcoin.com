@@ -8,11 +8,12 @@ import { StaticQuery, graphql } from 'gatsby'
 import { defaultTheme } from 'styles/themes'
 import './base.css'
 
-import NavBar from 'components/NavBar';
+import NavBar from 'components/NavBar'
+import ShareFooter from 'components/ShareFooter'
 
 type Props = {
   children: React.Node,
-  location: Object
+  location: Object,
 }
 
 type Data = {
@@ -53,7 +54,6 @@ const DefaultLayout = ({ children, location }: Props) => (
         >
           <html lang="en" />
 
-          {/* Consider nuking these in favor of a developer page specific header/footer*/}
           <script>
             var BitcoinMenuWidth = 1152; var BitcoinMenuLang = 'en';
           </script>
@@ -65,15 +65,15 @@ const DefaultLayout = ({ children, location }: Props) => (
         </Helmet>
         <ThemeProvider theme={defaultTheme}>
           <Main>
-            <NavBar pathname={location ? location.pathname : ''}/>
+            <NavBar pathname={location ? location.pathname : ''} />
             {children}
+            <ShareFooter location={location} />
           </Main>
         </ThemeProvider>
       </>
     )}
   />
 )
-
 
 // const DefaultLayout = ({ children }: Props) => <div>{children}</div>
 
