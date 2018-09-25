@@ -4,8 +4,8 @@ icon: exchange
 ordinal: 4
 ---
 
-## [REST interface](https://rest.bitcoin.com)
+## Transaction
 
-Documentation and examples for the REST coming soon.
+Search by block height or transaction id. Example every transaction in detail.
 
-[Explore REST Interface](https://rest.bitcoin.com)
+![](/images/gui-transaction.png)

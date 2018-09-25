@@ -4,8 +4,10 @@ icon: check
 ordinal: 5
 ---
 
-## [REST interface](https://rest.bitcoin.com)
+## Sign & Verify
 
-Documentation and examples for the REST coming soon.
+Sign a message with any keypair in GUI. Paste in a message and address and GUI will generate a signature to prove ownership of that address.
 
-[Explore REST Interface](https://rest.bitcoin.com)
+Paste in a message, address and signature created by any BCH wallet and GUI will validate it.
+
+![](/images/gui3.png)

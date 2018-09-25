@@ -4,8 +4,8 @@ icon: cube
 ordinal: 3
 ---
 
-## [REST interface](https://rest.bitcoin.com)
+## Block
 
-Documentation and examples for the REST coming soon.
+Search by block height or transaction id. Example block in detail.
 
-[Explore REST Interface](https://rest.bitcoin.com)
+![](/images/gui-block.png)

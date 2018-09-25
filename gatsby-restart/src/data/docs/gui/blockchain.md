@@ -4,8 +4,10 @@ icon: cubes
 ordinal: 2
 ---
 
-## [REST interface](https://rest.bitcoin.com)
+## Blockchain
 
-Documentation and examples for the REST coming soon.
+GUI is your own personal blockchain which only consists of transactions and blocks which you create locally so it’s quick and responsive.
 
-[Explore REST Interface](https://rest.bitcoin.com)
+Connect to GUI over the BCH RPC. Auto-mine blocks after each transaction, on a timer or manually with the click of a button.
+
+![](/images/gui-blockchain.png)

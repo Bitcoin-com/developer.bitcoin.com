@@ -28,7 +28,7 @@ const HeroLayout = styled.div`
 
 const AboutLayout = styled.div`
   display: grid;
-  margin-top: ${spacing.medium};
+  margin-top: ${spacing.large};
   grid-gap: ${spacing.medium};
   grid-template-columns: 1fr;
   ${media.medium`
