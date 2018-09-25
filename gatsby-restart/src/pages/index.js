@@ -14,7 +14,7 @@ import H1 from 'atoms/H1'
 import Button from 'atoms/Button'
 import Code from 'atoms/Code'
 import Input from 'atoms/Input'
-import StyledLink from 'atoms/StyledLink'
+import StyledLink, { SmartLink } from 'atoms/StyledLink'
 
 import media from 'styles/media'
 import spacing from 'styles/spacing'
@@ -139,7 +139,7 @@ const IndexPage = ({ location }: Props) => (
           </HeroButtonLayout>
         </HeroBlurbLayout>
         <SDKLayout>
-          <H3 background>
+          <H3 background centerVertical>
             <FaCube />
             &nbsp; BITBOX SDK
           </H3>
@@ -147,9 +147,9 @@ const IndexPage = ({ location }: Props) => (
 
           <Text background>100+ countries</Text>
 
-          <Text background muted2>
+          <SmartLink to="https://www.npmjs.com/package/bitbox-cli">
             Install via NPM
-          </Text>
+          </SmartLink>
           <Code language="bash">npm install -g bitbox-cli</Code>
         </SDKLayout>
       </HeroLayout>

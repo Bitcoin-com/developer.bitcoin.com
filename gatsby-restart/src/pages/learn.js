@@ -66,7 +66,7 @@ const Learn = ({ location }: Props) => (
     <Container>
       <SectionLayout>
         <SectionItem>
-          <H2>Tutorials</H2>
+          <H3>Tutorials</H3>
           <Text>
             Step by step instructions to build Bitcoin Cash apps from scratch.
             See real world examples get built and have your own working copies
@@ -81,7 +81,7 @@ const Learn = ({ location }: Props) => (
           </CTASection>
         </SectionItem>
         <SectionItem>
-          <H2>Insights</H2>
+          <H3>Insights</H3>
           <Text>
             Learn from developers who have already shipped successful apps. What
             worked and what would they do different?
@@ -96,7 +96,7 @@ const Learn = ({ location }: Props) => (
           </CTASection>
         </SectionItem>
         <SectionItem>
-          <H2>Mastering Bitcoin Cash</H2>
+          <H3>Mastering Bitcoin Cash</H3>
           <Text>
             Based on Mastering Bitcoin by Andreas M. Antonopoulos, Mastering
             Bitcoin Cash is the ultimate guide to the bring your knowledge from

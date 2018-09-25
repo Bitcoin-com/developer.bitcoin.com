@@ -7,7 +7,7 @@ import DefaultLayout from 'components/layouts/DefaultLayout'
 import Hero from 'components/Hero'
 import Container from 'components/Container'
 
-import StyledLink from 'atoms/StyledLink'
+import StyledLink, { SmartLink } from 'atoms/StyledLink'
 import Text from 'atoms/Text'
 import H3 from 'atoms/H3'
 import H2 from 'atoms/H2'
@@ -82,7 +82,9 @@ const BitboxPage = ({ location }: Props) => (
           applications
         </H3>
         <InstallCTA>
-          <Text background>INSTALL VIA NPM</Text>
+          <SmartLink to="https://www.npmjs.com/package/bitbox-cli">
+            INSTALL VIA NPM
+          </SmartLink>
           <Code language="bash">{`npm install bitbox-cli --global`}</Code>
           <StyledLink to="/bitbox/docs/getting-started">
             <Button round>Start Here</Button>
