@@ -1,31 +1,34 @@
 // @flow
 import * as React from 'react'
 
+// https://react-icons.netlify.com/#/
+
 import {
   FaAngleRight,
-  FaEllipsisH,
-  FaPlus,
-  FaHome,
-  FaTerminal,
-  FaFile,
-  FaWallet,
-  FaQrcode,
+  FaArrowsAltV,
   FaBtc,
+  FaBuromobelexperte,
+  FaCheck,
+  FaCode,
+  FaCodeBranch,
+  FaCogs,
   FaCube,
   FaCubes,
-  FaGamepad,
-  FaLink,
-  FaKey,
-  FaBuromobelexperte,
-  FaCodeBranch,
-  FaHdd,
+  FaDatabase,
   FaDollarSign,
+  FaEllipsisH,
   FaExchangeAlt,
-  FaCode,
+  FaFile,
+  FaGamepad,
+  FaHdd,
+  FaHome,
+  FaKey,
+  FaLink,
   FaPlug,
-  FaArrowsAltV,
-  FaCogs,
-  FaDatabase
+  FaPlus,
+  FaQrcode,
+  FaTerminal,
+  FaWallet,
 } from 'react-icons/fa'
 
 // Whitelist of valid icons
@@ -47,6 +50,8 @@ export const getIcon = (icon: string): React.Node => {
       return <FaQrcode />
     case 'bitcoin':
       return <FaBtc />
+    case 'check':
+      return <FaCheck />
     case 'cube':
       return <FaCube />
     case 'cubes':

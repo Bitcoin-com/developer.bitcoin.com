@@ -1,6 +1,6 @@
 ---
 title: Blockchain
-icon: block
+icon: cubes
 ordinal: 2
 ---
 
