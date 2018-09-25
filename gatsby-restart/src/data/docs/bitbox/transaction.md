@@ -1,18 +1,10 @@
 ---
-  title: Transaction
-  icon: exchange
-  ordinal: 17
+title: Transaction
+icon: exchange
+ordinal: 17
 ---
 
-\--- layout: default title: Bitcoin.com Developer Platform | Transaction Documentation --- {{> double-nested-navigation}} {{> bitbox-docs-submenu}}
-
-BITBOX Documentation
-====================
-
-{{> bitbox-docs-menu}}
-
-Transaction
------------
+## Transaction
 
 ### `details`
 
@@ -27,7 +19,6 @@ Return details about a Transaction.
 details `Array`: Array of Objects with details about transactions
 
 #### Examples
-
 
     // single txid
     (async () => {
