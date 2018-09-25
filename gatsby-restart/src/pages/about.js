@@ -14,7 +14,7 @@ import H3 from 'atoms/H3'
 import H2 from 'atoms/H2'
 import H1 from 'atoms/H1'
 import Button from 'atoms/Button'
-import StyledLink from 'atoms/StyledLink'
+import { SmartLink } from 'atoms/StyledLink'
 
 import media from 'styles/media'
 import spacing from 'styles/spacing'
@@ -78,7 +78,9 @@ const About = ({ location }: Props) => (
 
           <Text>100+ countries</Text>
 
-          <Text muted2>Install via NPM</Text>
+          <SmartLink to="https://www.npmjs.com/package/bitbox-cli">
+            Install via NPM
+          </SmartLink>
           <Code language="bash">npm install -g bitbox-cli</Code>
         </InstallCTA>
         <Item>
