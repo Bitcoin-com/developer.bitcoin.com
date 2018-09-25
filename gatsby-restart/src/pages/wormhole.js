@@ -3,8 +3,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { Link } from 'gatsby'
-
 import DefaultLayout from 'components/layouts/DefaultLayout'
 import Hero from 'components/Hero'
 import Container from 'components/Container'
@@ -66,9 +64,9 @@ const PreviewItem = ({ children, to, full }: ItemProps) => (
   <ItemLayout full={full}>
     {children}
     {to && (
-      <Link to={to}>
+      <StyledLink to={to}>
         <Button round>More</Button>
-      </Link>
+      </StyledLink>
     )}
   </ItemLayout>
 )
@@ -98,7 +96,8 @@ const BitboxPage = ({ location }: Props) => (
         <PreviewItem full>
           <H2>Paradigm Shift</H2>
           <Text>
-            Create your own Token. Launch a Crowdsale. Raise funds to change the world. All on Bitcoin Cash.
+            Create your own Token. Launch a Crowdsale. Raise funds to change the
+            world. All on Bitcoin Cash.
           </Text>
           <Text>
             Wormhole is a fully featured javascript framework powered by{' '}
@@ -207,8 +206,14 @@ const BitboxPage = ({ location }: Props) => (
         </PreviewItem>
         <PreviewItem to="/wormhole/docs/transaction">
           <H2>Crowdsales</H2>
-          <Text>Create Crowdsales. Sell your own tokens for WHC. Launch an ICO on Bitcoin Cash</Text>
-          <Text>Start a crowdsale where 100,000 Life Extension Tokens LET are going to be sold 100 LET for 1 WHC.</Text>
+          <Text>
+            Create Crowdsales. Sell your own tokens for WHC. Launch an ICO on
+            Bitcoin Cash
+          </Text>
+          <Text>
+            Start a crowdsale where 100,000 Life Extension Tokens LET are going
+            to be sold 100 LET for 1 WHC.
+          </Text>
           <Code>
             {`
 (async () => {
@@ -266,9 +271,7 @@ const BitboxPage = ({ location }: Props) => (
           </Code>
         </PreviewItem>
         <PreviewItem to="/wormhole/docs/transaction">
-          <Text>
-            Purchase 100 LET for 1 WHC
-          </Text>
+          <Text>Purchase 100 LET for 1 WHC</Text>
           <Code>
             {`
 (async () => {
@@ -312,7 +315,7 @@ const BitboxPage = ({ location }: Props) => (
           <H2>Tokens with managed supply</H2>
           <Text>Grant and revoke Time Machine Coins TMC</Text>
           <Code>
-{`
+            {`
 (async () => {
   try {
     let managed = await Wormhole.PayloadCreation.managed(1, 1, 0, "Companies", "Wormholes", "Time Machine", "www.example.com", "Time Machine Coins TMC");
@@ -365,7 +368,7 @@ const BitboxPage = ({ location }: Props) => (
         <PreviewItem to="/wormhole/docs/transactions">
           <Text>Grant 42 TMC to a time traveler</Text>
           <Code>
-{`
+            {`
 (async () => {
   try {
     let grant = await Wormhole.PayloadCreation.grant(112, "42");
@@ -413,7 +416,7 @@ const BitboxPage = ({ location }: Props) => (
         <PreviewItem to="/wormhole/docs/transactions">
           <Text>Revoke 11 TMC from a time traveler</Text>
           <Code>
-{`
+            {`
 (async () => {
   try {
     let revoke = await Wormhole.PayloadCreation.revoke(112, "11");
@@ -441,7 +444,10 @@ const BitboxPage = ({ location }: Props) => (
         </PreviewItem>
         <PreviewItem to="/wormhole/docs/data-retrieval">
           <H2>Data Retrieval</H2>
-          <Text>Over a dozen methods for checking balances, transactions, tokens and more.</Text>
+          <Text>
+            Over a dozen methods for checking balances, transactions, tokens and
+            more.
+          </Text>
           <Text>Check the balances of all tokens for a single address</Text>
           <Code>
             {`
