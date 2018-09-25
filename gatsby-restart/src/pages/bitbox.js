@@ -43,7 +43,6 @@ const PreviewLayout = styled.div`
   `};
 `
 
-// const PreviewItem = styled.div`
 const ItemLayout = styled.div`
   display: grid;
   grid-gap: ${spacing.tiny};
@@ -85,7 +84,9 @@ const BitboxPage = ({ location }: Props) => (
         <InstallCTA>
           <Text background>INSTALL VIA NPM</Text>
           <Code language="bash">{`npm install bitbox-cli --global`}</Code>
-          <StyledLink to='/bitbox/docs/getting-started'><Button round>Start Here</Button></StyledLink>
+          <StyledLink to="/bitbox/docs/getting-started">
+            <Button round>Start Here</Button>
+          </StyledLink>
         </InstallCTA>
       </HeroLayout>
     </Hero>

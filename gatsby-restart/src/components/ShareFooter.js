@@ -6,6 +6,7 @@ import { FaReddit, FaTwitter, FaFacebook, FaLinkedin } from 'react-icons/fa'
 
 import H2 from 'atoms/H2'
 import H3 from 'atoms/H3'
+import Text from 'atoms/text'
 import Input from 'atoms/Input'
 import Button from 'atoms/Button'
 import { SmartLink } from 'atoms/StyledLink'
@@ -21,7 +22,7 @@ const ShareLayout = styled.div`
   display: grid;
   margin-top: ${spacing.large};
   margin-bottom: ${spacing.medium};
-  border-top: 2px dashed ${props => props.theme.backgroundMuted};
+  border-top: 1px dashed ${props => props.theme.backgroundMuted};
   padding-top: ${spacing.medium};
   ${media.medium`
     grid-template-columns: .5fr .5fr;
@@ -39,7 +40,7 @@ const ShareCTA = styled.div`
   align-content: end;
 `
 
-const SocialLinks = H2.extend`
+const SocialLinks = H3.extend`
   justify-content: end;
   display: grid;
   grid-template-columns: min-content min-content min-content min-content;
@@ -80,18 +81,18 @@ class ShareFooter extends React.Component<Props> {
             <div id="om-v8lwzo6nqacmgnulutqp-holder" />
           </EmailCTA>
           <ShareCTA>
-            <H3 right>Share on... </H3>
+            <Text right>Share on... </Text>
             <SocialLinks>
-              <SmartLink to={makeShareLink('reddit', location.href)}>
+              <SmartLink subtle to={makeShareLink('reddit', location.href)}>
                 <FaReddit />
               </SmartLink>
-              <SmartLink to={makeShareLink('twitter', location.href)}>
+              <SmartLink subtle to={makeShareLink('twitter', location.href)}>
                 <FaTwitter />
               </SmartLink>
-              <SmartLink to={makeShareLink('facebook', location.href)}>
+              <SmartLink subtle to={makeShareLink('facebook', location.href)}>
                 <FaFacebook />
               </SmartLink>
-              <SmartLink to={makeShareLink('linkedin', location.href)}>
+              <SmartLink subtle to={makeShareLink('linkedin', location.href)}>
                 <FaLinkedin />
               </SmartLink>
             </SocialLinks>

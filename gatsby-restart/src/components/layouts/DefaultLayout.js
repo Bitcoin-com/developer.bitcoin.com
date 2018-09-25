@@ -75,6 +75,4 @@ const DefaultLayout = ({ children, location }: Props) => (
   />
 )
 
-// const DefaultLayout = ({ children }: Props) => <div>{children}</div>
-
 export default DefaultLayout
