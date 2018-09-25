@@ -13,7 +13,6 @@ import H2 from 'atoms/H2'
 import H1 from 'atoms/H1'
 import Button from 'atoms/Button'
 import Code from 'atoms/Code'
-import Input from 'atoms/Input'
 import StyledLink, { SmartLink } from 'atoms/StyledLink'
 
 import media from 'styles/media'
@@ -24,16 +23,7 @@ import TechBannerImg from 'images/tech-banner.jpg'
 import LearnThumbImg from 'images/learn-thumb.jpg'
 import DevelopThumbImg from 'images/develop-thumb.jpg'
 
-import {
-  FaCube,
-  FaCogs,
-  FaCreditCard,
-  FaCartPlus,
-  FaReddit,
-  FaTwitter,
-  FaFacebook,
-  FaLinkedin,
-} from 'react-icons/fa'
+import { FaCube, FaCogs, FaCreditCard, FaCartPlus } from 'react-icons/fa'
 
 const HeroLayout = styled.div`
   display: grid;

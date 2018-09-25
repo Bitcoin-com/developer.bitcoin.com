@@ -3,7 +3,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import Text, { textBase } from 'atoms/Text'
+import { textBase } from 'atoms/Text'
 
 const Wrapper = styled.div`
   ${textBase};

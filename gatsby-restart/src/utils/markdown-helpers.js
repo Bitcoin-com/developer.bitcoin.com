@@ -15,7 +15,6 @@ import {
   ImgMd,
   ThMd,
 } from 'atoms/markdownAtoms'
-import Ul from 'atoms/Ul'
 import Li from 'atoms/Li'
 import Code from 'atoms/Code'
 import Pre from 'atoms/Pre'
@@ -35,9 +34,6 @@ const CodePreSplitter = ({ children }: BasicProps) => {
   }
   return <Pre>{children}</Pre>
 }
-
-// Workaround as `CodePreSplitter` captures this case as well
-const PrePassthrough = ({ children }: BasicProps) => <>{children}</>
 
 type AnchorProps = {
   name: string,

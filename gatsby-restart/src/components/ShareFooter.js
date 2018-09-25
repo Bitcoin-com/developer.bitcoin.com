@@ -4,11 +4,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { FaReddit, FaTwitter, FaFacebook, FaLinkedin } from 'react-icons/fa'
 
-import H2 from 'atoms/H2'
 import H3 from 'atoms/H3'
 import Text from 'atoms/Text'
-import Input from 'atoms/Input'
-import Button from 'atoms/Button'
 import { SmartLink } from 'atoms/StyledLink'
 
 import Container from 'components/Container'
