@@ -45,7 +45,7 @@ class SmartLink extends React.PureComponent<Props> {
       )
     }
 
-    // Use gatsby-link for internal links, and <a> for others
+    // Use gatsby-link for internal/app pages, and <a> for external and assets
     return (
       <StyledLink to={to || href} {...rest}>
         {text || children}
