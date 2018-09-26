@@ -2,7 +2,6 @@
 
 import * as React from 'react'
 import styled, { ThemeProvider } from 'styled-components'
-import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
 import { defaultTheme } from 'styles/themes'

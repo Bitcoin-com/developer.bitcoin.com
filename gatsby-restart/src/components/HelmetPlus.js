@@ -5,11 +5,11 @@ import Helmet from 'react-helmet'
 
 type Props = {
   title: string,
-  description: string,
+  description?: string,
   image?: string,
   keywords?: string,
   location: { href: string },
-  children: React.Node,
+  children?: React.Node,
 }
 class HelmetPlus extends React.PureComponent<Props> {
   render() {
