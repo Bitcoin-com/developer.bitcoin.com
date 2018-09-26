@@ -4,7 +4,6 @@
   "version": "2.0.0",
   "author": "Peter <peter@bitcoin.com>",
   "dependencies": {
-    "babel-plugin-styled-components": "^1.7.1",
     "gatsby": "^2.0.9",
     "gatsby-image": "^2.0.10",
     "gatsby-plugin-flow": "^1.0.1",
@@ -47,6 +46,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "babel-plugin-styled-components": "^1.7.1",
     "husky": "^1.0.0",
     "prettier": "^1.14.3",
     "pretty-quick": "^1.7.0"
