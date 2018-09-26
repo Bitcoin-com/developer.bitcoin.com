@@ -1,7 +1,7 @@
 ---
-  title: Address
-  icon: qrcode
-  ordinal: 3
+title: Address
+icon: qrcode
+ordinal: 3
 ---
 
 ### `toLegacyAddress`
@@ -17,7 +17,6 @@ Converting cashaddr to legacy address format
 legacyAddress `String` legacy base 58 check encoded address
 
 #### Examples
-
 
       // mainnet w/ prefix
       BITBOX.Address.toLegacyAddress('bitcoincash:qzm47qz5ue99y9yl4aca7jnz7dwgdenl85jkfx3znl')
@@ -35,7 +34,6 @@ legacyAddress `String` legacy base 58 check encoded address
       BITBOX.Address.toLegacyAddress('qph2v4mkxjgdqgmlyjx6njmey0ftrxlnggt9t0a6zy')
       // mqc1tmwY2368LLGktnePzEyPAsgADxbksi
 
-
 ### `toCashAddress`
 
 Converting legacy to cashAddress format
@@ -50,7 +48,6 @@ Converting legacy to cashAddress format
 cashAddress `String` cashAddr encoded address
 
 #### Examples
-
 
       // mainnet
       BITBOX.Address.toCashAddress('1HiaTupadqQN66Tvgt7QSE5Wg13BUy25eN')
@@ -68,7 +65,6 @@ cashAddress `String` cashAddr encoded address
       BITBOX.Address.toCashAddress('msDbtTj7kWXPpYaR7PQmMK84i66fJqQMLx', false)
       // qzq9je6pntpva3wf6scr7mlnycr54sjgeqxgrr9ku3
 
-
 ### `isLegacyAddress`
 
 Detect if legacy base58check encoded address
@@ -82,7 +78,6 @@ Detect if legacy base58check encoded address
 isLegacyAddress `Boolean`: true/false if legacy address
 
 #### Examples
-
 
       // cashaddr
       BITBOX.Address.isLegacyAddress('bitcoincash:qqfx3wcg8ts09mt5l3zey06wenapyfqq2qrcyj5x0s')
@@ -108,7 +103,6 @@ isLegacyAddress `Boolean`: true/false if legacy address
       BITBOX.Address.isLegacyAddress('mqc1tmwY2368LLGktnePzEyPAsgADxbksi')
       // true
 
-
 ### `isCashAddress`
 
 Detect if cashAddr encoded address
@@ -122,7 +116,6 @@ Detect if cashAddr encoded address
 isCashAddress `Boolean`: true/false if cashaddress
 
 #### Examples
-
 
       // mainnet cashaddr
       BITBOX.Address.isCashAddress('bitcoincash:qqfx3wcg8ts09mt5l3zey06wenapyfqq2qrcyj5x0s')
@@ -148,7 +141,6 @@ isCashAddress `Boolean`: true/false if cashaddress
       BITBOX.Address.isCashAddress('mqc1tmwY2368LLGktnePzEyPAsgADxbksi')
       // false
 
-
 ### `isMainnetAddress`
 
 Detect if mainnet address
@@ -162,7 +154,6 @@ Detect if mainnet address
 isMainnetAddress `Boolean`: true/false if mainnet address
 
 #### Examples
-
 
       // mainnet cashaddr
       BITBOX.Address.isMainnetAddress('bitcoincash:qqfx3wcg8ts09mt5l3zey06wenapyfqq2qrcyj5x0s')
@@ -188,7 +179,6 @@ isMainnetAddress `Boolean`: true/false if mainnet address
       BITBOX.Address.isMainnetAddress('mqc1tmwY2368LLGktnePzEyPAsgADxbksi')
       // false
 
-
 ### `isTestnetAddress`
 
 Detect if testnet address
@@ -202,7 +192,6 @@ Detect if testnet address
 isMainnetAddresss `Boolean`: true/false if is testnet address
 
 #### Examples
-
 
       // cashaddr mainnet
       BITBOX.Address.isTestnetAddress('bitcoincash:qqfx3wcg8ts09mt5l3zey06wenapyfqq2qrcyj5x0s')
@@ -228,7 +217,6 @@ isMainnetAddresss `Boolean`: true/false if is testnet address
       BITBOX.Address.isTestnetAddress('mqc1tmwY2368LLGktnePzEyPAsgADxbksi')
       // true
 
-
 ### `isP2PKHAddress`
 
 Detect if p2pkh address
@@ -242,7 +230,6 @@ Detect if p2pkh address
 isP2PKHAddress `Boolean` true/false if is p2pkh address
 
 #### Examples
-
 
       // cashaddr
       BITBOX.Address.isP2PKHAddress('bitcoincash:qqfx3wcg8ts09mt5l3zey06wenapyfqq2qrcyj5x0s')
@@ -268,7 +255,6 @@ isP2PKHAddress `Boolean` true/false if is p2pkh address
       BITBOX.Address.isP2PKHAddress('mqc1tmwY2368LLGktnePzEyPAsgADxbksi')
       // true
 
-
 ### `isP2SHAddress`
 
 Detect if p2sh address
@@ -282,7 +268,6 @@ Detect if p2sh address
 isP2SHAddress `Boolean` true/false if is p2sh address
 
 #### Examples
-
 
       // cashaddr
       BITBOX.Address.isP2SHAddress('bitcoincash:qqfx3wcg8ts09mt5l3zey06wenapyfqq2qrcyj5x0s')
@@ -308,7 +293,6 @@ isP2SHAddress `Boolean` true/false if is p2sh address
       BITBOX.Address.isP2SHAddress('mqc1tmwY2368LLGktnePzEyPAsgADxbksi')
       // false
 
-
 ### `detectAddressFormat`
 
 Detect address format
@@ -322,7 +306,6 @@ Detect address format
 addressFormat `String` address format
 
 #### Examples
-
 
       // cashaddr
       BITBOX.Address.detectAddressFormat('bitcoincash:qqfx3wcg8ts09mt5l3zey06wenapyfqq2qrcyj5x0s')
@@ -348,7 +331,6 @@ addressFormat `String` address format
       BITBOX.Address.detectAddressFormat('mqc1tmwY2368LLGktnePzEyPAsgADxbksi')
       // legacy
 
-
 ### `detectAddressNetwork`
 
 Detect address network
@@ -362,7 +344,6 @@ Detect address network
 addressNetwork `String` address network
 
 #### Examples
-
 
       // cashaddr
       BITBOX.Address.detectAddressNetwork('bitcoincash:qqfx3wcg8ts09mt5l3zey06wenapyfqq2qrcyj5x0s')
@@ -388,7 +369,6 @@ addressNetwork `String` address network
       BITBOX.Address.detectAddressNetwork('mqc1tmwY2368LLGktnePzEyPAsgADxbksi')
       // testnet
 
-
 ### `detectAddressType`
 
 Detect address network
@@ -402,7 +382,6 @@ Detect address network
 addressNetwork `String` address network
 
 #### Examples
-
 
       // cashaddr
       BITBOX.Address.detectAddressType('bitcoincash:qqfx3wcg8ts09mt5l3zey06wenapyfqq2qrcyj5x0s');
@@ -428,7 +407,6 @@ addressNetwork `String` address network
       BITBOX.Address.detectAddressType('mqc1tmwY2368LLGktnePzEyPAsgADxbksi');
       // p2pkh
 
-
 ### `fromXPub`
 
 Generates an address for an extended public key (xpub)
@@ -444,7 +422,6 @@ changeAddress `String`: cashaddr encoded change address
 
 #### Examples
 
-
       // generate 5 external change addresses for xpub6DTNmB7gWa8RtQAfmy8wSDikM5mky4fhsnqQd9AqoCaLcekqNgRZW5JCSXwXkLDkABHTD1qx7kqrbGzT6xBGfAvCJSj2rwvKWP8eZBR2EVA
       let xpub = 'xpub6DTNmB7gWa8RtQAfmy8wSDikM5mky4fhsnqQd9AqoCaLcekqNgRZW5JCSXwXkLDkABHTD1qx7kqrbGzT6xBGfAvCJSj2rwvKWP8eZBR2EVA';
       for(let i = 0; i <= 4; i++) {
@@ -499,7 +476,6 @@ changeAddress `String`: cashaddr encoded change address
       // bitcoincash:qr3zlplv2w0t3s92twldjk432f45agls0qj35tyqtc
       // bitcoincash:qqxf90phz7ysrj53tymq6qvmquk0kd04wvjf6s83nv
       // bitcoincash:qrygumzwu7anzppyzcraa2tal3vlzc7p3smyh5cdth
-
 
 ### `fromOutputScript`
 
@@ -515,62 +491,22 @@ changeAddress `String`: cashaddr encoded change address
 
 #### Examples
 
+      const script = BITBOX.Script.encode([
+        Buffer.from("BOX", "ascii"),
+        BITBOX.Script.opcodes.OP_CAT,
+        Buffer.from("BITBOX", "ascii"),
+        BITBOX.Script.opcodes.OP_EQUAL
+      ]);
+      const p2sh_hash160 = BITBOX.Crypto.hash160(script);
+      const scriptPubKey = BITBOX.Script.scriptHash.output.encode(p2sh_hash160);
 
-      // generate 5 external change addresses for xpub6DTNmB7gWa8RtQAfmy8wSDikM5mky4fhsnqQd9AqoCaLcekqNgRZW5JCSXwXkLDkABHTD1qx7kqrbGzT6xBGfAvCJSj2rwvKWP8eZBR2EVA
-      let xpub = 'xpub6DTNmB7gWa8RtQAfmy8wSDikM5mky4fhsnqQd9AqoCaLcekqNgRZW5JCSXwXkLDkABHTD1qx7kqrbGzT6xBGfAvCJSj2rwvKWP8eZBR2EVA';
-      for(let i = 0; i <= 4; i++) {
-        BITBOX.Address.fromXPub(xpub, "0/" + i)
-      }
-      // bitcoincash:qptnmya5wkly7xf97wm5ak23yqdsz3l2cyj7k9vyyh
-      // bitcoincash:qrr2suh9yjsrkl2qp3p967uhfg6u0r6xxsn9h5vuvr
-      // bitcoincash:qpkfg4kck99wksyss6nvaqtafeahfnyrpsj0ed372t
-      // bitcoincash:qppgmuuwy07g0x39sx2z0x2u8e34tvfdxvy0c2jvx7
-      // bitcoincash:qryj8x4s7vfsc864jm0xaak9qfe8qgk245y9ska57l
+      // mainnet address from output script
+      BITBOX.Address.fromOutputScript(scriptPubKey);
+      // bitcoincash:pz0qcslrqn7hr44hsszwl4lw5r6udkg6zqncnufkrl
 
-      // generate 5 external change addresses for xpub6DLXtM9JjvtUTm6TngeSXZdeKfFqA1sLYoFQMTTXYYbwDw55eTy7uhconrzw8mW1zzmpMBYpQLpBPzRdSn9Hxrse5TTnpdtcoeXahkC6bPd
-      let xpub = 'xpub6DLXtM9JjvtUTm6TngeSXZdeKfFqA1sLYoFQMTTXYYbwDw55eTy7uhconrzw8mW1zzmpMBYpQLpBPzRdSn9Hxrse5TTnpdtcoeXahkC6bPd';
-      for(let i = 0; i <= 4; i++) {
-        BITBOX.Address.fromXPub(xpub, "0/" + i)
-      }
-      // bitcoincash:qpm05nr0fmxmyhlz0qermkad0zvsfsqu6ckv6e5tzr
-      // bitcoincash:qre28yd5msvsenn9qj5fwm3k3u00dty4ac739zhw2k
-      // bitcoincash:qp0utfskvcnsy2whkurk25x247jcdmexqyekzury66
-      // bitcoincash:qqzjwx6zdvhkwalzvnaprwk73me9szqvgspgu6shst
-      // bitcoincash:qzpcg6atgg36vrkwvklw9325nqzdcxd8c5dl5l6k79
-
-      // generate 5 external change addresses for xpub6DLXtM9JjvtUV1i6tBdQ6RCwYHoUjzK2GL1BmXf4TW8QbFGWueMJrwRUsZntEUBfpqJACiid1PEPNbDVTRZxyGKp5k8KsHVg27nDR1Makdh
-      let xpub = 'xpub6DLXtM9JjvtUV1i6tBdQ6RCwYHoUjzK2GL1BmXf4TW8QbFGWueMJrwRUsZntEUBfpqJACiid1PEPNbDVTRZxyGKp5k8KsHVg27nDR1Makdh';
-      for(let i = 0; i <= 4; i++) {
-        BITBOX.Address.fromXPub(xpub, "0/" + i)
-      }
-      // bitcoincash:qrykz97x24tgz9nq29yyqcc98nqj8k2n45jg57manf
-      // bitcoincash:qp8e7rrajx3wscqr6zfu3mvnlkmt0s4dhqldpqscym
-      // bitcoincash:qrw6fhr6nl5lh9srh9a9sr890r3zzsgt7sqh7tkyve
-      // bitcoincash:qqj9ctz9sex3xjapgm8hv5dkpfmf7aalrs2z2jprm2
-      // bitcoincash:qzytws9yvyqgsx3smfyy3yaq5xw9jt0xsy7kpnqpth
-
-      // generate 5 external change addresses for xpub6DLXtM9JjvtUa9tPGP5kYXnGGeo3dnBuhUZP7QmE97hKxM1EizDgFZgVe8M5Nv49z5ytpAnwwNcc16wChnecpj3KyFPkufbi9uZaj5ALCGm
-      let xpub = 'xpub6DLXtM9JjvtUa9tPGP5kYXnGGeo3dnBuhUZP7QmE97hKxM1EizDgFZgVe8M5Nv49z5ytpAnwwNcc16wChnecpj3KyFPkufbi9uZaj5ALCGm';
-      for(let i = 0; i <= 4; i++) {
-        BITBOX.Address.fromXPub(xpub, "0/" + i)
-      }
-      // bitcoincash:qp9e7kd6pgy7pek2vemfspm6vc544xzm2yjfezst3q
-      // bitcoincash:qqt9g8ggmd5kxccvuye0nv7enj6syqqxyymnrhgkep
-      // bitcoincash:qqr8qf8qj7yxgtaydkt5xp0lw4fnu56jmy7q5k9sat
-      // bitcoincash:qzaf69rhsnzfjtg0ydw2qlqeyhpnsfzz4ghr5jkrzy
-      // bitcoincash:qrwjhc0dujvjtrl0e0zc8tkhwxfvljvamc6e0kcj3w
-
-      // generate 5 external change addresses for xpub6DLXtM9JjvtUkiaWLnfiSHjW51vspUW7GDmkML17w2qoEeGztYYSmotgXJpwmoNCc6QbdCXWySEWki7jURV46hmN6MXwem1aNo3gxhkjJPj
-      let xpub = 'xpub6DLXtM9JjvtUkiaWLnfiSHjW51vspUW7GDmkML17w2qoEeGztYYSmotgXJpwmoNCc6QbdCXWySEWki7jURV46hmN6MXwem1aNo3gxhkjJPj';
-      for(let i = 0; i <= 4; i++) {
-        BITBOX.Address.fromXPub(xpub, "0/" + i)
-      }
-      // bitcoincash:qzrfwca03gzgwgxsjcxfphuckztc9squ9vmws99sr7
-      // bitcoincash:qrr0ykn2xwy80hl0p7vnm44l5sc43x5245nlrfc74c
-      // bitcoincash:qr3zlplv2w0t3s92twldjk432f45agls0qj35tyqtc
-      // bitcoincash:qqxf90phz7ysrj53tymq6qvmquk0kd04wvjf6s83nv
-      // bitcoincash:qrygumzwu7anzppyzcraa2tal3vlzc7p3smyh5cdth
-
+      // testnet address from output script
+      BITBOX.Address.fromOutputScript(scriptPubKey, 'testnet');
+      // bchtest:pz0qcslrqn7hr44hsszwl4lw5r6udkg6zqh2hmtpyr
 
 ### `details`
 
@@ -585,7 +521,6 @@ Return details about an address including balance.
 details `Array`: Array of Objects w/ details about addresses including balance
 
 #### Examples
-
 
     (async () => {
       try {
@@ -662,7 +597,6 @@ details `Array`: Array of Objects w/ details about addresses including balance
     //   legacyAddress: '1CT9huFgxMFveRvzZ7zPPJNoaMm2Fo64VH',
     //   cashAddress: 'bitcoincash:qp7ekaepv3wf2nq035hevcma4x9sxmp3w56048g6ra' } ]
 
-
 ### `utxo`
 
 Return list of uxto for address
@@ -676,7 +610,6 @@ Return list of uxto for address
 utxo `Array`: Array of arrays with utxo for addresses
 
 #### Examples
-
 
     (async () => {
       try {
@@ -739,7 +672,6 @@ utxo `Array`: Array of arrays with utxo for addresses
     //     cashAddress: 'bitcoincash:qpcxf2sv9hjw08nvpgffpamfus9nmksm3chv5zqtnz' }],
     //     [] ]
 
-
 ### `unconfirmed`
 
 Return list of unconfirmed transactions for address
@@ -753,7 +685,6 @@ Return list of unconfirmed transactions for address
 unconfirmed `Array`: Array of arrays with unconfirmed transactions for addresses
 
 #### Examples
-
 
     (async () => {
       try {
