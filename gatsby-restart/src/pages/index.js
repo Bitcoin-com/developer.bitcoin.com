@@ -13,8 +13,7 @@ import H2 from 'atoms/H2'
 import H1 from 'atoms/H1'
 import Button from 'atoms/Button'
 import Code from 'atoms/Code'
-import Input from 'atoms/Input'
-import StyledLink from 'atoms/StyledLink'
+import StyledLink, { SmartLink } from 'atoms/StyledLink'
 
 import media from 'styles/media'
 import spacing from 'styles/spacing'
@@ -24,16 +23,7 @@ import TechBannerImg from 'images/tech-banner.jpg'
 import LearnThumbImg from 'images/learn-thumb.jpg'
 import DevelopThumbImg from 'images/develop-thumb.jpg'
 
-import {
-  FaCube,
-  FaCogs,
-  FaCreditCard,
-  FaCartPlus,
-  FaReddit,
-  FaTwitter,
-  FaFacebook,
-  FaLinkedin,
-} from 'react-icons/fa'
+import { FaCube, FaCogs, FaCreditCard, FaCartPlus } from 'react-icons/fa'
 
 const HeroLayout = styled.div`
   display: grid;
@@ -115,32 +105,6 @@ const BubbleImg = styled.img`
   border: 3px solid ${props => props.theme.primary};
 `
 
-const ShareLayout = styled.div`
-  grid-template-columns: 1fr;
-  grid-gap: ${spacing.medium};
-  display: grid;
-  margin-top: ${spacing.large};
-  margin-bottom: ${spacing.large};
-  ${media.medium`
-    grid-template-columns: .5fr .5fr;
-  `};
-`
-
-const EmailCTA = styled.div`
-  display: grid;
-  grid-gap: ${spacing.small};
-`
-
-const ShareCTA = styled.div``
-
-const SocialLinks = H2.extend`
-  justify-content: end;
-  display: grid;
-  grid-template-columns: min-content min-content min-content min-content;
-  grid-template-rows: 1fr;
-  grid-gap: ${spacing.small};
-`
-
 type Props = {
   location: Object,
 }
@@ -165,7 +129,7 @@ const IndexPage = ({ location }: Props) => (
           </HeroButtonLayout>
         </HeroBlurbLayout>
         <SDKLayout>
-          <H3 background>
+          <H3 background centerVertical>
             <FaCube />
             &nbsp; BITBOX SDK
           </H3>
@@ -173,9 +137,9 @@ const IndexPage = ({ location }: Props) => (
 
           <Text background>100+ countries</Text>
 
-          <Text background muted2>
+          <SmartLink to="https://www.npmjs.com/package/bitbox-cli">
             Install via NPM
-          </Text>
+          </SmartLink>
           <Code language="bash">npm install -g bitbox-cli</Code>
         </SDKLayout>
       </HeroLayout>
@@ -277,28 +241,6 @@ const IndexPage = ({ location }: Props) => (
         </StartedInfo>
       </GetStartedLayout>
     </Hero>
-
-    <Container>
-      <ShareLayout>
-        <EmailCTA>
-          <H3>Don’t miss out on updates</H3>
-          <Input placeholder="Name..." />
-          <Input placeholder="Email..." />
-          <Button primary round>
-            Sign up
-          </Button>
-        </EmailCTA>
-        <ShareCTA>
-          <H3 right>Share on... </H3>
-          <SocialLinks>
-            <FaReddit />
-            <FaTwitter />
-            <FaFacebook />
-            <FaLinkedin />
-          </SocialLinks>
-        </ShareCTA>
-      </ShareLayout>
-    </Container>
   </DefaultLayout>
 )
 

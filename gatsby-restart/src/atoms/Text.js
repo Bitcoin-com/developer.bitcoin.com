@@ -28,8 +28,6 @@ export const textBase = css`
   position: relative;
   vertical-align: middle;
 
-  vertical-align: middle;
-
   /* Size */
   font-size: ${sizeMap['small']['normal'][0]};
   line-height: ${sizeMap['small']['normal'][1]};

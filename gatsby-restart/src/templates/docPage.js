@@ -65,6 +65,7 @@ const SideNavSticky = styled.div`
 const BreadCrumbLayout = styled.div`
   grid-area: breadcrumbs;
   display: grid;
+  grid-template-rows: min-content;
   grid-template-columns: repeat(3, max-content);
   grid-gap: ${spacing.small};
 `
@@ -94,7 +95,7 @@ const NavFooter = styled.div`
 
 type NavProps = {
   activeDoc: Object,
-  docs: Object[]
+  docs: Object[],
 }
 class NavLinks extends React.PureComponent<NavProps> {
   render() {
