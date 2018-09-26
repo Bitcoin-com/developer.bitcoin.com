@@ -4,8 +4,6 @@ icon: qrcode
 ordinal: 6
 ---
 
-## Conversion
-
 Quickly convert address formats between legacy and cashaddr and easily generate QR codes. Paste in a privKey WIF, xPub or xPriv and to generate the corresponding legacy and cash addresses.
 
 ![](/images/gui2.png)

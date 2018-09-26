@@ -4,8 +4,6 @@ icon: cogs
 ordinal: 7
 ---
 
-## Configuration
-
 Configure your GUI exactly how you need it. Each time you restart GUI it will launch a completely new BCH blockchain for your local development.
 
 ![](/images/gui4.png)
