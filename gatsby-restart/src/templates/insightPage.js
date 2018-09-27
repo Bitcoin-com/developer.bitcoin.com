@@ -3,9 +3,9 @@ import * as React from 'react'
 import styled from 'styled-components'
 import rehypeReact from 'rehype-react'
 import { graphql } from 'gatsby'
-import Helmet from 'react-helmet'
 import { FaAngleLeft } from 'react-icons/fa'
 
+import HelmetPlus from 'components/HelmetPlus'
 import DefaultLayout from 'components/layouts/DefaultLayout.js'
 import Container from 'components/Container'
 
@@ -57,7 +57,8 @@ class InsightTemplate extends React.PureComponent<Props> {
 
     return (
       <DefaultLayout location={location}>
-        <Helmet
+        <HelmetPlus
+          location={location}
           title={`${insight.frontmatter.title} - ${
             data.site.siteMetadata.title
           }`}

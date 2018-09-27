@@ -7,6 +7,7 @@ import DefaultLayout from 'components/layouts/DefaultLayout'
 import Hero from 'components/Hero'
 import Container from 'components/Container'
 import InfoCard from 'components/InfoCard'
+import HelmetPlus from 'components/HelmetPlus'
 
 import H3 from 'atoms/H3'
 import H1 from 'atoms/H1'
@@ -15,7 +16,6 @@ import media from 'styles/media'
 import spacing from 'styles/spacing'
 
 import HeroImg from 'images/develop-bitcoin-cash-header.jpg'
-
 
 const HeroLayout = styled.div`
   display: grid;
@@ -38,6 +38,16 @@ type Props = {
 
 const DevelopPage = ({ location }: Props) => (
   <DefaultLayout location={location}>
+    <HelmetPlus
+      title={`Develop - developer.bitcoin.com`}
+      description={
+        'Development hub for all your development needs to be successful on Bitcoin Cash'
+      }
+      keywords={
+        'bitbox, tutorials, developer tools, bitcoin, bitcoin cash, BCH, wormhole, sdk, api'
+      }
+      location={location}
+    />
     <Hero image={HeroImg}>
       <HeroLayout>
         <H1 background>Develop on Bitcoin Cash</H1>

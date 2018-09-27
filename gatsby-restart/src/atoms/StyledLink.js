@@ -31,22 +31,25 @@ class SmartLink extends React.PureComponent<Props> {
     const { children, text, ...rest } = this.props
     const { to, href } = rest
 
-    const pattern = /^\/(?!\/)/
+    const patternInternal = /^\/(?!\/)/
+    const patternStaticAsset = /\/static\//g
 
-    const internal = pattern.test(to) || pattern.test(href)
+    const internal = patternInternal.test(to) || patternInternal.test(href)
+    const isAsset = patternStaticAsset.test(href)
 
-    // Use gatsby-link for internal links, and <a> for others
-    if (internal) {
+    if (isAsset || !internal) {
       return (
-        <StyledLink to={to || href} {...rest}>
+        <StyledA href={to || href} target="_blank" {...rest}>
           {text || children}
-        </StyledLink>
+        </StyledA>
       )
     }
+
+    // Use gatsby-link for internal/app pages, and <a> for external and assets
     return (
-      <StyledA href={to || href} target="_blank" {...rest}>
+      <StyledLink to={to || href} {...rest}>
         {text || children}
-      </StyledA>
+      </StyledLink>
     )
   }
 }

@@ -3,8 +3,8 @@ import * as React from 'react'
 import styled from 'styled-components'
 import rehypeReact from 'rehype-react'
 import { graphql, push } from 'gatsby'
-import Helmet from 'react-helmet'
 
+import HelmetPlus from 'components/HelmetPlus'
 import DefaultLayout from 'components/layouts/DefaultLayout.js'
 import Container from 'components/Container'
 
@@ -139,11 +139,13 @@ class DocTemplate extends React.PureComponent<Props> {
 
     return (
       <DefaultLayout location={location}>
-        <Helmet
+        <HelmetPlus
+          location={location}
           title={`${getTitleDisplay(doc.fields.product)}: ${
             doc.frontmatter.title
           } - ${data.site.siteMetadata.title}`}
         />
+
         <Container>
           <DocLayout>
             <SideNavLayout>

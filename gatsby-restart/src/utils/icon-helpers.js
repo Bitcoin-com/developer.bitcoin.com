@@ -12,6 +12,7 @@ import {
   FaCode,
   FaCodeBranch,
   FaCogs,
+  FaCoins,
   FaCube,
   FaCubes,
   FaDatabase,
@@ -52,6 +53,8 @@ export const getIcon = (icon: string): React.Node => {
       return <FaBtc />
     case 'check':
       return <FaCheck />
+    case 'coins':
+      return <FaCoins />
     case 'cube':
       return <FaCube />
     case 'cubes':

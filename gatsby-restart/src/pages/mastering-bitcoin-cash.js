@@ -9,6 +9,7 @@ import DefaultLayout from 'components/layouts/DefaultLayout'
 import Hero from 'components/Hero'
 import Container from 'components/Container'
 import MasteringBitcoinCashAttribution from 'components/MasteringBitcoinCashAttribution'
+import HelmetPlus from 'components/HelmetPlus'
 
 import H3 from 'atoms/H3'
 import H2 from 'atoms/H2'
@@ -47,6 +48,16 @@ const Learn = ({ location, data }: Props) => {
 
   return (
     <DefaultLayout location={location}>
+      <HelmetPlus
+        title={`Mastering Bitcoin Cash - book - developer.bitcoin.com`}
+        description={
+          'Learn all about Bitcoin Cash to take you from a beginner to expert.'
+        }
+        keywords={
+          'mastering bitcoin cash, book, bitbox, tutorials, developer tools, bitcoin, bitcoin cash, BCH, wormhole, sdk, api'
+        }
+        location={location}
+      />
       <Hero image={HeroImg}>
         <HeroLayout>
           <StyledLink to="/learn">

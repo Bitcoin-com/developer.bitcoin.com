@@ -57,7 +57,7 @@ const makeShareLink = (
     case 'reddit':
       return `http://www.reddit.com/submit/?url=${href}`
     case 'twitter':
-      return `https://www.facebook.com/sharer/sharer.php?u=${href}&via=bitcoincom&hashtags=programming,development,bitcoin,bitcoincash,bch`
+      return `https://twitter.com/intent/tweet/?text=Visit&url=${href}&via=bitcoincom&hashtags=programming,development,bitcoin,bitcoincash,bch`
     case 'linkedin':
       return `https://www.linkedin.com/shareArticle?mini=true&url=${href}&title=bitcoincom&source=https://developer.bitcoin.com&summary=developer.bitcoin.com`
     case 'facebook':
@@ -71,6 +71,8 @@ class ShareFooter extends React.Component<Props> {
   render() {
     const { location } = this.props
 
+    const url = `https://developer.bitcoin.com${location.pathname}`
+
     return (
       <Container>
         <ShareLayout>
@@ -80,16 +82,16 @@ class ShareFooter extends React.Component<Props> {
           <ShareCTA>
             <Text right>Share on... </Text>
             <SocialLinks>
-              <SmartLink subtle to={makeShareLink('reddit', location.href)}>
+              <SmartLink subtle to={makeShareLink('reddit', url)}>
                 <FaReddit />
               </SmartLink>
-              <SmartLink subtle to={makeShareLink('twitter', location.href)}>
+              <SmartLink subtle to={makeShareLink('twitter', url)}>
                 <FaTwitter />
               </SmartLink>
-              <SmartLink subtle to={makeShareLink('facebook', location.href)}>
+              <SmartLink subtle to={makeShareLink('facebook', url)}>
                 <FaFacebook />
               </SmartLink>
-              <SmartLink subtle to={makeShareLink('linkedin', location.href)}>
+              <SmartLink subtle to={makeShareLink('linkedin', url)}>
                 <FaLinkedin />
               </SmartLink>
             </SocialLinks>
