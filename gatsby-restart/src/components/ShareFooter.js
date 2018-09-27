@@ -71,6 +71,8 @@ class ShareFooter extends React.Component<Props> {
   render() {
     const { location } = this.props
 
+    const url = `https://developer.bitcoin.com${location.pathname}`
+
     return (
       <Container>
         <ShareLayout>
@@ -80,16 +82,16 @@ class ShareFooter extends React.Component<Props> {
           <ShareCTA>
             <Text right>Share on... </Text>
             <SocialLinks>
-              <SmartLink subtle to={makeShareLink('reddit', location.href)}>
+              <SmartLink subtle to={makeShareLink('reddit', url)}>
                 <FaReddit />
               </SmartLink>
-              <SmartLink subtle to={makeShareLink('twitter', location.href)}>
+              <SmartLink subtle to={makeShareLink('twitter', url)}>
                 <FaTwitter />
               </SmartLink>
-              <SmartLink subtle to={makeShareLink('facebook', location.href)}>
+              <SmartLink subtle to={makeShareLink('facebook', url)}>
                 <FaFacebook />
               </SmartLink>
-              <SmartLink subtle to={makeShareLink('linkedin', location.href)}>
+              <SmartLink subtle to={makeShareLink('linkedin', url)}>
                 <FaLinkedin />
               </SmartLink>
             </SocialLinks>
