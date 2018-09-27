@@ -7,6 +7,7 @@ import { FaCube } from 'react-icons/fa'
 import DefaultLayout from 'components/layouts/DefaultLayout'
 import Hero from 'components/Hero'
 import Container from 'components/Container'
+import HelmetPlus from 'components/HelmetPlus'
 
 import Code from 'atoms/Code'
 import Text from 'atoms/Text'
@@ -49,6 +50,16 @@ type Props = {
 
 const About = ({ location }: Props) => (
   <DefaultLayout location={location}>
+    <HelmetPlus
+      title={`About  - developer.bitcoin.com`}
+      description={
+        'Bitcoin.com developer platform.  Developer Tooling, Resources, Cloud, and Marker'
+      }
+      keywords={
+        'about, bitbox, tutorials, developer tools, bitcoin, bitcoin cash, BCH, wormhole, sdk, api'
+      }
+      location={location}
+    />
     <Hero image={HeroImg}>
       <HeroLayout>
         <H3 primary>Bitcoin.com's developer platform</H3>

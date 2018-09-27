@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import DefaultLayout from 'components/layouts/DefaultLayout'
 import Hero from 'components/Hero'
 import Container from 'components/Container'
+import HelmetPlus from 'components/HelmetPlus'
 
 import { FaAngleRight } from 'react-icons/fa'
 
@@ -56,6 +57,16 @@ type Props = {
 
 const Learn = ({ location }: Props) => (
   <DefaultLayout location={location}>
+    <HelmetPlus
+      title={`Learn - developer.bitcoin.com`}
+      description={
+        'Learning center and resources for all of your Bitcoin Cash development needs'
+      }
+      keywords={
+        'learn, bitbox, tutorials, developer tools, bitcoin, bitcoin cash, BCH, wormhole, sdk, api'
+      }
+      location={location}
+    />
     <Hero image={HeroImg}>
       <HeroLayout>
         <H1 background>Learn</H1>

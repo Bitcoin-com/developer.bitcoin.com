@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import DefaultLayout from 'components/layouts/DefaultLayout'
 import Hero from 'components/Hero'
 import Container from 'components/Container'
+import HelmetPlus from 'components/HelmetPlus'
 
 import Text from 'atoms/Text'
 import H3 from 'atoms/H3'
@@ -78,6 +79,14 @@ type Props = {
 
 const RestPage = ({ location }: Props) => (
   <DefaultLayout location={location}>
+    <HelmetPlus
+      title={`REST - developer.bitcoin.com`}
+      description={'REST based bitcoin.com developer platform and resources'}
+      keywords={
+        'REST, developer tools, bitcoin, bitcoin cash, BCH, wormhole, sdk, api'
+      }
+      location={location}
+    />
     <Hero image={HeroImg}>
       <HeroLayout>
         <H3 primary>BCH RPC over HTTP</H3>

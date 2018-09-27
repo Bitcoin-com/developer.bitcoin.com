@@ -7,6 +7,7 @@ import styled from 'styled-components'
 import DefaultLayout from 'components/layouts/DefaultLayout'
 import Hero from 'components/Hero'
 import Container from 'components/Container'
+import HelmetPlus from 'components/HelmetPlus'
 
 import { FaAngleRight, FaAngleLeft } from 'react-icons/fa'
 
@@ -60,9 +61,25 @@ const Tutorials = ({ location, data }: Props) => {
 
   return (
     <DefaultLayout location={location}>
+      <HelmetPlus
+        title={`Tutorials - developer.bitcoin.com`}
+        description={
+          'Tutorials for the building on Bitcoin Cash, utilizing the Bitbox and Wormhole SDKs'
+        }
+        keywords={
+          'bitbox, tutorials, developer tools, bitcoin, bitcoin cash, BCH, wormhole, sdk, api'
+        }
+        location={location}
+      />
       <Hero image={HeroImg}>
         <HeroLayout>
-          <StyledLink to="/learn"><H3 centerVertical> <FaAngleLeft />Learn</H3></StyledLink>
+          <StyledLink to="/learn">
+            <H3 centerVertical>
+              {' '}
+              <FaAngleLeft />
+              Learn
+            </H3>
+          </StyledLink>
           <H1 background>Tutorials</H1>
           <H3 background>
             Real world examples to learn from and bootstrap your next Bitcoin
@@ -71,23 +88,23 @@ const Tutorials = ({ location, data }: Props) => {
         </HeroLayout>
       </Hero>
       <Container>
-          <PreviewLayout>
-        {tutorials.map((tutorial, idx) => (
-          <TutorialPreviewLayout key={idx}>
-            <TutorialHeaderLayout>
-              <StyledLink subtle to={tutorial.node.fields.slug}>
-                <H3>{tutorial.node.frontmatter.title} </H3>
+        <PreviewLayout>
+          {tutorials.map((tutorial, idx) => (
+            <TutorialPreviewLayout key={idx}>
+              <TutorialHeaderLayout>
+                <StyledLink subtle to={tutorial.node.fields.slug}>
+                  <H3>{tutorial.node.frontmatter.title} </H3>
+                </StyledLink>
+                <Text size="tiny">{tutorial.node.frontmatter.updatedAt}</Text>
+              </TutorialHeaderLayout>
+              <Text>{tutorial.node.frontmatter.description}</Text>
+              <StyledLink to={tutorial.node.fields.slug}>
+                <Text bold centerVertical>
+                  Read <FaAngleRight />
+                </Text>
               </StyledLink>
-              <Text size="tiny">{tutorial.node.frontmatter.updatedAt}</Text>
-            </TutorialHeaderLayout>
-            <Text>{tutorial.node.frontmatter.description}</Text>
-            <StyledLink to={tutorial.node.fields.slug}>
-              <Text bold centerVertical>
-                Read <FaAngleRight />
-              </Text>
-            </StyledLink>
-          </TutorialPreviewLayout>
-        ))}
+            </TutorialPreviewLayout>
+          ))}
         </PreviewLayout>
       </Container>
     </DefaultLayout>

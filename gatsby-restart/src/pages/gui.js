@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import DefaultLayout from 'components/layouts/DefaultLayout'
 import Hero from 'components/Hero'
 import Container from 'components/Container'
+import HelmetPlus from 'components/HelmetPlus'
 
 import Text from 'atoms/Text'
 import H3 from 'atoms/H3'
@@ -78,6 +79,12 @@ type Props = {
 
 const GuiPage = ({ location }: Props) => (
   <DefaultLayout location={location}>
+    <HelmetPlus
+      title={`GUI - developer.bitcoin.com`}
+      description={'GUI based bitcoin.com developer platform and resources'}
+      keywords={'GUI, developer tools, bitcoin, bitcoin cash, BCH, sdk, api'}
+      location={location}
+    />
     <Hero image={HeroImg}>
       <HeroLayout>
         <H3 primary>Your Personal Blockchain</H3>

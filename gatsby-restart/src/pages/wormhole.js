@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import DefaultLayout from 'components/layouts/DefaultLayout'
 import Hero from 'components/Hero'
 import Container from 'components/Container'
+import HelmetPlus from 'components/HelmetPlus'
 
 import Text from 'atoms/Text'
 import H3 from 'atoms/H3'
@@ -20,8 +21,6 @@ import media from 'styles/media'
 import spacing from 'styles/spacing'
 
 import HeroImg from 'images/hero.jpeg'
-
-// import { FaCube, FaCogs, FaCreditCard, FaCartPlus, FaReddit, FaTwitter, FaFacebook, FaLinkedin } from 'react-icons/fa'
 
 const HeroLayout = styled.div`
   display: grid;
@@ -80,6 +79,16 @@ type Props = {
 
 const BitboxPage = ({ location }: Props) => (
   <DefaultLayout location={location}>
+    <HelmetPlus
+      title={`Wormhole - developer.bitcoin.com`}
+      description={
+        'Wormhold based bitcoin.com developer platform and resources'
+      }
+      keywords={
+        'wormhold, developer tools, bitcoin, bitcoin cash, BCH, sdk, api'
+      }
+      location={location}
+    />
     <Hero image={HeroImg}>
       <HeroLayout>
         <H3 primary>Experience a paradigm shift</H3>

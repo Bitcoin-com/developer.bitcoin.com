@@ -4,6 +4,7 @@ import * as React from 'react'
 import styled from 'styled-components'
 
 import DefaultLayout from 'components/layouts/DefaultLayout'
+import HelmetPlus from 'components/HelmetPlus'
 import Hero from 'components/Hero'
 import Container from 'components/Container'
 
@@ -76,6 +77,14 @@ type Props = {
 
 const BitboxPage = ({ location }: Props) => (
   <DefaultLayout location={location}>
+    <HelmetPlus
+      title={`Bitbox - developer.bitcoin.com`}
+      description={'Bitbox based bitcoin.com developer platform and resources'}
+      keywords={
+        'bitbox, developer tools, bitcoin, bitcoin cash, BCH, wormhole, sdk, api'
+      }
+      location={location}
+    />
     <Hero image={HeroImg}>
       <HeroLayout>
         <H3 primary>Incredibly powerful. Easy to learn.</H3>
