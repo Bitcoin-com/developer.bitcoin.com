@@ -3,7 +3,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-
 import DefaultLayout from 'components/layouts/DefaultLayout'
 import Hero from 'components/Hero'
 import Container from 'components/Container'
@@ -50,7 +49,10 @@ const ItemLayout = styled.div`
   display: grid;
   grid-gap: ${spacing.tiny};
   grid-auto-rows: min-content;
-  grid-column: ${props => (props.full ? 'span 2' : 'auto')};
+  grid-column: span 2;
+  ${media.medium`
+    grid-column: ${props => (props.full ? 'span 2' : 'auto')};
+  `};
 `
 
 type ItemProps = {
@@ -93,17 +95,27 @@ const RestPage = ({ location }: Props) => (
         <PreviewItem full to="/rest/docs/getting-started">
           <H2>BCH RPC over HTTP</H2>
           <Text>
-          100% of the Bitcoin Cash JSON RPC available over HTTP with proper REST semantics. BITBOX SDK integration lets you GET and POST requests to the BCH network with no further setup. Or create your own client which to speak to the blockchain over RESto the BCH network with no further setup. Or create your own client which to speak to the blockchain over REST.
+            100% of the Bitcoin Cash JSON RPC available over HTTP with proper
+            REST semantics. BITBOX SDK integration lets you GET and POST
+            requests to the BCH network with no further setup. Or create your
+            own client which to speak to the blockchain over RESto the BCH
+            network with no further setup. Or create your own client which to
+            speak to the blockchain over REST.
           </Text>
         </PreviewItem>
         <PreviewItem to="/rest/docs/getting-started">
           <H2>Proper REST Semantics</H2>
-          <Text>Instead of POSTing directly to bitcoind we've wrapped the BCH JSON RPC in REST semantics so you GET when reading and POST when writing from/to the chain.</Text>
+          <Text>
+            Instead of POSTing directly to bitcoind we've wrapped the BCH JSON
+            RPC in REST semantics so you GET when reading and POST when writing
+            from/to the chain.
+          </Text>
         </PreviewItem>
         <PreviewItem to="/gui/docs/getting-started">
           <H2>Addresses, Blocks and Transactions</H2>
           <Text>
-          Get details such as balance, utxo and unconfirmed transactions for an address. Get details about a block or transaction.
+            Get details such as balance, utxo and unconfirmed transactions for
+            an address. Get details about a block or transaction.
           </Text>
         </PreviewItem>
       </PreviewLayout>

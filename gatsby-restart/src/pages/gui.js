@@ -49,7 +49,10 @@ const ItemLayout = styled.div`
   display: grid;
   grid-gap: ${spacing.tiny};
   grid-auto-rows: min-content;
-  grid-column: ${props => (props.full ? 'span 2' : 'auto')};
+  grid-column: span 2;
+  ${media.medium`
+    grid-column: ${props => (props.full ? 'span 2' : 'auto')};
+  `};
 `
 
 type ItemProps = {
@@ -79,7 +82,9 @@ const GuiPage = ({ location }: Props) => (
       <HeroLayout>
         <H3 primary>Your Personal Blockchain</H3>
         <H1 background>GUI</H1>
-        <H3 background>Full BCH blockchain and BIP44 wallet for use during development.</H3>
+        <H3 background>
+          Full BCH blockchain and BIP44 wallet for use during development.
+        </H3>
         <InstallCTA>
           <StyledLink to="/gui/docs/getting-started">
             <Button round>Start Here</Button>
@@ -92,26 +97,40 @@ const GuiPage = ({ location }: Props) => (
         <PreviewItem full to="/gui/docs/getting-started">
           <H2>Instant Blockchain</H2>
           <Text>
-          Your own Bitcoin Cash blockchain to configure however you choose. It’s recreated from scratch each time you restart GUI. It doesn’t connect to the real network and only consists of transactions and blocks which you create locally so it’s quick and responsive.
+            Your own Bitcoin Cash blockchain to configure however you choose.
+            It’s recreated from scratch each time you restart GUI. It doesn’t
+            connect to the real network and only consists of transactions and
+            blocks which you create locally so it’s quick and responsive.
           </Text>
         </PreviewItem>
         <PreviewItem to="/gui/docs/wallet">
           <H2>BIP44 development wallet</H2>
-          <Text>Create as many BIP44 accounts as you want on mainnet or testnet. See their address, WIF, XPub and XPriv.</Text>
+          <Text>
+            Create as many BIP44 accounts as you want on mainnet or testnet. See
+            their address, WIF, XPub and XPriv.
+          </Text>
         </PreviewItem>
         <PreviewItem to="/gui/docs/conversion">
           <H2>Address Conversion</H2>
           <Text>
-          Paste in legacy, cashaddr, wif, xpub or xpriv and get address conversion and QR codes.
+            Paste in legacy, cashaddr, wif, xpub or xpriv and get address
+            conversion and QR codes.
           </Text>
         </PreviewItem>
         <PreviewItem to="/gui/docs/sign-verify">
           <H2>Sign/Verify messages</H2>
-          <Text>Sign messages in legacy or cashaddr with any address in your GUI. Verify messages in legacy or cashaddr from any wallet.</Text>
+          <Text>
+            Sign messages in legacy or cashaddr with any address in your GUI.
+            Verify messages in legacy or cashaddr from any wallet.
+          </Text>
         </PreviewItem>
         <PreviewItem to="/gui/docs/configuration">
           <H2>Configured how you like it</H2>
-          <Text>Create as many accounts as you need. Vary the entropy in the mnemonic. Supports 8 languages. Custom HD Paths. Add a password. Mainnet or Testnet.</Text>
+          <Text>
+            Create as many accounts as you need. Vary the entropy in the
+            mnemonic. Supports 8 languages. Custom HD Paths. Add a password.
+            Mainnet or Testnet.
+          </Text>
         </PreviewItem>
       </PreviewLayout>
     </Container>

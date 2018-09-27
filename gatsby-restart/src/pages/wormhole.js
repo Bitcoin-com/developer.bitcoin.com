@@ -51,7 +51,10 @@ const ItemLayout = styled.div`
   display: grid;
   grid-gap: ${spacing.tiny};
   grid-auto-rows: min-content;
-  grid-column: ${props => (props.full ? 'span 2' : 'auto')};
+  grid-column: span 2;
+  ${media.medium`
+    grid-column: ${props => (props.full ? 'span 2' : 'auto')};
+  `};
 `
 
 type ItemProps = {
