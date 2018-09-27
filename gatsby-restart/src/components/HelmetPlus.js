@@ -8,7 +8,7 @@ type Props = {
   description?: string,
   image?: string,
   keywords?: string,
-  location: { href: string },
+  location: { pathname: string },
   children?: React.Node,
 }
 class HelmetPlus extends React.PureComponent<Props> {
@@ -30,7 +30,12 @@ class HelmetPlus extends React.PureComponent<Props> {
         {image && <meta name="image" content={image} />}
 
         {/* og meta */}
-        {location && <meta property="og:url" content={location.href} />}
+        {location && (
+          <meta
+            property="og:url"
+            content={`https://developer.bitcoin.com${location.pathname}`}
+          />
+        )}
         {title && <meta property="og:title" content={title} />}
         {description && (
           <meta property="og:description" content={description} />
