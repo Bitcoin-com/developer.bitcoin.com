@@ -95,7 +95,7 @@ const Tutorials = ({ location, data }: Props) => {
                 <StyledLink subtle to={tutorial.node.fields.slug}>
                   <H3>{tutorial.node.frontmatter.title} </H3>
                 </StyledLink>
-                <Text size="tiny">{tutorial.node.frontmatter.updatedAt}</Text>
+                {/* <Text size="tiny">{tutorial.node.frontmatter.updatedAt}</Text> */}
               </TutorialHeaderLayout>
               <Text>{tutorial.node.frontmatter.description}</Text>
               <StyledLink to={tutorial.node.fields.slug}>

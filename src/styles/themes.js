@@ -5,7 +5,7 @@ import palette from './palette'
 const defaultTheme = {
   primary: palette.sun,
   primaryMuted: palette.oldLace,
-  secondary: palette.emerald, // goblin
+  secondary: palette.buddhaGold,
   foreground: palette.woodsmoke,
   background: palette.white,
   backgroundMuted: palette.silver,

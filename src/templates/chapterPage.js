@@ -100,9 +100,9 @@ class ChapterTemplate extends React.PureComponent<Props> {
                 {chapterNode.frontmatter.chapter}.{' '}
                 {chapterNode.frontmatter.title}
               </H2>
-              {chapterNode.frontmatter.updatedAt && (
+              {/* {chapterNode.frontmatter.updatedAt && (
                 <Text muted2>Updated: {chapterNode.frontmatter.updatedAt}</Text>
-              )}
+              )} */}
             </div>
             <ChapterHolder>{renderAst(chapterNode.htmlAst)}</ChapterHolder>
             <Text monospace muted2>

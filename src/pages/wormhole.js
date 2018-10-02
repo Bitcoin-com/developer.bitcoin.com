@@ -77,7 +77,7 @@ type Props = {
   location: Object,
 }
 
-const BitboxPage = ({ location }: Props) => (
+const WormholePage = ({ location }: Props) => (
   <DefaultLayout location={location}>
     <HelmetPlus
       title={`Wormhole - developer.bitcoin.com`}
@@ -119,7 +119,7 @@ const BitboxPage = ({ location }: Props) => (
             Cash.
           </Text>
         </PreviewItem>
-        <PreviewItem to="/wormhole/docs/transactions">
+        <PreviewItem to="/wormhole/docs/raw-transactions">
           <H2>Tokens with fixed supply</H2>
           <Text>Create 1,000,000 Quantum Miner Tokens QMT</Text>
           <Code>
@@ -216,7 +216,7 @@ const BitboxPage = ({ location }: Props) => (
 `}
           </Code>
         </PreviewItem>
-        <PreviewItem to="/wormhole/docs/transaction">
+        <PreviewItem to="/wormhole/docs/payload-creation/#crowdsale">
           <H2>Crowdsales</H2>
           <Text>
             Create Crowdsales. Sell your own tokens for WHC. Launch an ICO on
@@ -323,7 +323,7 @@ const BitboxPage = ({ location }: Props) => (
 `}
           </Code>
         </PreviewItem>
-        <PreviewItem to="/wormhole/docs/transactions">
+        <PreviewItem to="/wormhole/docs/payload-creation/#managed">
           <H2>Tokens with managed supply</H2>
           <Text>Grant and revoke Time Machine Coins TMC</Text>
           <Code>
@@ -377,7 +377,7 @@ const BitboxPage = ({ location }: Props) => (
 `}
           </Code>
         </PreviewItem>
-        <PreviewItem to="/wormhole/docs/transactions">
+        <PreviewItem to="/wormhole/docs/payload-creation/#managed">
           <Text>Grant 42 TMC to a time traveler</Text>
           <Code>
             {`
@@ -425,7 +425,7 @@ const BitboxPage = ({ location }: Props) => (
 `}
           </Code>
         </PreviewItem>
-        <PreviewItem to="/wormhole/docs/transactions">
+        <PreviewItem to="/wormhole/docs/payload-creation/#revoke">
           <Text>Revoke 11 TMC from a time traveler</Text>
           <Code>
             {`
@@ -503,4 +503,4 @@ const BitboxPage = ({ location }: Props) => (
   </DefaultLayout>
 )
 
-export default BitboxPage
+export default WormholePage
