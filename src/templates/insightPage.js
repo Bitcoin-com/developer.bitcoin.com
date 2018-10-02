@@ -10,7 +10,6 @@ import DefaultLayout from 'components/layouts/DefaultLayout.js'
 import Container from 'components/Container'
 
 import StyledLink from 'atoms/StyledLink'
-import Text from 'atoms/Text'
 import H2 from 'atoms/H2'
 import H3 from 'atoms/H3'
 
@@ -72,10 +71,6 @@ class InsightTemplate extends React.PureComponent<Props> {
             </StyledLink>
             <div>
               <H2>{insight.frontmatter.title}</H2>
-              {/* <Text muted2>
-                {insight.frontmatter.updatedAt ||
-                  insight.frontmatter.publishedAt}
-              </Text> */}
             </div>
             <InsightHolder>{renderAst(insight.htmlAst)}</InsightHolder>
           </PageLayout>
@@ -98,8 +93,6 @@ export const query = graphql`
       htmlAst
       frontmatter {
         title
-        updatedAt(formatString: "MMMM Do, YYYY")
-        publishedAt(formatString: "MMMM Do, YYYY")
         author
       }
       fields {

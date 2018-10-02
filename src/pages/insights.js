@@ -92,7 +92,6 @@ const Insights = ({ location, data }: Props) => {
                 <StyledLink subtle to={post.node.fields.slug}>
                   <H3>{post.node.frontmatter.title} </H3>
                 </StyledLink>
-                {/* <Text size="tiny">{post.node.frontmatter.updatedAt}</Text> */}
               </PostHeaderLayout>
               <Text>{post.node.frontmatter.description}</Text>
               <StyledLink to={post.node.fields.slug}>
@@ -118,7 +117,7 @@ export const query = graphql`
       }
     }
     allMarkdownRemark(
-      sort: { fields: [frontmatter___updatedAt], order: DESC }
+      sort: { fields: [frontmatter___ordinal], order: DESC }
       filter: { fields: { type: { eq: "insight" } } }
     ) {
       totalCount

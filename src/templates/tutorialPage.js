@@ -10,7 +10,6 @@ import Container from 'components/Container'
 import HelmetPlus from 'components/HelmetPlus'
 
 import StyledLink from 'atoms/StyledLink'
-import Text from 'atoms/Text'
 import H2 from 'atoms/H2'
 import H3 from 'atoms/H3'
 
@@ -73,10 +72,6 @@ class TutorialTemplate extends React.PureComponent<Props> {
             </StyledLink>
             <div>
               <H2>{tutorial.frontmatter.title}</H2>
-              {/* <Text muted2>
-                {tutorial.frontmatter.updatedAt ||
-                  tutorial.frontmatter.publishedAt}
-              </Text> */}
             </div>
             <TutorialHolder>{renderAst(tutorial.htmlAst)}</TutorialHolder>
           </PageLayout>
@@ -99,8 +94,6 @@ export const query = graphql`
       htmlAst
       frontmatter {
         title
-        updatedAt(formatString: "MMMM Do, YYYY")
-        publishedAt(formatString: "MMMM Do, YYYY")
         author
       }
       fields {

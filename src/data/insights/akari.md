@@ -2,8 +2,7 @@
 title: AKARI
 author: AKARI
 description: Tools to boost economic freedom
-publishedAt: 2018-07-06
-updatedAt: 2018-07-06
+ordinal: 1
 ---
 
 ### Intro
