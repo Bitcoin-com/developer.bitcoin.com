@@ -95,7 +95,6 @@ const Tutorials = ({ location, data }: Props) => {
                 <StyledLink subtle to={tutorial.node.fields.slug}>
                   <H3>{tutorial.node.frontmatter.title} </H3>
                 </StyledLink>
-                {/* <Text size="tiny">{tutorial.node.frontmatter.updatedAt}</Text> */}
               </TutorialHeaderLayout>
               <Text>{tutorial.node.frontmatter.description}</Text>
               <StyledLink to={tutorial.node.fields.slug}>
@@ -121,7 +120,7 @@ export const query = graphql`
       }
     }
     allMarkdownRemark(
-      sort: { fields: [frontmatter___updatedAt], order: DESC }
+      sort: { fields: [frontmatter___ordinal], order: DESC }
       filter: { fields: { type: { eq: "tutorial" } } }
     ) {
       totalCount
@@ -132,8 +131,6 @@ export const query = graphql`
           frontmatter {
             title
             description
-            updatedAt(formatString: "MMMM Do, YYYY")
-            publishedAt(formatString: "MMMM Do, YYYY")
           }
           fields {
             slug

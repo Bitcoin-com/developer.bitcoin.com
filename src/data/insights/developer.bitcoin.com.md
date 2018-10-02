@@ -2,8 +2,7 @@
 title: developer.bitcoin.com
 author: Gabriel Cardona
 description: Change the world with Bitcoin Cash
-publishedAt: 2018-07-06
-updatedAt: 2018-07-06
+ordinal: 2
 ---
 
 ### Intro
