@@ -92,7 +92,7 @@ const Insights = ({ location, data }: Props) => {
                 <StyledLink subtle to={post.node.fields.slug}>
                   <H3>{post.node.frontmatter.title} </H3>
                 </StyledLink>
-                <Text size="tiny">{post.node.frontmatter.updatedAt}</Text>
+                {/* <Text size="tiny">{post.node.frontmatter.updatedAt}</Text> */}
               </PostHeaderLayout>
               <Text>{post.node.frontmatter.description}</Text>
               <StyledLink to={post.node.fields.slug}>

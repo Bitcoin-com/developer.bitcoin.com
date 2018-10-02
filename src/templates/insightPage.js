@@ -72,10 +72,10 @@ class InsightTemplate extends React.PureComponent<Props> {
             </StyledLink>
             <div>
               <H2>{insight.frontmatter.title}</H2>
-              <Text muted2>
+              {/* <Text muted2>
                 {insight.frontmatter.updatedAt ||
                   insight.frontmatter.publishedAt}
-              </Text>
+              </Text> */}
             </div>
             <InsightHolder>{renderAst(insight.htmlAst)}</InsightHolder>
           </PageLayout>

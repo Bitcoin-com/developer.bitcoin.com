@@ -73,10 +73,10 @@ class TutorialTemplate extends React.PureComponent<Props> {
             </StyledLink>
             <div>
               <H2>{tutorial.frontmatter.title}</H2>
-              <Text muted2>
+              {/* <Text muted2>
                 {tutorial.frontmatter.updatedAt ||
                   tutorial.frontmatter.publishedAt}
-              </Text>
+              </Text> */}
             </div>
             <TutorialHolder>{renderAst(tutorial.htmlAst)}</TutorialHolder>
           </PageLayout>
