@@ -42,7 +42,7 @@ Next you’ll need a text editor to edit code. For that we suggest [Atom.io](htt
 
 ![atomIO logo](/images/atomio.png)
 
-Finally you’re ready to install Wormhole SDK. You can do that with `npm install wormholecash --global`. This will give you access to Wormhole `new` and `console`. To confirm it worked run `wormhole --version`. At the time of writing the latest version of Wormhole SDK is v0.1.21.
+Finally you’re ready to install Wormhole SDK. You can do that with `npm install wormhole-sdk --global`. This will give you access to Wormhole `new` and `console`. To confirm it worked run `wormhole --version`. At the time of writing the latest version of Wormhole SDK is v0.1.21.
 
 ![bitbox version](/images/wormhole-version.png)
 
