@@ -16,15 +16,15 @@ Use the official installer from [nodejs.org](https://nodejs.org/). Install the o
 
 To use commands like `new` and `console`:
 
-    npm install bitbox-cli --global
+    npm install bitbox-sdk --global
 
 To use inside a command line script or client/server app:
 
-    npm install bitbox-cli --save
+    npm install bitbox-sdk --save
 
 ### Usage
 
 Use the [scaffold generator](./new.html), or manually import BITBOX into your code:
 
-    let BITBOXCli = require('bitbox-cli/lib/bitbox-cli').default;
-    let BITBOX = new BITBOXCli();
+    let BITBOXSDK = require('bitbox-sdk/lib/bitbox-sdk').default;
+    let BITBOX = new BITBOXSDK();
