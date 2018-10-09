@@ -22,7 +22,7 @@ The goal for this article will be to show how to enable TypeScript types for BIT
 - Have a basic understanding of Node.js, npm, TypeScript. If you don’t yet know what TypeScript is then just know it can be used to fill two primary roles in a JavaScript development project:
   - It can provide an optional type system for JavaScript.
   - It can provide planned features from future JavaScript editions to current JavaScript engines
-- Install BITBOX SDK globally using `npm install -g bitbox-cli` (visit [https://developer.bitcoin.com/bitbox/docs/getting-started.html](https://developer.bitcoin.com/bitbox/docs/getting-started.html) for more details).
+- Install BITBOX SDK globally using `npm install -g bitbox-sdk` (visit [https://developer.bitcoin.com/bitbox/docs/getting-started.html](https://developer.bitcoin.com/bitbox/docs/getting-started.html) for more details).
 - You must have a recent version of Node.js installed (8.11.x or higher) TypeScript installed via `npm install -g typescript`
 - Visual Studio Code is the recommended IDE for feature rich TypeScript tooling and debugging support, but other may work as well.
 

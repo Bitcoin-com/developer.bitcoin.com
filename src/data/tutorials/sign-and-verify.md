@@ -31,7 +31,7 @@ If the address or signature are incorrectly formatted or the signature doesn’t
 
 ### Using the command line
 
-BITBOX supports the entire Bitcoin Cash RPC. [`bitbox-cli`](https://www.npmjs.com/package/bitbox-cli) now supports, `signmessagewithprivkey` and `verifymessage` in cashaddr (w/ or w/out the prefix) and legacy.
+BITBOX supports the entire Bitcoin Cash RPC. [`bitbox-sdk`](https://www.npmjs.com/package/bitbox-sdk) now supports, `signmessagewithprivkey` and `verifymessage` in cashaddr (w/ or w/out the prefix) and legacy.
 
 #### Sign
 

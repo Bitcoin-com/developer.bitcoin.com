@@ -88,16 +88,16 @@ const BitboxPage = ({ location }: Props) => (
     <Hero image={HeroImg}>
       <HeroLayout>
         <H3 primary>Incredibly powerful. Easy to learn.</H3>
-        <H1 background>BITBOX</H1>
+        <H1 background>BITBOX SDK</H1>
         <H3 background>
           Powerful and intuitive APIs which will have you creating world class
           applications
         </H3>
         <InstallCTA>
-          <SmartLink to="https://www.npmjs.com/package/bitbox-cli">
+          <SmartLink to="https://www.npmjs.com/package/bitbox-sdk">
             INSTALL VIA NPM
           </SmartLink>
-          <Code language="bash">{`npm install bitbox-cli --global`}</Code>
+          <Code language="bash">{`npm install bitbox-sdk --global`}</Code>
           <StyledLink to="/bitbox/docs/getting-started">
             <Button round>Start Here</Button>
           </StyledLink>

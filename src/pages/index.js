@@ -137,10 +137,10 @@ const IndexPage = ({ location }: Props) => (
 
           <Text background>100+ countries</Text>
 
-          <SmartLink to="https://www.npmjs.com/package/bitbox-cli">
+          <SmartLink to="https://www.npmjs.com/package/bitbox-sdk">
             Install via NPM
           </SmartLink>
-          <Code language="bash">npm install -g bitbox-cli</Code>
+          <Code language="bash">npm install -g bitbox-sdk</Code>
         </SDKLayout>
       </HeroLayout>
     </Hero>

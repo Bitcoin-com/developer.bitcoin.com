@@ -141,11 +141,11 @@ Scale.cash uses [bitcoin.com's REST API](https://rest.bitcoin.com) to send batch
 
 ```javascript
 if (window.scaleCashSettings.isTestnet) {
-  BITBOX = new BITBOXCli({
+  BITBOX = new BITBOXSDK({
     restURL: 'https://trest.bitcoin.com/v1/',
   })
 } else {
-  BITBOX = new BITBOXCli()
+  BITBOX = new BITBOXSDK()
 }
 ```
 
@@ -167,7 +167,7 @@ This is useful if you want to prove ownership of this address. You can share the
 
 ![BITBOX GUI](/images/scale-16.png)
 
-Or you can verify ownership with `bitbox-cli`.
+Or you can verify ownership with `bitbox-sdk`.
 
 ```javascript
 BITBOX.BitcoinCash.verifyMessage(

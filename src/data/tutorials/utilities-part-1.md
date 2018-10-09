@@ -5,7 +5,7 @@ publishedAt: 2018-07-06
 updatedAt: 2018-07-06
 ---
 
-`bitbox-cli` recently added 3 new Objects full of utility methods to help you accelerate your $BCH workflow. The `BitcoinCash` methods convert between satoshis and whole units.
+`bitbox-sdk` recently added 3 new Objects full of utility methods to help you accelerate your $BCH workflow. The `BitcoinCash` methods convert between satoshis and whole units.
 
 The `Address` methods let you convert legacy addresses to cashaddr and reverse as well as detecting address formats, types and networks.
 
@@ -109,7 +109,7 @@ BITBOX.Crypto.randomBytes(16)
 
 ## Credits
 
-`bitbox-cli` leverages several really great libraries. Please show these people support.
+`bitbox-sdk` leverages several really great libraries. Please show these people support.
 
 - [https://nodejs.org/api/crypto.html](https://nodejs.org/api/crypto.html)
 - [https://github.com/bitcoinjs/bitcoinjs-lib](https://github.com/bitcoinjs/bitcoinjs-lib)

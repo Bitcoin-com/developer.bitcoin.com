@@ -72,7 +72,7 @@ With that all set up lets now look at leveraging BITBOX Cloud.
 
 ## BITBOX Cloud
 
-BITBOX Cloud is your Blockchain as a Service.’ We recently started integrating w/ `bitbox-cli` so you can leverage BITBOX Cloud w/out any additional setup.
+BITBOX Cloud is your Blockchain as a Service.’ We recently started integrating w/ `bitbox-sdk` so you can leverage BITBOX Cloud w/out any additional setup.
 
 You can use [Address.utxo](bitbox/docs/address/#utxo) to get back a list of utxo for an address
 
@@ -232,10 +232,10 @@ BITBOX.RawTransactions.sendRawTransaction(hex).then(
 
 ```javascript
 // include BITBOX
-let BITBOXCli = require('bitbox-cli/lib/bitbox-cli').default
+let BITBOXSDK = require('bitbox-sdk/lib/bitbox-sdk').default
 
 // Instantiate BITBOX and pass in creds for a full node.
-let BITBOX = new BITBOXCli()
+let BITBOX = new BITBOXSDK()
 
 // create mnemonic
 let mnemonic =

@@ -9,7 +9,7 @@ Bitcoin Cash offers an unimaginably large number of addresses. This allows you t
 
 ## fromXPub
 
-`bitbox-cli` now has an `Address.fromXPub` method which takes an `xpub` as a first argument and an `index` as an optional 2nd argument which defaults to “0/0”.
+`bitbox-sdk` now has an `Address.fromXPub` method which takes an `xpub` as a first argument and an `index` as an optional 2nd argument which defaults to “0/0”.
 
 ```javascript
 for (let i = 0; i < 5; i++) {

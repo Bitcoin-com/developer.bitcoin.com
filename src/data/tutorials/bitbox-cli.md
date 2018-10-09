@@ -1,5 +1,5 @@
 ---
-title: bitbox-cli
+title: bitbox-sdk
 author: Gabriel Cardona
 publishedAt: 2018-07-06
 updatedAt: 2018-07-06
@@ -7,14 +7,14 @@ updatedAt: 2018-07-06
 
 BITBOX aims to be the go-to toolset for $BCH developers. We want you to be able to run your code and tests against your BITBOX before deploying to live environments and aim for 100% Bitcoin Cash JSON RPC API coverage.
 
-Today we’re happy to announce that `bitbox-cli` has 100% of the Bitcoin ABC JSON RPC. You can now use `bitbox-cli` to have your code interface directly w/ your live running Bitcoin ABC node. Here’s how that would look.
+Today we’re happy to announce that `bitbox-sdk` has 100% of the Bitcoin ABC JSON RPC. You can now use `bitbox-sdk` to have your code interface directly w/ your live running Bitcoin ABC node. Here’s how that would look.
 
 ### Installation
 
-First install `bitbox-cli` via npm
+First install `bitbox-sdk` via npm
 
 ```bash
-npm install bitbox-cli --global
+npm install bitbox-sdk --global
 ```
 
 This gives you access to the `bitbox` command line utility.
@@ -92,17 +92,17 @@ This will load the console and create a `BITBOX` object w/ the entire $BCH JSON 
 
 ### Browser
 
-You can also use `BITBOX` from the browser. First install `bitbox-cli` locally w/ npm.
+You can also use `BITBOX` from the browser. First install `bitbox-sdk` locally w/ npm.
 
 ```bash
-npm install bitbox-cli --save
+npm install bitbox-sdk --save
 ```
 
-Next you need to `require` or `import` `BITBOXCli` into your app depending on if your are transpiling ES6 or not. Once you `require` `BITBOXCli` into your app you then create an instance of `BITBOX` and pass in a config object w/ the same values you used at the command line in the previous steps.
+Next you need to `require` or `import` `BITBOXSDK` into your app depending on if your are transpiling ES6 or not. Once you `require` `BITBOXSDK` into your app you then create an instance of `BITBOX` and pass in a config object w/ the same values you used at the command line in the previous steps.
 
 ```javascript
-let BITBOXCli = require('bitbox-cli/lib/bitbox-cli').default
-let BITBOX = new BITBOXCli()
+let BITBOXSDK = require('bitbox-sdk/lib/bitbox-sdk').default
+let BITBOX = new BITBOXSDK()
 
 BITBOX.getnetworkinfo().then(
   result => {
