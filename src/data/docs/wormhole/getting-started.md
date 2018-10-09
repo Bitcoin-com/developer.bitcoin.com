@@ -16,7 +16,7 @@ Use the official installer from [nodejs.org](https://nodejs.org/). Install the o
 
 To use commands like `new` and `console`:
 
-    npm install wormholecash --global
+    npm install wormhole-sdk --global
 
 To use inside a command line script or client/server app:
 
@@ -27,7 +27,7 @@ To use inside a command line script or client/server app:
 Use the [scaffold generator](./new.html), or manually import Wormole into your code:
 
 ```js
-let Wormhole = require('wormholecash/lib/Wormhole').default
+let Wormhole = require('wormhole-sdk/lib/Wormhole').default
 
 let wormhole = new Wormhole()
 ```

@@ -92,11 +92,11 @@ const WormholePage = ({ location }: Props) => (
     <Hero image={HeroImg}>
       <HeroLayout>
         <H3 primary>Experience a paradigm shift</H3>
-        <H1 background>Wormhole</H1>
+        <H1 background>Wormhole SDK</H1>
         <H3 background>Tokens and Crowdsales on Bitcoin Cash</H3>
         <InstallCTA>
           <Text background>INSTALL VIA NPM</Text>
-          <Code language="bash">{`npm install wormholecash --global`}</Code>
+          <Code language="bash">{`npm install wormhole-sdk --global`}</Code>
           <StyledLink to="/wormhole/docs/getting-started">
             <Button round>Start Here</Button>
           </StyledLink>
