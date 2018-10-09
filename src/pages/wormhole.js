@@ -92,7 +92,7 @@ const WormholePage = ({ location }: Props) => (
     <Hero image={HeroImg}>
       <HeroLayout>
         <H3 primary>Experience a paradigm shift</H3>
-        <H1 background>Wormhole</H1>
+        <H1 background>Wormhole SDK</H1>
         <H3 background>Tokens and Crowdsales on Bitcoin Cash</H3>
         <InstallCTA>
           <Text background>INSTALL VIA NPM</Text>
