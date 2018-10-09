@@ -87,10 +87,10 @@ const About = ({ location }: Props) => (
 
           <Text>100+ countries</Text>
 
-          <SmartLink to="https://www.npmjs.com/package/bitbox-cli">
+          <SmartLink to="https://www.npmjs.com/package/bitbox-sdk">
             Install via NPM
           </SmartLink>
-          <Code language="bash">npm install -g bitbox-cli</Code>
+          <Code language="bash">npm install -g bitbox-sdk</Code>
         </InstallCTA>
         <Item>
           <H3>REST</H3>

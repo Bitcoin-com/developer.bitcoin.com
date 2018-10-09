@@ -11,8 +11,8 @@ When creating a new application on any platform too much time is spent setting e
 
 #### Setup
 
-1.  [Install `bitbox-cli`](https://www.npmjs.com/package/bitbox-cli) globally
-    `npm install bitbox-cli --global`
+1.  [Install `bitbox-sdk`](https://www.npmjs.com/package/bitbox-sdk) globally
+    `npm install bitbox-sdk --global`
 
 ### React
 
@@ -22,11 +22,11 @@ To quickly create a [React app w/ BITBOX web bindings](https://github.com/Bitcoi
 
 1.  Scaffold a React app w/ BITBOX web bindings
     `bitbox new myApp --scaffold react`
-2.  `cd` into new app  
+2.  `cd` into new app
     `cd myApp/`
-3.  Install dependencies  
+3.  Install dependencies
     `npm install`
-4.  Start the app  
+4.  Start the app
     `npm start`
 5.  Open a browser to `http://localhost:3000/` and confirm you are seeing a basic BIP44 wallet
 6.  Win
@@ -73,10 +73,10 @@ To quickly create a [Node JS app w/ BITBOX bindings](https://github.com/Bitcoin-
 
 ### Config
 
-By default your new app will connect to BITBOX Cloud over [REST](https://rest.bitcoin.com/). If you want to connect to your own REST services pass in a config object when instantiating `bitbox-cli`.
+By default your new app will connect to BITBOX Cloud over [REST](https://rest.bitcoin.com/). If you want to connect to your own REST services pass in a config object when instantiating `bitbox-sdk`.
 
 ```
-let BITBOX = new BITBOXCli({
+let BITBOX = new BITBOXSDK({
     restURL: 'my-rest-url'
 });
 ```

@@ -36,7 +36,7 @@ Next you’ll need a text editor to edit code. For that we suggest [Atom.io](htt
 
 ![atomIO logo](/images/atomio.png)
 
-Finally you’re ready to install BITBOX SDK. You can do that with `npm install bitbox-cli --global`. This will give you access to BITBOX scaffolds, console, paper wallet generator and more. To confirm it worked run `bitbox --version`. At the time of writing the latest version of BITBOX SDK is v1.4.4.
+Finally you’re ready to install BITBOX SDK. You can do that with `npm install bitbox-sdk --global`. This will give you access to BITBOX scaffolds, console, paper wallet generator and more. To confirm it worked run `bitbox --version`. At the time of writing the latest version of BITBOX SDK is v1.4.4.
 
 ![bitbox version](/images/bitbox-version.png)
 
