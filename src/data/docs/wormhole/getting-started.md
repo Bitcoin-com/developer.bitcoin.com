@@ -24,7 +24,7 @@ To use inside a command line script or client/server app:
 
 ### Usage
 
-Use the [scaffold generator](./new.html), or manually import Wormole into your code:
+Use the [scaffold generator](./new.html), or manually import Wormhole into your code:
 
 ```js
 let Wormhole = require('wormhole-sdk/lib/Wormhole').default

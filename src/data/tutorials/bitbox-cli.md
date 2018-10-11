@@ -98,7 +98,7 @@ You can also use `BITBOX` from the browser. First install `bitbox-sdk` locally w
 npm install bitbox-sdk --save
 ```
 
-Next you need to `require` or `import` `BITBOXSDK` into your app depending on if your are transpiling ES6 or not. Once you `require` `BITBOXSDK` into your app you then create an instance of `BITBOX` and pass in a config object w/ the same values you used at the command line in the previous steps.
+Next you need to `require` or `import` `BITBOXSDK` into your app depending on if you are transpiling ES6 or not. Once you `require` `BITBOXSDK` into your app you then create an instance of `BITBOX` and pass in a config object w/ the same values you used at the command line in the previous steps.
 
 ```javascript
 let BITBOXSDK = require('bitbox-sdk/lib/bitbox-sdk').default

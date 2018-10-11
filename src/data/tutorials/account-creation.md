@@ -5,7 +5,7 @@ publishedAt: 2018-07-06
 updatedAt: 2018-07-06
 ---
 
-Bitcoin Cash wallets are really just collections of key pairs. Hiearchical Deterministic wallets are the state of the art for reliably creating and backing up collections of related keypairs. For more detail read Andreas’s in depth explation about how they work in [Mastering Bitcoin Cash](/mastering-bitcoin-cash/3-keys-addresses-wallets/).
+Bitcoin Cash wallets are really just collections of key pairs. Hierarchical Deterministic wallets are the state of the art for reliably creating and backing up collections of related keypairs. For more detail read Andreas’s in depth explanation about how they work in [Mastering Bitcoin Cash](/mastering-bitcoin-cash/3-keys-addresses-wallets/).
 
 BITBOX is an HD wallet which aims to be compliant w/ BIPS 32, 39, 43, 44. When you first fire up BITBOX we create a random mnemonic from 16 bytes of entropy which we then use to create a root seed, master key and 10 default accounts.
 
