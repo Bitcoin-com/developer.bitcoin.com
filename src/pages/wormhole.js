@@ -112,7 +112,7 @@ const WormholePage = ({ location }: Props) => (
             world. All on Bitcoin Cash.
           </Text>
           <Text>
-            Wormhole is a fully featured javascript framework powered by{' '}
+            Wormhole SDK is a fully featured javascript framework powered by{' '}
             <StyledLink to="/bitbox">BITBOX</StyledLink>. It offers fixed and
             managed tokens, crowdsales and much more. It’s powerful and
             intuitive APIs will have you creating tokens and ICOs on Bitcoin
