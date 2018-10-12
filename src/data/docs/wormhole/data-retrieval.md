@@ -227,7 +227,7 @@ obj `Object`
 
     (async () => {
       try {
-        let info = await Wormhole.DataRetrieval.getInfo();
+        let info = await Wormhole.DataRetrieval.info();
         console.log(info);
       } catch(error) {
         console.error(error)
