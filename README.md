@@ -51,12 +51,12 @@ The site follows Gatsby V2 structure, please refer to the [Gatsby Docs](https://
 
 ### Data
 
-Documentation, tutorial, insight, and mastering bitcoin cash chapters are all stored as `markdown` files. As such, these pages can all be created, removed, and edited by just editing the associated `.md` file.  
+Documentation, tutorial, insight, and mastering bitcoin cash chapters are all stored as `markdown` files. As such, these pages can all be created, removed, and edited by just editing the associated `.md` file.
 These are found in `src/data`.
 
 #### Custom markdown tags
 
-We define some custom markdown takes to extend it's functionality.  
+We define some custom markdown takes to extend it's functionality.
 All content nested in these custom components needs to be written as HTML.
 
 ##### tip
@@ -118,5 +118,3 @@ usage
 // some extra spce
 <spacer></spacer>
 ```
-
-deploy
