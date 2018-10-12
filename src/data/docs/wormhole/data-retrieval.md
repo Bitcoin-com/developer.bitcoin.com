@@ -227,21 +227,20 @@ obj `Object`
 
     (async () => {
       try {
-        let info = await Wormhole.DataRetrieval.info();
+        let info = await Wormhole.DataRetrieval.getInfo();
         console.log(info);
       } catch(error) {
         console.error(error)
       }
     })()
 
-    // { wormholeversion_int: 4000,
-    // wormholeversion: '0.0.4',
+    // { wormholeversion_int: 10000000,
+    // wormholeversion: '0.1.0',
     // bitcoincoreversion: '0.17.2',
-    // block: 1250914,
-    // blocktime: 1533771773,
-    // blocktransactions: 0,
-    // totaltrades: 0,
-    // totaltransactions: 784,
+    // block: 551902,
+    // blocktime: 1539379265,
+    // blocktransactions: 12,
+    // totaltransactions: 3419,
     // alerts: [] }
 
 ### `payload`
