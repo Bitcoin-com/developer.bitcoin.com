@@ -5,7 +5,7 @@ publishedAt: 2018-07-06
 updatedAt: 2018-07-06
 ---
 
-Sending transactions is at the heart of BCH. BITBOX has been able to send transactions for a while but w/ BITBOX Cloud and [REST](../rest.html) taking shape we wanted to revisit the steps for sending transactions to show how to best leverage the new functionality.
+Sending transactions is at the heart of BCH. BITBOX has been able to send transactions for a while but w/ BITBOX Cloud and [REST](https://rest.bitcoin.com) taking shape we wanted to revisit the steps for sending transactions to show how to best leverage the new functionality.
 
 ## Setup
 
@@ -147,7 +147,7 @@ transactionBuilder.addInput(txid, vout)
 
 ### Calculate the fee
 
-Next use [BitcoinCash.getByteCount](bitbox/docs/bitcoincash.html#getByteCount) to calculate the fee. Here we pass in 2 objects describing the type and number of inputs/outputs. For this example we have 1 `P2PKH` input and 1 `P2PKH` output.
+Next use [BitcoinCash.getByteCount](bitbox/docs/bitcoincash#getByteCount) to calculate the fee. Here we pass in 2 objects describing the type and number of inputs/outputs. For this example we have 1 `P2PKH` input and 1 `P2PKH` output.
 
 ```javascript
 // get byte count to calculate fee. paying 1 sat/byte
