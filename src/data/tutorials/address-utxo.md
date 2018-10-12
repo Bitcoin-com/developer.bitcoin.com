@@ -74,7 +74,7 @@ With that all set up lets now look at leveraging BITBOX Cloud.
 
 BITBOX Cloud is your Blockchain as a Service.’ We recently started integrating w/ `bitbox-sdk` so you can leverage BITBOX Cloud w/out any additional setup.
 
-You can use [Address.utxo](bitbox/docs/address/#utxo) to get back a list of utxo for an address
+You can use [Address.utxo](../bitbox/docs/address/#utxo) to get back a list of utxo for an address
 
 ```javascript
 BITBOX.Address.utxo(
@@ -147,7 +147,7 @@ transactionBuilder.addInput(txid, vout)
 
 ### Calculate the fee
 
-Next use [BitcoinCash.getByteCount](bitbox/docs/bitcoincash#getByteCount) to calculate the fee. Here we pass in 2 objects describing the type and number of inputs/outputs. For this example we have 1 `P2PKH` input and 1 `P2PKH` output.
+Next use [BitcoinCash.getByteCount](../bitbox/docs/bitcoincash#getByteCount) to calculate the fee. Here we pass in 2 objects describing the type and number of inputs/outputs. For this example we have 1 `P2PKH` input and 1 `P2PKH` output.
 
 ```javascript
 // get byte count to calculate fee. paying 1 sat/byte
