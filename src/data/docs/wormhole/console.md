@@ -13,7 +13,7 @@ $ Wormhole console \-\-environment production
 
 Quickly test your ideas
 
-      > Wormhole.DataRetrieval.getInfo().then((result) => {
+      > Wormhole.DataRetrieval.info().then((result) => {
         console.log(result);
       }, (err) => {
         console.log(err);

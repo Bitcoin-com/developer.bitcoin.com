@@ -62,7 +62,7 @@ BITBOX SDK also comes bundled with a development console which you can use to te
 
 ![bitbox console](/images/bitbox-console.png)
 
-Now that you have a BITBOX Console you can copy and paste any code sample from the [BITBOX SDK documentation](https://developer.bitcoin.com/bitbox/docs/getting-started.html) and it will work. This is a great way to play around with the SDK and test your ideas quickly with no ovehead.
+Now that you have a BITBOX Console you can copy and paste any code sample from the [BITBOX SDK documentation](https://developer.bitcoin.com/bitbox/docs/getting-started) and it will work. This is a great way to play around with the SDK and test your ideas quickly with no ovehead.
 
 ### Summary
 
