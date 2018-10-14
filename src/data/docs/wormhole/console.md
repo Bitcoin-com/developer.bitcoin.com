@@ -6,7 +6,7 @@ ordinal: 2
 
 Launch a console w/ the entire Wormhole RPC available via a built in `Wormhole` object. Pass in an `--environment` flag to connect to environments defined in a local `wormhole.js`. By default `console` will connect to your `development` environment.
 
-      $ Wormhole console \-\-environment production
+      $ wormhole console --environment production
 
 Quickly test your ideas
 
