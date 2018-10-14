@@ -179,7 +179,7 @@ Verify message
 
 1. address public cashaddr or legacy address which signed the message
 2. signature cryptographic signature
-3. message message to verify
+3. message to verify
 
 #### Result
 

@@ -5,7 +5,7 @@ publishedAt: 2018-07-06
 updatedAt: 2018-07-06
 ---
 
-In this article I will demonstrate how to get started with TypeScript using the BITBOX scaffolding tool for Node.js. To enable TypeScript some minor modifications to the generated code are required, each shown in this article. All of the code used in this tutorial can be found [on github](https://github.com/Bitcoin-com/bitbox-ts-example).
+In this article I will demonstrate how to get started with TypeScript using the BITBOX scaffolding tool for Node.js. To enable TypeScript some minor modifications to the generated code are required, each shown in this article. All of the code used in this tutorial can be found [on GitHub](https://github.com/Bitcoin-com/bitbox-ts-example).
 
 ### Purpose
 

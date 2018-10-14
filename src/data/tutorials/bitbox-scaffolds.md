@@ -83,4 +83,4 @@ let BITBOX = new BITBOXSDK({
 
 ### Summary
 
-W/ BITBOX Scaffolds you can now create a $BCH app in under a munute. This should accelerate how quickly developers can create Bitcoin Cash apps. Go developers go!
+W/ BITBOX Scaffolds you can now create a $BCH app in under a minute. This should accelerate how quickly developers can create Bitcoin Cash apps. Go developers go!
