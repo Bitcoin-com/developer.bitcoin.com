@@ -13,7 +13,7 @@ Wormhole supports 3 main types of tokens—[fixed supply](/tutorials/wormhole-3-
 
 ### Getting WormholeCash
 
-Every Wormhole transaction is an on-chain BCH transaction w/ an `OP_RETURN`. However WormholeCash WHC is the native token of the platform. It's used to create new tokens and to purchase tokens in crowdsales. WHC is created by sending 1 BCH to a burner address which gives you 100 WHC. Burning BCH is controversal and we don't take it lightly. There are plenty of WHC for sale on markets such as [Coinex](https://www.coinex.com/exchange?currency=bch&dest=whc#limit) so we recommend getting WHC that way instead of burning any more BCH.
+Every Wormhole transaction is an on-chain BCH transaction w/ an `OP_RETURN`. However WormholeCash WHC is the native token of the platform. It's used to create new tokens and to purchase tokens in crowdsales. WHC is created by sending 1 BCH to a burner address which gives you 100 WHC. Burning BCH is controversial and we don't take it lightly. There are plenty of WHC for sale on markets such as [Coinex](https://www.coinex.com/exchange?currency=bch&dest=whc#limit) so we recommend getting WHC that way instead of burning any more BCH.
 
 To start out you want to fire up the wormholeREST that you configured previously.
 
@@ -100,7 +100,7 @@ This works fine but what if someone loses their TMT? With a fixed supply you're 
 
 ### Token with managed supply
 
-Lets imagine we designed a new quantum mining ASIC. We want to create a Quantum Mining Coin w/ a QMC ticker which we can offer as shares to our employees. Each month we'll pay a portion of our profit as dividends to QMC holders. We'll want to create a token w/ a managed supply so that we can grant and revoke tokens as needed.
+Let's imagine we designed a new quantum mining ASIC. We want to create a Quantum Mining Coin w/ a QMC ticker which we can offer as shares to our employees. Each month we'll pay a portion of our profit as dividends to QMC holders. We'll want to create a token w/ a managed supply so that we can grant and revoke tokens as needed.
 
 First let's create a new address `bchtest:qptvee3at3hypzak62c07ums7spy9zn2pv60up7csj` and send it 1 WHC w/ txid [ada116eebaa9481caef375ab0746742277f86084dd43f9ee6055b4c4cad44ad2](http://localhost:3000/v1/dataRetrieval/transaction/ada116eebaa9481caef375ab0746742277f86084dd43f9ee6055b4c4cad44ad2). Now that our new address has 1 WHC we can create a new token w/ a managed supply. For that we use [transaction/managed](http://localhost:3000/#/transaction/transactionManaged).
 
@@ -118,7 +118,7 @@ Now that we have our `QMC` let's grant some to the members of our new startup.
 - [2,000](http://localhost:3000/v1/dataRetrieval/transaction/1eb3764fd212eb9aefbc0943bd25f740ca3aca3391372c0c66c4da8148e197d1) for Engineer 1
 - [1,000](http://localhost:3000/v1/dataRetrieval/transaction/f15d6f8ab8527abacc7defc0da4c08921b0027b013a73d884af0d2b79969fad1) for Engineer 1
 
-Things are going along great but now you need to do a two things. First you need to change the primary address that can grant tokens as part of your key rotation security protocol. Second you need to revoke all QMC from Engineer 2 based on their poor performance.
+Everything is going great but now you need to do a couple of things. First you need to change the primary address that can grant tokens as part of your key rotation security protocol. Second you need to revoke all QMC from Engineer 2 based on their poor performance.
 
 First we'll change the primary address which can issue tokens. For that we create a new address `bchtest:qqqra3q5uqm4za743nklgcckgnc7zs5uuu84q8m2w9` and use [transaction/changeIssuer](http://localhost:3000/#/transaction/transactionChangeIssuer) passing in the existing primary address, the new address and the propertyid of 142 for QMC.
 

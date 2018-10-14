@@ -41,7 +41,7 @@ mnemonic `string` a random mnemonic
 
       // generate 12 french word mnemonic
       BITBOX.Mnemonic.generate(128, BITBOX.Mnemonic.wordLists().french);
-      // annonce ampleur sanglier peser acheter cultiver abroger embellir résoudre dialogue grappin lanterne
+      // annonce ampleur sanglier peser acheter cultiver abroger embellir résoudre dialogue grappin lanterne
 
 ### `fromEntropy`
 
@@ -98,7 +98,7 @@ mnemonic `string` a random mnemonic
       //
       // turn entropy to 12 japanese word mnemonic
       BITBOX.Mnemonic.fromEntropy(entropy.toString('hex'), BITBOX.Mnemonic.wordLists().japanese)
-      // ぱそこん　にあう　にんめい　きどく　ちそう　せんきょ　かいが　きおく　いれる　いねむり　しいく　きかんしゃ
+      // ぱそこん　にあう　にんめい　きどく　ちそう　せんきょ　かいが　きおく　いれる　いねむり　しいく　きかんしゃ
 
 ### `toEntropy`
 
@@ -263,7 +263,7 @@ Returns nearest matching word from provided word list
 
 #### Result
 
-word `String` nearest matching word from profided wordlist
+word `String` nearest matching word from provided wordlist
 
 #### Examples
 

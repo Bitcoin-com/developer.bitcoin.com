@@ -7,7 +7,7 @@ updatedAt: 2018-07-01
 
 ### Intro
 
-Tokens and Crowdsales on Bitcoin Cash are a paradigm shift. They'll allow developers and entreprenuers to quickly and efficiently raise the funds they need to take change the world, directly on Bitcoin Cash. This will be at the heart of the next wave of utility for the BCH network. Utility drives the network effect and with the release of the [Wormhole](/wormhole) SDK, powered by [BITBOX](/bitbox, we're hoping to empower developers to create amazing tokens and crowdsales on Bitcoin Cash.
+Tokens and Crowdsales on Bitcoin Cash are a paradigm shift. They'll allow developers and entrepreneurs to quickly and efficiently raise the funds they need to take change the world, directly on Bitcoin Cash. This will be at the heart of the next wave of utility for the BCH network. Utility drives the network effect and with the release of the [Wormhole](/wormhole) SDK, powered by [BITBOX](/bitbox, we're hoping to empower developers to create amazing tokens and crowdsales on Bitcoin Cash.
 
 This tutorial will give you everything you need to start creating your own tokens and ICOs. It will consist of multiple parts. The first will be setting up your development environment. The second will be setting up a full node with `wormholed`. The last part will be creating tokens on testnet.
 
@@ -38,7 +38,7 @@ This also comes bundled with `npm` which is the “Node Package Manager.” You 
 
 ![node and npm versions](/images/npm-version.png)
 
-Next you’ll need a text editor to edit code. For that we suggest [Atom.io](http://atom.io/). It’s an open-source editor built and maintained by Github. It too is built with web tech so you can extend it with HTML, CSS and Javascript plugins and themes.
+Next you’ll need a text editor to edit code. For that we suggest [Atom.io](http://atom.io/). It’s an open-source editor built and maintained by GitHub. It too is built with web tech so you can extend it with HTML, CSS and Javascript plugins and themes.
 
 ![atomIO logo](/images/atomio.png)
 
@@ -46,7 +46,7 @@ Finally you’re ready to install Wormhole SDK. You can do that with `npm instal
 
 ![bitbox version](/images/wormhole-version.png)
 
-It should be noted that all of the above tools, NodeJS, NPM, AtomIO and Wormhole SDK all work on MacOS, Windows and Linux. The screenshots show MacOS but Wormhole SDK works across all platforms.
+It should be noted that all of the above tools, NodeJS, NPM, AtomIO and Wormhole SDK all work on macOS, Windows and Linux. The screenshots show MacOS but Wormhole SDK works across all platforms.
 
 ### Wormhole new
 

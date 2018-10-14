@@ -202,11 +202,11 @@ payload `String`: the hex-encoded payload
 
 ### `participateCrowdSale`
 
-Create the payload for a participate crowsale transaction
+Create the payload for a participate crowdsale transaction
 
 #### Arguments
 
-1.  `String` required: The amount of WHC to particrowsale
+1.  `String` required: The amount of WHC to participateCrowdSale
 
 #### Result
 

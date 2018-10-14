@@ -9,7 +9,7 @@ The popularity of Bitcoin Cash is on the rise and BITBOX SDK aims to channel all
 
 ### Goal
 
-BITBOX is an incredibly powerful and intuitive SDK which lets developers build world class applications quicky. It’s built with modern web tech which is familiar to developers all over the world. We launched [developer.bitcoin.com](https://developer.bitcoin.com/) to help beginners and old pros hone their blockchain dev skills. The goal of this article is to show the first steps needed to set up your development environment and start playing around with the BITBOX SDK.
+BITBOX is an incredibly powerful and intuitive SDK which lets developers build world class applications quickly. It’s built with modern web tech which is familiar to developers all over the world. We launched [developer.bitcoin.com](https://developer.bitcoin.com/) to help beginners and old pros hone their blockchain dev skills. The goal of this article is to show the first steps needed to set up your development environment and start playing around with the BITBOX SDK.
 
 In this post we’ll cover the following:
 
@@ -32,7 +32,7 @@ This also comes bundled with `npm` which is the “Node Package Manager”. You 
 
 ![node and npm versions](/images/npm-version.png)
 
-Next you’ll need a text editor to edit code. For that we suggest [Atom.io](http://atom.io/). It’s an open-source editor built and maintained by Github. It too is built with web tech so you can extend it with HTML, CSS and Javascript plugins and themes.
+Next you’ll need a text editor to edit code. For that we suggest [Atom.io](http://atom.io/). It’s an open-source editor built and maintained by GitHub. It too is built with web tech so you can extend it with HTML, CSS and Javascript plugins and themes.
 
 ![atomIO logo](/images/atomio.png)
 

@@ -138,7 +138,7 @@ If P1 and P2 are the same point, the line "between" P1 and P2 should extend to b
 
 In some cases (i.e., if P1 and P2 have the same x values but different y values), the tangent line will be exactly vertical, in which case P3 = "point at infinity."
 
-If P1 is the "point at infinity," then the sum P1 + P2 = P2. Similary, if P2 is the point at infinity, then P1 + P2 = P1. This shows how the point at infinity plays the role of 0.
+If P1 is the "point at infinity," then the sum P1 + P2 = P2. Similarly, if P2 is the point at infinity, then P1 + P2 = P1. This shows how the point at infinity plays the role of 0.
 
 It turns out that + is associative, which means that (A + B) + C = A + (B + C). That means we can write A + B + C without parentheses without any ambiguity.
 
@@ -682,7 +682,7 @@ Mnemonic codes are English word sequences that represent (encode) a random numbe
 
 Mnemonic codes are defined in [Bitcoin Improvement Proposal 39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) and have achieved support across the entire industry. They're considered an industry standard.
 
-BIP0039 defines the creation of a mnemonic code and seed as a follows:
+BIP0039 defines the creation of a mnemonic code and seed as follows:
 
 1. Create a random sequence (entropy) of 128 to 256 bits.
 2. Create a checksum of the random sequence by taking the first few bits of its SHA256 hash.
