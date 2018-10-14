@@ -7,7 +7,7 @@ updatedAt: 2018-07-06
 
 [Memo](https://memo.cash/) and [BlockPress](https://www.blockpress.com/) are two very popular on-chain social networks. They use a clever `OP_RETURN` prefixed protocol to write your actions to the blockchain. Later clients can read that data from the chain and recreate your account’s actions. This represents a truly decentralized and censorship resistant social network and it’s only possible on Bitcoin Cash.
 
-Today we’re exicited to release [memopress](https://www.npmjs.com/package/memopress)—helper methods for reading/writing to the Bitcoin Cash blockchain per the Memo and BlockPress protocols.
+Today we’re excited to release [memopress](https://www.npmjs.com/package/memopress)—helper methods for reading/writing to the Bitcoin Cash blockchain per the Memo and BlockPress protocols.
 
 ## Usage
 

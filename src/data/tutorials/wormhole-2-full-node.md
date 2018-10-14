@@ -47,7 +47,7 @@ You can now `ssh` in to your newly created machine. In the next step we'll begin
 
 #### Configure your machine
 
-It's worth noting that a tool such as Docker could greatly simplify the following steps but we're doing this the manual way for demonstration purposes. First lets update the machine and install basic dependencies.
+It's worth noting that a tool such as Docker could greatly simplify the following steps but we're doing this the manual way for demonstration purposes. First let's update the machine and install basic dependencies.
 
 First `update` to get the most update to date packages of the versions already installed on the machine.
 
@@ -75,7 +75,7 @@ We're going to create a user and give them the ability to `ssh` back in to the m
 adduser wormhole
 ```
 
-You'll be asked to enter a password for your new `wormhole` user. Make sure to keep that password safe .
+You'll be asked to enter a password for your new `wormhole` user. Make sure to keep that password safe.
 
 Add the `wormhole` user to the `sudo` group
 
@@ -277,7 +277,7 @@ cd wormholerest.bitcoin.com
 npm install
 ```
 
-Now start it w/ the following environment variables. The IP addresss is your digital ocean machine and the username/password are what you set in the `bitcoin.conf` file.
+Now start it w/ the following environment variables. The IP address is your digital ocean machine and the username/password are what you set in the `bitcoin.conf` file.
 
 ```bash
 RPC_BASEURL=http://your-ip-address:18332/ RPC_PASSWORD=h4x0r RPC_USERNAME=l33t NETWORK=testnet npm run dev
@@ -291,7 +291,7 @@ To confirm everything is working scroll down and try the `dataRetrieval/info` en
 
 ![](/images/do-new-10.png)
 
-You should get back a response similar to the following. Note the `block` coount is 278975. That's because the chain just started to sync. At the time of writing the blockchain height is 542982. It will take several hours to sync the entire blockchain before you can create your first token.
+You should get back a response similar to the following. Note the `block` count is 278975. That's because the chain just started to sync. At the time of writing the blockchain height is 542982. It will take several hours to sync the entire blockchain before you can create your first token.
 
 ```bash
 {

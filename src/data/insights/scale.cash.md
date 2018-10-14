@@ -66,9 +66,9 @@ We're ready to launch the stress test. Click the 'Start Stresstest' button to cr
 
 ![fan out txid](/images/scale-11.png)
 
-**PLEASE BE AWARE that your fan-out transction requires 1 confirmation before the rest of your transactions will begin to broadcast**. After the fan out transaction gets confirmed in 1 block scale.cash will begin sending out transactions in batches of 20 at 500txs per minute.
+**PLEASE BE AWARE that your fan-out transaction requires 1 confirmation before the rest of your transactions will begin to broadcast**. After the fan out transaction gets confirmed in 1 block scale.cash will begin sending out transactions in batches of 20 at 500txs per minute.
 
-![Waiting for txs to configm](/images/scale-13.png)
+![Waiting for txs to confirm](/images/scale-13.png)
 
 You'll see the "Mempool Size" and "Your Total TX Sent" numbers climbing while scale.cash sends out txs. Each transaction will contain an `OP_RETURN` with `stresstestbitcoin.cash`.
 
@@ -219,7 +219,7 @@ The code is [open source under the MIT license](https://github.com/SpendBCH/bch-
 
 ---
 
-### Recoving Funds
+### Recovering Funds
 
 If a problem occurs during a running stress test, funds can be recovered with the [Electron Cash wallet](https://electroncash.org/).
 

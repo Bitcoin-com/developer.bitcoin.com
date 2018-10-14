@@ -5,13 +5,13 @@ publishedAt: 2018-07-06
 updatedAt: 2018-07-06
 ---
 
-When Bitcoin Cash began as a fork of $BTC on Aug 1st 2017 it kept the legacy address format. This ended up causing quite a bit of confusion and resulted in lost funds as users accidentially sent $BCH to $BTC addresses and vice versa.
+When Bitcoin Cash began as a fork of $BTC on Aug 1st 2017 it kept the legacy address format. This ended up causing quite a bit of confusion and resulted in lost funds as users accidentally sent $BCH to $BTC addresses and vice versa.
 
-To fix this [cashaddr](https://github.com/bitcoincashorg/spec/blob/master/cashaddr.md) was introduced. It’s a base32 endcoding based on Bech32.
+To fix this [cashaddr](https://github.com/bitcoincashorg/spec/blob/master/cashaddr.md) was introduced. It’s a base32 encoding based on Bech32.
 
 ### Conversion Tool
 
-BITBOX recently added it’s own conversion tool so you can quickly and easily convert legacy base58Check encoded Bitcoin Cash addresses in to the cashaddr format.
+BITBOX recently added its own conversion tool so you can quickly and easily convert legacy base58Check encoded Bitcoin Cash addresses in to the cashaddr format.
 
 Simply paste in a legacy or cashaddr address and BITBOX will convert it to both formats and generate QR codes.
 

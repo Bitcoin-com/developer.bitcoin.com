@@ -5,7 +5,7 @@ publishedAt: 2018-07-06
 updatedAt: 2018-07-06
 ---
 
-The Bitcoin Cash ecosystem is growing quickly. People all over the world are being drawn to the compelling original vision of frictionless and borderless money facilitated by on-chain scaling. The goal of BITBOX is to build a suite of tools which help accelerate the quality and quanity of applications built on top of the $BCH platform.
+The Bitcoin Cash ecosystem is growing quickly. People all over the world are being drawn to the compelling original vision of frictionless and borderless money facilitated by on-chain scaling. The goal of BITBOX is to build a suite of tools which help accelerate the quality and quantity of applications built on top of the $BCH platform.
 
 ### Why?
 
