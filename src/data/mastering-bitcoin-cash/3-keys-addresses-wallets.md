@@ -74,7 +74,7 @@ The public key is calculated from the private key using elliptic curve multiplic
 
 Elliptic curve cryptography is a type of asymmetric or public-key cryptography based on the discrete logarithm problem as expressed by addition and multiplication on the points of an elliptic curve.
 
-[An elliptic curve](#ecc-curve) is an example of an elliptic curve, similar to that used by Bitcoin Cash.
+[The image in Figure 2](#ecc-curve) is an example of an elliptic curve, similar to that used by Bitcoin Cash.
 
 <anchor name="ecc-curve"></anchor>
 <spacer></spacer>
