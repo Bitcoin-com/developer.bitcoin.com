@@ -327,13 +327,12 @@ payload `String`: the hex-encoded payload
 
 ### `freeze`
 
-Creates the payload for a freeze transaction
+Creates the payload to freeze an address for a centrally managed token.
 
 #### Arguments
 
-1.  toAddress `String` required: The to address
-2.  propertyId `Number` required: The identifier of the tokens to distribute
-3.  amount `String` required: The amount to distribute
+1.  toAddress `String` required: the address to freeze tokens for
+2.  propertyId `Number` required: the property to freeze tokens for (must be managed type and have freezing option enabled)
 
 #### Result
 
@@ -343,7 +342,7 @@ payload `String`: the hex-encoded payload
 
     (async () => {
       try {
-        let freeze = await Wormhole.PayloadCreation.freeze("qqpj0yu8w9ukg7x4h83xx7a4nj8f7mssh5dgn6flfu", 3, "5000");
+        let freeze = await Wormhole.PayloadCreation.freeze("qqpj0yu8w9ukg7x4h83xx7a4nj8f7mssh5dgn6flfu", 3);
         console.log(freeze);
       } catch(error) {
         console.error(error)
@@ -353,13 +352,12 @@ payload `String`: the hex-encoded payload
 
 ### `unfreeze`
 
-Creates the payload for an unfreeze transaction
+Creates the payload to unfreeze an address for a centrally managed token.
 
 #### Arguments
 
-1.  toAddress `String` required: The to address
-2.  propertyId `Number` required: The identifier of the tokens to distribute
-3.  amount `String` required: The amount to distribute
+1.  toAddress `String` required: the address to unfreeze tokens for
+2.  propertyId `Number` required: the property to unfreeze tokens for (must be managed type and have freezing option enabled)
 
 #### Result
 
@@ -369,7 +367,7 @@ payload `String`: the hex-encoded payload
 
     (async () => {
       try {
-        let unfreeze = await Wormhole.PayloadCreation.unfreeze("qqpj0yu8w9ukg7x4h83xx7a4nj8f7mssh5dgn6flfu", 3, "5000");
+        let unfreeze = await Wormhole.PayloadCreation.unfreeze("qqpj0yu8w9ukg7x4h83xx7a4nj8f7mssh5dgn6flfu", 3);
         console.log(unfreeze);
       } catch(error) {
         console.error(error)
