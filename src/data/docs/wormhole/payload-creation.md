@@ -324,3 +324,55 @@ payload `String`: the hex-encoded payload
       }
     })()
     // 0000000300000003000000000000138800000003
+
+### `freeze`
+
+Creates the payload for a freeze transaction
+
+#### Arguments
+
+1.  toAddress `String` required: The to address
+2.  propertyId `Number` required: The identifier of the tokens to distribute
+3.  amount `String` required: The amount to distribute
+
+#### Result
+
+payload `String`: the hex-encoded payload
+
+#### Examples
+
+    (async () => {
+      try {
+        let freeze = await Wormhole.PayloadCreation.freeze("qqpj0yu8w9ukg7x4h83xx7a4nj8f7mssh5dgn6flfu", 3, "5000");
+        console.log(freeze);
+      } catch(error) {
+        console.error(error)
+      }
+    })()
+    // 0000000300000003000000000000138800000003
+
+### `unfreeze`
+
+Creates the payload for an unfreeze transaction
+
+#### Arguments
+
+1.  toAddress `String` required: The to address
+2.  propertyId `Number` required: The identifier of the tokens to distribute
+3.  amount `String` required: The amount to distribute
+
+#### Result
+
+payload `String`: the hex-encoded payload
+
+#### Examples
+
+    (async () => {
+      try {
+        let unfreeze = await Wormhole.PayloadCreation.unfreeze("qqpj0yu8w9ukg7x4h83xx7a4nj8f7mssh5dgn6flfu", 3, "5000");
+        console.log(unfreeze);
+      } catch(error) {
+        console.error(error)
+      }
+    })()
+    // 0000000300000003000000000000138800000003
