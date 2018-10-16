@@ -84,25 +84,24 @@ Elliptic curve cryptography is a type of asymmetric or public-key cryptography b
 
 Bitcoin Cash uses a specific elliptic curve and set of mathematical constants, as defined in a standard called secp256k1, established by the National Institute of Standards and Technology (NIST). The secp256k1 curve is defined by the following function, which produces an elliptic curve:
 
-```
-\[\begin{equation} {y^2 = (x^3 + 7)}~\text{over}~(\mathbb{F}_p) \end{equation}\]
-```
+![secp256k1 curve function](<https://latex.codecogs.com/svg.latex?\large&space;{y^2&space;=&space;(x^3&space;+&space;7)}~\text{over}~(\mathbb{F}_p)>)
+
+<!-- `\[\begin{equation} {y^2 = (x^3 + 7)}~\text{over}~(\mathbb{F}_p) \end{equation}\]` -->
 
 or
 
-```
-\[\begin{equation} {y^2 \mod p = (x^3 + 7) \mod p} \end{equation}\]
-```
+![alternate secp256k1 curve function](<https://latex.codecogs.com/svg.latex?\large&space;{y^2&space;\mod&space;p&space;=&space;(x^3&space;+&space;7)&space;\mod&space;p}>)
+
+<!-- `\[\begin{equation} {y^2 \mod p = (x^3 + 7) \mod p} \end{equation}\]` -->
+<!-- Can also be written using HTML entities: _y_<sup>2</sup> = (_x_<sup>3</sup> + 7) over (&#120125;<sub>_p_</sub>) -->
 
 <spacer size="small"></spacer>
 
-```
-The mod p (modulo prime number p) indicates that this curve is over a finite field of prime order _p_, also written as \(\(\mathbb{F}_p\)\), where p = 2256 – 232 – 29 – 28 – 27            – 26 – 24 – 1, a very large prime number.
-```
+> The `mod p` (modulo prime number p) indicates that this curve is over a finite field of prime order `p`, also written as &#120125;<sub>p</sub>, where `p` = 2<sup>256</sup> – 2<sup>32</sup> – 2<sup>9</sup> – 2<sup>8</sup> – 2<sup>7</sup> – 2<sup>6</sup> – 2<sup>4</sup> – 1, a very large prime number.
 
 Because this curve is defined over a finite field of prime order instead of over the real numbers, it looks like a pattern of dots scattered in two dimensions, which makes it difficult to visualize. However, the math is identical as that of an elliptic curve over the real numbers. As an example, [Elliptic curve cryptography: visualizing an elliptic curve over F(p), with p=17](#ecc-over-F17-math) shows the same elliptic curve over a much smaller finite field of prime order 17, showing a pattern of dots on a grid. The secp256k1 Bitcoin Cash elliptic curve can be thought of as a much more complex pattern of dots on a unfathomably large grid.
 
-<anchor name="ecc-over-F17-math"></anchor">
+<anchor name="ecc-over-F17-math"></anchor>
 <spacer></spacer>
 ![ecc over F17 math](/images/mastering-bitcoin-cash/msbt_0403.png)
 <image-caption>Figure 3. Elliptic curve cryptography: visualizing an elliptic curve over F(p), with p=17</image-caption>
@@ -148,7 +147,9 @@ Now that we have defined addition, we can define multiplication in the standard 
 
 Starting with a private key in the form of a randomly generated number _k_, we multiply it by a predetermined point on the curve called the _generator point_ _G_ to produce another point somewhere else on the curve, which is the corresponding public key _K_. The generator point is specified as part of the secp256k1 standard and is always the same for all keys in Bitcoin Cash:
 
-`\[\begin{equation} {K = k * G} \end{equation}\]`
+![equation for generator point](https://latex.codecogs.com/svg.latex?\large&space;{K&space;=&space;k&space;*&space;G})
+
+<!-- `\[\begin{equation} {K = k * G} \end{equation}\]` -->
 
 where k is the private key, G is the generator point, and K is the resulting public key, a point on the curve. Because the generator point is always the same for all Bitcoin Cash users, a private key k multiplied with G will always result in the same public key K. The relationship between k and K is fixed, but can only be calculated in one direction, from k to K. That’s why a Bitcoin Cash address (derived from K) can be shared with anyone and does not reveal the user’s private key (k).
 
@@ -203,7 +204,9 @@ The Bitcoin Cash address is derived from the public key through the use of one-w
 
 Starting with the public key K, we compute the SHA256 hash and then compute the RIPEMD160 hash of the result, producing a 160-bit (20-byte) number:
 
-`\[\begin{equation} {A = RIPEMD160(SHA256(K))} \end{equation}\]`
+![equation for a Bitcoin Cash address](<https://latex.codecogs.com/svg.latex?\large&space;{A&space;=&space;RIPEMD160(SHA256(K))}>)
+
+<!-- `\[\begin{equation} {A = RIPEMD160(SHA256(K))} \end{equation}\]` -->
 
 where K is the public key and A is the resulting Bitcoin Cash address.
 
