@@ -457,3 +457,73 @@ arr `Array` of JSON objects
     //   data: 'my data',
     //   url: 'www.testmanagedtoken.com',
     //   precision: 0 }]
+
+### `frozenBalance`
+
+Returns the frozen token balance for a given address and property.
+
+#### Result
+
+balance `Array` of `Object`s
+
+#### Arguments
+
+1.  address `String` required: the address
+2.  propertyId `Number` required: the property identifier
+
+#### Examples
+
+    (async () => {
+      try {
+        let frozenBalance = await Wormhole.DataRetrieval.frozenBalance("qqxyplcfuxnm9z4usma2wmnu4kw9mexeug580mc3lx", 1);
+        console.log(frozenBalance);
+      } catch(error) {
+       console.error(error)
+      }
+    })()
+
+### `frozenBalanceForAddress`
+
+Returns a list of all frozen token balances for a given address.
+
+#### Result
+
+balance `Array` of `Object`s
+
+#### Arguments
+
+1.  address `String` required: the address
+
+#### Examples
+
+    (async () => {
+      try {
+        let frozenBalanceForAddress = await Wormhole.DataRetrieval.frozenBalanceForAddress("qqxyplcfuxnm9z4usma2wmnu4kw9mexeug580mc3lx");
+        console.log(frozenBalanceForAddress);
+      } catch(error) {
+       console.error(error)
+      }
+    })()
+
+### `frozenBalanceForId`
+
+Returns a list of all frozen token balances for a given property.
+
+#### Result
+
+balance `Array` of `Object`s
+
+#### Arguments
+
+1.  propertyId `Number` required: the property identifier
+
+#### Examples
+
+    (async () => {
+      try {
+        let frozenBalanceForId = await Wormhole.DataRetrieval.frozenBalanceForId(1);
+        console.log(frozenBalanceForId);
+      } catch(error) {
+       console.error(error)
+      }
+    })()
