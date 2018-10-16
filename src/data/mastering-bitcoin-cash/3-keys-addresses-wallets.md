@@ -86,14 +86,9 @@ Bitcoin Cash uses a specific elliptic curve and set of mathematical constants, a
 
 ![secp256k1 curve function](<https://latex.codecogs.com/svg.latex?\large&space;{y^2&space;=&space;(x^3&space;+&space;7)}~\text{over}~(\mathbb{F}_p)>)
 
-<!-- `\[\begin{equation} {y^2 = (x^3 + 7)}~\text{over}~(\mathbb{F}_p) \end{equation}\]` -->
-
 or
 
 ![alternate secp256k1 curve function](<https://latex.codecogs.com/svg.latex?\large&space;{y^2&space;\mod&space;p&space;=&space;(x^3&space;+&space;7)&space;\mod&space;p}>)
-
-<!-- `\[\begin{equation} {y^2 \mod p = (x^3 + 7) \mod p} \end{equation}\]` -->
-<!-- Can also be written using HTML entities: _y_<sup>2</sup> = (_x_<sup>3</sup> + 7) over (&#120125;<sub>_p_</sub>) -->
 
 <spacer size="small"></spacer>
 
@@ -149,8 +144,6 @@ Starting with a private key in the form of a randomly generated number _k_, we m
 
 ![equation for generator point](https://latex.codecogs.com/svg.latex?\large&space;{K&space;=&space;k&space;*&space;G})
 
-<!-- `\[\begin{equation} {K = k * G} \end{equation}\]` -->
-
 where k is the private key, G is the generator point, and K is the resulting public key, a point on the curve. Because the generator point is always the same for all Bitcoin Cash users, a private key k multiplied with G will always result in the same public key K. The relationship between k and K is fixed, but can only be calculated in one direction, from k to K. That’s why a Bitcoin Cash address (derived from K) can be shared with anyone and does not reveal the user’s private key (k).
 
 <tip>
@@ -205,8 +198,6 @@ The Bitcoin Cash address is derived from the public key through the use of one-w
 Starting with the public key K, we compute the SHA256 hash and then compute the RIPEMD160 hash of the result, producing a 160-bit (20-byte) number:
 
 ![equation for a Bitcoin Cash address](<https://latex.codecogs.com/svg.latex?\large&space;{A&space;=&space;RIPEMD160(SHA256(K))}>)
-
-<!-- `\[\begin{equation} {A = RIPEMD160(SHA256(K))} \end{equation}\]` -->
 
 where K is the public key and A is the resulting Bitcoin Cash address.
 
