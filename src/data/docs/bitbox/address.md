@@ -508,6 +508,28 @@ changeAddress `String`: cashaddr encoded change address
       BITBOX.Address.fromOutputScript(scriptPubKey, 'testnet');
       // bchtest:pz0qcslrqn7hr44hsszwl4lw5r6udkg6zqh2hmtpyr
 
+### `isHash160`
+
+Detect if an addess is a hash160.
+
+#### Arguments
+
+1.  address `String`: address
+
+#### Result
+
+isHash160 `Boolean`: true/false if address is hash160
+
+#### Examples
+
+      let hash160Address = '428df38e23fc879a25819427995c3e6355b12d33';
+      BITBOX.Address.isHash160(hash160Address);
+      // true
+
+      let notHash160Address = 'bitcoincash:pz8a837lttkvjksg0jjmmulqvfkgpqrcdgufy8ns5s';
+      BITBOX.Address.isHash160(notHash160Address);
+      // false
+
 ### `details`
 
 Return details about an address including balance.
