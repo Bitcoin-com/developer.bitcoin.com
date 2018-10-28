@@ -1,6 +1,8 @@
-.DS_Store
+# Project dependencies
+.cache
 node_modules
-npm-debug.log
-dist
-.sass-cache
-package-lock.json
+yarn-error.log
+
+# Build directory
+/public
+.DS_Store
