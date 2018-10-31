@@ -13,7 +13,7 @@ const Main = styled.div`
   position: sticky;
   top: 0;
   background-color: ${props => props.theme.foreground};
-  z-index: 2;
+  z-index: 999;
   padding: ${spacing.small2};
 `
 
