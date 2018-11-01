@@ -68,6 +68,27 @@ const makeShareLink = (
 }
 
 class ShareFooter extends React.Component<Props> {
+  componentDidMount() {
+    const om = document.createElement('script')
+    const date = new Date()
+    om.src = `https://a.optmnstr.com/app/js/api.min.js`
+    om.setAttribute('data-campaign', 'v8lwzo6nqacmgnulutqp')
+    om.setAttribute('data-user', '46652')
+    om.async = true
+    document.body.appendChild(om)
+
+    if (window.omv8lwzo6nqacmgnulutqp) {
+      window.omv8lwzo6nqacmgnulutqp.reset()
+    }
+
+    // Keep track of the script tag
+    this.scriptTag = om
+  }
+
+  componentWillUnmount() {
+    document.body.removeChild(this.scriptTag)
+  }
+
   render() {
     const { location } = this.props
 
