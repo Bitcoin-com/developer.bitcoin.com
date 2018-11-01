@@ -189,7 +189,7 @@ Detect if testnet address
 
 #### Result
 
-isMainnetAddresss `Boolean`: true/false if is testnet address
+isTestnetAddresss `Boolean`: true/false if is testnet address
 
 #### Examples
 
