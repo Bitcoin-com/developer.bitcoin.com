@@ -34,7 +34,7 @@ class BchFaucet extends React.PureComponent {
     return (
       <WrapperDiv>
         <h3>
-          This is a <u>testnet</u> faucet Bitcoin Cash! It is built with{' '}
+          This is a <u>testnet</u> faucet Wormhole coins! It is built with{' '}
           <a href="https://developer.bitcoin.com/bitbox">
             BITBOX JavaScript SDK
           </a>{' '}
@@ -42,10 +42,10 @@ class BchFaucet extends React.PureComponent {
           <a href="https://www.bitcoin.com/bitcoin-mining">
             Bitcoin.com Mining Pool{' '}
           </a>
-          . It currently gives out <u>0.1 BCH</u>.
+          . It currently gives out <u>3 WHC</u>.
         </h3>
         <p>
-          <a href="https://github.com/Bitcoin-com/testnet-faucet">
+          <a href="https://github.com/Bitcoin-com/whc-faucet">
             Fork the code on GitHub!
           </a>
         </p>
@@ -57,14 +57,14 @@ class BchFaucet extends React.PureComponent {
               type="text"
               id="bchAddr"
               size="45"
-              placeholder="bchtest:qqmd9unmhkpx4pkmr6fkrr8rm6y77vckjvqe8aey35"
+              placeholder="bchtest:qr8d0cp00a07gwf7ltg4ufu48a849j98x5dj7zk423"
               value={this.state.bchAddr}
               onChange={this.handleChange}
             />
           </div>
         </form>
 
-        <button type="button" onClick={this.requestBCH}>
+        <button type="button" onClick={this.requestWHC}>
           Get tBCH!
         </button>
 
@@ -73,7 +73,7 @@ class BchFaucet extends React.PureComponent {
         <p>
           Please send your leftover testnet coins back to the faucet:
           <br />
-          <i>bchtest:qqmd9unmhkpx4pkmr6fkrr8rm6y77vckjvqe8aey35</i>
+          <i>bchtest:qr8d0cp00a07gwf7ltg4ufu48a849j98x5dj7zk423</i>
         </p>
       </WrapperDiv>
     )
@@ -84,7 +84,7 @@ class BchFaucet extends React.PureComponent {
     this.setState({ bchAddr: target.value })
   }
 
-  requestBCH = async () => {
+  requestWHC = async () => {
     try {
       //console.log(`state.bchAddr: ${this.state.bchAddr}`)
 
@@ -97,7 +97,7 @@ class BchFaucet extends React.PureComponent {
         return
       }
 
-      const resp = await fetch(`${SERVER}/coins/${this.state.bchAddr}`)
+      const resp = await fetch(`${SERVER}/tokens/${this.state.bchAddr}`)
       const body = await resp.json()
       console.log(`body: ${JSON.stringify(body, null, 2)}`)
 
@@ -114,15 +114,14 @@ class BchFaucet extends React.PureComponent {
         return
       }
 
-      this.addOutput(`Success: testnet BCH are on their way!`)
-      //this.addOutput(`TXID: ${body.txid}`)
+      this.addOutput(`Success: testnet WHC are on their way!`)
       this.addOutput(
         `TXID: <a href="https://www.blocktrail.com/tBCC/tx/${body.txid}">${
           body.txid
         }</a>`
       )
     } catch (err) {
-      console.log(`Error in requestBCH: `, err)
+      console.log(`Error in requestWHC: `, err)
     }
   }
 
