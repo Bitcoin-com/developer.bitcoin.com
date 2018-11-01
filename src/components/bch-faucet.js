@@ -14,8 +14,25 @@ const WrapperDiv = styled.div`
   padding: 50px;
 `
 
+let blah = `some new text`
+
 type Props = {}
-class BchFaucet extends React.PureComponent<Props> {
+class BchFaucet extends React.PureComponent {
+  // constructor to set state and bind "this"
+  constructor(props) {
+    super(props)
+    this.state = { outputText: '' }
+  }
+
+  requestBCH = () => {
+    console.log(`hello`)
+    blah = `hello`
+
+    this.setState(prevState => ({
+      outputText: 'abc',
+    }))
+  }
+
   render() {
     const {} = this.props
 
@@ -37,13 +54,9 @@ class BchFaucet extends React.PureComponent<Props> {
           Get tBCH!
         </button>
 
-        <Well>This is the output</Well>
+        <Well>{this.state.outputText}</Well>
       </WrapperDiv>
     )
-  }
-
-  requestBCH() {
-    console.log(`hello`)
   }
 }
 
