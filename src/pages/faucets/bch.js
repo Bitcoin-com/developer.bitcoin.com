@@ -75,19 +75,6 @@ const Faucet = ({ location }: Props) => (
     </Hero>
     <Container>
       <BchFaucet />
-      <SectionLayout>
-        <SectionItem>
-          <H3>BCH</H3>
-          <Text>Bitcoin Cash testnet faucet</Text>
-          <CTASection>
-            <StyledLink to="/faucets/bch">
-              <Text centerVertical bold>
-                View <FaAngleRight />
-              </Text>
-            </StyledLink>
-          </CTASection>
-        </SectionItem>
-      </SectionLayout>
     </Container>
   </DefaultLayout>
 )
