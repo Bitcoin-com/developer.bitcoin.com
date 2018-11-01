@@ -14,23 +14,15 @@ const WrapperDiv = styled.div`
   padding: 50px;
 `
 
-let blah = `some new text`
-
 type Props = {}
 class BchFaucet extends React.PureComponent {
   // constructor to set state and bind "this"
   constructor(props) {
     super(props)
-    this.state = { outputText: '' }
-  }
-
-  requestBCH = () => {
-    console.log(`hello`)
-    blah = `hello`
-
-    this.setState(prevState => ({
-      outputText: 'abc',
-    }))
+    this.state = {
+      outputText: '',
+      bchAddr: '',
+    }
   }
 
   render() {
@@ -46,6 +38,8 @@ class BchFaucet extends React.PureComponent {
               id="bchAddr"
               size="45"
               placeholder="bchtest:qqmd9unmhkpx4pkmr6fkrr8rm6y77vckjvqe8aey35"
+              value={this.state.bchAddr}
+              onChange={this.handleChange}
             />
           </div>
         </form>
@@ -57,6 +51,24 @@ class BchFaucet extends React.PureComponent {
         <Well>{this.state.outputText}</Well>
       </WrapperDiv>
     )
+  }
+
+  handleChange = ({ target }) => {
+    //console.log(`${JSON.stringify(target.value,null,2)}`)
+    //const { bchAddr, value } = target;
+    //console.log(`${JSON.stringify(target.value,null,2)}`)
+    this.setState({ bchAddr: target.value })
+  }
+
+  requestBCH = () => {
+    //console.log(`state.bchAddr: ${this.state.bchAddr}`)
+
+    this.setState(prevState => ({
+      //outputText: prevState.outputText+' abc '+this.state.bchAddr,
+      outputText:
+        prevState.outputText +
+        `\nSending BCH to address ${this.state.bchAddr}...`,
+    }))
   }
 }
 
