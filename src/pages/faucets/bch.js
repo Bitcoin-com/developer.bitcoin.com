@@ -20,6 +20,8 @@ import spacing from 'styles/spacing'
 
 import HeroImg from 'images/learn-bitcoin-cash-header.jpg'
 
+import BchFaucet from 'components/bch-faucet'
+
 const HeroLayout = styled.div`
   display: grid;
   grid-gap: ${spacing.tiny};
@@ -72,6 +74,7 @@ const Faucet = ({ location }: Props) => (
       </HeroLayout>
     </Hero>
     <Container>
+      <BchFaucet />
       <SectionLayout>
         <SectionItem>
           <H3>BCH</H3>
