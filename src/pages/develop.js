@@ -90,6 +90,12 @@ const DevelopPage = ({ location }: Props) => (
           text="Paid downloads, streaming media, in-app purchases, tokens and more ways for you to monetize."
           disabledcta="Coming soon"
         />
+        <InfoCard
+          to="/faucets"
+          title="Faucets"
+          text="Testnet BCH and WHC for developers."
+          cta="View"
+        />
       </CardLayout>
     </Container>
   </DefaultLayout>
