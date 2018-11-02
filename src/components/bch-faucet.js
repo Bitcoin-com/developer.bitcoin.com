@@ -34,7 +34,7 @@ class BchFaucet extends React.PureComponent {
     return (
       <WrapperDiv>
         <h3>
-          This is a <u>testnet</u> faucet Bitcoin Cash! It is built with{' '}
+          This is a <u>testnet</u> faucet for Bitcoin Cash! It is built with{' '}
           <a href="https://developer.bitcoin.com/bitbox">
             BITBOX JavaScript SDK
           </a>{' '}
