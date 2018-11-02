@@ -20,6 +20,8 @@ import spacing from 'styles/spacing'
 
 import HeroImg from 'images/learn-bitcoin-cash-header.jpg'
 
+import WhcFaucet from 'components/whc-faucet'
+
 const HeroLayout = styled.div`
   display: grid;
   grid-gap: ${spacing.tiny};
@@ -72,19 +74,7 @@ const Faucet = ({ location }: Props) => (
       </HeroLayout>
     </Hero>
     <Container>
-      <SectionLayout>
-        <SectionItem>
-          <H3>WHC </H3>
-          <Text>testnet faucet</Text>
-          <CTASection>
-            <StyledLink to="/faucets/bch">
-              <Text centerVertical bold>
-                View <FaAngleRight />
-              </Text>
-            </StyledLink>
-          </CTASection>
-        </SectionItem>
-      </SectionLayout>
+      <WhcFaucet />
     </Container>
   </DefaultLayout>
 )
