@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const SERVER = `http://faucet.christroutner.com`
+const SERVER = `https://faucet.christroutner.com`
 
 const Well = styled.p`
   background-color: #f5f5f5;
