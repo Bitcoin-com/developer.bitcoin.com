@@ -17,19 +17,28 @@ const WrapperDiv = styled.div`
   padding: 50px;
 `
 
+const TxLink = styled.p`
+  padding: 25px;
+`
+
 type Props = {}
 class BchFaucet extends React.PureComponent {
   // constructor to set state and bind "this"
   constructor(props) {
     super(props)
     this.state = {
-      outputText: '',
-      bchAddr: '',
+      outputText: '', // Output of the Well.
+      bchAddr: '', // bchAddress provided by user.
+      linkAddr: '#', // Link URL to block explorer.
+      linkOn: false, // Toggles block explorer link.
+      balance: 0, // Initial balance before retreiving form server.
     }
   }
 
   render() {
     const {} = this.props
+
+    if (this.state.balance === 0) this.getBalance()
 
     return (
       <WrapperDiv>
@@ -42,8 +51,12 @@ class BchFaucet extends React.PureComponent {
           <a href="https://www.bitcoin.com/bitcoin-mining">
             Bitcoin.com Mining Pool{' '}
           </a>
-          . It currently gives out <u>0.1 BCH</u>.
+          gatsby hide show element state . It currently gives out <u>0.1 BCH</u>
+          .
         </h3>
+
+        <p>Faucet current balance: {this.state.balance} BCH</p>
+
         <p>
           <a href="https://github.com/Bitcoin-com/testnet-faucet">
             Fork the code on GitHub!
@@ -70,6 +83,14 @@ class BchFaucet extends React.PureComponent {
 
         <Well>{this.state.outputText}</Well>
 
+        {this.state.linkOn && (
+          <TxLink>
+            <a href={this.state.linkAddr} target="_blank">
+              View TX on Block Explorer
+            </a>
+          </TxLink>
+        )}
+
         <p>
           Please send your leftover testnet coins back to the faucet:
           <br />
@@ -82,6 +103,16 @@ class BchFaucet extends React.PureComponent {
   // Updates the state as the user updates the input form.
   handleChange = ({ target }) => {
     this.setState({ bchAddr: target.value })
+  }
+
+  getBalance = async () => {
+    const resp = await fetch(`${SERVER}/coins/`)
+    const body = await resp.json()
+    //console.log(`body: ${JSON.stringify(body, null, 2)}`)
+
+    this.setState(prevState => ({
+      balance: body.balance,
+    }))
   }
 
   requestBCH = async () => {
@@ -115,15 +146,20 @@ class BchFaucet extends React.PureComponent {
       }
 
       this.addOutput(`Success: testnet BCH are on their way!`)
-      //this.addOutput(`TXID: ${body.txid}`)
-      this.addOutput(
-        `TXID: <a href="https://www.blocktrail.com/tBCC/tx/${body.txid}">${
-          body.txid
-        }</a>`
-      )
+      this.addOutput(`TXID: ${body.txid}`)
+
+      // Show the link to the block explorer.
+      this.showLink(body.txid)
     } catch (err) {
       console.log(`Error in requestBCH: `, err)
     }
+  }
+
+  showLink(txid) {
+    this.setState(prevState => ({
+      linkOn: true,
+      linkAddr: `https://www.blocktrail.com/tBCC/tx/${txid}`,
+    }))
   }
 
   // Add another line to the output.
