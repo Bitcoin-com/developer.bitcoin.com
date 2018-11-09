@@ -82,10 +82,10 @@ const WormholePage = ({ location }: Props) => (
     <HelmetPlus
       title={`Wormhole - developer.bitcoin.com`}
       description={
-        'Wormhold based bitcoin.com developer platform and resources'
+        'Wormhole based bitcoin.com developer platform and resources'
       }
       keywords={
-        'wormhold, developer tools, bitcoin, bitcoin cash, BCH, sdk, api'
+        'wormhole, developer tools, bitcoin, bitcoin cash, BCH, sdk, api'
       }
       location={location}
     />
@@ -493,7 +493,7 @@ const WormholePage = ({ location }: Props) => (
         <PreviewItem>
           <H2>REST integration</H2>
           <Text>
-            Have your app talk to <Pre>wormhold</Pre> via wormholeREST
+            Have your app talk to <Pre>wormhold</Pre> via REST
           </Text>
         </PreviewItem>
       </PreviewLayout>

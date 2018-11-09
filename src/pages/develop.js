@@ -81,6 +81,12 @@ const DevelopPage = ({ location }: Props) => (
           cta="View"
         />
         <InfoCard
+          to="/slp"
+          title="SLP"
+          text="Tokenize anything. Everything you need to easily issue, spend or trade your own token."
+          cta="View"
+        />
+        <InfoCard
           title="Cloud"
           text="Blockchain-as-a-Service. Infrastructure to deploy and scale your apps. An ecosystem of add-ons for data, monitoring, logging, metrics, testing and more all built w/ BITBOX."
           disabledcta="Coming soon"

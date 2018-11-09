@@ -5,6 +5,7 @@ const titleMap = {
   wormhole: 'Wormhole',
   rest: 'REST',
   gui: 'GUI',
+  slp: 'SLP',
   other: 'Other',
 }
 export const getTitleDisplay = (product: string) => {
