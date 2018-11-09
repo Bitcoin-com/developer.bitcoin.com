@@ -27,15 +27,18 @@ class BchFaucet extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = {
-      outputText: '',
-      bchAddr: '',
-      linkAddr: '#',
-      linkOn: false,
+      outputText: '', // Output of the Well.
+      bchAddr: '', // bchAddress provided by user.
+      linkAddr: '#', // Link URL to block explorer.
+      linkOn: false, // Toggles block explorer link.
+      balance: 0, // Initial balance before retreiving form server.
     }
   }
 
   render() {
     const {} = this.props
+
+    if (this.state.balance === 0) this.getBalance()
 
     return (
       <WrapperDiv>
@@ -48,8 +51,12 @@ class BchFaucet extends React.PureComponent {
           <a href="https://www.bitcoin.com/bitcoin-mining">
             Bitcoin.com Mining Pool{' '}
           </a>
-          . It currently gives out <u>0.1 BCH</u>.
+          gatsby hide show element state . It currently gives out <u>0.1 BCH</u>
+          .
         </h3>
+
+        <p>Faucet current balance: {this.state.balance} BCH</p>
+
         <p>
           <a href="https://github.com/Bitcoin-com/testnet-faucet">
             Fork the code on GitHub!
@@ -96,6 +103,16 @@ class BchFaucet extends React.PureComponent {
   // Updates the state as the user updates the input form.
   handleChange = ({ target }) => {
     this.setState({ bchAddr: target.value })
+  }
+
+  getBalance = async () => {
+    const resp = await fetch(`${SERVER}/coins/`)
+    const body = await resp.json()
+    //console.log(`body: ${JSON.stringify(body, null, 2)}`)
+
+    this.setState(prevState => ({
+      balance: body.balance,
+    }))
   }
 
   requestBCH = async () => {
