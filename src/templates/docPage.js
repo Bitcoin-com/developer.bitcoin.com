@@ -181,6 +181,12 @@ class DocTemplate extends React.PureComponent<Props> {
                     >
                       {getTitleDisplay('gui')}
                     </option>
+                    <option
+                      selected={'slp' === doc.fields.product}
+                      value={'slp/docs/getting-started'}
+                    >
+                      {getTitleDisplay('slp')}
+                    </option>
                   </Select>
                 </NavFooter>
               </SideNavSticky>

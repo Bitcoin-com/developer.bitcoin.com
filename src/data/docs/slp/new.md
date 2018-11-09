@@ -4,7 +4,7 @@ icon: plus
 ordinal: 1
 ---
 
-Wormhole will generate a new app w/ empty `src/` and `test/` directories and a `wormhole.js` configured to connect to [rest.bitcoin.com](https://rest.bitcoin.com/).
+Wormhole will generate a new app w/ empty `src/` and `test/` directories and a `slp.js` configured to connect to [rest.bitcoin.com](https://rest.bitcoin.com/).
 
     Usage: new [options] <name>
     Options:
@@ -13,11 +13,11 @@ Wormhole will generate a new app w/ empty `src/` and `test/` directories and a `
     -e, --environment <environment>  REST environment. Ex: production, staging. Default: development
     -h, --help                       output usage information
 
-    $ wormhole new helloEARTH
+    $ slp new helloEARTH
 
-### wormhole.js
+### slp.js
 
-Your `wormhole.js` file will contain the default settings to connect to REST.
+Your `slp.js` file will contain the default settings to connect to REST.
 
     exports.config = {
       networks: {
