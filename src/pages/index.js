@@ -126,6 +126,9 @@ const IndexPage = ({ location }: Props) => (
             <StyledLink to="/wormhole">
               <Button round>Wormhole SDK</Button>
             </StyledLink>
+            <StyledLink to="/slp">
+              <Button round>SLP SDK</Button>
+            </StyledLink>
           </HeroButtonLayout>
         </HeroBlurbLayout>
         <SDKLayout>
