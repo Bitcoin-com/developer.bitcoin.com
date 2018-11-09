@@ -147,11 +147,6 @@ class BchFaucet extends React.PureComponent {
 
       this.addOutput(`Success: testnet BCH are on their way!`)
       this.addOutput(`TXID: ${body.txid}`)
-      //this.addOutput(
-      //  `TXID: <a href="https://www.blocktrail.com/tBCC/tx/${body.txid}">${
-      //    body.txid
-      //  }</a>`
-      //)
 
       // Show the link to the block explorer.
       this.showLink(body.txid)
