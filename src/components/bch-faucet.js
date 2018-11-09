@@ -17,6 +17,10 @@ const WrapperDiv = styled.div`
   padding: 50px;
 `
 
+const TxLink = styled.p`
+  padding: 25px;
+`
+
 type Props = {}
 class BchFaucet extends React.PureComponent {
   // constructor to set state and bind "this"
@@ -25,6 +29,8 @@ class BchFaucet extends React.PureComponent {
     this.state = {
       outputText: '',
       bchAddr: '',
+      linkAddr: '#',
+      linkOn: false,
     }
   }
 
@@ -69,6 +75,14 @@ class BchFaucet extends React.PureComponent {
         </button>
 
         <Well>{this.state.outputText}</Well>
+
+        {this.state.linkOn && (
+          <TxLink>
+            <a href={this.state.linkAddr} target="_blank">
+              View TX on Block Explorer
+            </a>
+          </TxLink>
+        )}
 
         <p>
           Please send your leftover testnet coins back to the faucet:
@@ -115,15 +129,25 @@ class BchFaucet extends React.PureComponent {
       }
 
       this.addOutput(`Success: testnet BCH are on their way!`)
-      //this.addOutput(`TXID: ${body.txid}`)
-      this.addOutput(
-        `TXID: <a href="https://www.blocktrail.com/tBCC/tx/${body.txid}">${
-          body.txid
-        }</a>`
-      )
+      this.addOutput(`TXID: ${body.txid}`)
+      //this.addOutput(
+      //  `TXID: <a href="https://www.blocktrail.com/tBCC/tx/${body.txid}">${
+      //    body.txid
+      //  }</a>`
+      //)
+
+      // Show the link to the block explorer.
+      this.showLink(body.txid)
     } catch (err) {
       console.log(`Error in requestBCH: `, err)
     }
+  }
+
+  showLink(txid) {
+    this.setState(prevState => ({
+      linkOn: true,
+      linkAddr: `https://www.blocktrail.com/tBCC/tx/${txid}`,
+    }))
   }
 
   // Add another line to the output.
