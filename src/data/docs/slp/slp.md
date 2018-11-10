@@ -18,7 +18,7 @@ SLP `SLP`: instance of SLP SDK
 
 #### Examples
 
-##### List all tokens
+##### Create instance of SLP SDK
 
     let SLPSDK = require("slp-sdk/lib/SLP").default;
     let SLP = new SLPSDK({
