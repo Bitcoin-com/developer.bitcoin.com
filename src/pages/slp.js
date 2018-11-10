@@ -125,7 +125,7 @@ const WormholePage = ({ location }: Props) => (
             {`
   (async () => {
     try {
-      let list = await SLP.list();
+      let list = await SLP.Utils.list();
       console.log(list);
     } catch (error) {
       console.error(error);
@@ -154,7 +154,7 @@ const WormholePage = ({ location }: Props) => (
             {`
  (async () => {
     try {
-      let list = await SLP.list(
+      let list = await SLP.Utils.list(
         "323a1e35ae0b356316093d20f2d9fbc995d19314b5c0148b78dc8d9c0dab9d35"
       );
       console.log(list);
@@ -177,7 +177,7 @@ const WormholePage = ({ location }: Props) => (
           <Text>Convert cashAddr or legacyAddr to slpAddr</Text>
           <Code>
             {`
-SLP.Conversion.toSLPAddress(
+SLP.Utils.toSLPAddress(
   "bitcoincash:qrxwdlhfx5f4xsfnl0g887e5ccs5puy8sgj0z0md6k"
 );
 // "simpleledger:qrxwdlhfx5f4xsfnl0g887e5ccs5puy8sg75f5wdyg"
@@ -189,7 +189,7 @@ SLP.Conversion.toSLPAddress("1KgRZzxLUvZqL8EuufmdxqSjh3tgURwD6d");
           <Text>Convert slpAddr or legacyAddr to cashAddr</Text>
           <Code>
             {`
-SLP.Conversion.toCashAddress(
+SLP.Utils.toCashAddress(
   "simpleledger:qrxwdlhfx5f4xsfnl0g887e5ccs5puy8sg75f5wdyg"
 );
 // 'bitcoincash:qrxwdlhfx5f4xsfnl0g887e5ccs5puy8sgj0z0md6k'
@@ -201,7 +201,7 @@ SLP.Conversion.toCashAddress("1KgRZzxLUvZqL8EuufmdxqSjh3tgURwD6d");
           <Text>Convert cashAddr or legacyAddr to legacyAddr</Text>
           <Code>
             {`
-SLP.Conversion.toLegacyAddress(
+SLP.Utils.toLegacyAddress(
   "simpleledger:qrxwdlhfx5f4xsfnl0g887e5ccs5puy8sg75f5wdyg"
 );
 //'1KgRZzxLUvZqL8EuufmdxqSjh3tgURwD6d'
