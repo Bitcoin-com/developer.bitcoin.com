@@ -236,14 +236,52 @@ addresses `Object`: the address converted to slpAddr, cashAddr and legacyAddr
 
 ### `getPushDataOpcode`
 
+#### Arguments
+
+1. data
+
+#### Result
+
 ### `int2FixedBuffer`
+
+#### Arguments
+
+1. amount
+
+#### Result
 
 ### `encodeScript`
 
+#### Arguments
+
+1. script
+
+#### Result
+
 ### `txidFromHex`
+
+#### Arguments
+
+1. hex
+
+#### Result
 
 ### `readScriptInt32`
 
+#### Arguments
+
+1. buffer
+
+#### Result
+
 ### `scriptInt32IsValid`
 
+#### Arguments
+
+1. buffer
+
+#### Result
+
 ### `generateRandomScriptInt32`
+
+#### Result
