@@ -198,7 +198,7 @@ SLP.Conversion.toCashAddress("1KgRZzxLUvZqL8EuufmdxqSjh3tgURwD6d");
 // 'bitcoincash:qrxwdlhfx5f4xsfnl0g887e5ccs5puy8sgj0z0md6k'
 `}
           </Code>
-          <Text>Convert cashAddr or legacyAddr to legacyAddr</Text>
+          <Text>Convert cashAddr or slpAddr to legacyAddr</Text>
           <Code>
             {`
 SLP.Utils.toLegacyAddress(
