@@ -10,15 +10,12 @@ const StyledLink = styled(Link)`
     props.isActive
       ? props.theme.foreground
       : props.subtle
-        ? props.theme.foreground
-        : props.theme.primary};
+      ? props.theme.foreground
+      : props.theme.primary};
   &:hover {
     color: ${props => props.theme.secondary};
   }
 `
-
-const StyledA = StyledLink.withComponent('a')
-
 type Props = {
   children: React.Node,
   text?: string,
@@ -39,9 +36,9 @@ class SmartLink extends React.PureComponent<Props> {
 
     if (isAsset || !internal) {
       return (
-        <StyledA href={to || href} target="_blank" {...rest}>
+        <a href={to || href} target="_blank" {...rest}>
           {text || children}
-        </StyledA>
+        </a>
       )
     }
 
