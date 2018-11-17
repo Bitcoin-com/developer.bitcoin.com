@@ -462,14 +462,14 @@ arr `Array` of JSON objects
 
 Returns the frozen token balance for a given address and property.
 
-#### Result
-
-balance `Array` of `Object`s
-
 #### Arguments
 
 1.  address `String` required: the address
 2.  propertyId `Number` required: the property identifier
+
+#### Result
+
+balance `Array` of `Object`s
 
 #### Examples
 
@@ -486,13 +486,13 @@ balance `Array` of `Object`s
 
 Returns a list of all frozen token balances for a given address.
 
-#### Result
-
-balance `Array` of `Object`s
-
 #### Arguments
 
 1.  address `String` required: the address
+
+#### Result
+
+balance `Array` of `Object`s
 
 #### Examples
 
@@ -509,13 +509,13 @@ balance `Array` of `Object`s
 
 Returns a list of all frozen token balances for a given property.
 
-#### Result
-
-balance `Array` of `Object`s
-
 #### Arguments
 
 1.  propertyId `Number` required: the property identifier
+
+#### Result
+
+balance `Array` of `Object`s
 
 #### Examples
 
@@ -523,6 +523,177 @@ balance `Array` of `Object`s
       try {
         let frozenBalanceForId = await Wormhole.DataRetrieval.frozenBalanceForId(1);
         console.log(frozenBalanceForId);
+      } catch(error) {
+       console.error(error)
+      }
+    })()
+
+### `ERC721AddressTokens`
+
+Returns details for about the tokens or smart property to lookup.
+
+#### Arguments
+
+1. address `String` required: the address of the query
+2. propertyId `String` required: the identifier of the ERC721 property
+
+#### Result
+
+tokens `Array` of `Object`s
+
+#### Examples
+
+    (async () => {
+      try {
+        const ERC721AddressTokens = await Wormhole.DataRetrieval.ERC721AddressTokens(
+          "qrhncn6hgkhljqg4fuq4px5qg74sjz9fqqj64s9la9",
+          "0000000000000000000000000000000000000000000000000000000000000002"
+        )
+        console.log(ERC721AddressTokens);
+      } catch(error) {
+       console.error(error)
+      }
+    })()
+
+    // [
+    //   {
+    //     "tokenid": "0000000000000000000000000000000000000000000000000000000000000001",
+    //     "attribute": "0000000000000000000000000000000000000000000000000000000000000002",
+    //     "tokenurl": "badgerwallet.cash",
+    //     "creationtxid": "d7bbcd55ce931abc3baeb3145b5c734e29ac5a84ce9dc6170a928ba47cd83b51"
+    //   }
+    // ]
+
+### `ERC721PropertyNews`
+
+Returns details for about the tokens or smart property to lookup.
+
+#### Arguments
+
+1. propertyId `String` required: the identifier of the ERC721 property
+
+#### Result
+
+propertyNews `Object`
+
+#### Examples
+
+    (async () => {
+      try {
+        const ERC721PropertyNews = await Wormhole.DataRetrieval.ERC721PropertyNews(
+          "0000000000000000000000000000000000000000000000000000000000000002"
+        )
+        console.log(ERC721PropertyNews);
+      } catch(error) {
+       console.error(error)
+      }
+    })()
+
+    // {
+    //   "propertyid": "0000000000000000000000000000000000000000000000000000000000000002",
+    //   "owner": "bitcoincash:qrhncn6hgkhljqg4fuq4px5qg74sjz9fqqj64s9la9",
+    //   "creationtxid": "e6a1995c0d9e779d50ffffa9dca8a96de88c100373c05fb9bf6e8e19953dfdbc",
+    //   "creationblock": "0000000000000000000ba6e6c2ecff8a2d8998cb27d32f5fa6ea6dc3a559131d",
+    //   "name": "CryptoBadger",
+    //   "symbol": "CRYPTOBADGER",
+    //   "data": "Collect and breed digital Honey Badgers!",
+    //   "propertyurl": "badgerwallet.cash",
+    //   "totalTokenNumber": 100000,
+    // "haveIssuedNumber": 1,
+    //  "currentValidIssuedNumer": 1
+    //}
+
+### `ERC721TokenNews`
+
+Returns details for about the tokens or smart property to lookup.
+
+#### Arguments
+
+1. propertyId `String` required: the identifier of the ERC721 property
+2. tokenId `String` required: the identifier of the ERC721 token
+
+#### Result
+
+tokenNews `Object`
+
+#### Examples
+
+    (async () => {
+      try {
+        const ERC721TokenNews = await Wormhole.DataRetrieval.ERC721TokenNews(
+          "0000000000000000000000000000000000000000000000000000000000000002",
+          "0000000000000000000000000000000000000000000000000000000000000001"
+        )
+        console.log(ERC721TokenNews);
+      } catch(error) {
+       console.error(error)
+      }
+    })()
+
+    // {
+    //   "propertyid": "0000000000000000000000000000000000000000000000000000000000000002",
+    //   "tokenid": "0000000000000000000000000000000000000000000000000000000000000001",
+    //   "owner": "bitcoincash:qqeuq3yxsr9rys39am985gcv7xg6hzzqqgu9x00ua2",
+    //   "creationtxid": "d7bbcd55ce931abc3baeb3145b5c734e29ac5a84ce9dc6170a928ba47cd83b51",
+    //   "creationblock": "0000000000000000008693d09ff12dd3e9a3df142e6c95a21f6db893af5732dc",
+    //   "attribute": "0000000000000000000000000000000000000000000000000000000000000002",
+    //   "tokenurl": "badgerwallet.cash"
+    // }
+
+### `ownerOfERC721Token`
+
+Query whether the Token's owner is the specified address.
+
+#### Arguments
+
+1. propertyId `String` required: the identifier of the ERC721 property
+2. tokenId `String` required: the identifier of the ERC721 token
+3. address `String` required: query address for the specified ERC721 Token
+
+#### Result
+
+isOwned `Object`
+
+#### Examples
+
+    (async () => {
+      try {
+        const ownerOfERC721Token = await Wormhole.DataRetrieval.ownerOfERC721Token(
+          "0000000000000000000000000000000000000000000000000000000000000002",
+          "0000000000000000000000000000000000000000000000000000000000000001",
+          "qrhncn6hgkhljqg4fuq4px5qg74sjz9fqqj64s9la9"
+        )
+        console.log(ownerOfERC721Token);
+      } catch(error) {
+       console.error(error)
+      }
+    })()
+
+    // {
+    //   "own": false
+    // }
+
+### `ERC721PropertyDestroyTokens`
+
+Returns details for about the destroy tokens to lookup.
+
+#### Arguments
+
+1. propertyId `String` required: the identifier of the ERC721 property
+
+#### Result
+
+tokenNews `Object`
+
+#### Examples
+
+    (async () => {
+      try {
+        const destroyERC721Token = await Wormhole.PayloadCreation.destroyERC721Token(
+          "0x02",
+          "0x01"
+        )
+        console.log(destroyERC721Token);
       } catch(error) {
        console.error(error)
       }
