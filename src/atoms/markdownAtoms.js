@@ -18,36 +18,36 @@ const ThMd = styled.th`
   white-space: nowrap;
   text-align: left;
 `
-const H1Md = H1.extend`
+const H1Md = styled(H1)`
   margin-top: ${spacing.medium};
 `
-const H2Md = H2.extend`
+const H2Md = styled(H2)`
   margin-top: ${spacing.medium};
 `
 
-const H3Md = H3.extend`
+const H3Md = styled(H3)`
   margin-top: ${spacing.medium};
 `
-const H4Md = H4.extend`
+const H4Md = styled(H4)`
   margin-top: ${spacing.small};
 `
 
-const TextMd = Text.extend`
+const TextMd = styled(Text)`
   margin-top: ${spacing.small};
 `
 
-const UlMd = Ul.extend`
+const UlMd = styled(Ul)`
   margin-top: ${spacing.medium};
   ${TextMd} {
     margin-top: 0;
   }
 `
 
-const OlMd = Ol.extend`
+const OlMd = styled(Ol)`
   margin-top: ${spacing.medium};
 `
 
-const ImgMd = Img.extend`
+const ImgMd = styled(Img)`
   margin-top: ${spacing.medium};
 `
 
