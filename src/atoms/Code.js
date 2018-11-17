@@ -17,7 +17,7 @@ const Code = ({ children, fontSize, language = 'javascript' }: Props) => {
     <SyntaxHighlighter
       language={language}
       style={solarizedLight}
-      customStyle={{ fontSize: 14 }}
+      customStyle={{ fontSize: 14, margin: 0 }}
     >
       {children}
     </SyntaxHighlighter>
