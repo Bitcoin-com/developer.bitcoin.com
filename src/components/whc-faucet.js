@@ -1,5 +1,11 @@
+// @flow
+
 import React from 'react'
 import styled from 'styled-components'
+
+import Button from 'atoms/Button'
+import StyledLink, { SmartLink } from 'atoms/StyledLink'
+import H3 from 'atoms/H3'
 
 const SERVER = `https://faucet.christroutner.com`
 
@@ -22,17 +28,25 @@ const TxLink = styled.p`
 `
 
 type Props = {}
-class BchFaucet extends React.PureComponent {
+type State = {
+  outputText: string, // Output of the Well.
+  bchAddr: string, // bchAddress provided by user.
+  linkAddr: string, // Link URL to block explorer.
+  linkOn: boolean, // Toggles block explorer link.
+  bchBalance: number, // Initial balance before retreiving form server.
+  whcBalance: number,
+}
+class BchFaucet extends React.PureComponent<Props, State> {
   // constructor to set state and bind "this"
-  constructor(props) {
+  constructor(props: Props) {
     super(props)
     this.state = {
-      outputText: '', // Output of the Well.
-      bchAddr: '', // bchAddress provided by user.
-      linkAddr: '#', // Link URL to block explorer.
-      linkOn: false, // Toggles block explorer link.
-      bchBalance: 0, // Initial balance before retreiving form server.
-      whcBalance: 0, // Initial balance before retreiving from the server.
+      outputText: '',
+      bchAddr: '',
+      linkAddr: '#',
+      linkOn: false,
+      bchBalance: 0,
+      whcBalance: 0,
     }
   }
 
@@ -43,17 +57,15 @@ class BchFaucet extends React.PureComponent {
 
     return (
       <WrapperDiv>
-        <h3>
+        <H3>
           This is a <u>testnet</u> faucet Wormhole coins! It is built with{' '}
-          <a href="https://developer.bitcoin.com/bitbox">
-            BITBOX JavaScript SDK
-          </a>{' '}
+          <StyledLink to="/bitbox">BITBOX JavaScript SDK</StyledLink>
           and is funded by the{' '}
-          <a href="https://www.bitcoin.com/bitcoin-mining">
+          <SmartLink to="https://www.bitcoin.com/bitcoin-mining">
             Bitcoin.com Mining Pool{' '}
-          </a>
+          </SmartLink>
           . It currently gives out <u>3 WHC</u>.
-        </h3>
+        </H3>
 
         <p>
           Current faucet balance: {this.state.bchBalance} BCH,{' '}
@@ -80,9 +92,9 @@ class BchFaucet extends React.PureComponent {
           </div>
         </form>
 
-        <button type="button" onClick={this.requestWHC}>
+        <Button type="button" onClick={this.requestWHC}>
           Get tBCH!
-        </button>
+        </Button>
 
         <Well>{this.state.outputText}</Well>
 
