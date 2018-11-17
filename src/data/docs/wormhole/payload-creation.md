@@ -374,3 +374,110 @@ payload `String`: the hex-encoded payload
       }
     })()
     // 0000000300000003000000000000138800000003
+
+### `issueERC721Property`
+
+Creates the payload to issue ERC721 property
+
+#### Arguments
+
+1. name `String` required: the name of created property
+2. symbol `String` required: the symbol of created property
+3. data `String` required: the Data of created property
+4. url `String` required: the URL of created property
+5. totalNumber `String` required: the number of token that created property will issued in the future
+
+#### Result
+
+payload `String`: the hex-encoded payload
+
+#### Examples
+
+    (async () => {
+      try {
+        let erc721Property = await Wormhol.PayloadCreation.issueERC721Property("0x01", "0x02", "0x03", "url");
+        console.log(erc721Property);
+      } catch(error) {
+        console.error(error)
+      }
+    })()
+    // 0000000300000003000000000000138800000003
+
+### `issueERC721Token`
+
+Creates the payload to issue ERC721 token
+
+#### Arguments
+
+1. propertyId `String` required: The ID of the special property that will be issued token
+2. tokenId `String` required: The tokenID that will be issued, if you don't want to skip this parameter, wormhole system will automatic tokenID
+3. attributes `String` required: The Attributes of the new created token
+4. url `String` required: The URL of the new created token
+
+#### Result
+
+payload `String`: the hex-encoded payload
+
+#### Examples
+
+    (async () => {
+      try {
+        let erc721Token = await Wormhol.PayloadCreation.issueERC721Token("0x01", "0x02", "0x03", "url");
+        console.log(erc721Token);
+      } catch(error) {
+        console.error(error)
+      }
+    })()
+    // 0000000300000003000000000000138800000003
+
+### `transferERC721Token`
+
+Creates the payload to transfer ERC721 token
+
+#### Arguments
+
+1. owner `String` required: The ID of the special property that will be issued token
+2. receiver `String` required: The ID of the special property that will be issued token
+3. propertyId `String` required: The ID of the special property that will be issued token
+4. tokenID `String` optional: The tokenId that will be transfer
+
+#### Result
+
+payload `String`: the hex-encoded payload
+
+#### Examples
+
+    (async () => {
+      try {
+        let transferERC721Token = await Wormhol.PayloadCreation.transferERC721Token( "qqzy3s0ueaxkf8hcffhtgkgew8c7f7g85um9a2g74r", "qqzy3s0ueaxkf8hcffhtgkgew8c7f7g85um9a2g74r", "0x01", "0x01");
+        console.log(transferERC721Token);
+      } catch(error) {
+        console.error(error)
+      }
+    })()
+    // 0000000300000003000000000000138800000003
+
+### `destroyERC721Token`
+
+Creates the payload to destroy ERC721 token
+
+#### Arguments
+
+1. propertyId `String` required: The token within the property that will be destroy
+2. tokenID `String` optional: The tokenid that will be destroy
+
+#### Result
+
+payload `String`: the hex-encoded payload
+
+#### Examples
+
+    (async () => {
+      try {
+        let destroyERC721Token = await Wormhol.PayloadCreation.destroyERC721Token("0x01", "0x01");
+        console.log(destroyERC721Token);
+      } catch(error) {
+        console.error(error)
+      }
+    })()
+    // 0000000300000003000000000000138800000003
