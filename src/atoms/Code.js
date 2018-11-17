@@ -2,7 +2,7 @@
 import * as React from 'react'
 
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { solarizedLight } from 'react-syntax-highlighter/dist/styles/prism'
+import solarizedLight from 'react-syntax-highlighter/dist/styles/prism/solarizedlight'
 
 type Props = {
   children: React.Node,
