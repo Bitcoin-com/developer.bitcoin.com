@@ -1,18 +1,8 @@
 // @flow
 import * as React from 'react'
 
-import SyntaxHighlighter, {
-  registerLanguage,
-} from 'react-syntax-highlighter/prism-light'
-import js from 'react-syntax-highlighter/languages/prism/javascript'
-import python from 'react-syntax-highlighter/languages/prism/python'
-import bash from 'react-syntax-highlighter/languages/prism/bash'
-
-import solarizedLight from 'react-syntax-highlighter/styles/prism/solarizedlight'
-
-registerLanguage('python', python)
-registerLanguage('javascript', js)
-registerLanguage('bash', bash)
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import solarizedLight from 'react-syntax-highlighter/dist/styles/prism/solarizedlight'
 
 type Props = {
   children: React.Node,
@@ -27,7 +17,7 @@ const Code = ({ children, fontSize, language = 'javascript' }: Props) => {
     <SyntaxHighlighter
       language={language}
       style={solarizedLight}
-      customStyle={fontSize ? { fontSize: 14 } : { fontSize: 14 }} // decide if size 14 is always good or not. this is wanted always or
+      customStyle={{ fontSize: 14, margin: 0 }}
     >
       {children}
     </SyntaxHighlighter>
