@@ -1,15 +1,16 @@
 // @flow
-import media from 'styles/media'
 
-import HeaderBase from './headerBase'
+import React from 'react'
 
-const H1 = HeaderBase.withComponent('h1').extend`
-    font-size: ${16 * 3}px;
-    line-height: 1.2em;
-    ${media.large`
-      font-size: ${18 * 3}px;
-      line-height: 1.35em;
-    `}
-`
+import HeaderBase from './HeaderBase'
+
+const H1 = (props: any) => (
+  <HeaderBase
+    as="h1"
+    fontSizeSmall={[16 * 3, 1.2]}
+    fontSize={[18 * 3, 1.35]}
+    {...props}
+  />
+)
 
 export default H1

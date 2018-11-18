@@ -10,14 +10,14 @@ const StyledLink = styled(Link)`
     props.isActive
       ? props.theme.foreground
       : props.subtle
-        ? props.theme.foreground
-        : props.theme.primary};
+      ? props.theme.foreground
+      : props.theme.primary};
   &:hover {
     color: ${props => props.theme.secondary};
   }
 `
 
-const StyledA = StyledLink.withComponent('a')
+const StyledA = props => <StyledLink as="a" {...props} />
 
 type Props = {
   children: React.Node,

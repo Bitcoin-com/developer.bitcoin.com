@@ -37,7 +37,7 @@ const ShareCTA = styled.div`
   align-content: end;
 `
 
-const SocialLinks = H3.extend`
+const SocialLinks = styled(H3)`
   justify-content: end;
   display: grid;
   grid-template-columns: min-content min-content min-content min-content;
