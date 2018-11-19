@@ -7,25 +7,38 @@ import styled from 'styled-components'
 import Button from 'atoms/Button'
 import StyledLink, { SmartLink } from 'atoms/StyledLink'
 import H3 from 'atoms/H3'
+import Text from 'atoms/Text'
+import Input from 'atoms/Input'
+import spacing from 'styles/spacing'
+
+import FaucetBalanceDisplay from './FaucetBalanceDisplay'
 
 const SERVER = `https://faucet.christroutner.com`
 
 const Well = styled.p`
-  background-color: #f5f5f5;
+  background-color: ${props => props.theme.primary100};
   min-height: 20px;
   padding: 20px;
   margin-bottom: 20px;
-  border: 1px solid #e3e3e3;
+  border: 1px solid ${props => props.theme.primary200};
   border-radius: 4px;
   white-space: pre-line;
 `
 
 const WrapperDiv = styled.div`
   padding: 50px;
+  display: grid;
+  grid-gap: ${spacing.small};
 `
 
 const TxLink = styled.p`
   padding: 25px;
+`
+
+const AddressForm = styled.form`
+  display: grid;
+  grid-gap: ${spacing.small};
+  grid-auto-columns: min-content;
 `
 
 type Props = {}
@@ -37,8 +50,8 @@ type State = {
   bchBalance: number, // Initial balance before retreiving form server.
   whcBalance: number,
 }
+
 class BchFaucet extends React.PureComponent<Props, State> {
-  // constructor to set state and bind "this"
   constructor(props: Props) {
     super(props)
     this.state = {
@@ -63,55 +76,57 @@ class BchFaucet extends React.PureComponent<Props, State> {
           <StyledLink to="/bitbox">BITBOX JavaScript SDK</StyledLink>
           and is funded by the{' '}
           <SmartLink to="https://www.bitcoin.com/bitcoin-mining">
-            Bitcoin.com Mining Pool{' '}
+            Bitcoin.com Mining Pool
           </SmartLink>
           . It currently gives out <u>3 WHC</u>.
         </H3>
 
-        <p>
-          Current faucet balance: {this.state.bchBalance} BCH,{' '}
-          {this.state.whcBalance} WHC
-        </p>
+        <FaucetBalanceDisplay
+          title="Current faucet balance"
+          data={[
+            { item: 'BCH', amount: this.state.bchBalance },
+            { item: 'WHC', amount: this.state.whcBalance },
+          ]}
+        />
 
-        <p>
-          <a href="https://github.com/Bitcoin-com/whc-faucet">
+        <Text>
+          <SmartLink to="https://github.com/Bitcoin-com/whc-faucet">
             Fork the code on GitHub!
-          </a>
-        </p>
+          </SmartLink>
+        </Text>
 
-        <form>
-          <div>
-            <label for="bchAddr">BCH Testnet Address: </label>
-            <input
-              type="text"
-              id="bchAddr"
-              size="45"
-              placeholder="bchtest:qr8d0cp00a07gwf7ltg4ufu48a849j98x5dj7zk423"
-              value={this.state.bchAddr}
-              onChange={this.handleChange}
-            />
-          </div>
-        </form>
-
-        <Button type="button" onClick={this.requestWHC}>
-          Get tBCH!
-        </Button>
+        <AddressForm>
+          <Text for="bchAddr" as="label" bold>
+            BCH Testnet Address
+          </Text>
+          <Input
+            type="text"
+            id="bchAddr"
+            size="45"
+            placeholder="bchtest:qr8d0cp00a07gwf7ltg4ufu48a849j98x5dj7zk423"
+            value={this.state.bchAddr}
+            onChange={this.handleChange}
+          />
+          <Button type="button" onClick={this.requestWHC}>
+            Get tBCH!
+          </Button>
+        </AddressForm>
 
         <Well>{this.state.outputText}</Well>
 
         {this.state.linkOn && (
           <TxLink>
-            <a href={this.state.linkAddr} target="_blank">
+            <SmartLink to={this.state.linkAddr}>
               View TX on Block Explorer
-            </a>
+            </SmartLink>
           </TxLink>
         )}
 
-        <p>
+        <Text>
           Please send your leftover testnet coins back to the faucet:
           <br />
           <i>bchtest:qr8d0cp00a07gwf7ltg4ufu48a849j98x5dj7zk423</i>
-        </p>
+        </Text>
       </WrapperDiv>
     )
   }
@@ -125,7 +140,6 @@ class BchFaucet extends React.PureComponent<Props, State> {
   getBalance = async () => {
     const resp = await fetch(`${SERVER}/tokens/`)
     const body = await resp.json()
-    //console.log(`body: ${JSON.stringify(body, null, 2)}`)
 
     this.setState(prevState => ({
       bchBalance: body.bch,
@@ -135,10 +149,7 @@ class BchFaucet extends React.PureComponent<Props, State> {
 
   requestWHC = async () => {
     try {
-      //console.log(`state.bchAddr: ${this.state.bchAddr}`)
-
       this.wipeOutput()
-
       this.addOutput(`Sending request...`)
 
       if (this.state.bchAddr === '') {
@@ -148,7 +159,6 @@ class BchFaucet extends React.PureComponent<Props, State> {
 
       const resp = await fetch(`${SERVER}/tokens/${this.state.bchAddr}`)
       const body = await resp.json()
-      console.log(`body: ${JSON.stringify(body, null, 2)}`)
 
       if (!body.success) {
         const message = body.message

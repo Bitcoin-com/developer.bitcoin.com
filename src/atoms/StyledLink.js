@@ -16,7 +16,6 @@ const StyledLink = styled(Link)`
     color: ${props => props.theme.secondary};
   }
 `
-
 const StyledA = props => <StyledLink as="a" {...props} />
 
 type Props = {
