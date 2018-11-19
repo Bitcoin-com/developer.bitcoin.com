@@ -17,7 +17,7 @@ import FaucetBalanceDisplay from './FaucetBalanceDisplay'
 const SERVER = `https://faucet.christroutner.com`
 
 const WrapperDiv = styled.div`
-  padding: 50px;
+  padding-top: ${spacing.large};
   display: grid;
   grid-gap: ${spacing.small};
 `
