@@ -7,6 +7,7 @@ import DefaultLayout from 'components/layouts/DefaultLayout'
 import Hero from 'components/Hero'
 import Container from 'components/Container'
 import HelmetPlus from 'components/HelmetPlus'
+import InfoCard from 'components/InfoCard'
 
 import { FaAngleRight } from 'react-icons/fa'
 
@@ -28,6 +29,7 @@ const HeroLayout = styled.div`
 const SectionLayout = styled.div`
   display: grid;
   padding-top: ${spacing.large};
+  padding-bottom: ${spacing.large};
   grid-gap: ${spacing.medium};
   grid-template-columns: 1fr;
   ${media.medium`
@@ -74,33 +76,18 @@ const Faucet = ({ location }: Props) => (
     </Hero>
     <Container>
       <SectionLayout>
-        <SectionItem>
-          <StyledLink to="/faucets/bch" subtle>
-            <H3>BCH</H3>
-          </StyledLink>
-          <Text>Bitcoin Cash testnet faucet</Text>
-          <CTASection>
-            <StyledLink to="/faucets/bch">
-              <Text centerVertical bold>
-                View <FaAngleRight />
-              </Text>
-            </StyledLink>
-          </CTASection>
-        </SectionItem>
-        <SectionItem>
-          <StyledLink to="/faucets/whc" subtle>
-            <H3>WHC</H3>
-          </StyledLink>
-          <Text>Wormhole testnet faucet</Text>
-
-          <CTASection>
-            <StyledLink to="/faucets/whc">
-              <Text centerVertical bold>
-                View <FaAngleRight />
-              </Text>
-            </StyledLink>
-          </CTASection>
-        </SectionItem>
+        <InfoCard
+          to="/faucets/bch"
+          title="BCH Testnet Faucet"
+          text="Bitcoin Cash testnet faucet.  Get some testnet BCH for your development needs"
+          cta="View"
+        />
+        <InfoCard
+          to="/faucets/whc"
+          title="WHC Testnet Faucet"
+          text="Wormhole testnet faucet.  Get some testnet BCH for your development needs"
+          cta="View"
+        />
       </SectionLayout>
     </Container>
   </DefaultLayout>
