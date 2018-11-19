@@ -54,8 +54,6 @@ class BchFaucet extends React.PureComponent<Props, State> {
   }
 
   render() {
-    const {} = this.props
-
     if (this.state.balance === 0) this.getBalance()
 
     return (

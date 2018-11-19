@@ -10,9 +10,8 @@ import Container from 'components/Container'
 import HelmetPlus from 'components/HelmetPlus'
 import InfoCard from 'components/InfoCard'
 
-import { FaAngleRight, FaAngleLeft } from 'react-icons/fa'
+import { FaAngleLeft } from 'react-icons/fa'
 
-import Text from 'atoms/Text'
 import H3 from 'atoms/H3'
 import H1 from 'atoms/H1'
 import StyledLink from 'atoms/StyledLink'
@@ -36,14 +35,6 @@ const PreviewLayout = styled.div`
     grid-template-columns: .7fr;
   `};
 `
-
-const TutorialPreviewLayout = styled.div`
-  display: grid;
-  grid-gap: ${spacing.tiny};
-  padding-left: ${spacing.tiny};
-  border-left: 2px solid ${props => props.theme.primary};
-`
-const TutorialHeaderLayout = styled.div``
 
 type Props = {
   location: Object,

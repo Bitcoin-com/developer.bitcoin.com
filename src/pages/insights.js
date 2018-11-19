@@ -10,9 +10,8 @@ import Container from 'components/Container'
 import HelmetPlus from 'components/HelmetPlus'
 import InfoCard from 'components/InfoCard'
 
-import { FaAngleRight, FaAngleLeft } from 'react-icons/fa'
+import { FaAngleLeft } from 'react-icons/fa'
 
-import Text from 'atoms/Text'
 import H3 from 'atoms/H3'
 import H1 from 'atoms/H1'
 import StyledLink from 'atoms/StyledLink'

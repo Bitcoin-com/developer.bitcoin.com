@@ -3,7 +3,6 @@
 import styled from 'styled-components'
 import { defaultProps } from 'recompose'
 
-import spacing from 'styles/spacing'
 import { textBase } from 'atoms/Text'
 
 const Pre = defaultProps({ monospace: true })(styled.span`

@@ -70,7 +70,6 @@ const makeShareLink = (
 class ShareFooter extends React.Component<Props> {
   componentDidMount() {
     const om = document.createElement('script')
-    const date = new Date()
     om.src = `https://a.optmnstr.com/app/js/api.min.js`
     om.setAttribute('data-campaign', 'v8lwzo6nqacmgnulutqp')
     om.setAttribute('data-user', '46652')

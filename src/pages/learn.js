@@ -10,12 +10,8 @@ import HelmetPlus from 'components/HelmetPlus'
 
 import InfoCard from 'components/InfoCard'
 
-import { FaAngleRight } from 'react-icons/fa'
-
-import Text from 'atoms/Text'
 import H3 from 'atoms/H3'
 import H1 from 'atoms/H1'
-import StyledLink from 'atoms/StyledLink'
 
 import media from 'styles/media'
 import spacing from 'styles/spacing'

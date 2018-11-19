@@ -9,12 +9,8 @@ import Container from 'components/Container'
 import HelmetPlus from 'components/HelmetPlus'
 import InfoCard from 'components/InfoCard'
 
-import { FaAngleRight } from 'react-icons/fa'
-
-import Text from 'atoms/Text'
 import H3 from 'atoms/H3'
 import H1 from 'atoms/H1'
-import StyledLink from 'atoms/StyledLink'
 
 import media from 'styles/media'
 import spacing from 'styles/spacing'
@@ -35,23 +31,6 @@ const SectionLayout = styled.div`
   ${media.medium`
     grid-template-columns: repeat(auto-fit, minmax(400px, .5fr));
   `};
-`
-
-// const PreviewItem = styled.div`
-const SectionItem = styled.div`
-  display: grid;
-  grid-gap: ${spacing.tiny};
-  grid-auto-rows: min-content;
-  grid-template-rows: max-content 1fr max-content;
-  grid-column: ${props => (props.full ? 'span 2' : 'auto')};
-  border-left: 2px solid ${props => props.theme.primary};
-  /* border: 1px solid ${props => props.theme.primary100}; */
-  padding-left: ${spacing.tiny};
-`
-
-const CTASection = styled.div`
-  display: flex;
-  justify-content: flex-start;
 `
 
 type Props = {
