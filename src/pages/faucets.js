@@ -27,7 +27,7 @@ const HeroLayout = styled.div`
 
 const SectionLayout = styled.div`
   display: grid;
-  padding-top: ${spacing.medium};
+  padding-top: ${spacing.large};
   grid-gap: ${spacing.medium};
   grid-template-columns: 1fr;
   ${media.medium`
@@ -43,12 +43,13 @@ const SectionItem = styled.div`
   grid-template-rows: max-content 1fr max-content;
   grid-column: ${props => (props.full ? 'span 2' : 'auto')};
   border-left: 2px solid ${props => props.theme.primary};
+  /* border: 1px solid ${props => props.theme.primary100}; */
   padding-left: ${spacing.tiny};
 `
 
 const CTASection = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 `
 
 type Props = {
@@ -74,7 +75,9 @@ const Faucet = ({ location }: Props) => (
     <Container>
       <SectionLayout>
         <SectionItem>
-          <H3>BCH</H3>
+          <StyledLink to="/faucets/bch" subtle>
+            <H3>BCH</H3>
+          </StyledLink>
           <Text>Bitcoin Cash testnet faucet</Text>
           <CTASection>
             <StyledLink to="/faucets/bch">
@@ -85,7 +88,9 @@ const Faucet = ({ location }: Props) => (
           </CTASection>
         </SectionItem>
         <SectionItem>
-          <H3>WHC</H3>
+          <StyledLink to="/faucets/whc" subtle>
+            <H3>WHC</H3>
+          </StyledLink>
           <Text>Wormhole testnet faucet</Text>
 
           <CTASection>
