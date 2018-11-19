@@ -88,7 +88,7 @@ class BchFaucet extends React.PureComponent<Props, State> {
           <Input
             type="text"
             id="bchAddr"
-            size="45"
+            size="60"
             placeholder="bchtest:qqmd9unmhkpx4pkmr6fkrr8rm6y77vckjvqe8aey35"
             value={this.state.bchAddr}
             onChange={this.handleChange}
