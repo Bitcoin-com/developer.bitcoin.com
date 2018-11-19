@@ -1,5 +1,6 @@
 // @flow
 
+import 'isomorphic-fetch'
 import React from 'react'
 import styled from 'styled-components'
 

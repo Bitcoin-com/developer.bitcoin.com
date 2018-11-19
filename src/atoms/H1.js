@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import HeaderBase from './HeaderBase'
+import HeaderBase from './headerBase'
 
 const H1 = (props: any) => (
   <HeaderBase
