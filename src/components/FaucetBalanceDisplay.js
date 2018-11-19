@@ -9,14 +9,15 @@ const BalanceGrid = styled.div`
   display: grid;
   grid-template-rows: auto auto;
   grid-template-columns: max-content;
+  align-content: center;
 `
 
 const BalanceRow = styled.div`
   display: grid;
   grid-auto-flow: column;
   grid-gap: ${spacing.large};
-  justify-content: space-between;
   background-color: ${props => props.theme.primary100};
+  padding: 10px;
 `
 type Props = {
   title: string,
@@ -35,7 +36,13 @@ const BalanceDisplay = (props: Props) => {
       </Text>
       <BalanceRow>
         {data.map(val => (
-          <div>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+            }}
+          >
             <Text center>{val.item}</Text>
             <Text center>{Number(val.amount).toFixed(8)}</Text>
           </div>

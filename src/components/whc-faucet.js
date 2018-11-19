@@ -9,21 +9,12 @@ import StyledLink, { SmartLink } from 'atoms/StyledLink'
 import H3 from 'atoms/H3'
 import Text from 'atoms/Text'
 import Input from 'atoms/Input'
+import Well from 'atoms/Well'
 import spacing from 'styles/spacing'
 
 import FaucetBalanceDisplay from './FaucetBalanceDisplay'
 
 const SERVER = `https://faucet.christroutner.com`
-
-const Well = styled.p`
-  background-color: ${props => props.theme.primary100};
-  min-height: 20px;
-  padding: 20px;
-  margin-bottom: 20px;
-  border: 1px solid ${props => props.theme.primary200};
-  border-radius: 4px;
-  white-space: pre-line;
-`
 
 const WrapperDiv = styled.div`
   padding: 50px;
@@ -48,7 +39,7 @@ type State = {
   linkAddr: string, // Link URL to block explorer.
   linkOn: boolean, // Toggles block explorer link.
   bchBalance: number, // Initial balance before retreiving form server.
-  whcBalance: number,
+  whcBalance: string, // Coming back as string from API.  Works, but should turn to number
 }
 
 class BchFaucet extends React.PureComponent<Props, State> {
@@ -112,7 +103,9 @@ class BchFaucet extends React.PureComponent<Props, State> {
           </Button>
         </AddressForm>
 
-        <Well>{this.state.outputText}</Well>
+        <Well>
+          <Text>{this.state.outputText}</Text>
+        </Well>
 
         {this.state.linkOn && (
           <TxLink>
@@ -191,7 +184,7 @@ class BchFaucet extends React.PureComponent<Props, State> {
   }
 
   // Add another line to the output.
-  addOutput = str => {
+  addOutput = (str: string) => {
     this.setState(prevState => ({
       outputText: prevState.outputText + `\n${str}`,
     }))
