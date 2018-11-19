@@ -68,14 +68,13 @@ usage
 ```html
 // Standard, "Tip" <tip>Use a tip to display tips</tip>
 
-// Standard, "Tip", need to use
+// Standard, "Tip" with nested
 <i>
-  explicitly rather than the mardown _version_
   <tip>Use a tip to display tips <i>in italic</i></tip>
 
   // Warning <tip nature="warning">Use warnings to display warnings</tip>
 
-  // Note <tip nature="note">Notes for extra info</tip></i
+  // Note <tip nature="note">Notes for extra info</tip> ></i
 >
 ```
 
