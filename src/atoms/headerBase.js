@@ -1,8 +1,4 @@
 // @flow
-
-import Text from './Text'
-
-// @flow
 import styled from 'styled-components'
 
 import { textBase } from './Text'

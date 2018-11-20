@@ -1,106 +1,123 @@
 // @flow
+
 import 'isomorphic-fetch'
 import React from 'react'
 import styled from 'styled-components'
 
+import Button from 'atoms/Button'
+import StyledLink, { SmartLink } from 'atoms/StyledLink'
+import H3 from 'atoms/H3'
+import Text from 'atoms/Text'
+import Input from 'atoms/Input'
+import Well from 'atoms/Well'
+import spacing from 'styles/spacing'
+
+import FaucetBalanceDisplay from './FaucetBalanceDisplay'
+
 const SERVER = `https://faucet.christroutner.com`
 
-const Well = styled.p`
-  background-color: #f5f5f5;
-  min-height: 20px;
-  padding: 20px;
-  margin-bottom: 20px;
-  border: 1px solid #e3e3e3;
-  border-radius: 4px;
-  white-space: pre-line;
-`
-
 const WrapperDiv = styled.div`
-  padding: 50px;
+  padding-top: ${spacing.large};
+  display: grid;
+  grid-gap: ${spacing.small};
 `
 
 const TxLink = styled.p`
   padding: 25px;
 `
 
+const AddressForm = styled.form`
+  display: grid;
+  grid-gap: ${spacing.small};
+  grid-auto-columns: min-content;
+`
+
 type Props = {}
-class BchFaucet extends React.PureComponent {
-  // constructor to set state and bind "this"
-  constructor(props) {
+type State = {
+  outputText: string, // Output of the Well.
+  bchAddr: string, // bchAddress provided by user.
+  linkAddr: string, // Link URL to block explorer.
+  linkOn: boolean, // Toggles block explorer link.
+  bchBalance: number, // Initial balance before retreiving form server.
+  whcBalance: string, // Coming back as string from API.  Works, but should turn to number
+}
+
+class BchFaucet extends React.PureComponent<Props, State> {
+  constructor(props: Props) {
     super(props)
     this.state = {
-      outputText: '', // Output of the Well.
-      bchAddr: '', // bchAddress provided by user.
-      linkAddr: '#', // Link URL to block explorer.
-      linkOn: false, // Toggles block explorer link.
-      bchBalance: 0, // Initial balance before retreiving form server.
-      whcBalance: 0, // Initial balance before retreiving from the server.
+      outputText: '',
+      bchAddr: '',
+      linkAddr: '#',
+      linkOn: false,
+      bchBalance: 0,
+      whcBalance: 0,
     }
   }
 
   render() {
-    const {} = this.props
-
     if (this.state.whcBalance === 0) this.getBalance()
 
     return (
       <WrapperDiv>
-        <h3>
+        <H3>
           This is a <u>testnet</u> faucet Wormhole coins! It is built with{' '}
-          <a href="https://developer.bitcoin.com/bitbox">
-            BITBOX JavaScript SDK
-          </a>{' '}
+          <StyledLink to="/bitbox">BITBOX JavaScript SDK</StyledLink>
           and is funded by the{' '}
-          <a href="https://www.bitcoin.com/bitcoin-mining">
-            Bitcoin.com Mining Pool{' '}
-          </a>
+          <SmartLink to="https://www.bitcoin.com/bitcoin-mining">
+            Bitcoin.com Mining Pool
+          </SmartLink>
           . It currently gives out <u>3 WHC</u>.
-        </h3>
+        </H3>
 
-        <p>
-          Current faucet balance: {this.state.bchBalance} BCH,{' '}
-          {this.state.whcBalance} WHC
-        </p>
+        <FaucetBalanceDisplay
+          title="Current faucet balance"
+          data={[
+            { item: 'BCH', amount: this.state.bchBalance },
+            { item: 'WHC', amount: this.state.whcBalance },
+          ]}
+        />
 
-        <p>
-          <a href="https://github.com/Bitcoin-com/whc-faucet">
+        <Text>
+          <SmartLink to="https://github.com/Bitcoin-com/whc-faucet">
             Fork the code on GitHub!
-          </a>
-        </p>
+          </SmartLink>
+        </Text>
 
-        <form>
-          <div>
-            <label for="bchAddr">BCH Testnet Address: </label>
-            <input
-              type="text"
-              id="bchAddr"
-              size="45"
-              placeholder="bchtest:qr8d0cp00a07gwf7ltg4ufu48a849j98x5dj7zk423"
-              value={this.state.bchAddr}
-              onChange={this.handleChange}
-            />
-          </div>
-        </form>
+        <AddressForm>
+          <Text for="bchAddr" as="label" bold>
+            BCH Testnet Address
+          </Text>
+          <Input
+            type="text"
+            id="bchAddr"
+            size="60"
+            placeholder="bchtest:qr8d0cp00a07gwf7ltg4ufu48a849j98x5dj7zk423"
+            value={this.state.bchAddr}
+            onChange={this.handleChange}
+          />
+          <Button type="button" onClick={this.requestWHC}>
+            Get tBCH!
+          </Button>
+        </AddressForm>
 
-        <button type="button" onClick={this.requestWHC}>
-          Get tBCH!
-        </button>
-
-        <Well>{this.state.outputText}</Well>
+        <Well>
+          <Text>{this.state.outputText}</Text>
+        </Well>
 
         {this.state.linkOn && (
           <TxLink>
-            <a href={this.state.linkAddr} target="_blank">
+            <SmartLink to={this.state.linkAddr}>
               View TX on Block Explorer
-            </a>
+            </SmartLink>
           </TxLink>
         )}
 
-        <p>
+        <Text>
           Please send your leftover testnet coins back to the faucet:
           <br />
           <i>bchtest:qr8d0cp00a07gwf7ltg4ufu48a849j98x5dj7zk423</i>
-        </p>
+        </Text>
       </WrapperDiv>
     )
   }
@@ -114,7 +131,6 @@ class BchFaucet extends React.PureComponent {
   getBalance = async () => {
     const resp = await fetch(`${SERVER}/tokens/`)
     const body = await resp.json()
-    //console.log(`body: ${JSON.stringify(body, null, 2)}`)
 
     this.setState(prevState => ({
       bchBalance: body.bch,
@@ -124,10 +140,7 @@ class BchFaucet extends React.PureComponent {
 
   requestWHC = async () => {
     try {
-      //console.log(`state.bchAddr: ${this.state.bchAddr}`)
-
       this.wipeOutput()
-
       this.addOutput(`Sending request...`)
 
       if (this.state.bchAddr === '') {
@@ -137,7 +150,6 @@ class BchFaucet extends React.PureComponent {
 
       const resp = await fetch(`${SERVER}/tokens/${this.state.bchAddr}`)
       const body = await resp.json()
-      console.log(`body: ${JSON.stringify(body, null, 2)}`)
 
       if (!body.success) {
         const message = body.message
@@ -170,7 +182,7 @@ class BchFaucet extends React.PureComponent {
   }
 
   // Add another line to the output.
-  addOutput = str => {
+  addOutput = (str: string) => {
     this.setState(prevState => ({
       outputText: prevState.outputText + `\n${str}`,
     }))

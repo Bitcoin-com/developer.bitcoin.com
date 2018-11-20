@@ -4,101 +4,115 @@ import 'isomorphic-fetch'
 import React from 'react'
 import styled from 'styled-components'
 
+import Button from 'atoms/Button'
+import StyledLink, { SmartLink } from 'atoms/StyledLink'
+import H3 from 'atoms/H3'
+import Text from 'atoms/Text'
+import Input from 'atoms/Input'
+import Well from 'atoms/Well'
+import spacing from 'styles/spacing'
+
+import FaucetBalanceDisplay from './FaucetBalanceDisplay'
+
 const SERVER = `https://faucet.christroutner.com`
 
-const Well = styled.p`
-  background-color: #f5f5f5;
-  min-height: 20px;
-  padding: 20px;
-  margin-bottom: 20px;
-  border: 1px solid #e3e3e3;
-  border-radius: 4px;
-  white-space: pre-line;
-`
-
 const WrapperDiv = styled.div`
-  padding: 50px;
+  padding-top: ${spacing.large};
+  display: grid;
+  grid-gap: ${spacing.small};
 `
 
 const TxLink = styled.p`
   padding: 25px;
 `
 
+const AddressForm = styled.form`
+  display: grid;
+  grid-gap: ${spacing.small};
+  grid-auto-columns: min-content;
+`
+
 type Props = {}
-class BchFaucet extends React.PureComponent {
-  // constructor to set state and bind "this"
-  constructor(props) {
+type State = {
+  outputText: string, // Output of the Well.
+  bchAddr: string, // bchAddress provided by user.
+  linkAddr: string, // Link URL to block explorer.
+  linkOn: boolean, // Toggles block explorer link.
+  balance: number, // Initial balance before retreiving form server.
+}
+
+class BchFaucet extends React.PureComponent<Props, State> {
+  constructor(props: Props) {
     super(props)
     this.state = {
-      outputText: '', // Output of the Well.
-      bchAddr: '', // bchAddress provided by user.
-      linkAddr: '#', // Link URL to block explorer.
-      linkOn: false, // Toggles block explorer link.
-      balance: 0, // Initial balance before retreiving form server.
+      outputText: '',
+      bchAddr: '',
+      linkAddr: '#',
+      linkOn: false,
+      balance: 0,
     }
   }
 
   render() {
-    const {} = this.props
-
     if (this.state.balance === 0) this.getBalance()
 
     return (
       <WrapperDiv>
-        <h3>
+        <H3>
           This is a <u>testnet</u> faucet for Bitcoin Cash! It is built with{' '}
-          <a href="https://developer.bitcoin.com/bitbox">
-            BITBOX JavaScript SDK
-          </a>{' '}
+          <StyledLink to="/bitbox">BITBOX JavaScript SDK</StyledLink>
           and is funded by the{' '}
-          <a href="https://www.bitcoin.com/bitcoin-mining">
-            Bitcoin.com Mining Pool{' '}
-          </a>
-          gatsby hide show element state . It currently gives out <u>0.1 BCH</u>
-          .
-        </h3>
+          <SmartLink to="https://www.bitcoin.com/bitcoin-mining">
+            Bitcoin.com Mining Pool
+          </SmartLink>
+          . It currently gives out <u>0.1 BCH</u>.
+        </H3>
 
-        <p>Faucet current balance: {this.state.balance} BCH</p>
+        <FaucetBalanceDisplay
+          title="Current faucet balance"
+          data={[{ item: 'BCH', amount: this.state.balance }]}
+        />
 
-        <p>
-          <a href="https://github.com/Bitcoin-com/testnet-faucet">
+        <Text>
+          <SmartLink to="https://github.com/Bitcoin-com/testnet-faucet">
             Fork the code on GitHub!
-          </a>
-        </p>
+          </SmartLink>
+        </Text>
 
-        <form>
-          <div>
-            <label for="bchAddr">BCH Testnet Address: </label>
-            <input
-              type="text"
-              id="bchAddr"
-              size="45"
-              placeholder="bchtest:qqmd9unmhkpx4pkmr6fkrr8rm6y77vckjvqe8aey35"
-              value={this.state.bchAddr}
-              onChange={this.handleChange}
-            />
-          </div>
-        </form>
+        <AddressForm>
+          <Text for="bchAddr" as="label" bold>
+            BCH Testnet Address
+          </Text>
+          <Input
+            type="text"
+            id="bchAddr"
+            size="60"
+            placeholder="bchtest:qqmd9unmhkpx4pkmr6fkrr8rm6y77vckjvqe8aey35"
+            value={this.state.bchAddr}
+            onChange={this.handleChange}
+          />
+          <Button type="button" onClick={this.requestBCH}>
+            Get tBCH!
+          </Button>
+        </AddressForm>
 
-        <button type="button" onClick={this.requestBCH}>
-          Get tBCH!
-        </button>
-
-        <Well>{this.state.outputText}</Well>
+        <Well>
+          <Text>{this.state.outputText}</Text>
+        </Well>
 
         {this.state.linkOn && (
           <TxLink>
-            <a href={this.state.linkAddr} target="_blank">
+            <SmartLink to={this.state.linkAddr}>
               View TX on Block Explorer
-            </a>
+            </SmartLink>
           </TxLink>
         )}
 
-        <p>
+        <Text>
           Please send your leftover testnet coins back to the faucet:
           <br />
           <i>bchtest:qqmd9unmhkpx4pkmr6fkrr8rm6y77vckjvqe8aey35</i>
-        </p>
+        </Text>
       </WrapperDiv>
     )
   }
@@ -111,7 +125,6 @@ class BchFaucet extends React.PureComponent {
   getBalance = async () => {
     const resp = await fetch(`${SERVER}/coins/`)
     const body = await resp.json()
-    //console.log(`body: ${JSON.stringify(body, null, 2)}`)
 
     this.setState(prevState => ({
       balance: body.balance,
@@ -120,8 +133,6 @@ class BchFaucet extends React.PureComponent {
 
   requestBCH = async () => {
     try {
-      //console.log(`state.bchAddr: ${this.state.bchAddr}`)
-
       this.wipeOutput()
 
       this.addOutput(`Sending request...`)
