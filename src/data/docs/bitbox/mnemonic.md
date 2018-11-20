@@ -226,6 +226,7 @@ Returns an array of privateKeyWIF/publicAddress pairs. It generates the addresse
 
 1.  mnemonic `String`: mnemonic to use
 2.  numberOfKeypairs `Number` `optional`: number of keypairs to return. Default is 1
+3.  regtest `Boolean` optional: return regtest key pairs
 
 #### Result
 
