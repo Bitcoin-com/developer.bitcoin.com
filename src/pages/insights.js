@@ -8,15 +8,16 @@ import DefaultLayout from 'components/layouts/DefaultLayout'
 import Hero from 'components/Hero'
 import Container from 'components/Container'
 import HelmetPlus from 'components/HelmetPlus'
+import InfoCard from 'components/InfoCard'
 
-import { FaAngleRight, FaAngleLeft } from 'react-icons/fa'
+import { FaAngleLeft } from 'react-icons/fa'
 
-import Text from 'atoms/Text'
 import H3 from 'atoms/H3'
 import H1 from 'atoms/H1'
 import StyledLink from 'atoms/StyledLink'
 
 import spacing from 'styles/spacing'
+import media from 'styles/media'
 
 import HeroImg from 'images/learn-bitcoin-cash-header.jpg'
 
@@ -26,16 +27,14 @@ const HeroLayout = styled.div`
 `
 
 const PreviewLayout = styled.div`
-  margin-top: ${spacing.medium};
   display: grid;
+  padding-top: ${spacing.large};
   grid-gap: ${spacing.medium};
+  grid-template-columns: 1fr;
+  ${media.medium`
+    grid-template-columns: repeat(auto-fit, minmax(400px, .5fr));
+  `};
 `
-
-const PostPreviewLayout = styled.div`
-  display: grid;
-  grid-gap: ${spacing.tiny};
-`
-const PostHeaderLayout = styled.div``
 
 type Props = {
   location: Object,
@@ -87,19 +86,12 @@ const Insights = ({ location, data }: Props) => {
       <Container>
         <PreviewLayout>
           {posts.map(post => (
-            <PostPreviewLayout>
-              <PostHeaderLayout>
-                <StyledLink subtle to={post.node.fields.slug}>
-                  <H3>{post.node.frontmatter.title} </H3>
-                </StyledLink>
-              </PostHeaderLayout>
-              <Text>{post.node.frontmatter.description}</Text>
-              <StyledLink to={post.node.fields.slug}>
-                <Text centerVertical bold>
-                  Read more <FaAngleRight />
-                </Text>
-              </StyledLink>
-            </PostPreviewLayout>
+            <InfoCard
+              to={post.node.fields.slug}
+              title={post.node.frontmatter.title}
+              text={post.node.frontmatter.description}
+              cta="Read More"
+            />
           ))}
         </PreviewLayout>
       </Container>

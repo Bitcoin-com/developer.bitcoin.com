@@ -65,11 +65,11 @@ A bordered box used to render a `tip/info/warning` box.
 
 usage
 
-```html
+```
 // Standard, "Tip"
 <tip>Use a tip to display tips</tip>
 
-// Standard, "Tip", need to use <i> explicitly rather than the mardown _version_
+// Standard, "Tip" with nested <i>
 <tip>Use a tip to display tips <i>in italic</i></tip>
 
 // Warning
@@ -77,6 +77,7 @@ usage
 
 // Note
 <tip nature="note">Notes for extra info</tip>
+>
 ```
 
 ##### image-caption
@@ -85,7 +86,7 @@ Caption below an image
 
 usage
 
-```html
+```
 // Standard, "Tip"
 [image text](/images/wow.png)
 <image-caption>Use a tip to display tips</image-caption>
@@ -103,7 +104,7 @@ Anchor to link to if the auto-generated header anchors aren't working
 
 usage
 
-```html
+```
 // basic invisible anchor
 <anchor name="link-to-me"></anchor>
 ```
@@ -114,7 +115,9 @@ Empty space until we can figure out a better solution
 
 usage
 
-```html
+```
 // some extra spce
 <spacer></spacer>
 ```
+
+#### Deploy

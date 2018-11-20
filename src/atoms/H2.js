@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 
-import HeaderBase from './HeaderBase'
+import HeaderBase from './headerBase'
 
 const H2 = (props: any) => (
   <HeaderBase

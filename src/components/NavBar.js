@@ -38,7 +38,15 @@ type Props = {
 }
 
 // TODO: Better method of this to not have false positives like /tutorials/wormhole-3 triggering 2 tabs active
-const developBaseUrls = ['/develop', '/bitbox', '/wormhole', '/gui', '/rest']
+const developBaseUrls = [
+  '/develop',
+  '/bitbox',
+  '/wormhole',
+  '/gui',
+  '/rest',
+  '/slp',
+  '/faucets',
+]
 const learnBaseUrls = [
   '/learn',
   '/tutorials',
