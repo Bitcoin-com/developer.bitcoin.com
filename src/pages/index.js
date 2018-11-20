@@ -41,10 +41,14 @@ const HeroBlurbLayout = styled.div`
 `
 
 const HeroButtonLayout = styled.div`
-  display: grid;
-  grid-gap: ${spacing.small};
-  grid-auto-flow: column;
-  grid-auto-columns: max-content;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+`
+
+const HeroButtonItem = styled.div`
+  margin-right: ${spacing.small};
+  margin-bottom: ${spacing.small};
 `
 const SDKLayout = styled.div`
   display: grid;
@@ -121,15 +125,21 @@ const IndexPage = ({ location }: Props) => (
           </H1>
           <H3 background>Developer Tooling, Cloud, and Market</H3>
           <HeroButtonLayout>
-            <StyledLink to="/bitbox">
-              <Button round>BITBOX SDK</Button>
-            </StyledLink>
-            <StyledLink to="/wormhole">
-              <Button round>Wormhole SDK</Button>
-            </StyledLink>
-            <StyledLink to="/slp">
-              <Button round>SLP SDK</Button>
-            </StyledLink>
+            <HeroButtonItem>
+              <StyledLink to="/bitbox">
+                <Button round>BITBOX SDK</Button>
+              </StyledLink>
+            </HeroButtonItem>
+            <HeroButtonItem>
+              <StyledLink to="/wormhole">
+                <Button round>Wormhole SDK</Button>
+              </StyledLink>
+            </HeroButtonItem>
+            <HeroButtonItem>
+              <StyledLink to="/slp">
+                <Button round>SLP SDK</Button>
+              </StyledLink>
+            </HeroButtonItem>
           </HeroButtonLayout>
         </HeroBlurbLayout>
         <SDKLayout>
