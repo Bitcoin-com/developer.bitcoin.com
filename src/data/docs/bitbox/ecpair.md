@@ -141,6 +141,7 @@ Get cash address of ECPair
 #### Arguments
 
 1.  ecpair `ECPair`
+2.  regtest `Boolean` optional: return regtest address
 
 #### Result
 

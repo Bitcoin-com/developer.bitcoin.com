@@ -42,6 +42,7 @@ Converting legacy to cashAddress format
 
 1.  address `String` required: legacy address to be converted
 2.  prefix `Boolean` optional: include prefix
+3.  regtest `Boolean` optional: return regtest address
 
 #### Result
 

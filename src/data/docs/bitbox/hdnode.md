@@ -147,6 +147,7 @@ Get cash address of HDNode
 #### Arguments
 
 1.  hdNode: HDNode
+2.  regtest `Boolean` optional: return regtest address
 
 #### Result
 
