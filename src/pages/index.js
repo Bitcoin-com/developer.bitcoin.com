@@ -42,8 +42,9 @@ const HeroBlurbLayout = styled.div`
 
 const HeroButtonLayout = styled.div`
   display: grid;
-  grid-gap: ${spacing.medium};
-  grid-template-columns: auto 1fr;
+  grid-gap: ${spacing.small};
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
 `
 const SDKLayout = styled.div`
   display: grid;

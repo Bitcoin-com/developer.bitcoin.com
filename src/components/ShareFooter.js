@@ -37,7 +37,7 @@ const ShareCTA = styled.div`
   align-content: end;
 `
 
-const SocialLinks = H3.extend`
+const SocialLinks = styled(H3)`
   justify-content: end;
   display: grid;
   grid-template-columns: min-content min-content min-content min-content;
@@ -70,7 +70,6 @@ const makeShareLink = (
 class ShareFooter extends React.Component<Props> {
   componentDidMount() {
     const om = document.createElement('script')
-    const date = new Date()
     om.src = `https://a.optmnstr.com/app/js/api.min.js`
     om.setAttribute('data-campaign', 'v8lwzo6nqacmgnulutqp')
     om.setAttribute('data-user', '46652')

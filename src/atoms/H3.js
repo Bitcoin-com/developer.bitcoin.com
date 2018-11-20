@@ -1,16 +1,15 @@
 // @flow
-import media from 'styles/media'
+import React from 'react'
 
 import HeaderBase from './headerBase'
 
-const H3 = HeaderBase.withComponent('h3').extend`
-    font-size: ${16 * 1.3125}px
-    line-height: 1.13636364em;
-    font-weight: 600;
-    ${media.large`
-      font-size: ${18 * 1.3125}px;
-      line-height: 1.25em;
-    `}
-`
+const H3 = (props: any) => (
+  <HeaderBase
+    as="h3"
+    fontSizeSmall={[16 * 1.3125, 1.13636364]}
+    fontSize={[18 * 1.3125, 1.25]}
+    {...props}
+  />
+)
 
 export default H3

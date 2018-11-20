@@ -35,7 +35,7 @@ const Cover = styled.div`
   z-index: 0;
 `
 
-const Content = Container.extend`
+const Content = styled(Container)`
   position: relative;
   z-index: 1;
 `

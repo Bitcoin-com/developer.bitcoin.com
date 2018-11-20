@@ -14,7 +14,6 @@ import H2 from 'atoms/H2'
 import H1 from 'atoms/H1'
 import Button from 'atoms/Button'
 import Code from 'atoms/Code'
-import Pre from 'atoms/Pre'
 import StyledLink from 'atoms/StyledLink'
 
 import media from 'styles/media'
@@ -122,62 +121,62 @@ const WormholePage = ({ location }: Props) => (
           <H2>List</H2>
           <Text>List all tokens</Text>
           <Code>
-            {`
-  (async () => {
-    try {
-      let list = await SLP.Utils.list();
+            {`(async () => {
+  try {
+    let list = await SLP.Utils.list();
       console.log(list);
     } catch (error) {
       console.error(error);
     }
-  })();
-  // returns
-  [ { id: '545cba6f72a08cbcb08c7d4e8166267942e8cb9a611328805c62fa538e861ba4',
-   timestamp: '2018-08-14 13:42',
-   symbol: '',
-   name: '',
-   document: '' },
-  { id: '83bfe019fcf976142c55e7c0ad4a429f4be1bc2cb138bd8d0bab8dd4cd4758c4',
-   timestamp: '2018-08-14 13:57',
-   symbol: '',
-   name: '',
-   document: '' },
-  { id: '323a1e35ae0b356316093d20f2d9fbc995d19314b5c0148b78dc8d9c0dab9d35',
-   timestamp: '2018-08-14 17:53',
-   symbol: '',
-   name: '',
-   document: ' } ]
-   `}
+  }
+)();
+
+// returns
+[ { id: '545cba6f72a08cbcb08c7d4e8166267942e8cb9a611328805c62fa538e861ba4',
+  timestamp: '2018-08-14 13:42',
+  symbol: '',
+  name: '',
+  document: '' },
+{ id: '83bfe019fcf976142c55e7c0ad4a429f4be1bc2cb138bd8d0bab8dd4cd4758c4',
+  timestamp: '2018-08-14 13:57',
+  symbol: '',
+  name: '',
+  document: '' },
+{ id: '323a1e35ae0b356316093d20f2d9fbc995d19314b5c0148b78dc8d9c0dab9d35',
+  timestamp: '2018-08-14 17:53',
+  symbol: '',
+  name: '',
+  document: ' } ]
+`}
           </Code>
           <Text>List single token by id</Text>
           <Code>
-            {`
- (async () => {
-    try {
-      let list = await SLP.Utils.list(
-        "323a1e35ae0b356316093d20f2d9fbc995d19314b5c0148b78dc8d9c0dab9d35"
-      );
-      console.log(list);
+            {`(async () => {
+  try {
+    let list = await SLP.Utils.list(
+      "323a1e35ae0b356316093d20f2d9fbc995d19314b5c0148b78dc8d9c0dab9d35"
+    );
+    console.log(list);
     } catch (error) {
       console.error(error);
     }
-  })();
+  }
+)();
 
-  // returns
-  { id: '323a1e35ae0b356316093d20f2d9fbc995d19314b5c0148b78dc8d9c0dab9d35',
-    timestamp: '2018-08-14 17:53',
-    symbol: '',
-    name: '',
-    document: '' }
-   `}
+// returns
+{ id: '323a1e35ae0b356316093d20f2d9fbc995d19314b5c0148b78dc8d9c0dab9d35',
+  timestamp: '2018-08-14 17:53',
+  symbol: '',
+  name: '',
+  document: '' }
+`}
           </Code>
         </PreviewItem>
         <PreviewItem to="/slp/docs/conversion">
           <H2>Conversion</H2>
           <Text>Convert cashAddr or legacyAddr to slpAddr</Text>
           <Code>
-            {`
-SLP.Utils.toSLPAddress(
+            {`SLP.Utils.toSLPAddress(
   "bitcoincash:qrxwdlhfx5f4xsfnl0g887e5ccs5puy8sgj0z0md6k"
 );
 // "simpleledger:qrxwdlhfx5f4xsfnl0g887e5ccs5puy8sg75f5wdyg"
@@ -188,8 +187,7 @@ SLP.Conversion.toSLPAddress("1KgRZzxLUvZqL8EuufmdxqSjh3tgURwD6d");
           </Code>
           <Text>Convert slpAddr or legacyAddr to cashAddr</Text>
           <Code>
-            {`
-SLP.Utils.toCashAddress(
+            {`SLP.Utils.toCashAddress(
   "simpleledger:qrxwdlhfx5f4xsfnl0g887e5ccs5puy8sg75f5wdyg"
 );
 // 'bitcoincash:qrxwdlhfx5f4xsfnl0g887e5ccs5puy8sgj0z0md6k'
@@ -200,8 +198,7 @@ SLP.Conversion.toCashAddress("1KgRZzxLUvZqL8EuufmdxqSjh3tgURwD6d");
           </Code>
           <Text>Convert cashAddr or legacyAddr to legacyAddr</Text>
           <Code>
-            {`
-SLP.Utils.toLegacyAddress(
+            {`SLP.Utils.toLegacyAddress(
   "simpleledger:qrxwdlhfx5f4xsfnl0g887e5ccs5puy8sg75f5wdyg"
 );
 //'1KgRZzxLUvZqL8EuufmdxqSjh3tgURwD6d'
