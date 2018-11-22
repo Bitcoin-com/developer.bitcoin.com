@@ -10,7 +10,6 @@ import HelmetPlus from 'components/HelmetPlus'
 
 import Text from 'atoms/Text'
 import H3 from 'atoms/H3'
-import H2 from 'atoms/H2'
 import H1 from 'atoms/H1'
 import Button from 'atoms/Button'
 import StyledLink from 'atoms/StyledLink'
@@ -19,8 +18,6 @@ import media from 'styles/media'
 import spacing from 'styles/spacing'
 
 import HeroImg from 'images/hero.jpeg'
-
-// import { FaCube, FaCogs, FaCreditCard, FaCartPlus, FaReddit, FaTwitter, FaFacebook, FaLinkedin } from 'react-icons/fa'
 
 const HeroLayout = styled.div`
   display: grid;
@@ -102,7 +99,7 @@ const RestPage = ({ location }: Props) => (
     <Container>
       <PreviewLayout>
         <PreviewItem full to="/rest/docs/getting-started">
-          <H2>BCH RPC over HTTP</H2>
+          <H3>BCH RPC over HTTP</H3>
           <Text>
             100% of the Bitcoin Cash JSON RPC available over HTTP with proper
             REST semantics. BITBOX SDK integration lets you GET and POST
@@ -113,7 +110,7 @@ const RestPage = ({ location }: Props) => (
           </Text>
         </PreviewItem>
         <PreviewItem to="/rest/docs/getting-started">
-          <H2>Proper REST Semantics</H2>
+          <H3>Proper REST Semantics</H3>
           <Text>
             Instead of POSTing directly to bitcoind we've wrapped the BCH JSON
             RPC in REST semantics so you GET when reading and POST when writing
@@ -121,7 +118,7 @@ const RestPage = ({ location }: Props) => (
           </Text>
         </PreviewItem>
         <PreviewItem to="/gui/docs/getting-started">
-          <H2>Addresses, Blocks and Transactions</H2>
+          <H3>Addresses, Blocks and Transactions</H3>
           <Text>
             Get details such as balance, utxo and unconfirmed transactions for
             an address. Get details about a block or transaction.

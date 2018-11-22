@@ -10,7 +10,6 @@ import HelmetPlus from 'components/HelmetPlus'
 
 import Text from 'atoms/Text'
 import H3 from 'atoms/H3'
-import H2 from 'atoms/H2'
 import H1 from 'atoms/H1'
 import Button from 'atoms/Button'
 import Code from 'atoms/Code'
@@ -51,18 +50,17 @@ const ItemLayout = styled.div`
   grid-auto-rows: min-content;
   grid-column: span 2;
   ${media.medium`
-    grid-column: ${props => (props.full ? 'span 2' : 'auto')};
+    grid-column: 'span 2';
   `};
 `
 
 type ItemProps = {
   children: React.Node,
   to?: string,
-  full?: boolean,
 }
 
-const PreviewItem = ({ children, to, full }: ItemProps) => (
-  <ItemLayout full={full}>
+const PreviewItem = ({ children, to }: ItemProps) => (
+  <ItemLayout>
     {children}
     {to && (
       <StyledLink to={to}>
@@ -102,8 +100,8 @@ const WormholePage = ({ location }: Props) => (
     </Hero>
     <Container>
       <PreviewLayout>
-        <PreviewItem full>
-          <H2>Simple Ledger Protocol</H2>
+        <PreviewItem>
+          <H3>Simple Ledger Protocol</H3>
           <Text>
             SLP SDK is a fully featured javascript framework powered by{' '}
             <StyledLink to="/bitbox">BITBOX</StyledLink>. Everything you need to
@@ -118,7 +116,7 @@ const WormholePage = ({ location }: Props) => (
           </Text>
         </PreviewItem>
         <PreviewItem to="/slp/docs/slp">
-          <H2>List</H2>
+          <H3>List</H3>
           <Text>List all tokens</Text>
           <Code>
             {`(async () => {
@@ -173,7 +171,7 @@ const WormholePage = ({ location }: Props) => (
           </Code>
         </PreviewItem>
         <PreviewItem to="/slp/docs/conversion">
-          <H2>Conversion</H2>
+          <H3>Conversion</H3>
           <Text>Convert cashAddr or legacyAddr to slpAddr</Text>
           <Code>
             {`SLP.Utils.toSLPAddress(
@@ -211,21 +209,21 @@ SLP.Conversion.toLegacyAddress(
           </Code>
         </PreviewItem>
         <PreviewItem>
-          <H2>Built-in console</H2>
+          <H3>Built-in console</H3>
           <Text>
             Custom REPL with the full BITBOX and Bitcoin Cash JSON RPC API built
             in. Test your ideas quickly with no overhead.
           </Text>
         </PreviewItem>
         <PreviewItem>
-          <H2>100% Documented</H2>
+          <H3>100% Documented</H3>
           <Text>
             Every method, argument, data type and return value is documented in
             great detail.
           </Text>
         </PreviewItem>
         <PreviewItem>
-          <H2>REST integration</H2>
+          <H3>REST integration</H3>
           <Text>SLP SDK is coupled to REST with no further setup.</Text>
         </PreviewItem>
       </PreviewLayout>

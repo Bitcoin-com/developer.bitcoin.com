@@ -10,7 +10,6 @@ import HelmetPlus from 'components/HelmetPlus'
 
 import Text from 'atoms/Text'
 import H3 from 'atoms/H3'
-import H2 from 'atoms/H2'
 import H1 from 'atoms/H1'
 import Button from 'atoms/Button'
 import StyledLink from 'atoms/StyledLink'
@@ -102,7 +101,7 @@ const GuiPage = ({ location }: Props) => (
     <Container>
       <PreviewLayout>
         <PreviewItem full to="/gui/docs/getting-started">
-          <H2>Instant Blockchain</H2>
+          <H3>Instant Blockchain</H3>
           <Text>
             Your own Bitcoin Cash blockchain to configure however you choose.
             It’s recreated from scratch each time you restart GUI. It doesn’t
@@ -111,28 +110,28 @@ const GuiPage = ({ location }: Props) => (
           </Text>
         </PreviewItem>
         <PreviewItem to="/gui/docs/wallet">
-          <H2>BIP44 development wallet</H2>
+          <H3>BIP44 development wallet</H3>
           <Text>
             Create as many BIP44 accounts as you want on mainnet or testnet. See
             their address, WIF, XPub and XPriv.
           </Text>
         </PreviewItem>
         <PreviewItem to="/gui/docs/conversion">
-          <H2>Address Conversion</H2>
+          <H3>Address Conversion</H3>
           <Text>
             Paste in legacy, cashaddr, wif, xpub or xpriv and get address
             conversion and QR codes.
           </Text>
         </PreviewItem>
         <PreviewItem to="/gui/docs/sign-verify">
-          <H2>Sign/Verify messages</H2>
+          <H3>Sign/Verify messages</H3>
           <Text>
             Sign messages in legacy or cashaddr with any address in your GUI.
             Verify messages in legacy or cashaddr from any wallet.
           </Text>
         </PreviewItem>
         <PreviewItem to="/gui/docs/configuration">
-          <H2>Configured how you like it</H2>
+          <H3>Configured how you like it</H3>
           <Text>
             Create as many accounts as you need. Vary the entropy in the
             mnemonic. Supports 8 languages. Custom HD Paths. Add a password.

@@ -11,7 +11,6 @@ import Container from 'components/Container'
 import StyledLink, { SmartLink } from 'atoms/StyledLink'
 import Text from 'atoms/Text'
 import H3 from 'atoms/H3'
-import H2 from 'atoms/H2'
 import H1 from 'atoms/H1'
 import Button from 'atoms/Button'
 import Code from 'atoms/Code'
@@ -50,18 +49,17 @@ const ItemLayout = styled.div`
   grid-auto-rows: min-content;
   grid-column: span 2;
   ${media.medium`
-    grid-column: ${props => (props.full ? 'span 2' : 'auto')};
+    grid-column: 'span 2';
   `};
 `
 
 type ItemProps = {
   children: React.Node,
   to?: string,
-  full?: boolean,
 }
 
-const PreviewItem = ({ children, to, full }: ItemProps) => (
-  <ItemLayout full={full}>
+const PreviewItem = ({ children, to }: ItemProps) => (
+  <ItemLayout>
     {children}
     {to && (
       <StyledLink to={to}>
@@ -106,8 +104,8 @@ const BitboxPage = ({ location }: Props) => (
     </Hero>
     <Container>
       <PreviewLayout>
-        <PreviewItem full>
-          <H2>Powerful</H2>
+        <PreviewItem>
+          <H3>Powerful</H3>
           <Text>
             BITBOX is a fully featured javascript framework which offers
             Mnemonics, HDNodes, ECPairs, Crypto, Addresses, Transactions and
@@ -122,7 +120,7 @@ const BitboxPage = ({ location }: Props) => (
           </Text>
         </PreviewItem>
         <PreviewItem to="/bitbox/docs/mnemonic">
-          <H2>Mnemonics</H2>
+          <H3>Mnemonics</H3>
           <Text>
             Create mnemonics from 128 bits to 256 bits in 8 languages including
             english, chinese (traditional/simplified), korean, japanese,
@@ -139,7 +137,7 @@ BITBOX.Mnemonic.generate(128, BITBOX.Mnemonic.wordLists().french);
           </Code>
         </PreviewItem>
         <PreviewItem to="/bitbox/docs/hdnode">
-          <H2>Transactions</H2>
+          <H3>Transactions</H3>
           <Text>
             Pay to PubKey, Pay to PubKeyHash, Pay to MultiSig, Pay to ScriptHash
             and write data to the chain w/ OP_RETURN
@@ -178,7 +176,7 @@ BITBOX.Mnemonic.generate(128, BITBOX.Mnemonic.wordLists().french);
           </Code>
         </PreviewItem>
         <PreviewItem to="/bitbox/docs/hdnode">
-          <H2>Address conversion</H2>
+          <H3>Address conversion</H3>
           <Text>
             Convert between legacy and cash addresses on main or testnet.
           </Text>
@@ -204,12 +202,12 @@ BITBOX.Address.isMainnetAddress('bitcoincash:qqfx3wcg8ts09mt5l3zey06wenapyfqq2qr
 // true
 
 // detect testnet address
-BITBOX.Address.isTestnetAddress('bchtest:qph2v4mkxjgdqgmlyjx6njmey0ftrxlnggt9t0a6zy')
+BITBOX.Address.isTestnetAddress('bchtest:qpH3v4mkxjgdqgmlyjx6njmey0ftrxlnggt9t0a6zy')
 // true`}
           </Code>
         </PreviewItem>
         <PreviewItem to="/bitbox/docs/hdnode">
-          <H2>Unit Conversion</H2>
+          <H3>Unit Conversion</H3>
           <Text>Convert between satoshis and whole units or bits.</Text>
           <Code>
             {`// convert 9 $BCH to satoshis
@@ -226,7 +224,7 @@ BITBOX.BitcoinCash.satsToBits(4242323400)
           </Code>
         </PreviewItem>
         <PreviewItem to="/bitbotx/docs/hdnode">
-          <H2>OP Codes</H2>
+          <H3>OP Codes</H3>
           <Text>
             100% support for OP codes including everything which was recently
             re-enabled.
@@ -259,14 +257,14 @@ BITBOX.Script.opcodes.OP_BIN2NUM
           </Code>
         </PreviewItem>
         <PreviewItem to="bitbox/docs/console">
-          <H2>Built-in console</H2>
+          <H3>Built-in console</H3>
           <Text>
             Custom REPL with the full BITBOX and Bitcoin Cash JSON RPC API built
             in. Test your ideas quickly with no overhead.
           </Text>
         </PreviewItem>
         <PreviewItem>
-          <H2>App Scaffolds</H2>
+          <H3>App Scaffolds</H3>
           <Text>
             Create basic BIP44 wallets in under a minute with the most popular
             frameworks. Angular, React, Node, Next and Vue currently supported
@@ -274,14 +272,14 @@ BITBOX.Script.opcodes.OP_BIN2NUM
           </Text>
         </PreviewItem>
         <PreviewItem>
-          <H2>100% Documented</H2>
+          <H3>100% Documented</H3>
           <Text>
             Every method, argument, data type and return value is documented in
             great detail.
           </Text>
         </PreviewItem>
         <PreviewItem>
-          <H2>REST integration</H2>
+          <H3>REST integration</H3>
           <Text>
             Have your app talk to Cloud via REST with no further setup needed.
           </Text>
