@@ -202,7 +202,7 @@ BITBOX.Address.isMainnetAddress('bitcoincash:qqfx3wcg8ts09mt5l3zey06wenapyfqq2qr
 // true
 
 // detect testnet address
-BITBOX.Address.isTestnetAddress('bchtest:qpH3v4mkxjgdqgmlyjx6njmey0ftrxlnggt9t0a6zy')
+BITBOX.Address.isTestnetAddress('bchtest:qph2v4mkxjgdqgmlyjx6njmey0ftrxlnggt9t0a6zy')
 // true`}
           </Code>
         </PreviewItem>
