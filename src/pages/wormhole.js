@@ -10,7 +10,6 @@ import HelmetPlus from 'components/HelmetPlus'
 
 import Text from 'atoms/Text'
 import H3 from 'atoms/H3'
-import H2 from 'atoms/H2'
 import H1 from 'atoms/H1'
 import Button from 'atoms/Button'
 import Code from 'atoms/Code'
@@ -44,26 +43,23 @@ const PreviewLayout = styled.div`
     grid-template-columns: repeat(auto-fit, minmax(400px, .5fr));
   `};
 `
-
-// const PreviewItem = styled.div`
 const ItemLayout = styled.div`
   display: grid;
   grid-gap: ${spacing.tiny};
   grid-auto-rows: min-content;
   grid-column: span 2;
   ${media.medium`
-    grid-column: ${props => (props.full ? 'span 2' : 'auto')};
+    grid-column: 'span 2';
   `};
 `
 
 type ItemProps = {
   children: React.Node,
   to?: string,
-  full?: boolean,
 }
 
-const PreviewItem = ({ children, to, full }: ItemProps) => (
-  <ItemLayout full={full}>
+const PreviewItem = ({ children, to }: ItemProps) => (
+  <ItemLayout>
     {children}
     {to && (
       <StyledLink to={to}>
@@ -105,8 +101,8 @@ const WormholePage = ({ location }: Props) => (
     </Hero>
     <Container>
       <PreviewLayout>
-        <PreviewItem full>
-          <H2>Paradigm Shift</H2>
+        <PreviewItem>
+          <H3>Paradigm Shift</H3>
           <Text>
             Create your own Token. Launch a Crowdsale. Raise funds to change the
             world. All on Bitcoin Cash.
@@ -118,11 +114,10 @@ const WormholePage = ({ location }: Props) => (
           </Text>
         </PreviewItem>
         <PreviewItem to="/wormhole/docs/raw-transactions">
-          <H2>Tokens with fixed supply</H2>
+          <H3>Tokens with fixed supply</H3>
           <Text>Create 1,000,000 Quantum Miner Tokens QMT</Text>
           <Code>
-            {`
-(async () => {
+            {`(async () => {
   try {
     let fixed = await Wormhole.PayloadCreation.fixed(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens QMT", "1000000");
     let utxo = await BITBOX.Address.utxo([cashAddress]);
@@ -174,8 +169,7 @@ const WormholePage = ({ location }: Props) => (
         <PreviewItem to="/wormhole/docs/transactions">
           <Text>Send an investor 1000 QMT</Text>
           <Code>
-            {`
-(async () => {
+            {`(async () => {
   try {
     let ssPayload = await Wormhole.PayloadCreation.simpleSend(111, "1000.0");
     let utxo = await BITBOX.Address.utxo([cashAddress]);
@@ -215,7 +209,7 @@ const WormholePage = ({ location }: Props) => (
           </Code>
         </PreviewItem>
         <PreviewItem to="/wormhole/docs/payload-creation/#crowdsale">
-          <H2>Crowdsales</H2>
+          <H3>Crowdsales</H3>
           <Text>
             Create Crowdsales. Sell your own tokens for WHC. Launch an ICO on
             Bitcoin Cash
@@ -225,8 +219,7 @@ const WormholePage = ({ location }: Props) => (
             to be sold 100 LET for 1 WHC.
           </Text>
           <Code>
-            {`
-(async () => {
+            {`(async () => {
   try {
     let crowdsale = await Wormhole.PayloadCreation.crowdsale(1, 1, 0, "Companies", "Singularity", "Life Extension", "www.example.com", "Life Extension Tokens LET", 1, "100", 1545696000, 0, 0, 10000);
     let utxo = await Wormhole.Address.utxo([cashAddress]);
@@ -283,8 +276,7 @@ const WormholePage = ({ location }: Props) => (
         <PreviewItem to="/wormhole/docs/transaction">
           <Text>Purchase 100 LET for 1 WHC</Text>
           <Code>
-            {`
-(async () => {
+            {`(async () => {
   try {
     let participateCrowdSale = await Wormhole.PayloadCreation.participateCrowdSale("1");
 
@@ -322,11 +314,10 @@ const WormholePage = ({ location }: Props) => (
           </Code>
         </PreviewItem>
         <PreviewItem to="/wormhole/docs/payload-creation/#managed">
-          <H2>Tokens with managed supply</H2>
+          <H3>Tokens with managed supply</H3>
           <Text>Grant and revoke Time Machine Coins TMC</Text>
           <Code>
-            {`
-(async () => {
+            {`(async () => {
   try {
     let managed = await Wormhole.PayloadCreation.managed(1, 1, 0, "Companies", "Wormholes", "Time Machine", "www.example.com", "Time Machine Coins TMC");
     let utxo = await BITBOX.Address.utxo([cashAddress]);
@@ -378,8 +369,7 @@ const WormholePage = ({ location }: Props) => (
         <PreviewItem to="/wormhole/docs/payload-creation/#managed">
           <Text>Grant 42 TMC to a time traveler</Text>
           <Code>
-            {`
-(async () => {
+            {`(async () => {
   try {
     let grant = await Wormhole.PayloadCreation.grant(112, "42");
     let utxo = await BITBOX.Address.utxo([cashAddress]);
@@ -426,8 +416,7 @@ const WormholePage = ({ location }: Props) => (
         <PreviewItem to="/wormhole/docs/payload-creation/#revoke">
           <Text>Revoke 11 TMC from a time traveler</Text>
           <Code>
-            {`
-(async () => {
+            {`(async () => {
   try {
     let revoke = await Wormhole.PayloadCreation.revoke(112, "11");
     let utxo = await BITBOX.Address.utxo([cashAddress]);
@@ -453,15 +442,14 @@ const WormholePage = ({ location }: Props) => (
           </Code>
         </PreviewItem>
         <PreviewItem to="/wormhole/docs/data-retrieval">
-          <H2>Data Retrieval</H2>
+          <H3>Data Retrieval</H3>
           <Text>
             Over a dozen methods for checking balances, transactions, tokens and
             more.
           </Text>
           <Text>Check the balances of all tokens for a single address</Text>
           <Code>
-            {`
-(async () => {
+            {`(async () => {
   try {
     let balancesForAddress = await Wormhole.DataRetrieval.balancesForAddress("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg");
     console.log(balancesForAddress);
@@ -473,25 +461,26 @@ const WormholePage = ({ location }: Props) => (
 // [ { propertyid: 1, balance: '93.00105957', reserved: '0.00000000' },
 //   { propertyid: 108, balance: '1496.0', reserved: '0.0' },
 //   { propertyid: 109, balance: '10000.0', reserved: '0.0' },
-//   { propertyid: 111, balance: '999000.0', reserved: '0.0' } ]`}
+//   { propertyid: 111, balance: '999000.0', reserved: '0.0' } ]
+`}
           </Code>
         </PreviewItem>
         <PreviewItem>
-          <H2>Built-in console</H2>
+          <H3>Built-in console</H3>
           <Text>
             Custom REPL with the full BITBOX and Bitcoin Cash JSON RPC API built
             in. Test your ideas quickly with no overhead.
           </Text>
         </PreviewItem>
         <PreviewItem>
-          <H2>100% Documented</H2>
+          <H3>100% Documented</H3>
           <Text>
             Every method, argument, data type and return value is documented in
             great detail.
           </Text>
         </PreviewItem>
         <PreviewItem>
-          <H2>REST integration</H2>
+          <H3>REST integration</H3>
           <Text>
             Have your app talk to <Pre>wormhold</Pre> via REST
           </Text>
