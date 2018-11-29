@@ -113,356 +113,340 @@ const WormholePage = ({ location }: Props) => (
             managed tokens, crowdsales and much more.
           </Text>
         </PreviewItem>
-        <PreviewItem to="/wormhole/docs/raw-transactions">
-          <H3>Tokens with fixed supply</H3>
-          <Text>Create 1,000,000 Quantum Miner Tokens QMT</Text>
-          <Code>
-            {`(async () => {
-  try {
-    let fixed = await Wormhole.PayloadCreation.fixed(1, 1, 0, "Companies", "Bitcoin Mining", "Quantum Miner", "www.example.com", "Quantum Miner Tokens QMT", "1000000");
-    let utxo = await BITBOX.Address.utxo([cashAddress]);
-    let rawTx = await Wormhole.RawTransactions.create([utxo[0][0]], {});
-    let opReturn = await Wormhole.RawTransactions.opReturn(rawTx, fixed);
-    let ref = await Wormhole.RawTransactions.reference(opReturn, cashAddress);
-    let changeHex = await Wormhole.RawTransactions.change(ref, [utxo[0][0]], cashAddress, 0.0006);
-
-    let tx = Wormhole.Transaction.fromHex(changeHex)
-    let tb = Wormhole.Transaction.fromTransaction(tx)
-
-    let keyPair = Wormhole.HDNode.toKeyPair(change);
-    let redeemScript;
-    tb.sign(0, keyPair, redeemScript, 0x01, utxo[0][0].satoshis);
-    let builtTx = tb.build()
-    let txHex = builtTx.toHex();
-    await BITBOX.RawTransactions.sendRawTransaction(txHex);
-  } catch(error) {
-   console.error(error)
-  }
-})()
-// {
-//   "txid": "8d2e358edcddadbaa4e0f7c9e3fe2ff7e128c4bed6d3a6a67af6aa5922c7bcd8",
-//   "fee": "622",
-//   "sendingaddress": "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg",
-//   "ismine": true,
-//   "version": 0,
-//   "type_int": 50,
-//   "type": "Create Property - Fixed",
-//   "propertyid": 111,
-//   "precision": "1",
-//   "ecosystem": "main",
-//   "category": "Companies",
-//   "subcategory": "Bitcoin Mining",
-//   "propertyname": "Quantum Miner",
-//   "data": "Quantum Miner Tokens QMT",
-//   "url": "www.example.com",
-//   "amount": "1000000.0",
-//   "valid": true,
-//   "blockhash": "0000000000000207be3053b98a450daa4b6b3fef94039e940a2df34f17298906",
-//   "blocktime": 1533864446,
-//   "positioninblock": 2,
-//   "block": 1251064,
-//   "confirmations": 3
-// }
-`}
-          </Code>
-        </PreviewItem>
-        <PreviewItem to="/wormhole/docs/transactions">
-          <Text>Send an investor 1000 QMT</Text>
-          <Code>
-            {`(async () => {
-  try {
-    let ssPayload = await Wormhole.PayloadCreation.simpleSend(111, "1000.0");
-    let utxo = await BITBOX.Address.utxo([cashAddress]);
-    let rawTx = await Wormhole.RawTransactions.create([utxo[0][1]], {});
-    let opReturn = await Wormhole.RawTransactions.opReturn(rawTx, ssPayload);
-    let ref = await Wormhole.RawTransactions.reference(opReturn, cashAddress1);
-    let changeHex = await Wormhole.RawTransactions.change(ref, [utxo[0][1]], cashAddress, 0.0006);
-
-    let tx = Wormhole.Transaction.fromHex(changeHex)
-    let tb = Wormhole.Transaction.fromTransaction(tx)
-
-    let keyPair = Wormhole.HDNode.toKeyPair(change);
-    let redeemScript;
-    tb.sign(0, keyPair, redeemScript, 0x01, utxo[0][1].satoshis);
-    let builtTx = tb.build()
-    let txHex = builtTx.toHex();
-    await BITBOX.RawTransactions.sendRawTransaction(txHex);
-  } catch(error) {
-   console.error(error)
-  }
-})()
-// {
-//   "txid": "f90c52d4d2fea37fcd73bb88f04d553495585b0b27bae4125f99d06ddb43777f",
-//   "fee": "520",
-//   "sendingaddress": "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg",
-//   "referenceaddress": "bchtest:qr4g79cjapp02s3zs59gtu3dxu7sgwvp8gmnh9rw97",
-//   "ismine": true,
-//   "version": 0,
-//   "type_int": 0,
-//   "type": "Simple Send",
-//   "propertyid": 111,
-//   "precision": "1",
-//   "amount": "1000.0",
-//   "confirmations": 0
-// }
-`}
-          </Code>
-        </PreviewItem>
-        <PreviewItem to="/wormhole/docs/payload-creation/#crowdsale">
-          <H3>Crowdsales</H3>
-          <Text>
-            Create Crowdsales. Sell your own tokens for WHC. Launch an ICO on
-            Bitcoin Cash
-          </Text>
-          <Text>
-            Start a crowdsale where 100,000 Life Extension Tokens LET are going
-            to be sold 100 LET for 1 WHC.
-          </Text>
-          <Code>
-            {`(async () => {
-  try {
-    let crowdsale = await Wormhole.PayloadCreation.crowdsale(1, 1, 0, "Companies", "Singularity", "Life Extension", "www.example.com", "Life Extension Tokens LET", 1, "100", 1545696000, 0, 0, 10000);
-    let utxo = await Wormhole.Address.utxo([cashAddress]);
-    let rawTx = await Wormhole.RawTransactions.create([utxo[0][0]], {});
-    let opReturn = await Wormhole.RawTransactions.opReturn(rawTx, crowdsale);
-    let ref = await Wormhole.RawTransactions.reference(opReturn, cashAddress);
-    let changeHex = await Wormhole.RawTransactions.change(ref, [utxo[0][0]], cashAddress, 0.0006);
-
-    let tx = Wormhole.Transaction.fromHex(changeHex)
-    let tb = Wormhole.Transaction.fromTransaction(tx)
-
-    let keyPair = Wormhole.HDNode.toKeyPair(change);
-    let redeemScript;
-    tb.sign(0, keyPair, redeemScript, 0x01, utxo[0][0].satoshis);
-    let builtTx = tb.build()
-    let txHex = builtTx.toHex();
-    await Wormhole.RawTransactions.sendRawTransaction(txHex);
-  } catch(error) {
-   console.error(error)
-  }
-})()
-
- // {
-   // "txid": "aa5ed83708d0889d25691a27668fe5a6a406cab24191afae7d78bb867a324641",
-   // "fee": "664",
-   // "sendingaddress": "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg",
-   // "ismine": true,
-   // "version": 0,
-   // "type_int": 51,
-   // "type": "Create Property - Variable",
-   // "precision": "1",
-   // "ecosystem": "main",
-   // "category": "Companies",
-   // "subcategory": "Singularity",
-   // "propertyname": "Life Extension",
-   // "data": "Life Extension Tokens LET",
-   // "url": "www.example.com",
-   // "propertyiddesired": 1,
-   // "tokensperunit": "100.00000000",
-   // "deadline": 1545696000,
-   // "earlybonus": 30,
-   // "amount": "100000.0",
-   // "valid": false,
-   // "invalidreason": "Sender has an active crowdsale",
-   // "blockhash": "000000008795bcff8e503ae1e2114ae006f8942d2b0840a0d7142f5255192349",
-   // "blocktime": 1533867018,
-   // "positioninblock": 6,
-   // "block": 1251070,
-   // "confirmations": 1
- // }
-`}
-          </Code>
-        </PreviewItem>
-        <PreviewItem to="/wormhole/docs/transaction">
-          <Text>Purchase 100 LET for 1 WHC</Text>
-          <Code>
-            {`(async () => {
-  try {
-    let participateCrowdSale = await Wormhole.PayloadCreation.participateCrowdSale("1");
-
-    let utxo = await Wormhole.Address.utxo([cashAddress]);
-    let rawTx = await Wormhole.RawTransactions.create([utxo[0][0]], {});
-    let opReturn = await Wormhole.RawTransactions.opReturn(rawTx, participateCrowdSale);
-    let ref = await Wormhole.RawTransactions.reference(opReturn, cashAddress2);
-    let changeHex = await Wormhole.RawTransactions.change(ref, [utxo[0][0]], cashAddress, 0.0006);
-
-    let tx = Wormhole.Transaction.fromHex(changeHex)
-    let tb = Wormhole.Transaction.fromTransaction(tx)
-
-    let keyPair = Wormhole.HDNode.toKeyPair(change);
-    let redeemScript;
-    tb.sign(0, keyPair, redeemScript, 0x01, utxo.satoshis);
-    let builtTx = tb.build()
-    let txHex = builtTx.toHex();
-    await Wormhole.RawTransactions.sendRawTransaction(txHex);
-  } catch(error) {
-   console.error(error)
-  }
-})()
-// {
-// "txid": "b8b26698c4d3783c1618253aa280ccbafd8912ef20ba1e7a3dcebd2d8d8915de",
-// "fee": "520",
-// "sendingaddress": "bchtest:qr4g79cjapp02s3zs59gtu3dxu7sgwvp8gmnh9rw97",
-// "referenceaddress": "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg",
-// "ismine": true,
-// "version": 0,
-// "type_int": 1,
-// "type": "Crowdsale Purchase",
-// "confirmations": 0
-// }
-`}
-          </Code>
-        </PreviewItem>
-        <PreviewItem to="/wormhole/docs/payload-creation/#managed">
+        <PreviewItem to="/wormhole/docs/utility">
           <H3>Tokens with managed supply</H3>
-          <Text>Grant and revoke Time Machine Coins TMC</Text>
           <Code>
             {`(async () => {
-  try {
-    let managed = await Wormhole.PayloadCreation.managed(1, 1, 0, "Companies", "Wormholes", "Time Machine", "www.example.com", "Time Machine Coins TMC");
-    let utxo = await BITBOX.Address.utxo([cashAddress]);
-    let rawTx = await Wormhole.RawTransactions.create([utxo[0][0]], {});
-    let opReturn = await Wormhole.RawTransactions.opReturn(rawTx, managed);
-    let ref = await Wormhole.RawTransactions.reference(opReturn, cashAddress);
-    let changeHex = await Wormhole.RawTransactions.change(ref, [utxo[0][0]], cashAddress, 0.0006);
+    try {
+      const mnemonic =
+        'jewel rather question carpet collect mean flower hire such enroll frost wet'
 
-    let tx = Wormhole.Transaction.fromHex(changeHex)
-    let tb = Wormhole.Transaction.fromTransaction(tx)
+      const rootSeed = Wormhole.Mnemonic.toSeed(mnemonic)
 
-    let keyPair = Wormhole.HDNode.toKeyPair(change);
-    let redeemScript;
-    tb.sign(0, keyPair, redeemScript, 0x01, utxo[0][0].satoshis);
-    let builtTx = tb.build()
-    let txHex = builtTx.toHex();
-    await BITBOX.RawTransactions.sendRawTransaction(txHex);
-  } catch(error) {
-   console.error(error)
-  }
-})()
-// {
-// "txid": "c55413fe980aca75da8853b38e7fe7f297f35f68e28f12e298c191b3b8680eab",
-// "fee": "589",
-// "sendingaddress": "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg",
-// "ismine": true,
-// "version": 0,
-// "type_int": 54,
-// "type": "Create Property - Manual",
-// "propertyid": 112,
-// "precision": "1",
-// "ecosystem": "main",
-// "category": "Companies",
-// "subcategory": "Wormholes",
-// "propertyname": "Time Machine",
-// "data": "Time Machine Coins TMC",
-// "url": "www.example.com",
-// "amount": "0.0",
-// "valid": true,
-// "blockhash": "000000000000035e8b852479a65e3170fb7059d82e984d7f57cacae38062fcce",
-// "blocktime": 1533865624,
-// "positioninblock": 6,
-// "block": 1251068,
-// "confirmations": 1
-// }
-`}
+      // master HDNode
+      const masterHDNode = Wormhole.HDNode.fromSeed(rootSeed, "testnet")
+
+      // HDNode of BIP44 account
+      const account = Wormhole.HDNode.derivePath(masterHDNode, "m/44'/145'/0'")
+
+      const hdNode = Wormhole.HDNode.derivePath(account, "0/0")
+
+      const managedToken = await Wormhole.Utility.createManagedToken(
+        hdNode,
+        1,
+        1,
+        0,
+        "Examples",
+        "Managed token",
+        "MANAGED",
+        "developer.bitcoin.com",
+        "Powered by BITBOX"
+      )
+      console.log(managedToken)
+    } catch (error) {
+      console.error(error)
+    }
+  })()
+
+  // { txid: '0352f0693ec2aa07c002ee5f3a584f7b31a3d1230fb5e040a30a489392726be0',
+  //   fee: '500',
+  //   sendingaddress: 'bchtest:qrhncn6hgkhljqg4fuq4px5qg74sjz9fqqkg3h8g6e',
+  //   ismine: false,
+  //   version: 0,
+  //   type_int: 54,
+  //   type: 'Create Property - Manual',
+  //   precision: '1',
+  //   ecosystem: 'main',
+  //   category: 'Examples',
+  //   subcategory: 'Managed token',
+  //   propertyname: 'MANAGED',
+  //   data: 'Powered by BITBOX',
+  //   url: 'developer.bitcoin.com',
+  //   amount: '0.0',
+  //   confirmations: 0 }`}
           </Code>
         </PreviewItem>
-        <PreviewItem to="/wormhole/docs/payload-creation/#managed">
-          <Text>Grant 42 TMC to a time traveler</Text>
+        <PreviewItem to="/wormhole/docs/utility">
+          <H3>Issue amount of managed tokens</H3>
           <Code>
             {`(async () => {
-  try {
-    let grant = await Wormhole.PayloadCreation.grant(112, "42");
-    let utxo = await BITBOX.Address.utxo([cashAddress]);
-    let rawTx = await Wormhole.RawTransactions.create([utxo[0][3]], {});
-    let opReturn = await Wormhole.RawTransactions.opReturn(rawTx, grant);
-    let ref = await Wormhole.RawTransactions.reference(opReturn, cashAddress2);
-    let changeHex = await Wormhole.RawTransactions.change(ref, [utxo[0][3]], cashAddress, 0.0006);
+    try {
+      const mnemonic =
+        'jewel rather question carpet collect mean flower hire such enroll frost wet'
 
-    let tx = Wormhole.Transaction.fromHex(changeHex)
-    let tb = Wormhole.Transaction.fromTransaction(tx)
+      const rootSeed = Wormhole.Mnemonic.toSeed(mnemonic)
 
-    let keyPair = Wormhole.HDNode.toKeyPair(change);
-    let redeemScript;
-    tb.sign(0, keyPair, redeemScript, 0x01, utxo.satoshis);
-    let builtTx = tb.build()
-    let txHex = builtTx.toHex();
-    await BITBOX.RawTransactions.sendRawTransaction(txHex);
-  } catch(error) {
-   console.error(error)
-  }
-})()
-// {
-//   "txid": "2fdfe48825ce9cf4f2a885867f27903930aff055fd36345b9ba5edfd6f29c592",
-//   "fee": "522",
-//   "sendingaddress": "bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg",
-//   "referenceaddress": "bchtest:qr4g79cjapp02s3zs59gtu3dxu7sgwvp8gmnh9rw97",
-//   "ismine": true,
-// "version": 0,
-//   "type_int": 55,
-//   "type": "Grant Property Tokens",
-//   "propertyid": 112,
-//   "precision": "1",
-//   "amount": "42.0",
-//   "valid": true,
-//   "blockhash": "000000008795bcff8e503ae1e2114ae006f8942d2b0840a0d7142f5255192349",
-//   "blocktime": 1533867018,
-//   "positioninblock": 5,
-//   "block": 1251070,
-//   "confirmations": 1
-// }
-`}
+      // master HDNode
+      const masterHDNode = Wormhole.HDNode.fromSeed(rootSeed, "testnet")
+
+      // HDNode of BIP44 account
+      const account = Wormhole.HDNode.derivePath(masterHDNode, "m/44'/145'/0'")
+
+      const hdNode = Wormhole.HDNode.derivePath(account, "0/0")
+
+      const issue = await Wormhole.Utility.issueManagedToken(hdNode, 530, 1000)
+      console.log(issue)
+
+    } catch (error) {
+      console.error(error)
+    }
+  })()
+
+  // { txid: '9fc8a29c4d3a62aaf45a1b856d9fbf0301966791739e430e3822a903441d3e25',
+  //   fee: '500',
+  //   sendingaddress: 'bchtest:qrhncn6hgkhljqg4fuq4px5qg74sjz9fqqkg3h8g6e',
+  //   referenceaddress: 'bchtest:qrhncn6hgkhljqg4fuq4px5qg74sjz9fqqkg3h8g6e',
+  //   ismine: false,
+  //   version: 0,
+  //   type_int: 55,
+  //   type: 'Grant Property Tokens',
+  //   propertyid: 530,
+  //   precision: '1',
+  //   amount: '1000.0',
+  //   confirmations: 0 }`}
           </Code>
         </PreviewItem>
-        <PreviewItem to="/wormhole/docs/payload-creation/#revoke">
-          <Text>Revoke 11 TMC from a time traveler</Text>
+        <PreviewItem to="/wormhole/docs/utility">
+          <H3>Revoke amount of managed tokens</H3>
           <Code>
             {`(async () => {
-  try {
-    let revoke = await Wormhole.PayloadCreation.revoke(112, "11");
-    let utxo = await BITBOX.Address.utxo([cashAddress]);
-    let rawTx = await Wormhole.RawTransactions.create([utxo[0][0]], {});
-    let opReturn = await Wormhole.RawTransactions.opReturn(rawTx, revoke);
-    let ref = await Wormhole.RawTransactions.reference(opReturn, cashAddress);
-    let changeHex = await Wormhole.RawTransactions.change(ref, [utxo[0][0]], cashAddress, 0.0006);
+    try {
+      const mnemonic =
+        'jewel rather question carpet collect mean flower hire such enroll frost wet'
 
-    let tx = Wormhole.Transaction.fromHex(changeHex)
-    let tb = Wormhole.Transaction.fromTransaction(tx)
+      const rootSeed = Wormhole.Mnemonic.toSeed(mnemonic)
 
-    let keyPair = Wormhole.HDNode.toKeyPair(change);
-    let redeemScript;
-    tb.sign(0, keyPair, redeemScript, 0x01, utxo.satoshis);
-    let builtTx = tb.build()
-    let txHex = builtTx.toHex();
-    await BITBOX.RawTransactions.sendRawTransaction(txHex);
-  } catch(error) {
-   console.error(error)
-  }
-})()
-`}
+      // master HDNode
+      const masterHDNode = Wormhole.HDNode.fromSeed(rootSeed, "testnet")
+
+      // HDNode of BIP44 account
+      const account = Wormhole.HDNode.derivePath(masterHDNode, "m/44'/145'/0'")
+
+      const hdNode = Wormhole.HDNode.derivePath(account, "0/0")
+
+      const revoke = await Wormhole.Utility.revokeManagedToken(
+        hdNode,
+        530,
+        1000
+      )
+      console.log(revoke)
+
+    } catch (error) {
+      console.error(error)
+    }
+  })()
+
+  // { txid: '3d473add1a4cc7bad85bcedc0cc4a2156693daa293df386f8685494578db3c13',
+  //   fee: '500',
+  //   sendingaddress: 'bchtest:qrhncn6hgkhljqg4fuq4px5qg74sjz9fqqkg3h8g6e',
+  //   ismine: false,
+  //   version: 0,
+  //   type_int: 56,
+  //   type: 'Revoke Property Tokens',
+  //   propertyid: 530,
+  //   precision: '1',
+  //   amount: '1000.0',
+  //   confirmations: 0 }`}
           </Code>
         </PreviewItem>
-        <PreviewItem to="/wormhole/docs/data-retrieval">
-          <H3>Data Retrieval</H3>
-          <Text>
-            Over a dozen methods for checking balances, transactions, tokens and
-            more.
-          </Text>
-          <Text>Check the balances of all tokens for a single address</Text>
+        <PreviewItem to="/wormhole/docs/utility">
+          <H3>Change issuer of managed tokens</H3>
           <Code>
             {`(async () => {
-  try {
-    let balancesForAddress = await Wormhole.DataRetrieval.balancesForAddress("bchtest:qq2j9gp97gm9a6lwvhxc4zu28qvqm0x4j5e72v7ejg");
-    console.log(balancesForAddress);
-  } catch(error) {
-   console.error(error)
-  }
-})()
+    try {
+      const mnemonic =
+        'jewel rather question carpet collect mean flower hire such enroll frost wet'
 
-// [ { propertyid: 1, balance: '93.00105957', reserved: '0.00000000' },
-//   { propertyid: 108, balance: '1496.0', reserved: '0.0' },
-//   { propertyid: 109, balance: '10000.0', reserved: '0.0' },
-//   { propertyid: 111, balance: '999000.0', reserved: '0.0' } ]
-`}
+      const rootSeed = Wormhole.Mnemonic.toSeed(mnemonic)
+
+      // master HDNode
+      const masterHDNode = Wormhole.HDNode.fromSeed(rootSeed, "testnet")
+
+      // HDNode of BIP44 account
+      const account = Wormhole.HDNode.derivePath(masterHDNode, "m/44'/145'/0'")
+
+      const hdNode = Wormhole.HDNode.derivePath(account, "0/0")
+
+      const change = await Wormhole.Utility.changeManagedTokenIssuer(
+        hdNode,
+        530,
+        "bchtest:qqptrcsdsy2g8nh7fsl2ynw883nq7ln7kul9tgcegm"
+      )
+      console.log(change)
+
+    } catch (error) {
+      console.error(error)
+    }
+  })()
+
+  // { txid: 'e532588fb4b5c4f6245974dc282ceb96477b30c0ff3afdea4fd0d3ca44089d52',
+  //   fee: '500',
+  //   sendingaddress: 'bchtest:qrhncn6hgkhljqg4fuq4px5qg74sjz9fqqkg3h8g6e',
+  //   referenceaddress: 'bchtest:qqptrcsdsy2g8nh7fsl2ynw883nq7ln7kul9tgcegm',
+  //   ismine: false,
+  //   version: 0,
+  //   type_int: 70,
+  //   type: 'Change Issuer Address',
+  //   propertyid: 530,
+  //   precision: '1',
+  //   confirmations: 0 }`}
+          </Code>
+        </PreviewItem>
+        <PreviewItem to="/wormhole/docs/utility">
+          <H3>Create fixed issuance token</H3>
+          <Code>
+            {`(async () => {
+    try {
+      const mnemonic =
+        'jewel rather question carpet collect mean flower hire such enroll frost wet'
+
+      const rootSeed = Wormhole.Mnemonic.toSeed(mnemonic)
+
+      // master HDNode
+      const masterHDNode = Wormhole.HDNode.fromSeed(rootSeed, "testnet")
+
+      // HDNode of BIP44 account
+      const account = Wormhole.HDNode.derivePath(masterHDNode, "m/44'/145'/0'")
+
+      const hdNode = Wormhole.HDNode.derivePath(account, "0/0")
+
+      const fixedToken = await Wormhole.Utility.createFixedToken(
+        hdNode,
+        1,
+        8,
+        0,
+        "examples",
+        "fixed issuance",
+        "FIXED",
+        "developer.bitcoin.com",
+        "Made with BITBOX",
+        "21000000"
+      )
+      console.log(fixedToken)
+
+    } catch (error) {
+      console.error(error)
+    }
+  })()
+
+  // { txid: '056a1c428d75d46a8bcd1a1132524c64a66c9d3ce83daf0eb59e36db88cf2e6f',
+  //   fee: '500',
+  //   sendingaddress: 'bchtest:qrhncn6hgkhljqg4fuq4px5qg74sjz9fqqkg3h8g6e',
+  //   ismine: false,
+  //   version: 0,
+  //   type_int: 50,
+  //   type: 'Create Property - Fixed',
+  //   ecosystem: 'main',
+  //   precision: '8',
+  //   category: 'examples',
+  //   subcategory: 'fixed issuance',
+  //   propertyname: 'FIXED',
+  //   data: 'Made with BITBOX',
+  //   url: 'developer.bitcoin.com',
+  //   amount: '21000000.00000000',
+  //   confirmations: 0 }`}
+          </Code>
+        </PreviewItem>
+        <PreviewItem to="/wormhole/docs/utility">
+          <H3>Create crowd sale</H3>
+          <Code>
+            {`(async () => {
+    try {
+      const mnemonic =
+        'jewel rather question carpet collect mean flower hire such enroll frost wet'
+
+      const rootSeed = Wormhole.Mnemonic.toSeed(mnemonic)
+
+      // master HDNode
+      const masterHDNode = Wormhole.HDNode.fromSeed(rootSeed, "testnet")
+
+      // HDNode of BIP44 account
+      const account = Wormhole.HDNode.derivePath(masterHDNode, "m/44'/145'/0'")
+
+      const hdNode = Wormhole.HDNode.derivePath(account, "0/0")
+
+      const crowdsale = await Wormhole.Utility.createCrowdSale(
+        hdNode,
+        1,
+        1,
+        0,
+        "examples",
+        "crowd sale",
+        "CROWDSALE",
+        "developer.bitcoin.com",
+        "Powered by BITBOX",
+        1,
+        "100",
+        1543654799,
+        1,
+        1000
+      )
+      console.log(crowdsale)
+
+    } catch (error) {
+      console.error(error)
+    }
+  })()
+
+  // { txid: '398ca646dfcaaa8a08e19e2ed33a837c298a1d8ea7b604a1e3e48401d34caa48',
+  //  fee: '500',
+  //  sendingaddress: 'bchtest:qrhncn6hgkhljqg4fuq4px5qg74sjz9fqqkg3h8g6e',
+  //  ismine: false,
+  //  version: 0,
+  //  type_int: 51,
+  //  type: 'Create Property - Variable',
+  //  precision: '1',
+  //  ecosystem: 'main',
+  //  category: 'examples',
+  //  subcategory: 'crowd sale',
+  //  propertyname: 'CROWDSALE',
+  //  data: 'Powered by BITBOX',
+  //  url: 'developer.bitcoin.com',
+  //  propertyiddesired: 1,
+  //  tokensperunit: '100.00000000',
+  //  deadline: 1543654799,
+  //  earlybonus: 1,
+  //  amount: '1000.0',
+  //  confirmations: 0 }`}
+          </Code>
+        </PreviewItem>
+        <PreviewItem to="/wormhole/docs/utility">
+          <H3>Check Balance</H3>
+          <Code>
+            {`(async () => {
+    try {
+      const address = 'bchtest:qrhncn6hgkhljqg4fuq4px5qg74sjz9fqqkg3h8g6e'
+
+      const balance = await Wormhole.Utility.checkBalance(address)
+      console.log(balance)
+
+    } catch (error) {
+      console.error(error)
+    }
+  })()
+
+  // { legacyAddress: 'n3Kv3JrHnsWvfVY4RVjNUdMPXohAvstKbx',
+  // cashAddress: 'bchtest:qrhncn6hgkhljqg4fuq4px5qg74sjz9fqqkg3h8g6e',
+  // bch: 67.90115436,
+  // satoshis: 6790115436,
+  // tokens:
+  //  [ { propertyid: 1,
+  //      balance: '3506.59933049',
+  //      reserved: '0.00000000' },
+  //    { propertyid: 226, balance: '1000.0', reserved: '0.0' },
+  //    { propertyid: 257,
+  //      balance: '21000000.00000000',
+  //      reserved: '0.00000000' },
+  //    { propertyid: 342,
+  //      balance: '100.00000000',
+  //      reserved: '0.00000000' },
+  //    { propertyid: 529,
+  //      balance: '1000.00000000',
+  //      reserved: '0.00000000' },
+  //    { propertyid: 530, balance: '1000.0', reserved: '0.0' },
+  //    { propertyid: 531,
+  //      balance: '21000000.00000000',
+  //      reserved: '0.00000000' } ] }`}
           </Code>
         </PreviewItem>
         <PreviewItem>
