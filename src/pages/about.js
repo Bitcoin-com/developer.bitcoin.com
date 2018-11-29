@@ -72,10 +72,10 @@ const About = ({ location }: Props) => (
         <Item>
           <H3>BITBOX</H3>
           <Text>
-            Bitcoin.com’s new developer platform is based on the popular BITBOX
-            javascript framework which has been downloaded 42,000+ times from
-            100+ countries. Offering utility methods for Mnemonics, HDNodes,
-            ECPairs, Crypto, Address conversion, Transactions and much more.
+            Bitcoin.com’s developer platform is based on the popular BITBOX
+            javascript framework. Offering utility methods for Mnemonics,
+            HDNodes, ECPairs, Crypto, Address conversion, Transactions and much
+            more.
           </Text>
         </Item>
         <InstallCTA>
@@ -83,9 +83,6 @@ const About = ({ location }: Props) => (
             <FaCube />
             &nbsp; BITBOX SDK
           </H3>
-          <Text>42,000+ downloads</Text>
-
-          <Text>100+ countries</Text>
 
           <SmartLink to="https://www.npmjs.com/package/bitbox-sdk">
             Install via NPM

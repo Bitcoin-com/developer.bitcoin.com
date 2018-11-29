@@ -147,10 +147,6 @@ const IndexPage = ({ location }: Props) => (
             <FaCube />
             &nbsp; BITBOX SDK
           </H3>
-          <Text background>42,000+ downloads</Text>
-
-          <Text background>100+ countries</Text>
-
           <SmartLink to="https://www.npmjs.com/package/bitbox-sdk">
             Install via NPM
           </SmartLink>

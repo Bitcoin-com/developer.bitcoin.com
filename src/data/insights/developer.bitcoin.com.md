@@ -13,17 +13,9 @@ We're committed to helping change the world with Bitcoin Cash by providing a bes
 
 ### BITBOX SDK
 
-Bitcoin.com’s new developer platform is based on the popular BITBOX javascript framework which has been downloaded 42,000+ times from 100+ countries. Offering utility methods for Mnemonics, HDNodes, ECPairs, Crypto, Address conversion, Transactions and much more.
+Bitcoin.com’s developer platform is based on the popular BITBOX javascript framework. Offering utility methods for Mnemonics, HDNodes, ECPairs, Crypto, Address conversion, Transactions and much more.
 
 [Learn More...](/bitbox)
-
-### BITBOX SDK
-
-42,000+ downloads
-
-100+ countries
-
----
 
 ### REST
 
