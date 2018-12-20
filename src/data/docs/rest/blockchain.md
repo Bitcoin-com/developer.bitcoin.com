@@ -1,7 +1,7 @@
 ---
 title: Blockchain
-icon: database
-ordinal: 5
+icon: cubes
+ordinal: 3
 ---
 
 ### `balancesForAddress`

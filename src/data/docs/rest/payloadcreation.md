@@ -1,7 +1,7 @@
 ---
 title: Payload Creation
-icon: database
-ordinal: 5
+icon: plus
+ordinal: 7
 ---
 
 ### `balancesForAddress`

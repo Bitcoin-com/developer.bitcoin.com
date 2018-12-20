@@ -1,7 +1,7 @@
 ---
 title: Raw Transactions
-icon: database
-ordinal: 5
+icon: exchange
+ordinal: 8
 ---
 
 ### `balancesForAddress`

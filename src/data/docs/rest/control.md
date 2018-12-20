@@ -1,7 +1,7 @@
 ---
 title: Control
-icon: database
-ordinal: 5
+icon: gamepad
+ordinal: 4
 ---
 
 ### `balancesForAddress`

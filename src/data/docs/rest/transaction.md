@@ -1,7 +1,7 @@
 ---
 title: Transaction
-icon: database
-ordinal: 5
+icon: exchange
+ordinal: 9
 ---
 
 ### `balancesForAddress`

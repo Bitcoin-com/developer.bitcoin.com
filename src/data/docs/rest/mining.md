@@ -1,7 +1,7 @@
 ---
 title: Mining
-icon: database
-ordinal: 5
+icon: hdd
+ordinal: 6
 ---
 
 ### `balancesForAddress`

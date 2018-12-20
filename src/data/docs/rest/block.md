@@ -1,7 +1,7 @@
 ---
 title: Block
-icon: database
-ordinal: 5
+icon: cube
+ordinal: 2
 ---
 
 ### `balancesForAddress`

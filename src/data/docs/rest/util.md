@@ -1,7 +1,7 @@
 ---
 title: Util
-icon: database
-ordinal: 5
+icon: cogs
+ordinal: 10
 ---
 
 ### `balancesForAddress`
