@@ -4,13 +4,17 @@ icon: qrcode
 ordinal: 1
 ---
 
-## Details single address
+## Address details single
 
-### `GET /address/details/{address}`
+Returns the details of an address including balance
 
-Address details single. Returns the details of an address including balance
+**URL** : `v2/address/details/{address}`
 
-#### Arguments
+**Method** : `GET`
+
+**Auth required** : NO
+
+#### URL Parameters
 
 1.  address `String` required
 
@@ -24,13 +28,17 @@ array `Array` of JSON Objects
         // [ { propertyid: 1,
         //  balance: '100.00106300',
 
-## Details bulk addresses
+## Address details bulk
 
-### `POST /address/details`
+Returns the details of multiple addresses
 
-Address details bulk. Returns the details of multiple addresses
+**URL** : `v2/address/details`
 
-#### Arguments
+**Method** : `POST`
+
+**Auth required** : NO
+
+#### Body Parameters
 
 1.  addresses `Array` required
 
@@ -42,13 +50,17 @@ array `Array` of JSON Objects
 
     curl -X POST "https://rest.bitcoin.com/v2/address/details" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"addresses\":[\"bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c\",\"bitcoincash:qrehqueqhw629p6e57994436w730t4rzasnly00ht0\"]}"
 
-## Utxo single address
+## Address utxos single
 
-### `GET /address/utxo/{address}`
+Returns the list of utxo for an address
 
-Address utxos single. Returns the list of utxo for an address
+**URL** : `v2/address/utxo/{address}`
 
-#### Arguments
+**Method** : `GET`
+
+**Auth required** : NO
+
+#### URL Parameters
 
 1.  address `String` required
 
@@ -60,13 +72,17 @@ array `Array` of JSON Objects
 
     curl -X GET "https://rest.bitcoin.com/v2/address/utxo/bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c" -H "accept: application/json"
 
-## Utxo bulk addresses
+## Address utxos bulk
 
-### `POST /address/utxo`
+Returns the utxo of multiple addresses
 
-Address utxos bulk. Returns the utxo of multiple addresses
+**URL** : `v2/address/utxo`
 
-#### Arguments
+**Method** : `POST`
+
+**Auth required** : NO
+
+#### Body Parameters
 
 1.  addresses `Array` required
 
@@ -78,13 +94,17 @@ array `Array` of JSON Objects
 
     curl -X POST "https://rest.bitcoin.com/v2/address/utxo" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"addresses\":[\"bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c\",\"bitcoincash:qrehqueqhw629p6e57994436w730t4rzasnly00ht0\"]}"
 
-## Unconfirmed single address
+## Unconfirmed transactions single
 
-### `GET /address/unconfirmed/{address}`
+Returns the list of unconfirmed transactions for an address
 
-Unconfirmed transactions for an address. Returns the list of unconfirmed transactions for an address
+**URL** : `v2/address/unconfirmed/{address}`
 
-#### Arguments
+**Method** : `GET`
+
+**Auth required** : NO
+
+#### URL Parameters
 
 1.  address `String` required
 
@@ -96,13 +116,17 @@ array `Array` of JSON Objects
 
     curl -X GET "https://rest.bitcoin.com/v2/address/unconfirmed/bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c" -H "accept: application/json"
 
-## Unconfirmed bulk addresses
+## Unconfirmed transactions bulk
 
-### `POST /address/unconfirmed`
+Returns the list of unconfirmed transactions for an array of addresses
 
-Unconfirmed transactions for array of addresses. Returns the list of unconfirmed transactions for an array of addresses
+**URL** : `v2/address/unconfirmed`
 
-#### Arguments
+**Method** : `POST`
+
+**Auth required** : NO
+
+#### Body Parameters
 
 1.  addresses `Array` required
 
@@ -114,13 +138,17 @@ array `Array` of JSON Objects
 
     curl -X POST "https://rest.bitcoin.com/v2/address/unconfirmed" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"addresses\":[\"bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c\",\"bitcoincash:qrehqueqhw629p6e57994436w730t4rzasnly00ht0\"]}"
 
-## Transactions single address
+## Transactions single
 
-### `GET /address/transactions/{address}`
+Returns the list of transactions for an address
 
-Transactions for an address. Returns the list of transactions for an address
+**URL** : `v2/address/transactions/{address}`
 
-#### Arguments
+**Method** : `GET`
+
+**Auth required** : NO
+
+#### URL Parameters
 
 1.  address `String` required
 
@@ -132,13 +160,17 @@ array `Array` of JSON Objects
 
     curl -X GET "https://rest.bitcoin.com/v2/address/transactions/bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c" -H "accept: */*"
 
-## Transactions bulk addresses
+## Transactions bulk
 
-### `POST /address/transactions/`
+Returns the list of transactions for an array of addresses.
 
-Transactions for an array of addresses. Returns the list of transactions for an array of addresses.
+**URL** : `v2/address/transactions`
 
-#### Arguments
+**Method** : `POST`
+
+**Auth required** : NO
+
+#### Body Parameters
 
 1.  addresses `Array` required
 
