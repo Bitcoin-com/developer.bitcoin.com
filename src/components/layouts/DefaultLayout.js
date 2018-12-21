@@ -42,7 +42,7 @@ const DefaultLayout = ({ children, location }: Props) => (
         <HelmetPlus
           title={data.site.siteMetadata.title}
           description={
-            'bitbox based bitcoin.com developer platform and resources'
+            'BITBOX based bitcoin.com developer platform and resources'
           }
           keywords={
             'bitbox, developer tools, bitcoin, bitcoin cash, BCH, wormhole, sdk, api'
