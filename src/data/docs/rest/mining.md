@@ -20,7 +20,7 @@ array `Array` of JSON Objects
 
 #### Examples
 
-    curl -X GET "http://localhost:3000/v2/mining/getMiningInfo" -H "accept: application/json"
+    curl -X GET "https://rest.bitcoin.com/v2/mining/getMiningInfo" -H "accept: application/json"
 
     // returns
     {
@@ -56,7 +56,7 @@ getworkHashps `Number`
 
 #### Examples
 
-    curl -X GET "http://localhost:3000/v2/mining/getNetworkHashps?nblocks=120&height=-1" -H "accept: application/json"
+    curl -X GET "https://rest.bitcoin.com/v2/mining/getNetworkHashps?nblocks=120&height=-1" -H "accept: application/json"
 
     // returns
     1587730664538483000

@@ -4,57 +4,11 @@ icon: exchange
 ordinal: 9
 ---
 
-## Address details single
+## Transaction details single
 
-Returns the details of an address including balance
+Details about a transaction
 
-**URL** : `v2/address/details/{address}`
-
-**Method** : `GET`
-
-**Auth required** : NO
-
-#### URL Parameters
-
-1.  address `String` required
-
-#### Result
-
-array `Array` of JSON Objects
-
-#### Examples
-
-    curl -X GET "https://rest.bitcoin.com/v2/address/details/bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c" -H "accept: application/json"
-        // [ { propertyid: 1,
-        //  balance: '100.00106300',
-
-## Address details bulk
-
-Returns the details of multiple addresses
-
-**URL** : `v2/address/details`
-
-**Method** : `POST`
-
-**Auth required** : NO
-
-#### Body Parameters
-
-1.  addresses `Array` required
-
-#### Result
-
-array `Array` of JSON Objects
-
-#### Examples
-
-    curl -X POST "https://rest.bitcoin.com/v2/address/details" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"addresses\":[\"bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c\",\"bitcoincash:qrehqueqhw629p6e57994436w730t4rzasnly00ht0\"]}"
-
-## Address utxos single
-
-Returns the list of utxo for an address
-
-**URL** : `v2/address/utxo/{address}`
+**URL** : `v2/transaction/details/{txid}`
 
 **Method** : `GET`
 
@@ -62,7 +16,7 @@ Returns the list of utxo for an address
 
 #### URL Parameters
 
-1.  address `String` required
+1.  txid `String` required
 
 #### Result
 
@@ -70,114 +24,43 @@ array `Array` of JSON Objects
 
 #### Examples
 
-    curl -X GET "https://rest.bitcoin.com/v2/address/utxo/bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c" -H "accept: application/json"
+    curl -X GET "https://rest.bitcoin.com/v2/transaction/details/fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33" -H "accept: application/json"
 
-## Address utxos bulk
-
-Returns the utxo of multiple addresses
-
-**URL** : `v2/address/utxo`
-
-**Method** : `POST`
-
-**Auth required** : NO
-
-#### Body Parameters
-
-1.  addresses `Array` required
-
-#### Result
-
-array `Array` of JSON Objects
-
-#### Examples
-
-    curl -X POST "https://rest.bitcoin.com/v2/address/utxo" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"addresses\":[\"bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c\",\"bitcoincash:qrehqueqhw629p6e57994436w730t4rzasnly00ht0\"]}"
-
-## Unconfirmed transactions single
-
-Returns the list of unconfirmed transactions for an address
-
-**URL** : `v2/address/unconfirmed/{address}`
-
-**Method** : `GET`
-
-**Auth required** : NO
-
-#### URL Parameters
-
-1.  address `String` required
-
-#### Result
-
-array `Array` of JSON Objects
-
-#### Examples
-
-    curl -X GET "https://rest.bitcoin.com/v2/address/unconfirmed/bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c" -H "accept: application/json"
-
-## Unconfirmed transactions bulk
-
-Returns the list of unconfirmed transactions for an array of addresses
-
-**URL** : `v2/address/unconfirmed`
-
-**Method** : `POST`
-
-**Auth required** : NO
-
-#### Body Parameters
-
-1.  addresses `Array` required
-
-#### Result
-
-array `Array` of JSON Objects
-
-#### Examples
-
-    curl -X POST "https://rest.bitcoin.com/v2/address/unconfirmed" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"addresses\":[\"bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c\",\"bitcoincash:qrehqueqhw629p6e57994436w730t4rzasnly00ht0\"]}"
-
-## Transactions single
-
-Returns the list of transactions for an address
-
-**URL** : `v2/address/transactions/{address}`
-
-**Method** : `GET`
-
-**Auth required** : NO
-
-#### URL Parameters
-
-1.  address `String` required
-
-#### Result
-
-array `Array` of JSON Objects
-
-#### Examples
-
-    curl -X GET "https://rest.bitcoin.com/v2/address/transactions/bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c" -H "accept: */*"
-
-## Transactions bulk
-
-Returns the list of transactions for an array of addresses.
-
-**URL** : `v2/address/transactions`
-
-**Method** : `POST`
-
-**Auth required** : NO
-
-#### Body Parameters
-
-1.  addresses `Array` required
-
-#### Result
-
-array `Array` of JSON Objects
-
-#### Examples
-
-    curl -X POST "https://rest.bitcoin.com/v2/address/transactions" -H "accept: */*" -H "Content-Type: application/json" -d "{\"addresses\":[\"bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c\",\"bitcoincash:qrehqueqhw629p6e57994436w730t4rzasnly00ht0\"]}"
+    // returns
+    {
+      "txid": "fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33",
+      "version": 1,
+      "locktime": 0,
+      "vin": [
+        {
+          "coinbase": "04ffff001d02fd04",
+          "sequence": 4294967295,
+          "n": 0
+        }
+      ],
+      "vout": [
+        {
+          "value": "50.00000000",
+          "n": 0,
+          "scriptPubKey": {
+            "hex": "4104f5eeb2b10c944c6b9fbcfff94c35bdeecd93df977882babc7f3a2cf7f5c81d3b09a68db7f0e04f21de5d4230e75e6dbe7ad16eefe0d4325a62067dc6f369446aac",
+            "asm": "04f5eeb2b10c944c6b9fbcfff94c35bdeecd93df977882babc7f3a2cf7f5c81d3b09a68db7f0e04f21de5d4230e75e6dbe7ad16eefe0d4325a62067dc6f369446a OP_CHECKSIG",
+            "addresses": [
+              "1BW18n7MfpU35q4MTBSk8pse3XzQF8XvzT"
+            ],
+            "type": "pubkeyhash"
+          },
+          "spentTxId": null,
+          "spentIndex": null,
+          "spentHeight": null
+        }
+      ],
+      "blockhash": "00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09",
+      "blockheight": 1000,
+      "confirmations": 560841,
+      "time": 1232346882,
+      "blocktime": 1232346882,
+      "isCoinBase": true,
+      "valueOut": 50,
+      "size": 135
+    }
