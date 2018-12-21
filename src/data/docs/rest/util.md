@@ -20,7 +20,7 @@ Return information about the given bitcoin address.
 
 #### Result
 
-array `Array` of JSON Objects
+`Object` containing address metadata
 
 #### Examples
 
