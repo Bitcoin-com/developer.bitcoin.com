@@ -25,8 +25,30 @@ array `Array` of JSON Objects
 #### Examples
 
     curl -X GET "https://rest.bitcoin.com/v2/address/details/bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c" -H "accept: application/json"
-        // [ { propertyid: 1,
-        //  balance: '100.00106300',
+
+    // returns
+    {
+      "addrStr": "1Fg4r9iDrEkCcDmHTy2T79EusNfhyQpu7W",
+      "balance": 0.01,
+      "balanceSat": 1000000,
+      "totalReceived": 0.05185868,
+      "totalReceivedSat": 5185868,
+      "totalSent": 0.04185868,
+      "totalSentSat": 4185868,
+      "unconfirmedBalance": 0,
+      "unconfirmedBalanceSat": 0,
+      "unconfirmedTxApperances": 0,
+      "txApperances": 36,
+      "transactions": [
+        "ac444896b3e32d17824fa6573eed3b89768c5c9085b7a71f3ba88e9d5ba67355",
+        "a5f972572ee1753e2fd2457dd61ce5f40fa2f8a30173d417e49feef7542c96a1",
+        "81039b1d7b855b133f359f9dc65f776bd105650153a941675fedc504228ddbd3"
+      ],
+      "legacyAddress": "1Fg4r9iDrEkCcDmHTy2T79EusNfhyQpu7W",
+      "cashAddress": "bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c",
+      "currentPage": 0,
+      "pagesTotal": 1
+    }
 
 ## Address details bulk
 
