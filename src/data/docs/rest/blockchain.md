@@ -20,7 +20,7 @@ bestBlockHash `String`
 
 #### Examples
 
-    curl -X GET "http://localhost:3000/v2/blockchain/getBestBlockHash" -H "accept: application/json"
+    curl -X GET "https://rest.bitcoin.com/v2/blockchain/getBestBlockHash" -H "accept: application/json"
 
     // returns
     "000000000000000003c46b408fb8e708b1ebb830bd082b497d86d5f1cd67d695"
@@ -41,7 +41,7 @@ blockchainInfo `Object`
 
 #### Examples
 
-    curl -X GET "http://localhost:3000/v2/blockchain/getBlockchainInfo" -H "accept: application/json"
+    curl -X GET "https://rest.bitcoin.com/v2/blockchain/getBlockchainInfo" -H "accept: application/json"
 
     // returns
     {
@@ -102,7 +102,7 @@ blockCount `String`
 
 #### Examples
 
-    curl -X GET "http://localhost:3000/v2/blockchain/getBlockCount" -H "accept: application/json"
+    curl -X GET "https://rest.bitcoin.com/v2/blockchain/getBlockCount" -H "accept: application/json"
 
     // returns
     561838
@@ -128,7 +128,7 @@ blockHeader `Object`
 
 #### Examples
 
-    curl -X GET "http://localhost:3000/v2/blockchain/getBlockHeader/000000000000000005e14d3f9fdfb70745308706615cfa9edca4f4558332b201?verbose=true" -H "accept: application/json"
+    curl -X GET "https://rest.bitcoin.com/v2/blockchain/getBlockHeader/000000000000000005e14d3f9fdfb70745308706615cfa9edca4f4558332b201?verbose=true" -H "accept: application/json"
 
     // returns
     {
@@ -164,7 +164,7 @@ chainTips `Array` of Objects
 
 #### Examples
 
-    curl -X GET "http://localhost:3000/v2/blockchain/getChainTips" -H "accept: */*"
+    curl -X GET "https://rest.bitcoin.com/v2/blockchain/getChainTips" -H "accept: */*"
 
     // returns
     [
@@ -198,7 +198,7 @@ difficulty `Number`
 
 #### Examples
 
-    curl -X GET "http://localhost:3000/v2/blockchain/getDifficulty" -H "accept: application/json"
+    curl -X GET "https://rest.bitcoin.com/v2/blockchain/getDifficulty" -H "accept: application/json"
 
     // returns
     246585566638.1496
@@ -223,7 +223,7 @@ mempoolEntry `Object`
 
 #### Examples
 
-    curl -X GET "http://localhost:3000/v2/blockchain/getMempoolEntry/fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33" -H "accept: */*"
+    curl -X GET "https://rest.bitcoin.com/v2/blockchain/getMempoolEntry/fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33" -H "accept: */*"
 
     // returns
     {
@@ -246,7 +246,7 @@ mempoolInfo `Object`
 
 #### Examples
 
-    curl -X GET "http://localhost:3000/v2/blockchain/getMempoolInfo" -H "accept: application/json"
+    curl -X GET "https://rest.bitcoin.com/v2/blockchain/getMempoolInfo" -H "accept: application/json"
 
     // returns
     {
@@ -277,7 +277,7 @@ rawMempool `Object`
 
 #### Examples
 
-    curl -X GET "http://localhost:3000/v2/blockchain/getRawMempool?verbose=false" -H "accept: application/json"
+    curl -X GET "https://rest.bitcoin.com/v2/blockchain/getRawMempool?verbose=false" -H "accept: application/json"
 
     // returns
     [
@@ -315,7 +315,7 @@ txOut `Object`
 
 #### Examples
 
-    curl -X GET "http://localhost:3000/v2/blockchain/getTxOut/fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33/0?mempool=false" -H "accept: */*"
+    curl -X GET "https://rest.bitcoin.com/v2/blockchain/getTxOut/fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33/0?mempool=false" -H "accept: */*"
 
     // returns
     {
@@ -354,7 +354,7 @@ txOutProof `String`
 
 #### Examples
 
-    curl -X GET "http://localhost:3000/v2/blockchain/getTxOutProof/fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33" -H "accept: */*"
+    curl -X GET "https://rest.bitcoin.com/v2/blockchain/getTxOutProof/fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33" -H "accept: */*"
 
     // returns
     "010000007de867cc8adc5cc8fb6b898ca4462cf9fd667d7830a275277447e60800000000338f121232e169d3100edd82004dc2a1f0e1f030c6c488fa61eafa930b0528fe021f7449ffff001d36b4af9a0100000001338f121232e169d3100edd82004dc2a1f0e1f030c6c488fa61eafa930b0528fe0101"
@@ -379,7 +379,7 @@ txOutProof `Array`
 
 #### Examples
 
-    curl -X GET "http://localhost:3000/v2/blockchain/verifyTxOutProof/010000007de867cc8adc5cc8fb6b898ca4462cf9fd667d7830a275277447e60800000000338f121232e169d3100edd82004dc2a1f0e1f030c6c488fa61eafa930b0528fe021f7449ffff001d36b4af9a0100000001338f121232e169d3100edd82004dc2a1f0e1f030c6c488fa61eafa930b0528fe0101" -H "accept: */*"
+    curl -X GET "https://rest.bitcoin.com/v2/blockchain/verifyTxOutProof/010000007de867cc8adc5cc8fb6b898ca4462cf9fd667d7830a275277447e60800000000338f121232e169d3100edd82004dc2a1f0e1f030c6c488fa61eafa930b0528fe021f7449ffff001d36b4af9a0100000001338f121232e169d3100edd82004dc2a1f0e1f030c6c488fa61eafa930b0528fe0101" -H "accept: */*"
 
     // returns
     [
