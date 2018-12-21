@@ -14,7 +14,7 @@ import spacing from 'styles/spacing'
 
 import FaucetBalanceDisplay from './FaucetBalanceDisplay'
 
-const SERVER = `https://faucet.christroutner.com`
+const SERVER = `https://faucet.bchtest.net`
 
 const WrapperDiv = styled.div`
   padding-top: ${spacing.large};
