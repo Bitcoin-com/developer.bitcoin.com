@@ -107,7 +107,7 @@ blockCount `String`
     // returns
     561838
 
-## Block Header
+## Block Header single
 
 If verbose is false, returns a string that is serialized, hex-encoded data for blockheader 'hash'. If verbose is true, returns an Object with information about blockheader hash.
 
@@ -147,6 +147,65 @@ blockHeader `Object`
       "previousblockhash": "0000000000000000043831d6ebb013716f0580287ee5e5687e27d0ed72e6e523",
       "nextblockhash": "00000000000000000568f0a96bf4348847bc84e455cbfec389f27311037a20f3"
     }
+
+## Block Header Bulk
+
+Returns an Array of Objects w/ block header info. This is a bulk request.
+
+**URL** : `v2/blockchain/getBlockHeader`
+
+**Method** : `GET`
+
+**Auth required** : NO
+
+#### URL Parameters
+
+1. hashes `Array` of Strings. Required
+2. verbose `Boolean` optional
+
+#### Result
+
+blockHeaders `Array` of Objects
+
+#### Examples
+
+    curl -X POST "http://localhost:3000/v2/blockchain/getBlockHeader" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"hashes\":[\"000000000000000005e14d3f9fdfb70745308706615cfa9edca4f4558332b201\",\"00000000000000000568f0a96bf4348847bc84e455cbfec389f27311037a20f3\"],\"verbose\":true}"
+
+    // returns
+    [
+      {
+        "hash": "000000000000000005e14d3f9fdfb70745308706615cfa9edca4f4558332b201",
+        "confirmations": 61981,
+        "height": 500000,
+        "version": 536870912,
+        "versionHex": "20000000",
+        "merkleroot": "4af279645e1b337e655ae3286fc2ca09f58eb01efa6ab27adedd1e9e6ec19091",
+        "time": 1509343584,
+        "mediantime": 1509336533,
+        "nonce": 3604508752,
+        "bits": "1809b91a",
+        "difficulty": 113081236211.4533,
+        "chainwork": "0000000000000000000000000000000000000000007ae48aca46e3b449ad9714",
+        "previousblockhash": "0000000000000000043831d6ebb013716f0580287ee5e5687e27d0ed72e6e523",
+        "nextblockhash": "00000000000000000568f0a96bf4348847bc84e455cbfec389f27311037a20f3"
+      },
+      {
+        "hash": "00000000000000000568f0a96bf4348847bc84e455cbfec389f27311037a20f3",
+        "confirmations": 61980,
+        "height": 500001,
+        "version": 536870912,
+        "versionHex": "20000000",
+        "merkleroot": "01fcc7f4b25840459352005c77e7917bab20bddf1b398f4392e3a299851aa696",
+        "time": 1509345037,
+        "mediantime": 1509336585,
+        "nonce": 2406916250,
+        "bits": "1809b91a",
+        "difficulty": 113081236211.4533,
+        "chainwork": "0000000000000000000000000000000000000000007ae4a51e8bf2ecccf1d9a1",
+        "previousblockhash": "000000000000000005e14d3f9fdfb70745308706615cfa9edca4f4558332b201",
+        "nextblockhash": "00000000000000000797607b2b69d1561027dbaf28545a33d6ec3adb89f8e564"
+      }
+    ]
 
 ## Chain Tips
 
@@ -203,9 +262,9 @@ difficulty `Number`
     // returns
     246585566638.1496
 
-## Mempool Entry
+## Mempool Entry Single
 
-Returns mempool data for given transaction
+Returns mempool data for single transaction
 
 **URL** : `v2/blockchain/getMempoolEntry/{txid}`
 
@@ -224,6 +283,33 @@ mempoolEntry `Object`
 #### Examples
 
     curl -X GET "https://rest.bitcoin.com/v2/blockchain/getMempoolEntry/fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33" -H "accept: */*"
+
+    // returns
+    {
+      "error": "Transaction not in mempool"
+    }
+
+## Mempool Entry Bulk
+
+Returns mempool data for multiple transactions
+
+**URL** : `v2/blockchain/getMempoolEntry`
+
+**Method** : `POST`
+
+**Auth required** : NO
+
+#### URL Parameters
+
+1. txids `Array` of Strings. Required
+
+#### Result
+
+mempoolEntries `Array` of Objects
+
+#### Examples
+
+    curl -X POST "http://localhost:3000/v2/blockchain/getMempoolEntry" -H "accept: */*" -H "Content-Type: application/json" -d "{\"txids\":[\"a5f972572ee1753e2fd2457dd61ce5f40fa2f8a30173d417e49feef7542c96a1\",\"5165dc531aad05d1149bb0f0d9b7bda99c73e2f05e314bcfb5b4bb9ca5e1af5e\"]}"
 
     // returns
     {
@@ -334,9 +420,9 @@ txOut `Object`
       "coinbase": true
     }
 
-## Tx Out Proof
+## Tx Out Proof Single
 
-Returns a hex-encoded proof that 'txid' was included in a block.
+Returns a hex-encoded proof that a single txid was included in a block.
 
 **URL** : `v2/blockchain/getTxOutProof/{txid}`
 
@@ -358,6 +444,38 @@ txOutProof `String`
 
     // returns
     "010000007de867cc8adc5cc8fb6b898ca4462cf9fd667d7830a275277447e60800000000338f121232e169d3100edd82004dc2a1f0e1f030c6c488fa61eafa930b0528fe021f7449ffff001d36b4af9a0100000001338f121232e169d3100edd82004dc2a1f0e1f030c6c488fa61eafa930b0528fe0101"
+
+## Tx Out Proof Bulk
+
+Returns a hex-encoded proof that multiple txids were included in a block.
+
+**URL** : `v2/blockchain/getTxOutProof`
+
+**Method** : `POST`
+
+**Auth required** : NO
+
+#### URL Parameters
+
+1. txids `Array` of Strings. Required
+
+#### Result
+
+txOutProofs `Array` of Objects
+
+#### Examples
+
+    curl -X POST "http://localhost:3000/v2/blockchain/getTxOutProof" -H "accept: */*" -H "Content-Type: application/json" -d "{\"txids\":[\"a5f972572ee1753e2fd2457dd61ce5f40fa2f8a30173d417e49feef7542c96a1\",\"5165dc531aad05d1149bb0f0d9b7bda99c73e2f05e314bcfb5b4bb9ca5e1af5e\"]}"
+
+    // returns
+    [
+      {
+        "a5f972572ee1753e2fd2457dd61ce5f40fa2f8a30173d417e49feef7542c96a1": "0000c02078af6bf4b1b989eb3266ae528f601cb3936ee08e2e5518010000000000000000c0caf2d5fc5d78c9ac04fa2dafdc3ea7bf4ebe77d52ae6fa20f87093bc2effa7e0a1f45b95d0011874d7dac22b000000060d97bf42acbb71f01e6c3533e73a65f3116d7324a1e2abcf8b13f7aee92fe6eca1962c54f7ee9fe417d47301a3f8a20ff4e51cd67d45d22f3e75e12e5772f9a524d3b28b22a7e0b1c41f93fd7457a6951b0e20388288ea51278b2a345dcbecabff6ce741b6fc67fc4b55cef5f9e649bfac15b2238434129c50b335276a4eee4352713e3801135f1542eba103a13b40ec0d1b3f94f301ab113cfa397532351271fd97bb7dc08e3a8aa09e9396e266ec632252f0f510c1658e1347e1c4b474a8ce02fd00"
+      },
+      {
+        "5165dc531aad05d1149bb0f0d9b7bda99c73e2f05e314bcfb5b4bb9ca5e1af5e": "000000202cbe31a32f4ad5b42877a9ccf9ff6edb3f5ab29ff73ec9000000000000000000069061a8809fed6557fa87eeb5aa7ac9e6720dcb2e2f401b40b7d83be5b4cb4f20a1e95b8c8d01188ca7c098e20100000a3705adb29177f22766afb07d46eb1d3f16a68fdd01c1ede671fcb954899ffed4c161c0a33aa8f6e562e40b1e0124818663e063004720d8d7e9074808a1f16ca56ba218571cb8069bc45bc8c6496ad9611b35d412e2545211ba85438be487d6dc39cd0ae63a41be9a89c4ed823fa6eceb0ceffe13638defa01109a514e639b89e5eafe1a59cbbb4b5cf4b315ef0e2739ca9bdb7d9f0b09b14d105ad1a53dc655176895cacc3f897d5088b004113f886df266edd1ff797f4550885f32380c8fb575be00072239baa70ccf354882e8c50a1d01e81ab2c85146d9e8c3c75140eca2d9d5640af739a86047493e24b1393745914a75fdfe19f081626a5846353c67b45ccf2dd6a753ba118e89239b7916be2ee06e34dc85257228edeaaca06efa0a565580872eff1787360bdf7ff274bb49437bef6a368ab578e34b739ddcc16088a8603ad3700"
+      }
+    ]
 
 ## Verify Tx Out Proof
 
