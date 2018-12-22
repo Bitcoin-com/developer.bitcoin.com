@@ -107,7 +107,7 @@ blockCount `String`
     // returns
     561838
 
-## Block Header
+## Block Header single
 
 If verbose is false, returns a string that is serialized, hex-encoded data for blockheader 'hash'. If verbose is true, returns an Object with information about blockheader hash.
 
@@ -147,6 +147,65 @@ blockHeader `Object`
       "previousblockhash": "0000000000000000043831d6ebb013716f0580287ee5e5687e27d0ed72e6e523",
       "nextblockhash": "00000000000000000568f0a96bf4348847bc84e455cbfec389f27311037a20f3"
     }
+
+## Block Header Bulk
+
+Returns an Array of Objects w/ block header info. This is a bulk request.
+
+**URL** : `v2/blockchain/getBlockHeader`
+
+**Method** : `GET`
+
+**Auth required** : NO
+
+#### URL Parameters
+
+1. hashes `Array` of Strings. Required
+2. verbose `Boolean` optional
+
+#### Result
+
+blockHeaders `Array` of Objects
+
+#### Examples
+
+    curl -X POST "http://localhost:3000/v2/blockchain/getBlockHeader" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"hashes\":[\"000000000000000005e14d3f9fdfb70745308706615cfa9edca4f4558332b201\",\"00000000000000000568f0a96bf4348847bc84e455cbfec389f27311037a20f3\"],\"verbose\":true}"
+
+    // returns
+    [
+      {
+        "hash": "000000000000000005e14d3f9fdfb70745308706615cfa9edca4f4558332b201",
+        "confirmations": 61981,
+        "height": 500000,
+        "version": 536870912,
+        "versionHex": "20000000",
+        "merkleroot": "4af279645e1b337e655ae3286fc2ca09f58eb01efa6ab27adedd1e9e6ec19091",
+        "time": 1509343584,
+        "mediantime": 1509336533,
+        "nonce": 3604508752,
+        "bits": "1809b91a",
+        "difficulty": 113081236211.4533,
+        "chainwork": "0000000000000000000000000000000000000000007ae48aca46e3b449ad9714",
+        "previousblockhash": "0000000000000000043831d6ebb013716f0580287ee5e5687e27d0ed72e6e523",
+        "nextblockhash": "00000000000000000568f0a96bf4348847bc84e455cbfec389f27311037a20f3"
+      },
+      {
+        "hash": "00000000000000000568f0a96bf4348847bc84e455cbfec389f27311037a20f3",
+        "confirmations": 61980,
+        "height": 500001,
+        "version": 536870912,
+        "versionHex": "20000000",
+        "merkleroot": "01fcc7f4b25840459352005c77e7917bab20bddf1b398f4392e3a299851aa696",
+        "time": 1509345037,
+        "mediantime": 1509336585,
+        "nonce": 2406916250,
+        "bits": "1809b91a",
+        "difficulty": 113081236211.4533,
+        "chainwork": "0000000000000000000000000000000000000000007ae4a51e8bf2ecccf1d9a1",
+        "previousblockhash": "000000000000000005e14d3f9fdfb70745308706615cfa9edca4f4558332b201",
+        "nextblockhash": "00000000000000000797607b2b69d1561027dbaf28545a33d6ec3adb89f8e564"
+      }
+    ]
 
 ## Chain Tips
 
