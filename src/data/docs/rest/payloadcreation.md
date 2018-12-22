@@ -20,7 +20,7 @@ burnBCH `String`
 
 #### Examples
 
-    curl -X GET "http://localhost:3000/v2/payloadCreation/burnBCH" -H "accept: _/_"
+    curl -X GET "https://bitcoin.com/v2/payloadCreation/burnBCH" -H "accept: _/_"
 
     // returns
     "00000044"
@@ -45,7 +45,7 @@ changeIssuer `String`
 
 #### Examples
 
-    curl -X POST "http://localhost:3000/v2/payloadCreation/changeIssuer" -H "accept: */*" -H "Content-Type: application/json" -d "{\"propertyId\":10}"
+    curl -X POST "https://bitcoin.com/v2/payloadCreation/changeIssuer" -H "accept: */*" -H "Content-Type: application/json" -d "{\"propertyId\":10}"
 
     // returns
     "000000460000000a"
@@ -70,7 +70,7 @@ closeCrowdSale `String`
 
 #### Examples
 
-    curl -X POST "http://localhost:3000/v2/payloadCreation/closeCrowdSale" -H "accept: */*" -H "Content-Type: application/json" -d "{\"propertyId\":10}"
+    curl -X POST "https://bitcoin.com/v2/payloadCreation/closeCrowdSale" -H "accept: */*" -H "Content-Type: application/json" -d "{\"propertyId\":10}"
 
     // returns
     "000000350000000a"
@@ -97,7 +97,7 @@ grant `String`
 
 #### Examples
 
-    curl -X POST "http://localhost:3000/v2/payloadCreation/grant" -H "accept: */*" -H "Content-Type: application/json" -d "{\"propertyId\":10,\"amount\":\"10\",\"memo\":\"\"}"
+    curl -X POST "https://bitcoin.com/v2/payloadCreation/grant" -H "accept: */*" -H "Content-Type: application/json" -d "{\"propertyId\":10,\"amount\":\"10\",\"memo\":\"\"}"
 
     // returns
     ""
@@ -134,7 +134,7 @@ crowdsale `String`
 
 #### Examples
 
-    curl -X POST "http://localhost:3000/v2/payloadCreation/crowdsale" -H "accept: */*" -H "Content-Type: application/json" -d "{\"ecosystem\":\"1\",\"propertyPrecision\":1,\"previousId\":1,\"category\":\"Companies\",\"subcategory\":\"Bitcoin Mining\",\"name\":\"Quantum Miner\",\"url\":\"www.example.com\",\"data\":\"Quantum Miner Tokens\",\"propertyIdDesired\":1,\"tokensPerUnit\":\"100\",\"deadline\":1483228800,\"earlyBonus\":30,\"totalNumber\":\"192978657\"}"
+    curl -X POST "https://bitcoin.com/v2/payloadCreation/crowdsale" -H "accept: */*" -H "Content-Type: application/json" -d "{\"ecosystem\":\"1\",\"propertyPrecision\":1,\"previousId\":1,\"category\":\"Companies\",\"subcategory\":\"Bitcoin Mining\",\"name\":\"Quantum Miner\",\"url\":\"www.example.com\",\"data\":\"Quantum Miner Tokens\",\"propertyIdDesired\":1,\"tokensPerUnit\":\"100\",\"deadline\":1483228800,\"earlyBonus\":30,\"totalNumber\":\"192978657\"}"
 
     // returns
     "0000003301000100000001436f6d70616e69657300426974636f696e204d696e696e67005175616e74756d204d696e6572007777772e6578616d706c652e636f6d005175616e74756d204d696e657220546f6b656e73000000000100000002540be40000000000586846801e0000000000730634ca"
@@ -167,7 +167,7 @@ fixed `String`
 
 #### Examples
 
-    curl -X POST "http://localhost:3000/v2/payloadCreation/fixed" -H "accept: */*" -H "Content-Type: application/json" -d "{\"ecosystem\":\"1\",\"propertyPrecision\":1,\"previousId\":1,\"category\":\"Companies\",\"subcategory\":\"Bitcoin Mining\",\"name\":\"Quantum Miner\",\"url\":\"www.example.com\",\"data\":\"Quantum Miner Tokens\",\"amount\":\"100000\"}"
+    curl -X POST "https://bitcoin.com/v2/payloadCreation/fixed" -H "accept: */*" -H "Content-Type: application/json" -d "{\"ecosystem\":\"1\",\"propertyPrecision\":1,\"previousId\":1,\"category\":\"Companies\",\"subcategory\":\"Bitcoin Mining\",\"name\":\"Quantum Miner\",\"url\":\"www.example.com\",\"data\":\"Quantum Miner Tokens\",\"amount\":\"100000\"}"
 
     // returns
     "0000003201000100000001436f6d70616e69657300426974636f696e204d696e696e67005175616e74756d204d696e6572007777772e6578616d706c652e636f6d005175616e74756d204d696e657220546f6b656e730000000000000f4240"
@@ -199,7 +199,7 @@ managed `String`
 
 #### Examples
 
-    curl -X POST "http://localhost:3000/v2/payloadCreation/managed" -H "accept: */*" -H "Content-Type: application/json" -d "{\"ecosystem\":\"1\",\"propertyPrecision\":1,\"previousId\":1,\"category\":\"Companies\",\"subcategory\":\"Bitcoin Mining\",\"name\":\"Quantum Miner\",\"url\":\"www.example.com\",\"data\":\"Quantum Miner Tokens\"}"
+    curl -X POST "https://bitcoin.com/v2/payloadCreation/managed" -H "accept: */*" -H "Content-Type: application/json" -d "{\"ecosystem\":\"1\",\"propertyPrecision\":1,\"previousId\":1,\"category\":\"Companies\",\"subcategory\":\"Bitcoin Mining\",\"name\":\"Quantum Miner\",\"url\":\"www.example.com\",\"data\":\"Quantum Miner Tokens\"}"
 
     // returns
     "0000003601000100000001436f6d70616e69657300426974636f696e204d696e696e67005175616e74756d204d696e6572007777772e6578616d706c652e636f6d005175616e74756d204d696e657220546f6b656e7300"
@@ -224,7 +224,7 @@ participateCrowdSale `String`
 
 #### Examples
 
-    curl -X POST "http://localhost:3000/v2/payloadCreation/participateCrowdSale" -H "accept: */*" -H "Content-Type: application/json" -d "{\"amount\":\"1\"}"
+    curl -X POST "https://bitcoin.com/v2/payloadCreation/participateCrowdSale" -H "accept: */*" -H "Content-Type: application/json" -d "{\"amount\":\"1\"}"
 
     // returns
     "00000001000000010000000005f5e100"
@@ -251,7 +251,7 @@ revoke `String`
 
 #### Examples
 
-    curl -X POST "http://localhost:3000/v2/payloadCreation/revoke" -H "accept: */*" -H "Content-Type: application/json" -d "{\"propertyId\":1,\"amount\":\"10\",\"memo\":\"\"}"
+    curl -X POST "https://bitcoin.com/v2/payloadCreation/revoke" -H "accept: */*" -H "Content-Type: application/json" -d "{\"propertyId\":1,\"amount\":\"10\",\"memo\":\"\"}"
 
     // returns
     ""
@@ -276,7 +276,7 @@ sendAll `String`
 
 #### Examples
 
-    curl -X POST "http://localhost:3000/v2/payloadCreation/sendAll" -H "accept: */*" -H "Content-Type: application/json" -d "{\"ecosystem\":1}"
+    curl -X POST "https://bitcoin.com/v2/payloadCreation/sendAll" -H "accept: */*" -H "Content-Type: application/json" -d "{\"ecosystem\":1}"
 
     // returns
     "0000000401"
@@ -302,7 +302,7 @@ simpleSend `String`
 
 #### Examples
 
-    curl -X POST "http://localhost:3000/v2/payloadCreation/simpleSend" -H "accept: */*" -H "Content-Type: application/json" -d "{\"propertyId\":1,\"amount\":\"10\"}"
+    curl -X POST "https://bitcoin.com/v2/payloadCreation/simpleSend" -H "accept: */*" -H "Content-Type: application/json" -d "{\"propertyId\":1,\"amount\":\"10\"}"
 
     // returns
     "0000000000000001000000003b9aca00"
@@ -329,7 +329,7 @@ STO `String`
 
 #### Examples
 
-    curl -X POST "http://localhost:3000/v2/payloadCreation/STO" -H "accept: */*" -H "Content-Type: application/json" -d "{\"propertyId\":1,\"amount\":\"10\",\"distributionProperty\":1}"
+    curl -X POST "https://bitcoin.com/v2/payloadCreation/STO" -H "accept: */*" -H "Content-Type: application/json" -d "{\"propertyId\":1,\"amount\":\"10\",\"distributionProperty\":1}"
 
     // returns
     "0000000300000001000000003b9aca0000000001"
@@ -355,7 +355,7 @@ freeze `String`
 
 #### Examples
 
-    curl -X POST "http://localhost:3000/v2/payloadCreation/freeze" -H "accept: */*" -H "Content-Type: application/json" -d "{\"toAddress\":\"bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c\",\"propertyId\":1}"
+    curl -X POST "https://bitcoin.com/v2/payloadCreation/freeze" -H "accept: */*" -H "Content-Type: application/json" -d "{\"toAddress\":\"bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c\",\"propertyId\":1}"
 
     // returns
     "0000000300000001000000003b9aca0000000001"
@@ -381,7 +381,7 @@ unfreeze `String`
 
 #### Examples
 
-    curl -X POST "http://localhost:3000/v2/payloadCreation/unfreeze" -H "accept: */*" -H "Content-Type: application/json" -d "{\"toAddress\":\"bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c\",\"propertyId\":1}"
+    curl -X POST "https://bitcoin.com/v2/payloadCreation/unfreeze" -H "accept: */*" -H "Content-Type: application/json" -d "{\"toAddress\":\"bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c\",\"propertyId\":1}"
 
     // returns
     "0000000300000001000000003b9aca0000000001"
