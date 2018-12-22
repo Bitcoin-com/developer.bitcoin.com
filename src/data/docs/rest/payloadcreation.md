@@ -4,35 +4,32 @@ icon: plus
 ordinal: 7
 ---
 
-## Address details single
+## Burn BCH
 
-Returns the details of an address including balance
+Creates the payload to burn bch to get whc.
 
-**URL** : `v2/address/details/{address}`
+**URL** : `v2/payloadCreation/burnBCH`
 
 **Method** : `GET`
 
 **Auth required** : NO
 
-#### URL Parameters
-
-1.  address `String` required
-
 #### Result
 
-array `Array` of JSON Objects
+burnBCH `String`
 
 #### Examples
 
-    curl -X GET "https://rest.bitcoin.com/v2/address/details/bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c" -H "accept: application/json"
-        // [ { propertyid: 1,
-        //  balance: '100.00106300',
+    curl -X GET "http://localhost:3000/v2/payloadCreation/burnBCH" -H "accept: _/_"
 
-## Address details bulk
+    // returns
+    "00000044"
 
-Returns the details of multiple addresses
+## Change Issuer
 
-**URL** : `v2/address/details`
+Creates the payload to change the issuer on record of the given tokens.
+
+**URL** : `v2/payloadCreation/changeIssuer`
 
 **Method** : `POST`
 
@@ -40,43 +37,24 @@ Returns the details of multiple addresses
 
 #### Body Parameters
 
-1.  addresses `Array` required
+1.  propertyId `Number`. Required
 
 #### Result
 
-array `Array` of JSON Objects
+changeIssuer `String`
 
 #### Examples
 
-    curl -X POST "https://rest.bitcoin.com/v2/address/details" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"addresses\":[\"bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c\",\"bitcoincash:qrehqueqhw629p6e57994436w730t4rzasnly00ht0\"]}"
+    curl -X POST "http://localhost:3000/v2/payloadCreation/changeIssuer" -H "accept: */*" -H "Content-Type: application/json" -d "{\"propertyId\":10}"
 
-## Address utxos single
+    // returns
+    "000000460000000a"
 
-Returns the list of utxo for an address
+## Close CrowdSale
 
-**URL** : `v2/address/utxo/{address}`
+Creates the payload to manually close a crowdsale.
 
-**Method** : `GET`
-
-**Auth required** : NO
-
-#### URL Parameters
-
-1.  address `String` required
-
-#### Result
-
-array `Array` of JSON Objects
-
-#### Examples
-
-    curl -X GET "https://rest.bitcoin.com/v2/address/utxo/bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c" -H "accept: application/json"
-
-## Address utxos bulk
-
-Returns the utxo of multiple addresses
-
-**URL** : `v2/address/utxo`
+**URL** : `v2/payloadCreation/closeCrowdSale`
 
 **Method** : `POST`
 
@@ -84,43 +62,24 @@ Returns the utxo of multiple addresses
 
 #### Body Parameters
 
-1.  addresses `Array` required
+1.  propertyId `Number`. Required
 
 #### Result
 
-array `Array` of JSON Objects
+closeCrowdSale `String`
 
 #### Examples
 
-    curl -X POST "https://rest.bitcoin.com/v2/address/utxo" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"addresses\":[\"bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c\",\"bitcoincash:qrehqueqhw629p6e57994436w730t4rzasnly00ht0\"]}"
+    curl -X POST "http://localhost:3000/v2/payloadCreation/closeCrowdSale" -H "accept: */*" -H "Content-Type: application/json" -d "{\"propertyId\":10}"
 
-## Unconfirmed transactions single
+    // returns
+    "000000350000000a"
 
-Returns the list of unconfirmed transactions for an address
+## Grant
 
-**URL** : `v2/address/unconfirmed/{address}`
+Creates the payload to issue or grant new units of managed tokens.
 
-**Method** : `GET`
-
-**Auth required** : NO
-
-#### URL Parameters
-
-1.  address `String` required
-
-#### Result
-
-array `Array` of JSON Objects
-
-#### Examples
-
-    curl -X GET "https://rest.bitcoin.com/v2/address/unconfirmed/bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c" -H "accept: application/json"
-
-## Unconfirmed transactions bulk
-
-Returns the list of unconfirmed transactions for an array of addresses
-
-**URL** : `v2/address/unconfirmed`
+**URL** : `v2/payloadCreation/grant`
 
 **Method** : `POST`
 
@@ -128,43 +87,26 @@ Returns the list of unconfirmed transactions for an array of addresses
 
 #### Body Parameters
 
-1.  addresses `Array` required
+1.  propertyId `Number`. Required
+2.  amount `String`: Required
+3.  memo `String`: Optional
 
 #### Result
 
-array `Array` of JSON Objects
+grant `String`
 
 #### Examples
 
-    curl -X POST "https://rest.bitcoin.com/v2/address/unconfirmed" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"addresses\":[\"bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c\",\"bitcoincash:qrehqueqhw629p6e57994436w730t4rzasnly00ht0\"]}"
+    curl -X POST "http://localhost:3000/v2/payloadCreation/grant" -H "accept: */*" -H "Content-Type: application/json" -d "{\"propertyId\":10,\"amount\":\"10\",\"memo\":\"\"}"
 
-## Transactions single
+    // returns
+    ""
 
-Returns the list of transactions for an address
+## Crowdsale
 
-**URL** : `v2/address/transactions/{address}`
+Creates the payload for a new tokens issuance with crowdsale.
 
-**Method** : `GET`
-
-**Auth required** : NO
-
-#### URL Parameters
-
-1.  address `String` required
-
-#### Result
-
-array `Array` of JSON Objects
-
-#### Examples
-
-    curl -X GET "https://rest.bitcoin.com/v2/address/transactions/bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c" -H "accept: */*"
-
-## Transactions bulk
-
-Returns the list of transactions for an array of addresses.
-
-**URL** : `v2/address/transactions`
+**URL** : `v2/payloadCreation/crowdsale`
 
 **Method** : `POST`
 
@@ -172,12 +114,274 @@ Returns the list of transactions for an array of addresses.
 
 #### Body Parameters
 
-1.  addresses `Array` required
+1.  ecosystem `String`. Required
+2.  propertyPrecision `Number`. Required
+3.  previousId `Number`. Required
+4.  category `String`. Required
+5.  subcategory `String`. Required
+6.  name `String`. Required
+7.  url `String`. Required
+8.  data `String`. Required
+9.  propertyIdDesired `Number`. Required
+10. tokensPerUnit `String`. Required
+11. deadline `Number`. Required
+12. earlyBonus `Number`. Required
+13. totalNumber `String`. Required
 
 #### Result
 
-array `Array` of JSON Objects
+crowdsale `String`
 
 #### Examples
 
-    curl -X POST "https://rest.bitcoin.com/v2/address/transactions" -H "accept: */*" -H "Content-Type: application/json" -d "{\"addresses\":[\"bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c\",\"bitcoincash:qrehqueqhw629p6e57994436w730t4rzasnly00ht0\"]}"
+    curl -X POST "http://localhost:3000/v2/payloadCreation/crowdsale" -H "accept: */*" -H "Content-Type: application/json" -d "{\"ecosystem\":\"1\",\"propertyPrecision\":1,\"previousId\":1,\"category\":\"Companies\",\"subcategory\":\"Bitcoin Mining\",\"name\":\"Quantum Miner\",\"url\":\"www.example.com\",\"data\":\"Quantum Miner Tokens\",\"propertyIdDesired\":1,\"tokensPerUnit\":\"100\",\"deadline\":1483228800,\"earlyBonus\":30,\"totalNumber\":\"192978657\"}"
+
+    // returns
+    "0000003301000100000001436f6d70616e69657300426974636f696e204d696e696e67005175616e74756d204d696e6572007777772e6578616d706c652e636f6d005175616e74756d204d696e657220546f6b656e73000000000100000002540be40000000000586846801e0000000000730634ca"
+
+## Fixed
+
+Creates the payload for a new tokens issuance with fixed supply.
+
+**URL** : `v2/payloadCreation/fixed`
+
+**Method** : `POST`
+
+**Auth required** : NO
+
+#### Body Parameters
+
+1.  ecosystem `String`. Required
+2.  propertyPrecision `Number`. Required
+3.  previousId `Number`. Required
+4.  category `String`. Required
+5.  subcategory `String`. Required
+6.  name `String`. Required
+7.  url `String`. Required
+8.  data `String`. Required
+9.  amount `String`. Required
+
+#### Result
+
+fixed `String`
+
+#### Examples
+
+    curl -X POST "http://localhost:3000/v2/payloadCreation/fixed" -H "accept: */*" -H "Content-Type: application/json" -d "{\"ecosystem\":\"1\",\"propertyPrecision\":1,\"previousId\":1,\"category\":\"Companies\",\"subcategory\":\"Bitcoin Mining\",\"name\":\"Quantum Miner\",\"url\":\"www.example.com\",\"data\":\"Quantum Miner Tokens\",\"amount\":\"100000\"}"
+
+    // returns
+    "0000003201000100000001436f6d70616e69657300426974636f696e204d696e696e67005175616e74756d204d696e6572007777772e6578616d706c652e636f6d005175616e74756d204d696e657220546f6b656e730000000000000f4240"
+
+## Managed
+
+Creates the payload for a new tokens issuance with manageable supply.
+
+**URL** : `v2/payloadCreation/managed`
+
+**Method** : `POST`
+
+**Auth required** : NO
+
+#### Body Parameters
+
+1.  ecosystem `String`. Required
+2.  propertyPrecision `Number`. Required
+3.  previousId `Number`. Required
+4.  category `String`. Required
+5.  subcategory `String`. Required
+6.  name `String`. Required
+7.  url `String`. Required
+8.  data `String`. Required
+
+#### Result
+
+managed `String`
+
+#### Examples
+
+    curl -X POST "http://localhost:3000/v2/payloadCreation/managed" -H "accept: */*" -H "Content-Type: application/json" -d "{\"ecosystem\":\"1\",\"propertyPrecision\":1,\"previousId\":1,\"category\":\"Companies\",\"subcategory\":\"Bitcoin Mining\",\"name\":\"Quantum Miner\",\"url\":\"www.example.com\",\"data\":\"Quantum Miner Tokens\"}"
+
+    // returns
+    "0000003601000100000001436f6d70616e69657300426974636f696e204d696e696e67005175616e74756d204d696e6572007777772e6578616d706c652e636f6d005175616e74756d204d696e657220546f6b656e7300"
+
+## Participate CrowdSale
+
+Creates the payload for a new tokens issuance with manageable supply.
+
+**URL** : `v2/payloadCreation/participateCrowdSale`
+
+**Method** : `POST`
+
+**Auth required** : NO
+
+#### Body Parameters
+
+1. amount `String`. Required
+
+#### Result
+
+participateCrowdSale `String`
+
+#### Examples
+
+    curl -X POST "http://localhost:3000/v2/payloadCreation/participateCrowdSale" -H "accept: */*" -H "Content-Type: application/json" -d "{\"amount\":\"1\"}"
+
+    // returns
+    "00000001000000010000000005f5e100"
+
+## Revoke
+
+Creates the payload to revoke units of managed tokens.
+
+**URL** : `v2/payloadCreation/revoke`
+
+**Method** : `POST`
+
+**Auth required** : NO
+
+#### Body Parameters
+
+1. propertyId `Number`. Required
+2. amount `String`. Required
+3. memo `String`. Optional
+
+#### Result
+
+revoke `String`
+
+#### Examples
+
+    curl -X POST "http://localhost:3000/v2/payloadCreation/revoke" -H "accept: */*" -H "Content-Type: application/json" -d "{\"propertyId\":1,\"amount\":\"10\",\"memo\":\"\"}"
+
+    // returns
+    ""
+
+## Send All
+
+Create the payload for a send all transaction.
+
+**URL** : `v2/payloadCreation/sendAll`
+
+**Method** : `POST`
+
+**Auth required** : NO
+
+#### Body Parameters
+
+1. ecosystem `Number`. Required
+
+#### Result
+
+sendAll `String`
+
+#### Examples
+
+    curl -X POST "http://localhost:3000/v2/payloadCreation/sendAll" -H "accept: */*" -H "Content-Type: application/json" -d "{\"ecosystem\":1}"
+
+    // returns
+    "0000000401"
+
+## Simple Send
+
+Create the payload for a simple send transaction.
+
+**URL** : `v2/payloadCreation/simpleSend`
+
+**Method** : `POST`
+
+**Auth required** : NO
+
+#### Body Parameters
+
+1. propertyId `Number`. Required
+2. amount `String`. Required
+
+#### Result
+
+simpleSend `String`
+
+#### Examples
+
+    curl -X POST "http://localhost:3000/v2/payloadCreation/simpleSend" -H "accept: */*" -H "Content-Type: application/json" -d "{\"propertyId\":1,\"amount\":\"10\"}"
+
+    // returns
+    "0000000000000001000000003b9aca00"
+
+## STO
+
+Creates the payload for a send-to-owners transaction
+
+**URL** : `v2/payloadCreation/STO`
+
+**Method** : `POST`
+
+**Auth required** : NO
+
+#### Body Parameters
+
+1. propertyId `Number`. Required
+2. amount `String`. Required
+3. distributionProperty `Number`. Required
+
+#### Result
+
+STO `String`
+
+#### Examples
+
+    curl -X POST "http://localhost:3000/v2/payloadCreation/STO" -H "accept: */*" -H "Content-Type: application/json" -d "{\"propertyId\":1,\"amount\":\"10\",\"distributionProperty\":1}"
+
+    // returns
+    "0000000300000001000000003b9aca0000000001"
+
+## Freeze
+
+Creates the payload for a freeze transaction
+
+**URL** : `v2/payloadCreation/freeze`
+
+**Method** : `POST`
+
+**Auth required** : NO
+
+#### Body Parameters
+
+1. toAddress `String`. Required
+2. propertyId `Number`. Required
+
+#### Result
+
+freeze `String`
+
+#### Examples
+
+    curl -X POST "http://localhost:3000/v2/payloadCreation/freeze" -H "accept: */*" -H "Content-Type: application/json" -d "{\"toAddress\":\"bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c\",\"propertyId\":1}"
+
+    // returns
+    "0000000300000001000000003b9aca0000000001"
+
+## Unfreeze
+
+Creates the payload for an unfreeze transaction
+
+**URL** : `v2/payloadCreation/unfreeze`
+
+**Method** : `POST`
+
+**Auth required** : NO
+
+#### Body Parameters
+
+1. toAddress `String`. Required
+2. propertyId `Number`. Required
+
+#### Result
+
+unfreeze `String`
+
+#### Examples
+
+    curl -X POST "http://localhost:3000/v2/payloadCreation/unfreeze" -H "accept: */*" -H "Content-Type: application/json" -d "{\"toAddress\":\"bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c\",\"propertyId\":1}"
+
+    // returns
+    "0000000300000001000000003b9aca0000000001"
