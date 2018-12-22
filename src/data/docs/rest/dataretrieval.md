@@ -628,10 +628,13 @@ frozenBalance `Object`
 
 #### Examples
 
-    curl -X GET "https://bitcoin.com/v2/dataRetrieval/frozenBalance/bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c/1" -H "accept: */*"
+    curl -X GET "https://bitcoin.com/v2/dataRetrieval/frozenBalance/bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c/206" -H "accept: */*"
 
     // returns
-    [ ]
+    {
+      "frozen": false,
+      "balance": "0.00000000"
+    }
 
 ## Frozen Balance For Address
 
@@ -678,7 +681,7 @@ frozenBalanceForId `Object`
 
 #### Examples
 
-    curl -X GET "https://bitcoin.com/v2/dataRetrieval/frozenBalanceForId/1" -H "accept: _/_"
+    curl -X GET "https://bitcoin.com/v2/dataRetrieval/frozenBalanceForId/206" -H "accept: _/_"
 
     // returns
     [ ]
