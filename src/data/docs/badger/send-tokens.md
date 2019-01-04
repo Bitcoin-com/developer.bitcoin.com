@@ -49,3 +49,7 @@ Send a specified amount of a token to a destination address
           }
         })
       }
+
+[Demo Page](https://badgerwallet.github.io/badger-samples/send-tokens.html)
+
+[Demo Source](https://github.com/BadgerWallet/badger-samples/blob/master/send-tokens.html)

@@ -38,3 +38,7 @@ Send a specified amount of BCH to a destination address
           }
         })
       }
+
+[Demo Page](https://badgerwallet.github.io/badger-samples/send-bch.html)
+
+[Demo Source](https://github.com/BadgerWallet/badger-samples/blob/master/send-bch.html)
