@@ -2,6 +2,7 @@
 
 import * as React from 'react'
 import styled from 'styled-components'
+import { graphql } from 'gatsby'
 
 import DefaultLayout from 'components/layouts/DefaultLayout'
 import HelmetPlus from 'components/HelmetPlus'
@@ -17,8 +18,6 @@ import Code from 'atoms/Code'
 
 import media from 'styles/media'
 import spacing from 'styles/spacing'
-
-import HeroImg from 'images/hero.jpeg'
 
 const HeroLayout = styled.div`
   display: grid;
@@ -71,9 +70,10 @@ const PreviewItem = ({ children, to }: ItemProps) => (
 
 type Props = {
   location: Object,
+  data: { heroImage: any },
 }
 
-const BitboxPage = ({ location }: Props) => (
+const BitboxPage = ({ location, data }: Props) => (
   <DefaultLayout location={location}>
     <HelmetPlus
       title={`Bitbox - developer.bitcoin.com`}
@@ -83,7 +83,7 @@ const BitboxPage = ({ location }: Props) => (
       }
       location={location}
     />
-    <Hero image={HeroImg}>
+    <Hero image={data.heroImage}>
       <HeroLayout>
         <H3 primary>Incredibly powerful. Easy to learn.</H3>
         <H1 background>BITBOX SDK</H1>
@@ -290,3 +290,19 @@ BITBOX.Script.opcodes.OP_BIN2NUM
 )
 
 export default BitboxPage
+
+export const query = graphql`
+  query {
+    heroImage: file(relativePath: { eq: "hero.jpeg" }) {
+      childImageSharp {
+        fluid(
+          duotone: { highlight: "#f9b016", shadow: "#191919" }
+          maxWidth: 2000
+          quality: 85
+        ) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
