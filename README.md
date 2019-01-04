@@ -31,7 +31,7 @@ Make sure that you have the Gatsby CLI program installed:
 
 ```sh
   npm run  build
-  > deploy build folder somewhere.
+  > deploy `/public` folder somewhere.
 ```
 
 ### Primary technologies
