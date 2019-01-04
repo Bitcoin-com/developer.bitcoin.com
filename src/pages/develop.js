@@ -65,9 +65,9 @@ const DevelopPage = ({ location, data }: Props) => (
           cta="View"
         />
         <InfoCard
-          to="/gui"
-          title="GUI"
-          text="BIP44 development wallet. Convert between cashaddr/legacy addresses. Create QR codes for WIF, XPub and XPrivs. Sign and verify messages."
+          to="/badger"
+          title="Badger"
+          text="Your gateway to the Bitcoin Cash (BCH) ecosystem. Integrate your app with blockchain, without the complexity."
           cta="View"
         />
         <InfoCard
@@ -86,6 +86,12 @@ const DevelopPage = ({ location, data }: Props) => (
           to="/slp"
           title="SLP"
           text="Tokenize anything. Everything you need to easily issue, spend or trade your own token."
+          cta="View"
+        />
+        <InfoCard
+          to="/gui"
+          title="GUI"
+          text="BIP44 development wallet. Convert between cashaddr/legacy addresses. Create QR codes for WIF, XPub and XPrivs. Sign and verify messages."
           cta="View"
         />
         <InfoCard
