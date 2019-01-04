@@ -133,22 +133,22 @@ const IndexPage = ({ location, data }: Props) => (
           <HeroButtonLayout>
             <HeroButtonItem>
               <StyledLink to="/bitbox">
-                <Button round>BITBOX</Button>
+                <Button round>BITBOX SDK</Button>
               </StyledLink>
             </HeroButtonItem>
             <HeroButtonItem>
               <StyledLink to="/wormhole">
-                <Button round>Wormhole</Button>
+                <Button round>Wormhole SDK</Button>
               </StyledLink>
             </HeroButtonItem>
             <HeroButtonItem>
               <StyledLink to="/slp">
-                <Button round>SLP</Button>
+                <Button round>SLP SDK</Button>
               </StyledLink>
             </HeroButtonItem>
             <HeroButtonItem>
               <StyledLink to="/badger">
-                <Button round>Badger</Button>
+                <Button round>Badger SDK</Button>
               </StyledLink>
             </HeroButtonItem>
           </HeroButtonLayout>
