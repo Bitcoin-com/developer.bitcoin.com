@@ -16,8 +16,6 @@ import H1 from 'atoms/H1'
 import media from 'styles/media'
 import spacing from 'styles/spacing'
 
-import HeroImg from 'images/develop-bitcoin-cash-header.jpg'
-
 const HeroLayout = styled.div`
   display: grid;
   grid-gap: ${spacing.tiny};

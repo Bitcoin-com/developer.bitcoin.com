@@ -5,7 +5,6 @@ import styled from 'styled-components'
 import Img from 'gatsby-image'
 
 import spacing from 'styles/spacing'
-import media from 'styles/media'
 import Container from 'components/Container'
 
 const Main = styled.div`

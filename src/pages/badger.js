@@ -14,7 +14,6 @@ import Text from 'atoms/Text'
 import H3 from 'atoms/H3'
 import H1 from 'atoms/H1'
 import Button from 'atoms/Button'
-import Code from 'atoms/Code'
 
 import media from 'styles/media'
 import spacing from 'styles/spacing'
