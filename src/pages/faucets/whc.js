@@ -2,6 +2,7 @@
 
 import * as React from 'react'
 import styled from 'styled-components'
+import { graphql } from 'gatsby'
 
 import DefaultLayout from 'components/layouts/DefaultLayout'
 import Hero from 'components/Hero'
@@ -23,9 +24,10 @@ const HeroLayout = styled.div`
 
 type Props = {
   location: Object,
+  data: { heroImage: any },
 }
 
-const Faucet = ({ location }: Props) => (
+const Faucet = ({ location, data }: Props) => (
   <DefaultLayout location={location}>
     <HelmetPlus
       title={`Testnet WHC Faucet - developer.bitcoin.com`}
@@ -35,7 +37,7 @@ const Faucet = ({ location }: Props) => (
       }
       location={location}
     />
-    <Hero image={HeroImg}>
+    <Hero image={data.heroImage}>
       <HeroLayout>
         <H1 background>Testnet WHC Faucet</H1>
         <H3 primary>For developers</H3>
@@ -48,3 +50,19 @@ const Faucet = ({ location }: Props) => (
 )
 
 export default Faucet
+
+export const query = graphql`
+  query {
+    heroImage: file(relativePath: { eq: "learn-bitcoin-cash-header.jpg" }) {
+      childImageSharp {
+        fluid(
+          duotone: { highlight: "#f9b016", shadow: "#191919" }
+          maxWidth: 2000
+          quality: 85
+        ) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`

@@ -2,6 +2,7 @@
 
 import React from 'react'
 import styled from 'styled-components'
+import { graphql } from 'gatsby'
 
 import DefaultLayout from 'components/layouts/DefaultLayout'
 import Hero from 'components/Hero'
@@ -34,9 +35,10 @@ const CardLayout = styled.div`
 
 type Props = {
   location: Object,
+  data: { heroImage: any },
 }
 
-const DevelopPage = ({ location }: Props) => (
+const DevelopPage = ({ location, data }: Props) => (
   <DefaultLayout location={location}>
     <HelmetPlus
       title={`Develop - developer.bitcoin.com`}
@@ -48,7 +50,7 @@ const DevelopPage = ({ location }: Props) => (
       }
       location={location}
     />
-    <Hero image={HeroImg}>
+    <Hero image={data.heroImage}>
       <HeroLayout>
         <H1 background>Develop on Bitcoin Cash</H1>
         <H3 primary>Help bring financial sovereignty to the world</H3>
@@ -108,3 +110,19 @@ const DevelopPage = ({ location }: Props) => (
 )
 
 export default DevelopPage
+
+export const query = graphql`
+  query {
+    heroImage: file(relativePath: { eq: "develop-bitcoin-cash-header.jpg" }) {
+      childImageSharp {
+        fluid(
+          duotone: { highlight: "#f9b016", shadow: "#191919" }
+          maxWidth: 2000
+          quality: 85
+        ) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`

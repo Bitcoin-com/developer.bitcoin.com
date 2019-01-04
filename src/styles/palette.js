@@ -1,7 +1,7 @@
 // @flow
 
 const palette = {
-  sun: '#fab915',
+  sun: '#f9b016',
   oldLace: '#fdf6e3',
   emerald: '#4cca47',
   buddhaGold: '#D79C05',

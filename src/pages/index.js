@@ -18,7 +18,6 @@ import StyledLink, { SmartLink } from 'atoms/StyledLink'
 import media from 'styles/media'
 import spacing from 'styles/spacing'
 
-import HeroImg from 'images/hero2.jpg'
 import TechBannerImg from 'images/tech-banner.jpg'
 import LearnThumbImg from 'images/learn-thumb.jpg'
 import DevelopThumbImg from 'images/develop-thumb.jpg'
@@ -112,11 +111,12 @@ const BubbleImg = styled.img`
 
 type Props = {
   location: Object,
+  data: { heroImage: any },
 }
 
-const IndexPage = ({ location }: Props) => (
+const IndexPage = ({ location, data }: Props) => (
   <DefaultLayout location={location}>
-    <Hero image={HeroImg}>
+    <Hero image={data.heroImage}>
       <HeroLayout>
         <HeroBlurbLayout>
           <H3 primary> Bitcoin.com Developer Platform</H3>
@@ -127,17 +127,22 @@ const IndexPage = ({ location }: Props) => (
           <HeroButtonLayout>
             <HeroButtonItem>
               <StyledLink to="/bitbox">
-                <Button round>BITBOX SDK</Button>
+                <Button round>BITBOX</Button>
               </StyledLink>
             </HeroButtonItem>
             <HeroButtonItem>
               <StyledLink to="/wormhole">
-                <Button round>Wormhole SDK</Button>
+                <Button round>Wormhole</Button>
               </StyledLink>
             </HeroButtonItem>
             <HeroButtonItem>
               <StyledLink to="/slp">
-                <Button round>SLP SDK</Button>
+                <Button round>SLP</Button>
+              </StyledLink>
+            </HeroButtonItem>
+            <HeroButtonItem>
+              <StyledLink to="/badger">
+                <Button round>Badger</Button>
               </StyledLink>
             </HeroButtonItem>
           </HeroButtonLayout>
@@ -255,3 +260,19 @@ const IndexPage = ({ location }: Props) => (
 )
 
 export default IndexPage
+
+export const query = graphql`
+  query {
+    heroImage: file(relativePath: { eq: "hero2.jpg" }) {
+      childImageSharp {
+        fluid(
+          duotone: { highlight: "#f9b016", shadow: "#191919" }
+          maxWidth: 2000
+          quality: 85
+        ) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`

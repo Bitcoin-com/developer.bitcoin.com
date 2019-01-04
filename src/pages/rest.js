@@ -2,6 +2,7 @@
 
 import * as React from 'react'
 import styled from 'styled-components'
+import { graphql } from 'gatsby'
 
 import DefaultLayout from 'components/layouts/DefaultLayout'
 import Hero from 'components/Hero'
@@ -16,8 +17,6 @@ import StyledLink from 'atoms/StyledLink'
 
 import media from 'styles/media'
 import spacing from 'styles/spacing'
-
-import HeroImg from 'images/hero.jpeg'
 
 const HeroLayout = styled.div`
   display: grid;
@@ -72,9 +71,10 @@ const PreviewItem = ({ children, to, full }: ItemProps) => (
 
 type Props = {
   location: Object,
+  data: { heroImage: any },
 }
 
-const RestPage = ({ location }: Props) => (
+const RestPage = ({ location, data }: Props) => (
   <DefaultLayout location={location}>
     <HelmetPlus
       title={`REST - developer.bitcoin.com`}
@@ -84,7 +84,7 @@ const RestPage = ({ location }: Props) => (
       }
       location={location}
     />
-    <Hero image={HeroImg}>
+    <Hero image={data.heroImage}>
       <HeroLayout>
         <H3 primary>BCH RPC over HTTP</H3>
         <H1 background>REST</H1>
@@ -130,3 +130,19 @@ const RestPage = ({ location }: Props) => (
 )
 
 export default RestPage
+
+export const query = graphql`
+  query {
+    heroImage: file(relativePath: { eq: "hero.jpeg" }) {
+      childImageSharp {
+        fluid(
+          duotone: { highlight: "#f9b016", shadow: "#191919" }
+          maxWidth: 2000
+          quality: 85
+        ) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
