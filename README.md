@@ -24,7 +24,7 @@ Make sure that you have the Gatsby CLI program installed:
 
 ```sh
   npm install
-  npm run develop
+  npm start
 ```
 
 ## Build / deploy
