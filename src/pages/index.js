@@ -3,6 +3,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import Img from 'gatsby-image'
+
 import DefaultLayout from 'components/layouts/DefaultLayout'
 import Hero from 'components/Hero'
 import Container from 'components/Container'
@@ -17,10 +19,6 @@ import StyledLink, { SmartLink } from 'atoms/StyledLink'
 
 import media from 'styles/media'
 import spacing from 'styles/spacing'
-
-import TechBannerImg from 'images/tech-banner.jpg'
-import LearnThumbImg from 'images/learn-thumb.jpg'
-import DevelopThumbImg from 'images/develop-thumb.jpg'
 
 import { FaCube, FaCogs, FaCreditCard, FaCartPlus } from 'react-icons/fa'
 
@@ -102,16 +100,23 @@ const StartedInfo = styled.div`
   grid-gap: ${spacing.medium};
 `
 
-const BubbleImg = styled.img`
+const BubbleImg = styled.div`
   width: 150px;
   height: 150px;
   border-radius: 75px;
   border: 3px solid ${props => props.theme.primary};
+  position: relative;
+  overflow: hidden;
 `
 
 type Props = {
   location: Object,
-  data: { heroImage: any },
+  data: {
+    heroImage: any,
+    developImage: any,
+    learnImage: any,
+    bannerImage: any,
+  },
 }
 
 const IndexPage = ({ location, data }: Props) => (
@@ -223,14 +228,25 @@ const IndexPage = ({ location, data }: Props) => (
         </Feature>
       </FeaturesLayout>
     </Container>
-    <Hero image={TechBannerImg}>
+    <Hero image={data.bannerImage}>
       <H2 background isTitle>
         Get Started Today!
       </H2>
       <GetStartedLayout>
         <StartedInfo>
           <H3>Learn</H3>
-          <BubbleImg src={LearnThumbImg} />
+          <BubbleImg>
+            <Img
+              style={{
+                position: 'absolute',
+                top: 0,
+                bottom: 0,
+                left: 0,
+                right: 0,
+              }}
+              fluid={data.learnImage.childImageSharp.fluid}
+            />
+          </BubbleImg>
           <Text>
             Build the foundation of knowledge needed to create world changing
             apps. Tutorials, blog posts, video streams and code snippets to help
@@ -242,7 +258,9 @@ const IndexPage = ({ location, data }: Props) => (
         </StartedInfo>
         <StartedInfo>
           <H3>Develop</H3>
-          <BubbleImg src={DevelopThumbImg} />
+          <BubbleImg>
+            <Img fluid={data.developImage.childImageSharp.fluid} />
+          </BubbleImg>
           <Text>
             With the power of Bitcoin Cash, the ease of BITBOX and the
             Bitcoin.com developer platform, you’ll create your most innovative
@@ -270,6 +288,31 @@ export const query = graphql`
           maxWidth: 2000
           quality: 85
         ) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    bannerImage: file(relativePath: { eq: "tech-banner.jpg" }) {
+      childImageSharp {
+        fluid(
+          duotone: { highlight: "#f9b016", shadow: "#191919" }
+          maxWidth: 2000
+          quality: 85
+        ) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    developImage: file(relativePath: { eq: "develop-thumb.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 200, quality: 85) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    learnImage: file(relativePath: { eq: "learn-thumb.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 200, quality: 85) {
           ...GatsbyImageSharpFluid
         }
       }
