@@ -46,6 +46,7 @@ const developBaseUrls = [
   '/rest',
   '/slp',
   '/faucets',
+  '/badger',
 ]
 const learnBaseUrls = [
   '/learn',

@@ -6,7 +6,6 @@
 
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
-// const { fmImagesToRelative } = require('gatsby-remark-relative-images');
 
 // Allow webpack to work with absolute paths
 exports.onCreateWebpackConfig = ({
@@ -25,7 +24,6 @@ exports.onCreateWebpackConfig = ({
 
 // Generate GraphQL Schema
 exports.onCreateNode = ({ node, getNode, actions }) => {
-  // fmImagesToRelative(node);
   const { createNodeField } = actions
 
   // Deal with markdown files

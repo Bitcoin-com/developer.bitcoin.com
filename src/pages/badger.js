@@ -5,15 +5,15 @@ import styled from 'styled-components'
 import { graphql } from 'gatsby'
 
 import DefaultLayout from 'components/layouts/DefaultLayout'
+import HelmetPlus from 'components/HelmetPlus'
 import Hero from 'components/Hero'
 import Container from 'components/Container'
-import HelmetPlus from 'components/HelmetPlus'
 
+import StyledLink, { SmartLink } from 'atoms/StyledLink'
 import Text from 'atoms/Text'
 import H3 from 'atoms/H3'
 import H1 from 'atoms/H1'
 import Button from 'atoms/Button'
-import StyledLink from 'atoms/StyledLink'
 
 import media from 'styles/media'
 import spacing from 'styles/spacing'
@@ -41,25 +41,23 @@ const PreviewLayout = styled.div`
   `};
 `
 
-// const PreviewItem = styled.div`
 const ItemLayout = styled.div`
   display: grid;
   grid-gap: ${spacing.tiny};
   grid-auto-rows: min-content;
   grid-column: span 2;
   ${media.medium`
-    grid-column: ${props => (props.full ? 'span 2' : 'auto')};
+    grid-column: 'span 2';
   `};
 `
 
 type ItemProps = {
   children: React.Node,
   to?: string,
-  full?: boolean,
 }
 
-const PreviewItem = ({ children, to, full }: ItemProps) => (
-  <ItemLayout full={full}>
+const PreviewItem = ({ children, to }: ItemProps) => (
+  <ItemLayout>
     {children}
     {to && (
       <StyledLink to={to}>
@@ -74,23 +72,26 @@ type Props = {
   data: { heroImage: any },
 }
 
-const RestPage = ({ location, data }: Props) => (
+const BadgerPage = ({ location, data }: Props) => (
   <DefaultLayout location={location}>
     <HelmetPlus
-      title={`REST - developer.bitcoin.com`}
-      description={'REST based bitcoin.com developer platform and resources'}
+      title={`Badger - developer.bitcoin.com`}
+      description={
+        'Badger documentation, your gateway to the world of Bitcoin Cash (BCH) applications'
+      }
       keywords={
-        'REST, developer tools, bitcoin, bitcoin cash, BCH, wormhole, sdk, api'
+        'bagder, bitbox, developer tools, bitcoin, bitcoin cash, BCH, wormhole, sdk, api'
       }
       location={location}
     />
     <Hero image={data.heroImage}>
       <HeroLayout>
-        <H3 primary>BCH RPC over HTTP</H3>
-        <H1 background>REST</H1>
-        <H3 background>REST layer for Bitcoin.com Cloud</H3>
+        <H3 primary>New Money.</H3>
+        <H1 background>Badger SDK</H1>
+        <H3 background>Your gateway to the world of Bitcoin Cash (BCH) apps</H3>
         <InstallCTA>
-          <StyledLink to="/rest/docs/getting-started">
+          <SmartLink to="https://badger.bitcoin.com">Install Badger</SmartLink>
+          <StyledLink to="/badger/docs/getting-started">
             <Button round>Start Here</Button>
           </StyledLink>
         </InstallCTA>
@@ -98,30 +99,19 @@ const RestPage = ({ location, data }: Props) => (
     </Hero>
     <Container>
       <PreviewLayout>
-        <PreviewItem full to="/rest/docs/getting-started">
-          <H3>BCH RPC over HTTP</H3>
+        <PreviewItem>
+          <H3>Powerful - TODO</H3>
           <Text>
-            100% of the Bitcoin Cash JSON RPC available over HTTP with proper
-            REST semantics. BITBOX SDK integration lets you GET and POST
-            requests to the BCH network with no further setup. Or create your
-            own client which to speak to the blockchain over RESto the BCH
-            network with no further setup. Or create your own client which to
-            speak to the blockchain over REST.
+            BITBOX is a fully featured javascript framework which offers
+            Mnemonics, HDNodes, ECPairs, Crypto, Addresses, Transactions and
+            much more. It’s powerful and intuitive APIs will have you creating
+            world class applications.
           </Text>
-        </PreviewItem>
-        <PreviewItem to="/rest/docs/getting-started">
-          <H3>Proper REST Semantics</H3>
           <Text>
-            Instead of POSTing directly to bitcoind we've wrapped the BCH JSON
-            RPC in REST semantics so you GET when reading and POST when writing
-            from/to the chain.
-          </Text>
-        </PreviewItem>
-        <PreviewItem to="/gui/docs/getting-started">
-          <H3>Addresses, Blocks and Transactions</H3>
-          <Text>
-            Get details such as balance, utxo and unconfirmed transactions for
-            an address. Get details about a block or transaction.
+            Expressive and intuitive, BITBOX is built with the latest javascript
+            technologies so developers feel right at home. Create amazing and
+            powerful Bitcoin Cash applications on the client or server with full
+            mainnet and testnet support.
           </Text>
         </PreviewItem>
       </PreviewLayout>
@@ -129,7 +119,7 @@ const RestPage = ({ location, data }: Props) => (
   </DefaultLayout>
 )
 
-export default RestPage
+export default BadgerPage
 
 export const query = graphql`
   query {

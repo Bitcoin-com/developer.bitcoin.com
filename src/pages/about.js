@@ -2,6 +2,7 @@
 
 import * as React from 'react'
 import styled from 'styled-components'
+import { graphql } from 'gatsby'
 import { FaCube } from 'react-icons/fa'
 
 import DefaultLayout from 'components/layouts/DefaultLayout'
@@ -17,8 +18,6 @@ import { SmartLink } from 'atoms/StyledLink'
 
 import media from 'styles/media'
 import spacing from 'styles/spacing'
-
-import HeroImg from 'images/hero.jpeg'
 
 const HeroLayout = styled.div`
   display: grid;
@@ -46,9 +45,10 @@ const InstallCTA = styled.div`
 
 type Props = {
   location: Object,
+  data: { heroImage: any },
 }
 
-const About = ({ location }: Props) => (
+const About = ({ location, data }: Props) => (
   <DefaultLayout location={location}>
     <HelmetPlus
       title={`About  - developer.bitcoin.com`}
@@ -60,7 +60,7 @@ const About = ({ location }: Props) => (
       }
       location={location}
     />
-    <Hero image={HeroImg}>
+    <Hero image={data.heroImage}>
       <HeroLayout>
         <H3 primary>Bitcoin.com's developer platform</H3>
         <H1 background>About</H1>
@@ -118,3 +118,19 @@ const About = ({ location }: Props) => (
 )
 
 export default About
+
+export const query = graphql`
+  query {
+    heroImage: file(relativePath: { eq: "hero.jpeg" }) {
+      childImageSharp {
+        fluid(
+          duotone: { highlight: "#f9b016", shadow: "#191919" }
+          maxWidth: 2000
+          quality: 85
+        ) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
