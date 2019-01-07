@@ -90,6 +90,12 @@ const About = ({ location, data }: Props) => (
           <Code language="bash">npm install -g bitbox-sdk</Code>
         </InstallCTA>
         <Item>
+          <H3>Badger</H3>
+          <Text>
+            Your gateway to the world of Bitcoin Cash (BCH) applications.
+          </Text>
+        </Item>
+        <Item>
           <H3>REST</H3>
           <Text>
             The BCH JSON RPC over HTTP including a fully documented and
