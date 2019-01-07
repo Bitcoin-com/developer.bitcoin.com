@@ -26,7 +26,6 @@ const sizeMap = {
 
 export const textBase = css`
   position: relative;
-  vertical-align: middle;
 
   /* Size */
   font-size: ${sizeMap['small']['normal'][0]};
