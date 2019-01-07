@@ -70,14 +70,14 @@ const Insights = ({ location, data }: Props) => {
       <Hero image={data.heroImage}>
         <HeroLayout>
           <StyledLink to="/learn">
-            <H3 centerVertical>
+            <H3 centerVertical thin>
               {' '}
               <FaAngleLeft />
               Learn
             </H3>
           </StyledLink>
           <H1 background>Insights</H1>
-          <H3 background>
+          <H3 background thin>
             Learn from developers who have shipped successful apps.
           </H3>
         </HeroLayout>

@@ -59,14 +59,16 @@ const Learn = ({ location, data }: Props) => {
       <Hero image={data.heroImage}>
         <HeroLayout>
           <StyledLink to="/learn">
-            <H3 centerVertical>
+            <H3 centerVertical thin>
               {' '}
               <FaAngleLeft />
               Learn
             </H3>
           </StyledLink>
           <H1 background>Mastering Bitcoin Cash</H1>
-          <H3 background>Build a foundation of knowledge</H3>
+          <H3 background thin>
+            Build a foundation of knowledge
+          </H3>
         </HeroLayout>
       </Hero>
       <Container>

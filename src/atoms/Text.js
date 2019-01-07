@@ -90,7 +90,7 @@ export const textBase = css`
   ${props =>
     props.secondary &&
     css`
-      color: ${props => props.theme.secondary} !important;
+      color: ${props => props.theme.primary600} !important;
     `}
   ${props =>
     props.color &&

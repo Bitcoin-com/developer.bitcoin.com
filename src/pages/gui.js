@@ -83,9 +83,11 @@ const GuiPage = ({ location, data }: Props) => (
     />
     <Hero image={data.heroImage}>
       <HeroLayout>
-        <H3 primary>Your Personal Blockchain</H3>
+        <H3 primary thin>
+          Your Personal Blockchain
+        </H3>
         <H1 background>GUI</H1>
-        <H3 background>
+        <H3 background thin>
           Full BCH blockchain and BIP44 wallet for use during development.
         </H3>
         <InstallCTA>

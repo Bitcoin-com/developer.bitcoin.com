@@ -86,9 +86,13 @@ const WormholePage = ({ location, data }: Props) => (
     />
     <Hero image={data.heroImage}>
       <HeroLayout>
-        <H3 primary>Tokenize anything</H3>
+        <H3 primary thin>
+          Tokenize anything
+        </H3>
         <H1 background>SLP SDK</H1>
-        <H3 background>Secure Tokens on Bitcoin Cash</H3>
+        <H3 background thin>
+          Secure Tokens on Bitcoin Cash
+        </H3>
         <InstallCTA>
           <Text background>INSTALL VIA NPM</Text>
           <Code language="bash">{`npm install slp-sdk --global`}</Code>

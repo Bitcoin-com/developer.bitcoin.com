@@ -51,7 +51,9 @@ const DevelopPage = ({ location, data }: Props) => (
     <Hero image={data.heroImage}>
       <HeroLayout>
         <H1 background>Develop on Bitcoin Cash</H1>
-        <H3 primary>Help bring financial sovereignty to the world</H3>
+        <H3 primary thin>
+          Help bring financial sovereignty to the world
+        </H3>
       </HeroLayout>
     </Hero>
     <Container>

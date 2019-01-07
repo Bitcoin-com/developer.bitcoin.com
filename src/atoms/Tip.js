@@ -24,7 +24,7 @@ const Main = styled.div`
   ${props =>
     props.nature === 'note' &&
     css`
-      border-color: ${props => props.theme.secondary};
+      border-color: ${props => props.theme.primary600};
     `};
 `
 

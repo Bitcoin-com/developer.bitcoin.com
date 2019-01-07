@@ -38,7 +38,9 @@ const Faucet = ({ location, data }: Props) => (
     <Hero image={data.heroImage}>
       <HeroLayout>
         <H1 background>Testnet WHC Faucet</H1>
-        <H3 primary>For developers</H3>
+        <H3 primary thin>
+          For developers
+        </H3>
       </HeroLayout>
     </Hero>
     <Container>

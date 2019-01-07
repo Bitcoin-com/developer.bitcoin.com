@@ -86,9 +86,13 @@ const BadgerPage = ({ location, data }: Props) => (
     />
     <Hero image={data.heroImage}>
       <HeroLayout>
-        <H3 primary>New Money.</H3>
+        <H3 primary thin>
+          The easiest way to use BCH apps
+        </H3>
         <H1 background>Badger SDK</H1>
-        <H3 background>Your gateway to the world of Bitcoin Cash (BCH) apps</H3>
+        <H3 background thin>
+          Your gateway to the world of Bitcoin Cash (BCH) apps
+        </H3>
         <InstallCTA>
           <SmartLink to="https://badger.bitcoin.com">Install Badger</SmartLink>
           <StyledLink to="/badger/docs/getting-started">

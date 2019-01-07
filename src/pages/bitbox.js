@@ -85,9 +85,11 @@ const BitboxPage = ({ location, data }: Props) => (
     />
     <Hero image={data.heroImage}>
       <HeroLayout>
-        <H3 primary>Incredibly powerful. Easy to learn.</H3>
+        <H3 primary thin>
+          Incredibly powerful. Easy to learn.
+        </H3>
         <H1 background>BITBOX SDK</H1>
-        <H3 background>
+        <H3 background thin>
           Powerful and intuitive APIs which will have you creating world class
           applications
         </H3>

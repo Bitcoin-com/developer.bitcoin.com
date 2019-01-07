@@ -50,7 +50,9 @@ const Faucet = ({ location, data }: Props) => (
     <Hero image={data.heroImage}>
       <HeroLayout>
         <H1 background>Faucets</H1>
-        <H3 primary>Testnet BCH and WHC for developers</H3>
+        <H3 primary thin>
+          Testnet BCH and WHC for developers
+        </H3>
       </HeroLayout>
     </Hero>
     <Container>
