@@ -127,7 +127,7 @@ export const query = graphql`
         }
       }
     }
-    heroImage: file(relativePath: { eq: "learn-bitcoin-cash-header.jpg" }) {
+    heroImage: file(relativePath: { eq: "hero-learn.jpg" }) {
       childImageSharp {
         fluid(
           duotone: { highlight: "#f9b016", shadow: "#191919" }

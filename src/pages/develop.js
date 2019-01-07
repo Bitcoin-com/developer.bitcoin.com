@@ -117,7 +117,7 @@ export default DevelopPage
 
 export const query = graphql`
   query {
-    heroImage: file(relativePath: { eq: "develop-bitcoin-cash-header.jpg" }) {
+    heroImage: file(relativePath: { eq: "hero-develop.jpg" }) {
       childImageSharp {
         fluid(
           duotone: { highlight: "#f9b016", shadow: "#191919" }
