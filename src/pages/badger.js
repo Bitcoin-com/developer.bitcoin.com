@@ -100,18 +100,11 @@ const BadgerPage = ({ location, data }: Props) => (
     <Container>
       <PreviewLayout>
         <PreviewItem>
-          <H3>Powerful - TODO</H3>
+          <H3>Badger SDK</H3>
           <Text>
-            BITBOX is a fully featured javascript framework which offers
-            Mnemonics, HDNodes, ECPairs, Crypto, Addresses, Transactions and
-            much more. It’s powerful and intuitive APIs will have you creating
-            world class applications.
-          </Text>
-          <Text>
-            Expressive and intuitive, BITBOX is built with the latest javascript
-            technologies so developers feel right at home. Create amazing and
-            powerful Bitcoin Cash applications on the client or server with full
-            mainnet and testnet support.
+            Badger Wallet injects an API into pages a user visits to allow apps
+            to request a users's permission to send Bitcoin Cash, send tokens,
+            or authenticate with CashID.
           </Text>
         </PreviewItem>
       </PreviewLayout>

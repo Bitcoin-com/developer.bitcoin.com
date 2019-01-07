@@ -46,6 +46,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       const isSlp = filePath.includes('/slp/')
       const isGui = filePath.includes('/gui/')
       const isRest = filePath.includes('/rest/')
+      const isBadger = filePath.includes('/badger/')
 
       if (isBitbox) {
         slug = `/bitbox/docs/${filename}`
@@ -66,6 +67,10 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       if (isRest) {
         slug = `/rest/docs/${filename}`
         product = 'rest'
+      }
+      if (isBadger) {
+        slug = `/badger/docs/${filename}`
+        product = 'badger'
       }
 
       createNodeField({
