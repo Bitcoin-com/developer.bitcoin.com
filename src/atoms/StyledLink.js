@@ -13,7 +13,7 @@ const StyledLink = styled(Link)`
       ? props.theme.foreground
       : props.theme.primary};
   &:hover {
-    color: ${props => props.theme.secondary};
+    color: ${props => props.theme.primary600};
   }
 `
 const StyledA = props => <StyledLink as="a" {...props} />

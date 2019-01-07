@@ -86,9 +86,13 @@ const RestPage = ({ location, data }: Props) => (
     />
     <Hero image={data.heroImage}>
       <HeroLayout>
-        <H3 primary>BCH RPC over HTTP</H3>
+        <H3 primary thin>
+          BCH RPC over HTTP
+        </H3>
         <H1 background>REST</H1>
-        <H3 background>REST layer for Bitcoin.com Cloud</H3>
+        <H3 background thin>
+          REST layer for Bitcoin.com Cloud
+        </H3>
         <InstallCTA>
           <StyledLink to="/rest/docs/getting-started">
             <Button round>Start Here</Button>

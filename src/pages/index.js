@@ -125,11 +125,16 @@ const IndexPage = ({ location, data }: Props) => (
     <Hero image={data.heroImage}>
       <HeroLayout>
         <HeroBlurbLayout>
-          <H3 primary> Bitcoin.com Developer Platform</H3>
+          <H3 primary thin>
+            {' '}
+            Bitcoin.com Developer Platform
+          </H3>
           <H1 background>
             Change the world with <br /> Bitcoin Cash
           </H1>
-          <H3 background>Developer Tooling, Cloud, and Market</H3>
+          <H3 background thin>
+            Developer Tooling, Cloud, and Market
+          </H3>
           <HeroButtonLayout>
             <HeroButtonItem>
               <StyledLink to="/bitbox">
@@ -182,7 +187,7 @@ const IndexPage = ({ location, data }: Props) => (
       </WhyDevelopLayout>
       <FeaturesLayout>
         <Feature>
-          <H3>
+          <H3 centerVertical>
             <FaCogs />
             &nbsp; Build on BCH
           </H3>
@@ -193,7 +198,7 @@ const IndexPage = ({ location, data }: Props) => (
           </Text>
         </Feature>
         <Feature>
-          <H3>
+          <H3 centerVertical>
             <FaCreditCard />
             &nbsp; Create Transactions
           </H3>
@@ -206,7 +211,7 @@ const IndexPage = ({ location, data }: Props) => (
           </Text>
         </Feature>
         <Feature>
-          <H3>
+          <H3 centerVertical>
             <FaCartPlus />
             &nbsp; BCommerce Solutions
           </H3>
@@ -217,7 +222,7 @@ const IndexPage = ({ location, data }: Props) => (
           </Text>
         </Feature>
         <Feature>
-          <H3>
+          <H3 centerVertical>
             <FaCube />
             &nbsp; On chain applications
           </H3>

@@ -71,14 +71,14 @@ const Tutorials = ({ location, data }: Props) => {
       <Hero image={data.heroImage}>
         <HeroLayout>
           <StyledLink to="/learn">
-            <H3 centerVertical>
+            <H3 centerVertical thin>
               {' '}
               <FaAngleLeft />
               Learn
             </H3>
           </StyledLink>
           <H1 background>Tutorials</H1>
-          <H3 background>
+          <H3 background thin>
             Real world examples to learn from and bootstrap your next Bitcoin
             Cash project
           </H3>
@@ -128,7 +128,7 @@ export const query = graphql`
         }
       }
     }
-    heroImage: file(relativePath: { eq: "learn-bitcoin-cash-header.jpg" }) {
+    heroImage: file(relativePath: { eq: "hero-learn.jpg" }) {
       childImageSharp {
         fluid(
           duotone: { highlight: "#f9b016", shadow: "#191919" }

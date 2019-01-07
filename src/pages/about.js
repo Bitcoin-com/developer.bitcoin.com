@@ -62,9 +62,13 @@ const About = ({ location, data }: Props) => (
     />
     <Hero image={data.heroImage}>
       <HeroLayout>
-        <H3 primary>Bitcoin.com's developer platform</H3>
+        <H3 primary thin>
+          Bitcoin.com's developer platform
+        </H3>
         <H1 background>About</H1>
-        <H3 background>Developer Tooling, Resources, Cloud, and Market</H3>
+        <H3 background thin>
+          Developer Tooling, Resources, Cloud, and Market
+        </H3>
       </HeroLayout>
     </Hero>
     <Container>
@@ -89,6 +93,12 @@ const About = ({ location, data }: Props) => (
           </SmartLink>
           <Code language="bash">npm install -g bitbox-sdk</Code>
         </InstallCTA>
+        <Item>
+          <H3>Badger</H3>
+          <Text>
+            Your gateway to the world of Bitcoin Cash (BCH) applications.
+          </Text>
+        </Item>
         <Item>
           <H3>REST</H3>
           <Text>

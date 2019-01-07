@@ -16,7 +16,7 @@ const Button = styled.button`
   width: fit-content;
   font-size: 16px;
   &:hover {
-    background-color: ${props => props.theme.secondary};
+    background-color: ${props => props.theme.primary600};
   }
 `
 

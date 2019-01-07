@@ -52,7 +52,9 @@ const Learn = ({ location, data }: Props) => (
     <Hero image={data.heroImage}>
       <HeroLayout>
         <H1 background>Learn</H1>
-        <H3 primary>Go from hobbyist to professional step-by-step</H3>
+        <H3 primary thin>
+          Go from hobbyist to professional step-by-step
+        </H3>
       </HeroLayout>
     </Hero>
     <Container>
@@ -89,7 +91,7 @@ export default Learn
 
 export const query = graphql`
   query {
-    heroImage: file(relativePath: { eq: "learn-bitcoin-cash-header.jpg" }) {
+    heroImage: file(relativePath: { eq: "hero-learn.jpg" }) {
       childImageSharp {
         fluid(
           duotone: { highlight: "#f9b016", shadow: "#191919" }

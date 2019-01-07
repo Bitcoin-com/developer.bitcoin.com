@@ -26,7 +26,6 @@ const sizeMap = {
 
 export const textBase = css`
   position: relative;
-  vertical-align: middle;
 
   /* Size */
   font-size: ${sizeMap['small']['normal'][0]};
@@ -91,7 +90,7 @@ export const textBase = css`
   ${props =>
     props.secondary &&
     css`
-      color: ${props => props.theme.secondary} !important;
+      color: ${props => props.theme.primary600} !important;
     `}
   ${props =>
     props.color &&

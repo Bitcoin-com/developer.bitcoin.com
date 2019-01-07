@@ -87,9 +87,13 @@ const WormholePage = ({ location, data }: Props) => (
     />
     <Hero image={data.heroImage}>
       <HeroLayout>
-        <H3 primary>Experience a paradigm shift</H3>
+        <H3 primary thin>
+          Experience a paradigm shift
+        </H3>
         <H1 background>Wormhole SDK</H1>
-        <H3 background>Tokens and Crowdsales on Bitcoin Cash</H3>
+        <H3 background thin>
+          Tokens and Crowdsales on Bitcoin Cash
+        </H3>
         <InstallCTA>
           <Text background>INSTALL VIA NPM</Text>
           <Code language="bash">{`npm install wormhole-sdk --global`}</Code>

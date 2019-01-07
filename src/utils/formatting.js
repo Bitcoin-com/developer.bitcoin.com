@@ -6,6 +6,7 @@ const titleMap = {
   rest: 'REST',
   gui: 'GUI',
   slp: 'SLP',
+  badger: 'Badger',
   other: 'Other',
 }
 export const getTitleDisplay = (product: string) => {

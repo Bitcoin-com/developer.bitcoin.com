@@ -38,7 +38,9 @@ const Faucet = ({ location, data }: Props) => (
     <Hero image={data.heroImage}>
       <HeroLayout>
         <H1 background>Testnet WHC Faucet</H1>
-        <H3 primary>For developers</H3>
+        <H3 primary thin>
+          For developers
+        </H3>
       </HeroLayout>
     </Hero>
     <Container>
@@ -51,7 +53,7 @@ export default Faucet
 
 export const query = graphql`
   query {
-    heroImage: file(relativePath: { eq: "learn-bitcoin-cash-header.jpg" }) {
+    heroImage: file(relativePath: { eq: "hero-learn.jpg" }) {
       childImageSharp {
         fluid(
           duotone: { highlight: "#f9b016", shadow: "#191919" }

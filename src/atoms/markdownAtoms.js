@@ -37,7 +37,7 @@ const TextMd = styled(Text)`
 `
 
 const UlMd = styled(Ul)`
-  margin-top: ${spacing.medium};
+  margin-top: ${spacing.tiny};
   ${TextMd} {
     margin-top: 0;
   }

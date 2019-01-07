@@ -59,20 +59,22 @@ const Learn = ({ location, data }: Props) => {
       <Hero image={data.heroImage}>
         <HeroLayout>
           <StyledLink to="/learn">
-            <H3 centerVertical>
+            <H3 centerVertical thin>
               {' '}
               <FaAngleLeft />
               Learn
             </H3>
           </StyledLink>
           <H1 background>Mastering Bitcoin Cash</H1>
-          <H3 background>Build a foundation of knowledge</H3>
+          <H3 background thin>
+            Build a foundation of knowledge
+          </H3>
         </HeroLayout>
       </Hero>
       <Container>
         <PageLayout>
           <MasteringBitcoinCashAttribution />
-          <H2>Chapters</H2>
+          <H2 thin>Chapters</H2>
           <ChapterLayout>
             {chapters.map(chapter => (
               <React.Fragment
@@ -80,10 +82,10 @@ const Learn = ({ location, data }: Props) => {
                   chapter.node.frontmatter.chapter
                 }`}
               >
-                <H3 key={chapter.node.frontmatter.chapter} monospace>
+                <H3 key={chapter.node.frontmatter.chapter} monospace thin>
                   {chapter.node.frontmatter.chapter}.
                 </H3>
-                <H3 key={chapter.node.frontmatter.slug}>
+                <H3 thin key={chapter.node.frontmatter.slug}>
                   <StyledLink to={chapter.node.fields.slug}>
                     {chapter.node.frontmatter.title}
                   </StyledLink>
@@ -127,7 +129,7 @@ export const query = graphql`
         }
       }
     }
-    heroImage: file(relativePath: { eq: "learn-bitcoin-cash-header.jpg" }) {
+    heroImage: file(relativePath: { eq: "hero-learn.jpg" }) {
       childImageSharp {
         fluid(
           duotone: { highlight: "#f9b016", shadow: "#191919" }

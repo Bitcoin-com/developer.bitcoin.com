@@ -51,7 +51,9 @@ const DevelopPage = ({ location, data }: Props) => (
     <Hero image={data.heroImage}>
       <HeroLayout>
         <H1 background>Develop on Bitcoin Cash</H1>
-        <H3 primary>Help bring financial sovereignty to the world</H3>
+        <H3 primary thin>
+          Help bring financial sovereignty to the world
+        </H3>
       </HeroLayout>
     </Hero>
     <Container>
@@ -117,7 +119,7 @@ export default DevelopPage
 
 export const query = graphql`
   query {
-    heroImage: file(relativePath: { eq: "develop-bitcoin-cash-header.jpg" }) {
+    heroImage: file(relativePath: { eq: "hero-develop.jpg" }) {
       childImageSharp {
         fluid(
           duotone: { highlight: "#f9b016", shadow: "#191919" }
