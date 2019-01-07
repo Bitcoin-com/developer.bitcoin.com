@@ -1,6 +1,6 @@
 ---
 title: Send Tokens
-icon: qrcode
+icon: coins
 ordinal: 2
 ---
 
@@ -8,18 +8,18 @@ Send a specified amount of a token to a destination address
 
 #### Arguments
 
--  txParams `Object` containing to, from, value and sendTokenData properties
-   - to `String` cashaddr address of token destination
-   - from `String` cashaddr address of user's address
-   - value `String` token amount to send
-   - sendTokenData `Object` containing tokenId and tokenProtocol properties
-     - tokenId `String` id of token
-       - *Simple Ledger*: The txid of the geneis transaction
-       - *Wormhole*: The wormhole property ID
-    - tokenProtocol `String` protocol of the token
-      - `slp` for Simple Ledger Protocol tokens
-      - `wormhole` for Wormhole tokens
--  `Callback` with error and response parameters
+- txParams `Object` containing to, from, value and sendTokenData properties
+  - to `String` cashaddr address of token destination
+  - from `String` cashaddr address of user's address
+  - value `String` token amount to send
+  - sendTokenData `Object` containing tokenId and tokenProtocol properties
+    - tokenId `String` id of token
+      - _Simple Ledger_: The txid of the geneis transaction
+      - _Wormhole_: The wormhole property ID
+  - tokenProtocol `String` protocol of the token
+    - `slp` for Simple Ledger Protocol tokens
+    - `wormhole` for Wormhole tokens
+- `Callback` with error and response parameters
 
 #### Result
 
@@ -50,6 +50,8 @@ Send a specified amount of a token to a destination address
         })
       }
 
-[Demo Page](https://badgerwallet.github.io/badger-samples/send-tokens.html)
+#### Demo
 
-[Demo Source](https://github.com/BadgerWallet/badger-samples/blob/master/send-tokens.html)
+[Demo Page](https://bitcoin-com.github.io/badger-samples/send-tokens.html)
+
+[Demo Source](https://github.com/bitcoin-com/badger-samples/blob/master/send-tokens.html)

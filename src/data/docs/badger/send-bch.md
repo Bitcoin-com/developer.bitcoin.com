@@ -1,6 +1,6 @@
 ---
 title: Send BCH
-icon: qrcode
+icon: bitcoin
 ordinal: 1
 ---
 
@@ -8,11 +8,11 @@ Send a specified amount of BCH to a destination address
 
 #### Arguments
 
--  txParams `Object` containing to, from, and value properties
-   -  to `String` cashaddr address of BCH destination
-   -  from `String` cashaddr address of user's address
-   -  value `String` BCH amount to send in satoshis
--  `Callback` with error and response parameters
+- txParams `Object` containing to, from, and value properties
+  - to `String` cashaddr address of BCH destination
+  - from `String` cashaddr address of user's address
+  - value `String` BCH amount to send in satoshis
+- `Callback` with error and response parameters
 
 #### Result
 
@@ -39,6 +39,8 @@ Send a specified amount of BCH to a destination address
         })
       }
 
-[Demo Page](https://badgerwallet.github.io/badger-samples/send-bch.html)
+#### Demo
 
-[Demo Source](https://github.com/BadgerWallet/badger-samples/blob/master/send-bch.html)
+[Demo Page](https://bitcoin-com.github.io/badger-samples/send-bch.html)
+
+[Demo Source](https://github.com/bitcoin-com/badger-samples/blob/master/send-bch.html)

@@ -26,7 +26,7 @@ To install http-server:
 
 Clone the badger-samples repository:
 
-    git clone https://github.com/BadgerWallet/badger-samples.git
+    git clone https://github.com/bitcoin-com/badger-samples.git
 
 Start the http-server in the samples directory:
 
