@@ -102,9 +102,9 @@ const BadgerPage = ({ location, data }: Props) => (
         <PreviewItem>
           <H3>Badger SDK</H3>
           <Text>
-            Badger Wallet injects an API into pages you visit to allow apps to
-            request a users's permission to send Bitcoin Cash, send tokens, or
-            authenticate with CashID.
+            Badger Wallet injects an API into pages a user visits to allow apps
+            to request a users's permission to send Bitcoin Cash, send tokens,
+            or authenticate with CashID.
           </Text>
         </PreviewItem>
       </PreviewLayout>
