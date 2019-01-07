@@ -74,7 +74,7 @@ const Learn = ({ location, data }: Props) => {
       <Container>
         <PageLayout>
           <MasteringBitcoinCashAttribution />
-          <H2>Chapters</H2>
+          <H2 thin>Chapters</H2>
           <ChapterLayout>
             {chapters.map(chapter => (
               <React.Fragment
@@ -82,10 +82,10 @@ const Learn = ({ location, data }: Props) => {
                   chapter.node.frontmatter.chapter
                 }`}
               >
-                <H3 key={chapter.node.frontmatter.chapter} monospace>
+                <H3 key={chapter.node.frontmatter.chapter} monospace thin>
                   {chapter.node.frontmatter.chapter}.
                 </H3>
-                <H3 key={chapter.node.frontmatter.slug}>
+                <H3 thin key={chapter.node.frontmatter.slug}>
                   <StyledLink to={chapter.node.fields.slug}>
                     {chapter.node.frontmatter.title}
                   </StyledLink>
