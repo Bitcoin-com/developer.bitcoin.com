@@ -1,3 +1,7 @@
+/* BadgerButton 1.0.0 
+For documentation and resources visit https://developer.bitcoin.com/badger
+*/
+
 window.onload = function() {
   var badgerButtons = document.body.getElementsByClassName('badger-button')
   for (var i = 0; i < badgerButtons.length; i++) {
@@ -28,7 +32,7 @@ window.onload = function() {
           }
         })
       } else {
-        window.open('https://badgerwallet.cash')
+        window.open('https://badger.bitcoin.com')
       }
     })
   }
