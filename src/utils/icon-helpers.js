@@ -29,6 +29,7 @@ import {
   FaPlus,
   FaQrcode,
   FaTerminal,
+  FaUserCircle,
   FaWallet,
 } from 'react-icons/fa'
 
@@ -85,6 +86,8 @@ export const getIcon = (icon: string): React.Node => {
       return <FaCogs />
     case 'database':
       return <FaDatabase />
+    case 'user-circle':
+      return <FaUserCircle />
     default:
       return <FaAngleRight />
   }
