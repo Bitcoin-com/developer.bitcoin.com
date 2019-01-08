@@ -1,7 +1,7 @@
 ---
 title: Badger Button
 icon: file
-ordinal: 4
+ordinal: 5
 ---
 
 Use any button on a page to send BCH by adding the "badger-wallet" class and including the button.js script.
@@ -20,7 +20,7 @@ Use any button on a page to send BCH by adding the "badger-wallet" class and inc
 
       <html>
       <head>
-          <script type="text/javascript" src="https://badgerwallet.cash/button.js"></script>
+          <script type="text/javascript" src="https://developer.bitcoin.com/badger/badgerButton-1.0.0.js"></script>
       </head>
       <body>
         <p>Tip with Badger Button</p>
