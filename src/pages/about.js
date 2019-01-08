@@ -2,6 +2,7 @@
 
 import * as React from 'react'
 import styled from 'styled-components'
+import { graphql } from 'gatsby'
 import { FaCube } from 'react-icons/fa'
 
 import DefaultLayout from 'components/layouts/DefaultLayout'
@@ -17,8 +18,6 @@ import { SmartLink } from 'atoms/StyledLink'
 
 import media from 'styles/media'
 import spacing from 'styles/spacing'
-
-import HeroImg from 'images/hero.jpeg'
 
 const HeroLayout = styled.div`
   display: grid;
@@ -46,9 +45,10 @@ const InstallCTA = styled.div`
 
 type Props = {
   location: Object,
+  data: { heroImage: any },
 }
 
-const About = ({ location }: Props) => (
+const About = ({ location, data }: Props) => (
   <DefaultLayout location={location}>
     <HelmetPlus
       title={`About  - developer.bitcoin.com`}
@@ -60,11 +60,15 @@ const About = ({ location }: Props) => (
       }
       location={location}
     />
-    <Hero image={HeroImg}>
+    <Hero image={data.heroImage}>
       <HeroLayout>
-        <H3 primary>Bitcoin.com's developer platform</H3>
+        <H3 primary thin>
+          Bitcoin.com's developer platform
+        </H3>
         <H1 background>About</H1>
-        <H3 background>Developer Tooling, Resources, Cloud, and Market</H3>
+        <H3 background thin>
+          Developer Tooling, Resources, Cloud, and Market
+        </H3>
       </HeroLayout>
     </Hero>
     <Container>
@@ -89,6 +93,12 @@ const About = ({ location }: Props) => (
           </SmartLink>
           <Code language="bash">npm install -g bitbox-sdk</Code>
         </InstallCTA>
+        <Item>
+          <H3>Badger</H3>
+          <Text>
+            Your gateway to the world of Bitcoin Cash (BCH) applications.
+          </Text>
+        </Item>
         <Item>
           <H3>REST</H3>
           <Text>
@@ -118,3 +128,19 @@ const About = ({ location }: Props) => (
 )
 
 export default About
+
+export const query = graphql`
+  query {
+    heroImage: file(relativePath: { eq: "hero.jpeg" }) {
+      childImageSharp {
+        fluid(
+          duotone: { highlight: "#f9b016", shadow: "#191919" }
+          maxWidth: 2000
+          quality: 85
+        ) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`

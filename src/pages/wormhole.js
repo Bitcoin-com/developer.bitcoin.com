@@ -2,6 +2,7 @@
 
 import * as React from 'react'
 import styled from 'styled-components'
+import { graphql } from 'gatsby'
 
 import DefaultLayout from 'components/layouts/DefaultLayout'
 import Hero from 'components/Hero'
@@ -18,8 +19,6 @@ import StyledLink from 'atoms/StyledLink'
 
 import media from 'styles/media'
 import spacing from 'styles/spacing'
-
-import HeroImg from 'images/hero.jpeg'
 
 const HeroLayout = styled.div`
   display: grid;
@@ -71,9 +70,10 @@ const PreviewItem = ({ children, to }: ItemProps) => (
 
 type Props = {
   location: Object,
+  data: { heroImage: any },
 }
 
-const WormholePage = ({ location }: Props) => (
+const WormholePage = ({ location, data }: Props) => (
   <DefaultLayout location={location}>
     <HelmetPlus
       title={`Wormhole - developer.bitcoin.com`}
@@ -85,11 +85,15 @@ const WormholePage = ({ location }: Props) => (
       }
       location={location}
     />
-    <Hero image={HeroImg}>
+    <Hero image={data.heroImage}>
       <HeroLayout>
-        <H3 primary>Experience a paradigm shift</H3>
+        <H3 primary thin>
+          Experience a paradigm shift
+        </H3>
         <H1 background>Wormhole SDK</H1>
-        <H3 background>Tokens and Crowdsales on Bitcoin Cash</H3>
+        <H3 background thin>
+          Tokens and Crowdsales on Bitcoin Cash
+        </H3>
         <InstallCTA>
           <Text background>INSTALL VIA NPM</Text>
           <Code language="bash">{`npm install wormhole-sdk --global`}</Code>
@@ -475,3 +479,19 @@ const WormholePage = ({ location }: Props) => (
 )
 
 export default WormholePage
+
+export const query = graphql`
+  query {
+    heroImage: file(relativePath: { eq: "hero.jpeg" }) {
+      childImageSharp {
+        fluid(
+          duotone: { highlight: "#f9b016", shadow: "#191919" }
+          maxWidth: 2000
+          quality: 85
+        ) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`

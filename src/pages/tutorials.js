@@ -19,8 +19,6 @@ import StyledLink from 'atoms/StyledLink'
 import spacing from 'styles/spacing'
 import media from 'styles/media'
 
-import HeroImg from 'images/learn-bitcoin-cash-header.jpg'
-
 const HeroLayout = styled.div`
   display: grid;
   grid-gap: ${spacing.tiny};
@@ -39,6 +37,7 @@ const PreviewLayout = styled.div`
 type Props = {
   location: Object,
   data: {
+    heroImage: any,
     allMarkdownRemark: {
       edges: {
         node: {
@@ -69,17 +68,17 @@ const Tutorials = ({ location, data }: Props) => {
         }
         location={location}
       />
-      <Hero image={HeroImg}>
+      <Hero image={data.heroImage}>
         <HeroLayout>
           <StyledLink to="/learn">
-            <H3 centerVertical>
+            <H3 centerVertical thin>
               {' '}
               <FaAngleLeft />
               Learn
             </H3>
           </StyledLink>
           <H1 background>Tutorials</H1>
-          <H3 background>
+          <H3 background thin>
             Real world examples to learn from and bootstrap your next Bitcoin
             Cash project
           </H3>
@@ -126,6 +125,17 @@ export const query = graphql`
           fields {
             slug
           }
+        }
+      }
+    }
+    heroImage: file(relativePath: { eq: "hero-learn.jpg" }) {
+      childImageSharp {
+        fluid(
+          duotone: { highlight: "#f9b016", shadow: "#191919" }
+          maxWidth: 2000
+          quality: 85
+        ) {
+          ...GatsbyImageSharpFluid
         }
       }
     }

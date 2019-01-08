@@ -2,6 +2,7 @@
 
 import React from 'react'
 import styled from 'styled-components'
+import { graphql } from 'gatsby'
 
 import DefaultLayout from 'components/layouts/DefaultLayout'
 import Hero from 'components/Hero'
@@ -14,8 +15,6 @@ import H1 from 'atoms/H1'
 
 import media from 'styles/media'
 import spacing from 'styles/spacing'
-
-import HeroImg from 'images/develop-bitcoin-cash-header.jpg'
 
 const HeroLayout = styled.div`
   display: grid;
@@ -34,24 +33,27 @@ const CardLayout = styled.div`
 
 type Props = {
   location: Object,
+  data: { heroImage: any },
 }
 
-const DevelopPage = ({ location }: Props) => (
+const DevelopPage = ({ location, data }: Props) => (
   <DefaultLayout location={location}>
     <HelmetPlus
       title={`Develop - developer.bitcoin.com`}
       description={
-        'Development hub for all your development needs to be successful on Bitcoin Cash'
+        'Development hub for all your development needs to be successful on Bitcoin Cash (BCH)'
       }
       keywords={
         'bitbox, tutorials, developer tools, bitcoin, bitcoin cash, BCH, wormhole, sdk, api'
       }
       location={location}
     />
-    <Hero image={HeroImg}>
+    <Hero image={data.heroImage}>
       <HeroLayout>
         <H1 background>Develop on Bitcoin Cash</H1>
-        <H3 primary>Help bring financial sovereignty to the world</H3>
+        <H3 primary thin>
+          Help bring financial sovereignty to the world
+        </H3>
       </HeroLayout>
     </Hero>
     <Container>
@@ -63,9 +65,9 @@ const DevelopPage = ({ location }: Props) => (
           cta="View"
         />
         <InfoCard
-          to="/gui"
-          title="GUI"
-          text="BIP44 development wallet. Convert between cashaddr/legacy addresses. Create QR codes for WIF, XPub and XPrivs. Sign and verify messages."
+          to="/badger"
+          title="Badger"
+          text="Your gateway to the Bitcoin Cash (BCH) ecosystem. Integrate your app with with the Bitcoin Cash blockchain, without the complexity."
           cta="View"
         />
         <InfoCard
@@ -84,6 +86,12 @@ const DevelopPage = ({ location }: Props) => (
           to="/slp"
           title="SLP"
           text="Tokenize anything. Everything you need to easily issue, spend or trade your own token."
+          cta="View"
+        />
+        <InfoCard
+          to="/gui"
+          title="GUI"
+          text="BIP44 development wallet. Convert between cashaddr/legacy addresses. Create QR codes for WIF, XPub and XPrivs. Sign and verify messages."
           cta="View"
         />
         <InfoCard
@@ -108,3 +116,19 @@ const DevelopPage = ({ location }: Props) => (
 )
 
 export default DevelopPage
+
+export const query = graphql`
+  query {
+    heroImage: file(relativePath: { eq: "hero-develop.jpg" }) {
+      childImageSharp {
+        fluid(
+          duotone: { highlight: "#f9b016", shadow: "#191919" }
+          maxWidth: 2000
+          quality: 85
+        ) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`

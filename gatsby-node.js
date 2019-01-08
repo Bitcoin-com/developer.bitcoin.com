@@ -6,7 +6,6 @@
 
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
-// const { fmImagesToRelative } = require('gatsby-remark-relative-images');
 
 // Allow webpack to work with absolute paths
 exports.onCreateWebpackConfig = ({
@@ -25,7 +24,6 @@ exports.onCreateWebpackConfig = ({
 
 // Generate GraphQL Schema
 exports.onCreateNode = ({ node, getNode, actions }) => {
-  // fmImagesToRelative(node);
   const { createNodeField } = actions
 
   // Deal with markdown files
@@ -48,6 +46,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       const isSlp = filePath.includes('/slp/')
       const isGui = filePath.includes('/gui/')
       const isRest = filePath.includes('/rest/')
+      const isBadger = filePath.includes('/badger/')
 
       if (isBitbox) {
         slug = `/bitbox/docs/${filename}`
@@ -68,6 +67,10 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       if (isRest) {
         slug = `/rest/docs/${filename}`
         product = 'rest'
+      }
+      if (isBadger) {
+        slug = `/badger/docs/${filename}`
+        product = 'badger'
       }
 
       createNodeField({

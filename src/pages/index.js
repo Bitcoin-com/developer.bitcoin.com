@@ -2,6 +2,9 @@
 
 import React from 'react'
 import styled from 'styled-components'
+import { graphql } from 'gatsby'
+
+import Img from 'gatsby-image'
 
 import DefaultLayout from 'components/layouts/DefaultLayout'
 import Hero from 'components/Hero'
@@ -17,11 +20,6 @@ import StyledLink, { SmartLink } from 'atoms/StyledLink'
 
 import media from 'styles/media'
 import spacing from 'styles/spacing'
-
-import HeroImg from 'images/hero2.jpg'
-import TechBannerImg from 'images/tech-banner.jpg'
-import LearnThumbImg from 'images/learn-thumb.jpg'
-import DevelopThumbImg from 'images/develop-thumb.jpg'
 
 import { FaCube, FaCogs, FaCreditCard, FaCartPlus } from 'react-icons/fa'
 
@@ -103,27 +101,40 @@ const StartedInfo = styled.div`
   grid-gap: ${spacing.medium};
 `
 
-const BubbleImg = styled.img`
+const BubbleImg = styled.div`
   width: 150px;
   height: 150px;
   border-radius: 75px;
   border: 3px solid ${props => props.theme.primary};
+  position: relative;
+  overflow: hidden;
 `
 
 type Props = {
   location: Object,
+  data: {
+    heroImage: any,
+    developImage: any,
+    learnImage: any,
+    bannerImage: any,
+  },
 }
 
-const IndexPage = ({ location }: Props) => (
+const IndexPage = ({ location, data }: Props) => (
   <DefaultLayout location={location}>
-    <Hero image={HeroImg}>
+    <Hero image={data.heroImage}>
       <HeroLayout>
         <HeroBlurbLayout>
-          <H3 primary> Bitcoin.com Developer Platform</H3>
+          <H3 primary thin>
+            {' '}
+            Bitcoin.com Developer Platform
+          </H3>
           <H1 background>
             Change the world with <br /> Bitcoin Cash
           </H1>
-          <H3 background>Developer Tooling, Cloud, and Market</H3>
+          <H3 background thin>
+            Developer Tooling, Cloud, and Market
+          </H3>
           <HeroButtonLayout>
             <HeroButtonItem>
               <StyledLink to="/bitbox">
@@ -138,6 +149,11 @@ const IndexPage = ({ location }: Props) => (
             <HeroButtonItem>
               <StyledLink to="/slp">
                 <Button round>SLP SDK</Button>
+              </StyledLink>
+            </HeroButtonItem>
+            <HeroButtonItem>
+              <StyledLink to="/badger">
+                <Button round>Badger SDK</Button>
               </StyledLink>
             </HeroButtonItem>
           </HeroButtonLayout>
@@ -171,7 +187,7 @@ const IndexPage = ({ location }: Props) => (
       </WhyDevelopLayout>
       <FeaturesLayout>
         <Feature>
-          <H3>
+          <H3 centerVertical>
             <FaCogs />
             &nbsp; Build on BCH
           </H3>
@@ -182,7 +198,7 @@ const IndexPage = ({ location }: Props) => (
           </Text>
         </Feature>
         <Feature>
-          <H3>
+          <H3 centerVertical>
             <FaCreditCard />
             &nbsp; Create Transactions
           </H3>
@@ -195,7 +211,7 @@ const IndexPage = ({ location }: Props) => (
           </Text>
         </Feature>
         <Feature>
-          <H3>
+          <H3 centerVertical>
             <FaCartPlus />
             &nbsp; BCommerce Solutions
           </H3>
@@ -206,7 +222,7 @@ const IndexPage = ({ location }: Props) => (
           </Text>
         </Feature>
         <Feature>
-          <H3>
+          <H3 centerVertical>
             <FaCube />
             &nbsp; On chain applications
           </H3>
@@ -218,14 +234,25 @@ const IndexPage = ({ location }: Props) => (
         </Feature>
       </FeaturesLayout>
     </Container>
-    <Hero image={TechBannerImg}>
+    <Hero image={data.bannerImage}>
       <H2 background isTitle>
         Get Started Today!
       </H2>
       <GetStartedLayout>
         <StartedInfo>
           <H3>Learn</H3>
-          <BubbleImg src={LearnThumbImg} />
+          <BubbleImg>
+            <Img
+              style={{
+                position: 'absolute',
+                top: 0,
+                bottom: 0,
+                left: 0,
+                right: 0,
+              }}
+              fluid={data.learnImage.childImageSharp.fluid}
+            />
+          </BubbleImg>
           <Text>
             Build the foundation of knowledge needed to create world changing
             apps. Tutorials, blog posts, video streams and code snippets to help
@@ -237,7 +264,9 @@ const IndexPage = ({ location }: Props) => (
         </StartedInfo>
         <StartedInfo>
           <H3>Develop</H3>
-          <BubbleImg src={DevelopThumbImg} />
+          <BubbleImg>
+            <Img fluid={data.developImage.childImageSharp.fluid} />
+          </BubbleImg>
           <Text>
             With the power of Bitcoin Cash, the ease of BITBOX and the
             Bitcoin.com developer platform, you’ll create your most innovative
@@ -255,3 +284,44 @@ const IndexPage = ({ location }: Props) => (
 )
 
 export default IndexPage
+
+export const query = graphql`
+  query {
+    heroImage: file(relativePath: { eq: "hero2.jpg" }) {
+      childImageSharp {
+        fluid(
+          duotone: { highlight: "#f9b016", shadow: "#191919" }
+          maxWidth: 2000
+          quality: 85
+        ) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    bannerImage: file(relativePath: { eq: "tech-banner.jpg" }) {
+      childImageSharp {
+        fluid(
+          duotone: { highlight: "#f9b016", shadow: "#191919" }
+          maxWidth: 2000
+          quality: 85
+        ) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    developImage: file(relativePath: { eq: "develop-thumb.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 200, quality: 85) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    learnImage: file(relativePath: { eq: "learn-thumb.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 200, quality: 85) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`

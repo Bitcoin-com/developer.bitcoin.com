@@ -45,7 +45,7 @@ const DocLayout = styled.div`
       'nav breadcrumbs'
       'nav content';
     grid-template-columns: max-content 1fr;
-    grid-template-rows: max-content max-content;
+    grid-template-rows: max-content 1fr;
 
   `};
 `
@@ -72,8 +72,6 @@ const BreadCrumbLayout = styled.div`
 
 const ContentLayout = styled.div`
   grid-area: content;
-  display: grid;
-  grid-template-columns: 1fr;
   & > div {
     display: grid;
   }
@@ -162,6 +160,12 @@ class DocTemplate extends React.PureComponent<Props> {
                       value={'bitbox/docs/getting-started'}
                     >
                       {getTitleDisplay('bitbox')}
+                    </option>
+                    <option
+                      selected={'badger' === doc.fields.product}
+                      value={'badger/docs/getting-started'}
+                    >
+                      {getTitleDisplay('badger')}
                     </option>
                     <option
                       selected={'wormhole' === doc.fields.product}

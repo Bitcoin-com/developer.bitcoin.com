@@ -2,6 +2,7 @@
 
 import * as React from 'react'
 import styled from 'styled-components'
+import { graphql } from 'gatsby'
 
 import DefaultLayout from 'components/layouts/DefaultLayout'
 import Hero from 'components/Hero'
@@ -16,10 +17,6 @@ import StyledLink from 'atoms/StyledLink'
 
 import media from 'styles/media'
 import spacing from 'styles/spacing'
-
-import HeroImg from 'images/hero.jpeg'
-
-// import { FaCube, FaCogs, FaCreditCard, FaCartPlus, FaReddit, FaTwitter, FaFacebook, FaLinkedin } from 'react-icons/fa'
 
 const HeroLayout = styled.div`
   display: grid;
@@ -44,7 +41,6 @@ const PreviewLayout = styled.div`
   `};
 `
 
-// const PreviewItem = styled.div`
 const ItemLayout = styled.div`
   display: grid;
   grid-gap: ${spacing.tiny};
@@ -74,9 +70,10 @@ const PreviewItem = ({ children, to, full }: ItemProps) => (
 
 type Props = {
   location: Object,
+  data: { heroImage: any },
 }
 
-const GuiPage = ({ location }: Props) => (
+const GuiPage = ({ location, data }: Props) => (
   <DefaultLayout location={location}>
     <HelmetPlus
       title={`GUI - developer.bitcoin.com`}
@@ -84,11 +81,13 @@ const GuiPage = ({ location }: Props) => (
       keywords={'GUI, developer tools, bitcoin, bitcoin cash, BCH, sdk, api'}
       location={location}
     />
-    <Hero image={HeroImg}>
+    <Hero image={data.heroImage}>
       <HeroLayout>
-        <H3 primary>Your Personal Blockchain</H3>
+        <H3 primary thin>
+          Your Personal Blockchain
+        </H3>
         <H1 background>GUI</H1>
-        <H3 background>
+        <H3 background thin>
           Full BCH blockchain and BIP44 wallet for use during development.
         </H3>
         <InstallCTA>
@@ -144,3 +143,19 @@ const GuiPage = ({ location }: Props) => (
 )
 
 export default GuiPage
+
+export const query = graphql`
+  query {
+    heroImage: file(relativePath: { eq: "hero.jpeg" }) {
+      childImageSharp {
+        fluid(
+          duotone: { highlight: "#f9b016", shadow: "#191919" }
+          maxWidth: 2000
+          quality: 85
+        ) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`

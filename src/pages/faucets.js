@@ -2,6 +2,7 @@
 
 import * as React from 'react'
 import styled from 'styled-components'
+import { graphql } from 'gatsby'
 
 import DefaultLayout from 'components/layouts/DefaultLayout'
 import Hero from 'components/Hero'
@@ -14,8 +15,6 @@ import H1 from 'atoms/H1'
 
 import media from 'styles/media'
 import spacing from 'styles/spacing'
-
-import HeroImg from 'images/learn-bitcoin-cash-header.jpg'
 
 const HeroLayout = styled.div`
   display: grid;
@@ -35,9 +34,10 @@ const SectionLayout = styled.div`
 
 type Props = {
   location: Object,
+  data: { heroImage: any },
 }
 
-const Faucet = ({ location }: Props) => (
+const Faucet = ({ location, data }: Props) => (
   <DefaultLayout location={location}>
     <HelmetPlus
       title={`Faucet - developer.bitcoin.com`}
@@ -47,10 +47,12 @@ const Faucet = ({ location }: Props) => (
       }
       location={location}
     />
-    <Hero image={HeroImg}>
+    <Hero image={data.heroImage}>
       <HeroLayout>
         <H1 background>Faucets</H1>
-        <H3 primary>Testnet BCH and WHC for developers</H3>
+        <H3 primary thin>
+          Testnet BCH and WHC for developers
+        </H3>
       </HeroLayout>
     </Hero>
     <Container>
@@ -73,3 +75,19 @@ const Faucet = ({ location }: Props) => (
 )
 
 export default Faucet
+
+export const query = graphql`
+  query {
+    heroImage: file(relativePath: { eq: "hero-learn.jpg" }) {
+      childImageSharp {
+        fluid(
+          duotone: { highlight: "#f9b016", shadow: "#191919" }
+          maxWidth: 2000
+          quality: 85
+        ) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`

@@ -18,8 +18,6 @@ import StyledLink from 'atoms/StyledLink'
 
 import spacing from 'styles/spacing'
 
-import HeroImg from 'images/learn-bitcoin-cash-header.jpg'
-
 const HeroLayout = styled.div`
   display: grid;
   grid-gap: ${spacing.tiny};
@@ -40,7 +38,7 @@ const ChapterLayout = styled.div`
 
 type Props = {
   location: Object,
-  data: Object,
+  data: { heroImage: any, allMarkdownRemark: any },
 }
 
 const Learn = ({ location, data }: Props) => {
@@ -58,23 +56,25 @@ const Learn = ({ location, data }: Props) => {
         }
         location={location}
       />
-      <Hero image={HeroImg}>
+      <Hero image={data.heroImage}>
         <HeroLayout>
           <StyledLink to="/learn">
-            <H3 centerVertical>
+            <H3 centerVertical thin>
               {' '}
               <FaAngleLeft />
               Learn
             </H3>
           </StyledLink>
           <H1 background>Mastering Bitcoin Cash</H1>
-          <H3 background>Build a foundation of knowledge</H3>
+          <H3 background thin>
+            Build a foundation of knowledge
+          </H3>
         </HeroLayout>
       </Hero>
       <Container>
         <PageLayout>
           <MasteringBitcoinCashAttribution />
-          <H2>Chapters</H2>
+          <H2 thin>Chapters</H2>
           <ChapterLayout>
             {chapters.map(chapter => (
               <React.Fragment
@@ -82,10 +82,10 @@ const Learn = ({ location, data }: Props) => {
                   chapter.node.frontmatter.chapter
                 }`}
               >
-                <H3 key={chapter.node.frontmatter.chapter} monospace>
+                <H3 key={chapter.node.frontmatter.chapter} monospace thin>
                   {chapter.node.frontmatter.chapter}.
                 </H3>
-                <H3 key={chapter.node.frontmatter.slug}>
+                <H3 thin key={chapter.node.frontmatter.slug}>
                   <StyledLink to={chapter.node.fields.slug}>
                     {chapter.node.frontmatter.title}
                   </StyledLink>
@@ -126,6 +126,17 @@ export const query = graphql`
           fields {
             slug
           }
+        }
+      }
+    }
+    heroImage: file(relativePath: { eq: "hero-learn.jpg" }) {
+      childImageSharp {
+        fluid(
+          duotone: { highlight: "#f9b016", shadow: "#191919" }
+          maxWidth: 2000
+          quality: 85
+        ) {
+          ...GatsbyImageSharpFluid
         }
       }
     }

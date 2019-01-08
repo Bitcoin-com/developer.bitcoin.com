@@ -29,7 +29,7 @@ const NavItem = styled(Link)`
   text-decoration: none;
   margin-right: ${spacing.medium};
   &:hover {
-    color: ${props => props.theme.secondary};
+    color: ${props => props.theme.primary600};
   }
 `
 
@@ -46,6 +46,7 @@ const developBaseUrls = [
   '/rest',
   '/slp',
   '/faucets',
+  '/badger',
 ]
 const learnBaseUrls = [
   '/learn',
