@@ -77,6 +77,24 @@ Add output to transaction
       // add output w/ address and amount to send
       transactionBuilder.addOutput('bitcoincash:qpuax2tarq33f86wccwlx8ge7tad2wgvqgjqlwshpw', sendAmount);
 
+### `setLockTime`
+
+Set locktime
+
+#### Arguments
+
+1.  locktime `Number`
+
+#### Examples
+
+      let originalAmount = 100000;
+      let byteCount = BITBOX.BitcoinCash.getByteCount({ P2PKH: 1 }, { P2PKH: 1 });
+      // amount to send to receiver. It's the original amount - 1 sat/byte for tx size
+      let sendAmount = originalAmount - byteCount;
+      // add output w/ address and amount to send
+      transactionBuilder.addOutput('bitcoincash:qpuax2tarq33f86wccwlx8ge7tad2wgvqgjqlwshpw', sendAmount);
+      transactionBuilder.setLockTime(50000)
+
 ### `sign`
 
 Sign transaction
@@ -116,11 +134,11 @@ Transaction `Object`: Transaction
 
 ### `toHex`
 
-Return raw hex of transaction ready to be sent to the $BCH network
+Return raw hex of transaction ready to be sent to the \$BCH network
 
 #### Result
 
-rawHex `string`: hex encoded raw transaction ready to be sent to the $BCH network
+rawHex `string`: hex encoded raw transaction ready to be sent to the \$BCH network
 
 #### Examples
 
@@ -137,7 +155,7 @@ Write data to the blockchain w/ `OP_RETURN`
 
 #### Result
 
-rawHex `string`: hex encoded raw transaction ready to be sent to the $BCH network
+rawHex `string`: hex encoded raw transaction ready to be sent to the \$BCH network
 
 #### Examples
 
