@@ -41,7 +41,7 @@ const DevelopPage = ({ location, data }: Props) => (
     <HelmetPlus
       title={`Develop - developer.bitcoin.com`}
       description={
-        'Development hub for all your development needs to be successful on Bitcoin Cash'
+        'Development hub for all your development needs to be successful on Bitcoin Cash (BCH)'
       }
       keywords={
         'bitbox, tutorials, developer tools, bitcoin, bitcoin cash, BCH, wormhole, sdk, api'
@@ -67,7 +67,7 @@ const DevelopPage = ({ location, data }: Props) => (
         <InfoCard
           to="/badger"
           title="Badger"
-          text="Your gateway to the Bitcoin Cash (BCH) ecosystem. Integrate your app with blockchain, without the complexity."
+          text="Your gateway to the Bitcoin Cash (BCH) ecosystem. Integrate your app with with the Bitcoin Cash blockchain, without the complexity."
           cta="View"
         />
         <InfoCard
