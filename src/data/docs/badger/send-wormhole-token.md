@@ -1,10 +1,10 @@
 ---
-title: Send Tokens
+title: Send Wormhole Token
 icon: coins
-ordinal: 2
+ordinal: 3
 ---
 
-Send a specified amount of a token to a destination address
+Send a specified amount of a Wormhole token to a destination address
 
 #### Arguments
 
@@ -14,10 +14,9 @@ Send a specified amount of a token to a destination address
   - value `String` token amount to send
   - sendTokenData `Object` containing tokenId and tokenProtocol properties
     - tokenId `String` id of token
-      - _Simple Ledger_: The txid of the geneis transaction
-      - _Wormhole_: The wormhole property ID
+      - _Wormhole_: The wormhole burn address "qqqqqqqqqqqqqqqqqqqqqqqqqqqqqu08dsyxz98whc" followed by the property ID
+      - _Example_: Nakamoto token's property ID is 227 which makes its tokenId "qqqqqqqqqqqqqqqqqqqqqqqqqqqqqu08dsyxz98whc227"
   - tokenProtocol `String` protocol of the token
-    - `slp` for Simple Ledger Protocol tokens
     - `wormhole` for Wormhole tokens
 - `Callback` with error and response parameters
 
@@ -37,8 +36,8 @@ Send a specified amount of a token to a destination address
           from: web4bch.bch.defaultAccount,
           value: "1000",
           sendTokenData: {
-            tokenId: 'df808a41672a0a0ae6475b44f272a107bc9961b90f29dc918d71301f24fe92fb',
-            tokenProtocol: 'slp'
+            tokenId: 'qqqqqqqqqqqqqqqqqqqqqqqqqqqqqu08dsyxz98whc227',
+            tokenProtocol: 'wormhole'
           }
         }
         web4bch.bch.sendTransaction(txParams, (err, res) => {
@@ -52,6 +51,6 @@ Send a specified amount of a token to a destination address
 
 #### Demo
 
-[Demo Page](https://bitcoin-com.github.io/badger-samples/send-tokens.html)
+[Demo Page](https://bitcoin-com.github.io/badger-samples/send-wormhole-token.html)
 
-[Demo Source](https://github.com/bitcoin-com/badger-samples/blob/master/send-tokens.html)
+[Demo Source](https://github.com/bitcoin-com/badger-samples/blob/master/send-wormhole-token.html)
