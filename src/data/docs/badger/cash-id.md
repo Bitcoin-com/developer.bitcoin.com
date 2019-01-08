@@ -1,7 +1,7 @@
 ---
 title: CashID
 icon: user-circle
-ordinal: 3
+ordinal: 4
 ---
 
 CashID is a protocol allowing authentication with a user's Bitcoin Cash wallet.
