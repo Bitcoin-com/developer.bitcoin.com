@@ -4,7 +4,7 @@ icon: terminal
 ordinal: 2
 ---
 
-Launch a console w/ the entire Wormhole RPC available via a built in `SLP` object. Pass in an `--environment` flag to connect to environments defined in a local `slp.js`. By default `console` will connect to your `development` environment.
+Launch a console w/ the entire SLP RPC available via a built in `SLP` object. Pass in an `--environment` flag to connect to environments defined in a local `slp.js`. By default `console` will connect to your `development` environment.
 
       $ slp console --environment production
 
