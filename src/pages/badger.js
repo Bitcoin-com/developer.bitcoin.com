@@ -75,7 +75,7 @@ type Props = {
 const BadgerPage = ({ location, data }: Props) => (
   <DefaultLayout location={location}>
     <HelmetPlus
-      title={`Badger - developer.bitcoin.com`}
+      title={`Badger - ${data.site.siteMetadata.title}`}
       description={
         'Badger documentation, your gateway to the world of Bitcoin Cash (BCH) applications'
       }
@@ -120,6 +120,11 @@ export default BadgerPage
 
 export const query = graphql`
   query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     heroImage: file(relativePath: { eq: "hero.jpeg" }) {
       childImageSharp {
         fluid(

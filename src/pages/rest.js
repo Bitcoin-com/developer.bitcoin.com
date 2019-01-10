@@ -77,7 +77,7 @@ type Props = {
 const RestPage = ({ location, data }: Props) => (
   <DefaultLayout location={location}>
     <HelmetPlus
-      title={`REST - developer.bitcoin.com`}
+      title={`REST - ${data.site.siteMetadata.title}`}
       description={'REST based bitcoin.com developer platform and resources'}
       keywords={
         'REST, developer tools, bitcoin, bitcoin cash, BCH, wormhole, sdk, api'
@@ -137,6 +137,11 @@ export default RestPage
 
 export const query = graphql`
   query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     heroImage: file(relativePath: { eq: "hero.jpeg" }) {
       childImageSharp {
         fluid(

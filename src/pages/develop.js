@@ -39,7 +39,7 @@ type Props = {
 const DevelopPage = ({ location, data }: Props) => (
   <DefaultLayout location={location}>
     <HelmetPlus
-      title={`Develop - developer.bitcoin.com`}
+      title={`Develop - ${data.site.siteMetadata.title}`}
       description={
         'Development hub for all your development needs to be successful on Bitcoin Cash (BCH)'
       }
@@ -119,6 +119,11 @@ export default DevelopPage
 
 export const query = graphql`
   query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     heroImage: file(relativePath: { eq: "hero-develop.jpg" }) {
       childImageSharp {
         fluid(

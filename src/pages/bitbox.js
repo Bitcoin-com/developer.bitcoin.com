@@ -76,7 +76,7 @@ type Props = {
 const BitboxPage = ({ location, data }: Props) => (
   <DefaultLayout location={location}>
     <HelmetPlus
-      title={`Bitbox - developer.bitcoin.com`}
+      title={`Bitbox - ${data.site.siteMetadata.title}`}
       description={'Bitbox based bitcoin.com developer platform and resources'}
       keywords={
         'bitbox, developer tools, bitcoin, bitcoin cash, BCH, wormhole, sdk, api'
@@ -295,6 +295,11 @@ export default BitboxPage
 
 export const query = graphql`
   query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     heroImage: file(relativePath: { eq: "hero.jpeg" }) {
       childImageSharp {
         fluid(

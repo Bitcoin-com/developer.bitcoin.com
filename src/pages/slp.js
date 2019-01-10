@@ -77,7 +77,7 @@ type Props = {
 const WormholePage = ({ location, data }: Props) => (
   <DefaultLayout location={location}>
     <HelmetPlus
-      title={`SLP - developer.bitcoin.com`}
+      title={`SLP - ${data.site.siteMetadata.title}`}
       description={'SLP based bitcoin.com developer platform and resources'}
       keywords={
         'slp, simple ledger protocol, developer tools, bitcoin, bitcoin cash, BCH, sdk, api'
@@ -239,6 +239,11 @@ export default WormholePage
 
 export const query = graphql`
   query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     heroImage: file(relativePath: { eq: "hero.jpeg" }) {
       childImageSharp {
         fluid(

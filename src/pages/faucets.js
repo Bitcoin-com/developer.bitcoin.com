@@ -40,7 +40,7 @@ type Props = {
 const Faucet = ({ location, data }: Props) => (
   <DefaultLayout location={location}>
     <HelmetPlus
-      title={`Faucet - developer.bitcoin.com`}
+      title={`Faucet - ${data.site.siteMetadata.title}`}
       description={'Testnet BCH and WHC for developers'}
       keywords={
         'faucet, bitbox, tutorials, developer tools, bitcoin, bitcoin cash, BCH, wormhole, sdk, api'
@@ -78,6 +78,11 @@ export default Faucet
 
 export const query = graphql`
   query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     heroImage: file(relativePath: { eq: "hero-learn.jpg" }) {
       childImageSharp {
         fluid(

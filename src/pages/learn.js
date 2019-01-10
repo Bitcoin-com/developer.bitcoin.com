@@ -40,7 +40,7 @@ type Props = {
 const Learn = ({ location, data }: Props) => (
   <DefaultLayout location={location}>
     <HelmetPlus
-      title={`Learn - developer.bitcoin.com`}
+      title={`Learn - ${data.site.siteMetadata.title}`}
       description={
         'Learning center and resources for all of your Bitcoin Cash development needs'
       }
@@ -91,6 +91,11 @@ export default Learn
 
 export const query = graphql`
   query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     heroImage: file(relativePath: { eq: "hero-learn.jpg" }) {
       childImageSharp {
         fluid(
