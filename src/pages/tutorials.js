@@ -59,7 +59,7 @@ const Tutorials = ({ location, data }: Props) => {
   return (
     <DefaultLayout location={location}>
       <HelmetPlus
-        title={`Tutorials - developer.bitcoin.com`}
+        title={`Tutorials - ${data.site.siteMetadata.title}`}
         description={
           'Tutorials for the building on Bitcoin Cash, utilizing the Bitbox and Wormhole SDKs'
         }

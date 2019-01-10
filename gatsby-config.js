@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'developer.bitcoin.com',
+    title: 'Bitcoin.com Developer Platform',
     siteUrl: 'https://developer.bitcoin.com',
   },
   plugins: [

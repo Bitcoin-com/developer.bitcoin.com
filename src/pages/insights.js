@@ -58,7 +58,7 @@ const Insights = ({ location, data }: Props) => {
   return (
     <DefaultLayout location={location}>
       <HelmetPlus
-        title={`Inisghts - developer.bitcoin.com`}
+        title={`Inisghts - ${data.site.siteMetadata.title}`}
         description={
           'Insights into the learnings and process people have faced while building new products with Bitcoin Cash and Bitbox'
         }

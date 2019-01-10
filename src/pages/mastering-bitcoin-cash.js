@@ -47,7 +47,9 @@ const Learn = ({ location, data }: Props) => {
   return (
     <DefaultLayout location={location}>
       <HelmetPlus
-        title={`Mastering Bitcoin Cash - book - developer.bitcoin.com`}
+        title={`Mastering Bitcoin Cash - book - ${
+          data.site.siteMetadata.title
+        }`}
         description={
           'Learn all about Bitcoin Cash to take you from a beginner to expert.'
         }

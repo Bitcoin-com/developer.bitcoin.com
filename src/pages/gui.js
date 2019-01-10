@@ -76,7 +76,7 @@ type Props = {
 const GuiPage = ({ location, data }: Props) => (
   <DefaultLayout location={location}>
     <HelmetPlus
-      title={`GUI - developer.bitcoin.com`}
+      title={`GUI - ${data.site.siteMetadata.title}`}
       description={'GUI based bitcoin.com developer platform and resources'}
       keywords={'GUI, developer tools, bitcoin, bitcoin cash, BCH, sdk, api'}
       location={location}
@@ -146,6 +146,11 @@ export default GuiPage
 
 export const query = graphql`
   query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     heroImage: file(relativePath: { eq: "hero.jpeg" }) {
       childImageSharp {
         fluid(
