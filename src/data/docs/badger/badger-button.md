@@ -6,7 +6,7 @@ ordinal: 5
 
 ### Bitcoin Cash
 
-Use any button on a page to send BCH by adding the "badger-button" class and including the button.js script.
+Use any button on a page to send BCH by adding the "badger-button" class and including the badgerButton.js script.
 
 #### Arguments
 
@@ -46,7 +46,7 @@ Use any button on a page to send BCH by adding the "badger-button" class and inc
 
 ### Tokens
 
-Use any button on a page to send BCH by adding the "badger-button" class and including the button.js script.
+Use any button on a page to send tokens by adding the "badger-button" class and including the badgerToken.js script.
 
 #### Arguments
 
