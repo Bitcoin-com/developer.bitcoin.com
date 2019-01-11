@@ -51,7 +51,6 @@ Use any button on a page to send BCH by adding the "badger-button" class and inc
 #### Arguments
 
 - data-to `String` cashaddr address of BCH destination
-- data-satoshis `String` BCH amount to send in satoshis
 - data-token-protocol `String` The Token protocol
 - data-token-id `String` The Token Id
 - data-token-amount `String` (Required) The amount of tokens to send
