@@ -22,7 +22,7 @@ Use any button on a page to send BCH by adding the "badger-button" class and inc
 
       <html>
       <head>
-          <script type="text/javascript" src="https://developer.bitcoin.com/badger/badgerButton-1.0.0.js"></script>
+          <script type="text/javascript" src="https://developer.bitcoin.com/badger/badgerButton-1.0.1.js"></script>
       </head>
       <body>
         <p>Tip with Badger Button</p>
@@ -64,7 +64,7 @@ Use any button on a page to send tokens by adding the "badger-button" class and 
 
       <html>
       <head>
-          <script type="text/javascript" src="https://developer.bitcoin.com/badger/badgerToken-1.0.0.js"></script>
+          <script type="text/javascript" src="https://developer.bitcoin.com/badger/badgerToken-1.0.1.js"></script>
       </head>
       <body>
         <p>Tip with Badger Button</p>
