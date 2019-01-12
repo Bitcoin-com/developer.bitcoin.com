@@ -6,7 +6,7 @@ ordinal: 5
 
 ### Bitcoin Cash
 
-Use any button on a page to send BCH by adding the "badger-button" class and including the button.js script.
+Use any button on a page to send BCH by adding the "badger-button" class and including the badgerButton.js script.
 
 #### Arguments
 
@@ -46,12 +46,11 @@ Use any button on a page to send BCH by adding the "badger-button" class and inc
 
 ### Tokens
 
-Use any button on a page to send BCH by adding the "badger-button" class and including the button.js script.
+Use any button on a page to send tokens by adding the "badger-button" class and including the badgerToken.js script.
 
 #### Arguments
 
 - data-to `String` cashaddr address of BCH destination
-- data-satoshis `String` BCH amount to send in satoshis
 - data-token-protocol `String` The Token protocol
 - data-token-id `String` The Token Id
 - data-token-amount `String` (Required) The amount of tokens to send
