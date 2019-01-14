@@ -1,0 +1,10 @@
+{
+  "title": "GitCash",
+  "desciption": "Send and Receive Bitcoin Cash through Github",
+  "status": "Production",
+  "categories": ["Tipping"],
+  "technologies": ["Bitbox"],
+  "links": {
+    "website": "https://gitcash.io/"
+  }
+}

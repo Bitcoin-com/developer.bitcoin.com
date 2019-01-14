@@ -1,0 +1,13 @@
+{
+  "title": "Badger Wallet",
+  "desciption": "Browser extension wallet",
+  "status": "Production",
+  "categories": ["Wallet", "Extension"],
+  "technologies": ["SLP", "Wormhole", "Bitbox"],
+  "links": {
+    "website": "https://badger.bitcoin.com/",
+    "github": "https://github.com/Bitcoin-com/badger/",
+    "telegram": "https://t.me/joinchat/IoTQ_hGflnfwd3YJSF8cRQ",
+    "twitter": "https://twitter.com/badgerwallet"
+  }
+}

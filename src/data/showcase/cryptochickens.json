@@ -1,0 +1,10 @@
+{
+  "title": "Crypto Chickens",
+  "desciption": "Feed Chickens with Bitcoin Cash",
+  "status": "Production",
+  "categories": ["Tipping", "Livestream"],
+  "technologies": ["Iozeta"],
+  "links": {
+    "website": "https://www.twitch.tv/redpepper261"
+  }
+}

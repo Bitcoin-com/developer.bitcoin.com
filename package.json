@@ -20,6 +20,7 @@
     "gatsby-remark-copy-linked-files": "^2.0.6",
     "gatsby-remark-images": "^2.0.6",
     "gatsby-source-filesystem": "^2.0.8",
+    "gatsby-transformer-json": "^2.1.7",
     "gatsby-transformer-remark": "^2.1.12",
     "gatsby-transformer-sharp": "^2.1.8",
     "isomorphic-fetch": "^2.2.1",

@@ -45,7 +45,6 @@ module.exports = {
     'gatsby-plugin-offline',
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-sharp`,
-
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -64,6 +63,13 @@ module.exports = {
             },
           },
         ],
+      },
+    },
+    `gatsby-transformer-json`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `./src/data/`,
       },
     },
     `gatsby-plugin-robots-txt`,

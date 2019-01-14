@@ -55,6 +55,8 @@ const learnBaseUrls = [
   '/mastering-bitcoin-cash',
 ]
 
+const showcaseBaseUrls = ['/showcase']
+
 class NavBar extends React.PureComponent<Props> {
   render() {
     const { pathname } = this.props
@@ -66,6 +68,10 @@ class NavBar extends React.PureComponent<Props> {
       false
     )
     const developActive = developBaseUrls.reduce(
+      (prev, curr) => prev || pathname.includes(curr),
+      false
+    )
+    const showcaseActive = showcaseBaseUrls.reduce(
       (prev, curr) => prev || pathname.includes(curr),
       false
     )
@@ -86,6 +92,9 @@ class NavBar extends React.PureComponent<Props> {
               isActive={developActive && !learnActive}
             >
               Develop
+            </NavItem>
+            <NavItem monospace to="/showcase" isActive={showcaseActive}>
+              Showcase
             </NavItem>
             <NavItem monospace to="/about" isActive={aboutActive}>
               About
