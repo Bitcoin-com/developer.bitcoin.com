@@ -273,7 +273,15 @@ Returns mempool data for given transaction
 
 #### Arguments
 
-1.  txids `Array` required: Array with maximum of 20 txids.
+- txids (required):
+  - `String`: TXID currently in mempool
+  - `Array` of strings: Array of TXIDs, with maximum of 20 entries.
+
+#### Result
+
+- entry:
+  - `Object`: containing details about the single mempool entry.
+  - `Array`: Array of Objects with details about mempool entries.
 
 #### Examples
 
@@ -285,6 +293,70 @@ Returns mempool data for given transaction
        console.error(error)
       }
     })()
+
+    // {
+    //   "size": 372,
+    //   "fee": 0.00000374,
+    //   "modifiedfee": 0.00000374,
+    //   "time": 1547738850,
+    //   "height": 565716,
+    //   "startingpriority": 26524545.3974359,
+    //   "currentpriority": 26524545.3974359,
+    //   "descendantcount": 1,
+    //   "descendantsize": 372,
+    //   "descendantfees": 374,
+    //   "ancestorcount": 1,
+    //   "ancestorsize": 372,
+    //   "ancestorfees": 374,
+    //   "depends": []
+    // }
+
+    (async () => {
+      try {
+        let getMempoolEntry = await BITBOX.Blockchain.getMempoolEntry([
+          "fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33",
+          "defea04c38ee00cf73ad402984714ed22dc0dd99b2ae5cb50d791d94343ba79b"
+          ]);
+        console.log(getMempoolEntry);
+      } catch(error) {
+       console.error(error)
+      }
+    })()
+
+    // [
+    //   {
+    //     "size": 372,
+    //     "fee": 0.00000374,
+    //     "modifiedfee": 0.00000374,
+    //     "time": 1547738850,
+    //     "height": 565716,
+    //     "startingpriority": 26524545.3974359,
+    //     "currentpriority": 26524545.3974359,
+    //     "descendantcount": 1,
+    //     "descendantsize": 372,
+    //     "descendantfees": 374,
+    //     "ancestorcount": 1,
+    //     "ancestorsize": 372,
+    //     "ancestorfees": 374,
+    //     "depends": []
+    //   },
+    //   {
+    //     "size": 372,
+    //     "fee": 0.00000374,
+    //     "modifiedfee": 0.00000374,
+    //     "time": 1547738850,
+    //     "height": 565716,
+    //     "startingpriority": 26524545.3974359,
+    //     "currentpriority": 26524545.3974359,
+    //     "descendantcount": 1,
+    //     "descendantsize": 372,
+    //     "descendantfees": 374,
+    //     "ancestorcount": 1,
+    //     "ancestorsize": 372,
+    //     "ancestorfees": 374,
+    //     "depends": []
+    //   }
+    // ]
 
 ### `getMempoolInfo`
 
@@ -372,11 +444,15 @@ Returns a hex-encoded proof that "txid" was included in a block.
 
 #### Arguments
 
-1.  txids `string` A json array of txids to filter \[ "txid" `string` A transaction hash ,... \]
-2.  blockhash (string, optional) If specified, looks for txid in the block with this hash
-3.  data `string`: A string that is a serialized, hex-encoded data for the proof.
+- txids (required):
+  - `String`: A single string containing a txid.
+  - `Array` of strings: Array with maximum of 20 txids.
 
 #### Result
+
+- proof:
+  - `String`: A string that is a serialized, hex-encoded data for the proof.
+  - `Array` of strings: Array of strings that are a serialized, hex-encoded data for the proof.
 
 legacyAddress `string` legacy base 58 check encoded address
 
@@ -384,14 +460,31 @@ legacyAddress `string` legacy base 58 check encoded address
 
     (async () => {
       try {
-        let getTxOutProof = await BITBOX.Blockchain.getTxOutProof(["e25682caafc7000645d59f4c11d8d594b2943979b9d8fafb9f946e2b35c21b7e", "d16662463fd98eb96c8f6898d58a4461ac3d0120f4d0aea601d72b37759f261c"]);
+        let getTxOutProof = await BITBOX.Blockchain.getTxOutProof("e25682caafc7000645d59f4c11d8d594b2943979b9d8fafb9f946e2b35c21b7e");
         console.log(getTxOutProof);
       } catch(error) {
        console.error(error)
       }
     })()
 
-    // Not all transactions found in specified or retrieved block
+    // "0000002086a4a3161f9ba2174883ec0b93acceac3b2f37b36ed1f90000000000000000009cb02406d1094ecf3e0b4c0ca7c585125e721147c39daf6b48c90b512741e13a12333e5cb38705180f441d8c7100000008fee9b60f1edb57e5712839186277ed39e0a004a32be9096ee47472efde8eae62f789f9d7a9f59d0ea7093dea1e0c65ff0b953f1d8cf3d47f92e732ca0295f603c272d5f4a63509f7a887f2549d78af7444aa0ecbb4f66d9cbe13bc6a89f59e05a199df8325d490818ffefe6b6321d32d7496a68580459836c0183f89082fc1b491cc91b23ecdcaa4c347bf599a62904d61f1c15b400ebbd5c90149010c139d9c1e31b774b796977393a238080ab477e1d240d0c4f155d36f519668f49bae6bd8cd5b8e40522edf76faa09cca6188d83ff13af6967cc6a569d1a5e9aeb1fdb7f531ddd2d0cbb81879741d5f38166ac1932136264366a4065cc96a42e41f96294f02df01"
+
+    (async () => {
+      try {
+        let getTxOutProof = await BITBOX.Blockchain.getTxOutProof([
+          "e25682caafc7000645d59f4c11d8d594b2943979b9d8fafb9f946e2b35c21b7e",
+          "d16662463fd98eb96c8f6898d58a4461ac3d0120f4d0aea601d72b37759f261c"
+        ]);
+        console.log(getTxOutProof);
+      } catch(error) {
+       console.error(error)
+      }
+    })()
+
+    // [
+    //   "010000007de867cc8adc5cc8fb6b898ca4462cf9fd667d7830a275277447e60800000000338f121232e169d3100edd82004dc2a1f0e1f030c6c488fa61eafa930b0528fe021f7449ffff001d36b4af9a0100000001338f121232e169d3100edd82004dc2a1f0e1f030c6c488fa61eafa930b0528fe0101",
+    //   "010000007de867cc8adc5cc8fb6b898ca4462cf9fd667d7830a275277447e60800000000338f121232e169d3100edd82004dc2a1f0e1f030c6c488fa61eafa930b0528fe021f7449ffff001d36b4af9a0100000001338f121232e169d3100edd82004dc2a1f0e1f030c6c488fa61eafa930b0528fe0101"
+    // ]
 
 ### `preciousBlock`
 
@@ -460,23 +553,47 @@ true|false (boolean): Verified or not
 
 ### `verifyTxOutProof`
 
-Verifies that a proof points to a transaction in a block, returning the transaction it commits to and throwing an RPC error if the block is not in our best chain
+Verifies that a proof points to a transaction in a block, returning the
+transaction it commits to and throwing an RPC error if the block is not in our
+best chain
 
 #### Arguments
 
-1.  proof (string, required): The hex-encoded proof generated by gettxoutproof
+- proof (required):
+  - `String`: The hex-encoded proof generated by gettxoutproof
+  - `Array` of strings: The hex-encoded proof generated by gettxoutproof
 
 #### Result
 
-\["txid"\] (array, strings): The txid(s) which the proof commits to, or empty array if the proof is invalid
+- txids `Array`: The txid(s) which the proof commits to, or empty array if the proof is invalid
 
 #### Examples
 
     (async () => {
       try {
-        let verifyTxOutProof = await BITBOX.Blockchain.verifyTxOutProof("proof");
+        const proof = "0000002086a4a3161f9ba2174883ec0b93acceac3b2f37b36ed1f90000000000000000009cb02406d1094ecf3e0b4c0ca7c585125e721147c39daf6b48c90b512741e13a12333e5cb38705180f441d8c7100000008fee9b60f1edb57e5712839186277ed39e0a004a32be9096ee47472efde8eae62f789f9d7a9f59d0ea7093dea1e0c65ff0b953f1d8cf3d47f92e732ca0295f603c272d5f4a63509f7a887f2549d78af7444aa0ecbb4f66d9cbe13bc6a89f59e05a199df8325d490818ffefe6b6321d32d7496a68580459836c0183f89082fc1b491cc91b23ecdcaa4c347bf599a62904d61f1c15b400ebbd5c90149010c139d9c1e31b774b796977393a238080ab477e1d240d0c4f155d36f519668f49bae6bd8cd5b8e40522edf76faa09cca6188d83ff13af6967cc6a569d1a5e9aeb1fdb7f531ddd2d0cbb81879741d5f38166ac1932136264366a4065cc96a42e41f96294f02df01"
+        let verifyTxOutProof = await BITBOX.Blockchain.verifyTxOutProof(proof);
         console.log(verifyTxOutProof);
       } catch(error) {
        console.error(error)
       }
     })()
+
+    // [
+    //   "03f69502ca32e7927fd4f38c1d3f950bff650c1eea3d09a70e9df5a9d7f989f7"
+    // ]
+
+    (async () => {
+      try {
+        const proof = "0000002086a4a3161f9ba2174883ec0b93acceac3b2f37b36ed1f90000000000000000009cb02406d1094ecf3e0b4c0ca7c585125e721147c39daf6b48c90b512741e13a12333e5cb38705180f441d8c7100000008fee9b60f1edb57e5712839186277ed39e0a004a32be9096ee47472efde8eae62f789f9d7a9f59d0ea7093dea1e0c65ff0b953f1d8cf3d47f92e732ca0295f603c272d5f4a63509f7a887f2549d78af7444aa0ecbb4f66d9cbe13bc6a89f59e05a199df8325d490818ffefe6b6321d32d7496a68580459836c0183f89082fc1b491cc91b23ecdcaa4c347bf599a62904d61f1c15b400ebbd5c90149010c139d9c1e31b774b796977393a238080ab477e1d240d0c4f155d36f519668f49bae6bd8cd5b8e40522edf76faa09cca6188d83ff13af6967cc6a569d1a5e9aeb1fdb7f531ddd2d0cbb81879741d5f38166ac1932136264366a4065cc96a42e41f96294f02df01"
+        let verifyTxOutProof = await BITBOX.Blockchain.verifyTxOutProof([proof, proof]);
+        console.log(verifyTxOutProof);
+      } catch(error) {
+       console.error(error)
+      }
+    })()
+
+    // [
+    //   "03f69502ca32e7927fd4f38c1d3f950bff650c1eea3d09a70e9df5a9d7f989f7",
+    //   "03f69502ca32e7927fd4f38c1d3f950bff650c1eea3d09a70e9df5a9d7f989f7"
+    // ]
