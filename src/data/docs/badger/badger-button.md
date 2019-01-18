@@ -12,6 +12,7 @@ Use any button on a page to send BCH by adding the "badger-button" class and inc
 
 - data-to `String` cashaddr address of BCH destination
 - data-satoshis `String` BCH amount to send in satoshis
+- data-opreturn `String` (Optional) String which will be written to nullData output w/ OP_RETURN
 - data-success-callback `String` (Optional) Name of global scoped function to call on success
 
 #### Result
@@ -30,6 +31,7 @@ Use any button on a page to send BCH by adding the "badger-button" class and inc
           <button
             class="badger-button"
             data-to="bitcoincash:pp8skudq3x5hzw8ew7vzsw8tn4k8wxsqsv0lt0mf3g"
+            data-opreturn="Satoshi Natakmoto"
             data-satoshis="10000"
           >
             Tip 10,000 Satoshis
