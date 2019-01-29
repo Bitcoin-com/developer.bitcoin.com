@@ -10,7 +10,14 @@ Return information about the given bitcoin address.
 
 #### Arguments
 
-1.  address (string, required): The bitcoin address to validate
+- address (required):
+  - `String`: legacy or cash address
+  - `Array`: array of strings containing legacy or cash addresses.
+
+#### Result
+
+- `Object`: An object with an `isvalid` Boolean property will be returned. If
+  true, additional properties will exist.
 
 #### Examples
 

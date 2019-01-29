@@ -10,17 +10,21 @@ Return an Array of JSON objects representing the serialized, hex-encoded transac
 
 #### Arguments
 
-1.  hexstrings `Array` required: Array with maximum of 20 transaction hex strings.
+- hex (required):
+  - `String`: A hex encoded transaction
+  - `Array` of strings: Array with maximum of 20 transaction hex strings.
 
 #### Result
 
-txs `Array`
+- txs:
+  - `Object`: An object containing decoded transaction details.
+  - `Array`: An array of objects containing decoded transaction details.
 
 #### Examples
 
     (async () => {
       try {
-        let decodeRawTransaction = await BITBOX.RawTransactions.decodeRawTransaction(['01000000013ba3edfd7a7b12b27ac72c3e67768f617fc81bc3888a51323a9fb8aa4b1e5e4a000000006a4730440220540986d1c58d6e76f8f05501c520c38ce55393d0ed7ed3c3a82c69af04221232022058ea43ed6c05fec0eccce749a63332ed4525460105346f11108b9c26df93cd72012103083dfc5a0254613941ddc91af39ff90cd711cdcde03a87b144b883b524660c39ffffffff01807c814a000000001976a914d7e7c4e0b70eaa67ceff9d2823d1bbb9f6df9a5188ac00000000']);
+        let decodeRawTransaction = await BITBOX.RawTransactions.decodeRawTransaction('01000000013ba3edfd7a7b12b27ac72c3e67768f617fc81bc3888a51323a9fb8aa4b1e5e4a000000006a4730440220540986d1c58d6e76f8f05501c520c38ce55393d0ed7ed3c3a82c69af04221232022058ea43ed6c05fec0eccce749a63332ed4525460105346f11108b9c26df93cd72012103083dfc5a0254613941ddc91af39ff90cd711cdcde03a87b144b883b524660c39ffffffff01807c814a000000001976a914d7e7c4e0b70eaa67ceff9d2823d1bbb9f6df9a5188ac00000000');
         console.log(decodeRawTransaction);
       } catch(error) {
        console.error(error)
@@ -38,6 +42,18 @@ txs `Array`
     //      scriptSig: [Object],
     //      sequence: 4294967295 } ],
     // vout: [ { value: 12.5, n: 0, scriptPubKey: [Object] } ] }]
+
+    (async () => {
+      try {
+        let decodeRawTransaction = await BITBOX.RawTransactions.decodeRawTransaction([
+          '01000000013ba3edfd7a7b12b27ac72c3e67768f617fc81bc3888a51323a9fb8aa4b1e5e4a000000006a4730440220540986d1c58d6e76f8f05501c520c38ce55393d0ed7ed3c3a82c69af04221232022058ea43ed6c05fec0eccce749a63332ed4525460105346f11108b9c26df93cd72012103083dfc5a0254613941ddc91af39ff90cd711cdcde03a87b144b883b524660c39ffffffff01807c814a000000001976a914d7e7c4e0b70eaa67ceff9d2823d1bbb9f6df9a5188ac00000000',
+          '01000000013ba3edfd7a7b12b27ac72c3e67768f617fc81bc3888a51323a9fb8aa4b1e5e4a000000006a4730440220540986d1c58d6e76f8f05501c520c38ce55393d0ed7ed3c3a82c69af04221232022058ea43ed6c05fec0eccce749a63332ed4525460105346f11108b9c26df93cd72012103083dfc5a0254613941ddc91af39ff90cd711cdcde03a87b144b883b524660c39ffffffff01807c814a000000001976a914d7e7c4e0b70eaa67ceff9d2823d1bbb9f6df9a5188ac00000000'
+        ]);
+        console.log(decodeRawTransaction);
+      } catch(error) {
+       console.error(error)
+      }
+    })()
 
 ### `decodeScript`
 
@@ -68,18 +84,25 @@ decodedScripts `Array`
 
 ### `getRawTransaction`
 
-Return the raw transaction data. If verbose is 'true', returns an Object with information about 'txid'. If verbose is 'false' or omitted, returns a string that is serialized, hex-encoded data for 'txid'.
+Return the raw transaction data. If verbose is 'true', returns an Object with
+information about 'txid'. If verbose is 'false' or omitted, returns a string
+that is serialized, hex-encoded data for 'txid'.
 
 #### Arguments
 
-1.  txids `Array` required: Array with maximum of 20 transaction ids.
-2.  verbose (Bool, optional, default=false): If false, return a string, otherwise return a json object
+- txids (required):
+
+  - `String`: transaction ID
+  - `Array`: Array of strings of transaction IDs, with maximum of 20.
+
+- verbose `Boolean` (optional, default=false): If false, return a string,
+  otherwise return a json object
 
 #### Examples
 
     (async () => {
       try {
-        let getRawTransaction = await BITBOX.RawTransactions.getRawTransaction(["0e3e2357e806b6cdb1f70b54c3a3a17b6714ee1f0e68bebb44a74b1efd512098"]);
+        let getRawTransaction = await BITBOX.RawTransactions.getRawTransaction("0e3e2357e806b6cdb1f70b54c3a3a17b6714ee1f0e68bebb44a74b1efd512098");
         console.log(getRawTransaction);
       } catch(error) {
        console.error(error)
@@ -87,6 +110,18 @@ Return the raw transaction data. If verbose is 'true', returns an Object with in
     })()
 
     // [ '01000000010000000000000000000000000000000000000000000000000000000000000000ffffffff0704ffff001d0104ffffffff0100f2052a0100000043410496b538e853519c726a2c91e61ec11600ae1390813a627c66fb8be7947be63c52da7589379515d4e0a604f8141781e62294721166bf621e73a82cbf2342c858eeac00000000' ]
+
+    (async () => {
+      try {
+        let getRawTransaction = await BITBOX.RawTransactions.getRawTransaction([
+          "0e3e2357e806b6cdb1f70b54c3a3a17b6714ee1f0e68bebb44a74b1efd512098",
+          "b25d24fbb42d84812ed2cb55797f10fdec41afc7906ab563d1ec8c8676a2037f"
+        ], true);
+        console.log(getRawTransaction);
+      } catch(error) {
+       console.error(error)
+      }
+    })()
 
 ### `sendRawTransaction`
 
