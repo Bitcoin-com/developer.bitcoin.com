@@ -1,7 +1,7 @@
 ---
 title: Transaction
 icon: exchange
-ordinal: 9
+ordinal: 10
 ---
 
 ## Transaction details single
