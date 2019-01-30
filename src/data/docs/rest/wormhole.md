@@ -1,7 +1,7 @@
 ---
 title: Wormhole
-icon: cogs
-ordinal: 11
+icon: coins
+ordinal: 12
 ---
 
 ## Validate Address
