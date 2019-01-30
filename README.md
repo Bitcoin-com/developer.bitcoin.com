@@ -119,5 +119,3 @@ usage
 // some extra spce
 <spacer></spacer>
 ```
-
-#### Deploy
