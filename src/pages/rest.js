@@ -119,7 +119,7 @@ const RestPage = ({ location, data }: Props) => (
             from/to the chain.
           </Text>
         </PreviewItem>
-        <PreviewItem to="/gui/docs/getting-started">
+        <PreviewItem to="/rest/docs/address">
           <H3>Addresses, Blocks and Transactions</H3>
           <Text>
             Get details such as balance, utxo and unconfirmed transactions for

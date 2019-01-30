@@ -4,8 +4,6 @@ icon: home
 ordinal: 0
 ---
 
-## [REST interface](https://rest.bitcoin.com)
+100% of the Bitcoin Cash JSON RPC available over HTTP with proper REST semantics. BITBOX SDK integration lets you GET and POST requests to the BCH network with no further setup. Or create your own client which to speak to the blockchain over REST.
 
-Documentation and examples for the REST coming soon.
-
-[Explore REST Interface](https://rest.bitcoin.com)
+[Explore rest.bitcoin.com](https://rest.bitcoin.com)
