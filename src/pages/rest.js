@@ -108,9 +108,7 @@ const RestPage = ({ location, data }: Props) => (
             100% of the Bitcoin Cash JSON RPC available over HTTP with proper
             REST semantics. BITBOX SDK integration lets you GET and POST
             requests to the BCH network with no further setup. Or create your
-            own client which to speak to the blockchain over RESto the BCH
-            network with no further setup. Or create your own client which to
-            speak to the blockchain over REST.
+            own client which to speak to the blockchain over REST.
           </Text>
         </PreviewItem>
         <PreviewItem to="/rest/docs/getting-started">
@@ -121,7 +119,7 @@ const RestPage = ({ location, data }: Props) => (
             from/to the chain.
           </Text>
         </PreviewItem>
-        <PreviewItem to="/gui/docs/getting-started">
+        <PreviewItem to="/rest/docs/address">
           <H3>Addresses, Blocks and Transactions</H3>
           <Text>
             Get details such as balance, utxo and unconfirmed transactions for

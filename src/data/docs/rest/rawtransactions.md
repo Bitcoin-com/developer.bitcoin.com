@@ -4,11 +4,11 @@ icon: exchange
 ordinal: 8
 ---
 
-## Decode Raw Transaction
+## Decode Single Raw Transaction
 
 Return a JSON object representing the serialized, hex-encoded transaction.
 
-**URL** : `/rawtransactions/decodeRawTransaction/{hex}`
+**URL** : `v2/rawtransactions/decodeRawTransaction/{hex}`
 
 **Method** : `GET`
 
@@ -74,11 +74,103 @@ Return a JSON object representing the serialized, hex-encoded transaction.
       ]
     }
 
+## Decode Bulk Raw Transactions
+
+Return bulk hex encoded transaction.
+
+**URL** : `v2/rawtransactions/decodeRawTransaction`
+
+**Method** : `POST`
+
+**Auth required** : NO
+
+#### Body Parameters
+
+1.  hexes `Array`
+
+#### Result
+
+decoded `Array` containing the decoded transaction data
+
+#### Examples
+
+    curl -X POST "https://rest.bitcoin.com/v2/rawtransactions/decodeRawTransaction" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"hexes\":[\"01000000013ba3edfd7a7b12b27ac72c3e67768f617fc81bc3888a51323a9fb8aa4b1e5e4a000000006a4730440220540986d1c58d6e76f8f05501c520c38ce55393d0ed7ed3c3a82c69af04221232022058ea43ed6c05fec0eccce749a63332ed4525460105346f11108b9c26df93cd72012103083dfc5a0254613941ddc91af39ff90cd711cdcde03a87b144b883b524660c39ffffffff01807c814a000000001976a914d7e7c4e0b70eaa67ceff9d2823d1bbb9f6df9a5188ac00000000\",\"01000000013ba3edfd7a7b12b27ac72c3e67768f617fc81bc3888a51323a9fb8aa4b1e5e4a000000006a4730440220540986d1c58d6e76f8f05501c520c38ce55393d0ed7ed3c3a82c69af04221232022058ea43ed6c05fec0eccce749a63332ed4525460105346f11108b9c26df93cd72012103083dfc5a0254613941ddc91af39ff90cd711cdcde03a87b144b883b524660c39ffffffff01807c814a000000001976a914d7e7c4e0b70eaa67ceff9d2823d1bbb9f6df9a5188ac00000000\"]}"
+
+    // returns
+    [
+      {
+        "txid": "d86c34adaeae19171fd98fe0ffd89bfb92a1e6f0339f5e4f18d837715fd25758",
+        "hash": "d86c34adaeae19171fd98fe0ffd89bfb92a1e6f0339f5e4f18d837715fd25758",
+        "size": 191,
+        "version": 1,
+        "locktime": 0,
+        "vin": [
+          {
+            "txid": "4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b",
+            "vout": 0,
+            "scriptSig": {
+              "asm": "30440220540986d1c58d6e76f8f05501c520c38ce55393d0ed7ed3c3a82c69af04221232022058ea43ed6c05fec0eccce749a63332ed4525460105346f11108b9c26df93cd72[ALL] 03083dfc5a0254613941ddc91af39ff90cd711cdcde03a87b144b883b524660c39",
+              "hex": "4730440220540986d1c58d6e76f8f05501c520c38ce55393d0ed7ed3c3a82c69af04221232022058ea43ed6c05fec0eccce749a63332ed4525460105346f11108b9c26df93cd72012103083dfc5a0254613941ddc91af39ff90cd711cdcde03a87b144b883b524660c39"
+            },
+            "sequence": 4294967295
+          }
+        ],
+        "vout": [
+          {
+            "value": 12.5,
+            "n": 0,
+            "scriptPubKey": {
+              "asm": "OP_DUP OP_HASH160 d7e7c4e0b70eaa67ceff9d2823d1bbb9f6df9a51 OP_EQUALVERIFY OP_CHECKSIG",
+              "hex": "76a914d7e7c4e0b70eaa67ceff9d2823d1bbb9f6df9a5188ac",
+              "reqSigs": 1,
+              "type": "pubkeyhash",
+              "addresses": [
+                "bitcoincash:qrt7038qku825e7wl7wjsg73hwuldhu62yz9t0u9ng"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "txid": "d86c34adaeae19171fd98fe0ffd89bfb92a1e6f0339f5e4f18d837715fd25758",
+        "hash": "d86c34adaeae19171fd98fe0ffd89bfb92a1e6f0339f5e4f18d837715fd25758",
+        "size": 191,
+        "version": 1,
+        "locktime": 0,
+        "vin": [
+          {
+            "txid": "4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b",
+            "vout": 0,
+            "scriptSig": {
+              "asm": "30440220540986d1c58d6e76f8f05501c520c38ce55393d0ed7ed3c3a82c69af04221232022058ea43ed6c05fec0eccce749a63332ed4525460105346f11108b9c26df93cd72[ALL] 03083dfc5a0254613941ddc91af39ff90cd711cdcde03a87b144b883b524660c39",
+              "hex": "4730440220540986d1c58d6e76f8f05501c520c38ce55393d0ed7ed3c3a82c69af04221232022058ea43ed6c05fec0eccce749a63332ed4525460105346f11108b9c26df93cd72012103083dfc5a0254613941ddc91af39ff90cd711cdcde03a87b144b883b524660c39"
+            },
+            "sequence": 4294967295
+          }
+        ],
+        "vout": [
+          {
+            "value": 12.5,
+            "n": 0,
+            "scriptPubKey": {
+              "asm": "OP_DUP OP_HASH160 d7e7c4e0b70eaa67ceff9d2823d1bbb9f6df9a51 OP_EQUALVERIFY OP_CHECKSIG",
+              "hex": "76a914d7e7c4e0b70eaa67ceff9d2823d1bbb9f6df9a5188ac",
+              "reqSigs": 1,
+              "type": "pubkeyhash",
+              "addresses": [
+                "bitcoincash:qrt7038qku825e7wl7wjsg73hwuldhu62yz9t0u9ng"
+              ]
+            }
+          }
+        ]
+      }
+    ]
+
 ## Decode Script
 
 Decode a hex-encoded script.
 
-**URL** : `/rawtransactions/decodeScript/{hex}`
+**URL** : `v2/rawtransactions/decodeScript/{hex}`
 
 **Method** : `GET`
 
@@ -94,13 +186,13 @@ Decode a hex-encoded script.
 
 #### Examples
 
-    curl -X GET "https://bitcoin.com/v2/rawtransactions/decodeScript/02000000012d2ec73b12ecb96fbf104fa0325e39bc4e49818709594ba2128635aedfb820a1010000006a47304402203c63866eab7ffca27ed6437a028de9b2cc83dd1ed96f0f496742cf70c6ca50b8022007f3c7fc8729f52d8d0e626c6328012691fa6b3a317c66408e2ccc84a6538e9741210360cfc66fdacb650bc4c83b4e351805181ee696b7d5ab4667c57b2786f51c413dffffffff036a929800000000001976a914eb4b180def88e3f5625b2d8ae2c098ff7d85f66488ac00000000000000006a6a4c67087768630000003201000800000000426974636f696e2e636f6d00426974636f696e20466978656420546f6b656e20546573740054535400646576656c6f7065722e626974636f696e2e636f6d004d616465207769746820424954424f5800000000174876e80022020000000000001976a914eb4b180def88e3f5625b2d8ae2c098ff7d85f66488ac00000000" -H "accept: application/json"
+    curl -X GET "https://rest.bitcoin.com/v2/rawtransactions/decodeScript/4830450221009a51e00ec3524a7389592bc27bea4af5104a59510f5f0cfafa64bbd5c164ca2e02206c2a8bbb47eabdeed52f17d7df668d521600286406930426e3a9415fe10ed592012102e6e1423f7abde8b70bca3e78a7d030e5efabd3eb35c19302542b5fe7879c1a16" -H "accept: application/json"
 
     // returns
     {
-      "asm": "0 0 45 c73b12ecb96fbf104fa0325e39bc4e49818709594ba2128635aedfb820a1010000006a47304402203c63866eab7f OP_UNKNOWN OP_GREATERTHANOREQUAL OP_CAT OP_UNKNOWN 7a028de9b2cc83dd1ed96f0f496742cf70c6ca50b8022007f3c7fc8729f52d8d0e626c6328012691fa6b3a317c66408e2ccc84a6538e9741210360cfc66fdacb650bc4 OP_UNKNOWN 4e351805181ee696b7d5ab4667c57b2786f51c413dffffffff036a929800000000001976a914eb4b180def88e3f5625b2d8ae2c098ff7d85f66488 OP_CHECKSIG 0 0 0 0 0 0 0 0 OP_RETURN OP_RETURN 087768630000003201000800000000426974636f696e2e636f6d00426974636f696e20466978656420546f6b656e20546573740054535400646576656c6f7065722e626974636f696e2e636f6d004d616465207769746820424954424f5800000000174876e800 020000000000001976a914eb4b180def88e3f5625b2d8ae2c098ff7d85f66488ac00 0 0 0",
+      "asm": "30450221009a51e00ec3524a7389592bc27bea4af5104a59510f5f0cfafa64bbd5c164ca2e02206c2a8bbb47eabdeed52f17d7df668d521600286406930426e3a9415fe10ed59201 02e6e1423f7abde8b70bca3e78a7d030e5efabd3eb35c19302542b5fe7879c1a16",
       "type": "nonstandard",
-      "p2sh": "bchtest:pzmev6lerkdanw7skxuq7py8jypdqrvgp5k0twz0qn"
+      "p2sh": "bitcoincash:pqwndulzwft8dlmqrteqyc9hf823xr3lcc7ypt74ts"
     }
 
 ## Get Raw Transaction
@@ -182,45 +274,29 @@ return the raw transaction data. If verbose is 'true', returns an Object with in
       "blocktime": 1545086356
     }
 
-## Decode Transaction
+## Send Bulk Raw Transactions
 
-Decodes an Omni transaction.
+Send bulk raw transactions to network.
 
-**URL** : `/rawtransactions/decodeRawTransaction/{hex}`
+**URL** : `v2/rawtransactions/sendRawTransaction`
 
-**Method** : `GET`
+**Method** : `POST`
 
 **Auth required** : NO
 
-#### URL Parameters
+#### Body Parameters
 
-1.  hex encoded `String` of a Wormhole transaction required
+1.  hexes `Array`. required
 
 #### Result
 
-`Object` containing the decoded transaction data
+txids `Array` containing the txids
 
 #### Examples
 
-    curl -X GET "https://bitcoin.com/v2/rawtransactions/decodeTransaction/02000000016ad673a59a43d70ec537ed1a7cc5b867e1bbbddde47a26164c2927530fae5951010000006a47304402206754d05ef05760ef9eb6d5b80deb174864768876067a261617a69cdbb9295179022022e223153eec7c1b511a4de3e618b952d7d2df925f5f1f9e006193c1cf6f507c4121024d4e7f522f67105b7bf5f9dbe557e7b2244613fdfcd6fe09304f93877328f6beffffffff039fecf70b000000001976a9143a9b2b0c12fe722fcf653b6ef5dcc38732d6ff5188ac0000000000000000166a1408776863000000000000022c0000000005f5e10022020000000000001976a9140ee020c07f39526ac5505c54fa1ab98490979b8388ac00000000" -H "accept: */*"
+    curl -X POST "https://rest.bitcoin.com/v2/rawtransactions/sendRawTransaction" -H "accept: */*" -H "Content-Type: application/json" -d "{\"hexes\":[\"01000000013ba3edfd7a7b12b27ac72c3e67768f617fc81bc3888a51323a9fb8aa4b1e5e4a000000006a4730440220540986d1c58d6e76f8f05501c520c38ce55393d0ed7ed3c3a82c69af04221232022058ea43ed6c05fec0eccce749a63332ed4525460105346f11108b9c26df93cd72012103083dfc5a0254613941ddc91af39ff90cd711cdcde03a87b144b883b524660c39ffffffff01807c814a000000001976a914d7e7c4e0b70eaa67ceff9d2823d1bbb9f6df9a5188ac00000000\",\"01000000013ba3edfd7a7b12b27ac72c3e67768f617fc81bc3888a51323a9fb8aa4b1e5e4a000000006a4730440220540986d1c58d6e76f8f05501c520c38ce55393d0ed7ed3c3a82c69af04221232022058ea43ed6c05fec0eccce749a63332ed4525460105346f11108b9c26df93cd72012103083dfc5a0254613941ddc91af39ff90cd711cdcde03a87b144b883b524660c39ffffffff01807c814a000000001976a914d7e7c4e0b70eaa67ceff9d2823d1bbb9f6df9a5188ac00000000\"]}"
 
     // returns
-    {
-      "txid": "762eef163b13f96273b9c1efa5cb8302caedc1ba77f682e06e9f655d19d107fd",
-      "fee": "500",
-      "sendingaddress": "bchtest:qqafk2cvztl8yt70v5akaawucwrn94hl2yups7rzfn",
-      "referenceaddress": "bchtest:qq8wqgxq0uu4y6k92pw9f7s6hxzfp9umsvtg39pzqf",
-      "ismine": false,
-      "version": 0,
-      "type_int": 0,
-      "type": "Simple Send",
-      "propertyid": 556,
-      "precision": "8",
-      "amount": "1.00000000",
-      "valid": true,
-      "blockhash": "00000000002a0249776b122b8a6dc7361cec117113b79e6ef446dcbc4bb8653f",
-      "blocktime": 1545401226,
-      "positioninblock": 124,
-      "block": 1275232,
-      "confirmations": 36
-    }
+    [
+      "5159ae0f5327294c16267ae4ddbdbbe167b8c57c1aed37c50ed7439aa573d66a"
+    ]
