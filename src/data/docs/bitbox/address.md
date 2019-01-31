@@ -637,8 +637,8 @@ Return list of uxto for address
 #### Result
 
 - utxo:
-  - utxo `Object`: containing `utxo` array of utxos, plus `legacyAddress` and
-    `cashAddress` properties.
+  - utxo `Object`: containing `utxo` array of utxos, plus `legacyAddress`,
+    `cashAddress` and `scriptPubKey` properties.
   - utxos `Array`: Array of utxo Objects.
 
 #### Examples
@@ -655,20 +655,16 @@ Return list of uxto for address
     // {
     //   "utxos": [
     //     {
-    //       "address": "1M1FYu4zuVaxRPWLZG5CnP8qQrZaqu6c2L",
     //       "txid": "27ec8512c1a9ee9e9ae9b98eb60375f1d2bd60e2e76a1eff5a45afdbc517cf9c",
     //       "vout": 0,
-    //       "scriptPubKey": "76a914db6ea94fa26b7272dc5e1487c35f258391e0f38788ac",
     //       "amount": 0.001,
     //       "satoshis": 100000,
     //       "height": 560430,
     //       "confirmations": 5163
     //     },
     //     {
-    //       "address": "1M1FYu4zuVaxRPWLZG5CnP8qQrZaqu6c2L",
     //       "txid": "6e1ae1bf7db6de799ec1c05ab2816ac65549bd80141567af088e6f291385b07d",
     //       "vout": 0,
-    //       "scriptPubKey": "76a914db6ea94fa26b7272dc5e1487c35f258391e0f38788ac",
     //       "amount": 0.0013,
     //       "satoshis": 130000,
     //       "height": 560039,
@@ -676,7 +672,8 @@ Return list of uxto for address
     //     }
     //   ],
     //   "legacyAddress": "1M1FYu4zuVaxRPWLZG5CnP8qQrZaqu6c2L",
-    //   "cashAddress": "bitcoincash:qrdka2205f4hyukutc2g0s6lykperc8nsu5u2ddpqf"
+    //   "cashAddress": "bitcoincash:qrdka2205f4hyukutc2g0s6lykperc8nsu5u2ddpqf",
+    //   "scriptPubKey": "76a914db6ea94fa26b7272dc5e1487c35f258391e0f38788ac"
     // }
 
     (async () => {
@@ -695,20 +692,16 @@ Return list of uxto for address
     //   {
     //     "utxos": [
     //       {
-    //         "address": "1M1FYu4zuVaxRPWLZG5CnP8qQrZaqu6c2L",
     //         "txid": "27ec8512c1a9ee9e9ae9b98eb60375f1d2bd60e2e76a1eff5a45afdbc517cf9c",
     //         "vout": 0,
-    //         "scriptPubKey": "76a914db6ea94fa26b7272dc5e1487c35f258391e0f38788ac",
     //         "amount": 0.001,
     //         "satoshis": 100000,
     //         "height": 560430,
     //         "confirmations": 5163
     //       },
     //       {
-    //         "address": "1M1FYu4zuVaxRPWLZG5CnP8qQrZaqu6c2L",
     //         "txid": "6e1ae1bf7db6de799ec1c05ab2816ac65549bd80141567af088e6f291385b07d",
     //         "vout": 0,
-    //         "scriptPubKey": "76a914db6ea94fa26b7272dc5e1487c35f258391e0f38788ac",
     //         "amount": 0.0013,
     //         "satoshis": 130000,
     //         "height": 560039,
@@ -716,7 +709,8 @@ Return list of uxto for address
     //       }
     //     ],
     //     "legacyAddress": "1M1FYu4zuVaxRPWLZG5CnP8qQrZaqu6c2L",
-    //     "cashAddress": "bitcoincash:qrdka2205f4hyukutc2g0s6lykperc8nsu5u2ddpqf"
+    //     "cashAddress": "bitcoincash:qrdka2205f4hyukutc2g0s6lykperc8nsu5u2ddpqf",
+    //     "scriptPubKey": "76a914db6ea94fa26b7272dc5e1487c35f258391e0f38788ac"
     //   },
     //   {
     //     "utxos": [],
