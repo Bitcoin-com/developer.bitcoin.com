@@ -568,8 +568,8 @@ Return details about an address including balance.
     //   "totalSentSat": 0,
     //   "unconfirmedBalance": 0,
     //   "unconfirmedBalanceSat": 0,
-    //   "unconfirmedTxApperances": 0,
-    //   "txApperances": 7,
+    //   "unconfirmedTxAppearances": 0,
+    //   "txAppearances": 7,
     //   "transactions": [
     //     "f737485aaee3c10b13013fa109bb6294b099246134ca9885f4cc332dbc6c9bb4",
     //     "decd5b9c0c959e4e543182093e8f7f8bc7a6ecd96a8a062daaeff3667f8feca7",
@@ -598,8 +598,8 @@ Return details about an address including balance.
     //   totalSentSat: 0,
     //   unconfirmedBalance: 0,
     //   unconfirmedBalanceSat: 0,
-    //   unconfirmedTxApperances: 0,
-    //   txApperances: 7,
+    //   unconfirmedTxAppearances: 0,
+    //   txAppearances: 7,
     //   transactions:
     //    [ 'f737485aaee3c10b13013fa109bb6294b099246134ca9885f4cc332dbc6c9bb4',
     //      'decd5b9c0c959e4e543182093e8f7f8bc7a6ecd96a8a062daaeff3667f8feca7',
@@ -618,8 +618,8 @@ Return details about an address including balance.
     //   totalSentSat: 0,
     //   unconfirmedBalance: 0,
     //   unconfirmedBalanceSat: 0,
-    //   unconfirmedTxApperances: 0,
-    //   txApperances: 0,
+    //   unconfirmedTxAppearances: 0,
+    //   txAppearances: 0,
     //   transactions: [],
     //   legacyAddress: '1CT9huFgxMFveRvzZ7zPPJNoaMm2Fo64VH',
     //   cashAddress: 'bitcoincash:qp7ekaepv3wf2nq035hevcma4x9sxmp3w56048g6ra' } ]
