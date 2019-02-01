@@ -12,7 +12,9 @@ Return details about a Transaction.
 
 #### Arguments
 
-1.  txids `Array` required: Array with maximum of 20 transaction ids
+- txids (required):
+  - `String`: transaction ID
+  - `Array` of strings: collection of transaction IDs
 
 #### Result
 

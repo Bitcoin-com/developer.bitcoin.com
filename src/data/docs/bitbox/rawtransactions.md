@@ -127,9 +127,13 @@ that is serialized, hex-encoded data for 'txid'.
 
 Submits raw transaction (serialized, hex-encoded) to local node and network. Also see createrawtransaction and signrawtransaction calls.
 
+For bulk uploads, transactions must use different UTXOs.
+
 #### Arguments
 
-1.  hex `String` required: raw hex string
+- hex (required):
+  - `String`: hex encoded string of the transaction to be broadcast
+  - `Array` of strings: each element is a hex encoded string
 
 #### Result
 
