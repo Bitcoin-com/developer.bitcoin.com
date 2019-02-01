@@ -37,8 +37,8 @@ array `Array` of JSON Objects
       "totalSentSat": 4185868,
       "unconfirmedBalance": 0,
       "unconfirmedBalanceSat": 0,
-      "unconfirmedTxApperances": 0,
-      "txApperances": 36,
+      "unconfirmedTxAppearances": 0,
+      "txAppearances": 36,
       "transactions": [
         "ac444896b3e32d17824fa6573eed3b89768c5c9085b7a71f3ba88e9d5ba67355",
         "a5f972572ee1753e2fd2457dd61ce5f40fa2f8a30173d417e49feef7542c96a1",
