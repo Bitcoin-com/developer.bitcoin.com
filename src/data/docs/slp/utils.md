@@ -4,74 +4,6 @@ icon: exchange
 ordinal: 6
 ---
 
-### `toSLPAddress`
-
-Convert cashAddr or legacyAddr to slpAddr
-
-#### Arguments
-
-1.  address `String` required: The address to convert
-
-#### Result
-
-address `String`: the address converted to slpAddr
-
-#### Examples
-
-    SLP.Utils.toSLPAddress(
-      "bitcoincash:qrxwdlhfx5f4xsfnl0g887e5ccs5puy8sgj0z0md6k"
-    );
-    // "simpleledger:qrxwdlhfx5f4xsfnl0g887e5ccs5puy8sg75f5wdyg"
-
-    SLP.Utils.toSLPAddress("1KgRZzxLUvZqL8EuufmdxqSjh3tgURwD6d");
-    //"simpleledger:qrxwdlhfx5f4xsfnl0g887e5ccs5puy8sg75f5wdyg"
-
-### `toCashAddress`
-
-Convert slpAddr or legacyAddr to cashAddr
-
-#### Arguments
-
-1.  address `String` required: The address to convert
-
-#### Result
-
-address `String`: the address converted to cashAddr
-
-#### Examples
-
-    SLP.Utils.toCashAddress(
-      "simpleledger:qrxwdlhfx5f4xsfnl0g887e5ccs5puy8sg75f5wdyg"
-    );
-    // 'bitcoincash:qrxwdlhfx5f4xsfnl0g887e5ccs5puy8sgj0z0md6k'
-
-    SLP.Utils.toCashAddress("1KgRZzxLUvZqL8EuufmdxqSjh3tgURwD6d");
-    // 'bitcoincash:qrxwdlhfx5f4xsfnl0g887e5ccs5puy8sgj0z0md6k'
-
-### `toLegacyAddress`
-
-Convert cashAddr or legacyAddr to legacyAddr
-
-#### Arguments
-
-1.  address `String` required: The address to convert
-
-#### Result
-
-address `String`: the address converted to legacyAddr
-
-#### Examples
-
-    SLP.Utils.toLegacyAddress(
-      "simpleledger:qrxwdlhfx5f4xsfnl0g887e5ccs5puy8sg75f5wdyg"
-    );
-    //'1KgRZzxLUvZqL8EuufmdxqSjh3tgURwD6d'
-
-    SLP.Utils.toLegacyAddress(
-      "bitcoincash:qrxwdlhfx5f4xsfnl0g887e5ccs5puy8sgj0z0md6k"
-    );
-    // "1KgRZzxLUvZqL8EuufmdxqSjh3tgURwD6d"
-
 ### `list`
 
 List all tokens or list single token by id
@@ -96,6 +28,7 @@ tokens `Array` or `Object`: tokens or single token
         console.error(error);
       }
     })();
+
     // returns
     [ { id: '545cba6f72a08cbcb08c7d4e8166267942e8cb9a611328805c62fa538e861ba4',
      timestamp: '2018-08-14 13:42',
@@ -118,7 +51,7 @@ tokens `Array` or `Object`: tokens or single token
      (async () => {
         try {
           let list = await SLP.Utils.list(
-            "323a1e35ae0b356316093d20f2d9fbc995d19314b5c0148b78dc8d9c0dab9d35"
+            "b3f4f132dc3b9c8c96316346993a8d54d729715147b7b11aa6c8cd909e955313"
           );
           console.log(list);
         } catch (error) {
@@ -127,13 +60,15 @@ tokens `Array` or `Object`: tokens or single token
       })();
 
       // returns
-      { id: '323a1e35ae0b356316093d20f2d9fbc995d19314b5c0148b78dc8d9c0dab9d35',
-        timestamp: '2018-08-14 17:53',
-        symbol: '',
-        name: '',
-        document: '' }
+      // { id:
+      //   'b3f4f132dc3b9c8c96316346993a8d54d729715147b7b11aa6c8cd909e955313',
+      //   timestamp: '2019-01-30 20:56',
+      //   symbol: 'SLPJS',
+      //   name: 'Awesome SLPJS README Token',
+      //   document: 'info@simpleledger.io'
+      // }
 
-### `balancesForAddress`
+<!-- ### `balancesForAddress`
 
 Return all balances for an address
 
@@ -202,86 +137,4 @@ balance `Object`: the address's balance for single token
      balance: '100',
      slpAddress: 'simpleledger:qz9tzs6d5097ejpg279rg0rnlhz546q4fsnck9wh5m',
      cashAddress: 'bitcoincash:qz9tzs6d5097ejpg279rg0rnlhz546q4fslra7mh29',
-     legacyAddress: '1DeLbv5EMzLEFDvQ8wZiKeSuPGGtSSz5HP' }
-
-### `convert`
-
-Convert between slpAddr, cashAddr and legacyAddr
-
-#### Arguments
-
-1.  address `String` required: The address to convert
-
-#### Result
-
-addresses `Object`: the address converted to slpAddr, cashAddr and legacyAddr
-
-#### Examples
-
-    (async () => {
-      try {
-        let conversion = await SLP.Utils.convert(
-          "simpleledger:qz9tzs6d5097ejpg279rg0rnlhz546q4fsnck9wh5m"
-        );
-        console.log(conversion);
-      } catch (error) {
-        console.error(error);
-      }
-    })();
-
-    // returns
-    { slpAddress: 'simpleledger:qz9tzs6d5097ejpg279rg0rnlhz546q4fsnck9wh5m',
-    cashAddress: 'bitcoincash:qz9tzs6d5097ejpg279rg0rnlhz546q4fslra7mh29',
-    legacyAddress: '1DeLbv5EMzLEFDvQ8wZiKeSuPGGtSSz5HP' }
-
-### `getPushDataOpcode`
-
-#### Arguments
-
-1. data
-
-#### Result
-
-### `int2FixedBuffer`
-
-#### Arguments
-
-1. amount
-
-#### Result
-
-### `encodeScript`
-
-#### Arguments
-
-1. script
-
-#### Result
-
-### `txidFromHex`
-
-#### Arguments
-
-1. hex
-
-#### Result
-
-### `readScriptInt32`
-
-#### Arguments
-
-1. buffer
-
-#### Result
-
-### `scriptInt32IsValid`
-
-#### Arguments
-
-1. buffer
-
-#### Result
-
-### `generateRandomScriptInt32`
-
-#### Result
+     legacyAddress: '1DeLbv5EMzLEFDvQ8wZiKeSuPGGtSSz5HP' } -->
