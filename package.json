@@ -1,7 +1,7 @@
 {
   "name": "developer.bitcoin.com",
   "description": "Bitcoin.com developer resources and documentation",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "author": "Peter <peter@bitcoin.com> and Gabriel Cardona <gabriel@bitcoin.com>",
   "dependencies": {
     "gatsby": "^2.0.50",
@@ -40,6 +40,9 @@
     "bch"
   ],
   "license": "MIT",
+  "engines": {
+    "node": ">=10.15.1"
+  },
   "scripts": {
     "start": "npm run develop",
     "build": "gatsby build",
