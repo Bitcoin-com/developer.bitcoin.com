@@ -98,6 +98,54 @@ cashAddress `String` cashAddr encoded address
       SLP.Address.toCashAddress('msDbtTj7kWXPpYaR7PQmMK84i66fJqQMLx', false)
       // qzq9je6pntpva3wf6scr7mlnycr54sjgeqxgrr9ku3
 
+### `toSLPAddress`
+
+Converting legacy or cashaddr to slpAddress format
+
+#### Arguments
+
+1.  address `String` required: legacy or cashaddr address to be converted
+2.  prefix `Boolean` optional: include prefix
+3.  regtest `Boolean` optional: return regtest address
+
+#### Result
+
+slpAddress `String` slpAddr encoded address
+
+#### Examples
+
+      // mainnet legacy
+      SLP.Address.toSLPAddress('1HiaTupadqQN66Tvgt7QSE5Wg13BUy25eN')
+      // simpleledger:qzm47qz5ue99y9yl4aca7jnz7dwgdenl857dzayzd
+
+      // mainnet legacy return no prefix
+      SLP.Address.toSLPAddress('1HiaTupadqQN66Tvgt7QSE5Wg13BUy25eN', false)
+      // qzm47qz5ue99y9yl4aca7jnz7dwgdenl85jkfx3znl
+
+      // mainnet cashaddr
+      SLP.Address.toSLPAddress('bitcoincash:qzm47qz5ue99y9yl4aca7jnz7dwgdenl85jkfx3znl')
+      // simpleledger:qzm47qz5ue99y9yl4aca7jnz7dwgdenl857dzayzdp
+
+      // mainnet slpaddr no prefix
+      SLP.Address.toSLPAddress('qzm47qz5ue99y9yl4aca7jnz7dwgdenl85jkfx3znl')
+      // simpleledger:qzm47qz5ue99y9yl4aca7jnz7dwgdenl857dzayzdp
+
+      // tesnet legacy
+      SLP.Address.toSLPAddress('msDbtTj7kWXPpYaR7PQmMK84i66fJqQMLx')
+      // slptest:qzq9je6pntpva3wf6scr7mlnycr54sjgeqauyclpwv
+
+      // testnet legacy return no prefix
+      SLP.Address.toSLPAddress('msDbtTj7kWXPpYaR7PQmMK84i66fJqQMLx', false)
+      // qzq9je6pntpva3wf6scr7mlnycr54sjgeqauyclpwv
+
+      // tesnet cashaddr
+      SLP.Address.toSLPAddress('msDbtTj7kWXPpYaR7PQmMK84i66fJqQMLx')
+      // slptest:qzq9je6pntpva3wf6scr7mlnycr54sjgeqauyclpwv
+
+      // testnet cashaddr no prefix
+      SLP.Address.toSLPAddress('msDbtTj7kWXPpYaR7PQmMK84i66fJqQMLx', false)
+      // qzq9je6pntpva3wf6scr7mlnycr54sjgeqauyclpwv
+
 ### `isSLPAddress`
 
 Detect if slpAddr encoded address
