@@ -154,61 +154,42 @@ const WormholePage = ({ location, data }: Props) => (
           <Text>List single token by id</Text>
           <Code>
             {`(async () => {
-  try {
-    let list = await SLP.Utils.list(
-      "323a1e35ae0b356316093d20f2d9fbc995d19314b5c0148b78dc8d9c0dab9d35"
-    );
-    console.log(list);
+    try {
+      let list = await SLP.Utils.list(
+        "b3f4f132dc3b9c8c96316346993a8d54d729715147b7b11aa6c8cd909e955313"
+      );
+      console.log(list);
     } catch (error) {
       console.error(error);
     }
-  }
 )();
 
 // returns
-{ id: '323a1e35ae0b356316093d20f2d9fbc995d19314b5c0148b78dc8d9c0dab9d35',
-  timestamp: '2018-08-14 17:53',
-  symbol: '',
-  name: '',
-  document: '' }
+{ id:
+  'b3f4f132dc3b9c8c96316346993a8d54d729715147b7b11aa6c8cd909e955313',
+  timestamp: '2019-01-30 20:56',
+  symbol: 'SLPJS',
+  name: 'Awesome SLPJS README Token',
+  document: 'info@simpleledger.io'
+}
 `}
           </Code>
         </PreviewItem>
         <PreviewItem to="/slp/docs/conversion">
           <H3>Conversion</H3>
-          <Text>Convert cashAddr or legacyAddr to slpAddr</Text>
+          <Text>Convert between slp, cashAddr and legacyAddr addresses</Text>
           <Code>
-            {`SLP.Utils.toSLPAddress(
-  "bitcoincash:qrxwdlhfx5f4xsfnl0g887e5ccs5puy8sgj0z0md6k"
-);
-// "simpleledger:qrxwdlhfx5f4xsfnl0g887e5ccs5puy8sg75f5wdyg"
+            {`// cash address to slp address
+              SLP.Address.toSLPAddress('bitcoincash:qzm47qz5ue99y9yl4aca7jnz7dwgdenl85jkfx3znl')
+              // simpleledger:qzm47qz5ue99y9yl4aca7jnz7dwgdenl857dzayzdp
 
-SLP.Conversion.toSLPAddress("1KgRZzxLUvZqL8EuufmdxqSjh3tgURwD6d");
-//"simpleledger:qrxwdlhfx5f4xsfnl0g887e5ccs5puy8sg75f5wdyg"
-`}
-          </Code>
-          <Text>Convert slpAddr or legacyAddr to cashAddr</Text>
-          <Code>
-            {`SLP.Utils.toCashAddress(
-  "simpleledger:qrxwdlhfx5f4xsfnl0g887e5ccs5puy8sg75f5wdyg"
-);
-// 'bitcoincash:qrxwdlhfx5f4xsfnl0g887e5ccs5puy8sgj0z0md6k'
+              // legacy address to cash address
+              SLP.Address.toCashAddress('1HiaTupadqQN66Tvgt7QSE5Wg13BUy25eN')
+              // bitcoincash:qzm47qz5ue99y9yl4aca7jnz7dwgdenl85jkfx3znl
 
-SLP.Conversion.toCashAddress("1KgRZzxLUvZqL8EuufmdxqSjh3tgURwD6d");
-// 'bitcoincash:qrxwdlhfx5f4xsfnl0g887e5ccs5puy8sgj0z0md6k'
-`}
-          </Code>
-          <Text>Convert cashAddr or slpAddr to legacyAddr</Text>
-          <Code>
-            {`SLP.Utils.toLegacyAddress(
-  "simpleledger:qrxwdlhfx5f4xsfnl0g887e5ccs5puy8sg75f5wdyg"
-);
-//'1KgRZzxLUvZqL8EuufmdxqSjh3tgURwD6d'
-
-SLP.Conversion.toLegacyAddress(
-  "bitcoincash:qrxwdlhfx5f4xsfnl0g887e5ccs5puy8sgj0z0md6k"
-);
-// "1KgRZzxLUvZqL8EuufmdxqSjh3tgURwD6d"
+              // slp address to legacy address
+              SLP.Address.toLegacyAddress('simpleledger:qzm47qz5ue99y9yl4aca7jnz7dwgdenl857dzayzdp')
+              // 1HiaTupadqQN66Tvgt7QSE5Wg13BUy25eN
 `}
           </Code>
         </PreviewItem>
