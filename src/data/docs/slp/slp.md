@@ -1,7 +1,7 @@
 ---
 title: SLP
 icon: elipses
-ordinal: 5
+ordinal: 4
 ---
 
 ### `Constructor`
@@ -22,5 +22,5 @@ SLP `SLP`: instance of SLP SDK
 
     let SLPSDK = require("slp-sdk/lib/SLP").default;
     let SLP = new SLPSDK({
-      restURL: "https://rest.bitcoin.com/v1/"
+      restURL: "https://rest.bitcoin.com/v2/"
     });

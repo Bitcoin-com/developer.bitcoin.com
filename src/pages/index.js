@@ -142,11 +142,6 @@ const IndexPage = ({ location, data }: Props) => (
               </StyledLink>
             </HeroButtonItem>
             <HeroButtonItem>
-              <StyledLink to="/wormhole">
-                <Button round>Wormhole SDK</Button>
-              </StyledLink>
-            </HeroButtonItem>
-            <HeroButtonItem>
               <StyledLink to="/slp">
                 <Button round>SLP SDK</Button>
               </StyledLink>
@@ -154,6 +149,11 @@ const IndexPage = ({ location, data }: Props) => (
             <HeroButtonItem>
               <StyledLink to="/badger">
                 <Button round>Badger SDK</Button>
+              </StyledLink>
+            </HeroButtonItem>
+            <HeroButtonItem>
+              <StyledLink to="/wormhole">
+                <Button round>Wormhole SDK</Button>
               </StyledLink>
             </HeroButtonItem>
           </HeroButtonLayout>
