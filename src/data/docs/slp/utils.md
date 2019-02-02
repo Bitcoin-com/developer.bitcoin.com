@@ -68,7 +68,7 @@ tokens `Array` or `Object`: tokens or single token
       //   document: 'info@simpleledger.io'
       // }
 
-<!-- ### `balancesForAddress`
+### `balancesForAddress`
 
 Return all balances for an address
 
@@ -84,7 +84,7 @@ balances `Object`: the address's balances
 
     (async () => {
       try {
-        let balances = await SLP.Utils.balancesForAddress('simpleledger:qz9tzs6d5097ejpg279rg0rnlhz546q4fsnck9wh5m');
+        let balances = await SLP.Utils.balancesForAddress('simpleledger:qr5agtachyxvrwxu76vzszan5pnvuzy8duhv4lxrsk');
         console.log(balances);
       } catch (error) {
         console.error(error);
@@ -92,14 +92,49 @@ balances `Object`: the address's balances
     })();
 
     // returns
-    { satoshis_available: 1092,
-      satoshis_locked_in_minting_baton: 0,
-      satoshis_locked_in_token: 1092,
-      '1cda254d0a995c713b7955298ed246822bee487458cd9747a91d9e81d9d28125': '995',
-      '047918c612e94cce03876f1ad2bd6c9da43b586026811d9b0d02c3c3e910f972': '100',
-      slpAddress: 'simpleledger:qz9tzs6d5097ejpg279rg0rnlhz546q4fsnck9wh5m',
-      cashAddress: 'bitcoincash:qz9tzs6d5097ejpg279rg0rnlhz546q4fslra7mh29',
-      legacyAddress: '1DeLbv5EMzLEFDvQ8wZiKeSuPGGtSSz5HP' }
+    { satoshis_available_bch: 11125547,
+      satoshis_in_slp_baton: 0,
+      satoshis_in_slp_token: 2184,
+      satoshis_in_invalid_token_dag: 0,
+      satoshis_in_invalid_baton_dag: 0,
+      slpTokenBalances:
+       { '968ff0cc4c93864001e03e9524e351250b94ec56150fa4897f65b0b6477d44d4': BigNumber { s: 1, e: 12, c: [Array] },
+         df808a41672a0a0ae6475b44f272a107bc9961b90f29dc918d71301f24fe92fb: BigNumber { s: 1, e: 10, c: [Array] },
+         b96304d12f1bbc2196df582516410e55a9b34e13c7b4585bf5c1770af30d034f: BigNumber { s: 1, e: 0, c: [Array] },
+         a436c8e1b6bee3d701c6044d190f76f774be83c36de8d34a988af4489e86dd37: BigNumber { s: 1, e: 9, c: [Array] } },
+      slpTokenUtxos:
+       { '968ff0cc4c93864001e03e9524e351250b94ec56150fa4897f65b0b6477d44d4': [ [Object] ],
+         df808a41672a0a0ae6475b44f272a107bc9961b90f29dc918d71301f24fe92fb: [ [Object] ],
+         b96304d12f1bbc2196df582516410e55a9b34e13c7b4585bf5c1770af30d034f: [ [Object] ],
+         a436c8e1b6bee3d701c6044d190f76f774be83c36de8d34a988af4489e86dd37: [ [Object] ] },
+      slpBatonUtxos: {},
+      nonSlpUtxos:
+       [ { satoshis: 700000,
+           txid:
+            '5c8bf9f460ab65b7bb9a768d0c6e4c802bf7bb992329d4aae7bc9ccd463e90b9',
+           amount: 0.007,
+           confirmations: 63,
+           height: 567900,
+           vout: 0,
+           cashAddress: 'bitcoincash:qr5agtachyxvrwxu76vzszan5pnvuzy8dumh7ynrwg',
+           legacyAddress: '1NKNdfgPq1EApuNaf5mrNRUPbwVHQt3MeB',
+           scriptPubKey: '76a914e9d42fb8b90cc1b8dcf698280bb3a066ce08876f88ac',
+           tx: [Object],
+           slpUtxoJudgement: 0 },
+         { satoshis: 10425547,
+           txid:
+            '9c91a2d9c0f59a10a55cabea37ea1f41ecd6ffee56bca8f459e635d9832652f6',
+           amount: 0.10425547,
+           confirmations: 162,
+           height: 567801,
+           vout: 1,
+           cashAddress: 'bitcoincash:qr5agtachyxvrwxu76vzszan5pnvuzy8dumh7ynrwg',
+           legacyAddress: '1NKNdfgPq1EApuNaf5mrNRUPbwVHQt3MeB',
+           scriptPubKey: '76a914e9d42fb8b90cc1b8dcf698280bb3a066ce08876f88ac',
+           tx: [Object],
+           slpUtxoJudgement: 0 } ],
+      invalidTokenUtxos: [],
+      invalidBatonUtxos: [] }
 
 ### `Balance`
 
@@ -119,8 +154,8 @@ balance `Object`: the address's balance for single token
     (async () => {
       try {
         let balance = await SLP.Utils.balance(
-          "simpleledger:qz9tzs6d5097ejpg279rg0rnlhz546q4fsnck9wh5m",
-          "047918c612e94cce03876f1ad2bd6c9da43b586026811d9b0d02c3c3e910f972"
+          "simpleledger:qr5agtachyxvrwxu76vzszan5pnvuzy8duhv4lxrsk",
+          "df808a41672a0a0ae6475b44f272a107bc9961b90f29dc918d71301f24fe92fb"
         );
         console.log(balance);
       } catch (error) {
@@ -129,12 +164,4 @@ balance `Object`: the address's balance for single token
     })();
 
     // returns
-    { id: '047918c612e94cce03876f1ad2bd6c9da43b586026811d9b0d02c3c3e910f972',
-     timestamp: '2018-09-22 14:25',
-     symbol: 'Ticker',
-     name: 'Name',
-     document: 'url',
-     balance: '100',
-     slpAddress: 'simpleledger:qz9tzs6d5097ejpg279rg0rnlhz546q4fsnck9wh5m',
-     cashAddress: 'bitcoincash:qz9tzs6d5097ejpg279rg0rnlhz546q4fslra7mh29',
-     legacyAddress: '1DeLbv5EMzLEFDvQ8wZiKeSuPGGtSSz5HP' } -->
+    BigNumber { s: 1, e: 10, c: [ 61700000000 ] }
