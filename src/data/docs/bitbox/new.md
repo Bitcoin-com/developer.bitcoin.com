@@ -12,7 +12,7 @@ BITBOX will generate a new app w/ empty `src/` and `test/` directories and a `bi
 new [options] <name>
   Options:
   -s, --scaffold <scaffold>        The framework to use. Options include react, angular, node, next, vue and websockets. (Default: react)
-  -r, --restURL <restURL>          The rest URL to use. default: https://trest.bitcoin.com/v1/
+  -r, --restURL <restURL>          The rest URL to use. default: https://trest.bitcoin.com/v2/
   -e, --environment <environment>  environment to map to restURL. Ex: production, staging. Default: development
   -h, --help                       output usage information
 
@@ -26,9 +26,9 @@ Your `bitbox.js` file will contain the default settings to connect to Bitcoin.co
 
 ```javascript
 exports.config = {
-  networks: {
+  environments: {
     development: {
-      restURL: 'https://trest.bitcoin.com/v1/',
+      restURL: 'https://trest.bitcoin.com/v2/',
     },
   },
 }
