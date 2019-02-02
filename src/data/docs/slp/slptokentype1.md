@@ -1,7 +1,7 @@
 ---
 title: SlpTokenType1
 icon: circle
-ordinal: 7
+ordinal: 5
 ---
 
 ### `lokadIdHex`
