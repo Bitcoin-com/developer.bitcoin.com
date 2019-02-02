@@ -155,7 +155,7 @@ balance `Object`: the address's balance for single token
       try {
         let balance = await SLP.Utils.balance(
           "simpleledger:qr5agtachyxvrwxu76vzszan5pnvuzy8duhv4lxrsk",
-          "047918c612e94cce03876f1ad2bd6c9da43b586026811d9b0d02c3c3e910f972"
+          "df808a41672a0a0ae6475b44f272a107bc9961b90f29dc918d71301f24fe92fb"
         );
         console.log(balance);
       } catch (error) {
