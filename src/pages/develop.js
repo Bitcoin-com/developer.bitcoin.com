@@ -77,15 +77,15 @@ const DevelopPage = ({ location, data }: Props) => (
           cta="View"
         />
         <InfoCard
-          to="/wormhole"
-          title="Wormhole"
-          text="Experience a paradigm shift. Smart contracts and Tokens for Bitcoin Cash."
-          cta="View"
-        />
-        <InfoCard
           to="/slp"
           title="SLP"
           text="Tokenize anything. Everything you need to easily issue, spend or trade your own token."
+          cta="View"
+        />
+        <InfoCard
+          to="/wormhole"
+          title="Wormhole"
+          text="Experience a paradigm shift. Smart contracts and Tokens for Bitcoin Cash."
           cta="View"
         />
         <InfoCard
