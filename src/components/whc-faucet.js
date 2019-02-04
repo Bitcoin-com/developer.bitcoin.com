@@ -174,10 +174,10 @@ class BchFaucet extends React.PureComponent<Props, State> {
     }
   }
 
-  showLink(txid) {
+  showLink(txid: string) {
     this.setState(prevState => ({
       linkOn: true,
-      linkAddr: `https://www.blocktrail.com/tBCC/tx/${txid}`,
+      linkAddr: `https://explorer.bitcoin.com/tbch/tx/${txid}`,
     }))
   }
 
