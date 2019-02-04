@@ -12,7 +12,7 @@ const Button = styled.button`
   cursor: pointer;
   display: flex;
   font-weight: 800;
-  padding: 0.65em 1.5em;
+  padding: 0.55em 1.2em;
   touch-action: manipulation;
   width: fit-content;
   font-size: 16px;

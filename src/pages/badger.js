@@ -69,7 +69,14 @@ const PreviewItem = ({ children, to }: ItemProps) => (
 
 type Props = {
   location: Object,
-  data: { heroImage: any },
+  data: {
+    site: {
+      siteMetadata: {
+        title: string,
+      },
+    },
+    heroImage: any,
+  },
 }
 
 const BadgerPage = ({ location, data }: Props) => (
