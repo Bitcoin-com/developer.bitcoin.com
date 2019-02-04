@@ -136,7 +136,7 @@ balances `Object`: the address's balances
       invalidTokenUtxos: [],
       invalidBatonUtxos: [] }
 
-### `Balance`
+### `balance`
 
 Return single balance for an address by token id
 
