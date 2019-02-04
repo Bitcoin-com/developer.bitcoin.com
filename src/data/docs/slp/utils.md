@@ -78,7 +78,7 @@ Return all balances for an address
 
 #### Result
 
-balances : `Object`. the address's balances
+balances : `Object`. The address's balances
 
 #### Examples
 
@@ -92,12 +92,11 @@ balances : `Object`. the address's balances
     })();
 
     // returns
-    // [
-    //   { '968ff0cc4c93864001e03e9524e351250b94ec56150fa4897f65b0b6477d44d4': 9980000000000 },
-    //   { df808a41672a0a0ae6475b44f272a107bc9961b90f29dc918d71301f24fe92fb: 61700000000 },
-    //   { b96304d12f1bbc2196df582516410e55a9b34e13c7b4585bf5c1770af30d034f: 1 },
-    //   { a436c8e1b6bee3d701c6044d190f76f774be83c36de8d34a988af4489e86dd37: 7760000000 }
-    // ]
+    // { '968ff0cc4c93864001e03e9524e351250b94ec56150fa4897f65b0b6477d44d4': 9980000000000,
+    //   df808a41672a0a0ae6475b44f272a107bc9961b90f29dc918d71301f24fe92fb: 61700000000,
+    //   b96304d12f1bbc2196df582516410e55a9b34e13c7b4585bf5c1770af30d034f: 1,
+    //   a436c8e1b6bee3d701c6044d190f76f774be83c36de8d34a988af4489e86dd37: 7760000000
+    // }
 
     // balances for Cash Address
     (async () => {
@@ -110,7 +109,7 @@ balances : `Object`. the address's balances
     })();
 
     // returns
-    // [ { '467969e067f5612863d0bf2daaa70dede2c6be03abb6fd401c5ef6e1e1f1f5c5': 50700 } ]
+    // { '467969e067f5612863d0bf2daaa70dede2c6be03abb6fd401c5ef6e1e1f1f5c5': 50700 }
 
     // balances for Legacy Address
     (async () => {
@@ -123,7 +122,7 @@ balances : `Object`. the address's balances
     })();
 
     // returns
-    // [ { '467969e067f5612863d0bf2daaa70dede2c6be03abb6fd401c5ef6e1e1f1f5c5': 50700 } ]
+    // { '467969e067f5612863d0bf2daaa70dede2c6be03abb6fd401c5ef6e1e1f1f5c5': 50700 }
 
 ### `balance`
 
