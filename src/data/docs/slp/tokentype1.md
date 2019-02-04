@@ -34,24 +34,25 @@ tokenId `String`. The tokenId of your newly created token. This tokenId is the t
 
     (async function() {
       let token = await SLP.TokenType1.create({
-        fundingAddress: "slptest:qpwyc9jnwckntlpuslg7ncmhe2n423304ueqcyw80l",
-        fundingWif: "cVjzvdHGfQDtBEq7oddDRcpzpYuvNtPbWdi8tKQLcZae65G4zGgy",
-        tokenReceiverAddress: "slptest:qpwyc9jnwckntlpuslg7ncmhe2n423304ueqcyw80l",
-        batonReceiverAddress: "slptest:qpwyc9jnwckntlpuslg7ncmhe2n423304ueqcyw80l",
+        fundingAddress: 'bitcoincash:qpdg4wtc96zucm6qzvnwwskfu7h4l9wapgmz3jwdm7',
+        fundingWif: 'KxW2CYJ78Tf1fJNYZcoKhGuKD4Gf5qsBEFgLpVFMtZJLSDCRkpXD',
+        tokenReceiverAddress: '19Fk11eyDcou66eTQ1ovTXJj7BsJTgsfo1',
+        batonReceiverAddress:
+          'simpleledger:qpdg4wtc96zucm6qzvnwwskfu7h4l9wapghe6fmd9q',
         bchChangeReceiverAddress:
-          "slptest:qpwyc9jnwckntlpuslg7ncmhe2n423304ueqcyw80l",
+          '19Fk11eyDcou66eTQ1ovTXJj7BsJTgsfo1',
         decimals: 2,
-        name: "Awesome SLP SDK Token",
-        ticker: "SLPSDK",
-        documentUri: "badger@bitcoin.com",
+        name: 'Test SLP SDK Token 3',
+        ticker: 'TEST3',
+        documentUri: 'badger@bitcoin.com',
         documentHash: null,
-        initialTokenQty: 1000000
+        initialTokenQty: 1234,
       })
       console.log(token)
     })()
 
     // returns
-    c3bf908a9877f44e200ad931ee1836cc382d413c96085cd935e82aa43a321f44
+    703920f578d36d975ffdee428df822557c6e9313ceda0d28ad837ebbf2007327
 
 ### `mint`
 
@@ -79,21 +80,21 @@ mintId `String`. The txid of the newly minted tokens
 
     (async function() {
       let mint = await SLP.TokenType1.mint({
-        fundingAddress: "slptest:qpwyc9jnwckntlpuslg7ncmhe2n423304ueqcyw80l",
-        fundingWif: "cVjzvdHGfQDtBEq7oddDRcpzpYuvNtPbWdi8tKQLcZae65G4zGgy",
-        tokenReceiverAddress: "slptest:qpwyc9jnwckntlpuslg7ncmhe2n423304ueqcyw80l",
-        batonReceiverAddress: "slptest:qpwyc9jnwckntlpuslg7ncmhe2n423304ueqcyw80l",
+        fundingAddress: '19Fk11eyDcou66eTQ1ovTXJj7BsJTgsfo1',
+        fundingWif: 'KxW2CYJ78Tf1fJNYZcoKhGuKD4Gf5qsBEFgLpVFMtZJLSDCRkpXD',
+        tokenReceiverAddress: '1G84HH1zJLQq6akzzHYJVnTEYhiqkHpNtZ',
+        batonReceiverAddress:
+          'bitcoincash:qzjalztem05hahspdkrqr529me4f7h27zyqu20smfq',
         bchChangeReceiverAddress:
-          "slptest:qpwyc9jnwckntlpuslg7ncmhe2n423304ueqcyw80l",
-        tokenId:
-          "a67e2abb2fcfaa605c6a3b0dfb642cc830b63138d85b5e95eee523fdbded4d74",
-        additionalTokenQty: 1234
+          'simpleledger:qzjalztem05hahspdkrqr529me4f7h27zyv8p59mh7',
+        tokenId: '703920f578d36d975ffdee428df822557c6e9313ceda0d28ad837ebbf2007327',
+        additionalTokenQty: 100,
       })
       console.log(mint)
     })()
 
     // returns
-    ec01483d599c187afecb6036568eb1d39523466c43b9b79c15aacb7d21a84a5d
+    26a3eb17e11a732bbfd2fdf45bd1f21e9ffebe79b2fe6d2ad229481be38f1f85
 
 ### `send`
 
@@ -120,16 +121,16 @@ sendId `String`. The txid of your sent tokens
 
     (async function() {
       let send = await SLP.TokenType1.send({
-        fundingAddress: "slptest:qpwyc9jnwckntlpuslg7ncmhe2n423304ueqcyw80l",
-        fundingWif: "cVjzvdHGfQDtBEq7oddDRcpzpYuvNtPbWdi8tKQLcZae65G4zGgy",
-        tokenReceiverAddress: "slptest:qpwyc9jnwckntlpuslg7ncmhe2n423304ueqcyw80l",
+        fundingAddress: '1G84HH1zJLQq6akzzHYJVnTEYhiqkHpNtZ',
+        fundingWif: 'KyuyWyx7gJC6SMsRTkMgJcRCXhoQ7gqxJdGUEybWx7Uu8197ToqE',
+        tokenReceiverAddress: 'simpleledger:qzczwp9wnej8mhel4me5v2rv20x95d6yyglncxdgtr',
         bchChangeReceiverAddress:
-          "slptest:qpwyc9jnwckntlpuslg7ncmhe2n423304ueqcyw80l",
-        tokenId: "a67e2abb2fcfaa605c6a3b0dfb642cc830b63138d85b5e95eee523fdbded4d74",
-        amount: 10
+          'simpleledger:qzczwp9wnej8mhel4me5v2rv20x95d6yyglncxdgtr',
+        tokenId: '703920f578d36d975ffdee428df822557c6e9313ceda0d28ad837ebbf2007327',
+        amount: 10,
       })
       console.log(send)
     })()
 
     // returns
-    940acd3337c08f9a68d22f35cc1460630078563dd1917409dc3d0387879699f7
+    76fb0f1d3d8a010720f8f24c19476e16fa96735e5c215b12773a65608017bd25
