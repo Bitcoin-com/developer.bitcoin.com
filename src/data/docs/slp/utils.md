@@ -74,7 +74,7 @@ Return all balances for an address
 
 #### Arguments
 
-1.  address `String` required: The SLP Address
+1.  address `String` required: The address in legacy, cash or slp address format
 
 #### Result
 
@@ -142,7 +142,7 @@ Return single balance for an address by token id
 
 #### Arguments
 
-1.  address `String` required: The SLP Address
+1.  address `String` required: The address in legacy, cash or slp address format
 2.  id `String` required: The token id
 
 #### Result
