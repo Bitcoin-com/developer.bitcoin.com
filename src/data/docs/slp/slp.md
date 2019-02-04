@@ -12,6 +12,10 @@ Create an instance of SLP SDK
 
 1.  config `Object` optional: configuration
 
+##### Valid config properties
+
+- `restURL`: `String`. By default SLP SDK will connect to "https://rest.bitcoin.com/v2/"
+
 #### Result
 
 SLP `SLP`: instance of SLP SDK
@@ -22,5 +26,5 @@ SLP `SLP`: instance of SLP SDK
 
     let SLPSDK = require("slp-sdk/lib/SLP").default;
     let SLP = new SLPSDK({
-      restURL: "https://rest.bitcoin.com/v2/"
+      restURL: "https://trest.bitcoin.com/v2/"
     });

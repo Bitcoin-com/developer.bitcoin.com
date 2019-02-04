@@ -24,7 +24,7 @@ To use inside a command line script or client/server app:
 
 ### Usage
 
-Use the [scaffold generator](./new), or manually import BITBOX into your code:
+Use the [scaffold generator](./new), or manually import SLP SDK into your code:
 
     let SLPSDK = require('slp-sdk/lib/SLP').default;
     let SLP = new SLPSDK();
