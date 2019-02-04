@@ -10,11 +10,11 @@ List all tokens or list single token by id
 
 #### Arguments
 
-1.  id `String` optional: The token id
+1.  id : `String` optional. The token id
 
 #### Result
 
-tokens `Array` or `Object`: tokens or single token
+tokens : `Array` or `Object`. tokens or single token
 
 #### Examples
 
@@ -74,11 +74,11 @@ Return all balances for an address
 
 #### Arguments
 
-1.  address `String` required: The address in legacy, cash or slp address format
+1.  address : `String` required. The address in legacy, cash or slp address format
 
 #### Result
 
-balances `Object`: the address's balances
+balances : `Object`. the address's balances
 
 #### Examples
 
@@ -92,49 +92,38 @@ balances `Object`: the address's balances
     })();
 
     // returns
-    { satoshis_available_bch: 11125547,
-      satoshis_in_slp_baton: 0,
-      satoshis_in_slp_token: 2184,
-      satoshis_in_invalid_token_dag: 0,
-      satoshis_in_invalid_baton_dag: 0,
-      slpTokenBalances:
-       { '968ff0cc4c93864001e03e9524e351250b94ec56150fa4897f65b0b6477d44d4': BigNumber { s: 1, e: 12, c: [Array] },
-         df808a41672a0a0ae6475b44f272a107bc9961b90f29dc918d71301f24fe92fb: BigNumber { s: 1, e: 10, c: [Array] },
-         b96304d12f1bbc2196df582516410e55a9b34e13c7b4585bf5c1770af30d034f: BigNumber { s: 1, e: 0, c: [Array] },
-         a436c8e1b6bee3d701c6044d190f76f774be83c36de8d34a988af4489e86dd37: BigNumber { s: 1, e: 9, c: [Array] } },
-      slpTokenUtxos:
-       { '968ff0cc4c93864001e03e9524e351250b94ec56150fa4897f65b0b6477d44d4': [ [Object] ],
-         df808a41672a0a0ae6475b44f272a107bc9961b90f29dc918d71301f24fe92fb: [ [Object] ],
-         b96304d12f1bbc2196df582516410e55a9b34e13c7b4585bf5c1770af30d034f: [ [Object] ],
-         a436c8e1b6bee3d701c6044d190f76f774be83c36de8d34a988af4489e86dd37: [ [Object] ] },
-      slpBatonUtxos: {},
-      nonSlpUtxos:
-       [ { satoshis: 700000,
-           txid:
-            '5c8bf9f460ab65b7bb9a768d0c6e4c802bf7bb992329d4aae7bc9ccd463e90b9',
-           amount: 0.007,
-           confirmations: 63,
-           height: 567900,
-           vout: 0,
-           cashAddress: 'bitcoincash:qr5agtachyxvrwxu76vzszan5pnvuzy8dumh7ynrwg',
-           legacyAddress: '1NKNdfgPq1EApuNaf5mrNRUPbwVHQt3MeB',
-           scriptPubKey: '76a914e9d42fb8b90cc1b8dcf698280bb3a066ce08876f88ac',
-           tx: [Object],
-           slpUtxoJudgement: 0 },
-         { satoshis: 10425547,
-           txid:
-            '9c91a2d9c0f59a10a55cabea37ea1f41ecd6ffee56bca8f459e635d9832652f6',
-           amount: 0.10425547,
-           confirmations: 162,
-           height: 567801,
-           vout: 1,
-           cashAddress: 'bitcoincash:qr5agtachyxvrwxu76vzszan5pnvuzy8dumh7ynrwg',
-           legacyAddress: '1NKNdfgPq1EApuNaf5mrNRUPbwVHQt3MeB',
-           scriptPubKey: '76a914e9d42fb8b90cc1b8dcf698280bb3a066ce08876f88ac',
-           tx: [Object],
-           slpUtxoJudgement: 0 } ],
-      invalidTokenUtxos: [],
-      invalidBatonUtxos: [] }
+    // [
+    //   { '968ff0cc4c93864001e03e9524e351250b94ec56150fa4897f65b0b6477d44d4': 9980000000000 },
+    //   { df808a41672a0a0ae6475b44f272a107bc9961b90f29dc918d71301f24fe92fb: 61700000000 },
+    //   { b96304d12f1bbc2196df582516410e55a9b34e13c7b4585bf5c1770af30d034f: 1 },
+    //   { a436c8e1b6bee3d701c6044d190f76f774be83c36de8d34a988af4489e86dd37: 7760000000 }
+    // ]
+
+    // balances for Cash Address
+    (async () => {
+      try {
+        let balances = await SLP.Utils.balancesForAddress('bitcoincash:qr4zg7xth86yzq94gl8jvnf5z4wuupzt3g4hl47n9y');
+        console.log(balances);
+      } catch (error) {
+        console.error(error);
+      }
+    })();
+
+    // returns
+    // [ { '467969e067f5612863d0bf2daaa70dede2c6be03abb6fd401c5ef6e1e1f1f5c5': 50700 } ]
+
+    // balances for Legacy Address
+    (async () => {
+      try {
+        let balances = await SLP.Utils.balancesForAddress('1NM2ozrXVSnMRm66ua6aGeXgMsU7yqwqLS');
+        console.log(balances);
+      } catch (error) {
+        console.error(error);
+      }
+    })();
+
+    // returns
+    // [ { '467969e067f5612863d0bf2daaa70dede2c6be03abb6fd401c5ef6e1e1f1f5c5': 50700 } ]
 
 ### `balance`
 
@@ -142,15 +131,16 @@ Return single balance for an address by token id
 
 #### Arguments
 
-1.  address `String` required: The address in legacy, cash or slp address format
-2.  id `String` required: The token id
+1.  address : `String` required. The address in legacy, cash or slp address format
+2.  id : `String` required. The token id
 
 #### Result
 
-balance `Object`: the address's balance for single token
+balance : `Object`. the address's balance for single token
 
 #### Examples
 
+    // single balance for SLP Address
     (async () => {
       try {
         let balance = await SLP.Utils.balance(
@@ -164,4 +154,67 @@ balance `Object`: the address's balance for single token
     })();
 
     // returns
-    BigNumber { s: 1, e: 10, c: [ 61700000000 ] }
+    // 61700000000
+
+    // single balance for Cash Address
+    (async () => {
+      try {
+        let balance = await SLP.Utils.balance(
+          "bitcoincash:qr5agtachyxvrwxu76vzszan5pnvuzy8dumh7ynrwg",
+          "df808a41672a0a0ae6475b44f272a107bc9961b90f29dc918d71301f24fe92fb"
+        );
+        console.log(balance);
+      } catch (error) {
+        console.error(error);
+      }
+    })();
+
+    // returns
+    // 61700000000
+
+    // single balance for Legacy Address
+    (async () => {
+      try {
+        let balance = await SLP.Utils.balance(
+          "1DwQqpWc8pzaRydCmiJsPdoqCzmjSQQbp8",
+          "467969e067f5612863d0bf2daaa70dede2c6be03abb6fd401c5ef6e1e1f1f5c5"
+        );
+        console.log(balance);
+      } catch (error) {
+        console.error(error);
+      }
+    })();
+
+    // returns
+    // 123400
+
+### `validateTxid`
+
+Validate that txid is an SLP transaction
+
+#### Arguments
+
+1.  txid : `String` required. The transaction id to validate
+2.  network : `String` required. mainnet or testnet
+
+#### Result
+
+isValid : `Boolean`
+
+#### Examples
+
+    // validate SLP txid
+    (async () => {
+      try {
+        let isValid = await SLP.Utils.validateTxid(
+          "df808a41672a0a0ae6475b44f272a107bc9961b90f29dc918d71301f24fe92fb",
+          "mainnet"
+        );
+        console.log(isValid);
+      } catch (error) {
+        console.error(error);
+      }
+    })();
+
+    // returns
+    true
