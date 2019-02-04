@@ -17,7 +17,7 @@ Create a new SLP Token of Type 1
 - `fundingAddress`: `String`. legacy, cash or slp address format
 - `fundingWif`: `String`. : compressed WIF format. Available via `SLP.HDNode.toWIF`
 - `tokenReceiverAddress` : `String`. legacy, cash or slp address format
-- `batonReceiverAddress`: `String`. legacy, cash or slp address format
+- `batonReceiverAddress`: `String`. legacy, cash or slp address format. The address which has the baton has the ability to mint more tokens.
 - `bchChangeReceiverAddress` : `String.` legacy, cash or slp address format
 - `decimals`: `Number`. Number of decimal points for your token
 - `name` : `String`. Name of token

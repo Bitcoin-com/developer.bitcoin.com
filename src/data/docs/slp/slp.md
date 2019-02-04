@@ -14,7 +14,7 @@ Create an instance of SLP SDK
 
 ##### Valid config properties
 
-- `restURL`: `String`. By default SLP SDK will connect to "https://rest.bitcoin.com/v2/"
+- `restURL`: `String`. By default SLP SDK will connect to https://rest.bitcoin.com/v2/
 
 #### Result
 
