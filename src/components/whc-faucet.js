@@ -62,8 +62,8 @@ class BchFaucet extends React.PureComponent<Props, State> {
       <WrapperDiv>
         <H3>
           This is a <u>testnet</u> faucet Wormhole coins! It is built with{' '}
-          <StyledLink to="/bitbox">BITBOX JavaScript SDK</StyledLink>
-          and is funded by the{' '}
+          <StyledLink to="/bitbox">BITBOX JavaScript SDK</StyledLink> and is
+          funded by the{' '}
           <SmartLink to="https://www.bitcoin.com/bitcoin-mining">
             Bitcoin.com Mining Pool
           </SmartLink>
