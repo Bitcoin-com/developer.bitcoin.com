@@ -60,6 +60,9 @@
     "type": "git",
     "url": "https://github.com/bitcoin-com/developer.bitcoin.com"
   },
+  "resolutions": {
+    "terser": "3.14.1"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged"
