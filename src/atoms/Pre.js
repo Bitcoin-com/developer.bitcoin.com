@@ -14,6 +14,7 @@ const Pre = defaultProps({ monospace: true })(styled.span`
   color: ${props => props.theme.foreground};
   overflow-y: scroll;
   border-radius: 4px;
+  margin-top: 12px;
 `)
 
 export default Pre
