@@ -83,12 +83,6 @@ const DevelopPage = ({ location, data }: Props) => (
           cta="View"
         />
         <InfoCard
-          to="/wormhole"
-          title="Wormhole"
-          text="Experience a paradigm shift. Smart contracts and Tokens for Bitcoin Cash."
-          cta="View"
-        />
-        <InfoCard
           to="/gui"
           title="GUI"
           text="BIP44 development wallet. Convert between cashaddr/legacy addresses. Create QR codes for WIF, XPub and XPrivs. Sign and verify messages."
@@ -109,6 +103,12 @@ const DevelopPage = ({ location, data }: Props) => (
           title="Market"
           text="Paid downloads, streaming media, in-app purchases, tokens and more ways for you to monetize."
           disabledcta="Coming soon"
+        />
+        <InfoCard
+          to="/wormhole"
+          title="Wormhole"
+          text="Experience a paradigm shift. Smart contracts and Tokens for Bitcoin Cash."
+          cta="View"
         />
       </CardLayout>
     </Container>

@@ -151,11 +151,6 @@ const IndexPage = ({ location, data }: Props) => (
                 <Button round>Badger SDK</Button>
               </StyledLink>
             </HeroButtonItem>
-            <HeroButtonItem>
-              <StyledLink to="/wormhole">
-                <Button round>Wormhole SDK</Button>
-              </StyledLink>
-            </HeroButtonItem>
           </HeroButtonLayout>
         </HeroBlurbLayout>
         <SDKLayout>
