@@ -2,7 +2,7 @@
 import styled from 'styled-components'
 
 const Input = styled.input`
-  font-size: 16px;
+  font-size: 18px;
   border: none;
   background: transparent;
   color: ${props => props.theme.foreground};
