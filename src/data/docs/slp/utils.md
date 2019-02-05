@@ -260,7 +260,7 @@ slpValidator : `slpValidator`
 
 #### Examples
 
-    // validate SLP txid
+    // create validator
     (async () => {
       try {
         let slpValidator = await SLP.Utils.createValidator(
