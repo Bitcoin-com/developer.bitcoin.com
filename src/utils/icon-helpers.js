@@ -31,6 +31,7 @@ import {
   FaTerminal,
   FaUserCircle,
   FaWallet,
+  FaReact,
 } from 'react-icons/fa'
 
 // Whitelist of valid icons
@@ -88,6 +89,8 @@ export const getIcon = (icon: string): React.Node => {
       return <FaDatabase />
     case 'user-circle':
       return <FaUserCircle />
+    case 'react':
+      return <FaReact />
     default:
       return <FaAngleRight />
   }

@@ -95,6 +95,12 @@ const DevelopPage = ({ location, data }: Props) => (
           cta="View"
         />
         <InfoCard
+          to="/faucets"
+          title="Faucets"
+          text="Testnet BCH and WHC for developers."
+          cta="View"
+        />
+        <InfoCard
           title="Cloud"
           text="Blockchain-as-a-Service. Infrastructure to deploy and scale your apps. An ecosystem of add-ons for data, monitoring, logging, metrics, testing and more all built w/ BITBOX."
           disabledcta="Coming soon"
@@ -103,12 +109,6 @@ const DevelopPage = ({ location, data }: Props) => (
           title="Market"
           text="Paid downloads, streaming media, in-app purchases, tokens and more ways for you to monetize."
           disabledcta="Coming soon"
-        />
-        <InfoCard
-          to="/faucets"
-          title="Faucets"
-          text="Testnet BCH and WHC for developers."
-          cta="View"
         />
       </CardLayout>
     </Container>
