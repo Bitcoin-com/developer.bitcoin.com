@@ -263,11 +263,16 @@ slpValidator : `slpValidator`
     // create validator
     (async () => {
       try {
-        let slpValidator = await SLP.Utils.createValidator(
-          "mainnet"
-        );
-        console.log(slpValidator);
+        const slpValidator = SLP.Utils.createValidator(
+          process.env.NETWORK,
+          getRawTransactionsFromNode.bind(this)
+        )
+        const isValid = await slpValidator.isValidSlpTxid(txid)
+        console.log(isvalid)
       } catch (error) {
         console.error(error);
       }
     })();
+
+    // returns
+    // true
