@@ -221,6 +221,7 @@ Validate that txid is an SLP transaction
 
 1.  txid : `String` required. The transaction id to validate
 2.  network : `String` required. mainnet or testnet
+3.  getRawTransactions: `Function` optional.
 
 #### Result
 
@@ -243,3 +244,30 @@ isValid : `Boolean`
 
     // returns
     true
+
+### `createValidator`
+
+Create and return a local validator
+
+#### Arguments
+
+1.  network : `String` required. mainnet or testnet
+2.  getRawTransactions: `Function` optional.
+
+#### Result
+
+slpValidator : `slpValidator`
+
+#### Examples
+
+    // validate SLP txid
+    (async () => {
+      try {
+        let slpValidator = await SLP.Utils.createValidator(
+          "mainnet"
+        );
+        console.log(slpValidator);
+      } catch (error) {
+        console.error(error);
+      }
+    })();
