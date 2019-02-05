@@ -37,17 +37,18 @@ const PreviewLayout = styled.div`
   grid-gap: ${spacing.medium};
   grid-template-columns: 1fr;
   ${media.medium`
-    grid-template-columns: repeat(auto-fit, minmax(400px, .5fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, .5fr));
   `};
 `
 
 const ItemLayout = styled.div`
   display: grid;
   grid-gap: ${spacing.tiny};
-  grid-auto-rows: min-content;
+  grid-auto-rows: max-content;
   grid-column: span 2;
   ${media.medium`
-    grid-column: 'span 2';
+    grid-column: span 1;
+    grid-template-rows: max-content max-content 1fr;
   `};
 `
 
@@ -60,9 +61,11 @@ const PreviewItem = ({ children, to }: ItemProps) => (
   <ItemLayout>
     {children}
     {to && (
-      <StyledLink to={to}>
-        <Button round>More</Button>
-      </StyledLink>
+      <div style={{ display: 'flex', alignItems: 'flex-end' }}>
+        <StyledLink to={to}>
+          <Button round>View</Button>
+        </StyledLink>
+      </div>
     )}
   </ItemLayout>
 )
@@ -110,12 +113,19 @@ const BadgerPage = ({ location, data }: Props) => (
     </Hero>
     <Container>
       <PreviewLayout>
-        <PreviewItem>
+        <PreviewItem to="/badger/docs/getting-started">
           <H3>Badger SDK</H3>
           <Text>
             Badger Wallet injects an API into pages a user visits to allow apps
             to request a users's permission to send Bitcoin Cash, send tokens,
             or authenticate with CashID.
+          </Text>
+        </PreviewItem>
+        <PreviewItem to="/badger/docs/badger-components-react">
+          <H3>Badger React Components</H3>
+          <Text>
+            React based components and tools to make integrating Bitcoin Cash
+            (BCH) into your next project easy.
           </Text>
         </PreviewItem>
       </PreviewLayout>
