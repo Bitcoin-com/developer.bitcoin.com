@@ -92,11 +92,22 @@ balances : `Object`. The address's balances
     })();
 
     // returns
-    // { '968ff0cc4c93864001e03e9524e351250b94ec56150fa4897f65b0b6477d44d4': '9980',
-    //   df808a41672a0a0ae6475b44f272a107bc9961b90f29dc918d71301f24fe92fb: '617',
-    //   b96304d12f1bbc2196df582516410e55a9b34e13c7b4585bf5c1770af30d034f: '1',
-    //   a436c8e1b6bee3d701c6044d190f76f774be83c36de8d34a988af4489e86dd37: '776'
-    // }
+    // [ { tokenId:
+    //      '968ff0cc4c93864001e03e9524e351250b94ec56150fa4897f65b0b6477d44d4',
+    //     balance: '9980',
+    //     decimalCount: 9 },
+    //   { tokenId:
+    //      'df808a41672a0a0ae6475b44f272a107bc9961b90f29dc918d71301f24fe92fb',
+    //     balance: '617',
+    //     decimalCount: 8 },
+    //   { tokenId:
+    //      'b96304d12f1bbc2196df582516410e55a9b34e13c7b4585bf5c1770af30d034f',
+    //     balance: '1',
+    //     decimalCount: 0 },
+    //   { tokenId:
+    //      'a436c8e1b6bee3d701c6044d190f76f774be83c36de8d34a988af4489e86dd37',
+    //     balance: '776',
+    //     decimalCount: 7 } ]
 
     // balances for Cash Address
     (async () => {
@@ -109,7 +120,10 @@ balances : `Object`. The address's balances
     })();
 
     // returns
-    // { '467969e067f5612863d0bf2daaa70dede2c6be03abb6fd401c5ef6e1e1f1f5c5': '507' }
+    // [ { tokenId:
+    // '467969e067f5612863d0bf2daaa70dede2c6be03abb6fd401c5ef6e1e1f1f5c5',
+    // balance: '507',
+    // decimalCount: 2 } ]
 
     // balances for Legacy Address
     (async () => {
@@ -122,7 +136,10 @@ balances : `Object`. The address's balances
     })();
 
     // returns
-    // { '467969e067f5612863d0bf2daaa70dede2c6be03abb6fd401c5ef6e1e1f1f5c5': '507' }
+    // [ { tokenId:
+    // '467969e067f5612863d0bf2daaa70dede2c6be03abb6fd401c5ef6e1e1f1f5c5',
+    // balance: '507',
+    // decimalCount: 2 } ]
 
 ### `balance`
 
@@ -153,7 +170,10 @@ balance : `Object`. the address's balance for single token
     })();
 
     // returns
-    // 617
+    // { tokenId:
+    //   'df808a41672a0a0ae6475b44f272a107bc9961b90f29dc918d71301f24fe92fb',
+    //   balance: '617',
+    //   decimalCount: 8 }
 
     // single balance for Cash Address
     (async () => {
@@ -169,7 +189,10 @@ balance : `Object`. the address's balance for single token
     })();
 
     // returns
-    // 617
+    // { tokenId:
+    //   'df808a41672a0a0ae6475b44f272a107bc9961b90f29dc918d71301f24fe92fb',
+    //   balance: '617',
+    //   decimalCount: 8 }
 
     // single balance for Legacy Address
     (async () => {
@@ -185,7 +208,10 @@ balance : `Object`. the address's balance for single token
     })();
 
     // returns
-    // 1234
+    // { tokenId:
+    //    '467969e067f5612863d0bf2daaa70dede2c6be03abb6fd401c5ef6e1e1f1f5c5',
+    //   balance: '1234',
+    //   decimalCount: 2 }
 
 ### `validateTxid`
 
