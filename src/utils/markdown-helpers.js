@@ -3,6 +3,8 @@ import * as React from 'react'
 import styled from 'styled-components'
 import { defaultProps } from 'recompose'
 
+import { BadgerButton, BadgerBadge } from 'badger-components-react'
+
 import { SmartLink } from 'atoms/StyledLink'
 import {
   H1Md,
@@ -52,6 +54,26 @@ const Spacer = styled.div`
     props.size === 'small' ? spacing.small : spacing.medium};
 `
 
+type ButtonProps = {}
+// All props from markdown come in as strings
+class BadgerButtonTransform extends React.PureComponent<ButtonProps> {
+  render() {
+    console.log('?????')
+    const { price, ...rest } = this.props
+    const priceNumber = parseFloat(price)
+    return <BadgerButton price={priceNumber} {...rest} />
+  }
+}
+
+type ButtonProps = {}
+// All props from markdown come in as strings
+class BadgerBadgeTransform extends React.PureComponent<ButtonProps> {
+  render() {
+    const { price, ...rest } = this.props
+    const priceNumber = parseFloat(price)
+    return <BadgerBadge price={priceNumber} {...rest} />
+  }
+}
 export const standardTransforms = {
   p: TextMd,
   pre: CodePreSplitter,
@@ -72,4 +94,6 @@ export const standardTransforms = {
   ['table-caption']: Caption,
   spacer: Spacer,
   anchor: Anchor,
+  ['badger-button']: BadgerButtonTransform,
+  ['badger-badge']: BadgerBadgeTransform,
 }

@@ -8,24 +8,61 @@ A set of React components and helpers to integrate Bitcoin Cash (BCH) and the Ba
 
 ### Get Started
 
-- [Homepage](https://badger.bitcoin.com)
 - [Component Showcase](http://badger-storybook.surge.sh)
-- [NPM page](https://www.npmjs.com/package/badger-components-react)
+- [NPM page `badger-components-react`](https://www.npmjs.com/package/badger-components-react)
 
 ### Install Components
 
+Start by installing the `badger-components-react` library and it's 3 peer depenencies, `react`, `react-dom` and `styled-components`
+
 ```bash
+Install library
 $ npm install --save badger-components-react
+
+Install peerDependencies
+$ npm install --save styled-components react react-dom
 ```
 
-### Install Peer Dependencies
+### Add to React Application
 
-- `styled-components` ^4.0.0
-  - `npm install --save styled-components`
-- `react` && `react-dom` ^16.3.0
-  - `npm install --save react react-dom`
+The library comes with some ready-to-use Badger components, `BadgerBadge` and `BadgerButton`, with more coming soon. These components are can be added quickly to any React projects. If you require a different solution then continue reading to learn how to create custom Badger integrations using `BadgerBase`.
 
-### Add to React project
+#### Badger Button
+
+Simple Badger Button to display the price in local currency, satoshi amount, and have an optional message. Supports the following props
+
+- `to: BCH Address` - Required - Bitcoin Cash address to send BCH to
+- `price: number` - Required - Price in chosen currency, will be turned into satoshis
+- `currency: string` - Default `USD` - [ISO Country Code](https://en.wikipedia.org/wiki/ISO_4217) to charge in
+- `showSatoshis: boolean` Default `true` - Show the value in BCH Satoshis below the button
+- `border: boolean` - Default `true` - Border around button and text
+- `text: string` - Optional - Text between the button and border
+- `successFn: Function` - Optional -Callback function when payment is successful
+- `failFn: Function` - Optional - Callback function when payment fails or is cancelled
+
+<spacer></spacer>
+<badger-button to="bitcoincash:pp8skudq3x5hzw8ew7vzsw8tn4k8wxsqsv0lt0mf3g" price="0.01" currency="CAD" text="Badger Button"></badger-button>
+
+#### Badger Badge
+
+A slightly larger display of payment details.  
+Supports the following props.
+
+- `to: BCH Address` - Required - Bitcoin Cash address to send BCH to
+- `price: number` - Required - Price in chosen currency, will be turned into satoshis
+- `currency: string` - Default `USD` - [ISO Country Code](https://en.wikipedia.org/wiki/ISO_4217) to charge in
+- `showSatoshis: boolean` Default `true` - Show the value in BCH Satoshis below the button
+- `showBrand: boolean` Default `true` - Show the branding text
+- `border: boolean` - Default `true` - Border around button and text
+- `text: string` - Default `Payment Total` - Text between the button and border
+- `tag: string` - Default `Badger Pay` - Text on the button
+- `successFn: Function` - Optional - Callback function when payment is successful
+- `failFn: Function` - Optional - Callback function when payment fails or is cancelled
+
+<spacer></spacer>
+<badger-badge to="bitcoincash:pp8skudq3x5hzw8ew7vzsw8tn4k8wxsqsv0lt0mf3g" price="0.01" currency="CAD" text="Badger Badger"></badger-button>
+
+#### Code Examples
 
 ```js
 import React from 'react'
@@ -71,7 +108,21 @@ const Example = props => {
 export default Example
 ```
 
-### Create a custom Badger Button
+### Creating Custom Badger Integrations
+
+The library contains a Higher Order Component (HOC) `BadgerBase` which contains all of the required Badger interaction logic. This allows for any component to integrate with Badger easily.
+
+Components wrapped in `BadgerBase` support the following props
+
+- `to: BCH Address` - Required - Bitcoin Cash address to send BCH to
+- `price: number` - Required - Price in chosen currency, will be turned into satoshis
+- `currency: string` - Default `USD` - [ISO Country Code](https://en.wikipedia.org/wiki/ISO_4217) to charge in
+
+And get the following props added to them for use in custom integration component
+
+- `handleClick: Function` - Call this to start the Badger transaction
+- `step: string` - State of the Badger transaction. One of `fresh`, `pending`, `complete`, `login`, `install`
+- `satoshiDisplay: string` - Transaction value in satoshis, converted from the price and currency every minute
 
 ```js
 import React from 'react'
