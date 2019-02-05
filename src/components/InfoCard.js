@@ -27,7 +27,7 @@ const Right = styled.div`
 type Props = {
   title: string,
   text: string,
-  to: string,
+  to?: string,
   cta?: string,
   disabledcta?: string,
 }
@@ -36,9 +36,13 @@ class InfoCard extends React.PureComponent<Props> {
     const { title, text, to, cta, disabledcta } = this.props
     return (
       <Main>
-        <SmartLink to={to} subtle>
+        {to ? (
+          <SmartLink to={to} subtle>
+            <H3>{title}</H3>
+          </SmartLink>
+        ) : (
           <H3>{title}</H3>
-        </SmartLink>
+        )}
         <Text muted>{text}</Text>
         <Right>
           {cta && (

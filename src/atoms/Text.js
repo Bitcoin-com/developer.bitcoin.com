@@ -17,7 +17,7 @@ const sizeMap = {
     large: ['19px', '23.75px'],
   },
   large: {
-    normal: ['18px', '24.75px'],
+    normal: ['18px', '22px'],
     tiny: ['12px', '16.5px'],
     small: ['16px', '22px'],
     large: ['20px', '27.5px'],
