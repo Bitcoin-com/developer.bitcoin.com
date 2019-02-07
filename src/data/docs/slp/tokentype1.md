@@ -21,7 +21,7 @@ Create a new SLP Token of Type 1
 - `bchChangeReceiverAddress` : `String.` legacy, cash or slp address format
 - `decimals`: `Number`. Number of decimal points for your token
 - `name` : `String`. Name of token
-- `ticker` : `String`. Token ticker
+- `symbol` : `String`. Token symbol
 - `documentUri` : `String`. URI of token document
 - `documentHash` : `String`. Hash of token document
 - `initialTokenQty` : `Number`. Initial token quantity
@@ -43,7 +43,7 @@ tokenId `String`. The tokenId of your newly created token. This tokenId is the t
           '19Fk11eyDcou66eTQ1ovTXJj7BsJTgsfo1',
         decimals: 2,
         name: 'Test SLP SDK Token 3',
-        ticker: 'TEST3',
+        symbol: 'TEST3',
         documentUri: 'badger@bitcoin.com',
         documentHash: null,
         initialTokenQty: 1234,
