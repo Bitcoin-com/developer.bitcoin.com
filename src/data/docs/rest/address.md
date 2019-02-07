@@ -294,3 +294,32 @@ array `Array` of JSON Objects
 #### Examples
 
     curl -X POST "https://rest.bitcoin.com/v2/address/transactions" -H "accept: */*" -H "Content-Type: application/json" -d "{\"addresses\":[\"bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c\",\"bitcoincash:qrehqueqhw629p6e57994436w730t4rzasnly00ht0\"]}"
+
+## FromXPub
+
+Return cash and legacy address from xpub and optional hdpath
+
+**URL** : `v2/address/fromXPub/{xpub}`
+
+**Method** : `GET`
+
+**Auth required** : NO
+
+#### URL Parameters
+
+1.  xpub `string` required
+2.  hdPath `string` optional. Defaults to '0'
+
+#### Result
+
+addresses `Object`
+
+#### Examples
+
+    curl -X GET "https://rest.bitcoin.com/v2/address/fromXPub/xpub661MyMwAqRbcG4CnhNYoK1r1TKLwQQ1UdC3LHoWFK61rsnzh7Hx35qQ9Z53ucYcE5WvA7GEDXhqqKjSY2e6Y8n7WNVLYHpXCuuX945VPuYn?hdPath=0%2F1%2F2%2F3%2F4%2F5" -H "accept: */*"
+
+    // returns
+    {
+      "cashAddress": "bitcoincash:qquzx5j5d6u9pge0u7tcurhnk8te3xt0rqlessqhpw",
+      "legacyAddress": "167q9vxiL43xkn3gHCMfg7UbriX1VfdfG5"
+    }
