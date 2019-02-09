@@ -41,7 +41,7 @@ const Faucet = ({ location, data }: Props) => (
   <DefaultLayout location={location}>
     <HelmetPlus
       title={`Faucet - ${data.site.siteMetadata.title}`}
-      description={'Testnet BCH and WHC for developers'}
+      description={'Testnet BCH for developers'}
       keywords={
         'faucet, bitbox, tutorials, developer tools, bitcoin, bitcoin cash, BCH, sdk, api'
       }

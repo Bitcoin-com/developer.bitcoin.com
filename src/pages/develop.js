@@ -91,7 +91,7 @@ const DevelopPage = ({ location, data }: Props) => (
         <InfoCard
           to="/faucets"
           title="Faucets"
-          text="Testnet BCH and WHC for developers."
+          text="Testnet BCH for developers."
           cta="View"
         />
         <InfoCard
