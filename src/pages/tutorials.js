@@ -61,10 +61,10 @@ const Tutorials = ({ location, data }: Props) => {
       <HelmetPlus
         title={`Tutorials - ${data.site.siteMetadata.title}`}
         description={
-          'Tutorials for the building on Bitcoin Cash, utilizing the Bitbox and Wormhole SDKs'
+          'Tutorials for the building on Bitcoin Cash, utilizing the Bitbox and SLP SDKs'
         }
         keywords={
-          'bitbox, tutorials, developer tools, bitcoin, bitcoin cash, BCH, wormhole, sdk, api'
+          'bitbox, tutorials, developer tools, bitcoin, bitcoin cash, BCH, sdk, api'
         }
         location={location}
       />

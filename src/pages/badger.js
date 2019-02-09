@@ -90,7 +90,7 @@ const BadgerPage = ({ location, data }: Props) => (
         'Badger documentation, your gateway to the world of Bitcoin Cash (BCH) applications'
       }
       keywords={
-        'bagder, bitbox, developer tools, bitcoin, bitcoin cash, BCH, wormhole, sdk, api'
+        'bagder, bitbox, developer tools, bitcoin, bitcoin cash, BCH, sdk, api'
       }
       location={location}
     />

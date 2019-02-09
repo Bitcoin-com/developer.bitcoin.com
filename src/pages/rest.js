@@ -79,9 +79,7 @@ const RestPage = ({ location, data }: Props) => (
     <HelmetPlus
       title={`REST - ${data.site.siteMetadata.title}`}
       description={'REST based bitcoin.com developer platform and resources'}
-      keywords={
-        'REST, developer tools, bitcoin, bitcoin cash, BCH, wormhole, sdk, api'
-      }
+      keywords={'REST, developer tools, bitcoin, bitcoin cash, BCH, sdk, api'}
       location={location}
     />
     <Hero image={data.heroImage}>
