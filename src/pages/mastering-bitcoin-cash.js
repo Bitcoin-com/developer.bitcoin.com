@@ -54,7 +54,7 @@ const Learn = ({ location, data }: Props) => {
           'Learn all about Bitcoin Cash to take you from a beginner to expert.'
         }
         keywords={
-          'mastering bitcoin cash, book, bitbox, tutorials, developer tools, bitcoin, bitcoin cash, BCH, wormhole, sdk, api'
+          'mastering bitcoin cash, book, bitbox, tutorials, developer tools, bitcoin, bitcoin cash, BCH, sdk, api'
         }
         location={location}
       />

@@ -42,7 +42,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       let product = 'other'
 
       const isBitbox = filePath.includes('/bitbox/')
-      const isWormhole = filePath.includes('/wormhole/')
       const isSlp = filePath.includes('/slp/')
       const isGui = filePath.includes('/gui/')
       const isRest = filePath.includes('/rest/')
@@ -51,10 +50,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       if (isBitbox) {
         slug = `/bitbox/docs/${filename}`
         product = 'bitbox'
-      }
-      if (isWormhole) {
-        slug = `/wormhole/docs/${filename}`
-        product = 'wormhole'
       }
       if (isSlp) {
         slug = `/slp/docs/${filename}`

@@ -63,7 +63,7 @@ const Insights = ({ location, data }: Props) => {
           'Insights into the learnings and process people have faced while building new products with Bitcoin Cash and Bitbox'
         }
         keywords={
-          'inisghts, blog, bitbox, tutorials, developer tools, bitcoin, bitcoin cash, BCH, wormhole, sdk, api'
+          'inisghts, blog, bitbox, tutorials, developer tools, bitcoin, bitcoin cash, BCH, sdk, api'
         }
         location={location}
       />

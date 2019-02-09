@@ -44,7 +44,7 @@ const DevelopPage = ({ location, data }: Props) => (
         'Development hub for all your development needs to be successful on Bitcoin Cash (BCH)'
       }
       keywords={
-        'bitbox, tutorials, developer tools, bitcoin, bitcoin cash, BCH, wormhole, sdk, api'
+        'bitbox, tutorials, developer tools, bitcoin, bitcoin cash, BCH, sdk, api'
       }
       location={location}
     />
@@ -91,7 +91,7 @@ const DevelopPage = ({ location, data }: Props) => (
         <InfoCard
           to="/faucets"
           title="Faucets"
-          text="Testnet BCH and WHC for developers."
+          text="Testnet BCH for developers."
           cta="View"
         />
         <InfoCard
@@ -103,12 +103,6 @@ const DevelopPage = ({ location, data }: Props) => (
           title="Market"
           text="Paid downloads, streaming media, in-app purchases, tokens and more ways for you to monetize."
           disabledcta="Coming soon"
-        />
-        <InfoCard
-          to="/wormhole"
-          title="Wormhole"
-          text="Experience a paradigm shift. Smart contracts and Tokens for Bitcoin Cash."
-          cta="View"
         />
       </CardLayout>
     </Container>
