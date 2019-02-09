@@ -43,15 +43,15 @@ const Faucet = ({ location, data }: Props) => (
       title={`Faucet - ${data.site.siteMetadata.title}`}
       description={'Testnet BCH and WHC for developers'}
       keywords={
-        'faucet, bitbox, tutorials, developer tools, bitcoin, bitcoin cash, BCH, wormhole, sdk, api'
+        'faucet, bitbox, tutorials, developer tools, bitcoin, bitcoin cash, BCH, sdk, api'
       }
       location={location}
     />
     <Hero image={data.heroImage}>
       <HeroLayout>
-        <H1 background>Faucets</H1>
+        <H1 background>Faucet</H1>
         <H3 primary thin>
-          Testnet BCH and WHC for developers
+          Testnet BCH for developers
         </H3>
       </HeroLayout>
     </Hero>
@@ -61,12 +61,6 @@ const Faucet = ({ location, data }: Props) => (
           to="/faucets/bch"
           title="BCH Testnet Faucet"
           text="Bitcoin Cash testnet faucet.  Get some testnet BCH for your development needs"
-          cta="View"
-        />
-        <InfoCard
-          to="/faucets/whc"
-          title="WHC Testnet Faucet"
-          text="Wormhole testnet faucet.  Get some testnet BCH for your development needs"
           cta="View"
         />
       </SectionLayout>

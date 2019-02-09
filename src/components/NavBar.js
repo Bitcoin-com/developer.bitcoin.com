@@ -41,7 +41,6 @@ type Props = {
 const developBaseUrls = [
   '/develop',
   '/bitbox',
-  '/wormhole',
   '/gui',
   '/rest',
   '/slp',

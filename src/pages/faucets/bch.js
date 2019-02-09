@@ -32,7 +32,7 @@ const Faucet = ({ location, data }: Props) => (
       title={`Testnet BCH Faucet - ${data.site.siteMetadata.title}`}
       description={'Testnet BCH for developers'}
       keywords={
-        'faucet, bitbox, tutorials, developer tools, bitcoin, bitcoin cash, BCH, wormhole, sdk, api'
+        'faucet, bitbox, tutorials, developer tools, bitcoin, bitcoin cash, BCH, sdk, api'
       }
       location={location}
     />

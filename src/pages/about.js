@@ -56,7 +56,7 @@ const About = ({ location, data }: Props) => (
         'Bitcoin.com developer platform.  Developer Tooling, Resources, Cloud, and Marker'
       }
       keywords={
-        'about, bitbox, tutorials, developer tools, bitcoin, bitcoin cash, BCH, wormhole, sdk, api'
+        'about, bitbox, tutorials, developer tools, bitcoin, bitcoin cash, BCH, sdk, api'
       }
       location={location}
     />

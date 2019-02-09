@@ -1,4 +1,4 @@
-// @flow
+SLPPage // @flow
 
 import * as React from 'react'
 import styled from 'styled-components'
@@ -74,7 +74,7 @@ type Props = {
   data: { heroImage: any },
 }
 
-const WormholePage = ({ location, data }: Props) => (
+const SLPPage = ({ location, data }: Props) => (
   <DefaultLayout location={location}>
     <HelmetPlus
       title={`SLP - ${data.site.siteMetadata.title}`}
@@ -216,7 +216,7 @@ const WormholePage = ({ location, data }: Props) => (
   </DefaultLayout>
 )
 
-export default WormholePage
+export default SLPPage
 
 export const query = graphql`
   query {

@@ -168,12 +168,6 @@ class DocTemplate extends React.PureComponent<Props> {
                       {getTitleDisplay('badger')}
                     </option>
                     <option
-                      selected={'wormhole' === doc.fields.product}
-                      value={'wormhole/docs/getting-started'}
-                    >
-                      {getTitleDisplay('wormhole')}
-                    </option>
-                    <option
                       selected={'rest' === doc.fields.product}
                       value={'rest/docs/getting-started'}
                     >
