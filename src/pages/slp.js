@@ -126,52 +126,54 @@ const SLPPage = ({ location, data }: Props) => (
             {`(async () => {
   try {
     let list = await SLP.Utils.list();
-      console.log(list);
-    } catch (error) {
-      console.error(error);
-    }
+    console.log(list);
+  } catch (error) {
+    console.error(error);
   }
-)();
+})();
 
 // returns
-[ { id: '545cba6f72a08cbcb08c7d4e8166267942e8cb9a611328805c62fa538e861ba4',
-  timestamp: '2018-08-14 13:42',
-  symbol: '',
-  name: '',
-  document: '' },
-{ id: '83bfe019fcf976142c55e7c0ad4a429f4be1bc2cb138bd8d0bab8dd4cd4758c4',
-  timestamp: '2018-08-14 13:57',
-  symbol: '',
-  name: '',
-  document: '' },
-{ id: '323a1e35ae0b356316093d20f2d9fbc995d19314b5c0148b78dc8d9c0dab9d35',
-  timestamp: '2018-08-14 17:53',
-  symbol: '',
-  name: '',
-  document: ' } ]
+[ { id: 'a72788409fa0ff38556e0d26d17edcc8e6ac04dcdc4904eeb5297c6096dc6e75',
+  timestamp: '2019-02-10 03:24',
+  symbol: 'C',
+  name: 'Contract Name',
+  documentUri: 'documentUri',
+  documentHash:
+   '1000000000000000000000000000000000000000000000000000000000000001',
+  decimals: 1,
+  initialTokenQty: 10 },
+  { id: 'e6fe00fc1f53320b72bd5cbed76c0c82e5edfea1b6f9cb0f71bfb28c3b6211a8',
+  timestamp: '2019-02-05 04:01',
+  symbol: 'TESTNET3',
+  name: 'SLP SDK Testnet Token 3',
+  documentUri: 'badger@bitcoin.com',
+  documentHash: '',
+  decimals: 8,
+  initialTokenQty: 100 }]
 `}
           </Code>
           <Text>List single token by id</Text>
           <Code>
             {`(async () => {
-    try {
-      let list = await SLP.Utils.list(
-        "b3f4f132dc3b9c8c96316346993a8d54d729715147b7b11aa6c8cd909e955313"
-      );
-      console.log(list);
-    } catch (error) {
-      console.error(error);
-    }
-)();
+  try {
+    let list = await SLP.Utils.list(
+      "b3f4f132dc3b9c8c96316346993a8d54d729715147b7b11aa6c8cd909e955313"
+    );
+    console.log(list);
+  } catch (error) {
+    console.error(error);
+  }
+})();
 
 // returns
-{ id:
-  'b3f4f132dc3b9c8c96316346993a8d54d729715147b7b11aa6c8cd909e955313',
-  timestamp: '2019-01-30 20:56',
+{ id: 'b3f4f132dc3b9c8c96316346993a8d54d729715147b7b11aa6c8cd909e955313',
+  timestamp: '2019-01-30 21:56',
   symbol: 'SLPJS',
   name: 'Awesome SLPJS README Token',
-  document: 'info@simpleledger.io'
-}
+  documentUri: 'info@simpleledger.io',
+  documentHash: '',
+  decimals: 2,
+  initialTokenQty: 1000000 }
 `}
           </Code>
         </PreviewItem>
