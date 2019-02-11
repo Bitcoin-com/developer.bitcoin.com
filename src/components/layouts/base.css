@@ -5,12 +5,14 @@ html {
   font-weight: 400;
   font-size: 16px;
   font-size-adjust: 0.5;
+  height: auto !important;
 }
 
 body {
   margin: 0;
   position: relative;
   color: #151b1e;
+  height: auto !important;
 }
 
 h1,
