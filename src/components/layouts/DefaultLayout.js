@@ -45,7 +45,7 @@ const DefaultLayout = ({ children, location }: Props) => (
             'BITBOX based bitcoin.com developer platform and resources'
           }
           keywords={
-            'bitbox, developer tools, bitcoin, bitcoin cash, BCH, sdk, api'
+            'bitbox, developer tools, bitcoin, bitcoin cash, BCH, sdk, api, slp, development tools'
           }
           location={location}
           image={Favicon}
