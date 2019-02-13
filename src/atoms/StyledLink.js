@@ -16,14 +16,16 @@ const StyledLink = styled(Link)`
     color: ${props => props.theme.primary600};
   }
 `
-const StyledA = props => <StyledLink as="a" {...props} />
 
 type Props = {
   children: React.Node,
   text?: string,
   to: string,
   href?: string,
+  subtle?: ?boolean,
 }
+
+const StyledA = (props: Props) => <StyledLink as="a" {...props} />
 
 class SmartLink extends React.PureComponent<Props> {
   render() {
@@ -33,8 +35,9 @@ class SmartLink extends React.PureComponent<Props> {
     const patternInternal = /^\/(?!\/)/
     const patternStaticAsset = /\/static\//g
 
-    const internal = patternInternal.test(to) || patternInternal.test(href)
-    const isAsset = patternStaticAsset.test(href)
+    const internal =
+      patternInternal.test(to) || patternInternal.test(href || '')
+    const isAsset = patternStaticAsset.test(href || '')
 
     if (isAsset || !internal) {
       return (
