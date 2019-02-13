@@ -53,7 +53,7 @@ Send a specified amount of BCH to a destination address
           from: web4bch.bch.defaultAccount,
           value: "1000",
           opReturn: {
-            data: ["0x4811", "Hello BITBOX"]
+            data: ["0x6d02", "Hello BITBOX"]
           }
         }
         web4bch.bch.sendTransaction(txParams, (err, txid) => {
