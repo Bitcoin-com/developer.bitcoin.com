@@ -9,10 +9,10 @@ Send a specified amount of BCH to a destination address
 #### Arguments
 
 - txParams `Object` containing to, from, and value properties
-  - to `String` cashaddr address of BCH destination
+  - to `String` optional: cashaddr address of BCH destination
   - from `String` cashaddr address of user's address
-  - value `String` BCH amount to send in satoshis
-  - opReturn `Object` (optional)
+  - value `String` optional: BCH amount to send in satoshis
+  - opReturn `Object` optional:
     - Properties
       - data `Array` data to be encoded in `nulldata` output
 - `Callback` with error and response parameters
