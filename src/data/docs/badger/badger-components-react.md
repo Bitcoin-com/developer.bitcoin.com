@@ -36,12 +36,13 @@ Simple Badger Button to display the price in local currency, satoshi amount, and
 - `currency: string` - Default `USD` - [ISO Country Code](https://en.wikipedia.org/wiki/ISO_4217) to charge in
 - `showSatoshis: boolean` Default `true` - Show the value in BCH Satoshis below the button
 - `border: boolean` - Default `true` - Border around button and text
+- `opReturn: string[]` - Optional - OP_RETURN message
 - `text: string` - Optional - Text between the button and border
 - `successFn: Function` - Optional -Callback function when payment is successful
 - `failFn: Function` - Optional - Callback function when payment fails or is cancelled
 
 <spacer></spacer>
-<badger-button to="bitcoincash:pp8skudq3x5hzw8ew7vzsw8tn4k8wxsqsv0lt0mf3g" price="0.01" currency="CAD" text="Badger Button"></badger-button>
+<badger-button to="bitcoincash:pp8skudq3x5hzw8ew7vzsw8tn4k8wxsqsv0lt0mf3g" price="0.001" currency="CAD" text="Badger Button"></badger-button>
 
 #### Badger Badge
 
@@ -56,11 +57,12 @@ Supports the following props.
 - `border: boolean` - Default `true` - Border around button and text
 - `text: string` - Default `Payment Total` - Text between the button and border
 - `tag: string` - Default `Badger Pay` - Text on the button
+- `opReturn: string[]` - Optional - OP_RETURN message
 - `successFn: Function` - Optional - Callback function when payment is successful
 - `failFn: Function` - Optional - Callback function when payment fails or is cancelled
 
 <spacer></spacer>
-<badger-badge to="bitcoincash:pp8skudq3x5hzw8ew7vzsw8tn4k8wxsqsv0lt0mf3g" price="0.01" currency="CAD" text="Badger Badger"></badger-button>
+<badger-badge to="bitcoincash:pp8skudq3x5hzw8ew7vzsw8tn4k8wxsqsv0lt0mf3g" price="0.001" currency="USD" text="Badger Badger"></badger-button>
 
 #### Code Examples
 
@@ -83,6 +85,7 @@ const Example = props => {
         price={0.01} // Price in currency
         currency={'CAD'} // Currency to convert from
         to={'bitcoincash:pp8skudq3x5hzw8ew7vzsw8tn4k8wxsqsv0lt0mf3g'} // Payment address
+        opReturn={['0x6d02', 'Hello BadgerBadge!']}
         tag={'Badger Pay'} // Text on button
         text={'Payment Total'} // Text at top of badge
         showBrand={true} // Show link to badger website
@@ -95,6 +98,7 @@ const Example = props => {
         price={0.003}
         currency={'USD'}
         to={'bitcoincash:pp8skudq3x5hzw8ew7vzsw8tn4k8wxsqsv0lt0mf3g'}
+        opReturn={['0x6d02', 'Donated with Badger']}
         text={'Badger Pay'}
         showSatoshis={true}
         border={true}
@@ -110,13 +114,14 @@ export default Example
 
 ### Creating Custom Badger Integrations
 
-The library contains a Higher Order Component (HOC) `BadgerBase` which contains all of the required Badger interaction logic. This allows for any component to integrate with Badger easily.
+The library contains a Higher Order Component (HOC) `BadgerBase` which contains all of the required Badger interaction logic. This allows the creation of custom Badger integrations and components easily.
 
 Components wrapped in `BadgerBase` support the following props
 
 - `to: BCH Address` - Required - Bitcoin Cash address to send BCH to
 - `price: number` - Required - Price in chosen currency, will be turned into satoshis
 - `currency: string` - Default `USD` - [ISO Country Code](https://en.wikipedia.org/wiki/ISO_4217) to charge in
+- `opReturn: string[]` - Optional - OP_RETURN message to send with transaction
 
 And get the following props added to them for use in custom integration component
 
