@@ -10,8 +10,8 @@ Create HDNode from Seed Buffer
 
 #### Arguments
 
-1.  rootSeed `Buffer` root seed buffer
-2.  network `string` optional network. default: 'bitcoin'
+1.  rootSeed `Buffer`: root seed buffer
+2.  network `String` **optional**: network. default: 'mainnet'
 
 #### Result
 

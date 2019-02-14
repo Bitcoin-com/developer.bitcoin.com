@@ -484,7 +484,8 @@ Detect an addess from an OutputScript.
 
 #### Arguments
 
-1.  scriptPubKey`Buffer`: scriptPubKey
+1.  scriptPubKey `Buffer`: scriptPubKey
+2.  network `String` **optional**: defaults to "mainnet"
 
 #### Result
 
