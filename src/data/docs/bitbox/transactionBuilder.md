@@ -10,7 +10,7 @@ Create new Transaction Builder.
 
 #### Arguments
 
-1.  network `String`: Defaults to "bitcoincash"
+1.  network `String`: Defaults to "mainnet"
 
 #### Result
 
@@ -19,7 +19,7 @@ TransactionBuilder `TransactionBuilder`
 #### Examples
 
       // instance of transaction builder
-      let transactionBuilder = new BITBOX.TransactionBuilder('bitcoincash');
+      let transactionBuilder = new BITBOX.TransactionBuilder('mainnet');
 
 ### `hashTypes`
 

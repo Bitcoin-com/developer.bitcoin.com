@@ -20,17 +20,15 @@ Paid downloads, streaming media, in-app purchases, tokens and more ways for you 
 
 ## Install / develop
 
-Make sure that you have the Gatsby CLI program installed:
-
 ```sh
-  npm install
-  npm start
+  yarn install
+  yarn start
 ```
 
 ## Build / deploy
 
 ```sh
-  npm run  build
+  yarn run build
   > deploy `/public` folder somewhere.
 ```
 
