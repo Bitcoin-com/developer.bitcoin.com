@@ -45,7 +45,7 @@ const Learn = ({ location, data }: Props) => (
         'Learning center and resources for all of your Bitcoin Cash development needs'
       }
       keywords={
-        'learn, bitbox, tutorials, developer tools, bitcoin, bitcoin cash, BCH, sdk, api'
+        'learn, bitbox, bitcion cash tutorials, developer tools, bitcoin, bitcoin cash, bitcoin sdk, BCH, sdk, bitcoin cash api'
       }
       location={location}
     />
@@ -63,7 +63,7 @@ const Learn = ({ location, data }: Props) => (
           to="/tutorials"
           title="Tutorials"
           text="Step by step instructions to build Bitcoin Cash apps from scratch.
-            See real world examples get built and have your own working copies
+            See real world examples built and have your own working copies
             to bootstrap your project from."
           cta="View"
         />
@@ -78,7 +78,7 @@ const Learn = ({ location, data }: Props) => (
           to="/mastering-bitcoin-cash"
           title="Mastering Bitcoin Cash"
           text="Based on Mastering Bitcoin by Andreas M. Antonopoulos, Mastering
-            Bitcoin Cash is the ultimate guide to the bring your knowledge from
+            Bitcoin Cash is the ultimate guide to bring your knowledge from
             beginner to professional step by step."
           cta="Read"
         />
