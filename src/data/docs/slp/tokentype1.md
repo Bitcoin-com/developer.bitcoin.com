@@ -163,7 +163,7 @@ txid `String`. The txid of your burned tokens
           fundingWif: "cNbbGFfSG8xvrH4HXJLcoENEmtkDAvPoC21qVhjntUc18XBzhGGe",
           tokenId:
             "3125ee6e4b051a19996a58cd876dade21a0a891d16845ada7d441573805c08db",
-          bchChangeReceiverAddress: "bchtest:qqjfqa7qsmydeuctqvddppjnkr53vchseuv49mhsxa"
+          bchChangeReceiverAddress: "bchtest:qp5e2laasex4m2qkrtel3skamsftvu0gaswsmdxcd2"
         };
         let burnAll = await SLP.TokenType1.burnAll(iBurnAllConfig);
         console.log(burnAll);
@@ -173,4 +173,4 @@ txid `String`. The txid of your burned tokens
     })();
 
     // returns
-    ed850102468c2d35c653f9ee58a7501e3c081450bfe5ca8bd6fdc5fa42f5e56e
+    8d2a6aad3de38e79718c043c6f83a960807787efec92d6a1d9940e2ed04d2169
