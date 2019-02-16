@@ -156,15 +156,21 @@ txid `String`. The txid of your burned tokens
 
 #### Examples
 
-    (async function() {
-      let iBurnAllConfig = {
-        fundingAddress: "",
-        fundingWif: "",
-        tokenId: ""
-      };
-      let burnAll = await SLP.TokenType1.burnAll(iBurnAllConfig);
-      console.log(burnAll);
-    })()
+    (async () => {
+      try {
+        let iBurnAllConfig = {
+          fundingAddress: "bchtest:qqjfqa7qsmydeuctqvddppjnkr53vchseuv49mhsxa",
+          fundingWif: "cNbbGFfSG8xvrH4HXJLcoENEmtkDAvPoC21qVhjntUc18XBzhGGe",
+          tokenId:
+            "3125ee6e4b051a19996a58cd876dade21a0a891d16845ada7d441573805c08db",
+          bchChangeReceiverAddress: "bchtest:qqjfqa7qsmydeuctqvddppjnkr53vchseuv49mhsxa"
+        };
+        let burnAll = await SLP.TokenType1.burnAll(iBurnAllConfig);
+        console.log(burnAll);
+      } catch (error) {
+        console.error(error);
+      }
+    })();
 
     // returns
-    76fb0f1d3d8a010720f8f24c19476e16fa96735e5c215b12773a65608017bd25
+    ed850102468c2d35c653f9ee58a7501e3c081450bfe5ca8bd6fdc5fa42f5e56e
