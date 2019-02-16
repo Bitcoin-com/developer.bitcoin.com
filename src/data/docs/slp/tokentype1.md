@@ -139,6 +139,8 @@ sendId `String`. The txid of your sent tokens
 
 Burn all tokens for an address by tokenId
 
+**CAUTION: THIS WILL BURN ALL OF YOUR TOKENS FOR A TOKENID. PLEASE USE WITH CARE**
+
 #### Arguments
 
 1.  burnAllConfig `Object` required
