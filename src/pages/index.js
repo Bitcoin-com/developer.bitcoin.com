@@ -250,8 +250,8 @@ const IndexPage = ({ location, data }: Props) => (
           </BubbleImg>
           <Text>
             Build the foundation of knowledge needed to create world changing
-            apps. Tutorials, blog posts, video streams and code snippets to help
-            you go from being a hobbyist to a professional step by step.
+            apps. Access tutorials, blog posts, video streams and code snippets
+            to help you go from being a hobbyist to a professional step by step.
           </Text>
           <StyledLink to="/learn">
             <Button round>Learn</Button>
