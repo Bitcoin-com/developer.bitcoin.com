@@ -134,3 +134,37 @@ sendId `String`. The txid of your sent tokens
 
     // returns
     76fb0f1d3d8a010720f8f24c19476e16fa96735e5c215b12773a65608017bd25
+
+### `burnAll`
+
+Burn all tokens for an address by tokenId
+
+#### Arguments
+
+1.  burnAllConfig `Object` required
+
+##### Valid config properties
+
+- `fundingAddress`: `String`. legacy, cash or slp address format
+- `fundingWif`: `String`. : compressed WIF format. Available via `SLP.HDNode.toWIF`
+- `tokenId`: `String`. tokenId of token to burn all of
+- `bchChangeReceiverAddress` : `String.` legacy, cash or slp address format
+
+#### Result
+
+txid `String`. The txid of your burned tokens
+
+#### Examples
+
+    (async function() {
+      let iBurnAllConfig = {
+        fundingAddress: "",
+        fundingWif: "",
+        tokenId: ""
+      };
+      let burnAll = await SLP.TokenType1.burnAll(iBurnAllConfig);
+      console.log(burnAll);
+    })()
+
+    // returns
+    76fb0f1d3d8a010720f8f24c19476e16fa96735e5c215b12773a65608017bd25
