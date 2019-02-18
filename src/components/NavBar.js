@@ -69,6 +69,7 @@ class NavBar extends React.PureComponent<Props> {
       false
     )
     const aboutActive = pathname.includes('/about')
+    const faqActive = pathname.includes('/faq')
     return (
       <Main>
         <Container>
