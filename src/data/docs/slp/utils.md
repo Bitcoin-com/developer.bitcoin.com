@@ -222,60 +222,48 @@ Validate that txid is an SLP transaction
 
 #### Arguments
 
-1.  txid : `String` required. The transaction id to validate
-2.  network : `String` required. mainnet or testnet
-3.  getRawTransactions: `Function` optional.
+1.  txid : `String` or `Array` required. The transaction id(s) to validate
 
 #### Result
 
-isValid : `Boolean`
+validated : `Array`
 
 #### Examples
 
-    // validate SLP txid
+    // validate single SLP txid
     (async () => {
       try {
-        let isValid = await SLP.Utils.validateTxid(
-          "df808a41672a0a0ae6475b44f272a107bc9961b90f29dc918d71301f24fe92fb",
-          "mainnet"
+        let validated = await SLP.Utils.validateTxid(
+          "df808a41672a0a0ae6475b44f272a107bc9961b90f29dc918d71301f24fe92fb"
         );
-        console.log(isValid);
+        console.log(validated);
       } catch (error) {
         console.error(error);
       }
     })();
 
     // returns
-    true
+    [ { txid:
+     'df808a41672a0a0ae6475b44f272a107bc9961b90f29dc918d71301f24fe92fb',
+    valid: true } ]
 
-### `createValidator`
-
-Create and return a local validator
-
-#### Arguments
-
-1.  network : `String` required. mainnet or testnet
-2.  getRawTransactions: `Function` optional.
-
-#### Result
-
-slpValidator : `slpValidator`
-
-#### Examples
-
-    // create validator
+    // validate multiple SLP txids
     (async () => {
       try {
-        const slpValidator = SLP.Utils.createValidator(
-          process.env.NETWORK,
-          getRawTransactionsFromNode.bind(this)
-        )
-        const isValid = await slpValidator.isValidSlpTxid(txid)
-        console.log(isvalid)
+        let validated = await SLP.Utils.validateTxid([
+          "df808a41672a0a0ae6475b44f272a107bc9961b90f29dc918d71301f24fe92fb",
+          "00ea27261196a411776f81029c0ebe34362936b4a9847deb1f7a40a02b3a1476"
+        ]);
+        console.log(validated);
       } catch (error) {
         console.error(error);
       }
     })();
 
     // returns
-    // true
+    [ { txid:
+         'df808a41672a0a0ae6475b44f272a107bc9961b90f29dc918d71301f24fe92fb',
+        valid: true },
+      { txid:
+         '00ea27261196a411776f81029c0ebe34362936b4a9847deb1f7a40a02b3a1476',
+        valid: true } ]
