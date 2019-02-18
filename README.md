@@ -6,6 +6,10 @@
 
 Bitcoin.com’s developer plaform is based on the popular BITBOX javascript framework. Offering utility methods for Mnemonics, HDNodes, ECPairs, Crypto, Address conversion, Transactions and much more.
 
+### Badger
+
+Integrate Bitcoin Cash (BCH) into your next app with ease. Helpers, tools, and SDK's to help connect your website to the Badger wallet.
+
 ### REST
 
 The BCH JSON RPC over HTTP including a fully documented and interactive GUI which developers can use to test their ideas and confirm their code is making proper API calls.
