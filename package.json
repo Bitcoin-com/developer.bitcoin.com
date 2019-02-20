@@ -1,10 +1,10 @@
 {
   "name": "developer.bitcoin.com",
   "description": "Bitcoin.com developer resources and documentation",
-  "version": "3.4.1",
+  "version": "3.4.2",
   "author": "Peter <peter@bitcoin.com> and Gabriel Cardona <gabriel@bitcoin.com>",
   "dependencies": {
-    "badger-components-react": "^0.2.0",
+    "badger-components-react": "^0.2.1",
     "gatsby": "^2.0.118",
     "gatsby-image": "^2.0.29",
     "gatsby-plugin-flow": "^1.0.2",

@@ -1616,10 +1616,10 @@ backo2@1.0.2:
   resolved "https://registry.yarnpkg.com/backo2/-/backo2-1.0.2.tgz#31ab1ac8b129363463e35b3ebb69f4dfcfba7947"
   integrity sha1-MasayLEpNjRj41s+u2n038+6eUc=
 
-badger-components-react@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/badger-components-react/-/badger-components-react-0.2.0.tgz#164b37b90b8bd770a46079a7194d711407cffedd"
-  integrity sha512-XoW7Pz1VGvXiAxRbUNdrCZfdTHr+9GLY9usFnB+Rtp5A6A/qnIbA6y5P8AdLlUaXw16NO2sr8vtcdzL5Hzj9xA==
+badger-components-react@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/badger-components-react/-/badger-components-react-0.2.1.tgz#737ee51163421faa7936d7e113549806b58bbdac"
+  integrity sha512-XeBOpUhzEclj1hsgs9JW5xdN2ogFKLMMERk3+QriHCAu5Hq2vTJih905tnOui9Zdlfm55BNJ+NheI6nqKB/Vbg==
   dependencies:
     lodash "^4.17.11"
     qrcode.react "^0.9.2"
