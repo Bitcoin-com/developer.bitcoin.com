@@ -10,7 +10,7 @@ List all tokens or list single token by id
 
 #### Arguments
 
-1.  id : `String` optional. The token id
+1.  id : `String` or `Array` optional. The token id(s)
 
 #### Result
 
@@ -70,6 +70,42 @@ tokens : `Array` or `Object`. tokens or single token
         documentHash: '',
         decimals: 2,
         initialTokenQty: 1000000 }
+
+##### List multiple tokens by tokenIds
+
+     (async () => {
+        try {
+          let list = await SLP.Utils.list([
+            "fa6c74c52450fc164e17402a46645ce494a8a8e93b1383fa27460086931ef59f",
+            "38e97c5d7d3585a2cbf3f9580c82ca33985f9cb0845d4dcce220cb709f9538b0"
+          ]);
+          console.log(list);
+        } catch (error) {
+          console.error(error);
+        }
+      })();
+
+      // returns
+      [{
+        "id": "fa6c74c52450fc164e17402a46645ce494a8a8e93b1383fa27460086931ef59f",
+        "timestamp": "2019-02-18 15:47",
+        "symbol": "SLP",
+        "name": "Official SLP Token",
+        "documentUri": "https://simpleledger.cash",
+        "documentHash": "",
+        "decimals": 0,
+        "initialTokenQty": 18446744073709552000
+      },
+      {
+        "id": "38e97c5d7d3585a2cbf3f9580c82ca33985f9cb0845d4dcce220cb709f9538b0",
+        "timestamp": "2019-02-14 04:11",
+        "symbol": "PSF",
+        "name": "Permissionless Software Foundation",
+        "documentUri": "psfoundation.cash",
+        "documentHash": "",
+        "decimals": 8,
+        "initialTokenQty": 19882.09163133
+      }]
 
 ### `balancesForAddress`
 
