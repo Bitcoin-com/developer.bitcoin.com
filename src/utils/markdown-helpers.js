@@ -54,20 +54,39 @@ const Spacer = styled.div`
     props.size === 'small' ? spacing.small : spacing.medium};
 `
 
-type ButtonProps = {}
+type ButtonProps = {
+  price: string,
+  repeattimeout: string,
+  isrepeatable: string,
+  watchaddress: string,
+}
 // All props from markdown come in as strings
 class BadgerButtonTransform extends React.PureComponent<ButtonProps> {
   render() {
-    console.log('?????')
-    const { price, ...rest } = this.props
+    const {
+      price,
+      repeattimeout,
+      isrepeatable,
+      watchaddress,
+      ...rest
+    } = this.props
     const priceNumber = parseFloat(price)
-    return <BadgerButton price={priceNumber} {...rest} />
+    const repeatTimeoutNumber = parseInt(repeattimeout)
+    return (
+      <BadgerButton
+        price={priceNumber}
+        repeatTimeout={repeatTimeoutNumber}
+        watchAddress={watchaddress}
+        isRepeatable={isrepeatable}
+        {...rest}
+      />
+    )
   }
 }
 
-type ButtonProps = {}
+type BadgeProps = { price: string, repeatTimeout: string }
 // All props from markdown come in as strings
-class BadgerBadgeTransform extends React.PureComponent<ButtonProps> {
+class BadgerBadgeTransform extends React.PureComponent<BadgeProps> {
   render() {
     const { price, ...rest } = this.props
     const priceNumber = parseFloat(price)
