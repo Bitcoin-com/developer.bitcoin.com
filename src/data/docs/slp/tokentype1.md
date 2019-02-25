@@ -139,7 +139,7 @@ sendId `String`. The txid of your sent tokens
 
 Burn an amount of tokens for an address by tokenId
 
-**CAUTION: THIS WILL BURN ALL OF YOUR TOKENS FOR A TOKENID. PLEASE USE WITH CARE**
+**CAUTION: THIS WILL BURN AN AMOUNT OF YOUR TOKENS FOR A TOKENID. PLEASE USE WITH CARE**
 
 #### Arguments
 
