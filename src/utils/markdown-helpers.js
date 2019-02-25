@@ -86,7 +86,7 @@ class BadgerButtonTransform extends React.PureComponent<ButtonProps> {
 
 type BadgeProps = { price: string, repeatTimeout: string }
 // All props from markdown come in as strings
-class BadgerBadgeTransform extends React.PureComponent<ButtonProps> {
+class BadgerBadgeTransform extends React.PureComponent<BadgeProps> {
   render() {
     const { price, ...rest } = this.props
     const priceNumber = parseFloat(price)
