@@ -135,6 +135,51 @@ sendId `String`. The txid of your sent tokens
     // returns
     76fb0f1d3d8a010720f8f24c19476e16fa96735e5c215b12773a65608017bd25
 
+### `burn`
+
+Burn an amount of tokens for an address by tokenId
+
+**CAUTION: THIS WILL BURN ALL OF YOUR TOKENS FOR A TOKENID. PLEASE USE WITH CARE**
+
+#### Arguments
+
+1.  burnConfig `Object` required
+
+##### Valid config properties
+
+- `fundingAddress`: `String`. legacy, cash or slp address format
+- `fundingWif`: `String`. : compressed WIF format. Available via `SLP.HDNode.toWIF`
+- `tokenId`: `String`. tokenId of token to burn all of
+- `bchChangeReceiverAddress` : `String`. legacy, cash or slp address format
+- `amount`: `Number`. Amount of tokens to burn
+
+#### Result
+
+txid `String`. The txid of your burned tokens
+
+#### Examples
+
+    (async () => {
+      try {
+        let iBurnConfig = {
+          fundingAddress: "bchtest:qp5e2laasex4m2qkrtel3skamsftvu0gaswsmdxcd2",
+          fundingWif: "cQS4N8Jbw9bmoWiVmprVEs5dEeJ6oUE2FxUo5VSvsDQSBfXakrVc",
+          tokenId:
+            "4c7d9c4f50f99ec0d21213d51b09e2c5199e18d88bf2f4a809f164601eda0e1b",
+          amount: 500,
+          bchChangeReceiverAddress:
+            "bchtest:qp5e2laasex4m2qkrtel3skamsftvu0gaswsmdxcd2"
+        };
+        let burn = await SLP.TokenType1.burn(iBurnConfig);
+        console.log(burn);
+      } catch (error) {
+        console.error(error);
+      }
+    })();
+
+    // returns
+    30785e55da16be11ce849805abb6d058cfc2f76057627a36a34d3855e678489c
+
 ### `burnAll`
 
 Burn all tokens for an address by tokenId
