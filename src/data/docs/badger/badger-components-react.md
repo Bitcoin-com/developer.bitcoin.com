@@ -8,7 +8,8 @@ A set of React components and helpers to integrate Bitcoin Cash (BCH) and the Ba
 
 ### Get Started
 
-- [Component Showcase](http://badger-storybook.surge.sh)
+- [Badger Homepage](https://badger.bitcoin.com)
+- [Component Showcase / Storybook](http://badger-storybook.surge.sh)
 - [NPM page `badger-components-react`](https://www.npmjs.com/package/badger-components-react)
 
 ### Install Components
