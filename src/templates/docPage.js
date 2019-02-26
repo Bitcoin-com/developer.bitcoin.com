@@ -156,6 +156,8 @@ class DocTemplate extends React.PureComponent<Props> {
             `${doc.fields.product} ${doc.frontmatter.title}`,
             `${doc.frontmatter.title}`,
             `${doc.frontmatter.title} documentation`,
+            'developer resource',
+            'documentation',
           ]}
         />
 
