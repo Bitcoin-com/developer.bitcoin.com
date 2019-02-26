@@ -142,3 +142,166 @@ valid `Array` of txid strings
         "valid": true
       }
     ]
+
+## Create TokenType1
+
+Create an SLP token class of TokenType1.
+
+**URL** : `v2/slp/createTokenType1/:fundingAddress/:fundingWif/:tokenReceiverAddress/:batonReceiverAddress/:bchChangeReceiverAddress/:decimals/:name/:symbol/:documentUri/:documentHash/:initialTokenQty`
+
+**Method** : `GET`
+
+**Auth required** : NO
+
+Note this endpoint is only live w/ a `NON_JS_FRAMEWORK` environment variable
+
+#### URL Parameters
+
+1.  fundingAddress `String` required
+2.  fundingWif `String` required
+3.  tokenReceiverAddress `String` required
+4.  batonReceiverAddress `String` required
+5.  bchChangeReceiverAddress `String` required
+6.  decimals `String` required
+7.  name `String` required. This cannot have any spaces. It must be URL encoded
+8.  symbol `String` required
+9.  documentUri `String` required
+10. documentHash `String` required
+11. initialTokenQty `String` required
+
+#### Result
+
+txid `String`
+
+#### Examples
+
+    curl -X GET "http://localhost:3000/v2/slp/createTokenType1/bchtest:qqm2nq9cv9gw66zn5xa0udpxnysknm2x4c95yw59pd/cMsGTGBgS4qsbPNVbp8fwgTCN6YAgjxY6VQrixDxPRZ5x92F5oc4/bchtest:qqm2nq9cv9gw66zn5xa0udpxnysknm2x4c95yw59pd/bchtest:qqm2nq9cv9gw66zn5xa0udpxnysknm2x4c95yw59pd/bchtest:qqm2nq9cv9gw66zn5xa0udpxnysknm2x4c95yw59pd/0/Burner%20Coins%20Rule/BURN/documentUri/1010101010101010101010101010101010101010101010101010101010101010/100000000" -H "accept: */*"
+
+    // returns
+    946e43c71ff8917687793897d3c4e8b96a12a4f83575dfb45cedd870a0a90c69
+
+## Mint TokenType1
+
+Mint an SLP token class by tokenId.
+
+**URL** : `v2/slp/mintTokenType1/:fundingAddress/:fundingWif/:tokenReceiverAddress/:batonReceiverAddress/:bchChangeReceiverAddress/:tokenId/:additionalTokenQty`
+
+**Method** : `GET`
+
+**Auth required** : NO
+
+Note this endpoint is only live w/ a `NON_JS_FRAMEWORK` environment variable
+
+#### URL Parameters
+
+1.  fundingAddress `String` required
+2.  fundingWif `String` required
+3.  tokenReceiverAddress `String` required
+4.  batonReceiverAddress `String` required
+5.  bchChangeReceiverAddress `String` required
+6.  tokenId `String` required
+7.  additionalTokenQty `String` required
+
+#### Result
+
+txid `String`
+
+#### Examples
+
+    curl -X GET "http://localhost:3000/v2/slp/mintTokenType1/bchtest:qqm2nq9cv9gw66zn5xa0udpxnysknm2x4c95yw59pd/cMsGTGBgS4qsbPNVbp8fwgTCN6YAgjxY6VQrixDxPRZ5x92F5oc4/bchtest:qqm2nq9cv9gw66zn5xa0udpxnysknm2x4c95yw59pd/bchtest:qqm2nq9cv9gw66zn5xa0udpxnysknm2x4c95yw59pd/bchtest:qqm2nq9cv9gw66zn5xa0udpxnysknm2x4c95yw59pd/946e43c71ff8917687793897d3c4e8b96a12a4f83575dfb45cedd870a0a90c69/123" -H "accept: */*"
+
+    // returns
+    5dc4ca831acd571963d767e296d84b92effd57c757aab8e39ed3bb59cb2b2e94
+
+## Send TokenType1
+
+Send an amount of tokens by tokenId.
+
+**URL** : `v2/slp/sendTokenType1/:fundingAddress/:fundingWif/:tokenReceiverAddress/:bchChangeReceiverAddress/:tokenId/:amount",`
+
+**Method** : `GET`
+
+**Auth required** : NO
+
+Note this endpoint is only live w/ a `NON_JS_FRAMEWORK` environment variable
+
+#### URL Parameters
+
+1.  fundingAddress `String` required
+2.  fundingWif `String` required
+3.  tokenReceiverAddress `String` required
+4.  bchChangeReceiverAddress `String` required
+5.  tokenId `String` required
+6.  amount`String` required
+
+#### Result
+
+txid `String`
+
+#### Examples
+
+    curl -X GET "http://localhost:3000/v2/slp/sendTokenType1/bchtest:qqm2nq9cv9gw66zn5xa0udpxnysknm2x4c95yw59pd/cMsGTGBgS4qsbPNVbp8fwgTCN6YAgjxY6VQrixDxPRZ5x92F5oc4/bchtest:qza06mmt6zxfgq2yv6jxaq3juffhzvmv9cxayyqlfp/bchtest:qqm2nq9cv9gw66zn5xa0udpxnysknm2x4c95yw59pd/946e43c71ff8917687793897d3c4e8b96a12a4f83575dfb45cedd870a0a90c69/123" -H "accept: */*"
+
+    // returns
+    b76daf1f2627f253aecc09a19eafe8422d79e6b59b2536493e1025e92a4d75dd
+
+## Burn TokenType1
+
+Burn an amount of tokens by tokenId.
+
+**URL** : `v2/slp/burnTokenType1/:fundingAddress/:fundingWif/:bchChangeReceiverAddress/:tokenId/:amount",`
+
+**Method** : `GET`
+
+**Auth required** : NO
+
+Note this endpoint is only live w/ a `NON_JS_FRAMEWORK` environment variable
+
+#### URL Parameters
+
+1.  fundingAddress `String` required
+2.  fundingWif `String` required
+3.  bchChangeReceiverAddress `String` required
+4.  tokenId `String` required
+5.  amount`String` required
+
+#### Result
+
+txid `String`
+
+#### Examples
+
+    curl -X GET "http://localhost:3000/v2/slp/burnTokenType1/bchtest:qqm2nq9cv9gw66zn5xa0udpxnysknm2x4c95yw59pd/cMsGTGBgS4qsbPNVbp8fwgTCN6YAgjxY6VQrixDxPRZ5x92F5oc4/bchtest:qqm2nq9cv9gw66zn5xa0udpxnysknm2x4c95yw59pd/946e43c71ff8917687793897d3c4e8b96a12a4f83575dfb45cedd870a0a90c69/123" -H "accept: */*"
+
+    // returns
+    902b139b201940a5b726d4ef636a3b2225a64220fb150a6f5bde697180b6c758
+
+## Burn All TokenType1
+
+Burn all tokens by tokenId.
+
+**URL** : `v2/slp/burnAllTokenType1/:fundingAddress/:fundingWif/:bchChangeReceiverAddress/:tokenId",`
+
+**Method** : `GET`
+
+**Auth required** : NO
+
+Note this endpoint is only live w/ a `NON_JS_FRAMEWORK` environment variable
+
+#### URL Parameters
+
+1.  fundingAddress `String` required
+2.  fundingWif `String` required
+3.  bchChangeReceiverAddress `String` required
+4.  tokenId `String` required
+
+#### Result
+
+txid `String`
+
+#### Examples
+
+    curl -X GET "http://localhost:3000/v2/slp/burnAllTokenType1/bchtest:qqm2nq9cv9gw66zn5xa0udpxnysknm2x4c95yw59pd/cMsGTGBgS4qsbPNVbp8fwgTCN6YAgjxY6VQrixDxPRZ5x92F5oc4/bchtest:qqm2nq9cv9gw66zn5xa0udpxnysknm2x4c95yw59pd/946e43c71ff8917687793897d3c4e8b96a12a4f83575dfb45cedd870a0a90c69" -H "accept: */*"
+
+    // returns
+    7e9ff2924355f890ac45151dbb9aca0802d2b84fd478cc35ad62474d12a93b6b
