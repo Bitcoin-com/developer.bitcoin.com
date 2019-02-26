@@ -48,7 +48,6 @@ const DefaultLayout = ({ children, location }: Props) => (
             'bitbox, developer tools, bitcoin, bitcoin cash, BCH, sdk, api, slp, development tools'
           }
           location={location}
-          image={Favicon}
         >
           <meta charSet="utf-8" />
           <script>

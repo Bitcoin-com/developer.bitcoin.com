@@ -8,7 +8,7 @@ type Props = {
   description?: string,
   image?: string,
   keywords?: string,
-  location: { pathname: string },
+  location: { pathname: string, origin: string },
   children?: React.Node,
 }
 class HelmetPlus extends React.PureComponent<Props> {
@@ -24,12 +24,14 @@ class HelmetPlus extends React.PureComponent<Props> {
 
     return (
       <Helmet>
+        {/* General tags */}
+        <meta charSet="utf-8" />
         {title && <title>{title}</title>}
         {description && <meta name="description" content={description} />}
         {keywords && <meta name="keywords" content={keywords} />}
-        {image && <meta name="image" content={image} />}
-
-        {/* og meta */}
+        <meta name="image" content={`${location.origin}/favicon.png`} />}
+        {image && <meta name="image" content={`${location.origin}${image}`} />}
+        {/* OpenGraph OG meta */}
         {location && (
           <meta
             property="og:url"
@@ -40,16 +42,21 @@ class HelmetPlus extends React.PureComponent<Props> {
         {description && (
           <meta property="og:description" content={description} />
         )}
-        {image && <meta property="og:image" content={image} />}
-
+        <meta name="og:image" content={`${location.origin}/favicon.png`} />}
+        {image && (
+          <meta property="og:image" content={`${location.origin}${image}`} />
+        )}
         {/* twitter meta */}
         <meta name="twitter:card" content="summary" />
         {title && <meta name="twitter:title" content={title} />}
         {description && (
           <meta name="twitter:description" content={description} />
         )}
-        {image && <meta name="twitter:image" content={image} />}
-
+        <meta name="twitter:image" content={`${location.origin}/favicon.png`} />
+        }
+        {image && (
+          <meta name="twitter:image" content={`${location.origin}${image}`} />
+        )}
         {children}
       </Helmet>
     )
