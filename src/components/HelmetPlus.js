@@ -3,15 +3,33 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
 
+// keywords on every page.
+const keywordsBase = [
+  'bitcoin developer tools',
+  ' bitcoin cash developer resource',
+  ' bitcoin cash',
+  ' BCH SDK',
+  ' bitcoin sdk',
+  ' bitcoin cash api',
+  ' development tools',
+  ' blockchain development',
+  ' bitcoin development',
+  'bch developer',
+]
+
 type Props = {
   title: string,
   description?: string,
   image?: string,
-  keywords?: string,
+  keywords?: string[],
   location: { pathname: string, origin: string },
   children?: React.Node,
 }
 class HelmetPlus extends React.PureComponent<Props> {
+  static defaultProps = {
+    keywords: [],
+  }
+
   render() {
     const {
       title,
@@ -28,7 +46,14 @@ class HelmetPlus extends React.PureComponent<Props> {
         <meta charSet="utf-8" />
         {title && <title>{title}</title>}
         {description && <meta name="description" content={description} />}
-        {keywords && <meta name="keywords" content={keywords} />}
+        {keywords ? (
+          <meta
+            name="keywords"
+            content={[...keywords, ...keywordsBase].join(', ')}
+          />
+        ) : (
+          <meta name="keywords" content={keywordsBase.join(', ')} />
+        )}
         <meta name="image" content={`${location.origin}/favicon.png`} />}
         {image && <meta name="image" content={`${location.origin}${image}`} />}
         {/* OpenGraph OG meta */}
