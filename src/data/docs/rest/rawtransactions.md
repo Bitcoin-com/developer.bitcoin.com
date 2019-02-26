@@ -274,6 +274,33 @@ return the raw transaction data. If verbose is 'true', returns an Object with in
       "blocktime": 1545086356
     }
 
+## Send Single Raw Transaction
+
+Send single raw transactions to network.
+
+**URL** : `v2/rawtransactions/sendRawTransaction`
+
+**Method** : `GET`
+
+**Auth required** : NO
+
+#### URL Parameters
+
+1.  hex `String`. required
+
+#### Result
+
+txids `String` containing the txid of the transaction
+
+#### Examples
+
+    curl -X GET "https://rest.bitcoin.com/v2/rawtransactions/sendRawTransaction/01000000013ba3edfd7a7b12b27ac72c3e67768f617fc81bc3888a51323a9fb8aa4b1e5e4a000000006a4730440220540986d1c58d6e76f8f05501c520c38ce55393d0ed7ed3c3a82c69af04221232022058ea43ed6c05fec0eccce749a63332ed4525460105346f11108b9c26df93cd72012103083dfc5a0254613941ddc91af39ff90cd711cdcde03a87b144b883b524660c39ffffffff01807c814a000000001976a914d7e7c4e0b70eaa67ceff9d2823d1bbb9f6df9a5188ac00000000" -H "accept: */*"
+
+    // returns
+    [
+      "5159ae0f5327294c16267ae4ddbdbbe167b8c57c1aed37c50ed7439aa573d66a"
+    ]
+
 ## Send Bulk Raw Transactions
 
 Send bulk raw transactions to network.
