@@ -61,6 +61,11 @@ class TutorialTemplate extends React.PureComponent<Props> {
           title={`${tutorial.frontmatter.title} - ${
             data.site.siteMetadata.title
           }`}
+          keywords={[
+            `${tutorial.frontmatter.title}`,
+            'bitcoin cash tutorial',
+            'bitcoin cash example',
+          ]}
         />
 
         <Container>

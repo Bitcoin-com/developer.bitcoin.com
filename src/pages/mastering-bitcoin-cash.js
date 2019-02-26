@@ -53,9 +53,7 @@ const Learn = ({ location, data }: Props) => {
         description={
           'Learn all about Bitcoin Cash to take you from a beginner to expert.'
         }
-        keywords={
-          'mastering bitcoin cash, book, bitbox, tutorials, developer tools, bitcoin, bitcoin cash, BCH, sdk, api'
-        }
+        keywords={['mastering bitcoin cash', 'bitcoin cash book', 'free book']}
         location={location}
       />
       <Hero image={data.heroImage}>
