@@ -6,14 +6,14 @@ import Helmet from 'react-helmet'
 // keywords on every page.
 const keywordsBase = [
   'bitcoin developer tools',
-  ' bitcoin cash developer resource',
-  ' bitcoin cash',
-  ' BCH SDK',
-  ' bitcoin sdk',
-  ' bitcoin cash api',
-  ' development tools',
-  ' blockchain development',
-  ' bitcoin development',
+  'bitcoin cash developer resource',
+  'bitcoin cash',
+  'BCH SDK',
+  'bitcoin sdk',
+  'bitcoin cash api',
+  'development tools',
+  'blockchain development',
+  'bitcoin development',
   'bch developer',
 ]
 
