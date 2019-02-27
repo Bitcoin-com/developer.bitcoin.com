@@ -82,6 +82,11 @@ class ChapterTemplate extends React.PureComponent<Props> {
           title={`${chapterNode.frontmatter.title} - ${
             data.site.siteMetadata.title
           }`}
+          keywords={[
+            'mastering bitcoin cash',
+            `chapter ${currentChapter}`,
+            'free book',
+          ]}
         />
         <Container>
           <PageLayout>

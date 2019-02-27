@@ -78,7 +78,7 @@ const GuiPage = ({ location, data }: Props) => (
     <HelmetPlus
       title={`GUI - ${data.site.siteMetadata.title}`}
       description={'GUI based bitcoin.com developer platform and resources'}
-      keywords={'GUI, developer tools, bitcoin, bitcoin cash, BCH, sdk, api'}
+      keywords={['gui']}
       location={location}
     />
     <Hero image={data.heroImage}>

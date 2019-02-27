@@ -61,6 +61,11 @@ class InsightTemplate extends React.PureComponent<Props> {
           title={`${insight.frontmatter.title} - ${
             data.site.siteMetadata.title
           }`}
+          keywords={[
+            `${insight.frontmatter.title}`,
+            'bitcoin cash tutorial',
+            'bitcoin cash example',
+          ]}
         />
         <Container>
           <PageLayout>

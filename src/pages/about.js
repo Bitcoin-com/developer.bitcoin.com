@@ -53,11 +53,9 @@ const About = ({ location, data }: Props) => (
     <HelmetPlus
       title={`About  - ${data.site.siteMetadata.title}`}
       description={
-        'Bitcoin.com developer platform.  Developer Tooling, Resources, Cloud, and Marker'
+        'Bitcoin.com developer platform.  Developer Tooling, Resources, Cloud, and Market'
       }
-      keywords={
-        'about, bitbox, tutorials, developer tools, bitcoin, bitcoin cash, BCH, sdk, api'
-      }
+      keywords={['about page']}
       location={location}
     />
     <Hero image={data.heroImage}>

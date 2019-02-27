@@ -55,9 +55,6 @@ const FAQ = ({ location, data }: Props) => (
       description={
         'Bitcoin.com developer platform.  Developer Tooling, Resources, Cloud, and Marker'
       }
-      keywords={
-        'about, bitbox, tutorials, developer tools, bitcoin, bitcoin cash, BCH, sdk, api'
-      }
       location={location}
     />
     <Hero image={data.heroImage}>
