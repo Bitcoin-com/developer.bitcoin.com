@@ -16,7 +16,7 @@ Return a JSON object representing the serialized, hex-encoded transaction.
 
 #### URL Parameters
 
-1.  hex encoded `String` required
+1.  hex encoded `String` (required)
 
 #### Result
 
@@ -166,9 +166,9 @@ decoded `Array` containing the decoded transaction data
       }
     ]
 
-## Decode Script
+## Decode Single Script
 
-Decode a hex-encoded script.
+Decode a single hex-encoded script.
 
 **URL** : `v2/rawtransactions/decodeScript/{hex}`
 
@@ -178,7 +178,7 @@ Decode a hex-encoded script.
 
 #### URL Parameters
 
-1.  hex encoded `String` required
+1.  hex encoded `String` (required)
 
 #### Result
 
@@ -195,6 +195,42 @@ Decode a hex-encoded script.
       "p2sh": "bitcoincash:pqwndulzwft8dlmqrteqyc9hf823xr3lcc7ypt74ts"
     }
 
+## Bulk Decode Script
+
+Decode an array of hex-encoded scripts.
+
+**URL** : `v2/rawtransactions/decodeScript`
+
+**Method** : `POST`
+
+**Auth required** : NO
+
+#### Body Parameters
+
+1.  hexes `Array` of encoded strings (required)
+
+#### Result
+
+`Array` of objects containing the decoded script data
+
+#### Examples
+
+    curl -X POST "https://rest.bitcoin.com/v2/rawtransactions/decodeScript" -H "accept: */*" -H "Content-Type: application/json" -d "{\"hexes\":[\"01000000013ba3edfd7a7b12b27ac72c3e67768f617fc81bc3888a51323a9fb8aa4b1e5e4a000000006a4730440220540986d1c58d6e76f8f05501c520c38ce55393d0ed7ed3c3a82c69af04221232022058ea43ed6c05fec0eccce749a63332ed4525460105346f11108b9c26df93cd72012103083dfc5a0254613941ddc91af39ff90cd711cdcde03a87b144b883b524660c39ffffffff01807c814a000000001976a914d7e7c4e0b70eaa67ceff9d2823d1bbb9f6df9a5188ac00000000\",\"01000000013ba3edfd7a7b12b27ac72c3e67768f617fc81bc3888a51323a9fb8aa4b1e5e4a000000006a4730440220540986d1c58d6e76f8f05501c520c38ce55393d0ed7ed3c3a82c69af04221232022058ea43ed6c05fec0eccce749a63332ed4525460105346f11108b9c26df93cd72012103083dfc5a0254613941ddc91af39ff90cd711cdcde03a87b144b883b524660c39ffffffff01807c814a000000001976a914d7e7c4e0b70eaa67ceff9d2823d1bbb9f6df9a5188ac00000000\"]}"
+
+    // returns
+    [
+      {
+        "asm": "0 0 0 59 OP_MIN OP_UNKNOWN OP_UNKNOWN OP_ROLL OP_ROT b27ac72c3e67768f617fc81bc3888a51323a OP_LESSTHAN OP_NOP9 OP_HASH256 1e5e4a000000006a4730440220540986d1c58d6e76f8f05501c520c38ce55393d0ed7ed3c3a82c69af04221232022058ea43ed6c05fec0eccce749a63332ed4525460105346f11108b9c26 OP_UNKNOWN OP_ADD OP_UNKNOWN OP_2SWAP 33 -8142088 10 24916 41ddc91af39ff90cd711cdcde03a87b144b883b524660c39ffffffff01807c814a000000001976a914d7e7c4e0b70eaa67ceff9d2823d1bbb9 OP_UNKNOWN OP_UNKNOWN OP_BOOLAND 1 OP_EQUALVERIFY OP_CHECKSIG 0 0 0 0",
+        "type": "nonstandard",
+        "p2sh": "bitcoincash:pp2jmzk695tg8dxnvxln5ppsrnggw6c8hg0sl8nrxf"
+      },
+      {
+        "asm": "0 0 0 59 OP_MIN OP_UNKNOWN OP_UNKNOWN OP_ROLL OP_ROT b27ac72c3e67768f617fc81bc3888a51323a OP_LESSTHAN OP_NOP9 OP_HASH256 1e5e4a000000006a4730440220540986d1c58d6e76f8f05501c520c38ce55393d0ed7ed3c3a82c69af04221232022058ea43ed6c05fec0eccce749a63332ed4525460105346f11108b9c26 OP_UNKNOWN OP_ADD OP_UNKNOWN OP_2SWAP 33 -8142088 10 24916 41ddc91af39ff90cd711cdcde03a87b144b883b524660c39ffffffff01807c814a000000001976a914d7e7c4e0b70eaa67ceff9d2823d1bbb9 OP_UNKNOWN OP_UNKNOWN OP_BOOLAND 1 OP_EQUALVERIFY OP_CHECKSIG 0 0 0 0",
+        "type": "nonstandard",
+        "p2sh": "bitcoincash:pp2jmzk695tg8dxnvxln5ppsrnggw6c8hg0sl8nrxf"
+      }
+    ]
+
 ## Get Raw Transaction
 
 return the raw transaction data. If verbose is 'true', returns an Object with information about 'txid'. If verbose is 'false' or omitted, returns a string that is serialized, hex-encoded data for 'txid'.
@@ -207,7 +243,7 @@ return the raw transaction data. If verbose is 'true', returns an Object with in
 
 #### URL Parameters
 
-1.  hex encoded txid `String` required
+1.  hex encoded txid `String` (required)
 
 #### Query Parameters
 
@@ -286,7 +322,7 @@ Send single raw transactions to network.
 
 #### URL Parameters
 
-1.  hex `String`. required
+1.  hex `String`. (required)
 
 #### Result
 
@@ -313,7 +349,7 @@ Send bulk raw transactions to network.
 
 #### Body Parameters
 
-1.  hexes `Array`. required
+1.  hexes `Array`. (required)
 
 #### Result
 
