@@ -58,7 +58,7 @@ List details about single SLP token by tokenId
 
 #### URL Parameters
 
-1.  tokenId `String` required
+1.  tokenId `String` (required)
 
 #### Result
 
@@ -79,6 +79,52 @@ token `Object`
       "decimals": 2,
       "initialTokenQty": 1000
     }
+
+## List bulk
+
+List details about several SLP tokens,e by tokenId
+
+**URL** : `v2/slp/list`
+
+**Method** : `POST`
+
+**Auth required** : NO
+
+#### BODY Parameters
+
+1.  tokenIds `Array` of token ID strings (required)
+
+#### Result
+
+`Array` of token objects.
+
+#### Examples
+
+    curl -X POST "https://rest.bitcoin.com/v2/slp/list" -H "accept: */*" -H "Content-Type: application/json" -d "{\"tokenIds\":[\"259908ae44f46ef585edef4bcc1e50dc06e4c391ac4be929fae27235b8158cf1\",\"7dd083dbec32133c78afd17f2a7550516202c7e9bf98e570edd91d06aebb54ad\"]}"
+
+    // returns
+    [
+      {
+        "id": "259908ae44f46ef585edef4bcc1e50dc06e4c391ac4be929fae27235b8158cf1",
+        "timestamp": "2018-10-11 02:39",
+        "symbol": "BROC",
+        "name": "Broccoli",
+        "documentUri": "broccoli.cash",
+        "documentHash": "",
+        "decimals": 2,
+        "initialTokenQty": 1000
+      },
+      {
+        "id": "7dd083dbec32133c78afd17f2a7550516202c7e9bf98e570edd91d06aebb54ad",
+        "timestamp": "2019-02-25 17:04",
+        "symbol": "HN",
+        "name": "Rambo Test Token",
+        "documentUri": "test",
+        "documentHash": "",
+        "decimals": 2,
+        "initialTokenQty": 8888
+      }
+    ]
 
 <!-- ## Convert address
 
@@ -121,7 +167,7 @@ Validate multiple SLP transactions by txid.
 
 #### Body Parameters
 
-1.  txids `Array` required
+1.  txids `Array` (required)
 
 #### Result
 
@@ -157,17 +203,17 @@ Note this endpoint is only live w/ a `NON_JS_FRAMEWORK` environment variable
 
 #### URL Parameters
 
-1.  fundingAddress `String` required
-2.  fundingWif `String` required
-3.  tokenReceiverAddress `String` required
-4.  batonReceiverAddress `String` required
-5.  bchChangeReceiverAddress `String` required
-6.  decimals `String` required
-7.  name `String` required. This cannot have any spaces. It must be URL encoded
-8.  symbol `String` required
-9.  documentUri `String` required
-10. documentHash `String` required
-11. initialTokenQty `String` required
+1.  fundingAddress `String` (required)
+2.  fundingWif `String` (required)
+3.  tokenReceiverAddress `String` (required)
+4.  batonReceiverAddress `String` (required)
+5.  bchChangeReceiverAddress `String` (required)
+6.  decimals `String` (required)
+7.  name `String` (required). This cannot have any spaces. It must be URL encoded
+8.  symbol `String` (required)
+9.  documentUri `String` (required)
+10. documentHash `String` (required)
+11. initialTokenQty `String` (required)
 
 #### Result
 
@@ -194,13 +240,13 @@ Note this endpoint is only live w/ a `NON_JS_FRAMEWORK` environment variable
 
 #### URL Parameters
 
-1.  fundingAddress `String` required
-2.  fundingWif `String` required
-3.  tokenReceiverAddress `String` required
-4.  batonReceiverAddress `String` required
-5.  bchChangeReceiverAddress `String` required
-6.  tokenId `String` required
-7.  additionalTokenQty `String` required
+1.  fundingAddress `String` (required)
+2.  fundingWif `String` (required)
+3.  tokenReceiverAddress `String` (required)
+4.  batonReceiverAddress `String` (required)
+5.  bchChangeReceiverAddress `String` (required)
+6.  tokenId `String` (required)
+7.  additionalTokenQty `String` (required)
 
 #### Result
 
@@ -227,12 +273,12 @@ Note this endpoint is only live w/ a `NON_JS_FRAMEWORK` environment variable
 
 #### URL Parameters
 
-1.  fundingAddress `String` required
-2.  fundingWif `String` required
-3.  tokenReceiverAddress `String` required
-4.  bchChangeReceiverAddress `String` required
-5.  tokenId `String` required
-6.  amount`String` required
+1.  fundingAddress `String` (required)
+2.  fundingWif `String` (required)
+3.  tokenReceiverAddress `String` (required)
+4.  bchChangeReceiverAddress `String` (required)
+5.  tokenId `String` (required)
+6.  amount`String` (required)
 
 #### Result
 
@@ -259,11 +305,11 @@ Note this endpoint is only live w/ a `NON_JS_FRAMEWORK` environment variable
 
 #### URL Parameters
 
-1.  fundingAddress `String` required
-2.  fundingWif `String` required
-3.  bchChangeReceiverAddress `String` required
-4.  tokenId `String` required
-5.  amount`String` required
+1.  fundingAddress `String` (required)
+2.  fundingWif `String` (required)
+3.  bchChangeReceiverAddress `String` (required)
+4.  tokenId `String` (required)
+5.  amount`String` (required)
 
 #### Result
 
@@ -290,10 +336,10 @@ Note this endpoint is only live w/ a `NON_JS_FRAMEWORK` environment variable
 
 #### URL Parameters
 
-1.  fundingAddress `String` required
-2.  fundingWif `String` required
-3.  bchChangeReceiverAddress `String` required
-4.  tokenId `String` required
+1.  fundingAddress `String` (required)
+2.  fundingWif `String` (required)
+3.  bchChangeReceiverAddress `String` (required)
+4.  tokenId `String` (required)
 
 #### Result
 
