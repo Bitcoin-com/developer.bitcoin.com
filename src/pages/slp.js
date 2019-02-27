@@ -79,9 +79,14 @@ const SLPPage = ({ location, data }: Props) => (
     <HelmetPlus
       title={`SLP - ${data.site.siteMetadata.title}`}
       description={'SLP based bitcoin.com developer platform and resources'}
-      keywords={
-        'slp, simple ledger protocol, developer tools, bitcoin, bitcoin cash, BCH, sdk, api'
-      }
+      keywords={[
+        'slp',
+        'simple ledger protocol',
+        'bitcoin cash tokens',
+        'build with SLP',
+        'slp resources',
+        'slp development',
+      ]}
       location={location}
     />
     <Hero image={data.heroImage}>

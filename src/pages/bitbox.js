@@ -78,7 +78,7 @@ const BitboxPage = ({ location, data }: Props) => (
     <HelmetPlus
       title={`Bitbox - ${data.site.siteMetadata.title}`}
       description={'Bitbox based bitcoin.com developer platform and resources'}
-      keywords={'bitbox, developer tools, bitcoin, bitcoin cash, BCH, sdk, api'}
+      keywords={['bitbox', 'bitbox sdk', 'learn bitbox', 'bitbox development']}
       location={location}
     />
     <Hero image={data.heroImage}>

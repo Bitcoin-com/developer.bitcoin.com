@@ -62,9 +62,12 @@ const Insights = ({ location, data }: Props) => {
         description={
           'Insights into the learnings and process people have faced while building new products with Bitcoin Cash and Bitbox'
         }
-        keywords={
-          'inisghts, blog, bitbox, tutorials, developer tools, bitcoin, bitcoin cash, BCH, sdk, api'
-        }
+        keywords={[
+          'development insights',
+          'development blog',
+          'bitcoin cash tutorials',
+          'building with bitcoin cash',
+        ]}
         location={location}
       />
       <Hero image={data.heroImage}>

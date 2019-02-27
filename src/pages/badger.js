@@ -89,15 +89,19 @@ const BadgerPage = ({ location, data }: Props) => (
       description={
         'Badger documentation, your gateway to the world of Bitcoin Cash (BCH) applications'
       }
-      keywords={
-        'bagder, bitbox, developer tools, bitcoin, bitcoin cash, BCH, sdk, api'
-      }
+      keywords={[
+        'badger',
+        'badger sdk',
+        'badger wallet',
+        'SLP tokens',
+        'simple ledger protocol',
+      ]}
       location={location}
     />
     <Hero image={data.heroImage}>
       <HeroLayout>
         <H3 primary thin>
-          The easiest way to use BCH apps
+          The easiest way to build BCH apps
         </H3>
         <H1 background>Badger SDK</H1>
         <H3 background thin>

@@ -126,7 +126,15 @@ type Props = {
 
 class DocTemplate extends React.PureComponent<Props> {
   changeDocs(event: SyntheticEvent<onSelect>) {
-    push(`/${event.target.value}`)
+    const pageTarget = {
+      bitbox: '/bitbox/docs/getting-started',
+      badger: '/badger/docs/getting-started',
+      gui: '/gui/docs/getting-started',
+      rest: '/rest/docs/getting-started',
+      slp: '/slp/docs/getting-started',
+    }[event.target.value]
+
+    pageTarget && push(pageTarget)
   }
 
   render() {
@@ -142,6 +150,15 @@ class DocTemplate extends React.PureComponent<Props> {
           title={`${getTitleDisplay(doc.fields.product)}: ${
             doc.frontmatter.title
           } - ${data.site.siteMetadata.title}`}
+          keywords={[
+            `${doc.fields.product}`,
+            `${doc.fields.product} documentation`,
+            `${doc.fields.product} ${doc.frontmatter.title}`,
+            `${doc.frontmatter.title}`,
+            `${doc.frontmatter.title} documentation`,
+            'developer resource',
+            'documentation',
+          ]}
         />
 
         <Container>
@@ -154,37 +171,16 @@ class DocTemplate extends React.PureComponent<Props> {
                 <NavLinks docs={relatedDocs} activeDoc={doc} />
 
                 <NavFooter>
-                  <Select onChange={this.changeDocs} size="small">
-                    <option
-                      selected={'bitbox' === doc.fields.product}
-                      value={'bitbox/docs/getting-started'}
-                    >
-                      {getTitleDisplay('bitbox')}
-                    </option>
-                    <option
-                      selected={'badger' === doc.fields.product}
-                      value={'badger/docs/getting-started'}
-                    >
-                      {getTitleDisplay('badger')}
-                    </option>
-                    <option
-                      selected={'rest' === doc.fields.product}
-                      value={'rest/docs/getting-started'}
-                    >
-                      {getTitleDisplay('rest')}
-                    </option>
-                    <option
-                      selected={'gui' === doc.fields.product}
-                      value={'gui/docs/getting-started'}
-                    >
-                      {getTitleDisplay('gui')}
-                    </option>
-                    <option
-                      selected={'slp' === doc.fields.product}
-                      value={'slp/docs/getting-started'}
-                    >
-                      {getTitleDisplay('slp')}
-                    </option>
+                  <Select
+                    onChange={this.changeDocs}
+                    size="small"
+                    value={doc.fields.product}
+                  >
+                    <option value="bitbox">{getTitleDisplay('bitbox')}</option>
+                    <option value="badger">{getTitleDisplay('badger')}</option>
+                    <option value="rest">{getTitleDisplay('rest')}</option>
+                    <option value="gui">{getTitleDisplay('gui')}</option>
+                    <option value="slp">{getTitleDisplay('slp')}</option>
                   </Select>
                 </NavFooter>
               </SideNavSticky>

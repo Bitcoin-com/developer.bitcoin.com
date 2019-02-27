@@ -43,9 +43,11 @@ const DevelopPage = ({ location, data }: Props) => (
       description={
         'Development hub for all your development needs to be successful on Bitcoin Cash (BCH)'
       }
-      keywords={
-        'bitbox, tutorials, developer tools, bitcoin, bitcoin cash, BCH, sdk, api'
-      }
+      keywords={[
+        'develop on bitcoin',
+        'develop on bitcoin cash',
+        'bitcoin cash resources',
+      ]}
       location={location}
     />
     <Hero image={data.heroImage}>
