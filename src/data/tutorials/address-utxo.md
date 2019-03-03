@@ -232,7 +232,7 @@ BITBOX.RawTransactions.sendRawTransaction(hex).then(
 
 ```javascript
 // include BITBOX
-let BITBOXSDK = require('bitbox-sdk/lib/bitbox-sdk').default
+let BITBOXSDK = require('bitbox-sdk')
 
 // Instantiate BITBOX and pass in creds for a full node.
 let BITBOX = new BITBOXSDK()

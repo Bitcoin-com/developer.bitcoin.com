@@ -1,7 +1,7 @@
 ---
 title: HDNode
 icon: code-branch
-ordinal: 12
+ordinal: 10
 ---
 
 ### `fromSeed`
