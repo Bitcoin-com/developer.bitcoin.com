@@ -5,7 +5,7 @@ publishedAt: 2018-07-06
 updatedAt: 2018-07-06
 ---
 
-BITBOX aims to be the go-to toolset for $BCH developers. We want you to be able to run your code and tests against your BITBOX before deploying to live environments and aim for 100% Bitcoin Cash JSON RPC API coverage.
+BITBOX aims to be the go-to toolset for \$BCH developers. We want you to be able to run your code and tests against your BITBOX before deploying to live environments and aim for 100% Bitcoin Cash JSON RPC API coverage.
 
 Today we’re happy to announce that `bitbox-sdk` has 100% of the Bitcoin ABC JSON RPC. You can now use `bitbox-sdk` to have your code interface directly w/ your live running Bitcoin ABC node. Here’s how that would look.
 
@@ -27,7 +27,7 @@ You can now have `bitbox` stub out an app scaffold and configuration. Here we’
 bitbox new myApp
 ```
 
-This will create a scaffold directory structure for a new $BCH app along w/ a configuration file which looks like:
+This will create a scaffold directory structure for a new \$BCH app along w/ a configuration file which looks like:
 
 ```json
 networks: {
@@ -39,13 +39,13 @@ networks: {
 
 ### Console
 
-Now you can fire up `bitbox`’s console to send some commands to your running $BCH node.
+Now you can fire up `bitbox`’s console to send some commands to your running \$BCH node.
 
 ```bash
 bitbox console
 ```
 
-This will load the console and create a `BITBOX` object w/ the entire $BCH JSON RPC available. That `BITBOX` object can send commands to the running Bitcoin ABC node that you configured in the previous step.
+This will load the console and create a `BITBOX` object w/ the entire \$BCH JSON RPC available. That `BITBOX` object can send commands to the running Bitcoin ABC node that you configured in the previous step.
 
 ```bash
 > BITBOX.Network.getNetworkInfo().then((result) => { console.log(result); }, (err) => { console.log(err); });
@@ -101,7 +101,7 @@ npm install bitbox-sdk --save
 Next you need to `require` or `import` `BITBOXSDK` into your app depending on if you are transpiling ES6 or not. Once you `require` `BITBOXSDK` into your app you then create an instance of `BITBOX` and pass in a config object w/ the same values you used at the command line in the previous steps.
 
 ```javascript
-let BITBOXSDK = require('bitbox-sdk/lib/bitbox-sdk').default
+let BITBOXSDK = require('bitbox-sdk').default
 let BITBOX = new BITBOXSDK()
 
 BITBOX.getnetworkinfo().then(
