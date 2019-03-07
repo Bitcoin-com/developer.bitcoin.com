@@ -7,7 +7,7 @@ ordinal: 18
 ### `constructor`
 
 Create new Transaction Builder. 
-The Transaction Builder object represents a transaction internally and is used to build a transaction step-by-step. It can then be expressed as a hexadecimal `string` ready to be sent to the $BCH network. The necessary steps to create a transaction are: [`addOutput`](#addoutput), `addInput`, `setLockTime`, `sign` and `build`.
+The Transaction Builder object represents a transaction internally and is used to build a transaction step-by-step. It can then be expressed as a hexadecimal `string` ready to be sent to the $BCH network. The necessary steps to create a transaction are: [`addInput`](#addinput), [`addOutput`](#addoutput), [`setLockTime`](#setlocktime), [`sign`](#sign) and [`build`](#build).
 
 #### Arguments
 
