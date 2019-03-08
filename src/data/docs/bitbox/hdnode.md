@@ -4,9 +4,11 @@ icon: code-branch
 ordinal: 10
 ---
 
+HDNode stands for Hierarchically Deterministic node which can be used to create a [HD wallet](https://developer.bitcoin.com/mastering-bitcoin-cash/3-keys-addresses-wallets/#hierarchical-deterministic-wallets-bip0032bip0044).
+
 ### `fromSeed`
 
-Create HDNode from Seed Buffer
+Create HDNode from Seed Buffer.
 
 #### Arguments
 
@@ -37,7 +39,7 @@ HDNode HDNode
 
 ### `derive`
 
-Derive non hardened child HDNode
+Derive [non hardened](https://developer.bitcoin.com/mastering-bitcoin-cash/3-keys-addresses-wallets/#hardened-child-key-derivation) child HDNode
 
 #### Arguments
 
@@ -60,7 +62,7 @@ HDNode HDNode
 
 ### `deriveHardened`
 
-Derive hardened child HDNode
+Derive [hardened](https://developer.bitcoin.com/mastering-bitcoin-cash/3-keys-addresses-wallets/#hardened-child-key-derivation) child HDNode
 
 #### Arguments
 
@@ -215,7 +217,7 @@ privateKeyWIF `string`: private key in wallet import format (WIF) of HDNode
 
 ### `toXPub`
 
-Get extended public key of HDNode
+Get [extended](https://developer.bitcoin.com/mastering-bitcoin-cash/3-keys-addresses-wallets/#extended-keys) [public key](https://developer.bitcoin.com/mastering-bitcoin-cash/3-keys-addresses-wallets/#public-key-cryptography-and-cryptocurrency) of HDNode
 
 #### Arguments
 
@@ -251,7 +253,7 @@ xpub `string`: extended public key of HDNode
 
 ### `toXPriv`
 
-Get extended private key of HDNode
+Get [extended](https://developer.bitcoin.com/mastering-bitcoin-cash/3-keys-addresses-wallets/#extended-keys) [private key](https://developer.bitcoin.com/mastering-bitcoin-cash/3-keys-addresses-wallets/#private-keys) of HDNode
 
 #### Arguments
 
