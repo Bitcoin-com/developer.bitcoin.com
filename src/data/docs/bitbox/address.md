@@ -742,7 +742,7 @@ Return list of unconfirmed transactions for address
 
     (async () => {
       try {
-        let unconfirmed = await BITBOX.Address.unconfirmed(['1JCwsMQtiV85fGjps4zXceaCCgxpQ1u84R']);
+        let unconfirmed = await BITBOX.Address.unconfirmed('1JCwsMQtiV85fGjps4zXceaCCgxpQ1u84R');
         console.log(unconfirmed);
       } catch(error) {
        console.error(error)
