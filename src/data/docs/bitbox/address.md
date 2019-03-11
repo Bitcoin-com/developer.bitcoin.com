@@ -640,7 +640,7 @@ Return list of uxto for address. This includes confirmed and unconfirmed utxos.
 - utxo:
   - utxo `Object`: containing `utxo` array of utxos, plus `legacyAddress`,
     `cashAddress` and `scriptPubKey` properties.
-  - utxos `Array`: Array of utxo Objects. Each object contains the following keys: `txid` as the transaction ID where that utxo appeared, `vout`: the index of this utxo in the list of outputs, `amount`: the amount sent to that utxo in BCH (decimal number, `satoshis`: the amount sent to that utxo in satoshis (1 satoshi = 0.00000001 BCH), `height`: the block in which the transaction is stored, `confirmations`: the number of confirmations (which is equal to current block height - `height`).
+  - utxos `Array`: Array of utxo Objects. Each object contains the following keys: `txid` as the transaction ID where that utxo appeared, `vout`: the index of this utxo in the list of outputs, `amount`: the amount sent to that utxo in BCH (decimal number, `satoshis`: the amount sent to that utxo in satoshis (1 satoshi = 0.00000001 BCH), `height`: the block in which the transaction is stored, `confirmations`: the number of confirmations (which is equal to current block height - `height`). For unconfirmed transactions, `confirmations` = 0 and the `height` key is replaced by a `ts` key with the time stamp of when the transaction was received in the mempool (Unix timestamp based on seconds since standard epoch of 1/1/1970).
 
 #### Examples
 
