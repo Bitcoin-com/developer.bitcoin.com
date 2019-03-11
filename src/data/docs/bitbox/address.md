@@ -627,7 +627,7 @@ Return details about an address including balance.
 
 ### `utxo`
 
-Return list of uxto for address
+Return list of uxto for address. This includes confirmed and unconfirmed utxos.
 
 #### Arguments
 
@@ -640,7 +640,7 @@ Return list of uxto for address
 - utxo:
   - utxo `Object`: containing `utxo` array of utxos, plus `legacyAddress`,
     `cashAddress` and `scriptPubKey` properties.
-  - utxos `Array`: Array of utxo Objects.
+  - utxos `Array`: Array of utxo Objects. Each object contains the following keys: `txid` as the transaction ID where that utxo appeared, `vout`: the index of this utxo in the list of outputs, `amount`: the amount sent to that utxo in BCH (decimal number, `satoshis`: the amount sent to that utxo in satoshis (1 satoshi = 0.00000001 BCH), `height`: the block in which the transaction is stored, `confirmations`: the number of confirmations (which is equal to current block height - `height`).
 
 #### Examples
 
