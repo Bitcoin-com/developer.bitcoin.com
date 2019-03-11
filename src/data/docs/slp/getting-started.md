@@ -16,11 +16,11 @@ Use the official installer from [nodejs.org](https://nodejs.org/). Install the o
 
 To use commands like `new` and `console`:
 
-    npm install sdk-sdk --global
+    npm install slp-sdk --global
 
 To use inside a command line script or client/server app:
 
-    npm install sdk-sdk --save
+    npm install slp-sdk --save
 
 ### Usage
 
