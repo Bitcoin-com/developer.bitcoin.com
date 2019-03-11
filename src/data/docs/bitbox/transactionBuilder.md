@@ -6,7 +6,8 @@ ordinal: 18
 
 ### `constructor`
 
-Create new Transaction Builder.
+Create new Transaction Builder. 
+The Transaction Builder object represents a transaction internally and is used to build a transaction step-by-step. It can then be expressed as a hexadecimal `string` ready to be sent to the $BCH network. The necessary steps to create a transaction are: [`addInput`](#addinput), [`addOutput`](#addoutput), [`setLockTime`](#setlocktime), [`sign`](#sign) and [`build`](#build).
 
 #### Arguments
 
@@ -79,7 +80,7 @@ Add output to transaction
 
 ### `setLockTime`
 
-Set locktime
+Set [locktime](https://developer.bitcoin.com/mastering-bitcoin-cash/4-transactions/#transaction-locktime)
 
 #### Arguments
 
