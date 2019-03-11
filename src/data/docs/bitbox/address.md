@@ -647,7 +647,7 @@ Each utxo `object` contains the following keys: `txid` as the transaction ID whe
 
     (async () => {
       try {
-        let utxo = await BITBOX.Address.utxo(['1M1FYu4zuVaxRPWLZG5CnP8qQrZaqu6c2L']);
+        let utxo = await BITBOX.Address.utxo('1M1FYu4zuVaxRPWLZG5CnP8qQrZaqu6c2L');
         console.log(utxo);
       } catch(error) {
        console.error(error)
