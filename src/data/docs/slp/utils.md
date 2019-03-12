@@ -331,10 +331,16 @@ balances: `Array`
 
     // returns
     [
-      { tokenBalance: 20,
-      slpAddress: 'simpleledger:qp4g0q97tq53pasnxk2rs570c6573qvylunsf5gy9e' },
-      { tokenBalance: 335.55,
-      slpAddress: 'simpleledger:qqcraw7q0ys3kg4z6f2zd267fhg2093c5c0spfk03f' }
+      {
+        tokenId: "df808a41672a0a0ae6475b44f272a107bc9961b90f29dc918d71301f24fe92fb",
+        tokenBalance: 20,
+        slpAddress: 'simpleledger:qp4g0q97tq53pasnxk2rs570c6573qvylunsf5gy9e'
+      },
+      {
+        tokenId: "df808a41672a0a0ae6475b44f272a107bc9961b90f29dc918d71301f24fe92fb",
+        tokenBalance: 335.55,
+        slpAddress: 'simpleledger:qqcraw7q0ys3kg4z6f2zd267fhg2093c5c0spfk03f'
+      }
     ]
 
 ### `tokenStats`
