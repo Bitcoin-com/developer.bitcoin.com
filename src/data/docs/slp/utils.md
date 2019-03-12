@@ -303,3 +303,141 @@ validated : `Array`
       { txid:
          '00ea27261196a411776f81029c0ebe34362936b4a9847deb1f7a40a02b3a1476',
         valid: true } ]
+
+### `balancesForToken`
+
+List all balances for tokenId
+
+#### Arguments
+
+1.  tokenId: `String` required. The tokenId
+
+#### Result
+
+balances: `Array`
+
+#### Examples
+
+    (async () => {
+      try {
+        let balances = await SLP.Utils.balancesForToken(
+          "df808a41672a0a0ae6475b44f272a107bc9961b90f29dc918d71301f24fe92fb"
+        )
+        console.log(balances)
+      } catch (error) {
+        console.error(error)
+      }
+    })()
+
+    // returns
+    [
+      { tokenBalance: 20,
+      slpAddress: 'simpleledger:qp4g0q97tq53pasnxk2rs570c6573qvylunsf5gy9e' },
+      { tokenBalance: 335.55,
+      slpAddress: 'simpleledger:qqcraw7q0ys3kg4z6f2zd267fhg2093c5c0spfk03f' }
+    ]
+
+### `tokenStats`
+
+Stats for token by tokenId
+
+#### Arguments
+
+1.  tokenId: `String` required. The tokenId
+
+#### Result
+
+stats: `Object`
+
+#### Examples
+
+    (async () => {
+      try {
+        let stats = await SLP.Utils.tokenStats(
+          "df808a41672a0a0ae6475b44f272a107bc9961b90f29dc918d71301f24fe92fb"
+        )
+        console.log(stats)
+      } catch (error) {
+        console.error(error)
+      }
+    })()
+
+    // returns
+    { tokenId:
+      'df808a41672a0a0ae6475b44f272a107bc9961b90f29dc918d71301f24fe92fb',
+      documentUri: '',
+      symbol: 'NAKAMOTO',
+      name: 'NAKAMOTO',
+      decimals: 8,
+      txnsSinceGenesis: 367,
+      validUtxos: 248,
+      validAddresses: 195,
+      circulatingSupply: 20995990,
+      totalBurned: 4010,
+      totalMinted: 21000000,
+      satoshisLockedUp: 135408
+    }
+
+### `transactions`
+
+SLP Transactions by tokenId and address
+
+#### Arguments
+
+1.  tokenId: `String` required. The tokenId
+2.  address: `String` required. The address
+
+#### Result
+
+transactions: `Array`
+
+#### Examples
+
+    (async () => {
+      try {
+        let transactions = await SLP.Utils.transactions(
+          "495322b37d6b2eae81f045eda612b95870a0c2b6069c58f70cf8ef4e6a9fd43a",
+          "qrhvcy5xlegs858fjqf8ssl6a4f7wpstaqlsy4gusz"
+        )
+        console.log(transactions)
+      } catch (error) {
+        console.error(error)
+      }
+    })()
+
+    // returns
+    [
+      {
+        "txid": "27e27170b546f05b2af69d6eddff8834038facf5d81302e9e562df09a5c4445f",
+        "tokenDetails": {
+          "valid": true,
+          "detail": {
+            "decimals": null,
+            "tokenIdHex": "495322b37d6b2eae81f045eda612b95870a0c2b6069c58f70cf8ef4e6a9fd43a",
+            "timestamp": null,
+            "transactionType": "SEND",
+            "versionType": 1,
+            "documentUri": null,
+            "documentSha256Hex": null,
+            "symbol": null,
+            "name": null,
+            "batonVout": null,
+            "containsBaton": null,
+            "genesisOrMintQuantity": null,
+            "sendOutputs": [
+              {
+                "$numberDecimal": "0"
+              },
+              {
+                "$numberDecimal": "25"
+              },
+              {
+                "$numberDecimal": "77"
+              }
+            ]
+          },
+          "invalidReason": null,
+          "schema_version": 30
+        }
+      }
+    ]

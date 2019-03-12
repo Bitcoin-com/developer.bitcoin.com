@@ -351,3 +351,135 @@ txid `String`
 
     // returns
     7e9ff2924355f890ac45151dbb9aca0802d2b84fd478cc35ad62474d12a93b6b
+
+## Balances by tokenId
+
+List all balances for tokenId
+
+**URL** : `v2/slp/balancesForToken/:tokenId",`
+
+**Method** : `GET`
+
+**Auth required** : NO
+
+#### URL Parameters
+
+1.  tokenId `String` (required)
+
+#### Result
+
+balances `Array`
+
+#### Examples
+
+    curl -X GET "https://rest.bitcoin.com/v2/slp/balancesForToken/df808a41672a0a0ae6475b44f272a107bc9961b90f29dc918d71301f24fe92fb" -H "accept: */*"
+
+    // returns
+    [
+      {
+        "tokenBalance": 1000,
+        "slpAddress": "simpleledger:qzhfd7ssy9nt4gw7j9w5e7w5mxx5w549rv7mknzqkz"
+      },
+      {
+        "tokenBalance": 1000,
+        "slpAddress": "simpleledger:qrzt52udhu6w6hh0ff8f54mjek5dkkxvyqym7rfqtc"
+      }
+    ]
+
+## Token Stats
+
+Stats for token by tokenId
+
+**URL** : `v2/slp/tokenStats/:tokenId",`
+
+**Method** : `GET`
+
+**Auth required** : NO
+
+#### URL Parameters
+
+1.  tokenId `String` (required)
+
+#### Result
+
+stats `Object`
+
+#### Examples
+
+    curl -X GET "https://rest.bitcoin.com/v2/slp/tokenStats/df808a41672a0a0ae6475b44f272a107bc9961b90f29dc918d71301f24fe92fb" -H "accept: */*"
+
+    // returns
+    {
+      "tokenId": "df808a41672a0a0ae6475b44f272a107bc9961b90f29dc918d71301f24fe92fb",
+      "documentUri": "",
+      "symbol": "NAKAMOTO",
+      "name": "NAKAMOTO",
+      "decimals": 8,
+      "txnsSinceGenesis": 367,
+      "validUtxos": 248,
+      "validAddresses": 195,
+      "circulatingSupply": 20995990,
+      "totalBurned": 4010,
+      "totalMinted": 21000000,
+      "satoshisLockedUp": 135408
+    }
+
+## Transactions
+
+SLP Transactions by tokenId and address
+
+**URL** : `v2/slp/transactions/:tokenId/:address",`
+
+**Method** : `GET`
+
+**Auth required** : NO
+
+#### URL Parameters
+
+1.  tokenId `String` (required)
+2.  address `String` (required)
+
+#### Result
+
+transactions `Array`
+
+#### Examples
+
+    curl -X GET "https://rest.bitcoin.com/v2/slp/transactions/495322b37d6b2eae81f045eda612b95870a0c2b6069c58f70cf8ef4e6a9fd43a/qrhvcy5xlegs858fjqf8ssl6a4f7wpstaqlsy4gusz" -H "accept: */*"
+
+    // returns
+    [
+      {
+        "txid": "27e27170b546f05b2af69d6eddff8834038facf5d81302e9e562df09a5c4445f",
+        "tokenDetails": {
+          "valid": true,
+          "detail": {
+            "decimals": null,
+            "tokenIdHex": "495322b37d6b2eae81f045eda612b95870a0c2b6069c58f70cf8ef4e6a9fd43a",
+            "timestamp": null,
+            "transactionType": "SEND",
+            "versionType": 1,
+            "documentUri": null,
+            "documentSha256Hex": null,
+            "symbol": null,
+            "name": null,
+            "batonVout": null,
+            "containsBaton": null,
+            "genesisOrMintQuantity": null,
+            "sendOutputs": [
+              {
+                "$numberDecimal": "0"
+              },
+              {
+                "$numberDecimal": "25"
+              },
+              {
+                "$numberDecimal": "77"
+              }
+            ]
+          },
+          "invalidReason": null,
+          "schema_version": 30
+        }
+      }
+    ]
