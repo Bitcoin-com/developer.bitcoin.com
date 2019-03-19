@@ -101,7 +101,7 @@ const SLPPage = ({ location, data }: Props) => (
         <InstallCTA>
           <Text background>INSTALL VIA NPM</Text>
           <Code language="bash">{`npm install slp-sdk --global`}</Code>
-          <StyledLink to="/slp/docs/getting-started">
+          <StyledLink to="/slp/docs/js/getting-started">
             <Button round>Start Here</Button>
           </StyledLink>
         </InstallCTA>
@@ -124,7 +124,7 @@ const SLPPage = ({ location, data }: Props) => (
             Bitcoin script features with SLP tokens.
           </Text>
         </PreviewItem>
-        <PreviewItem to="/slp/docs/slp">
+        <PreviewItem to="/slp/docs/js/slp">
           <H3>List</H3>
           <Text>List all tokens</Text>
           <Code>
