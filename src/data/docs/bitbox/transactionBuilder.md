@@ -98,7 +98,7 @@ Set [locktime](https://developer.bitcoin.com/mastering-bitcoin-cash/4-transactio
 
 ### `sign`
 
-Sign transaction
+Sign transaction. It creates the unlocking script needed to spend an input. Each input has its own script and thus 'sign' must be called for each input even if the keyPair is the same.
 
 #### Arguments
 
