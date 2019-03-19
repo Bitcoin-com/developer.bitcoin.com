@@ -41,18 +41,32 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     if (isDoc) {
       let product = 'other'
 
+      // get sdk
       const isBitbox = filePath.includes('/bitbox/')
       const isSlp = filePath.includes('/slp/')
       const isGui = filePath.includes('/gui/')
       const isRest = filePath.includes('/rest/')
       const isBadger = filePath.includes('/badger/')
 
+      // get platform
+      const isJs = filePath.includes('/js/')
+      const isAndroid = filePath.includes('/android/')
+      const isiOS = filePath.includes('/ios/')
+
       if (isBitbox) {
         slug = `/bitbox/docs/${filename}`
         product = 'bitbox'
       }
       if (isSlp) {
-        slug = `/slp/docs/${filename}`
+        if (isJs) {
+          slug = `/slp/docs/js/${filename}`
+        } else if (isAndroid) {
+          slug = `/slp/docs/android/${filename}`
+        } else if (isAndroid) {
+          slug = `/slp/docs/ios/${filename}`
+        } else {
+          slug = `/slp/docs/${filename}`
+        }
         product = 'slp'
       }
       if (isGui) {
