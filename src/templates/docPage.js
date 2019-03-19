@@ -131,7 +131,7 @@ class DocTemplate extends React.PureComponent<Props> {
       badger: '/badger/docs/getting-started',
       gui: '/gui/docs/getting-started',
       rest: '/rest/docs/getting-started',
-      slp: '/slp/docs/getting-started',
+      slp: '/slp/docs/js/getting-started',
     }[event.target.value]
 
     pageTarget && push(pageTarget)

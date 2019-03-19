@@ -25,6 +25,7 @@ import {
   FaGamepad,
   FaHdd,
   FaHome,
+  FaJs,
   FaKey,
   FaLink,
   FaPlug,
@@ -49,6 +50,8 @@ export const getIcon = (icon: string): React.Node => {
       return <FaPlus />
     case 'home':
       return <FaHome />
+    case 'js':
+      return <FaJs />
     case 'terminal':
       return <FaTerminal />
     case 'file':
