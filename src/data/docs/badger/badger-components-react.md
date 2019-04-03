@@ -226,7 +226,7 @@ Like other components, components enhanced with BadgerBase are free to add any o
 
 ```js
 import React from 'react'
-import { BadgerBase, formatAmount } from 'badger-react-components'
+import { BadgerBase, formatAmount } from 'badger-components-react'
 
 import styled from 'styled-components'
 
@@ -236,10 +236,10 @@ const CoolButton = styled.button`
   border-radius: 24px;
 `
 
-const MyButton extends React.Component {
+class MyButton extends React.Component {
   render() {
     // Props from higher order component
-    const {handleClick, to, price, currency, amount, coinDecimals step} = this.props;
+    const { handleClick, to, price, currency, amount, coinDecimals, step } = this.props;
     return (
       <div>
         <h3>Donate {price}{currency} to {to}</h3>
