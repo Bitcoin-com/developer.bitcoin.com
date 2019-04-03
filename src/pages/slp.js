@@ -8,6 +8,7 @@ import DefaultLayout from 'components/layouts/DefaultLayout'
 import Hero from 'components/Hero'
 import Container from 'components/Container'
 import HelmetPlus from 'components/HelmetPlus'
+import { FaAndroid, FaApple, FaJs } from 'react-icons/fa'
 
 import Text from 'atoms/Text'
 import H3 from 'atoms/H3'
@@ -24,12 +25,15 @@ const HeroLayout = styled.div`
   grid-gap: ${spacing.tiny};
 `
 
-const InstallCTA = styled.div`
-  margin-top: ${spacing.medium};
-  display: grid;
-  grid-auto-flow: dense;
-  grid-template-columns: max-content;
-  grid-gap: ${spacing.small};
+const HeroButtonLayout = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+`
+
+const HeroButtonItem = styled.div`
+  margin-right: ${spacing.small};
+  margin-bottom: ${spacing.small};
 `
 
 const PreviewLayout = styled.div`
@@ -98,13 +102,23 @@ const SLPPage = ({ location, data }: Props) => (
         <H3 background thin>
           Secure Tokens on Bitcoin Cash
         </H3>
-        <InstallCTA>
-          <Text background>INSTALL VIA NPM</Text>
-          <Code language="bash">{`npm install slp-sdk --global`}</Code>
-          <StyledLink to="/slp/docs/js/getting-started">
-            <Button round>Start Here</Button>
-          </StyledLink>
-        </InstallCTA>
+        <HeroButtonLayout>
+          <HeroButtonItem>
+            <StyledLink to="/slp/docs/js/getting-started">
+              <FaJs />
+            </StyledLink>
+          </HeroButtonItem>
+          <HeroButtonItem>
+            <StyledLink to="/slp/docs/ios/getting-started">
+              <FaAndroid />
+            </StyledLink>
+          </HeroButtonItem>
+          <HeroButtonItem>
+            <StyledLink to="/slp/docs/android/getting-started">
+              <FaApple />
+            </StyledLink>
+          </HeroButtonItem>
+        </HeroButtonLayout>
       </HeroLayout>
     </Hero>
     <Container>
