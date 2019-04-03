@@ -62,7 +62,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
           slug = `/slp/docs/js/${filename}`
         } else if (isAndroid) {
           slug = `/slp/docs/android/${filename}`
-        } else if (isAndroid) {
+        } else if (isiOS) {
           slug = `/slp/docs/ios/${filename}`
         } else {
           slug = `/slp/docs/${filename}`
