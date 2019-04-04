@@ -6,7 +6,7 @@ ordinal: 7
 
 ### Github repo
 
-[slp-wallet-sdk-ios](https://github.com/Bitcoin-com/slp-wallet-sdk-ios)
+[slp-wallet-sdk-android](https://github.com/Bitcoin-com/slp-wallet-sdk-android)
 
 ### Supported Android Versions
 
