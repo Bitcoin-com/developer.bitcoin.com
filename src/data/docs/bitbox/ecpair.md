@@ -6,11 +6,11 @@ ordinal: 9
 
 ### `fromWIF`
 
-Generates an ECPair from a private key in wallet import format.
+Generates an ECPair from a private key in wallet import format ([WIF](https://developer.bitcoin.com/mastering-bitcoin-cash/3-keys-addresses-wallets/#private-key-formats)). Follow these [steps to go from a private key to a WIF](https://en.bitcoin.it/wiki/Wallet_import_format). This method only works with a [compressed private key](https://developer.bitcoin.com/mastering-bitcoin-cash/3-keys-addresses-wallets/#compressed-private-keys).
 
 #### Arguments
 
-1.  wif `string`: private key in wallet import format (WIF)
+1.  wif `string`: private key in wallet import format ([WIF](https://developer.bitcoin.com/mastering-bitcoin-cash/3-keys-addresses-wallets/#private-key-formats))
 
 #### Result
 

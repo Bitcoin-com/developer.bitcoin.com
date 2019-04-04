@@ -4,7 +4,9 @@ import * as React from 'react'
 // https://react-icons.netlify.com/#/
 
 import {
+  FaAndroid,
   FaAngleRight,
+  FaApple,
   FaArrowsAltV,
   FaBtc,
   FaBuromobelexperte,
@@ -23,6 +25,7 @@ import {
   FaGamepad,
   FaHdd,
   FaHome,
+  FaJs,
   FaKey,
   FaLink,
   FaPlug,
@@ -37,12 +40,18 @@ import {
 // Whitelist of valid icons
 export const getIcon = (icon: string): React.Node => {
   switch (icon) {
+    case 'android':
+      return <FaAndroid />
+    case 'ios':
+      return <FaApple />
     case 'elipses':
       return <FaEllipsisH />
     case 'plus':
       return <FaPlus />
     case 'home':
       return <FaHome />
+    case 'js':
+      return <FaJs />
     case 'terminal':
       return <FaTerminal />
     case 'file':

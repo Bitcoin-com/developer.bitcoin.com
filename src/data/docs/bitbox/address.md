@@ -627,26 +627,27 @@ Return details about an address including balance.
 
 ### `utxo`
 
-Return list of uxto for address
+Return list of uxto for address. This includes confirmed and unconfirmed utxos.
 
 #### Arguments
 
-- addresses (required):
+- addresses (required) - 2 formats allowed:
   - `String`: A single string containing a legacy or cash address.
   - `Array` of strings: Array with maximum of 20 legacy or cash addresses.
 
 #### Result
 
-- utxo:
+- utxo (2 formats based on the argument format):
   - utxo `Object`: containing `utxo` array of utxos, plus `legacyAddress`,
     `cashAddress` and `scriptPubKey` properties.
-  - utxos `Array`: Array of utxo Objects.
+  - utxos `Array`: Array of utxo Objects. <br>
+Each utxo `object` contains the following keys: `txid` as the transaction ID where that utxo appeared, `vout`: the index of this utxo in the list of outputs, `amount`: the amount sent to that utxo in BCH (decimal number, `satoshis`: the amount sent to that utxo in satoshis (1 satoshi = 0.00000001 BCH), `height`: the block in which the transaction is stored, `confirmations`: the number of confirmations (which is equal to current block height - `height`). For unconfirmed transactions, `confirmations` = 0 and the `height` key is replaced by a `ts` key with the time stamp of when the transaction was received in the mempool (Unix timestamp based on seconds since standard epoch of 1/1/1970).
 
 #### Examples
 
     (async () => {
       try {
-        let utxo = await BITBOX.Address.utxo(['1M1FYu4zuVaxRPWLZG5CnP8qQrZaqu6c2L']);
+        let utxo = await BITBOX.Address.utxo('1M1FYu4zuVaxRPWLZG5CnP8qQrZaqu6c2L');
         console.log(utxo);
       } catch(error) {
        console.error(error)
@@ -741,7 +742,7 @@ Return list of unconfirmed transactions for address
 
     (async () => {
       try {
-        let unconfirmed = await BITBOX.Address.unconfirmed(['1JCwsMQtiV85fGjps4zXceaCCgxpQ1u84R']);
+        let unconfirmed = await BITBOX.Address.unconfirmed('1JCwsMQtiV85fGjps4zXceaCCgxpQ1u84R');
         console.log(unconfirmed);
       } catch(error) {
        console.error(error)
