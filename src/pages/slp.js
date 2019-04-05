@@ -159,7 +159,6 @@ const SLPPage = ({ location, data }: Props) => (
           <Text>
             SLP SDK is a fully featured javascript framework powered by{' '}
             <StyledLink to="/bitbox">BITBOX</StyledLink>. Everything you need to
-            easily issue, spend or trade your own token. Everything you need to
             easily issue, spend or trade your own token. Install via NPM and
             talk to Bitcoin.com's cloud with no further setup.{' '}
           </Text>
