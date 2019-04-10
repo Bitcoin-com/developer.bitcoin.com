@@ -89,44 +89,71 @@ ordinal: 13
 
 ### Bitwise logic
 
-"OP_INVERT": 131,
-"OP_AND": 132,
-"OP_OR": 133,
-"OP_XOR": 134,
-"OP_EQUAL": 135,
-"OP_EQUALVERIFY": 136,
+| Word           | Opcode | Hex  | Inputs | Outputs        | Description                                             |
+| -------------- | ------ | ---- | ------ | -------------- | ------------------------------------------------------- |
+| OP_INVERT      | 131    | 0x83 | in     | out            | Flips all of the bits in the input.                     |
+| OP_AND         | 132    | 0x84 | x1 x2  | out            | Boolean and between each bit in the inputs.             |
+| OP_OR          | 133    | 0x85 | x1 x2  | out            | Boolean or between each bit in the inputs.              |
+| OP_XOR         | 134    | 0x86 | x1 x2  | out            | Boolean exclusive or between each bit in the inputs.    |
+| OP_EQUAL       | 135    | 0x87 | x1 x2  | True / false   | Returns 1 if the inputs are exactly equal, 0 otherwise. |
+| OP_EQUALVERIFY | 136    | 0x88 | x1 x2  | Nothing / fail | Same as OP_EQUAL, but runs OP_VERIFY afterward.         |
 
 ### Arithmetic
 
-"OP_1ADD": 139,
-"OP_1SUB": 140,
-"OP_2MUL": 141,
-"OP_2DIV": 142,
-"OP_NEGATE": 143,
-"OP_ABS": 144,
-"OP_NOT": 145,
-"OP_0NOTEQUAL": 146,
-"OP_ADD": 147,
-"OP_SUB": 148,
-"OP_MUL": 149,
-"OP_DIV": 150,
-"OP_MOD": 151,
-"OP_LSHIFT": 152,
-"OP_RSHIFT": 153,
-"OP_BOOLAND": 154,
-"OP_BOOLOR": 155,
-"OP_NUMEQUAL": 156,
-"OP_NUMEQUALVERIFY": 157,
-"OP_NUMNOTEQUAL": 158,
-"OP_LESSTHAN": 159,
-"OP_GREATERTHAN": 160,
-"OP_LESSTHANOREQUAL": 161,
-"OP_GREATERTHANOREQUAL": 162,
-"OP_MIN": 163,
-"OP_MAX": 164,
-"OP_WITHIN": 165,
+| Word                  | Opcode | Hex  | Inputs    | Outputs        | Description                                                                 |
+| --------------------- | ------ | ---- | --------- | -------------- | --------------------------------------------------------------------------- |
+| OP_1ADD               | 139    | 0x8b | in        | out            | 1 is added to the input.                                                    |
+|                       |
+| OP_1SUB               | 140    | 0x8c | in        | out            | 1 is subtracted from the input.                                             |
+|                       |
+| OP_2MUL               | 141    | 0x8d | in        | out            | The input is multiplied by 2.                                               |
+| OP_2DIV               | 142    | 0x8e | in        | out            | The input is divided by 2.                                                  |
+| OP_NEGATE             | 143    | 0x8f | in        | out            | The sign of the input is flipped.                                           |
+|                       |
+| OP_ABS                | 144    | 0x90 | in        | out            | The input is made positive.                                                 |
+|                       |
+| OP_NOT                | 145    | 0x91 | in        | out            | If the input is 0 or 1, it is flipped. Otherwise the output will be 0.      |
+|                       |
+| OP_0NOTEQUAL          | 146    | 0x92 | in        | out            | Returns 0 if the input is 0. 1 otherwise.                                   |
+|                       |
+| OP_ADD                | 147    | 0x93 | a b       | out            | a is added to b.                                                            |
+|                       |
+| OP_SUB                | 148    | 0x94 | a b       | out            | b is subtracted from a.                                                     |
+|                       |
+| OP_MUL                | 149    | 0x95 | a b       | out            | a is multiplied by b.                                                       |
+| OP_DIV                | 150    | 0x96 | a b       | out            | a is divided by b.                                                          |
+| OP_MOD                | 151    | 0x97 | a b       | out            | Returns the remainder after dividing a by b.                                |
+| OP_LSHIFT             | 152    | 0x98 | a b       | out            | Shifts a left b bits, preserving sign.                                      |
+| OP_RSHIFT             | 153    | 0x99 | a b       | out            | Shifts a right b bits, preserving sign.                                     |
+| OP_BOOLAND            | 154    | 0x9a | a b       | out            | If both a and b are not "" (null string), the output is 1. Otherwise 0.     |
+| OP_BOOLOR             | 155    | 0x9b | a b       | out            | If a or b is not "" (null string), the output is 1. Otherwise 0.            |
+|                       |
+| OP_NUMEQUAL           | 156    | 0x9c | a b       | out            | Returns 1 if the numbers are equal, 0 otherwise.                            |
+|                       |
+| OP_NUMEQUALVERIFY     | 157    | 0x9d | a b       | Nothing / fail | Same as OP_NUMEQUAL, but runs OP_VERIFY afterward.                          |
+|                       |
+| OP_NUMNOTEQUAL        | 158    | 0x9e | a b       | out            | Returns 1 if the numbers are not equal, 0 otherwise.                        |
+|                       |
+| OP_LESSTHAN           | 159    | 0x9f | a b       | out            | Returns 1 if a is less than b, 0 otherwise.                                 |
+|                       |
+| OP_GREATERTHAN        | 160    | 0xa0 | a b       | out            | Returns 1 if a is greater than b, 0 otherwise.                              |
+|                       |
+| OP_LESSTHANOREQUAL    | 161    | 0xa1 | a b       | out            | Returns 1 if a is less than or equal to b, 0 otherwise.                     |
+|                       |
+| OP_GREATERTHANOREQUAL | 162    | 0xa2 | a b       | out            | Returns 1 if a is greater than or equal to b, 0 otherwise.                  |
+|                       |
+| OP_MIN                | 163    | 0xa3 | a b       | out            | Returns the smaller of a and b.                                             |
+|                       |
+| OP_MAX                | 164    | 0xa4 | a b       | out            | Returns the larger of a and b.                                              |
+|                       |
+| OP_WITHIN             | 165    | 0xa5 | x min max | out            | Returns 1 if x is within the specified range (left-inclusive), 0 otherwise. |
+|                       |
 
 ### Crypto
+
+| Word | Opcode | Hex | Inputs | Outputs | Description |
+| ---- | ------ | --- | ------ | ------- | ----------- |
+|      |        |     |        |         |             |
 
 "OP_RIPEMD160": 166,
 "OP_SHA1": 167,
@@ -143,6 +170,10 @@ ordinal: 13
 
 ### Locktime
 
+| Word | Opcode | Hex | Inputs | Outputs | Description |
+| ---- | ------ | --- | ------ | ------- | ----------- |
+|      |        |     |        |         |             |
+
 "OP_NOP2": 177,
 "OP_CHECKLOCKTIMEVERIFY": 177,
 "OP_NOP3": 178,
@@ -150,11 +181,19 @@ ordinal: 13
 
 ### Pseudo-words
 
+| Word | Opcode | Hex | Inputs | Outputs | Description |
+| ---- | ------ | --- | ------ | ------- | ----------- |
+|      |        |     |        |         |             |
+
 "OP_PUBKEYHASH": 253,
 "OP_PUBKEY": 254,
 "OP_INVALIDOPCODE": 255
 
 ### Reserved words
+
+| Word | Opcode | Hex | Inputs | Outputs | Description |
+| ---- | ------ | --- | ------ | ------- | ----------- |
+|      |        |     |        |         |             |
 
 "OP_RESERVED": 80,
 "OP_VER": 98,
