@@ -1,7 +1,7 @@
 ---
 title: Util
 icon: cogs
-ordinal: 19
+ordinal: 20
 ---
 
 ### `validateAddress`

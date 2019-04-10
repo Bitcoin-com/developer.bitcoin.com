@@ -144,8 +144,8 @@ const SLPPage = ({ location, data }: Props) => (
             is simple, robust and extensible. All transactions are 100% on the
             blockchain for full auditability by any party. The first and
             currently only BCH token system to support light wallets. You can
-            use multi signature addresses and other Bitcoin script features with
-            SLP tokens.
+            use multi signature addresses and other advanced Bitcoin script
+            features with SLP tokens.
           </Text>
         </PreviewItem>
       </PreviewLayout>
