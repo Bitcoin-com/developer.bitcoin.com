@@ -151,61 +151,68 @@ ordinal: 13
 
 ### Crypto
 
-| Word | Opcode | Hex | Inputs | Outputs | Description |
-| ---- | ------ | --- | ------ | ------- | ----------- |
-|      |        |     |        |         |             |
-
-"OP_RIPEMD160": 166,
-"OP_SHA1": 167,
-"OP_SHA256": 168,
-"OP_HASH160": 169,
-"OP_HASH256": 170,
-"OP_CODESEPARATOR": 171,
-"OP_CHECKSIG": 172,
-"OP_CHECKSIGVERIFY": 173,
-"OP_CHECKMULTISIG": 174,
-"OP_CHECKMULTISIGVERIFY": 175,
-"OP_CHECKDATASIG": 186,
-"OP_CHECKDATASIGVERIFY": 187,
+| Word                   | Opcode | Hex  | Inputs                                                                       | Outputs        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ---------------------- | ------ | ---- | ---------------------------------------------------------------------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| OP_RIPEMD160           | 166    | 0xa6 | in                                                                           | hash           | The input is hashed using RIPEMD-160.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+|                        |
+| OP_SHA1                | 167    | 0xa7 | in                                                                           | hash           | The input is hashed using SHA-1.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+|                        |
+| OP_SHA256              | 168    | 0xa8 | in                                                                           | hash           | The input is hashed using SHA-256.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+|                        |
+| OP_HASH160             | 169    | 0xa9 | in                                                                           | hash           | The input is hashed twice: first with SHA-256 and then with RIPEMD-160.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+|                        |
+| OP_HASH256             | 170    | 0xaa | in                                                                           | hash           | The input is hashed two times with SHA-256.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+|                        |
+| OP_CODESEPARATOR       | 171    | 0xab | Nothing                                                                      | Nothing        | All of the signature checking words will only match signatures to the data after the most recently-executed OP_CODESEPARATOR.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+|                        |
+| OP_CHECKSIG            | 172    | 0xac | sig pubkey                                                                   | True / false   | The entire transaction's outputs, inputs, and script (from the most recently-executed OP_CODESEPARATOR to the end) are hashed. The signature used by OP_CHECKSIG must be a valid signature for this hash and public key. If it is, 1 is returned, 0 otherwise.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+|                        |
+| OP_CHECKSIGVERIFY      | 173    | 0xad | sig pubkey                                                                   | Nothing / fail | Same as OP_CHECKSIG, but OP_VERIFY is executed afterward.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+|                        |
+| OP_CHECKMULTISIG       | 174    | 0xae | x sig1 sig2 ... <number of signatures> pub1 pub2 <number of public keys>     | True / False   | Compares the first signature against each public key until it finds an ECDSA match. Starting with the subsequent public key, it compares the second signature against each remaining public key until it finds an ECDSA match. The process is repeated until all signatures have been checked or not enough public keys remain to produce a successful result. All signatures need to match a public key. Because public keys are not checked again if they fail any signature comparison, signatures must be placed in the scriptSig using the same order as their corresponding public keys were placed in the scriptPubKey or redeemScript. If all signatures are valid, 1 is returned, 0 otherwise. Due to a bug, one extra unused value is removed from the stack. |
+|                        |
+| OP_CHECKMULTISIGVERIFY | 175    | 0xaf | x sig1 sig2 ... <number of signatures> pub1 pub2 ... <number of public keys> | Nothing / fail | Same as OP_CHECKMULTISIG, but OP_VERIFY is executed afterward.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+|                        |
 
 ### Locktime
 
-| Word | Opcode | Hex | Inputs | Outputs | Description |
-| ---- | ------ | --- | ------ | ------- | ----------- |
-|      |        |     |        |         |             |
-
-"OP_NOP2": 177,
-"OP_CHECKLOCKTIMEVERIFY": 177,
-"OP_NOP3": 178,
-"OP_CHECKSEQUENCEVERIFY": 178,
+| Word                                        | Opcode | Hex  | Inputs | Outputs  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| ------------------------------------------- | ------ | ---- | ------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| OP_CHECKLOCKTIMEVERIFY (previously OP_NOP2) | 177    | 0xb1 | x      | x / fail | Marks transaction as invalid if the top stack item is greater than the transaction's nLockTime field, otherwise script evaluation continues as though an OP_NOP was executed. Transaction is also invalid if 1. the stack is empty; or 2. the top stack item is negative; or 3. the top stack item is greater than or equal to 500000000 while the transaction's nLockTime field is less than 500000000, or vice versa; or 4. the input's nSequence field is equal to 0xffffffff. The precise semantics are described in BIP 0065. |
+|                                             |
+| OP_CHECKSEQUENCEVERIFY (previously OP_NOP3) | 178    | 0xb2 | x      | x / fail | Marks transaction as invalid if the relative lock time of the input (enforced by BIP 0068 with nSequence) is not equal to or longer than the value of the top stack item. The precise semantics are described in BIP 0112.                                                                                                                                                                                                                                                                                                         |
+|                                             |
 
 ### Pseudo-words
 
-| Word | Opcode | Hex | Inputs | Outputs | Description |
-| ---- | ------ | --- | ------ | ------- | ----------- |
-|      |        |     |        |         |             |
-
-"OP_PUBKEYHASH": 253,
-"OP_PUBKEY": 254,
-"OP_INVALIDOPCODE": 255
+| Word             | Opcode | Hex  | Description                                          |
+| ---------------- | ------ | ---- | ---------------------------------------------------- |
+| OP_PUBKEYHASH    | 253    | 0xfd | Represents a public key hashed with OP_HASH160.      |
+|                  |
+| OP_PUBKEY        | 254    | 0xfe | Represents a public key compatible with OP_CHECKSIG. |
+|                  |
+| OP_INVALIDOPCODE | 255    | 0xff | Matches any opcode that is not yet assigned.         |
+|                  |
 
 ### Reserved words
 
-| Word | Opcode | Hex | Inputs | Outputs | Description |
-| ---- | ------ | --- | ------ | ------- | ----------- |
-|      |        |     |        |         |             |
-
-"OP_RESERVED": 80,
-"OP_VER": 98,
-"OP_VERIF": 101,
-"OP_VERNOTIF": 102,
-"OP_RESERVED1": 137,
-"OP_RESERVED2": 138,
-"OP_NOP1": 176,
-"OP_NOP4": 179,
-"OP_NOP5": 180,
-"OP_NOP6": 181,
-"OP_NOP7": 182,
-"OP_NOP8": 183,
-"OP_NOP9": 184,
-"OP_NOP10": 185,
+| Word         | Opcode | Hex  | When Used                                                               |
+| ------------ | ------ | ---- | ----------------------------------------------------------------------- |
+| OP_RESERVED  | 80     | 0x50 | Transaction is invalid unless occuring in an unexecuted OP_IF branch    |
+|              |
+| OP_VER       | 98     | 0x62 | Transaction is invalid unless occuring in an unexecuted OP_IF branch    |
+|              |
+| OP_VERIF     | 101    | 0x65 | Transaction is invalid even when occuring in an unexecuted OP_IF branch |
+|              |
+| OP_VERNOTIF  | 102    | 0x66 | Transaction is invalid even when occuring in an unexecuted OP_IF branch |
+|              |
+| OP_RESERVED1 | 137    | 0x89 | Transaction is invalid unless occuring in an unexecuted OP_IF branch    |
+|              |
+| OP_RESERVED2 | 138    | 0x8a | Transaction is invalid unless occuring in an unexecuted OP_IF branch    |
+|              |
+| OP_NOP1      | 176    | 0xb0 | The word is ignored. Does not mark transaction as invalid.              |
+|              |
+| OP_NOP4      | 179    | 0xb3 | The word is ignored. Does not mark transaction as invalid.              |
+|              |
+| OP_NOP10     | 185    | 0xb9 | The word is ignored. Does not mark transaction as invalid.              |
+|              |
