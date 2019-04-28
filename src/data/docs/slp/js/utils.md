@@ -134,18 +134,22 @@ balances : `Object`. The address's balances
     // [ { tokenId:
     //      '968ff0cc4c93864001e03e9524e351250b94ec56150fa4897f65b0b6477d44d4',
     //     balance: '9980',
+    //     slpAddress: 'simpleledger:qr5agtachyxvrwxu76vzszan5pnvuzy8duhv4lxrsk',
     //     decimalCount: 9 },
     //   { tokenId:
     //      'df808a41672a0a0ae6475b44f272a107bc9961b90f29dc918d71301f24fe92fb',
     //     balance: '617',
+    //     slpAddress: 'simpleledger:qr5agtachyxvrwxu76vzszan5pnvuzy8duhv4lxrsk',
     //     decimalCount: 8 },
     //   { tokenId:
     //      'b96304d12f1bbc2196df582516410e55a9b34e13c7b4585bf5c1770af30d034f',
     //     balance: '1',
+    //     slpAddress: 'simpleledger:qr5agtachyxvrwxu76vzszan5pnvuzy8duhv4lxrsk',
     //     decimalCount: 0 },
     //   { tokenId:
     //      'a436c8e1b6bee3d701c6044d190f76f774be83c36de8d34a988af4489e86dd37',
     //     balance: '776',
+    //     slpAddress: 'simpleledger:qr5agtachyxvrwxu76vzszan5pnvuzy8duhv4lxrsk',
     //     decimalCount: 7 } ]
 
     // balances for Cash Address
