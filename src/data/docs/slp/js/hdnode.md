@@ -22,20 +22,20 @@ HDNode HDNode
 #### Examples
 
       // create mnemonic
-      let mnemonic = BITBOX.Mnemonic.generate(128);
+      let mnemonic = SLP.Mnemonic.generate(128);
       // create seed buffer from mnemonic
-      let seedBuffer = BITBOX.Mnemonic.toSeed(mnemonic);
+      let seedBuffer = SLP.Mnemonic.toSeed(mnemonic);
       // create HDNode from seed buffer
-      BITBOX.HDNode.fromSeed(seedBuffer);
+      SLP.HDNode.fromSeed(seedBuffer);
 
       // generate entropy
-      let entropy = BITBOX.Crypto.randomBytes(32);
+      let entropy = SLP.Crypto.randomBytes(32);
       // create mnemonic from entropy
-      let mnemonic = BITBOX.Mnemonic.fromEntropy(entropy);
+      let mnemonic = SLP.Mnemonic.fromEntropy(entropy);
       // create seed buffer from mnemonic
-      let seedBuffer = BITBOX.Mnemonic.toSeed(mnemonic);
+      let seedBuffer = SLP.Mnemonic.toSeed(mnemonic);
       // create HDNode from seed buffer
-      BITBOX.HDNode.fromSeed(seedBuffer);
+      SLP.HDNode.fromSeed(seedBuffer);
 
 ### `derive`
 
@@ -52,13 +52,13 @@ HDNode HDNode
 #### Examples
 
       // create mnemonic
-      let mnemonic = BITBOX.Mnemonic.generate(128);
+      let mnemonic = SLP.Mnemonic.generate(128);
       // create seed buffer from mnemonic
-      let seedBuffer = BITBOX.Mnemonic.toSeed(mnemonic);
+      let seedBuffer = SLP.Mnemonic.toSeed(mnemonic);
       // create HDNode from seed buffer
-      let hdNode = BITBOX.HDNode.fromSeed(seedBuffer);
+      let hdNode = SLP.HDNode.fromSeed(seedBuffer);
       // derive unhardened child HDNode
-      BITBOX.HDNode.derive(hdNode, 0);
+      SLP.HDNode.derive(hdNode, 0);
 
 ### `deriveHardened`
 
@@ -75,13 +75,13 @@ HDNode HDNode
 #### Examples
 
       // create mnemonic
-      let mnemonic = BITBOX.Mnemonic.generate(128);
+      let mnemonic = SLP.Mnemonic.generate(128);
       // create seed buffer from mnemonic
-      let seedBuffer = BITBOX.Mnemonic.toSeed(mnemonic);
+      let seedBuffer = SLP.Mnemonic.toSeed(mnemonic);
       // create HDNode from seed buffer
-      let hdNode = BITBOX.HDNode.fromSeed(seedBuffer);
+      let hdNode = SLP.HDNode.fromSeed(seedBuffer);
       // derive hardened child HDNode
-      BITBOX.HDNode.deriveHardened(hdNode, 0);
+      SLP.HDNode.deriveHardened(hdNode, 0);
 
 ### `derivePath`
 
@@ -98,13 +98,13 @@ HDNode HDNode
 #### Examples
 
       // create mnemonic
-      let mnemonic = BITBOX.Mnemonic.generate(128);
+      let mnemonic = SLP.Mnemonic.generate(128);
       // create seed buffer from mnemonic
-      let seedBuffer = BITBOX.Mnemonic.toSeed(mnemonic);
+      let seedBuffer = SLP.Mnemonic.toSeed(mnemonic);
       // create HDNode from seed buffer
-      let hdNode = BITBOX.HDNode.fromSeed(seedBuffer);
+      let hdNode = SLP.HDNode.fromSeed(seedBuffer);
       // derive hardened child HDNode
-      BITBOX.HDNode.derivePath(hdNode, "m/44'/145'/0'");
+      SLP.HDNode.derivePath(hdNode, "m/44'/145'/0'");
 
 ### `toLegacyAddress`
 
@@ -121,25 +121,25 @@ legacyAddress `string`: legacy base58check encoded address of HDNode
 #### Examples
 
       // create mnemonic
-      let mnemonic = BITBOX.Mnemonic.generate(128);
+      let mnemonic = SLP.Mnemonic.generate(128);
       // create seed buffer from mnemonic
-      let seedBuffer = BITBOX.Mnemonic.toSeed(mnemonic);
+      let seedBuffer = SLP.Mnemonic.toSeed(mnemonic);
       // create HDNode from seed buffer
-      let hdNode = BITBOX.HDNode.fromSeed(seedBuffer);
+      let hdNode = SLP.HDNode.fromSeed(seedBuffer);
       // to legacy address
-      BITBOX.HDNode.toLegacyAddress(hdNode);
+      SLP.HDNode.toLegacyAddress(hdNode);
       // 14apxtw2LDQmXWsS5k4JEhG93Jzjswhvma
 
       // generate entropy
-      let entropy = BITBOX.Crypto.randomBytes(32);
+      let entropy = SLP.Crypto.randomBytes(32);
       // create mnemonic from entropy
-      let mnemonic = BITBOX.Mnemonic.fromEntropy(entropy);
+      let mnemonic = SLP.Mnemonic.fromEntropy(entropy);
       // create seed buffer from mnemonic
-      let seedBuffer = BITBOX.Mnemonic.toSeed(mnemonic);
+      let seedBuffer = SLP.Mnemonic.toSeed(mnemonic);
       // create HDNode from seed buffer
-      let hdNode = BITBOX.HDNode.fromSeed(seedBuffer);
+      let hdNode = SLP.HDNode.fromSeed(seedBuffer);
       // to cash address
-      BITBOX.HDNode.toLegacyAddress(hdNode);
+      SLP.HDNode.toLegacyAddress(hdNode);
       // 14mVsq3H5Ep2Jb6AqoKsmY1BFHKCBGPDLi
 
 ### `toCashAddress`
@@ -158,26 +158,62 @@ cashAddress `string`: cashaddr encoded address of HDNode
 #### Examples
 
       // create mnemonic
-      let mnemonic = BITBOX.Mnemonic.generate(128);
+      let mnemonic = SLP.Mnemonic.generate(128);
       // create seed buffer from mnemonic
-      let seedBuffer = BITBOX.Mnemonic.toSeed(mnemonic);
+      let seedBuffer = SLP.Mnemonic.toSeed(mnemonic);
       // create HDNode from seed buffer
-      let hdNode = BITBOX.HDNode.fromSeed(seedBuffer);
+      let hdNode = SLP.HDNode.fromSeed(seedBuffer);
       // to cash address
-      BITBOX.HDNode.toCashAddress(hdNode);
+      SLP.HDNode.toCashAddress(hdNode);
       // bitcoincash:qqrz6kqw6nvhwgwrt4g7fggepvewtkr7nukkeqf4rw
 
       // generate entropy
-      let entropy = BITBOX.Crypto.randomBytes(32);
+      let entropy = SLP.Crypto.randomBytes(32);
       // create mnemonic from entropy
-      let mnemonic = BITBOX.Mnemonic.fromEntropy(entropy);
+      let mnemonic = SLP.Mnemonic.fromEntropy(entropy);
       // create seed buffer from mnemonic
-      let seedBuffer = BITBOX.Mnemonic.toSeed(mnemonic);
+      let seedBuffer = SLP.Mnemonic.toSeed(mnemonic);
       // create HDNode from seed buffer
-      let hdNode = BITBOX.HDNode.fromSeed(seedBuffer);
+      let hdNode = SLP.HDNode.fromSeed(seedBuffer);
       // to cash address
-      BITBOX.HDNode.toCashAddress(hdNode);
+      SLP.HDNode.toCashAddress(hdNode);
       // bitcoincash:qq549jxsjv66kw0smdju4es2axnk7hhe9cquhjg4gt
+
+### `toSLPAddress`
+
+Get slp address of HDNode
+
+#### Arguments
+
+1.  hdNode: HDNode
+
+#### Result
+
+slpAddress `string`: slpaddr encoded address of HDNode
+
+#### Examples
+
+      // create mnemonic
+      let mnemonic = SLP.Mnemonic.generate(128);
+      // create seed buffer from mnemonic
+      let seedBuffer = SLP.Mnemonic.toSeed(mnemonic);
+      // create HDNode from seed buffer
+      let hdNode = SLP.HDNode.fromSeed(seedBuffer);
+      // to cash address
+      SLP.HDNode.toSLPAddress(hdNode);
+      // simpleledger:qpst7ganm0ucmj3yl7jxvdqrm7tg3zhveg89xjh25d
+
+      // generate entropy
+      let entropy = SLP.Crypto.randomBytes(32);
+      // create mnemonic from entropy
+      let mnemonic = SLP.Mnemonic.fromEntropy(entropy);
+      // create seed buffer from mnemonic
+      let seedBuffer = SLP.Mnemonic.toSeed(mnemonic);
+      // create HDNode from seed buffer
+      let hdNode = SLP.HDNode.fromSeed(seedBuffer);
+      // to cash address
+      SLP.HDNode.toSLPAddress(hdNode);
+      // simpleledger:qqxh2z2z397m4c6u9s5x6wjtku742q8rpvm6al2nrf
 
 ### `toWIF`
 
@@ -194,25 +230,25 @@ privateKeyWIF `string`: private key in wallet import format (WIF) of HDNode
 #### Examples
 
       // create mnemonic
-      let mnemonic = BITBOX.Mnemonic.generate(128);
+      let mnemonic = SLP.Mnemonic.generate(128);
       // create seed buffer from mnemonic
-      let seedBuffer = BITBOX.Mnemonic.toSeed(mnemonic);
+      let seedBuffer = SLP.Mnemonic.toSeed(mnemonic);
       // create HDNode from seed buffer
-      let hdNode = BITBOX.HDNode.fromSeed(seedBuffer);
+      let hdNode = SLP.HDNode.fromSeed(seedBuffer);
       // to WIF
-      BITBOX.HDNode.toWIF(hdNode);
+      SLP.HDNode.toWIF(hdNode);
       // L5E8QjFnLukp8BuF4uu9gmvvSrbafioURGdBve5tA3Eq5ptzbMCJ
 
       // generate entropy
-      let entropy = BITBOX.Crypto.randomBytes(32);
+      let entropy = SLP.Crypto.randomBytes(32);
       // create mnemonic from entropy
-      let mnemonic = BITBOX.Mnemonic.fromEntropy(entropy);
+      let mnemonic = SLP.Mnemonic.fromEntropy(entropy);
       // create seed buffer from mnemonic
-      let seedBuffer = BITBOX.Mnemonic.toSeed(mnemonic);
+      let seedBuffer = SLP.Mnemonic.toSeed(mnemonic);
       // create HDNode from seed buffer
-      let hdNode = BITBOX.HDNode.fromSeed(seedBuffer);
+      let hdNode = SLP.HDNode.fromSeed(seedBuffer);
       // to WIF
-      BITBOX.HDNode.toWIF(hdNode);
+      SLP.HDNode.toWIF(hdNode);
       // KwobPFhv3AuXc3ps6YtWfMVRpLBDBA7jnJddurfELTyTNcFhZYpJ
 
 ### `toXPub`
@@ -230,25 +266,25 @@ xpub `string`: extended public key of HDNode
 #### Examples
 
       // create mnemonic
-      let mnemonic = BITBOX.Mnemonic.generate(128);
+      let mnemonic = SLP.Mnemonic.generate(128);
       // create seed buffer from mnemonic
-      let seedBuffer = BITBOX.Mnemonic.toSeed(mnemonic);
+      let seedBuffer = SLP.Mnemonic.toSeed(mnemonic);
       // create HDNode from seed buffer
-      let hdNode = BITBOX.HDNode.fromSeed(seedBuffer);
+      let hdNode = SLP.HDNode.fromSeed(seedBuffer);
       // to extended public key
-      BITBOX.HDNode.toXPub(hdNode);
+      SLP.HDNode.toXPub(hdNode);
       // xpub661MyMwAqRbcG4CnhNYoK1r1TKLwQQ1UdC3LHoWFK61rsnzh7Hx35qQ9Z53ucYcE5WvA7GEDXhqqKjSY2e6Y8n7WNVLYHpXCuuX945VPuYn
 
       // generate entropy
-      let entropy = BITBOX.Crypto.randomBytes(32);
+      let entropy = SLP.Crypto.randomBytes(32);
       // create mnemonic from entropy
-      let mnemonic = BITBOX.Mnemonic.fromEntropy(entropy);
+      let mnemonic = SLP.Mnemonic.fromEntropy(entropy);
       // create seed buffer from mnemonic
-      let seedBuffer = BITBOX.Mnemonic.toSeed(mnemonic);
+      let seedBuffer = SLP.Mnemonic.toSeed(mnemonic);
       // create HDNode from seed buffer
-      let hdNode = BITBOX.HDNode.fromSeed(seedBuffer);
+      let hdNode = SLP.HDNode.fromSeed(seedBuffer);
       // to extended public key
-      BITBOX.HDNode.toXPub(hdNode);
+      SLP.HDNode.toXPub(hdNode);
       // xpub661MyMwAqRbcFuMLeHkSbTNwNHG9MQyrAZqV1Q4MEAsmj9MYa5sxg8WC2LKqW6EHviHVucBjWi1n38juZpDDeX3U6YrsMeACdcNSTHkM8BQ
 
 ### `toXPriv`
@@ -266,25 +302,25 @@ xpriv `string`: extended private key of HDNode
 #### Examples
 
       // create mnemonic
-      let mnemonic = BITBOX.Mnemonic.generate(128);
+      let mnemonic = SLP.Mnemonic.generate(128);
       // create seed buffer from mnemonic
-      let seedBuffer = BITBOX.Mnemonic.toSeed(mnemonic);
+      let seedBuffer = SLP.Mnemonic.toSeed(mnemonic);
       // create HDNode from seed buffer
-      let hdNode = BITBOX.HDNode.fromSeed(seedBuffer);
+      let hdNode = SLP.HDNode.fromSeed(seedBuffer);
       // to extended private key
-      BITBOX.HDNode.toXPriv(hdNode);
+      SLP.HDNode.toXPriv(hdNode);
       // xprv9s21ZrQH143K2eMCcbT4qwwRhw6qZaPaEDWB792bnrxQZPoP2JUk4kfEx9eeV1uGTAWAfCqYr4wDWo52qALiukizKwQzvEyNR1fWZJi97Kv
 
       // generate entropy
-      let entropy = BITBOX.Crypto.randomBytes(32);
+      let entropy = SLP.Crypto.randomBytes(32);
       // create mnemonic from entropy
-      let mnemonic = BITBOX.Mnemonic.fromEntropy(entropy);
+      let mnemonic = SLP.Mnemonic.fromEntropy(entropy);
       // create seed buffer from mnemonic
-      let seedBuffer = BITBOX.Mnemonic.toSeed(mnemonic);
+      let seedBuffer = SLP.Mnemonic.toSeed(mnemonic);
       // create HDNode from seed buffer
-      let hdNode = BITBOX.HDNode.fromSeed(seedBuffer);
+      let hdNode = SLP.HDNode.fromSeed(seedBuffer);
       // to extended private key
-      BITBOX.HDNode.toXPriv(hdNode);
+      SLP.HDNode.toXPriv(hdNode);
       // xprv9s21ZrQH143K2b5GPP6zHz22E6LeCgQXJtwNbC3MA3Kz7Se7tveKo96EhqwFtSkYWkyenVcMqM7uq35PcUNG8cUdpsJEgwKG3dvfP7TmL3v
 
 ### `toKeyPair`
@@ -302,24 +338,24 @@ keyPair `ECPair`: ECPair of an HDNode
 #### Examples
 
       // create mnemonic
-      let mnemonic = BITBOX.Mnemonic.generate(128);
+      let mnemonic = SLP.Mnemonic.generate(128);
       // create root seed buffer from mnemonic
-      let rootSeed= BITBOX.Mnemonic.toSeed(mnemonic);
+      let rootSeed= SLP.Mnemonic.toSeed(mnemonic);
       // create HDNode from root seed
-      let hdNode = BITBOX.HDNode.fromSeed(rootSeed);
+      let hdNode = SLP.HDNode.fromSeed(rootSeed);
       // create public key buffer from HDNode
-      BITBOX.HDNode.toKeyPair(hdNode);
+      SLP.HDNode.toKeyPair(hdNode);
 
       // generate entropy
-      let entropy = BITBOX.Crypto.randomBytes(32);
+      let entropy = SLP.Crypto.randomBytes(32);
       // create mnemonic from entropy
-      let mnemonic = BITBOX.Mnemonic.fromEntropy(entropy);
+      let mnemonic = SLP.Mnemonic.fromEntropy(entropy);
       // create seed buffer from mnemonic
-      let seedBuffer = BITBOX.Mnemonic.toSeed(mnemonic);
+      let seedBuffer = SLP.Mnemonic.toSeed(mnemonic);
       // create HDNode from seed buffer
-      let hdNode = BITBOX.HDNode.fromSeed(seedBuffer);
+      let hdNode = SLP.HDNode.fromSeed(seedBuffer);
       // create public key buffer from HDNode
-      BITBOX.HDNode.toKeyPair(hdNode);
+      SLP.HDNode.toKeyPair(hdNode);
       //
 
 ### `toPublicKey`
@@ -337,25 +373,25 @@ publicKeyBuffer `Buffer`: public key of HDNode as a buffer
 #### Examples
 
       // create mnemonic
-      let mnemonic = BITBOX.Mnemonic.generate(128);
+      let mnemonic = SLP.Mnemonic.generate(128);
       // create root seed buffer from mnemonic
-      let rootSeed= BITBOX.Mnemonic.toSeed(mnemonic);
+      let rootSeed= SLP.Mnemonic.toSeed(mnemonic);
       // create HDNode from root seed
-      let hdNode = BITBOX.HDNode.fromSeed(rootSeed);
+      let hdNode = SLP.HDNode.fromSeed(rootSeed);
       // create public key buffer from HDNode
-      BITBOX.HDNode.toPublicKey(hdNode);
+      SLP.HDNode.toPublicKey(hdNode);
       //
 
       // generate entropy
-      let entropy = BITBOX.Crypto.randomBytes(32);
+      let entropy = SLP.Crypto.randomBytes(32);
       // create mnemonic from entropy
-      let mnemonic = BITBOX.Mnemonic.fromEntropy(entropy);
+      let mnemonic = SLP.Mnemonic.fromEntropy(entropy);
       // create seed buffer from mnemonic
-      let seedBuffer = BITBOX.Mnemonic.toSeed(mnemonic);
+      let seedBuffer = SLP.Mnemonic.toSeed(mnemonic);
       // create HDNode from seed buffer
-      let hdNode = BITBOX.HDNode.fromSeed(seedBuffer);
+      let hdNode = SLP.HDNode.fromSeed(seedBuffer);
       // create public key buffer from HDNode
-      BITBOX.HDNode.toPublicKey(hdNode);
+      SLP.HDNode.toPublicKey(hdNode);
       //
 
 ### `toIdentifier`
@@ -374,22 +410,22 @@ identifier `string`
 
       // mainnet
       let xpub = 'xpub6DWfGUo4cjC8oWmgZdpyFMH6v3oeyADfdUPhsehzn5jX44zpazivha3JxUtkcCvBEB1c6DGaiUmpyz2m1DRfGDEVZ5VxLLW2UNEbZ5iTRvi';
-      let node = BITBOX.HDNode.fromXPub(xpub);
-      BITBOX.HDNode.toIdentifier(node);
+      let node = SLP.HDNode.fromXPub(xpub);
+      SLP.HDNode.toIdentifier(node);
       //
       // the same as if we hash160ed it's publicKey
-      let publicKeyBuffer = BITBOX.HDNode.toPublicKey(node);
-      BITBOX.Crypto.hash160(publicKeyBuffer);
+      let publicKeyBuffer = SLP.HDNode.toPublicKey(node);
+      SLP.Crypto.hash160(publicKeyBuffer);
       //
 
       // testnet
       let xpub = 'tpubDCxmZ3qLVVphg6NpsnAjQFqDPwr9HYqSgoAcUYAfqSgo32dL6NA8QXqWsS6XTjoGggohZKvujsAv2F2ugej9qfUYau2jSUB4JaYnfMsx3MJ';
-      let node = BITBOX.HDNode.fromXPub(xpub);
-      BITBOX.HDNode.toIdentifier(node);
+      let node = SLP.HDNode.fromXPub(xpub);
+      SLP.HDNode.toIdentifier(node);
       //
       // the same as if we hash160ed it's publicKey
-      let publicKeyBuffer = BITBOX.HDNode.toPublicKey(node);
-      BITBOX.Crypto.hash160(publicKeyBuffer);
+      let publicKeyBuffer = SLP.HDNode.toPublicKey(node);
+      SLP.Crypto.hash160(publicKeyBuffer);
       //
 
 ### `fromXPriv`
@@ -407,10 +443,10 @@ hdNode `HDNode`
 #### Examples
 
       // mainnet xpriv
-      BITBOX.HDNode.fromXPriv('xprv9s21ZrQH143K2b5GPP6zHz22E6LeCgQXJtwNbC3MA3Kz7Se7tveKo96EhqwFtSkYWkyenVcMqM7uq35PcUNG8cUdpsJEgwKG3dvfP7TmL3v');
+      SLP.HDNode.fromXPriv('xprv9s21ZrQH143K2b5GPP6zHz22E6LeCgQXJtwNbC3MA3Kz7Se7tveKo96EhqwFtSkYWkyenVcMqM7uq35PcUNG8cUdpsJEgwKG3dvfP7TmL3v');
 
       // testnet xpriv
-      BITBOX.HDNode.fromXPriv('tprv8gQ3zr1F5pRHMebqqhorrorYNvUG3XkcZjSWVs2cEtRwwJy1TRhgRx4XcF8dYHM2eyTbTCcdKYNhqgyBQphxwRoVyVKr9zuyoA8WxNDRvom');
+      SLP.HDNode.fromXPriv('tprv8gQ3zr1F5pRHMebqqhorrorYNvUG3XkcZjSWVs2cEtRwwJy1TRhgRx4XcF8dYHM2eyTbTCcdKYNhqgyBQphxwRoVyVKr9zuyoA8WxNDRvom');
 
 ### `fromXPub`
 
@@ -427,10 +463,10 @@ hdNode `HDNode`
 #### Examples
 
       // mainnet xpub
-      BITBOX.HDNode.fromXPub('xpub661MyMwAqRbcFuMLeHkSbTNwNHG9MQyrAZqV1Q4MEAsmj9MYa5sxg8WC2LKqW6EHviHVucBjWi1n38juZpDDeX3U6YrsMeACdcNSTHkM8BQ');
+      SLP.HDNode.fromXPub('xpub661MyMwAqRbcFuMLeHkSbTNwNHG9MQyrAZqV1Q4MEAsmj9MYa5sxg8WC2LKqW6EHviHVucBjWi1n38juZpDDeX3U6YrsMeACdcNSTHkM8BQ');
 
       // testnet xpub
-      BITBOX.HDNode.fromXPub('tpubDD669G3VEC6xF7ddjMUTGDWewwzCCrwX933HnP4ufAELmoDn5pXGcSgPnLodjFvWQwRXkG94f77BatEDA8dfQ99yy97kRYynUpNLENEqTBo');
+      SLP.HDNode.fromXPub('tpubDD669G3VEC6xF7ddjMUTGDWewwzCCrwX933HnP4ufAELmoDn5pXGcSgPnLodjFvWQwRXkG94f77BatEDA8dfQ99yy97kRYynUpNLENEqTBo');
 
 ### `isPublic`
 
@@ -448,26 +484,26 @@ isPublic `Boolean`
 
       // mainnet xpub
       let xpub = 'xpub6DWfGUo4cjC8oWmgZdpyFMH6v3oeyADfdUPhsehzn5jX44zpazivha3JxUtkcCvBEB1c6DGaiUmpyz2m1DRfGDEVZ5VxLLW2UNEbZ5iTRvi';
-      let node = BITBOX.HDNode.fromXPub(xpub);
-      BITBOX.HDNode.isPublic(node);
+      let node = SLP.HDNode.fromXPub(xpub);
+      SLP.HDNode.isPublic(node);
       // true
 
       // mainnet xpriv
       let xpriv = 'xprv9ys4cvcoU8RoxqkZ7Fgt33te4LPHgcsKwyoZYVorkzp9uonWxWgP9wiSQhPeBUqVHbdAyov4Yi55RywBkDfZKdJFRqA51Anz6v72zGaMGZp';
-      let node = BITBOX.HDNode.fromXPriv(xpriv);
-      BITBOX.HDNode.isPublic(node);
+      let node = SLP.HDNode.fromXPriv(xpriv);
+      SLP.HDNode.isPublic(node);
       // false
 
       // testnet xpub
       let xpub = 'tpubDCxmZ3qLVVphg6NpsnAjQFqDPwr9HYqSgoAcUYAfqSgo32dL6NA8QXqWsS6XTjoGggohZKvujsAv2F2ugej9qfUYau2jSUB4JaYnfMsx3MJ';
-      let node = BITBOX.HDNode.fromXPub(xpub);
-      BITBOX.HDNode.isPublic(node);
+      let node = SLP.HDNode.fromXPub(xpub);
+      SLP.HDNode.isPublic(node);
       // true
 
       // testnet xpriv
       let xpriv = 'tprv8ggxJ8SG5EdqakzVUeLa9Gr7sqCdEcJPUNDmtdJscNxfmxoXvU36ZguiUWukJVEWEixAUr8pJabJkCt33wzxFQA587gqN51Lxdxx97zAzuG';
-      let node = BITBOX.HDNode.fromXPriv(xpriv);
-      BITBOX.HDNode.isPublic(node);
+      let node = SLP.HDNode.fromXPriv(xpriv);
+      SLP.HDNode.isPublic(node);
       // false
 
 ### `isPrivate`
@@ -486,26 +522,26 @@ isPrivate `Boolean`
 
       // mainnet xpub
       let xpub = 'xpub6DWfGUo4cjC8oWmgZdpyFMH6v3oeyADfdUPhsehzn5jX44zpazivha3JxUtkcCvBEB1c6DGaiUmpyz2m1DRfGDEVZ5VxLLW2UNEbZ5iTRvi';
-      let node = BITBOX.HDNode.fromXPub(xpub);
-      BITBOX.HDNode.isPrivate(node);
+      let node = SLP.HDNode.fromXPub(xpub);
+      SLP.HDNode.isPrivate(node);
       // false
 
       // mainnet xpriv
       let xpriv = 'xprv9ys4cvcoU8RoxqkZ7Fgt33te4LPHgcsKwyoZYVorkzp9uonWxWgP9wiSQhPeBUqVHbdAyov4Yi55RywBkDfZKdJFRqA51Anz6v72zGaMGZp';
-      let node = BITBOX.HDNode.fromXPriv(xpriv);
-      BITBOX.HDNode.isPrivate(node);
+      let node = SLP.HDNode.fromXPriv(xpriv);
+      SLP.HDNode.isPrivate(node);
       // true
 
       // testnet xpub
       let xpub = 'tpubDCxmZ3qLVVphg6NpsnAjQFqDPwr9HYqSgoAcUYAfqSgo32dL6NA8QXqWsS6XTjoGggohZKvujsAv2F2ugej9qfUYau2jSUB4JaYnfMsx3MJ';
-      let node = BITBOX.HDNode.fromXPub(xpub);
-      BITBOX.HDNode.isPrivate(node);
+      let node = SLP.HDNode.fromXPub(xpub);
+      SLP.HDNode.isPrivate(node);
       // false
 
       // testnet xpriv
       let xpriv = 'tprv8ggxJ8SG5EdqakzVUeLa9Gr7sqCdEcJPUNDmtdJscNxfmxoXvU36ZguiUWukJVEWEixAUr8pJabJkCt33wzxFQA587gqN51Lxdxx97zAzuG';
-      let node = BITBOX.HDNode.fromXPriv(xpriv);
-      BITBOX.HDNode.isPrivate(node);
+      let node = SLP.HDNode.fromXPriv(xpriv);
+      SLP.HDNode.isPrivate(node);
       // true
 
 ### `sign`
@@ -526,20 +562,20 @@ signature `Object`
       // mainnet xpriv
       let xpriv = 'xprv9z2uWrGjbYPxc728rvtMi4jt4SudRiSfYn6Tdif5XN17pJ1NTbHoHK6JePkPLY1NHXLaQcA6sWudpZDm7DwKhbsGQieAp9wx46Wbio4iXg9';
       // hdnode from xpriv
-      let hdnode = BITBOX.HDNode.fromXPriv(xpriv);
+      let hdnode = SLP.HDNode.fromXPriv(xpriv);
       // 32 byte buffer
-      let buf = Buffer.from(BITBOX.Crypto.sha256('EARTH'), 'hex');
+      let buf = Buffer.from(SLP.Crypto.sha256('EARTH'), 'hex');
       // sign
-      BITBOX.HDNode.sign(hdnode, buf);
+      SLP.HDNode.sign(hdnode, buf);
 
       // testnet xpriv
       let xpriv = 'tprv8ggxJ8SG5EdqakzVUeLa9Gr7sqCdEcJPUNDmtdJscNxfmxoXvU36ZguiUWukJVEWEixAUr8pJabJkCt33wzxFQA587gqN51Lxdxx97zAzuG';
       // hdnode from xpriv
-      let hdnode = BITBOX.HDNode.fromXPriv(xpriv);
+      let hdnode = SLP.HDNode.fromXPriv(xpriv);
       // 32 byte buffer
-      let buf = Buffer.from(BITBOX.Crypto.sha256('EARTH'), 'hex');
+      let buf = Buffer.from(SLP.Crypto.sha256('EARTH'), 'hex');
       // sign
-      BITBOX.HDNode.sign(hdnode, buf);
+      SLP.HDNode.sign(hdnode, buf);
 
 ### `verify`
 
@@ -561,112 +597,30 @@ verified `Boolean`
       let xpriv1 = 'xprv9ys4cvcoU8RoqvzxGj886r4Ey3w1WfVNYH8sMnVPVzyQtaPPM6Q8pHm3D9WPWvEupGEgcJ1xLaGaZDcvKfoAurE2AzHRRRup5FuHzDr8n15';
       let xpriv2 = 'xprv9ys4cvcoU8RoxqkZ7Fgt33te4LPHgcsKwyoZYVorkzp9uonWxWgP9wiSQhPeBUqVHbdAyov4Yi55RywBkDfZKdJFRqA51Anz6v72zGaMGZp';
       // hdnodes from xprivs
-      let hdnode1 = BITBOX.HDNode.fromXPriv(xpriv1);
-      let hdnode2 = BITBOX.HDNode.fromXPriv(xpriv2);
+      let hdnode1 = SLP.HDNode.fromXPriv(xpriv1);
+      let hdnode2 = SLP.HDNode.fromXPriv(xpriv2);
       // 32 byte buffer
-      let buf = Buffer.from(BITBOX.Crypto.sha256('EARTH'), 'hex');
+      let buf = Buffer.from(SLP.Crypto.sha256('EARTH'), 'hex');
       // sign
-      let signature = BITBOX.HDNode.sign(hdnode1, buf);
+      let signature = SLP.HDNode.sign(hdnode1, buf);
       // verify
-      BITBOX.HDNode.verify(hdnode1, buf, signature);
+      SLP.HDNode.verify(hdnode1, buf, signature);
       // true
-      BITBOX.HDNode.verify(hdnode2, buf, signature);
+      SLP.HDNode.verify(hdnode2, buf, signature);
       // false
 
       // testnet xprivs
       let xpriv1 = 'tprv8ggxJ8SG5EdqakzVUeLa9Gr7sqCdEcJPUNDmtdJscNxfmxoXvU36ZguiUWukJVEWEixAUr8pJabJkCt33wzxFQA587gqN51Lxdxx97zAzuG';
       let xpriv2 = 'tprv8ggxJ8SG5EdqiM6Dn63QwHScQ7HS5hXqUMxSD1NEbDyPw6VtoUMFZBAohpTMsPz9cYbpHELmA4Zm79NKRvEvFdhWRX2bSmu7V7PiNb364nv';
       // hdnodes from xprivs
-      let hdnode1 = BITBOX.HDNode.fromXPriv(xpriv1);
-      let hdnode2 = BITBOX.HDNode.fromXPriv(xpriv2);
+      let hdnode1 = SLP.HDNode.fromXPriv(xpriv1);
+      let hdnode2 = SLP.HDNode.fromXPriv(xpriv2);
       // 32 byte buffer
-      let buf = Buffer.from(BITBOX.Crypto.sha256('EARTH'), 'hex');
+      let buf = Buffer.from(SLP.Crypto.sha256('EARTH'), 'hex');
       // sign
-      let signature = BITBOX.ECPair.sign(hdnode1, buf);
+      let signature = SLP.ECPair.sign(hdnode1, buf);
       // verify
-      BITBOX.HDNode.verify(hdnode1, buf, signature);
+      SLP.HDNode.verify(hdnode1, buf, signature);
       // true
-      BITBOX.HDNode.verify(hdnode2, buf, signature);
+      SLP.HDNode.verify(hdnode2, buf, signature);
       // false
-
-### `createAccount`
-
-Create [BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki#the-default-wallet-layout) account. Has `getChainAddress` and `nextChainAddress` helper methods.
-
-#### Arguments
-
-1.  hdNodes: Array of HDNodes
-
-#### Result
-
-account: `Object`
-
-#### Examples
-
-      // create mnemonic
-      let mnemonic = BITBOX.Mnemonic.generate(128);
-      // create root seed buffer
-      let rootSeedBuffer = BITBOX.Mnemonic.toSeed(mnemonic);
-      // create master hd node
-      let masterHDNode = BITBOX.HDNode.fromSeed(rootSeedBuffer);
-      // derive child node
-      let childNode = masterHDNode.derivePath("m/44'/145'/0'/0");
-      // create account
-      let account = BITBOX.HDNode.createAccount([childNode]);
-
-### `getChainAddress`
-
-Returns the latest address from account
-
-#### Arguments
-
-1.  account: `Number`
-
-#### Result
-
-address: `String`
-
-#### Examples
-
-      // create mnemonic
-      let mnemonic = BITBOX.Mnemonic.generate(128);
-      // create root seed buffer
-      let rootSeedBuffer = BITBOX.Mnemonic.toSeed(mnemonic);
-      // create master hd node
-      let masterHDNode = BITBOX.HDNode.fromSeed(rootSeedBuffer);
-      // derive child node
-      let childNode = masterHDNode.derivePath("m/44'/145'/0'/0");
-      // create account
-      let account = BITBOX.HDNode.createAccount([childNode]);
-      account.getChainAddress(0)
-      // 1EsibxXqzxzcor7eS34dSGrZp1kb3nQFFr
-
-### `nextChainAddress`
-
-Moves the most recent address forward for account
-
-#### Arguments
-
-1.  account: `Number`
-
-#### Result
-
-address: `String`
-
-#### Examples
-
-      // create mnemonic
-      let mnemonic = BITBOX.Mnemonic.generate(128);
-      // create root seed buffer
-      let rootSeedBuffer = BITBOX.Mnemonic.toSeed(mnemonic);
-      // create master hd node
-      let masterHDNode = BITBOX.HDNode.fromSeed(rootSeedBuffer);
-      // derive child node
-      let childNode = masterHDNode.derivePath("m/44'/145'/0'/0");
-      // create account
-      let account = BITBOX.HDNode.createAccount([childNode]);
-      account.getChainAddress(0)
-      // 1EsibxXqzxzcor7eS34dSGrZp1kb3nQFFr
-      account.nextChainAddress(0)
-      account.getChainAddress(0)
-      // 1JBApcAMD3riimPxABg2pNvwLumP9DEpxD
