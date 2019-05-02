@@ -109,7 +109,7 @@ mintId `String`. The txid of the newly minted tokens
 
 ### `send`
 
-Send tokens of Type 1
+Send tokens of Type 1. Optionally send up to 19 token outputs
 
 #### Arguments
 
@@ -119,8 +119,8 @@ Send tokens of Type 1
 
 - `fundingAddress`: `String`. **required** slp address format
 - `fundingWif`: `String`. **required** compressed WIF format. Available via `SLP.HDNode.toWIF`
-- `tokenReceiverAddress` : `String`. **required** slp address format
-- `bchChangeReceiverAddress` : `String.` **required** cash or slp address format
+- `tokenReceiverAddress` : `String` or `Array`. **required** slp address format
+- `bchChangeReceiverAddress` : `String` or `Array`. **required** cash or slp address format
 - `tokenId`: `String`. **required** tokenId of token to send
 - `amount`: `Number`. **required** Number of tokens to send
 
@@ -130,6 +130,7 @@ sendId `String`. The txid of your sent tokens
 
 #### Examples
 
+    // send single token output
     (async function() {
       try {
         let send = await SLP.TokenType1.send({
@@ -148,9 +149,65 @@ sendId `String`. The txid of your sent tokens
         console.log("ERROR: ", err);
       }
     })();
-
     // returns
     251eb8a71184251453eb373c8912c8afd67e6820de5679de91b930689e776be1
+
+    // send multiple token outputs
+    (async function() {
+      try {
+        let send = await SLP.TokenType1.send({
+          fundingAddress: "slptest:qq835u5srlcqwrtwt6xm4efwan30fxg9hcqag6fk03",
+          fundingWif: "cUCSrdhu7mCzx4sWqL6irqzprkofxPmLHYgkSnG2WaWVqJDXtWRS",
+          tokenReceiverAddress: [
+            "slptest:qrj9k49drcsk4al8wxn53hnkfvts6ew5jvv32952nh",
+            "slptest:qz7wjkg7s8e5khq2c6xeu6pcw28q4c0egglpawvw89",
+            "slptest:qqwcgz4gl0sddcau57lygvycx7hgf2fjaylpalknp4",
+            "slptest:qqvpqwvr9jpnhu0zq79th0fhtws9nhp5pyxnjjj2zx",
+            "slptest:qrgcu3c2aqzp535s7cek5tdjgkpvh38dmg5h75q2c9",
+            "slptest:qr0jjjjfatzg46adpa325grwdx39zfhdpgkxq2ejq9",
+            "slptest:qppcj6hynmzx8nu0ewh7an454d3wt3ama5k7vua2nk",
+            "slptest:qza6x2fef3jaxrr6vtkjkjsd8xcmwzaufqq66eur44",
+            "slptest:qz9x0t4s5gzwtlgyx3avkq33ec2ph3g5tg0zws77qm",
+            "slptest:qz4yf0k0z76wlmm4glvzrph2kld4h8y40ymn3wpaza",
+            "slptest:qzxs4uqmjfrygkv0499ej0rvnqd6cj7y9yfsdwnnpk",
+            "slptest:qqj98r7t8jalmepfc27776zvzdfwvxwhu58fsvqa7r",
+            "slptest:qqrca59a98nxvq6zlqmzquerj5n68ntd3s5ac0elqg",
+            "slptest:qpstysh49m30f2skd6hhjpr8wgp7jtxvqg27ww56up",
+            "slptest:qqlesvq4ntx5day4fpunqewvlf7pdr9k2g424uvxj8",
+            "slptest:qqez4680qx4rnpwm0xddwmd6v8dsr4x4rs9f2qmf8t",
+            "slptest:qrfgwsahle0dfn7pd78rc6x496zgv96525nkr3agyg"
+          ],
+          bchChangeReceiverAddress:
+            "bchtest:qq835u5srlcqwrtwt6xm4efwan30fxg9hcmf0pnpav",
+          tokenId:
+            "a3787d6b170707c59920486e9e03ea99f589fe4939454d36053d84dfc7388384",
+          amount: [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17
+          ]
+        });
+        console.log(send);
+      } catch (err) {
+        console.log("ERROR: ", err);
+      }
+    })();
+    // returns
+    // 84a4b2a1ec002a769e5cf055a56f485a4652442b0bb8cae06f3ac4ee1ac6b49b
 
 ### `burn`
 
