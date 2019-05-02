@@ -14,17 +14,17 @@ Create a new SLP Token of Type 1
 
 ##### Valid config properties
 
-- `fundingAddress`: `String`. legacy, cash or slp address format
-- `fundingWif`: `String`. : compressed WIF format. Available via `SLP.HDNode.toWIF`
-- `tokenReceiverAddress` : `String`. legacy, cash or slp address format
-- `batonReceiverAddress`: `String`. legacy, cash or slp address format. The address which has the baton has the ability to mint more tokens.
-- `bchChangeReceiverAddress` : `String.` legacy, cash or slp address format
-- `decimals`: `Number`. Number of decimal points for your token
-- `name` : `String`. Name of token
-- `symbol` : `String`. Token symbol
-- `documentUri` : `String`. URI of token document
-- `documentHash` : `String`. Hash of token document
-- `initialTokenQty` : `Number`. Initial token quantity
+- `fundingAddress`: `String`. **required** slp address format
+- `fundingWif`: `String`. **required** compressed WIF format. Available via `SLP.HDNode.toWIF`
+- `tokenReceiverAddress` : `String`. **required** slp address format
+- `bchChangeReceiverAddress` : `String.` **required** cash or slp address format
+- `batonReceiverAddress`: `String`. **optional** slp address format. The address which has the baton has the ability to mint more tokens.
+- `decimals`: `Number`. **required** Number of decimal points for your token
+- `name` : `String`. **required** Name of token
+- `symbol` : `String`. **required** Token symbol
+- `documentUri` : `String`. **required** URI of token document
+- `documentHash` : `String`. **required** Hash of token document
+- `initialTokenQty` : `Number`. **required** Initial token quantity
 
 #### Result
 
@@ -33,26 +33,31 @@ tokenId `String`. The tokenId of your newly created token. This tokenId is the t
 #### Examples
 
     (async function() {
-      let token = await SLP.TokenType1.create({
-        fundingAddress: 'bitcoincash:qpdg4wtc96zucm6qzvnwwskfu7h4l9wapgmz3jwdm7',
-        fundingWif: 'KxW2CYJ78Tf1fJNYZcoKhGuKD4Gf5qsBEFgLpVFMtZJLSDCRkpXD',
-        tokenReceiverAddress: '19Fk11eyDcou66eTQ1ovTXJj7BsJTgsfo1',
-        batonReceiverAddress:
-          'simpleledger:qpdg4wtc96zucm6qzvnwwskfu7h4l9wapghe6fmd9q',
-        bchChangeReceiverAddress:
-          '19Fk11eyDcou66eTQ1ovTXJj7BsJTgsfo1',
-        decimals: 2,
-        name: 'Test SLP SDK Token 3',
-        symbol: 'TEST3',
-        documentUri: 'badger@bitcoin.com',
-        documentHash: null,
-        initialTokenQty: 1234,
-      })
-      console.log(token)
-    })()
+      try {
+        let token = await SLP.TokenType1.create({
+          fundingAddress: "slptest:qq835u5srlcqwrtwt6xm4efwan30fxg9hcqag6fk03",
+          fundingWif: "cUCSrdhu7mCzx4sWqL6irqzprkofxPmLHYgkSnG2WaWVqJDXtWRS",
+          tokenReceiverAddress:
+            "slptest:qq835u5srlcqwrtwt6xm4efwan30fxg9hcqag6fk03",
+          bchChangeReceiverAddress:
+            "bchtest:qq835u5srlcqwrtwt6xm4efwan30fxg9hcmf0pnpav",
+          batonReceiverAddress:
+            "slptest:qq835u5srlcqwrtwt6xm4efwan30fxg9hcqag6fk03",
+          decimals: 2,
+          name: "Test SLP SDK Token",
+          symbol: "GABRIEL",
+          documentUri: "badger@bitcoin.com",
+          documentHash: null,
+          initialTokenQty: 1000
+        });
+        console.log(token);
+      } catch (err) {
+        console.log("ERROR: ", err);
+      }
+    })();
 
     // returns
-    703920f578d36d975ffdee428df822557c6e9313ceda0d28ad837ebbf2007327
+    // a3787d6b170707c59920486e9e03ea99f589fe4939454d36053d84dfc7388384
 
 ### `mint`
 
@@ -64,13 +69,13 @@ Mint additional tokens of Type 1
 
 ##### Valid config properties
 
-- `fundingAddress`: `String`. legacy, cash or slp address format
-- `fundingWif`: `String`. : compressed WIF format. Available via `SLP.HDNode.toWIF`
-- `tokenReceiverAddress` : `String`. legacy, cash or slp address format
-- `batonReceiverAddress`: `String`. legacy, cash or slp address format
-- `bchChangeReceiverAddress` : `String.` legacy, cash or slp address format
-- `tokenId`: `String`. tokenId of token to mint more of
-- `additionalTokenQty`: `Number`. Number of additional tokens to mint
+- `fundingAddress`: `String`. **required** slp address format
+- `fundingWif`: `String`. **required** compressed WIF format. Available via `SLP.HDNode.toWIF`
+- `tokenReceiverAddress` : `String`. **required** slp address format
+- `bchChangeReceiverAddress` : `String.` **required** cash or slp address format
+- `batonReceiverAddress`: `String`. **optional** slp address format. The address which has the baton has the ability to mint more tokens.
+- `tokenId`: `String`. **required** tokenId of token to mint more of
+- `additionalTokenQty`: `Number`. **required** Number of additional tokens to mint
 
 #### Result
 
@@ -79,22 +84,28 @@ mintId `String`. The txid of the newly minted tokens
 #### Examples
 
     (async function() {
-      let mint = await SLP.TokenType1.mint({
-        fundingAddress: '19Fk11eyDcou66eTQ1ovTXJj7BsJTgsfo1',
-        fundingWif: 'KxW2CYJ78Tf1fJNYZcoKhGuKD4Gf5qsBEFgLpVFMtZJLSDCRkpXD',
-        tokenReceiverAddress: '1G84HH1zJLQq6akzzHYJVnTEYhiqkHpNtZ',
-        batonReceiverAddress:
-          'bitcoincash:qzjalztem05hahspdkrqr529me4f7h27zyqu20smfq',
-        bchChangeReceiverAddress:
-          'simpleledger:qzjalztem05hahspdkrqr529me4f7h27zyv8p59mh7',
-        tokenId: '703920f578d36d975ffdee428df822557c6e9313ceda0d28ad837ebbf2007327',
-        additionalTokenQty: 100,
-      })
-      console.log(mint)
-    })()
+      try {
+        let mint = await SLP.TokenType1.mint({
+          fundingAddress: "slptest:qq835u5srlcqwrtwt6xm4efwan30fxg9hcqag6fk03",
+          fundingWif: "cUCSrdhu7mCzx4sWqL6irqzprkofxPmLHYgkSnG2WaWVqJDXtWRS",
+          tokenReceiverAddress:
+            "slptest:qq835u5srlcqwrtwt6xm4efwan30fxg9hcqag6fk03",
+          batonReceiverAddress:
+            "slptest:qq835u5srlcqwrtwt6xm4efwan30fxg9hcqag6fk03",
+          bchChangeReceiverAddress:
+            "slptest:qq835u5srlcqwrtwt6xm4efwan30fxg9hcqag6fk03",
+          tokenId:
+            "a3787d6b170707c59920486e9e03ea99f589fe4939454d36053d84dfc7388384",
+          additionalTokenQty: 507
+        });
+        console.log(mint);
+      } catch (err) {
+        console.log("ERROR: ", err);
+      }
+    })();
 
     // returns
-    26a3eb17e11a732bbfd2fdf45bd1f21e9ffebe79b2fe6d2ad229481be38f1f85
+    9d1595b34c488df7f26d39b5081e97c9939f4d8698ddbd86e5bbd3a54f95e96e
 
 ### `send`
 
@@ -106,12 +117,12 @@ Send tokens of Type 1
 
 ##### Valid config properties
 
-- `fundingAddress`: `String`. legacy, cash or slp address format
-- `fundingWif`: `String`. : compressed WIF format. Available via `SLP.HDNode.toWIF`
-- `tokenReceiverAddress` : `String`. legacy, cash or slp address format
-- `bchChangeReceiverAddress` : `String.` legacy, cash or slp address format
-- `tokenId`: `String`. tokenId of token to send
-- `amount`: `Number`. Number of tokens to send
+- `fundingAddress`: `String`. **required** slp address format
+- `fundingWif`: `String`. **required** compressed WIF format. Available via `SLP.HDNode.toWIF`
+- `tokenReceiverAddress` : `String`. **required** slp address format
+- `bchChangeReceiverAddress` : `String.` **required** cash or slp address format
+- `tokenId`: `String`. **required** tokenId of token to send
+- `amount`: `Number`. **required** Number of tokens to send
 
 #### Result
 
@@ -120,20 +131,26 @@ sendId `String`. The txid of your sent tokens
 #### Examples
 
     (async function() {
-      let send = await SLP.TokenType1.send({
-        fundingAddress: '1G84HH1zJLQq6akzzHYJVnTEYhiqkHpNtZ',
-        fundingWif: 'KyuyWyx7gJC6SMsRTkMgJcRCXhoQ7gqxJdGUEybWx7Uu8197ToqE',
-        tokenReceiverAddress: 'simpleledger:qzczwp9wnej8mhel4me5v2rv20x95d6yyglncxdgtr',
-        bchChangeReceiverAddress:
-          'simpleledger:qzczwp9wnej8mhel4me5v2rv20x95d6yyglncxdgtr',
-        tokenId: '703920f578d36d975ffdee428df822557c6e9313ceda0d28ad837ebbf2007327',
-        amount: 10,
-      })
-      console.log(send)
-    })()
+      try {
+        let send = await SLP.TokenType1.send({
+          fundingAddress: "slptest:qq835u5srlcqwrtwt6xm4efwan30fxg9hcqag6fk03",
+          fundingWif: "cUCSrdhu7mCzx4sWqL6irqzprkofxPmLHYgkSnG2WaWVqJDXtWRS",
+          tokenReceiverAddress:
+            "slptest:qrj9k49drcsk4al8wxn53hnkfvts6ew5jvv32952nh",
+          bchChangeReceiverAddress:
+            "bchtest:qq835u5srlcqwrtwt6xm4efwan30fxg9hcmf0pnpav",
+          tokenId:
+            "a3787d6b170707c59920486e9e03ea99f589fe4939454d36053d84dfc7388384",
+          amount: 1.01
+        });
+        console.log(send);
+      } catch (err) {
+        console.log("ERROR: ", err);
+      }
+    })();
 
     // returns
-    76fb0f1d3d8a010720f8f24c19476e16fa96735e5c215b12773a65608017bd25
+    251eb8a71184251453eb373c8912c8afd67e6820de5679de91b930689e776be1
 
 ### `burn`
 
@@ -147,11 +164,11 @@ Burn an amount of tokens for an address by tokenId
 
 ##### Valid config properties
 
-- `fundingAddress`: `String`. legacy, cash or slp address format
-- `fundingWif`: `String`. : compressed WIF format. Available via `SLP.HDNode.toWIF`
-- `tokenId`: `String`. tokenId of token to burn all of
-- `bchChangeReceiverAddress` : `String`. legacy, cash or slp address format
-- `amount`: `Number`. Amount of tokens to burn
+- `fundingAddress`: `String`. **required** slp address format
+- `fundingWif`: `String`. **required** compressed WIF format. Available via `SLP.HDNode.toWIF`
+- `bchChangeReceiverAddress` : `String.` **required** cash or slp address format
+- `tokenId`: `String`. **required** tokenId of token to burn all of
+- `amount`: `Number`. **required** Amount of tokens to burn
 
 #### Result
 
@@ -159,65 +176,22 @@ txid `String`. The txid of your burned tokens
 
 #### Examples
 
-    (async () => {
+    (async function() {
       try {
-        let iBurnConfig = {
-          fundingAddress: "bchtest:qp5e2laasex4m2qkrtel3skamsftvu0gaswsmdxcd2",
-          fundingWif: "cQS4N8Jbw9bmoWiVmprVEs5dEeJ6oUE2FxUo5VSvsDQSBfXakrVc",
+        let burn = await SLP.TokenType1.burn({
+          fundingAddress: "slptest:qq835u5srlcqwrtwt6xm4efwan30fxg9hcqag6fk03",
+          fundingWif: "cUCSrdhu7mCzx4sWqL6irqzprkofxPmLHYgkSnG2WaWVqJDXtWRS",
           tokenId:
-            "4c7d9c4f50f99ec0d21213d51b09e2c5199e18d88bf2f4a809f164601eda0e1b",
-          amount: 500,
+            "a3787d6b170707c59920486e9e03ea99f589fe4939454d36053d84dfc7388384",
+          amount: 5.99,
           bchChangeReceiverAddress:
-            "bchtest:qp5e2laasex4m2qkrtel3skamsftvu0gaswsmdxcd2"
-        };
-        let burn = await SLP.TokenType1.burn(iBurnConfig);
+            "slptest:qq835u5srlcqwrtwt6xm4efwan30fxg9hcqag6fk03"
+        });
         console.log(burn);
-      } catch (error) {
-        console.error(error);
+      } catch (err) {
+        console.log("ERROR: ", err);
       }
     })();
 
     // returns
-    30785e55da16be11ce849805abb6d058cfc2f76057627a36a34d3855e678489c
-
-### `burnAll`
-
-Burn all tokens for an address by tokenId
-
-**CAUTION: THIS WILL BURN ALL OF YOUR TOKENS FOR A TOKENID. PLEASE USE WITH CARE**
-
-#### Arguments
-
-1.  burnAllConfig `Object` required
-
-##### Valid config properties
-
-- `fundingAddress`: `String`. legacy, cash or slp address format
-- `fundingWif`: `String`. : compressed WIF format. Available via `SLP.HDNode.toWIF`
-- `tokenId`: `String`. tokenId of token to burn all of
-- `bchChangeReceiverAddress` : `String.` legacy, cash or slp address format
-
-#### Result
-
-txid `String`. The txid of your burned tokens
-
-#### Examples
-
-    (async () => {
-      try {
-        let iBurnAllConfig = {
-          fundingAddress: "bchtest:qqjfqa7qsmydeuctqvddppjnkr53vchseuv49mhsxa",
-          fundingWif: "cNbbGFfSG8xvrH4HXJLcoENEmtkDAvPoC21qVhjntUc18XBzhGGe",
-          tokenId:
-            "3125ee6e4b051a19996a58cd876dade21a0a891d16845ada7d441573805c08db",
-          bchChangeReceiverAddress: "bchtest:qp5e2laasex4m2qkrtel3skamsftvu0gaswsmdxcd2"
-        };
-        let burnAll = await SLP.TokenType1.burnAll(iBurnAllConfig);
-        console.log(burnAll);
-      } catch (error) {
-        console.error(error);
-      }
-    })();
-
-    // returns
-    8d2a6aad3de38e79718c043c6f83a960807787efec92d6a1d9940e2ed04d2169
+    2c90f44dbb0a3257ded2c30d46d387490aee61eecd168534c8b645ffe21cbc50
