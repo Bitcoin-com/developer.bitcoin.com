@@ -17,7 +17,7 @@ Create a new SLP Token of Type 1
 - `fundingAddress`: `String`. **required** slp address format
 - `fundingWif`: `String`. **required** compressed WIF format. Available via `SLP.HDNode.toWIF`
 - `tokenReceiverAddress` : `String`. **required** slp address format
-- `bchChangeReceiverAddress` : `String.` **required** cash or slp address format
+- `bchChangeReceiverAddress` : `String.` **required** cash address format
 - `batonReceiverAddress`: `String`. **optional** slp address format. The address which has the baton has the ability to mint more tokens.
 - `decimals`: `Number`. **required** Number of decimal points for your token
 - `name` : `String`. **required** Name of token
@@ -72,7 +72,7 @@ Mint additional tokens of Type 1
 - `fundingAddress`: `String`. **required** slp address format
 - `fundingWif`: `String`. **required** compressed WIF format. Available via `SLP.HDNode.toWIF`
 - `tokenReceiverAddress` : `String`. **required** slp address format
-- `bchChangeReceiverAddress` : `String.` **required** cash or slp address format
+- `bchChangeReceiverAddress` : `String.` **required** cash address format
 - `batonReceiverAddress`: `String`. **optional** slp address format. The address which has the baton has the ability to mint more tokens.
 - `tokenId`: `String`. **required** tokenId of token to mint more of
 - `additionalTokenQty`: `Number`. **required** Number of additional tokens to mint
@@ -109,7 +109,7 @@ mintId `String`. The txid of the newly minted tokens
 
 ### `send`
 
-Send tokens of Type 1. Optionally send up to 19 token outputs
+Send tokens of Type 1. one-to-one, one-to-many, many-to-many and many-to-one token transactions supported
 
 #### Arguments
 
@@ -120,7 +120,7 @@ Send tokens of Type 1. Optionally send up to 19 token outputs
 - `fundingAddress`: `String`. **required** slp address format
 - `fundingWif`: `String`. **required** compressed WIF format. Available via `SLP.HDNode.toWIF`
 - `tokenReceiverAddress` : `String` or `Array`. **required** slp address format
-- `bchChangeReceiverAddress` : `String` or `Array`. **required** cash or slp address format
+- `bchChangeReceiverAddress` : `String` or `Array`. **required** cash address format
 - `tokenId`: `String`. **required** tokenId of token to send
 - `amount`: `Number`. **required** Number of tokens to send
 
@@ -130,7 +130,7 @@ sendId `String`. The txid of your sent tokens
 
 #### Examples
 
-    // send single token output
+    // one-to-one
     (async function() {
       try {
         let send = await SLP.TokenType1.send({
@@ -152,7 +152,7 @@ sendId `String`. The txid of your sent tokens
     // returns
     251eb8a71184251453eb373c8912c8afd67e6820de5679de91b930689e776be1
 
-    // send multiple token outputs
+    // one-to-many
     (async function() {
       try {
         let send = await SLP.TokenType1.send({
@@ -209,6 +209,63 @@ sendId `String`. The txid of your sent tokens
     // returns
     // 84a4b2a1ec002a769e5cf055a56f485a4652442b0bb8cae06f3ac4ee1ac6b49b
 
+    // many-to-many
+    (async function() {
+      try {
+        let send = await SLP.TokenType1.send({
+          fundingAddress: [
+            "slptest:qq835u5srlcqwrtwt6xm4efwan30fxg9hcqag6fk03",
+            "slptest:qrj9k49drcsk4al8wxn53hnkfvts6ew5jvv32952nh"
+          ],
+          fundingWif: [
+            "cUCSrdhu7mCzx4sWqL6irqzprkofxPmLHYgkSnG2WaWVqJDXtWRS",
+            "cNVP2nTzUMFerfpjrTuDgoFGnKAfjZznKomknUVKQSdFHqK5cRc5"
+          ],
+          tokenReceiverAddress: [
+            "qp8u8lsax86msxmvy236az4q2aq26pe2ng5dfkjsx2",
+            "qqjdcjmqlenuas2qyj57n564s9rzushamcn9rg5ccl"
+          ],
+          bchChangeReceiverAddress:
+            "bchtest:qq835u5srlcqwrtwt6xm4efwan30fxg9hcmf0pnpav",
+          tokenId:
+            "47f4a3ecf16001d062852ecffac8d23cc2fce6816ea856b2ddc3638bae85cf98",
+          amount: [1, 1]
+        });
+        console.log(send);
+      } catch (err) {
+        console.log("ERROR: ", err);
+      }
+    })();
+    // returns
+    // c4b5b4c3536121f01705010ec7e4112ba05a45e151cc98a3e0378cd921a9f85f
+
+    // many-to-one
+    (async function() {
+      try {
+        let send = await SLP.TokenType1.send({
+          fundingAddress: [
+            "slptest:qq835u5srlcqwrtwt6xm4efwan30fxg9hcqag6fk03",
+            "slptest:qrj9k49drcsk4al8wxn53hnkfvts6ew5jvv32952nh"
+          ],
+          fundingWif: [
+            "cUCSrdhu7mCzx4sWqL6irqzprkofxPmLHYgkSnG2WaWVqJDXtWRS",
+            "cNVP2nTzUMFerfpjrTuDgoFGnKAfjZznKomknUVKQSdFHqK5cRc5"
+          ],
+          tokenReceiverAddress: "qrrw0wkvyn4yrssprcqjrwthfz0e0edlmyj7gms7kj",
+          bchChangeReceiverAddress:
+            "bchtest:qq835u5srlcqwrtwt6xm4efwan30fxg9hcmf0pnpav",
+          tokenId:
+            "47f4a3ecf16001d062852ecffac8d23cc2fce6816ea856b2ddc3638bae85cf98",
+          amount: 12
+        });
+        console.log(send);
+      } catch (err) {
+        console.log("ERROR: ", err);
+      }
+    })();
+    // returns
+    // d42b5e375025e4eece6437a060b7cc274bdc8143ccca51c290f2e76758c47a53
+
 ### `burn`
 
 Burn an amount of tokens for an address by tokenId
@@ -223,7 +280,7 @@ Burn an amount of tokens for an address by tokenId
 
 - `fundingAddress`: `String`. **required** slp address format
 - `fundingWif`: `String`. **required** compressed WIF format. Available via `SLP.HDNode.toWIF`
-- `bchChangeReceiverAddress` : `String.` **required** cash or slp address format
+- `bchChangeReceiverAddress` : `String.` **required** cash address format
 - `tokenId`: `String`. **required** tokenId of token to burn all of
 - `amount`: `Number`. **required** Amount of tokens to burn
 
