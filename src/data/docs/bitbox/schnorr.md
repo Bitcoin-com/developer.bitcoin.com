@@ -428,7 +428,7 @@ Verifies a partial signature `s_i` against the participant's public key `P_i`. T
     // other participants.
     // -----------------------------------------------------------------------
     for (let i = 0; i < publicData.pubKeys.length; i++) {
-      BITBOX.Schnorr.partialSigVerify(
+      BITBOX.Schnorr.partialSignatureVerify(
         signerSession,
         publicData.partialSignatures[i],
         publicData.nonceCombined,
