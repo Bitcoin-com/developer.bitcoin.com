@@ -1,6 +1,6 @@
 ---
 title: Schnorr
-icon: arrows-vertical
+icon: pen
 ordinal: 16
 ---
 
@@ -172,7 +172,7 @@ aggregatedSignature `Buffer`
       "03FAC2114C2FBB091527EB7C64ECB11F8021CB45E8E7809D3C0938E4B8C0E5F84B",
       "hex"
     )
-    const X = BITBOX.Schnorr.pubKeyCombine([publicKey1, publicKey2])
+    const X = BITBOX.Schnorr.publicKeyCombine([publicKey1, publicKey2])
     try {
       BITBOX.Schnorr.verify(X, message, aggregatedSignature)
       console.log("The signature is valid.")
