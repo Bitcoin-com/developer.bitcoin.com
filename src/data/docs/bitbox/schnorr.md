@@ -1,6 +1,6 @@
 ---
 title: Schnorr
-icon: arrows-vertical
+icon: pen
 ordinal: 16
 ---
 
