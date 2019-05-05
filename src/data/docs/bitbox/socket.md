@@ -1,7 +1,7 @@
 ---
 title: Socket
 icon: plug
-ordinal: 17
+ordinal: 18
 ---
 
 ### `constructor`
