@@ -190,11 +190,11 @@ Generate `ell` which is the hash over all public keys participating in a session
 
 #### Result
 
-publickKeyHash `Buffer`
+publicKeyHash `Buffer`
 
 #### Examples
 
-### `pubKeyCombine`
+### `publicKeyCombine`
 
 Creates the special rogue-key-resistant combined public key `P` by applying the MuSig coefficient to each public key `P_i` before adding them together.
 
@@ -260,7 +260,7 @@ partialSignature `BigInteger`
 
 #### Examples
 
-### `partialSigVerify`
+### `partialSignatureVerify`
 
 Verifies a partial signature `s_i` against the participant's public key `P_i`. Throws an `Error` if verification fails.
 
@@ -275,14 +275,14 @@ Verifies a partial signature `s_i` against the participant's public key `P_i`. T
 
 #### Examples
 
-### `partialSigCombine`
+### `partialSignaturesCombine`
 
-Combines multiple partial signatures into a Schnorr signature (s, R) that can be verified against the combined public key P.
+Combines multiple partial signatures into a Schnorr signature `(s, R)` that can be verified against the combined public key `P`.
 
 #### Arguments
 
 1.  nonceCombined. `Buffer`
-2.  partialSigs. Array of `BigInteger`s
+2.  partialSignatures. Array of `BigInteger`s
 
 #### Result
 
