@@ -190,11 +190,13 @@ Generate `ell` which is the hash over all public keys participating in a session
 
 #### Result
 
-publickKeyHash `Buffer`
+publicKeyHash `Buffer`
 
 #### Examples
 
-### `pubKeyCombine`
+    publicData.pubKeyHash = BITBOX.Schnorr.computeEll(publicData.pubKeys)
+
+### `publicKeyCombine`
 
 Creates the special rogue-key-resistant combined public key `P` by applying the MuSig coefficient to each public key `P_i` before adding them together.
 
@@ -208,6 +210,11 @@ Creates the special rogue-key-resistant combined public key `P` by applying the 
 X `Buffer`
 
 #### Examples
+
+    publicData.pubKeyCombined = BITBOX.Schnorr.publicKeyCombine(
+      publicData.pubKeys,
+      publicData.pubKeyHash
+    )
 
 ### `sessionInitialize`
 
@@ -228,6 +235,18 @@ session `Session`
 
 #### Examples
 
+    signerPrivateData.forEach((data, idx) => {
+      const sessionId = BITBOX.Crypto.randomBytes(32) // must never be reused between sessions!
+      data.session = BITBOX.Schnorr.sessionInitialize(
+        sessionId,
+        data.privateKey,
+        publicData.message,
+        publicData.pubKeyCombined,
+        publicData.pubKeyHash,
+        idx
+      )
+    })
+
 ### `sessionNonceCombine`
 
 Combines multiple nonces `R_i` into the combined nonce `R`.
@@ -242,6 +261,37 @@ Combines multiple nonces `R_i` into the combined nonce `R`.
 nonceCombined `Buffer`
 
 #### Examples
+
+    const signerSession = signerPrivateData[0].session
+
+    // -----------------------------------------------------------------------
+    // Step 3: Exchange commitments (communication round 1)
+    // The signers now exchange the commitments H(R_i). This is simulated here
+    // by copying the values from the private data to public data array.
+    // -----------------------------------------------------------------------
+    for (let i = 0; i < publicData.pubKeys.length; i++) {
+      publicData.commitments[i] = signerPrivateData[i].session.commitment
+    }
+
+    // -----------------------------------------------------------------------
+    // Step 4: Get nonces (communication round 2)
+    // Now that everybody has commited to the session, the nonces (R_i) can be
+    // exchanged. Again, this is simulated by copying.
+    // -----------------------------------------------------------------------
+    for (let i = 0; i < publicData.pubKeys.length; i++) {
+      publicData.nonces[i] = signerPrivateData[i].session.nonce
+    }
+
+    // -----------------------------------------------------------------------
+    // Step 5: Combine nonces
+    // The nonces can now be combined into R. Each participant should do this
+    // and keep track of whether the nonce was negated or not. This is needed
+    // for the later steps.
+    // -----------------------------------------------------------------------
+    publicData.nonceCombined = BITBOX.Schnorr.sessionNonceCombine(
+      signerSession,
+      publicData.nonces
+    )
 
 ### `partialSign`
 
@@ -260,7 +310,7 @@ partialSignature `BigInteger`
 
 #### Examples
 
-### `partialSigVerify`
+### `partialSignatureVerify`
 
 Verifies a partial signature `s_i` against the participant's public key `P_i`. Throws an `Error` if verification fails.
 
@@ -275,14 +325,14 @@ Verifies a partial signature `s_i` against the participant's public key `P_i`. T
 
 #### Examples
 
-### `partialSigCombine`
+### `partialSignaturesCombine`
 
-Combines multiple partial signatures into a Schnorr signature (s, R) that can be verified against the combined public key P.
+Combines multiple partial signatures into a Schnorr signature `(s, R)` that can be verified against the combined public key `P`.
 
 #### Arguments
 
 1.  nonceCombined. `Buffer`
-2.  partialSigs. Array of `BigInteger`s
+2.  partialSignatures. Array of `BigInteger`s
 
 #### Result
 
