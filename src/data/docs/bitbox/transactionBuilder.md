@@ -41,6 +41,16 @@ BITBOX supports the `SIGHASH_ALL`, `SIGHASH_NONE` and `SIGHASH_SINGLE` hash type
       // also has a DEFAULT_SEQUENCE of 0xffffffff
       transactionBuilder.DEFAULT_SEQUENCE
       // 4294967295
+      
+### `signatureAlgorithms`
+
+BITBOX supports the `ECDSA` and `SCHNORR` signature algorithms.
+
+#### Examples
+
+      transactionBuilder.signatureAlgorithms
+      // { ECDSA: 0,
+      //   SCHNORR: 1 }
 
 ### `addInput`
 
@@ -107,6 +117,7 @@ Sign transaction. It creates the unlocking script needed to spend an input. Each
 3.  redeemScript `Buffer`
 4.  hashType `Number`
 5.  originalAmount `Number`: satoshis in vin
+6.  signatureAlgorithm (optional) `Number`: Signature Algorithm (ECDSA/Schnorr)
 
 #### Examples
 
@@ -118,7 +129,7 @@ Sign transaction. It creates the unlocking script needed to spend an input. Each
       // empty redeemScript variable
       let redeemScript;
       // sign w/ keyPair
-      transactionBuilder.sign(0, keyPair, redeemScript, transactionBuilder.hashTypes.SIGHASH_ALL, originalAmount);
+      transactionBuilder.sign(0, keyPair, redeemScript, transactionBuilder.hashTypes.SIGHASH_ALL, originalAmount, transactionBuilder.signatureAlgorithms.SCHNORR);
 
 ### `build`
 
