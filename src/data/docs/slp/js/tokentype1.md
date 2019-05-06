@@ -1,7 +1,7 @@
 ---
 title: TokenType1
 icon: circle
-ordinal: 6
+ordinal: 7
 ---
 
 ### `create`
