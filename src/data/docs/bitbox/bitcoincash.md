@@ -177,9 +177,9 @@ Verify message
 
 #### Arguments
 
-1. address public cashaddr or legacy address which signed the message
-2. signature cryptographic signature
-3. message to verify
+1. address `String`: public cashaddr or legacy address which signed the message
+2. signature `String`: cryptographic signature
+3. message `String`: to verify
 
 #### Result
 
@@ -286,6 +286,7 @@ Encodes address and options as BIP21 uri
 
 1.  address `String`: cashaddr (w/ or w/out prefix) or legacy base58check encoded address
 2.  options `Object`: options such as amount, label, message etc
+3.  regtest `Boolean` **optional**
 
 #### Result
 
