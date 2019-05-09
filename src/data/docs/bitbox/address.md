@@ -465,7 +465,7 @@ changeAddress `String`: cashaddr encoded change address
 
 #### Examples
 
-      // generate 5 external change addresses for xpub6DTNmB7gWa8RtQAfmy8wSDikM5mky4fhsnqQd9AqoCaLcekqNgRZW5JCSXwXkLDkABHTD1qx7kqrbGzT6xBGfAvCJSj2rwvKWP8eZBR2EVA
+      // generate 5 mainnet external change addresses for xpub6DTNmB7gWa8RtQAfmy8wSDikM5mky4fhsnqQd9AqoCaLcekqNgRZW5JCSXwXkLDkABHTD1qx7kqrbGzT6xBGfAvCJSj2rwvKWP8eZBR2EVA
       let xpub = 'xpub6DTNmB7gWa8RtQAfmy8wSDikM5mky4fhsnqQd9AqoCaLcekqNgRZW5JCSXwXkLDkABHTD1qx7kqrbGzT6xBGfAvCJSj2rwvKWP8eZBR2EVA';
       for(let i = 0; i <= 4; i++) {
         console.log(BITBOX.Address.fromXPub(xpub, "0/" + i))
@@ -476,49 +476,53 @@ changeAddress `String`: cashaddr encoded change address
       // bitcoincash:qppgmuuwy07g0x39sx2z0x2u8e34tvfdxvy0c2jvx7
       // bitcoincash:qryj8x4s7vfsc864jm0xaak9qfe8qgk245y9ska57l
 
-      // generate 5 external change addresses for xpub6DLXtM9JjvtUTm6TngeSXZdeKfFqA1sLYoFQMTTXYYbwDw55eTy7uhconrzw8mW1zzmpMBYpQLpBPzRdSn9Hxrse5TTnpdtcoeXahkC6bPd
-      let xpub = 'xpub6DLXtM9JjvtUTm6TngeSXZdeKfFqA1sLYoFQMTTXYYbwDw55eTy7uhconrzw8mW1zzmpMBYpQLpBPzRdSn9Hxrse5TTnpdtcoeXahkC6bPd';
+      // generate 5 testnet external change addresses for tpubDCrnMSKwDMAbxg82yqDt97peMvftCXk3EfBb9WgZh27mPbHGkysU3TW7qX5AwydmnVQfaGeNhUR6okQ3dS5AJTP9gEP7jk2Wcj6Xntc6gNh
+      let xpub = 'tpubDCrnMSKwDMAbxg82yqDt97peMvftCXk3EfBb9WgZh27mPbHGkysU3TW7qX5AwydmnVQfaGeNhUR6okQ3dS5AJTP9gEP7jk2Wcj6Xntc6gNh';
       for(let i = 0; i <= 4; i++) {
         console.log(BITBOX.Address.fromXPub(xpub, "0/" + i))
       }
-      // bitcoincash:qpm05nr0fmxmyhlz0qermkad0zvsfsqu6ckv6e5tzr
-      // bitcoincash:qre28yd5msvsenn9qj5fwm3k3u00dty4ac739zhw2k
-      // bitcoincash:qp0utfskvcnsy2whkurk25x247jcdmexqyekzury66
-      // bitcoincash:qqzjwx6zdvhkwalzvnaprwk73me9szqvgspgu6shst
-      // bitcoincash:qzpcg6atgg36vrkwvklw9325nqzdcxd8c5dl5l6k79
+      // bchtest:qrth8470sc9scek9u0jj2d0349t62gxzdstw2jukl8
+      // bchtest:qpm56zc5re0nhms96r7p985aajthp0vxvg6e4ux3kc
+      // bchtest:qqtu3tf6yyd73ejhk3a2ylqynpl3mzzhwuzt299jfd
+      // bchtest:qzd7dvlnfukggjqsf5ju0qqwwltakfumjsck33js6m
+      // bchtest:qq322ataqeas4n0pdn4gz2sdereh5ae43ylk4qdvus
 
-      // generate 5 external change addresses for xpub6DLXtM9JjvtUV1i6tBdQ6RCwYHoUjzK2GL1BmXf4TW8QbFGWueMJrwRUsZntEUBfpqJACiid1PEPNbDVTRZxyGKp5k8KsHVg27nDR1Makdh
-      let xpub = 'xpub6DLXtM9JjvtUV1i6tBdQ6RCwYHoUjzK2GL1BmXf4TW8QbFGWueMJrwRUsZntEUBfpqJACiid1PEPNbDVTRZxyGKp5k8KsHVg27nDR1Makdh';
-      for(let i = 0; i <= 4; i++) {
-        console.log(BITBOX.Address.fromXPub(xpub, "0/" + i))
-      }
-      // bitcoincash:qrykz97x24tgz9nq29yyqcc98nqj8k2n45jg57manf
-      // bitcoincash:qp8e7rrajx3wscqr6zfu3mvnlkmt0s4dhqldpqscym
-      // bitcoincash:qrw6fhr6nl5lh9srh9a9sr890r3zzsgt7sqh7tkyve
-      // bitcoincash:qqj9ctz9sex3xjapgm8hv5dkpfmf7aalrs2z2jprm2
-      // bitcoincash:qzytws9yvyqgsx3smfyy3yaq5xw9jt0xsy7kpnqpth
+### `fromXPriv`
 
-      // generate 5 external change addresses for xpub6DLXtM9JjvtUa9tPGP5kYXnGGeo3dnBuhUZP7QmE97hKxM1EizDgFZgVe8M5Nv49z5ytpAnwwNcc16wChnecpj3KyFPkufbi9uZaj5ALCGm
-      let xpub = 'xpub6DLXtM9JjvtUa9tPGP5kYXnGGeo3dnBuhUZP7QmE97hKxM1EizDgFZgVe8M5Nv49z5ytpAnwwNcc16wChnecpj3KyFPkufbi9uZaj5ALCGm';
-      for(let i = 0; i <= 4; i++) {
-        console.log(BITBOX.Address.fromXPub(xpub, "0/" + i))
-      }
-      // bitcoincash:qp9e7kd6pgy7pek2vemfspm6vc544xzm2yjfezst3q
-      // bitcoincash:qqt9g8ggmd5kxccvuye0nv7enj6syqqxyymnrhgkep
-      // bitcoincash:qqr8qf8qj7yxgtaydkt5xp0lw4fnu56jmy7q5k9sat
-      // bitcoincash:qzaf69rhsnzfjtg0ydw2qlqeyhpnsfzz4ghr5jkrzy
-      // bitcoincash:qrwjhc0dujvjtrl0e0zc8tkhwxfvljvamc6e0kcj3w
+Generates an address for an extended private key (xpriv)
 
-      // generate 5 external change addresses for xpub6DLXtM9JjvtUkiaWLnfiSHjW51vspUW7GDmkML17w2qoEeGztYYSmotgXJpwmoNCc6QbdCXWySEWki7jURV46hmN6MXwem1aNo3gxhkjJPj
-      let xpub = 'xpub6DLXtM9JjvtUkiaWLnfiSHjW51vspUW7GDmkML17w2qoEeGztYYSmotgXJpwmoNCc6QbdCXWySEWki7jURV46hmN6MXwem1aNo3gxhkjJPj';
+#### Arguments
+
+1.  xpriv `String`: extended private key to be used
+2.  path `String` **optional**: derivation path of change address. Default is `0'/0`
+
+#### Result
+
+changeAddress `String`: cashaddr encoded change address
+
+#### Examples
+
+      // generate 5 mainnet addresses for xprvA2WwD9mk1Qd3rMjQ4ZRHvCWCj47jbXjY9Nf7npNRBmGUJngpRAvJzNpNgt7h2dDQ5huG7yFwYfz4PFJDPzkqfvBNPHnaio4yAbbUuv3EBnL
+      let xpriv = 'xprvA2WwD9mk1Qd3rMjQ4ZRHvCWCj47jbXjY9Nf7npNRBmGUJngpRAvJzNpNgt7h2dDQ5huG7yFwYfz4PFJDPzkqfvBNPHnaio4yAbbUuv3EBnL';
       for(let i = 0; i <= 4; i++) {
-        console.log(BITBOX.Address.fromXPub(xpub, "0/" + i))
+        console.log(BITBOX.Address.fromXPriv(xpriv, "0'/" + i))
       }
-      // bitcoincash:qzrfwca03gzgwgxsjcxfphuckztc9squ9vmws99sr7
-      // bitcoincash:qrr0ykn2xwy80hl0p7vnm44l5sc43x5245nlrfc74c
-      // bitcoincash:qr3zlplv2w0t3s92twldjk432f45agls0qj35tyqtc
-      // bitcoincash:qqxf90phz7ysrj53tymq6qvmquk0kd04wvjf6s83nv
-      // bitcoincash:qrygumzwu7anzppyzcraa2tal3vlzc7p3smyh5cdth
+      // bitcoincash:qpmcs78tpfvfphhedcczydaddu5wmcx0xvrwf3fjph
+      // bitcoincash:qppfr7fu4dzxguen85rjwa6ress3sl839qyudganxj
+      // bitcoincash:qpuaaaseccxyjj04d2l3qv4vd2wxj6gtwvnfe3ckh8
+      // bitcoincash:qp46n7a53jvkarp9ps595fjv8czfd045v5zk4xhspm
+      // bitcoincash:qprjdqx7cnrac4uemp2fza08k875wsgzfcapk76n9n
+
+      // generate 5 testnet addresses for tprv8jBszV65QgT8TAxvj8Go5r8C3BXwq3mYUvaEfEnsfjkx6PRuQYG4W8Bpc4HM2zbiT9S384shi2Zrr6qxXD6nUySxuvztP9o25hLuMcDvMYD
+      let xpriv = 'tprv8jBszV65QgT8TAxvj8Go5r8C3BXwq3mYUvaEfEnsfjkx6PRuQYG4W8Bpc4HM2zbiT9S384shi2Zrr6qxXD6nUySxuvztP9o25hLuMcDvMYD';
+      for(let i = 0; i <= 4; i++) {
+        console.log(BITBOX.Address.fromXPub(xpriv, "0'/" + i))
+      }
+      // bchtest:qpmcs78tpfvfphhedcczydaddu5wmcx0xv8udkt9xt
+      // bchtest:qppfr7fu4dzxguen85rjwa6ress3sl839qqwf0lypw
+      // bchtest:qpuaaaseccxyjj04d2l3qv4vd2wxj6gtwvhmak6psm
+      // bchtest:qp46n7a53jvkarp9ps595fjv8czfd045v5xy3p48x8
+      // bchtest:qprjdqx7cnrac4uemp2fza08k875wsgzfcenjecyz0
 
 ### `fromOutputScript`
 
