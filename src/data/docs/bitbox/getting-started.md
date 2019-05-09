@@ -26,10 +26,5 @@ To use inside a command line script or client/server app:
 
 Use the [scaffold generator](./new), or manually import BITBOX into your code:
 
-    // require syntax
-    let BITBOX = require('bitbox-sdk').BITBOX;
-    let bitbox = new BITBOX();
-
-    // import syntax
-    import { BITBOX } from "bitbox-sdk";
-    let bitbox = new BITBOX();
+    let BITBOXSDK = require('bitbox-sdk');
+    let BITBOX = new BITBOXSDK();
