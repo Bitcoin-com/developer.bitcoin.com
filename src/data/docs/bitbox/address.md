@@ -457,7 +457,7 @@ Generates an address for an extended public key (xpub)
 #### Arguments
 
 1.  xpub `String`: extended public key to be used
-2.  path `String` `optional`: derivation path of external change address. Default is `0/0`
+2.  path `String` **optional**: derivation path of external change address. Default is `0/0`
 
 #### Result
 
@@ -468,7 +468,7 @@ changeAddress `String`: cashaddr encoded change address
       // generate 5 external change addresses for xpub6DTNmB7gWa8RtQAfmy8wSDikM5mky4fhsnqQd9AqoCaLcekqNgRZW5JCSXwXkLDkABHTD1qx7kqrbGzT6xBGfAvCJSj2rwvKWP8eZBR2EVA
       let xpub = 'xpub6DTNmB7gWa8RtQAfmy8wSDikM5mky4fhsnqQd9AqoCaLcekqNgRZW5JCSXwXkLDkABHTD1qx7kqrbGzT6xBGfAvCJSj2rwvKWP8eZBR2EVA';
       for(let i = 0; i <= 4; i++) {
-        BITBOX.Address.fromXPub(xpub, "0/" + i)
+        console.log(BITBOX.Address.fromXPub(xpub, "0/" + i))
       }
       // bitcoincash:qptnmya5wkly7xf97wm5ak23yqdsz3l2cyj7k9vyyh
       // bitcoincash:qrr2suh9yjsrkl2qp3p967uhfg6u0r6xxsn9h5vuvr
@@ -479,7 +479,7 @@ changeAddress `String`: cashaddr encoded change address
       // generate 5 external change addresses for xpub6DLXtM9JjvtUTm6TngeSXZdeKfFqA1sLYoFQMTTXYYbwDw55eTy7uhconrzw8mW1zzmpMBYpQLpBPzRdSn9Hxrse5TTnpdtcoeXahkC6bPd
       let xpub = 'xpub6DLXtM9JjvtUTm6TngeSXZdeKfFqA1sLYoFQMTTXYYbwDw55eTy7uhconrzw8mW1zzmpMBYpQLpBPzRdSn9Hxrse5TTnpdtcoeXahkC6bPd';
       for(let i = 0; i <= 4; i++) {
-        BITBOX.Address.fromXPub(xpub, "0/" + i)
+        console.log(BITBOX.Address.fromXPub(xpub, "0/" + i))
       }
       // bitcoincash:qpm05nr0fmxmyhlz0qermkad0zvsfsqu6ckv6e5tzr
       // bitcoincash:qre28yd5msvsenn9qj5fwm3k3u00dty4ac739zhw2k
@@ -490,7 +490,7 @@ changeAddress `String`: cashaddr encoded change address
       // generate 5 external change addresses for xpub6DLXtM9JjvtUV1i6tBdQ6RCwYHoUjzK2GL1BmXf4TW8QbFGWueMJrwRUsZntEUBfpqJACiid1PEPNbDVTRZxyGKp5k8KsHVg27nDR1Makdh
       let xpub = 'xpub6DLXtM9JjvtUV1i6tBdQ6RCwYHoUjzK2GL1BmXf4TW8QbFGWueMJrwRUsZntEUBfpqJACiid1PEPNbDVTRZxyGKp5k8KsHVg27nDR1Makdh';
       for(let i = 0; i <= 4; i++) {
-        BITBOX.Address.fromXPub(xpub, "0/" + i)
+        console.log(BITBOX.Address.fromXPub(xpub, "0/" + i))
       }
       // bitcoincash:qrykz97x24tgz9nq29yyqcc98nqj8k2n45jg57manf
       // bitcoincash:qp8e7rrajx3wscqr6zfu3mvnlkmt0s4dhqldpqscym
@@ -501,7 +501,7 @@ changeAddress `String`: cashaddr encoded change address
       // generate 5 external change addresses for xpub6DLXtM9JjvtUa9tPGP5kYXnGGeo3dnBuhUZP7QmE97hKxM1EizDgFZgVe8M5Nv49z5ytpAnwwNcc16wChnecpj3KyFPkufbi9uZaj5ALCGm
       let xpub = 'xpub6DLXtM9JjvtUa9tPGP5kYXnGGeo3dnBuhUZP7QmE97hKxM1EizDgFZgVe8M5Nv49z5ytpAnwwNcc16wChnecpj3KyFPkufbi9uZaj5ALCGm';
       for(let i = 0; i <= 4; i++) {
-        BITBOX.Address.fromXPub(xpub, "0/" + i)
+        console.log(BITBOX.Address.fromXPub(xpub, "0/" + i))
       }
       // bitcoincash:qp9e7kd6pgy7pek2vemfspm6vc544xzm2yjfezst3q
       // bitcoincash:qqt9g8ggmd5kxccvuye0nv7enj6syqqxyymnrhgkep
@@ -512,7 +512,7 @@ changeAddress `String`: cashaddr encoded change address
       // generate 5 external change addresses for xpub6DLXtM9JjvtUkiaWLnfiSHjW51vspUW7GDmkML17w2qoEeGztYYSmotgXJpwmoNCc6QbdCXWySEWki7jURV46hmN6MXwem1aNo3gxhkjJPj
       let xpub = 'xpub6DLXtM9JjvtUkiaWLnfiSHjW51vspUW7GDmkML17w2qoEeGztYYSmotgXJpwmoNCc6QbdCXWySEWki7jURV46hmN6MXwem1aNo3gxhkjJPj';
       for(let i = 0; i <= 4; i++) {
-        BITBOX.Address.fromXPub(xpub, "0/" + i)
+        console.log(BITBOX.Address.fromXPub(xpub, "0/" + i))
       }
       // bitcoincash:qzrfwca03gzgwgxsjcxfphuckztc9squ9vmws99sr7
       // bitcoincash:qrr0ykn2xwy80hl0p7vnm44l5sc43x5245nlrfc74c
@@ -574,6 +574,107 @@ isHash160 `Boolean`: true/false if address is hash160
       BITBOX.Address.isHash160(notHash160Address);
       // false
 
+### `legacyToHash160`
+
+Convert legacy address to hash160.
+
+#### Arguments
+
+1.  address `String`: legacy address
+
+#### Result
+
+hash160 `string`: hash160
+
+#### Examples
+
+    // legacy mainnet p2pkh
+    BITBOX.Address.legacyToHash160("18xHZ8g2feo4ceejGpvzHkvXT79fi2ZdTG")
+    // 573d93b475be4f1925f3b74ed951201b0147eac1
+
+    // legacy mainnet p2sh
+    BITBOX.Address.legacyToHash160("3DA6RBcFgLwLTpnF6BRAee8w6a9H6JQLCm")
+    // 7dc85da64d1d93ef01ef62e0221c02f512e3942f
+
+    // legacy testnet p2pkh
+    BITBOX.Address.legacyToHash160("mhTg9sgNgvAGfmJs192oUzQWqAXHH5nqLE")
+    // 155187a3283b08b30519db50bc23bbba9f4b6657
+
+### `cashToHash160`
+
+Convert cash address to hash160.
+
+#### Arguments
+
+1.  address `String`: cash address
+
+#### Result
+
+hash160 `string`: hash160
+
+#### Examples
+
+    // cash address mainnet p2pkh
+    BITBOX.Address.cashToHash160("bitcoincash:qptnmya5wkly7xf97wm5ak23yqdsz3l2cyj7k9vyyh")
+    // 573d93b475be4f1925f3b74ed951201b0147eac1
+
+    // cash address mainnet p2sh
+    BITBOX.Address.cashToHash160("bitcoincash:pp7ushdxf5we8mcpaa3wqgsuqt639cu59ur5xu5fug")
+    // 7dc85da64d1d93ef01ef62e0221c02f512e3942f
+
+    // cash address testnet p2pkh
+    BITBOX.Address.cashToHash160("bchtest:qq24rpar9qas3vc9r8d4p0prhwaf7jmx2u22nzt946")
+    // 155187a3283b08b30519db50bc23bbba9f4b6657
+
+### `hash160ToLegacy`
+
+Convert hash160 to legacy address.
+
+#### Arguments
+
+1.  hash160 `String`: hash160
+2.  network `Object` **optional**
+
+#### Result
+
+legacyAddress `string`: the address in legacy format
+
+#### Examples
+
+    // legacy mainnet p2pkh
+    BITBOX.Address.hash160ToLegacy("573d93b475be4f1925f3b74ed951201b0147eac1")
+    // 18xHZ8g2feo4ceejGpvzHkvXT79fi2ZdTG
+
+    // legacy mainnet p2sh
+    BITBOX.Address.hash160ToLegacy("7dc85da64d1d93ef01ef62e0221c02f512e3942f", 0x05)
+    // 3DA6RBcFgLwLTpnF6BRAee8w6a9H6JQLCm
+
+    // legacy testnet p2pkh
+    BITBOX.Address.hash160ToLegacy("155187a3283b08b30519db50bc23bbba9f4b6657", 0x6f)
+    // mhTg9sgNgvAGfmJs192oUzQWqAXHH5nqLE
+
+### `hash160ToCash`
+
+Convert hash160 to cash address.
+
+#### Arguments
+
+1.  hash160 `String`: hash160
+2.  network `Object` **optional**
+
+#### Result
+
+cashAddress `string`: the address in cash format
+
+#### Examples
+
+    BITBOX.Address.hash160ToCash("573d93b475be4f1925f3b74ed951201b0147eac1")
+    'bitcoincash:qptnmya5wkly7xf97wm5ak23yqdsz3l2cyj7k9vyyh'
+    BITBOX.Address.hash160ToCash("7dc85da64d1d93ef01ef62e0221c02f512e3942f", 0x05)
+    'bitcoincash:pp7ushdxf5we8mcpaa3wqgsuqt639cu59ur5xu5fug'
+    BITBOX.Address.hash160ToCash("155187a3283b08b30519db50bc23bbba9f4b6657", 0x6f)
+    'bchtest:qq24rpar9qas3vc9r8d4p0prhwaf7jmx2u22nzt946'
+
 ### `details`
 
 Return details about an address including balance.
@@ -594,7 +695,7 @@ Return details about an address including balance.
 
     (async () => {
       try {
-        let details = await BITBOX.Address.details(['1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA']);
+        let details = await BITBOX.Address.details('1BFHGm4HzqgXXyNX8n7DsQno5DAC4iLMRA');
         console.log(details)
       } catch(error) {
        console.error(error)
@@ -873,7 +974,7 @@ Returns decoded transactions for an address
 
     (async () => {
       try {
-        let transaction = await BITBOX.Address.transactions(['bitcoincash:qz7teqlcltdhqjn2an8nspu7g2x6g3d3rcq8nk4nzs']);
+        let transaction = await BITBOX.Address.transactions('bitcoincash:qz7teqlcltdhqjn2an8nspu7g2x6g3d3rcq8nk4nzs');
         console.log(transaction);
       } catch(error) {
        console.error(error)
