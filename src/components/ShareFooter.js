@@ -76,9 +76,11 @@ class ShareFooter extends React.Component<Props> {
     om.async = true
     document.body.appendChild(om)
 
-    if (window.omv8lwzo6nqacmgnulutqp) {
-      window.omv8lwzo6nqacmgnulutqp.reset()
-    }
+    setTimeout(() => {
+      if (window.omv8lwzo6nqacmgnulutqp) {
+        window.omv8lwzo6nqacmgnulutqp.reset()
+      }
+    }, 1000)
 
     // Keep track of the script tag
     this.scriptTag = om
