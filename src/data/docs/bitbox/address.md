@@ -692,8 +692,8 @@ Return details about an address including balance.
 #### Result
 
 - details:
-  - `Object`: containing details about the single address.
-  - `Array`: Array of Objects with details about addresses.
+  - `Promise<AddressDetailsResult>`: containing details about the single address.
+  - `Promise<AddressDetailsResult[]>`: Array of Objects with details about addresses.
 
 #### Examples
 
@@ -785,10 +785,8 @@ Return list of uxto for address. This includes confirmed and unconfirmed utxos.
 #### Result
 
 - utxo (2 formats based on the argument format):
-  - utxo `Object`: containing `utxo` array of utxos, plus `legacyAddress`,
-    `cashAddress` and `scriptPubKey` properties.
-  - utxos `Array`: Array of utxo Objects. <br>
-    Each utxo `object` contains the following keys: `txid` as the transaction ID where that utxo appeared, `vout`: the index of this utxo in the list of outputs, `amount`: the amount sent to that utxo in BCH (decimal number, `satoshis`: the amount sent to that utxo in satoshis (1 satoshi = 0.00000001 BCH), `height`: the block in which the transaction is stored, `confirmations`: the number of confirmations (which is equal to current block height - `height`). For unconfirmed transactions, `confirmations` = 0 and the `height` key is replaced by a `ts` key with the time stamp of when the transaction was received in the mempool (Unix timestamp based on seconds since standard epoch of 1/1/1970).
+  - utxo `Promise<AddressUtxoResult>`
+  - utxos `Promise<AddressUtxoResult[]>`
 
 #### Examples
 
@@ -881,9 +879,9 @@ Return list of unconfirmed transactions for address
 #### Result
 
 - unconfirmed:
-  - utxo `Object`: containing `utxo` array of utxos, plus `legacyAddress` and
+  - utxo `Promise<AddressUnconfirmedResult>`: containing `utxo` array of utxos, plus `legacyAddress` and
     `cashAddress` properties.
-  - utxos `Array`: Array of utxo Objects.
+  - utxos `Promise<AddressUnconfirmedResult[]>`: Array of utxo Objects.
 
 #### Examples
 
@@ -1204,3 +1202,55 @@ Returns decoded transactions for an address
     //     "currentPage": 0
     //   }
     // ]
+
+## Interfaces
+
+### AddressDetailsResult
+
+    {
+      balance: number
+      balanceSat: number
+      totalReceived: number
+      totalReceivedSat: number
+      totalSent: number
+      totalSentSat: number
+      unconfirmedBalance: number
+      unconfirmedBalanceSat: number
+      unconfirmedTxApperances: number
+      txApperances: number
+      transactions: string[]
+      legacyAddress: string
+      cashAddress: string
+    }
+
+### AddressUtxoResult
+
+    {
+      legacyAddress: string
+      cashAddress: string
+      scriptPubKey: string
+      utxos: [
+        {
+          txid: string
+          vout: number
+          amount: number
+          satoshis: number
+          height: number
+          confirmations: number
+        }
+      ]
+    }
+
+### AddressUnconfirmedResult
+
+    {
+      txid: string
+      vout: number
+      scriptPubKey: string
+      amount: number
+      satoshis: number
+      confirmations: number
+      ts: number
+      legacyAddress: string
+      cashAddress: string
+    }

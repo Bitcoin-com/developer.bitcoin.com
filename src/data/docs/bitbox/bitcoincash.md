@@ -159,7 +159,7 @@ Sign message with private key
 
 #### Result
 
-signature `string`: cryptographic signature
+signature `String`: cryptographic signature
 
 #### Examples
 
@@ -183,7 +183,7 @@ Verify message
 
 #### Result
 
-isVerified `boolean`: if message is verified or not
+isVerified `Boolean`: if message is verified or not
 
 #### Examples
 
@@ -247,7 +247,7 @@ Decodes base58Check encoded string to hex
 
 #### Result
 
-hex `string`: hex encoded string
+hex `String`: hex encoded string
 
 #### Examples
 
@@ -285,12 +285,12 @@ Encodes address and options as BIP21 uri
 #### Arguments
 
 1.  address `String`: cashaddr (w/ or w/out prefix) or legacy base58check encoded address
-2.  options `Object`: options such as amount, label, message etc
+2.  options `EncodeBIP21Options`: options such as amount, label, message etc
 3.  regtest `Boolean` **optional**
 
 #### Result
 
-bip21 `string`: bip21 encoded uri
+bip21 `String`: bip21 encoded uri
 
 #### Examples
 
@@ -331,7 +331,7 @@ Decodes BIP21 uri
 
 #### Result
 
-results `Object`: decoded bip21 uri
+results `BIP21Object`: decoded bip21 uri
 
 #### Examples
 
@@ -364,8 +364,8 @@ Get byte count of transaction
 
 #### Arguments
 
-1.  inputs `Object`: object w/ keys describing input types and counts. 'MULTISIG\-P2SH' and 'P2PKH'. "MULTISIG\-P2SH" also should include the required and total number of signatures. EX: "MULTISIG\-P2SH:2\-4"
-2.  outputs `Object`: object w/ keys describing output types and counts. 'P2SH' and 'P2PKH'
+1.  inputs `ByteCountInput`: object w/ keys describing input types and counts. 'MULTISIG\-P2SH' and 'P2PKH'. "MULTISIG\-P2SH" also should include the required and total number of signatures. EX: "MULTISIG\-P2SH:2\-4"
+2.  outputs `ByteCountOutput`: object w/ keys describing output types and counts. 'P2SH' and 'P2PKH'
 
 #### Result
 
@@ -497,3 +497,33 @@ BITBOX.BitcoinCash.decryptBIP38(
 )
 // cSx7KzdH9EcvDEireu2WYpGnXdFYpta7sJUNt5kVCJgA7kcAU8Gm
 ```
+
+## Interfaces
+
+### EncodeBIP21Options
+
+    {
+      amount?: number
+      label?: string
+      message?: string
+    }
+
+### BIP21Object
+
+    {
+      address: string
+      options?: EncodeBIP21Options
+    }
+
+### ByteCountInput
+
+    {
+      P2PKH?: number
+    }
+
+### ByteCountOutput
+
+    {
+      P2PKH?: number
+      P2SH?: number
+    }
