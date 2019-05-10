@@ -17,7 +17,7 @@ Create HDNode from Seed Buffer.
 
 #### Result
 
-HDNode HDNode
+HDNode `HDNode`
 
 #### Examples
 
@@ -43,11 +43,12 @@ Derive [non hardened](https://developer.bitcoin.com/mastering-bitcoin-cash/3-key
 
 #### Arguments
 
-1.  num `number`: number of child node. Ex: 0
+1.  hdnode `HDNode`
+2.  num `number`: number of child node. Ex: 0
 
 #### Result
 
-HDNode HDNode
+HDNode `HDNode`
 
 #### Examples
 
@@ -66,11 +67,12 @@ Derive [hardened](https://developer.bitcoin.com/mastering-bitcoin-cash/3-keys-ad
 
 #### Arguments
 
-1.  num `number`: number of child node. Ex: 0
+1.  hdnode `HDNode`
+2.  num `number`: number of child node. Ex: 0
 
 #### Result
 
-HDNode HDNode
+HDNode `HDNode`
 
 #### Examples
 
@@ -89,11 +91,12 @@ Derive child HDNode from path
 
 #### Arguments
 
-1.  path `string`: path of child hd node. Ex: "m/44'/145'/0'"
+1.  hdnode `HDNode`
+2.  path `string`: path of child hd node. Ex: "m/44'/145'/0'"
 
 #### Result
 
-HDNode HDNode
+HDNode `HDNode`
 
 #### Examples
 
@@ -112,7 +115,7 @@ Get legacy address of HDNode
 
 #### Arguments
 
-1.  hdNode: HDNode
+1.  hdnode `HDNode`
 
 #### Result
 
@@ -148,8 +151,8 @@ Get cash address of HDNode
 
 #### Arguments
 
-1.  hdNode: HDNode
-2.  regtest `boolean` optional: return regtest address
+1.  hdnode `HDNode`
+2.  regtest `boolean` **optional**: return regtest address
 
 #### Result
 
@@ -185,7 +188,7 @@ Get private key in wallet import format (WIF) of HDNode
 
 #### Arguments
 
-1.  hdNode: HDNode
+1.  hdnode `HDNode`
 
 #### Result
 
@@ -221,7 +224,7 @@ Get [extended](https://developer.bitcoin.com/mastering-bitcoin-cash/3-keys-addre
 
 #### Arguments
 
-1.  hdNode: HDNode
+1.  hdnode `HDNode`
 
 #### Result
 
@@ -257,7 +260,7 @@ Get [extended](https://developer.bitcoin.com/mastering-bitcoin-cash/3-keys-addre
 
 #### Arguments
 
-1.  hdNode: HDNode
+1.  hdnode `HDNode`
 
 #### Result
 
@@ -293,7 +296,7 @@ Get the ECPair of an HDNode
 
 #### Arguments
 
-1.  hdNode: HDNode
+1.  hdnode `HDNode`
 
 #### Result
 
@@ -320,7 +323,6 @@ keyPair `ECPair`: ECPair of an HDNode
       let hdNode = BITBOX.HDNode.fromSeed(seedBuffer);
       // create public key buffer from HDNode
       BITBOX.HDNode.toKeyPair(hdNode);
-      //
 
 ### `toPublicKey`
 
@@ -328,7 +330,7 @@ Get the public key of an HDNode as a buffer
 
 #### Arguments
 
-1.  hdNode: HDNode
+1.  hdnode `HDNode`
 
 #### Result
 
@@ -344,7 +346,7 @@ publicKeyBuffer `Buffer`: public key of HDNode as a buffer
       let hdNode = BITBOX.HDNode.fromSeed(rootSeed);
       // create public key buffer from HDNode
       BITBOX.HDNode.toPublicKey(hdNode);
-      //
+      // <Buffer 03 86 d6 d3 db ec 1a 93 8c 2c a2 63 c9 79 8f eb e9 16 09 c5 a2 9b 07 65 c4 79 1f d9 0f fa 4d 27 20>
 
       // generate entropy
       let entropy = BITBOX.Crypto.randomBytes(32);
@@ -356,7 +358,7 @@ publicKeyBuffer `Buffer`: public key of HDNode as a buffer
       let hdNode = BITBOX.HDNode.fromSeed(seedBuffer);
       // create public key buffer from HDNode
       BITBOX.HDNode.toPublicKey(hdNode);
-      //
+      // <Buffer 02 d2 26 74 6e 78 03 ac 11 e0 96 c6 24 de e8 dd 62 52 e7 8e 51 56 8a c1 18 62 aa 2a 72 50 1d ea 7d>
 
 ### `toIdentifier`
 
@@ -376,21 +378,21 @@ identifier `string`
       let xpub = 'xpub6DWfGUo4cjC8oWmgZdpyFMH6v3oeyADfdUPhsehzn5jX44zpazivha3JxUtkcCvBEB1c6DGaiUmpyz2m1DRfGDEVZ5VxLLW2UNEbZ5iTRvi';
       let node = BITBOX.HDNode.fromXPub(xpub);
       BITBOX.HDNode.toIdentifier(node);
-      //
+      // <Buffer cd d4 84 1d 2e 96 bf bf f7 9c d1 f4 a6 75 22 1c 7f 67 88 9c>
       // the same as if we hash160ed it's publicKey
       let publicKeyBuffer = BITBOX.HDNode.toPublicKey(node);
       BITBOX.Crypto.hash160(publicKeyBuffer);
-      //
+      // <Buffer cd d4 84 1d 2e 96 bf bf f7 9c d1 f4 a6 75 22 1c 7f 67 88 9c>
 
       // testnet
       let xpub = 'tpubDCxmZ3qLVVphg6NpsnAjQFqDPwr9HYqSgoAcUYAfqSgo32dL6NA8QXqWsS6XTjoGggohZKvujsAv2F2ugej9qfUYau2jSUB4JaYnfMsx3MJ';
       let node = BITBOX.HDNode.fromXPub(xpub);
       BITBOX.HDNode.toIdentifier(node);
-      //
+      // <Buffer e1 8e 20 e3 f8 f1 c0 53 e6 1f 9e 3a 58 8e 71 f5 0b 8d 2d c4>
       // the same as if we hash160ed it's publicKey
       let publicKeyBuffer = BITBOX.HDNode.toPublicKey(node);
       BITBOX.Crypto.hash160(publicKeyBuffer);
-      //
+      // <Buffer e1 8e 20 e3 f8 f1 c0 53 e6 1f 9e 3a 58 8e 71 f5 0b 8d 2d c4>
 
 ### `fromXPriv`
 
@@ -398,7 +400,7 @@ Generate HDNode from extended private key
 
 #### Arguments
 
-1.  xpriv: extended private key
+1.  xpriv `string`: extended private key
 
 #### Result
 
@@ -418,7 +420,7 @@ Generate HDNode from extended public key
 
 #### Arguments
 
-1.  xpub: extended public key
+1.  xpub `string`: extended public key
 
 #### Result
 
@@ -519,7 +521,7 @@ Sign 32 byte hash encoded as a buffer
 
 #### Result
 
-signature `Object`
+signature `ECSignature`
 
 #### Examples
 
@@ -549,7 +551,7 @@ Verify signed 32 byte hash encoded as a buffer
 
 1.  hdnode `HDNode`
 2.  buffer `Buffer`
-3.  signature `Object`
+3.  signature `ECSignature`
 
 #### Result
 
@@ -595,7 +597,7 @@ Create [BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki#th
 
 #### Arguments
 
-1.  hdNodes: Array of HDNodes
+1.  hdNodes `HDNode[]`
 
 #### Result
 
