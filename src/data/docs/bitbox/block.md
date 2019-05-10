@@ -11,8 +11,8 @@ Return details about a Block. Lookup the block with a block height.
 #### Arguments
 
 - blocks (required):
-  - `Number`: block height
-  - `Number[]` of Numbers: block heights
+  - `number`: block height
+  - `number[]` of Numbers: block heights
 
 #### Result
 
@@ -119,8 +119,8 @@ Return details about a Block. Lookup the block with a block hash.
 #### Arguments
 
 - hashes (required):
-  - `String`: block hash
-  - `String[]` of Strings: block hashes
+  - `string`: block hash
+  - `string[]` of Strings: block hashes
 
 #### Result
 

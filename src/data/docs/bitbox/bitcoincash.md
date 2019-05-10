@@ -10,11 +10,11 @@ Converting Bitcoin Cash units to satoshi units
 
 #### Arguments
 
-1.  bitcoinCash `Number`: unit to be converted
+1.  bitcoinCash `number`: unit to be converted
 
 #### Result
 
-satoshi `Number`: bitcoinCash unit converted to satoshis
+satoshi `number`: bitcoinCash unit converted to satoshis
 
 #### Examples
 
@@ -46,11 +46,11 @@ Converting satoshi units to Bitcoin Cash units
 
 #### Arguments
 
-1.  satoshi `Number`: unit to be converted
+1.  satoshi `number`: unit to be converted
 
 #### Result
 
-bitcoinCash `Number`: satoshi unit converted to Bitcoin Cash
+bitcoinCash `number`: satoshi unit converted to Bitcoin Cash
 
 #### Examples
 
@@ -82,11 +82,11 @@ Converting satoshi units to Bits denomination
 
 #### Arguments
 
-1.  satoshi `Number`: unit to be converted
+1.  satoshi `number`: unit to be converted
 
 #### Result
 
-bits `Number`: satoshi unit converted to Bits
+bits `number`: satoshi unit converted to Bits
 
 #### Examples
 
@@ -118,11 +118,11 @@ Converting bits units to satoshi denomination
 
 #### Arguments
 
-1.  bits `Number`: unit to be converted
+1.  bits `number`: unit to be converted
 
 #### Result
 
-satoshi `Number`: bits unit converted to satoshi
+satoshi `number`: bits unit converted to satoshi
 
 #### Examples
 
@@ -154,12 +154,12 @@ Sign message with private key
 
 #### Arguments
 
-1.  privateKeyWIF `String`: private key in wallet import format
-2.  message `String`: message to sign
+1.  privateKeyWIF `string`: private key in wallet import format
+2.  message `string`: message to sign
 
 #### Result
 
-signature `String`: cryptographic signature
+signature `string`: cryptographic signature
 
 #### Examples
 
@@ -177,13 +177,13 @@ Verify message
 
 #### Arguments
 
-1. address `String`: public cashaddr or legacy address which signed the message
-2. signature `String`: cryptographic signature
-3. message `String`: to verify
+1. address `string`: public cashaddr or legacy address which signed the message
+2. signature `string`: cryptographic signature
+3. message `string`: to verify
 
 #### Result
 
-isVerified `Boolean`: if message is verified or not
+isVerified `boolean`: if message is verified or not
 
 #### Examples
 
@@ -202,11 +202,11 @@ Encodes hex string as base58Check
 
 #### Arguments
 
-1.  hex `String`: hex encoded bytes to encode as base58check
+1.  hex `string`: hex encoded bytes to encode as base58check
 
 #### Result
 
-base58check `String`: base58check encoded string
+base58check `string`: base58check encoded string
 
 #### Examples
 
@@ -243,11 +243,11 @@ Decodes base58Check encoded string to hex
 
 #### Arguments
 
-1.  base58check `String`: base58check encoded string to decode to hex
+1.  base58check `string`: base58check encoded string to decode to hex
 
 #### Result
 
-hex `String`: hex encoded string
+hex `string`: hex encoded string
 
 #### Examples
 
@@ -284,13 +284,13 @@ Encodes address and options as BIP21 uri
 
 #### Arguments
 
-1.  address `String`: cashaddr (w/ or w/out prefix) or legacy base58check encoded address
+1.  address `string`: cashaddr (w/ or w/out prefix) or legacy base58check encoded address
 2.  options `EncodeBIP21Options`: options such as amount, label, message etc
-3.  regtest `Boolean` **optional**
+3.  regtest `boolean` **optional**
 
 #### Result
 
-bip21 `String`: bip21 encoded uri
+bip21 `string`: bip21 encoded uri
 
 #### Examples
 
@@ -327,7 +327,7 @@ Decodes BIP21 uri
 
 #### Arguments
 
-1.  bip21 `String`: bip21 encoded uri
+1.  bip21 `string`: bip21 encoded uri
 
 #### Result
 
@@ -369,7 +369,7 @@ Get byte count of transaction
 
 #### Result
 
-byteCount `Number`: number of bytes
+byteCount `number`: number of bytes
 
 #### Examples
 
@@ -439,12 +439,12 @@ BITBOX.BitcoinCash.getByteCount(inputs, outputs)
 
 #### Arguments
 
-1.  wif `String`: privkey WIF on mainnet or testnet
-2.  password `String`: password to encrypt wif with
+1.  wif `string`: privkey WIF on mainnet or testnet
+2.  password `string`: password to encrypt wif with
 
 #### Result
 
-encryptedKey `String`: privkey WIF encrypted w/ password
+encryptedKey `string`: privkey WIF encrypted w/ password
 
 #### Examples
 
@@ -470,13 +470,13 @@ BITBOX.BitcoinCash.encryptBIP38(
 
 #### Arguments
 
-1.  encryptedKey `String`: encrypted privkey WIF
-2.  password `String`: password to decrypt wif with
-3.  network `String`: mainnet or testnet. Default: mainnet
+1.  encryptedKey `string`: encrypted privkey WIF
+2.  password `string`: password to decrypt wif with
+3.  network `string`: mainnet or testnet. Default: mainnet
 
 #### Result
 
-wif `String`: decrypted privkey WIF on mainnet or testnet
+wif `string`: decrypted privkey WIF on mainnet or testnet
 
 #### Examples
 

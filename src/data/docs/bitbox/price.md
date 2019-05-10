@@ -10,7 +10,7 @@ Return current price of BCH in multiple currencies
 
 #### Arguments
 
-1.  currency `String` optional: Defaults to usd
+1.  currency `string` optional: Defaults to usd
 
 Valid currencies
 

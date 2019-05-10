@@ -16,7 +16,7 @@ Return a JSON object representing the serialized, hex-encoded transaction.
 
 #### URL Parameters
 
-1.  hex encoded `String` (required)
+1.  hex encoded `string` (required)
 
 #### Result
 
@@ -178,7 +178,7 @@ Decode a single hex-encoded script.
 
 #### URL Parameters
 
-1.  hex encoded `String` (required)
+1.  hex encoded `string` (required)
 
 #### Result
 
@@ -243,15 +243,15 @@ return the raw transaction data. If verbose is 'true', returns an Object with in
 
 #### URL Parameters
 
-1.  hex encoded txid `String` (required)
+1.  hex encoded txid `string` (required)
 
 #### Query Parameters
 
-1.  verbose `String` of value "true" optional. Default is false.
+1.  verbose `string` of value "true" optional. Default is false.
 
 #### Result
 
-`String` containing hex encoded transaction if _verbose_ is false. `Object` containing the decoded transaction data if _verbose_ is true.
+`string` containing hex encoded transaction if _verbose_ is false. `Object` containing the decoded transaction data if _verbose_ is true.
 
 #### Examples
 
@@ -322,11 +322,11 @@ Send single raw transactions to network.
 
 #### URL Parameters
 
-1.  hex `String`. (required)
+1.  hex `string`. (required)
 
 #### Result
 
-txids `String` containing the txid of the transaction
+txids `string` containing the txid of the transaction
 
 #### Examples
 

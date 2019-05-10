@@ -11,7 +11,7 @@ Return an Array of JSON objects representing the serialized, hex-encoded transac
 #### Arguments
 
 - hex (required):
-  - `String`: A hex encoded transaction
+  - `string`: A hex encoded transaction
   - `Array` of strings: Array with maximum of 20 transaction hex strings.
 
 #### Result
@@ -92,10 +92,10 @@ that is serialized, hex-encoded data for 'txid'.
 
 - txids (required):
 
-  - `String`: transaction ID
+  - `string`: transaction ID
   - `Array`: Array of strings of transaction IDs, with maximum of 20.
 
-- verbose `Boolean` (optional, default=false): If false, return a string,
+- verbose `boolean` (optional, default=false): If false, return a string,
   otherwise return a json object
 
 #### Examples
@@ -132,7 +132,7 @@ For bulk uploads, transactions must use different UTXOs.
 #### Arguments
 
 - hex (required):
-  - `String`: hex encoded string of the transaction to be broadcast
+  - `string`: hex encoded string of the transaction to be broadcast
   - `Array` of strings: each element is a hex encoded string
 
 #### Result

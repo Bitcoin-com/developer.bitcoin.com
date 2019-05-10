@@ -16,7 +16,7 @@ Details about a transaction
 
 #### URL Parameters
 
-1.  txid `String` required
+1.  txid `string` required
 
 #### Result
 

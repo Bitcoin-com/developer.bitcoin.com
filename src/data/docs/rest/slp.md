@@ -58,7 +58,7 @@ List details about single SLP token by tokenId
 
 #### URL Parameters
 
-1.  tokenId `String` (required)
+1.  tokenId `string` (required)
 
 #### Result
 
@@ -138,7 +138,7 @@ Convert an address to cash, legacy and simpleledger format
 
 #### URL Parameters
 
-1.  address `String` required. Can be in cash, legacy or simpleledger format
+1.  address `string` required. Can be in cash, legacy or simpleledger format
 
 #### Result
 
@@ -203,21 +203,21 @@ Note this endpoint is only live w/ a `NON_JS_FRAMEWORK` environment variable
 
 #### URL Parameters
 
-1.  fundingAddress `String` (required)
-2.  fundingWif `String` (required)
-3.  tokenReceiverAddress `String` (required)
-4.  batonReceiverAddress `String` (required)
-5.  bchChangeReceiverAddress `String` (required)
-6.  decimals `String` (required)
-7.  name `String` (required). This cannot have any spaces. It must be URL encoded
-8.  symbol `String` (required)
-9.  documentUri `String` (required)
-10. documentHash `String` (required)
-11. initialTokenQty `String` (required)
+1.  fundingAddress `string` (required)
+2.  fundingWif `string` (required)
+3.  tokenReceiverAddress `string` (required)
+4.  batonReceiverAddress `string` (required)
+5.  bchChangeReceiverAddress `string` (required)
+6.  decimals `string` (required)
+7.  name `string` (required). This cannot have any spaces. It must be URL encoded
+8.  symbol `string` (required)
+9.  documentUri `string` (required)
+10. documentHash `string` (required)
+11. initialTokenQty `string` (required)
 
 #### Result
 
-txid `String`
+txid `string`
 
 #### Examples
 
@@ -240,17 +240,17 @@ Note this endpoint is only live w/ a `NON_JS_FRAMEWORK` environment variable
 
 #### URL Parameters
 
-1.  fundingAddress `String` (required)
-2.  fundingWif `String` (required)
-3.  tokenReceiverAddress `String` (required)
-4.  batonReceiverAddress `String` (required)
-5.  bchChangeReceiverAddress `String` (required)
-6.  tokenId `String` (required)
-7.  additionalTokenQty `String` (required)
+1.  fundingAddress `string` (required)
+2.  fundingWif `string` (required)
+3.  tokenReceiverAddress `string` (required)
+4.  batonReceiverAddress `string` (required)
+5.  bchChangeReceiverAddress `string` (required)
+6.  tokenId `string` (required)
+7.  additionalTokenQty `string` (required)
 
 #### Result
 
-txid `String`
+txid `string`
 
 #### Examples
 
@@ -273,16 +273,16 @@ Note this endpoint is only live w/ a `NON_JS_FRAMEWORK` environment variable
 
 #### URL Parameters
 
-1.  fundingAddress `String` (required)
-2.  fundingWif `String` (required)
-3.  tokenReceiverAddress `String` (required)
-4.  bchChangeReceiverAddress `String` (required)
-5.  tokenId `String` (required)
-6.  amount`String` (required)
+1.  fundingAddress `string` (required)
+2.  fundingWif `string` (required)
+3.  tokenReceiverAddress `string` (required)
+4.  bchChangeReceiverAddress `string` (required)
+5.  tokenId `string` (required)
+6.  amount`string` (required)
 
 #### Result
 
-txid `String`
+txid `string`
 
 #### Examples
 
@@ -305,15 +305,15 @@ Note this endpoint is only live w/ a `NON_JS_FRAMEWORK` environment variable
 
 #### URL Parameters
 
-1.  fundingAddress `String` (required)
-2.  fundingWif `String` (required)
-3.  bchChangeReceiverAddress `String` (required)
-4.  tokenId `String` (required)
-5.  amount`String` (required)
+1.  fundingAddress `string` (required)
+2.  fundingWif `string` (required)
+3.  bchChangeReceiverAddress `string` (required)
+4.  tokenId `string` (required)
+5.  amount`string` (required)
 
 #### Result
 
-txid `String`
+txid `string`
 
 #### Examples
 
@@ -336,14 +336,14 @@ Note this endpoint is only live w/ a `NON_JS_FRAMEWORK` environment variable
 
 #### URL Parameters
 
-1.  fundingAddress `String` (required)
-2.  fundingWif `String` (required)
-3.  bchChangeReceiverAddress `String` (required)
-4.  tokenId `String` (required)
+1.  fundingAddress `string` (required)
+2.  fundingWif `string` (required)
+3.  bchChangeReceiverAddress `string` (required)
+4.  tokenId `string` (required)
 
 #### Result
 
-txid `String`
+txid `string`
 
 #### Examples
 
@@ -364,7 +364,7 @@ List all balances for tokenId
 
 #### URL Parameters
 
-1.  tokenId `String` (required)
+1.  tokenId `string` (required)
 
 #### Result
 
@@ -400,7 +400,7 @@ Stats for token by tokenId
 
 #### URL Parameters
 
-1.  tokenId `String` (required)
+1.  tokenId `string` (required)
 
 #### Result
 
@@ -438,8 +438,8 @@ SLP Transactions by tokenId and address
 
 #### URL Parameters
 
-1.  tokenId `String` (required)
-2.  address `String` (required)
+1.  tokenId `string` (required)
+2.  address `string` (required)
 
 #### Result
 

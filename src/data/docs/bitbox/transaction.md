@@ -13,7 +13,7 @@ Return details about a Transaction.
 #### Arguments
 
 - txids (required):
-  - `String`: transaction ID
+  - `string`: transaction ID
   - `Array` of strings: collection of transaction IDs
 
 #### Result

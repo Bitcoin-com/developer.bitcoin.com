@@ -16,7 +16,7 @@ Return information about single bitcoin cash address.
 
 #### URL Parameters
 
-1.  address `String` required
+1.  address `string` required
 
 #### Result
 

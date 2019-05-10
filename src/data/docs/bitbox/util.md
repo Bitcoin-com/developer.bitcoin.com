@@ -11,7 +11,7 @@ Return information about the given bitcoin address.
 #### Arguments
 
 - address (required):
-  - `String`: legacy or cash address
+  - `string`: legacy or cash address
   - `Array`: array of strings containing legacy or cash addresses.
 
 #### Result

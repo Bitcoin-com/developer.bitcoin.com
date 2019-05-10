@@ -16,7 +16,7 @@ Returns the details of an address including balance
 
 #### URL Parameters
 
-1.  address `String` required
+1.  address `string` required
 
 #### Result
 
@@ -84,7 +84,7 @@ Returns the list of utxo for an address
 
 #### URL Parameters
 
-1.  address `String` required
+1.  address `string` required
 
 #### Result
 
@@ -219,7 +219,7 @@ Returns the list of unconfirmed transactions for an address
 
 #### URL Parameters
 
-1.  address `String` required
+1.  address `string` required
 
 #### Result
 
@@ -263,7 +263,7 @@ Returns the list of transactions for an address
 
 #### URL Parameters
 
-1.  address `String` required
+1.  address `string` required
 
 #### Result
 

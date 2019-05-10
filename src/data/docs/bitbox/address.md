@@ -10,11 +10,11 @@ Converting cashaddr to legacy address format
 
 #### Arguments
 
-1.  address `String` cashaddr address to be converted
+1.  address `string` cashaddr address to be converted
 
 #### Result
 
-legacyAddress `String` legacy base 58 check encoded address
+legacyAddress `string` legacy base 58 check encoded address
 
 #### Examples
 
@@ -40,13 +40,13 @@ Converting legacy to cashAddress format
 
 #### Arguments
 
-1.  address `String` required: legacy address to be converted
-2.  prefix `Boolean` optional: include prefix
-3.  regtest `Boolean` optional: return regtest address
+1.  address `string` required: legacy address to be converted
+2.  prefix `boolean` optional: include prefix
+3.  regtest `boolean` optional: return regtest address
 
 #### Result
 
-cashAddress `String` cashAddr encoded address
+cashAddress `string` cashAddr encoded address
 
 #### Examples
 
@@ -72,11 +72,11 @@ Detect if legacy base58check encoded address
 
 #### Arguments
 
-1.  address `String`: address to determine
+1.  address `string`: address to determine
 
 #### Result
 
-isLegacyAddress `Boolean`: true/false if legacy address
+isLegacyAddress `boolean`: true/false if legacy address
 
 #### Examples
 
@@ -110,11 +110,11 @@ Detect if cashAddr encoded address
 
 #### Arguments
 
-1.  address `String`: address to determine
+1.  address `string`: address to determine
 
 #### Result
 
-isCashAddress `Boolean`: true/false if cashaddress
+isCashAddress `boolean`: true/false if cashaddress
 
 #### Examples
 
@@ -148,11 +148,11 @@ Detect if mainnet address
 
 #### Arguments
 
-1.  address `String`: address to determine
+1.  address `string`: address to determine
 
 #### Result
 
-isMainnetAddress `Boolean`: true/false if mainnet address
+isMainnetAddress `boolean`: true/false if mainnet address
 
 #### Examples
 
@@ -186,11 +186,11 @@ Detect if testnet address
 
 #### Arguments
 
-1.  addresss `String`: address to determine
+1.  addresss `string`: address to determine
 
 #### Result
 
-isTestnetAddresss `Boolean`: true/false if is testnet address
+isTestnetAddresss `boolean`: true/false if is testnet address
 
 #### Examples
 
@@ -224,11 +224,11 @@ Detect if regtest address
 
 #### Arguments
 
-1.  addresss `String`: address to determine
+1.  addresss `string`: address to determine
 
 #### Result
 
-isRegtestAddresss `Boolean`: true/false if is regtest address
+isRegtestAddresss `boolean`: true/false if is regtest address
 
 #### Examples
 
@@ -266,11 +266,11 @@ Detect if p2pkh address
 
 #### Arguments
 
-1.  address `String` address to determine
+1.  address `string` address to determine
 
 #### Result
 
-isP2PKHAddress `Boolean` true/false if is p2pkh address
+isP2PKHAddress `boolean` true/false if is p2pkh address
 
 #### Examples
 
@@ -304,11 +304,11 @@ Detect if p2sh address
 
 #### arguments
 
-1.  address `String` address to determine
+1.  address `string` address to determine
 
 #### Result
 
-isP2SHAddress `Boolean` true/false if is p2sh address
+isP2SHAddress `boolean` true/false if is p2sh address
 
 #### Examples
 
@@ -342,11 +342,11 @@ Detect address format
 
 #### arguments
 
-1.  address `String` address to determine format
+1.  address `string` address to determine format
 
 #### Result
 
-addressFormat `String` address format
+addressFormat `string` address format
 
 #### Examples
 
@@ -380,11 +380,11 @@ Detect address network
 
 #### arguments
 
-1.  address `String` address to determine network
+1.  address `string` address to determine network
 
 #### Result
 
-addressNetwork `String` address network
+addressNetwork `string` address network
 
 #### Examples
 
@@ -418,11 +418,11 @@ Detect address network
 
 #### arguments
 
-1.  address `String` address to determine network
+1.  address `string` address to determine network
 
 #### Result
 
-addressNetwork `String` address network
+addressNetwork `string` address network
 
 #### Examples
 
@@ -456,12 +456,12 @@ Generates an address for an extended public key (xpub)
 
 #### Arguments
 
-1.  xpub `String`: extended public key to be used
-2.  path `String` **optional**: derivation path of external change address. Default is `0/0`
+1.  xpub `string`: extended public key to be used
+2.  path `string` **optional**: derivation path of external change address. Default is `0/0`
 
 #### Result
 
-changeAddress `String`: cashaddr encoded change address
+changeAddress `string`: cashaddr encoded change address
 
 #### Examples
 
@@ -493,12 +493,12 @@ Generates an address for an extended private key (xpriv)
 
 #### Arguments
 
-1.  xpriv `String`: extended private key to be used
-2.  path `String` **optional**: derivation path of change address. Default is `0'/0`
+1.  xpriv `string`: extended private key to be used
+2.  path `string` **optional**: derivation path of change address. Default is `0'/0`
 
 #### Result
 
-changeAddress `String`: cashaddr encoded change address
+changeAddress `string`: cashaddr encoded change address
 
 #### Examples
 
@@ -531,11 +531,11 @@ Detect an addess from an OutputScript.
 #### Arguments
 
 1.  scriptPubKey `Buffer`: scriptPubKey
-2.  network `String` **optional**: defaults to "mainnet"
+2.  network `string` **optional**: defaults to "mainnet"
 
 #### Result
 
-changeAddress `String`: cashaddr encoded change address
+changeAddress `string`: cashaddr encoded change address
 
 #### Examples
 
@@ -562,11 +562,11 @@ Detect if an addess is a hash160.
 
 #### Arguments
 
-1.  address `String`: address
+1.  address `string`: address
 
 #### Result
 
-isHash160 `Boolean`: true/false if address is hash160
+isHash160 `boolean`: true/false if address is hash160
 
 #### Examples
 
@@ -584,7 +584,7 @@ Convert legacy address to hash160.
 
 #### Arguments
 
-1.  address `String`: legacy address
+1.  address `string`: legacy address
 
 #### Result
 
@@ -610,7 +610,7 @@ Convert cash address to hash160.
 
 #### Arguments
 
-1.  address `String`: cash address
+1.  address `string`: cash address
 
 #### Result
 
@@ -636,7 +636,7 @@ Convert hash160 to legacy address.
 
 #### Arguments
 
-1.  hash160 `String`: hash160
+1.  hash160 `string`: hash160
 2.  network `Object` **optional**
 
 #### Result
@@ -663,7 +663,7 @@ Convert hash160 to cash address.
 
 #### Arguments
 
-1.  hash160 `String`: hash160
+1.  hash160 `string`: hash160
 2.  network `Object` **optional**
 
 #### Result
@@ -686,7 +686,7 @@ Return details about an address including balance.
 #### Arguments
 
 - addresses (required):
-  - `String`: A single string containing a legacy or cash address.
+  - `string`: A single string containing a legacy or cash address.
   - `Array` of strings: Array with maximum of 20 legacy or cash addresses.
 
 #### Result
@@ -779,7 +779,7 @@ Return list of uxto for address. This includes confirmed and unconfirmed utxos.
 #### Arguments
 
 - addresses (required) - 2 formats allowed:
-  - `String`: A single string containing a legacy or cash address.
+  - `string`: A single string containing a legacy or cash address.
   - `Array` of strings: Array with maximum of 20 legacy or cash addresses.
 
 #### Result
@@ -873,7 +873,7 @@ Return list of unconfirmed transactions for address
 #### Arguments
 
 - addresses (required):
-  - `String`: A single string containing a legacy or cash address.
+  - `string`: A single string containing a legacy or cash address.
   - `Array` of strings: Array with maximum of 20 legacy or cash addresses.
 
 #### Result
@@ -962,7 +962,7 @@ Returns decoded transactions for an address
 #### Arguments
 
 - addresses (required):
-  - `String`: A single string containing a legacy or cash address.
+  - `string`: A single string containing a legacy or cash address.
   - `Array` of strings: Array with maximum of 20 legacy or cash addresses.
 
 #### Result

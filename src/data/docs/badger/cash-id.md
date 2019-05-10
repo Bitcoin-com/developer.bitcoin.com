@@ -9,8 +9,8 @@ The specification is available on [gitlab](https://gitlab.com/cashid/protocol-sp
 
 #### Arguments
 
-- account `String` cashaddr address of user's address
-- cashIdRequest `String` Cash ID request URI
+- account `string` cashaddr address of user's address
+- cashIdRequest `string` Cash ID request URI
 - `Callback` with error parameter
 
 #### Result

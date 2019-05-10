@@ -141,7 +141,7 @@ Get cash address of ECPair
 #### Arguments
 
 1.  ecpair `ECPair`
-2.  regtest `Boolean` optional: return regtest address
+2.  regtest `boolean` optional: return regtest address
 
 #### Result
 
@@ -210,7 +210,7 @@ Verify signed 32 byte hash encoded as a buffer
 
 #### Result
 
-verified `Boolean`
+verified `boolean`
 
 #### Examples
 

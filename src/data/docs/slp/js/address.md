@@ -10,11 +10,11 @@ Converting cashaddr or slpaddr to legacy address format
 
 #### Arguments
 
-1.  address `String` cashaddr or slpaddr address to be converted
+1.  address `string` cashaddr or slpaddr address to be converted
 
 #### Result
 
-legacyAddress `String` legacy base 58 check encoded address
+legacyAddress `string` legacy base 58 check encoded address
 
 #### Examples
 
@@ -56,13 +56,13 @@ Converting legacy or slpaddr to cashAddress format
 
 #### Arguments
 
-1.  address `String` required: legacy or cashaddr address to be converted
-2.  prefix `Boolean` optional: include prefix
-3.  regtest `Boolean` optional: return regtest address
+1.  address `string` required: legacy or cashaddr address to be converted
+2.  prefix `boolean` optional: include prefix
+3.  regtest `boolean` optional: return regtest address
 
 #### Result
 
-cashAddress `String` cashAddr encoded address
+cashAddress `string` cashAddr encoded address
 
 #### Examples
 
@@ -104,13 +104,13 @@ Converting legacy or cashaddr to slpAddress format
 
 #### Arguments
 
-1.  address `String` required: legacy or cashaddr address to be converted
-2.  prefix `Boolean` optional: include prefix
-3.  regtest `Boolean` optional: return regtest address
+1.  address `string` required: legacy or cashaddr address to be converted
+2.  prefix `boolean` optional: include prefix
+3.  regtest `boolean` optional: return regtest address
 
 #### Result
 
-slpAddress `String` slpAddr encoded address
+slpAddress `string` slpAddr encoded address
 
 #### Examples
 
@@ -152,11 +152,11 @@ Detect if slpAddr encoded address
 
 #### Arguments
 
-1.  address `String`: address to determine
+1.  address `string`: address to determine
 
 #### Result
 
-isSLPAddress `Boolean`: true/false if slpaddress
+isSLPAddress `boolean`: true/false if slpaddress
 
 #### Examples
 
@@ -190,11 +190,11 @@ Detect if mainnet address
 
 #### Arguments
 
-1.  address `String`: address to determine
+1.  address `string`: address to determine
 
 #### Result
 
-isMainnetAddress `Boolean`: true/false if mainnet address
+isMainnetAddress `boolean`: true/false if mainnet address
 
 #### Examples
 
@@ -244,11 +244,11 @@ Detect if testnet address
 
 #### Arguments
 
-1.  addresss `String`: address to determine
+1.  addresss `string`: address to determine
 
 #### Result
 
-isTestnetAddresss `Boolean`: true/false if is testnet address
+isTestnetAddresss `boolean`: true/false if is testnet address
 
 #### Examples
 
@@ -298,11 +298,11 @@ Detect if p2pkh address
 
 #### Arguments
 
-1.  address `String` address to determine
+1.  address `string` address to determine
 
 #### Result
 
-isP2PKHAddress `Boolean` true/false if is p2pkh address
+isP2PKHAddress `boolean` true/false if is p2pkh address
 
 #### Examples
 
@@ -352,11 +352,11 @@ Detect if p2sh address
 
 #### arguments
 
-1.  address `String` address to determine
+1.  address `string` address to determine
 
 #### Result
 
-isP2SHAddress `Boolean` true/false if is p2sh address
+isP2SHAddress `boolean` true/false if is p2sh address
 
 #### Examples
 
@@ -406,11 +406,11 @@ Detect address format
 
 #### arguments
 
-1.  address `String` address to determine format
+1.  address `string` address to determine format
 
 #### Result
 
-addressFormat `String` address format
+addressFormat `string` address format
 
 #### Examples
 
@@ -460,11 +460,11 @@ Detect address network
 
 #### arguments
 
-1.  address `String` address to determine network
+1.  address `string` address to determine network
 
 #### Result
 
-addressNetwork `String` address network
+addressNetwork `string` address network
 
 #### Examples
 
@@ -514,11 +514,11 @@ Detect address network
 
 #### arguments
 
-1.  address `String` address to determine network
+1.  address `string` address to determine network
 
 #### Result
 
-addressNetwork `String` address network
+addressNetwork `string` address network
 
 #### Examples
 
@@ -569,7 +569,7 @@ Return details about an address including balance.
 #### Arguments
 
 - addresses (required):
-  - `String`: A single string containing a legacy, cash or slp address.
+  - `string`: A single string containing a legacy, cash or slp address.
   - `Array` of strings: Array with maximum of 20 legacy, cash or slp addresses.
 
 #### Result
@@ -623,7 +623,7 @@ Return list of uxto for address
 #### Arguments
 
 - addresses (required):
-  - `String`: A single string containing a legacy, cash or slp address.
+  - `string`: A single string containing a legacy, cash or slp address.
   - `Array` of strings: Array with maximum of 20 legacy, cash or slp addresses.
 
 #### Result
@@ -675,7 +675,7 @@ Return list of unconfirmed transactions for address
 #### Arguments
 
 - addresses (required):
-  - `String`: A single string containing a legacy, cash or slp address.
+  - `string`: A single string containing a legacy, cash or slp address.
   - `Array` of strings: Array with maximum of 20 legacy, cash or slp addresses.
 
 #### Result
@@ -720,7 +720,7 @@ Returns decoded transactions for an address
 #### Arguments
 
 - addresses (required):
-  - `String`: A single string containing a legacy, cash or slp address.
+  - `string`: A single string containing a legacy, cash or slp address.
   - `Array` of strings: Array with maximum of 20 legacy, cash or slp addresses.
 
 #### Result

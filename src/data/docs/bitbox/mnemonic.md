@@ -151,7 +151,7 @@ Validate mnemonic
 
 #### Result
 
-valid `String`
+valid `string`
 
 #### Examples
 
@@ -170,8 +170,8 @@ Create root seed from mnemonic
 
 #### Arguments
 
-1.  mnemonic `String` mnemonic phrase
-2.  passphrase `String` `optional`: passphrase. Defaults to ""
+1.  mnemonic `string` mnemonic phrase
+2.  passphrase `string` `optional`: passphrase. Defaults to ""
 
 #### Result
 
@@ -224,9 +224,9 @@ Returns an array of privateKeyWIF/publicAddress pairs. It generates the addresse
 
 #### Arguments
 
-1.  mnemonic `String`: mnemonic to use
-2.  numberOfKeypairs `Number` `optional`: number of keypairs to return. Default is 1
-3.  regtest `Boolean` optional: return regtest key pairs
+1.  mnemonic `string`: mnemonic to use
+2.  numberOfKeypairs `number` `optional`: number of keypairs to return. Default is 1
+3.  regtest `boolean` optional: return regtest key pairs
 
 #### Result
 
@@ -259,12 +259,12 @@ Returns nearest matching word from provided word list
 
 #### Arguments
 
-1.  word `String`: mnemonic to use
+1.  word `string`: mnemonic to use
 2.  wordlist `Array`: wordlist to search
 
 #### Result
 
-word `String` nearest matching word from provided wordlist
+word `string` nearest matching word from provided wordlist
 
 #### Examples
 

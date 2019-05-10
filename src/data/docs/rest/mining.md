@@ -47,12 +47,12 @@ Returns the estimated network hashes per second based on the last n blocks. Pass
 
 #### Body Parameters
 
-1.  nblocks `String` optional
-2.  height `String` optional
+1.  nblocks `string` optional
+2.  height `string` optional
 
 #### Result
 
-getworkHashps `Number`
+getworkHashps `number`
 
 #### Examples
 

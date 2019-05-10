@@ -113,7 +113,7 @@ Script buffer to ASM.
 
 #### Result
 
-asm `String`
+asm `string`
 
 #### Examples
 
@@ -133,7 +133,7 @@ Script ASM to buffer
 
 #### Arguments
 
-1.  asm `String`
+1.  asm `string`
 
 #### Result
 
@@ -209,7 +209,7 @@ check nulldata output format
 
 #### Result
 
-valid `Boolean`
+valid `boolean`
 
 #### Examples
 
@@ -271,7 +271,7 @@ check p2pk input format
 
 #### Result
 
-valid `Boolean`
+valid `boolean`
 
 #### Examples
 
@@ -328,7 +328,7 @@ check P2PK output format
 
 #### Result
 
-valid `Boolean`
+valid `boolean`
 
 #### Examples
 
@@ -389,7 +389,7 @@ check P2PKH input format
 
 #### Result
 
-valid `Boolean`
+valid `boolean`
 
 #### Examples
 
@@ -450,7 +450,7 @@ check P2PKH output format
 
 #### Result
 
-valid `Boolean`
+valid `boolean`
 
 #### Examples
 
@@ -516,7 +516,7 @@ check P2MS input format
 
 #### Result
 
-valid `Boolean`
+valid `boolean`
 
 #### Examples
 
@@ -537,7 +537,7 @@ p2ms Output template: `m [pubKeys ...] n OP_CHECKMULTISIG`
 
 #### Arguments
 
-1.  m `Number`
+1.  m `number`
 2.  pubKeys `Array`
 
 #### Result
@@ -588,7 +588,7 @@ check P2MS output format
 
 #### Result
 
-valid `Boolean`
+valid `boolean`
 
 #### Examples
 
@@ -653,7 +653,7 @@ check P2SH input format
 
 #### Result
 
-valid `Boolean`
+valid `boolean`
 
 #### Examples
 
@@ -712,7 +712,7 @@ check P2SH output format
 
 #### Result
 
-valid `Boolean`
+valid `boolean`
 
 #### Examples
 
@@ -732,7 +732,7 @@ Classify transaction input
 
 #### Result
 
-type `String`
+type `string`
 
 #### Examples
 
@@ -762,7 +762,7 @@ Classify transaction output
 
 #### Result
 
-type `String`
+type `string`
 
 #### Examples
 
