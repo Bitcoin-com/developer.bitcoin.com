@@ -42,7 +42,6 @@ BITBOX supports the `SIGHASH_ALL`, `SIGHASH_NONE` and `SIGHASH_SINGLE` hash type
       transactionBuilder.DEFAULT_SEQUENCE
       // 4294967295
 
-
 ### `signatureAlgorithms`
 
 BITBOX supports the `ECDSA` and `SCHNORR` signature algorithms.
@@ -59,10 +58,10 @@ Add input to transaction
 
 #### Arguments
 
-1.  txid `string` (required): txid of vout
-2.  index `number` (required): index of vout
-3.  sequence `number` (optional): relative lock time. Default `0xffffffff`
-4.  prevOutScript `string` (optional): previous output script
+1.  txid `string`: txid of vout
+2.  index `number`: index of vout
+3.  sequence `number` **optional**: relative lock time. Default `0xffffffff`
+4.  prevOutScript `string` **optional**: previous output script
 
 #### Examples
 
@@ -118,7 +117,7 @@ Sign transaction. It creates the unlocking script needed to spend an input. Each
 3.  redeemScript `Buffer`
 4.  hashType `number`
 5.  originalAmount `number`: satoshis in vin
-6.  signatureAlgorithm (optional) `number`: Signature Algorithm (ECDSA/Schnorr)
+6.  signatureAlgorithm **optional** `number`: Signature Algorithm (ECDSA/Schnorr)
 
 #### Examples
 

@@ -12,13 +12,11 @@ Return details about a Transaction.
 
 #### Arguments
 
-- txids (required):
-  - `string`: transaction ID
-  - `Array` of strings: collection of transaction IDs
+- txids `string | string[]`: transaction ID
 
 #### Result
 
-details `Array`: Array of Objects with details about transactions
+details `Promise<TxnDetails | TxnDetails[]>`
 
 #### Examples
 
@@ -107,3 +105,23 @@ details `Array`: Array of Objects with details about transactions
     //   size: 372,
     //   valueIn: 2.0997689,
     //   fees: 0.00011201 } ]
+
+## Interfaces
+
+### TxnDetails
+
+    {
+      txid: string
+      version: number
+      locktime: number
+      vin: object[]
+      vout: object[]
+      blockhash: string
+      blockheight: number
+      confirmations: number
+      time: number
+      blocktime: number
+      isCoinBase: boolean
+      valueOut: number
+      size: number
+    }

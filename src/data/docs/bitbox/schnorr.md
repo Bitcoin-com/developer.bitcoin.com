@@ -72,9 +72,9 @@ Verify a list of 64-byte signatures as a batch operation. Throws an `Error` if v
 
 #### Arguments
 
-1.  publicKeys. Array of `Buffer`s
-2.  messages. Array of `Buffer`s
-3.  signatures. Array of `Buffer`s
+1.  publicKeys. `Buffer[]`
+2.  messages. `Buffer[]`
+3.  signatures. `Buffer[]`
 
 #### Examples
 
@@ -136,7 +136,7 @@ This non-interactive scheme requires the knowledge of all private keys that are 
 
 #### Arguments
 
-1.  privateKeys. Array of `BigInteger`s
+1.  privateKeys. `BigInteger[]`
 2.  message `Buffer`
 
 #### Result
@@ -186,7 +186,7 @@ Generate `ell` which is the hash over all public keys participating in a session
 
 #### Arguments
 
-1.  publicKeys. Array of `BigInteger`s
+1.  publicKeys. `BigInteger[]`
 
 #### Result
 
@@ -262,7 +262,7 @@ Creates the special rogue-key-resistant combined public key `P` by applying the 
 
 #### Arguments
 
-1.  publicKeys. Array of `Buffer`s
+1.  publicKeys. `Buffer[]`
 2.  publicKeyHash. `Buffer`
 
 #### Result
@@ -323,7 +323,7 @@ Combines multiple nonces `R_i` into the combined nonce `R`.
 #### Arguments
 
 1.  session. `Session`
-2.  nonces. Array of `Buffer`s
+2.  nonces. `Buffer[]`
 
 #### Result
 
@@ -445,7 +445,7 @@ Combines multiple partial signatures into a Schnorr signature `(s, R)` that can 
 #### Arguments
 
 1.  nonceCombined. `Buffer`
-2.  partialSignatures. Array of `BigInteger`s
+2.  partialSignatures. `BigInteger[]`
 
 #### Result
 
