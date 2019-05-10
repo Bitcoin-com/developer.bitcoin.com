@@ -11,7 +11,7 @@ Create new Socket.
 #### Arguments
 
 1.  config `Object`: with properties:
-    1.  restURL `String`: optional, Defaults to `https://rest.bitcoin.com`
+    1.  restURL `string`: optional, Defaults to `https://rest.bitcoin.com`
     2.  callback `Function`: optional
 
 #### Result
@@ -29,7 +29,7 @@ Listen on a websocket to get real\-time data.
 
 #### Arguments
 
-1.  dataType `String`: type of data to return in real time. Currently only `transactions`
+1.  dataType `string`: type of data to return in real time. Currently only `transactions`
 
 #### Result
 

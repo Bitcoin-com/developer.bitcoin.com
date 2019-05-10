@@ -8,6 +8,10 @@ ordinal: 7
 
 Returns an object containing various state info.
 
+#### Result
+
+info `Promise<NodeInfo>`
+
 #### Examples
 
     (async () => {
@@ -30,3 +34,34 @@ Returns an object containing various state info.
     // paytxfee: 0,
     // relayfee: 0.00001,
     // errors: '' }
+
+## Interfaces
+
+### NodeInfo
+
+    {
+      version: number
+      protocolversion: number
+      blocks: number
+      timeoffset: number
+      connections: number
+      proxy: string
+      difficulty: number
+      testnet: boolean
+      paytxfee: number
+      relayfee: number
+      errors: string
+    }
+
+<!-- ### NodeMemoryInfo
+
+    {
+      locked: {
+        used: number
+        free: number
+        total: number
+        locked: number
+        chunks_used: number
+        chunks_free: number
+      }
+    } -->

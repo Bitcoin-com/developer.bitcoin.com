@@ -16,7 +16,7 @@ Returns the hash of the best (tip) block in the longest blockchain.
 
 #### Result
 
-bestBlockHash `String`
+bestBlockHash `string`
 
 #### Examples
 
@@ -98,7 +98,7 @@ Returns the number of blocks in the longest blockchain.
 
 #### Result
 
-blockCount `String`
+blockCount `string`
 
 #### Examples
 
@@ -119,8 +119,8 @@ If verbose is false, returns a string that is serialized, hex-encoded data for b
 
 #### URL Parameters
 
-1. hash `String` required
-2. verbose `Boolean` optional
+1. hash `string` required
+2. verbose `boolean` optional
 
 #### Result
 
@@ -161,7 +161,7 @@ Returns an Array of Objects w/ block header info. This is a bulk request.
 #### URL Parameters
 
 1. hashes `Array` of Strings. Required
-2. verbose `Boolean` optional
+2. verbose `boolean` optional
 
 #### Result
 
@@ -253,7 +253,7 @@ Returns the proof-of-work difficulty as a multiple of the minimum difficulty.
 
 #### Result
 
-difficulty `Number`
+difficulty `number`
 
 #### Examples
 
@@ -274,7 +274,7 @@ Returns mempool data for single transaction
 
 #### URL Parameters
 
-1. txid `String` required
+1. txid `string` required
 
 #### Result
 
@@ -355,7 +355,7 @@ Returns all transaction ids in memory pool as a json array of string transaction
 
 #### URL Parameters
 
-1. verbose `Boolean` optional
+1. verbose `boolean` optional
 
 #### Result
 
@@ -391,9 +391,9 @@ Returns details about an unspent transaction output.
 
 #### URL Parameters
 
-1. txid `String` required
-2. n `Number` required
-3. mempool `Boolean` optional
+1. txid `string` required
+2. n `number` required
+3. mempool `boolean` optional
 
 #### Result
 
@@ -432,11 +432,11 @@ Returns a hex-encoded proof that a single txid was included in a block.
 
 #### URL Parameters
 
-1. txid `String` required
+1. txid `string` required
 
 #### Result
 
-txOutProof `String`
+txOutProof `string`
 
 #### Examples
 
@@ -489,7 +489,7 @@ Verifies that a single proof points to a transaction in a block, returning the t
 
 #### URL Parameters
 
-1. proof `String` required
+1. proof `string` required
 
 #### Result
 

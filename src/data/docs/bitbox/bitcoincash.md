@@ -10,11 +10,11 @@ Converting Bitcoin Cash units to satoshi units
 
 #### Arguments
 
-1.  bitcoinCash `Number`: unit to be converted
+1.  bitcoinCash `number`: unit to be converted
 
 #### Result
 
-satoshi `Number`: bitcoinCash unit converted to satoshis
+satoshi `number`: bitcoinCash unit converted to satoshis
 
 #### Examples
 
@@ -46,11 +46,11 @@ Converting satoshi units to Bitcoin Cash units
 
 #### Arguments
 
-1.  satoshi `Number`: unit to be converted
+1.  satoshi `number`: unit to be converted
 
 #### Result
 
-bitcoinCash `Number`: satoshi unit converted to Bitcoin Cash
+bitcoinCash `number`: satoshi unit converted to Bitcoin Cash
 
 #### Examples
 
@@ -76,86 +76,14 @@ BITBOX.BitcoinCash.toBitcoinCash(50700000000)
 // 507
 ```
 
-### `toBits`
-
-Converting satoshi units to Bits denomination
-
-#### Arguments
-
-1.  satoshi `Number`: unit to be converted
-
-#### Result
-
-bits `Number`: satoshi unit converted to Bits
-
-#### Examples
-
-```javascript
-// convert 4242323400 satoshis to 42423.234 bits
-BITBOX.BitcoinCash.toBits(4242323400)
-// 42423.234
-
-// convert 100000000 satoshis to 1000 bits
-BITBOX.BitcoinCash.toBits(100000000)
-// 1000
-
-// convert 314000000 satoshis to 3140 bits
-BITBOX.BitcoinCash.toBits(314000000)
-// 3140
-
-// convert 987600000000 satoshis to 9876000 bits
-BITBOX.BitcoinCash.toBits(987600000000)
-// 9876000
-
-// convert 12300 satoshis to 0.123 bits
-BITBOX.BitcoinCash.toBits(12300)
-// 0.123
-```
-
-### `fromBits`
-
-Converting bits units to satoshi denomination
-
-#### Arguments
-
-1.  bits `Number`: unit to be converted
-
-#### Result
-
-satoshi `Number`: bits unit converted to satoshi
-
-#### Examples
-
-```javascript
-// convert 42423.234 bits to 4242323400 satoshis
-BITBOX.BitcoinCash.fromBits(42423.234)
-// 4242323400
-
-// convert 1000 bits to 100000000 satoshis
-BITBOX.BitcoinCash.fromBits(1000)
-// 100000000
-
-// convert 3140 bits to 314000000 satoshis
-BITBOX.BitcoinCash.fromBits(3140)
-// 314000000
-
-// convert 9876000 bits to 987600000000 satoshis
-BITBOX.BitcoinCash.fromBits(9876000)
-// 987600000000
-
-// convert 0.123 bits to 12300 satoshis
-BITBOX.BitcoinCash.fromBits(0.123)
-// 12300
-```
-
 ### `signMessageWithPrivKey`
 
 Sign message with private key
 
 #### Arguments
 
-1.  privateKeyWIF `String`: private key in wallet import format
-2.  message `String`: message to sign
+1.  privateKeyWIF `string`: private key in wallet import format
+2.  message `string`: message to sign
 
 #### Result
 
@@ -177,9 +105,9 @@ Verify message
 
 #### Arguments
 
-1. address `String`: public cashaddr or legacy address which signed the message
-2. signature `String`: cryptographic signature
-3. message `String`: to verify
+1. address `string`: public cashaddr or legacy address which signed the message
+2. signature `string`: cryptographic signature
+3. message `string`: to verify
 
 #### Result
 
@@ -202,11 +130,11 @@ Encodes hex string as base58Check
 
 #### Arguments
 
-1.  hex `String`: hex encoded bytes to encode as base58check
+1.  hex `string`: hex encoded bytes to encode as base58check
 
 #### Result
 
-base58check `String`: base58check encoded string
+base58check `string`: base58check encoded string
 
 #### Examples
 
@@ -243,7 +171,7 @@ Decodes base58Check encoded string to hex
 
 #### Arguments
 
-1.  base58check `String`: base58check encoded string to decode to hex
+1.  base58check `string`: base58check encoded string to decode to hex
 
 #### Result
 
@@ -284,9 +212,9 @@ Encodes address and options as BIP21 uri
 
 #### Arguments
 
-1.  address `String`: cashaddr (w/ or w/out prefix) or legacy base58check encoded address
-2.  options `Object`: options such as amount, label, message etc
-3.  regtest `Boolean` **optional**
+1.  address `string`: cashaddr (w/ or w/out prefix) or legacy base58check encoded address
+2.  options `EncodeBIP21Options`: options such as amount, label, message etc
+3.  regtest `boolean` **optional**
 
 #### Result
 
@@ -327,11 +255,11 @@ Decodes BIP21 uri
 
 #### Arguments
 
-1.  bip21 `String`: bip21 encoded uri
+1.  bip21 `string`: bip21 encoded uri
 
 #### Result
 
-results `Object`: decoded bip21 uri
+results `BIP21Object`: decoded bip21 uri
 
 #### Examples
 
@@ -364,12 +292,12 @@ Get byte count of transaction
 
 #### Arguments
 
-1.  inputs `Object`: object w/ keys describing input types and counts. 'MULTISIG\-P2SH' and 'P2PKH'. "MULTISIG\-P2SH" also should include the required and total number of signatures. EX: "MULTISIG\-P2SH:2\-4"
-2.  outputs `Object`: object w/ keys describing output types and counts. 'P2SH' and 'P2PKH'
+1.  inputs `ByteCountInput`: object w/ keys describing input types and counts. 'MULTISIG\-P2SH' and 'P2PKH'. "MULTISIG\-P2SH" also should include the required and total number of signatures. EX: "MULTISIG\-P2SH:2\-4"
+2.  outputs `ByteCountOutput`: object w/ keys describing output types and counts. 'P2SH' and 'P2PKH'
 
 #### Result
 
-byteCount `Number`: number of bytes
+byteCount `number`: number of bytes
 
 #### Examples
 
@@ -439,12 +367,12 @@ BITBOX.BitcoinCash.getByteCount(inputs, outputs)
 
 #### Arguments
 
-1.  wif `String`: privkey WIF on mainnet or testnet
-2.  password `String`: password to encrypt wif with
+1.  wif `string`: privkey WIF on mainnet or testnet
+2.  password `string`: password to encrypt wif with
 
 #### Result
 
-encryptedKey `String`: privkey WIF encrypted w/ password
+encryptedKey `string`: privkey WIF encrypted w/ password
 
 #### Examples
 
@@ -470,13 +398,13 @@ BITBOX.BitcoinCash.encryptBIP38(
 
 #### Arguments
 
-1.  encryptedKey `String`: encrypted privkey WIF
-2.  password `String`: password to decrypt wif with
-3.  network `String`: mainnet or testnet. Default: mainnet
+1.  encryptedKey `string`: encrypted privkey WIF
+2.  password `string`: password to decrypt wif with
+3.  network `string`: mainnet or testnet. Default: mainnet
 
 #### Result
 
-wif `String`: decrypted privkey WIF on mainnet or testnet
+wif `string`: decrypted privkey WIF on mainnet or testnet
 
 #### Examples
 
@@ -497,3 +425,33 @@ BITBOX.BitcoinCash.decryptBIP38(
 )
 // cSx7KzdH9EcvDEireu2WYpGnXdFYpta7sJUNt5kVCJgA7kcAU8Gm
 ```
+
+## Interfaces
+
+### EncodeBIP21Options
+
+    {
+      amount?: number
+      label?: string
+      message?: string
+    }
+
+### BIP21Object
+
+    {
+      address: string
+      options?: EncodeBIP21Options
+    }
+
+### ByteCountInput
+
+    {
+      P2PKH?: number
+    }
+
+### ByteCountOutput
+
+    {
+      P2PKH?: number
+      P2SH?: number
+    }

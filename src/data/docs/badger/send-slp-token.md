@@ -9,13 +9,13 @@ Send a specified amount of an SLP token to a destination address
 #### Arguments
 
 - txParams `Object` containing to, from, value and sendTokenData properties
-  - to `String` cashaddr address of token destination
-  - from `String` cashaddr address of user's address
-  - value `String` token amount to send
+  - to `string` cashaddr address of token destination
+  - from `string` cashaddr address of user's address
+  - value `string` token amount to send
   - sendTokenData `Object` containing tokenId and tokenProtocol properties
-    - tokenId `String` id of token
+    - tokenId `string` id of token
       - _Simple Ledger_: The txid of the geneis transaction
-  - tokenProtocol `String` protocol of the token
+  - tokenProtocol `string` protocol of the token
     - `slp` for Simple Ledger Protocol tokens
 - `Callback` with error and response parameters
 

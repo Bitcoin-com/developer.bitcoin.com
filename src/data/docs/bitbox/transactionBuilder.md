@@ -11,7 +11,7 @@ The Transaction Builder object represents a transaction internally and is used t
 
 #### Arguments
 
-1.  network `String`: Defaults to "mainnet"
+1.  network `string`: Defaults to "mainnet"
 
 #### Result
 
@@ -41,7 +41,7 @@ BITBOX supports the `SIGHASH_ALL`, `SIGHASH_NONE` and `SIGHASH_SINGLE` hash type
       // also has a DEFAULT_SEQUENCE of 0xffffffff
       transactionBuilder.DEFAULT_SEQUENCE
       // 4294967295
-      
+
 ### `signatureAlgorithms`
 
 BITBOX supports the `ECDSA` and `SCHNORR` signature algorithms.
@@ -58,10 +58,10 @@ Add input to transaction
 
 #### Arguments
 
-1.  txid `String` (required): txid of vout
-2.  index `Number` (required): index of vout
-3.  sequence `Number` (optional): relative lock time. Default `0xffffffff`
-4.  prevOutScript `String` (optional): previous output script
+1.  txid `string`: txid of vout
+2.  index `number`: index of vout
+3.  sequence `number` **optional**: relative lock time. Default `0xffffffff`
+4.  prevOutScript `string` **optional**: previous output script
 
 #### Examples
 
@@ -76,8 +76,8 @@ Add output to transaction
 
 #### Arguments
 
-1.  scriptPubKey `String`: legacy/cashaddr address or script
-2.  sendAmount `Number`: amount to send in satoshis
+1.  scriptPubKey `string`: legacy/cashaddr address or script
+2.  sendAmount `number`: amount to send in satoshis
 
 #### Examples
 
@@ -94,7 +94,7 @@ Set [locktime](https://developer.bitcoin.com/mastering-bitcoin-cash/4-transactio
 
 #### Arguments
 
-1.  locktime `Number`
+1.  locktime `number`
 
 #### Examples
 
@@ -112,12 +112,12 @@ Sign transaction. It creates the unlocking script needed to spend an input. Each
 
 #### Arguments
 
-1.  vin `Number`: vin to sign
+1.  vin `number`: vin to sign
 2.  keyPair `ECPair`: ECPair of HDNode
 3.  redeemScript `Buffer`
-4.  hashType `Number`
-5.  originalAmount `Number`: satoshis in vin
-6.  signatureAlgorithm (optional) `Number`: Signature Algorithm (ECDSA/Schnorr)
+4.  hashType `number`
+5.  originalAmount `number`: satoshis in vin
+6.  signatureAlgorithm **optional** `number`: Signature Algorithm (ECDSA/Schnorr)
 
 #### Examples
 
@@ -243,7 +243,7 @@ Check format of [bip66](https://github.com/bitcoin/bips/blob/master/bip-0066.med
 
 #### Result
 
-value `Boolean`
+value `boolean`
 
 #### Examples
 
@@ -263,7 +263,7 @@ Encoded [bip68](https://github.com/bitcoin/bips/blob/master/bip-0068.mediawiki) 
 
 #### Result
 
-hex `String`: hex encoded relative timelock
+hex `string`: hex encoded relative timelock
 
 #### Examples
 
@@ -279,7 +279,7 @@ Decoded [bip68](https://github.com/bitcoin/bips/blob/master/bip-0068.mediawiki) 
 
 #### Arguments
 
-1.  hex `String`: hex encoded relative lock time
+1.  hex `string`: hex encoded relative lock time
 
 #### Result
 

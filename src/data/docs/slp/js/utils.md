@@ -10,7 +10,7 @@ List all tokens or list single token by id
 
 #### Arguments
 
-1.  id : `String` or `Array` optional. The token id(s)
+1.  id : `string` or `Array` optional. The token id(s)
 
 #### Result
 
@@ -172,7 +172,7 @@ Return all balances for an address
 
 #### Arguments
 
-1.  address : `String` required. The address in legacy, cash or slp address format
+1.  address : `string` required. The address in legacy, cash or slp address format
 
 #### Result
 
@@ -249,8 +249,8 @@ Return single balance for an address by token id
 
 #### Arguments
 
-1.  address : `String` required. The address in legacy, cash or slp address format
-2.  id : `String` required. The token id
+1.  address : `string` required. The address in legacy, cash or slp address format
+2.  id : `string` required. The token id
 
 #### Result
 
@@ -321,7 +321,7 @@ Validate that txid is an SLP transaction
 
 #### Arguments
 
-1.  txid : `String` or `Array` required. The transaction id(s) to validate
+1.  txid : `string` or `Array` required. The transaction id(s) to validate
 
 #### Result
 
@@ -373,7 +373,7 @@ List all balances for tokenId
 
 #### Arguments
 
-1.  tokenId: `String` required. The tokenId
+1.  tokenId: `string` required. The tokenId
 
 #### Result
 
@@ -412,7 +412,7 @@ Stats for token by tokenId
 
 #### Arguments
 
-1.  tokenId: `String` required. The tokenId
+1.  tokenId: `string` required. The tokenId
 
 #### Result
 
@@ -453,8 +453,8 @@ SLP Transactions by tokenId and address
 
 #### Arguments
 
-1.  tokenId: `String` required. The tokenId
-2.  address: `String` required. The address
+1.  tokenId: `string` required. The tokenId
+2.  address: `string` required. The address
 
 #### Result
 

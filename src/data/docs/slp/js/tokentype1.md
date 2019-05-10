@@ -14,21 +14,21 @@ Create a new SLP Token of Type 1
 
 ##### Valid config properties
 
-- `fundingAddress`: `String`. **required** slp address format
-- `fundingWif`: `String`. **required** compressed WIF format. Available via `SLP.HDNode.toWIF`
-- `tokenReceiverAddress` : `String`. **required** slp address format
+- `fundingAddress`: `string`. **required** slp address format
+- `fundingWif`: `string`. **required** compressed WIF format. Available via `SLP.HDNode.toWIF`
+- `tokenReceiverAddress` : `string`. **required** slp address format
 - `bchChangeReceiverAddress` : `String.` **required** cash address format
-- `batonReceiverAddress`: `String`. **optional** slp address format. The address which has the baton has the ability to mint more tokens.
-- `decimals`: `Number`. **required** Number of decimal points for your token
-- `name` : `String`. **required** Name of token
-- `symbol` : `String`. **required** Token symbol
-- `documentUri` : `String`. **required** URI of token document
-- `documentHash` : `String`. **required** Hash of token document
-- `initialTokenQty` : `Number`. **required** Initial token quantity
+- `batonReceiverAddress`: `string`. **optional** slp address format. The address which has the baton has the ability to mint more tokens.
+- `decimals`: `number`. **required** Number of decimal points for your token
+- `name` : `string`. **required** Name of token
+- `symbol` : `string`. **required** Token symbol
+- `documentUri` : `string`. **required** URI of token document
+- `documentHash` : `string`. **required** Hash of token document
+- `initialTokenQty` : `number`. **required** Initial token quantity
 
 #### Result
 
-tokenId `String`. The tokenId of your newly created token. This tokenId is the txid of the genesis tx. You will use this tokenId as your token's unique identifier and to mint future tokens
+tokenId `string`. The tokenId of your newly created token. This tokenId is the txid of the genesis tx. You will use this tokenId as your token's unique identifier and to mint future tokens
 
 #### Examples
 
@@ -69,17 +69,17 @@ Mint additional tokens of Type 1
 
 ##### Valid config properties
 
-- `fundingAddress`: `String`. **required** slp address format
-- `fundingWif`: `String`. **required** compressed WIF format. Available via `SLP.HDNode.toWIF`
-- `tokenReceiverAddress` : `String`. **required** slp address format
+- `fundingAddress`: `string`. **required** slp address format
+- `fundingWif`: `string`. **required** compressed WIF format. Available via `SLP.HDNode.toWIF`
+- `tokenReceiverAddress` : `string`. **required** slp address format
 - `bchChangeReceiverAddress` : `String.` **required** cash address format
-- `batonReceiverAddress`: `String`. **optional** slp address format. The address which has the baton has the ability to mint more tokens.
-- `tokenId`: `String`. **required** tokenId of token to mint more of
-- `additionalTokenQty`: `Number`. **required** Number of additional tokens to mint
+- `batonReceiverAddress`: `string`. **optional** slp address format. The address which has the baton has the ability to mint more tokens.
+- `tokenId`: `string`. **required** tokenId of token to mint more of
+- `additionalTokenQty`: `number`. **required** Number of additional tokens to mint
 
 #### Result
 
-mintId `String`. The txid of the newly minted tokens
+mintId `string`. The txid of the newly minted tokens
 
 #### Examples
 
@@ -117,16 +117,16 @@ Send tokens of Type 1. one-to-one, one-to-many, many-to-many and many-to-one tok
 
 ##### Valid config properties
 
-- `fundingAddress`: `String`. **required** slp address format
-- `fundingWif`: `String`. **required** compressed WIF format. Available via `SLP.HDNode.toWIF`
-- `tokenReceiverAddress` : `String` or `Array`. **required** slp address format
-- `bchChangeReceiverAddress` : `String` or `Array`. **required** cash address format
-- `tokenId`: `String`. **required** tokenId of token to send
-- `amount`: `Number`. **required** Number of tokens to send
+- `fundingAddress`: `string`. **required** slp address format
+- `fundingWif`: `string`. **required** compressed WIF format. Available via `SLP.HDNode.toWIF`
+- `tokenReceiverAddress` : `string` or `Array`. **required** slp address format
+- `bchChangeReceiverAddress` : `string` or `Array`. **required** cash address format
+- `tokenId`: `string`. **required** tokenId of token to send
+- `amount`: `number`. **required** Number of tokens to send
 
 #### Result
 
-sendId `String`. The txid of your sent tokens
+sendId `string`. The txid of your sent tokens
 
 #### Examples
 
@@ -278,15 +278,15 @@ Burn an amount of tokens for an address by tokenId
 
 ##### Valid config properties
 
-- `fundingAddress`: `String`. **required** slp address format
-- `fundingWif`: `String`. **required** compressed WIF format. Available via `SLP.HDNode.toWIF`
+- `fundingAddress`: `string`. **required** slp address format
+- `fundingWif`: `string`. **required** compressed WIF format. Available via `SLP.HDNode.toWIF`
 - `bchChangeReceiverAddress` : `String.` **required** cash address format
-- `tokenId`: `String`. **required** tokenId of token to burn all of
-- `amount`: `Number`. **required** Amount of tokens to burn
+- `tokenId`: `string`. **required** tokenId of token to burn all of
+- `amount`: `number`. **required** Amount of tokens to burn
 
 #### Result
 
-txid `String`. The txid of your burned tokens
+txid `string`. The txid of your burned tokens
 
 #### Examples
 

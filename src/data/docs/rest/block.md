@@ -16,7 +16,7 @@ Details about a single block by hash
 
 #### URL Parameters
 
-1.  hash `String` required
+1.  hash `string` required
 
 #### Result
 
@@ -164,7 +164,7 @@ Details about a block by height
 
 #### URL Parameters
 
-1.  height `String` required
+1.  height `string` required
 
 #### Result
 
