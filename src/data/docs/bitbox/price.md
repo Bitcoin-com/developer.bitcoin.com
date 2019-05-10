@@ -10,7 +10,7 @@ Return current price of BCH in multiple currencies
 
 #### Arguments
 
-1.  currency `string` optional: Defaults to usd
+1.  currency `string` **optional**: Defaults to usd
 
 Valid currencies
 
@@ -18,7 +18,7 @@ aed, afn, all, amd, ang, aoa, ars, aud, awg, azn, bam, bbd, bdt, bgn, bhd, bif, 
 
 #### Result
 
-price `number`: Price of single requested currency
+price `Promise<number>`: Price of single requested currency
 
 #### Examples
 
