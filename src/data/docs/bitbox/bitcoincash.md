@@ -20,23 +20,23 @@ satoshi `number`: bitcoinCash unit converted to satoshis
 
 ```javascript
 // convert 9 $BCH to satoshis
-BITBOX.BitcoinCash.toSatoshi(9)
+bitbox.BitcoinCash.toSatoshi(9)
 // 900000000
 
 // convert 1 $BCH to satoshis
-BITBOX.BitcoinCash.toSatoshi(1)
+bitbox.BitcoinCash.toSatoshi(1)
 // 100000000
 
 // convert 100 $BCH to satoshis
-BITBOX.BitcoinCash.toSatoshi(100)
+bitbox.BitcoinCash.toSatoshi(100)
 // 10000000000
 
 // convert 42 $BCH to satoshis
-BITBOX.BitcoinCash.toSatoshi(42)
+bitbox.BitcoinCash.toSatoshi(42)
 // 4200000000
 
 // convert 507 $BCH to satoshis
-BITBOX.BitcoinCash.toSatoshi(507)
+bitbox.BitcoinCash.toSatoshi(507)
 // 50700000000
 ```
 
@@ -56,23 +56,23 @@ bitcoinCash `number`: satoshi unit converted to Bitcoin Cash
 
 ```javascript
 // convert 900000000 satoshis to $BCH
-BITBOX.BitcoinCash.toBitcoinCash(900000000)
+bitbox.BitcoinCash.toBitcoinCash(900000000)
 // 9
 
 // convert 100000000 satoshis to $BCH
-BITBOX.BitcoinCash.toBitcoinCash(100000000)
+bitbox.BitcoinCash.toBitcoinCash(100000000)
 // 1
 
 // convert 10000000000 satoshis to $BCH
-BITBOX.BitcoinCash.toBitcoinCash(10000000000)
+bitbox.BitcoinCash.toBitcoinCash(10000000000)
 // 100
 
 // convert 4200000000 satoshis to $BCH
-BITBOX.BitcoinCash.toBitcoinCash(4200000000)
+bitbox.BitcoinCash.toBitcoinCash(4200000000)
 // 42
 
 // convert 50700000000 satoshis to $BCH
-BITBOX.BitcoinCash.toBitcoinCash(50700000000)
+bitbox.BitcoinCash.toBitcoinCash(50700000000)
 // 507
 ```
 
@@ -92,7 +92,7 @@ signature `string`: cryptographic signature
 #### Examples
 
 ```javascript
-BITBOX.BitcoinCash.signMessageWithPrivKey(
+bitbox.BitcoinCash.signMessageWithPrivKey(
   'KxtpRDUJDiutLaTV8Vuavhb6h7zq9YV9ZKA3dU79PCgYmNVmkkvS',
   'EARTH'
 )
@@ -116,7 +116,7 @@ isVerified `boolean`: if message is verified or not
 #### Examples
 
 ```javascript
-BITBOX.BitcoinCash.verifyMessage(
+bitbox.BitcoinCash.verifyMessage(
   'bitcoincash:qp2zvw3zpk5xx43w4tve7mtekd9kaxwj4uenq9eupv',
   'IIYVhlo2Z6TWFjYX1+YM+7vQKz0m+zYdSe4eYpFLuAQDEZXqll7lZC8Au22VI2LLP5x+IerZckVk3QQPsA3e8/8=',
   'EARTH'
@@ -141,27 +141,27 @@ base58check `string`: base58check encoded string
 ```javascript
 // encode 0079bd35d306f648350818470c9f18903df6e06902a026f2a7 as base58check
 let hex = '0079bd35d306f648350818470c9f18903df6e06902a026f2a7'
-BITBOX.BitcoinCash.encodeBase58Check(hex)
+bitbox.BitcoinCash.encodeBase58Check(hex)
 // 1C6hRmfzvWst5WA7bFRCVAqHt5gE2g7Qar
 
 // encode 006da742680accf2282df5fade8e9b7a01a517e779289b52cc as base58check
 let hex = '006da742680accf2282df5fade8e9b7a01a517e779289b52cc'
-BITBOX.BitcoinCash.encodeBase58Check(hex)
+bitbox.BitcoinCash.encodeBase58Check(hex)
 // 1Azo2JBz2JswboeY9xSMcp14BAfhjnD9SK
 
 // encode 00c68a6a07ccdaf1669cfd8d244d80ff36b713551c6208f672 as base58check
 let hex = '00c68a6a07ccdaf1669cfd8d244d80ff36b713551c6208f672'
-BITBOX.BitcoinCash.encodeBase58Check(hex)
+bitbox.BitcoinCash.encodeBase58Check(hex)
 // 1K6ncAmMEyQrKUYosZRD9swyZNXECu2aKs
 
 // encode 00d0a6b5e3dd43d0fb895b3b3df565bb8266c5ab00a25dbeb5 as base58check
 let hex = '00d0a6b5e3dd43d0fb895b3b3df565bb8266c5ab00a25dbeb5'
-BITBOX.BitcoinCash.encodeBase58Check(hex)
+bitbox.BitcoinCash.encodeBase58Check(hex)
 // 1L2FG9hH3bwchhxHaCs5cg1QNbhmbaeAs6
 
 // encode 00db04c2e6f104997cb04c956bf25da6078e559d303127f08b as base58check
 let hex = '00db04c2e6f104997cb04c956bf25da6078e559d303127f08b'
-BITBOX.BitcoinCash.encodeBase58Check(hex)
+bitbox.BitcoinCash.encodeBase58Check(hex)
 // 1Ly4gqPddveYHMNkfjoXHanVszXpD3duKg
 ```
 
@@ -182,27 +182,27 @@ hex `string`: hex encoded string
 ```javascript
 // decode 1C6hRmfzvWst5WA7bFRCVAqHt5gE2g7Qar to hex
 let base58check = '1C6hRmfzvWst5WA7bFRCVAqHt5gE2g7Qar'
-BITBOX.BitcoinCash.decodeBase58Check(base58check)
+bitbox.BitcoinCash.decodeBase58Check(base58check)
 // 0079bd35d306f648350818470c9f18903df6e06902a026f2a7
 
 // decode 1Azo2JBz2JswboeY9xSMcp14BAfhjnD9SK to hex
 let base58check = '1Azo2JBz2JswboeY9xSMcp14BAfhjnD9SK'
-BITBOX.BitcoinCash.decodeBase58Check(base58check)
+bitbox.BitcoinCash.decodeBase58Check(base58check)
 // 006da742680accf2282df5fade8e9b7a01a517e779289b52cc
 
 // decode 1K6ncAmMEyQrKUYosZRD9swyZNXECu2aKs to hex
 let base58check = '1K6ncAmMEyQrKUYosZRD9swyZNXECu2aKs'
-BITBOX.BitcoinCash.decodeBase58Check(base58check)
+bitbox.BitcoinCash.decodeBase58Check(base58check)
 // 00c68a6a07ccdaf1669cfd8d244d80ff36b713551c6208f672
 
 // decode 1L2FG9hH3bwchhxHaCs5cg1QNbhmbaeAs6 to hex
 let base58check = '1L2FG9hH3bwchhxHaCs5cg1QNbhmbaeAs6'
-BITBOX.BitcoinCash.decodeBase58Check(base58check)
+bitbox.BitcoinCash.decodeBase58Check(base58check)
 // 00d0a6b5e3dd43d0fb895b3b3df565bb8266c5ab00a25dbeb5
 
 // decode 1Ly4gqPddveYHMNkfjoXHanVszXpD3duKg to hex
 let base58check = '1Ly4gqPddveYHMNkfjoXHanVszXpD3duKg'
-BITBOX.BitcoinCash.decodeBase58Check(base58check)
+bitbox.BitcoinCash.decodeBase58Check(base58check)
 // 00db04c2e6f104997cb04c956bf25da6078e559d303127f08b
 ```
 
@@ -228,7 +228,7 @@ let options = {
   amount: 1,
   label: '#BCHForEveryone',
 }
-BITBOX.BitcoinCash.encodeBIP21(address, options)
+bitbox.BitcoinCash.encodeBIP21(address, options)
 // bitcoincash:qrdsfshx7yzfjl9sfj2khuja5crcu4vaxqrt2qkz5s?amount=1&label=%23BCHForEveryone
 
 let address = '1C6hRmfzvWst5WA7bFRCVAqHt5gE2g7Qar'
@@ -237,7 +237,7 @@ let options = {
   label: 'coinbase donation',
   message: "and ya don't stop",
 }
-BITBOX.BitcoinCash.encodeBIP21(address, options)
+bitbox.BitcoinCash.encodeBIP21(address, options)
 // bitcoincash:qpum6dwnqmmysdggrprse8ccjq7ldcrfqgmmtgcmny?amount=12.5&label=coinbase%20donation&message=and%20ya%20don%27t%20stop
 
 let address = 'qzw6tfrh8p0jh834uf9rhg77pjg5rgnt3qw0e54u03'
@@ -245,7 +245,7 @@ let options = {
   amount: 42,
   label: 'no prefix',
 }
-BITBOX.BitcoinCash.encodeBIP21(address, options)
+bitbox.BitcoinCash.encodeBIP21(address, options)
 // bitcoincash:qzw6tfrh8p0jh834uf9rhg77pjg5rgnt3qw0e54u03?amount=42&label=no%20prefix
 ```
 
@@ -266,12 +266,12 @@ results `BIP21Object`: decoded bip21 uri
 ```javascript
 let bip21 =
   'bitcoincash:qrdsfshx7yzfjl9sfj2khuja5crcu4vaxqrt2qkz5s?amount=1&label=%23BCHForEveryone'
-BITBOX.BitcoinCash.decodeBIP21(bip21)
+bitbox.BitcoinCash.decodeBIP21(bip21)
 // { address: 'qrdsfshx7yzfjl9sfj2khuja5crcu4vaxqrt2qkz5s', options: { amount: 1, label: '#BCHForEveryone' } }
 
 let bip21 =
   'bitcoincash:qpum6dwnqmmysdggrprse8ccjq7ldcrfqgmmtgcmny?amount=12.5&label=coinbase%20donation&message=and%20ya%20don%27t%20stop'
-BITBOX.BitcoinCash.decodeBIP21(bip21)
+bitbox.BitcoinCash.decodeBIP21(bip21)
 // { address: 'qpum6dwnqmmysdggrprse8ccjq7ldcrfqgmmtgcmny',
 //   options:
 //    { amount: 12.5,
@@ -282,7 +282,7 @@ BITBOX.BitcoinCash.decodeBIP21(bip21)
 
 let bip21 =
   'bitcoincash:qzw6tfrh8p0jh834uf9rhg77pjg5rgnt3qw0e54u03?amount=42&label=no%20prefix'
-BITBOX.BitcoinCash.decodeBIP21(bip21)
+bitbox.BitcoinCash.decodeBIP21(bip21)
 // { address: 'qzw6tfrh8p0jh834uf9rhg77pjg5rgnt3qw0e54u03', options: { amount: 42, label: 'no prefix' } }
 ```
 
@@ -310,7 +310,7 @@ let inputs = {
 let outputs = {
   P2SH: 1,
 }
-BITBOX.BitcoinCash.getByteCount(inputs, outputs)
+bitbox.BitcoinCash.getByteCount(inputs, outputs)
 // 190
 
 // 4 MULTISIG-P2SH 2-of-4 and 10 P2PKH inputs
@@ -322,7 +322,7 @@ let inputs = {
 let outputs = {
   P2PKH: 23,
 }
-BITBOX.BitcoinCash.getByteCount(inputs, outputs)
+bitbox.BitcoinCash.getByteCount(inputs, outputs)
 // 2750
 
 // 2 MULTISIG-P2SH 3-of-5 inputs
@@ -333,7 +333,7 @@ let inputs = {
 let outputs = {
   P2PKH: 2,
 }
-BITBOX.BitcoinCash.getByteCount(inputs, outputs)
+bitbox.BitcoinCash.getByteCount(inputs, outputs)
 // 565
 
 // 111 P2PKH inputs
@@ -344,7 +344,7 @@ let inputs = {
 let outputs = {
   P2PKH: 2,
 }
-BITBOX.BitcoinCash.getByteCount(inputs, outputs)
+bitbox.BitcoinCash.getByteCount(inputs, outputs)
 // 16506
 
 // 10 P2PKH and 1 MULTISIG-P2SH 1-of-2 input
@@ -357,7 +357,7 @@ let outputs = {
   P2PKH: 2,
   P2SH: 1,
 }
-BITBOX.BitcoinCash.getByteCount(inputs, outputs)
+bitbox.BitcoinCash.getByteCount(inputs, outputs)
 // 1780
 ```
 
@@ -378,14 +378,14 @@ encryptedKey `string`: privkey WIF encrypted w/ password
 
 ```javascript
 // mainnet
-BITBOX.BitcoinCash.encryptBIP38(
+bitbox.BitcoinCash.encryptBIP38(
   'L1phBREbhL4vb1uHHHCAse8bdGE5c7ic2PFjRxMawLzQCsiFVbvu',
   '9GKVkabAHBMyAf'
 )
 // 6PYU2fDHRVF2194gKDGkbFbeu4mFgkWtVvg2RPd2Sp6KmZx3RCHFpgBB2G
 
 // testnet
-BITBOX.BitcoinCash.encryptBIP38(
+bitbox.BitcoinCash.encryptBIP38(
   'cSx7KzdH9EcvDEireu2WYpGnXdFYpta7sJUNt5kVCJgA7kcAU8Gm',
   '1EBPIyj55eR8bVUov9'
 )
@@ -410,7 +410,7 @@ wif `string`: decrypted privkey WIF on mainnet or testnet
 
 ```javascript
 // mainnet
-BITBOX.BitcoinCash.decryptBIP38(
+bitbox.BitcoinCash.decryptBIP38(
   '6PYU2fDHRVF2194gKDGkbFbeu4mFgkWtVvg2RPd2Sp6KmZx3RCHFpgBB2G',
   '9GKVkabAHBMyAf',
   'mainnet'
@@ -418,7 +418,7 @@ BITBOX.BitcoinCash.decryptBIP38(
 // L1phBREbhL4vb1uHHHCAse8bdGE5c7ic2PFjRxMawLzQCsiFVbvu
 
 // testnet
-BITBOX.BitcoinCash.decryptBIP38(
+bitbox.BitcoinCash.decryptBIP38(
   '6PYUAPLwLSEjWSAfoe9NTSPkMZXnJA8j8EFJtKaeSnP18RCouutBrS2735',
   '1EBPIyj55eR8bVUov9',
   'testnet'

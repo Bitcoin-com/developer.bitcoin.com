@@ -5,7 +5,7 @@ publishedAt: 2018-07-06
 updatedAt: 2018-07-06
 ---
 
-Bitcoin Cash is all about sending and receiving payments. [BIP21](https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki) describes a way to encode payment request information such as address, amount, message etc as a URI. These URIs are a very popular way to share payment requests and you’ll often see them as links in a website or as QR codes. Today we’re releasing `encodeBIP21` and `decodeBIP21` to make it easy for your app to encode/decode BIP21 $BCH URIs.
+Bitcoin Cash is all about sending and receiving payments. [BIP21](https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki) describes a way to encode payment request information such as address, amount, message etc as a URI. These URIs are a very popular way to share payment requests and you’ll often see them as links in a website or as QR codes. Today we’re releasing `encodeBIP21` and `decodeBIP21` to make it easy for your app to encode/decode BIP21 \$BCH URIs.
 
 ## encodeBIP21
 
@@ -18,7 +18,7 @@ let options = {
   amount: 1,
   label: '#BCHForEveryone',
 }
-BITBOX.BitcoinCash.encodeBIP21(address, options)
+bitbox.BitcoinCash.encodeBIP21(address, options)
 // bitcoincash:qrdsfshx7yzfjl9sfj2khuja5crcu4vaxqrt2qkz5s?amount=1&label=%23BCHForEveryone
 
 // cashaddr w/out prefix
@@ -27,7 +27,7 @@ let options = {
   amount: 1,
   label: '#BCHForEveryone',
 }
-BITBOX.BitcoinCash.encodeBIP21(address, options)
+bitbox.BitcoinCash.encodeBIP21(address, options)
 // bitcoincash:qrdsfshx7yzfjl9sfj2khuja5crcu4vaxqrt2qkz5s?amount=1&label=%23BCHForEveryone
 
 // works w/ legacy addresses too
@@ -36,7 +36,7 @@ let options = {
   amount: 1,
   label: '#BCHForEveryone',
 }
-BITBOX.BitcoinCash.encodeBIP21(address, options)
+bitbox.BitcoinCash.encodeBIP21(address, options)
 // bitcoincash:qr2tcpvsnca0gaw7jxngtmsvd4ffqdpkxqtfzcd8w3?amount=1&label=%23BCHForEveryone
 ```
 
@@ -51,7 +51,7 @@ let options = {
   amount: 'one',
   label: '#BCHForEveryone',
 }
-BITBOX.BitcoinCash.encodeBIP21(address, options)
+bitbox.BitcoinCash.encodeBIP21(address, options)
 // TypeError: Invalid amount
 
 // won't accept a negative value as an amount
@@ -60,7 +60,7 @@ let options = {
   amount: -1,
   label: '#BCHForEveryone',
 }
-BITBOX.BitcoinCash.encodeBIP21(address, options)
+bitbox.BitcoinCash.encodeBIP21(address, options)
 // TypeError: Invalid amount
 ```
 
@@ -71,7 +71,7 @@ To decode a BIP21 URI pass in a valid URI.
 ```javascript
 let bip21 =
   'bitcoincash:qrdsfshx7yzfjl9sfj2khuja5crcu4vaxqrt2qkz5s?amount=1&label=%23BCHForEveryone'
-BITBOX.BitcoinCash.decodeBIP21(bip21)
+bitbox.BitcoinCash.decodeBIP21(bip21)
 // { address: 'qrdsfshx7yzfjl9sfj2khuja5crcu4vaxqrt2qkz5s', options: { amount: 1, label: '#BCHForEveryone' } }
 ```
 
@@ -82,7 +82,7 @@ BITBOX.BitcoinCash.decodeBIP21(bip21)
 ```javascript
 let bip21 =
   'qrdsfshx7yzfjl9sfj2khuja5crcu4vaxqrt2qkz5s?amount=1&label=%23BCHForEveryone'
-BITBOX.BitcoinCash.decodeBIP21(bip21)
+bitbox.BitcoinCash.decodeBIP21(bip21)
 // Error: Invalid BIP21 URI: qrdsfshx7yzfjl9sfj2khuja5crcu4vaxqrt2qkz5s?amount=1&label=%23BCHForEveryone
 ```
 

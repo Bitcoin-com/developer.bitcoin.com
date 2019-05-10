@@ -30,7 +30,7 @@ signature `Buffer`
       "243F6A8885A308D313198A2E03707344A4093822299F31D0082EFA98EC4E6C89",
       "hex"
     )
-    const createdSignature = BITBOX.Schnorr.sign(privateKey, message)
+    const createdSignature = bitbox.Schnorr.sign(privateKey, message)
     console.log("The signature is: " + createdSignature.toString("hex"))
     // The signature is: 2a298dacae57395a15d0795ddbfd1dcb564da82b0f269bc70a74f8220429ba1d1e51a22ccec35599b8f266912281f8365ffc2d035a230434a1a64dc59f7013fd
 
@@ -60,7 +60,7 @@ Verify a 64-byte signature of a 32-byte message against the public key. Throws a
       "hex"
     )
     try {
-      BITBOX.Schnorr.verify(publicKey, message, signatureToVerify)
+      bitbox.Schnorr.verify(publicKey, message, signatureToVerify)
       console.log("The signature is valid.")
     } catch (e) {
       console.error("The signature verification failed: " + e)
@@ -122,7 +122,7 @@ Verify a list of 64-byte signatures as a batch operation. Throws an `Error` if v
       )
     ]
     try {
-      BITBOX.Schnorr.batchVerify(publicKeys, messages, signatures)
+      bitbox.Schnorr.batchVerify(publicKeys, messages, signatures)
       console.log("The signatures are valid.")
     } catch (e) {
       console.error("The signature verification failed: " + e)
@@ -158,7 +158,7 @@ aggregatedSignature `Buffer`
       "243F6A8885A308D313198A2E03707344A4093822299F31D0082EFA98EC4E6C89",
       "hex"
     )
-    const aggregatedSignature = BITBOX.Schnorr.nonInteractive(
+    const aggregatedSignature = bitbox.Schnorr.nonInteractive(
       [privateKey1, privateKey2],
       message
     )
@@ -172,9 +172,9 @@ aggregatedSignature `Buffer`
       "03FAC2114C2FBB091527EB7C64ECB11F8021CB45E8E7809D3C0938E4B8C0E5F84B",
       "hex"
     )
-    const X = BITBOX.Schnorr.publicKeyCombine([publicKey1, publicKey2])
+    const X = bitbox.Schnorr.publicKeyCombine([publicKey1, publicKey2])
     try {
-      BITBOX.Schnorr.verify(X, message, aggregatedSignature)
+      bitbox.Schnorr.verify(X, message, aggregatedSignature)
       console.log("The signature is valid.")
     } catch (e) {
       console.error("The signature verification failed: " + e)
@@ -212,7 +212,7 @@ publicKeyHash `Buffer`
           "hex"
         )
       ],
-      message: BITBOX.Schnorr.hash(Buffer.from("muSig is awesome!", "utf8")),
+      message: bitbox.Schnorr.hash(Buffer.from("muSig is awesome!", "utf8")),
       pubKeyHash: null,
       pubKeyCombined: null,
       commitments: [],
@@ -254,7 +254,7 @@ publicKeyHash `Buffer`
     // This can be done by every signer individually or by the initializing
     // party and then be distributed to every participant.
     // -----------------------------------------------------------------------
-    publicData.pubKeyHash = BITBOX.Schnorr.computeEll(publicData.pubKeys)
+    publicData.pubKeyHash = bitbox.Schnorr.computeEll(publicData.pubKeys)
 
 ### `publicKeyCombine`
 
@@ -272,7 +272,7 @@ X `Buffer`
 #### Examples
 
     // continued from above
-    publicData.pubKeyCombined = BITBOX.Schnorr.publicKeyCombine(
+    publicData.pubKeyCombined = bitbox.Schnorr.publicKeyCombine(
       publicData.pubKeys,
       publicData.pubKeyHash
     )
@@ -304,8 +304,8 @@ session `Session`
     // an attacker to extract the secret key!
     // -----------------------------------------------------------------------
     signerPrivateData.forEach((data, idx) => {
-      const sessionId = BITBOX.Crypto.randomBytes(32) // must never be reused between sessions!
-      data.session = BITBOX.Schnorr.sessionInitialize(
+      const sessionId = bitbox.Crypto.randomBytes(32) // must never be reused between sessions!
+      data.session = bitbox.Schnorr.sessionInitialize(
         sessionId,
         data.privateKey,
         publicData.message,
@@ -356,7 +356,7 @@ nonceCombined `Buffer`
     // and keep track of whether the nonce was negated or not. This is needed
     // for the later steps.
     // -----------------------------------------------------------------------
-    publicData.nonceCombined = BITBOX.Schnorr.sessionNonceCombine(
+    publicData.nonceCombined = bitbox.Schnorr.sessionNonceCombine(
       signerSession,
       publicData.nonces
     )
@@ -388,7 +388,7 @@ partialSignature `BigInteger`
     // given message.
     // -----------------------------------------------------------------------
     signerPrivateData.forEach(data => {
-      data.session.partialSignature = BITBOX.Schnorr.partialSign(
+      data.session.partialSignature = bitbox.Schnorr.partialSign(
         data.session,
         publicData.message,
         publicData.nonceCombined,
@@ -428,7 +428,7 @@ Verifies a partial signature `s_i` against the participant's public key `P_i`. T
     // other participants.
     // -----------------------------------------------------------------------
     for (let i = 0; i < publicData.pubKeys.length; i++) {
-      BITBOX.Schnorr.partialSignatureVerify(
+      bitbox.Schnorr.partialSignatureVerify(
         signerSession,
         publicData.partialSignatures[i],
         publicData.nonceCombined,
@@ -459,7 +459,7 @@ signature `Buffer`
     // Finally, the partial signatures can be combined into the full signature
     // (s, R) that can be verified against combined public key P.
     // -----------------------------------------------------------------------
-    publicData.signature = BITBOX.Schnorr.partialSignaturesCombine(
+    publicData.signature = bitbox.Schnorr.partialSignaturesCombine(
       publicData.nonceCombined,
       publicData.partialSignatures
     )
@@ -469,7 +469,7 @@ signature `Buffer`
     // The resulting signature can now be verified as a normal Schnorr
     // signature (s, R) over the message m and public key P.
     // -----------------------------------------------------------------------
-    BITBOX.Schnorr.verify(
+    bitbox.Schnorr.verify(
       publicData.pubKeyCombined,
       publicData.message,
       publicData.signature

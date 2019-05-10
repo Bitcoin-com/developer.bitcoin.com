@@ -915,23 +915,23 @@ On the fourth level, "change," an HD wallet has two subtrees, one for creating r
 Using [BITBOX](/bitbox) you can experiment with generating BIP0044 HDNodes, as well as displaying them in different formats:
 
 ```javascript
-let mnemonic = BITBOX.Mnemonic.generate(256)
+let mnemonic = bitbox.Mnemonic.generate(256)
 
 // section urge actress improve hill elephant mirror twice movie route garden true blast gauge dilemma protect hello copper cactus south bonus license merry shine
 
-let seed = BITBOX.Mnemonic.toSeed(mnemonic)
-let hdNode = BITBOX.HDNode.fromSeed(seed)
+let seed = bitbox.Mnemonic.toSeed(mnemonic)
+let hdNode = bitbox.HDNode.fromSeed(seed)
 
 // BIP44 Account 0
-let bchAccount0 = BITBOX.HDNode.derivePath(hdNode, "m/44'/145'/0'")
+let bchAccount0 = bitbox.HDNode.derivePath(hdNode, "m/44'/145'/0'")
 
-BITBOX.HDNode.toCashAddress(bchAccount0)
+bitbox.HDNode.toCashAddress(bchAccount0)
 // bitcoincash:qr8xeztlnt0axpxnsf8s9hlwmvnd0krf4vfy3v9un9
 
-BITBOX.HDNode.toLegacyAddress(bchAccount0)
+bitbox.HDNode.toLegacyAddress(bchAccount0)
 // 1KpUDopUHBBASLJM3Lx39dpLRPf3PEMnEy
 
-BITBOX.HDNode.toWIF(bchAccount0)
+bitbox.HDNode.toWIF(bchAccount0)
 // Kwf7ujr3ZgyY8Uv3pT7kuyyf3paYdtdQecsiomJe6f9TBkR1Ad2
 ```
 
@@ -949,12 +949,12 @@ A BIP0038 encryption scheme takes as input a Bitcoin Cash private key, encoded i
 
 ```javascript
 // mainnet
-BITBOX.BitcoinCash.encryptBIP38(
+bitbox.BitcoinCash.encryptBIP38(
   'L1phBREbhL4vb1uHHHCAse8bdGE5c7ic2PFjRxMawLzQCsiFVbvu',
   '9GKVkabAHBMyAf'
 )
 // 6PYU2fDHRVF2194gKDGkbFbeu4mFgkWtVvg2RPd2Sp6KmZx3RCHFpgBB2G
-BITBOX.BitcoinCash.decryptBIP38(
+bitbox.BitcoinCash.decryptBIP38(
   '6PYU2fDHRVF2194gKDGkbFbeu4mFgkWtVvg2RPd2Sp6KmZx3RCHFpgBB2G',
   '9GKVkabAHBMyAf',
   'mainnet'
@@ -962,12 +962,12 @@ BITBOX.BitcoinCash.decryptBIP38(
 // L1phBREbhL4vb1uHHHCAse8bdGE5c7ic2PFjRxMawLzQCsiFVbvu
 
 // testnet
-BITBOX.BitcoinCash.encryptBIP38(
+bitbox.BitcoinCash.encryptBIP38(
   'cSx7KzdH9EcvDEireu2WYpGnXdFYpta7sJUNt5kVCJgA7kcAU8Gm',
   '1EBPIyj55eR8bVUov9'
 )
 // 6PYUAPLwLSEjWSAfoe9NTSPkMZXnJA8j8EFJtKaeSnP18RCouutBrS2735
-BITBOX.BitcoinCash.decryptBIP38(
+bitbox.BitcoinCash.decryptBIP38(
   '6PYUAPLwLSEjWSAfoe9NTSPkMZXnJA8j8EFJtKaeSnP18RCouutBrS2735',
   '1EBPIyj55eR8bVUov9',
   'testnet'

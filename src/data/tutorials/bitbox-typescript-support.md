@@ -15,7 +15,7 @@ Unit testing and statically typed programming languages can help reduce the numb
 
 ### Goal
 
-The goal for this article will be to show how to enable TypeScript types for BITBOX. We will utilize the existing BITBOX scaffolding system to create a new project and then show how to make the required updates so that the types can be accessed during development.
+The goal for this article will be to show how to enable TypeScript types for bitbox. We will utilize the existing BITBOX scaffolding system to create a new project and then show how to make the required updates so that the types can be accessed during development.
 
 ### Prerequisites
 

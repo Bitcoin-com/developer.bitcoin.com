@@ -56,7 +56,7 @@ Donate BCH shows very practical ways to leverage BITBOX when creating an app. It
 BITBOX can convert whole BCH units [to satoshis](/bitbox/docs/bitcoincash/#tosatoshi) as well as converting satoshis to [bits](/bitbox/docs/bitcoincash/#tobits) and back to [whole units](/bitbox/docs/bitcoincash/#tobitcoincash). The scaffold [converts satoshis](https://github.com/Bitcoin-com/bitbox-scaffold-websockets/blob/master/src/App.js#L50) to whole BCH.
 
 ```javascript
-const value = BITBOX.BitcoinCash.toBitcoinCash(curr.satoshi)
+const value = bitbox.BitcoinCash.toBitcoinCash(curr.satoshi)
 ```
 
 #### Address Conversion
@@ -64,7 +64,7 @@ const value = BITBOX.BitcoinCash.toBitcoinCash(curr.satoshi)
 BITBOX has methods for converting [cash address to legacy](/bitbox/docs/address/#tolegacyaddress) and [legacy to cash](/bitbox/docs/address/#tocashaddress). The scaffold [converts cash address to legacy address](https://github.com/Bitcoin-com/bitbox-scaffold-websockets/blob/master/src/App.js#L97).
 
 ```javascript
-const cashaddr = BITBOX.Address.toCashAddress(address)
+const cashaddr = bitbox.Address.toCashAddress(address)
 ```
 
 #### REST
@@ -72,7 +72,7 @@ const cashaddr = BITBOX.Address.toCashAddress(address)
 BITBOX SDK has [REST](https://rest.bitcoin.com) integration bundled. The scaffold calls [Address.details](https://github.com/Bitcoin-com/bitbox-scaffold-websockets/blob/master/src/App.js#L121) to get back utxo for an address.
 
 ```javascript
-BITBOX.Address.details(addr).then(
+bitbox.Address.details(addr).then(
   result => {
     result.forEach(r => {
       Object.keys(donations).forEach(p => {
@@ -95,7 +95,7 @@ BITBOX.Address.details(addr).then(
 The `Socket` class lets you quickly get real-time blockchain data. First [create an instance](/bitbox/docs/socket/#constructor) and then [call listen](/bitbox/docs/socket/#listen). Here's how the scaffold [updates the UI](https://github.com/Bitcoin-com/bitbox-scaffold-websockets/blob/master/src/App.js#L81) after new tx data comes in.
 
 ```javascript
-const socket = new BITBOX.Socket()
+const socket = new bitbox.Socket()
 socket.listen('transactions', this.handleNewTx)
 ```
 

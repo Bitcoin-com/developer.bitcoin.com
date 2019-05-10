@@ -48,7 +48,7 @@ bitbox console
 This will load the console and create a `BITBOX` object w/ the entire \$BCH JSON RPC available. That `BITBOX` object can send commands to the running Bitcoin ABC node that you configured in the previous step.
 
 ```bash
-> BITBOX.Network.getNetworkInfo().then((result) => { console.log(result); }, (err) => { console.log(err); });
+> bitbox.Network.getNetworkInfo().then((result) => { console.log(result); }, (err) => { console.log(err); });
 
 { version: 160200,
     subversion: '/Bitcoin ABC:0.16.2(EB8.0)/',
@@ -104,7 +104,7 @@ Next you need to `require` or `import` `BITBOXSDK` into your app depending on if
 let BITBOXSDK = require('bitbox-sdk').default
 let BITBOX = new BITBOXSDK()
 
-BITBOX.getnetworkinfo().then(
+bitbox.getnetworkinfo().then(
   result => {
     console.log(result)
   },

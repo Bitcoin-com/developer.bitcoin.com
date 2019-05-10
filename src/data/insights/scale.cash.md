@@ -40,7 +40,7 @@ Your wallet is only ever accessed locally and all transactions are signed by you
 
 Download a [Bitcoin Cash Wallet](https://wallet.bitcoin.com/) and scan the QR code at scale.cash. Send the address between 15,000–1,300,000 satoshis—or at the time of this writing, between $0.08–$7.
 
-In this example we're using the bitcoin.com mobile iOS wallet. We sent $1 and it created txid [1467afce1d35fa4ada2feaeb1beba0573971783e2d1af271e3d6e9a4c660afa1](https://explorer.bitcoin.com/bch/tx/1467afce1d35fa4ada2feaeb1beba0573971783e2d1af271e3d6e9a4c660afa1).
+In this example we're using the bitcoin.com mobile iOS wallet. We sent \$1 and it created txid [1467afce1d35fa4ada2feaeb1beba0573971783e2d1af271e3d6e9a4c660afa1](https://explorer.bitcoin.com/bch/tx/1467afce1d35fa4ada2feaeb1beba0573971783e2d1af271e3d6e9a4c660afa1).
 
 ![bitcoin.com ios wallet shot 1](/images/scale-5.png)
 
@@ -95,7 +95,7 @@ bitbox new scale.cash --scaffold react
 This creates a basic BIP44 wallet in a react app with BITBOX already bundled. The scale.cash codebase also shows how to [create a mnemonic](https://github.com/SpendBCH/bch-stresstest-web/blob/7e7300f192701bf256252c118fe8dd3d4d6d475b/src/stresstest-lib/wallet.js#L20).
 
 ```
-this.mnemonic = BITBOX.Mnemonic.generate(256)
+this.mnemonic = bitbox.Mnemonic.generate(256)
 ```
 
 Which can then be [stored and reloaded](https://github.com/SpendBCH/bch-stresstest-web/blob/a4b0f3493f467efc32ff9a3f03ca0ad96a6f87f8/src/App.js#L17) when your component mounts.
@@ -120,19 +120,19 @@ componentDidMount() {
 It also shows how to create a root seed, BIP44 master HDNode, first external change node, privkeyWIF, ECPair, PubKey and [address in legacy and cash format](https://github.com/SpendBCH/bch-stresstest-web/blob/7e7300f192701bf256252c118fe8dd3d4d6d475b/src/stresstest-lib/wallet.js#L25-L34).
 
 ```javascript
-let rootSeed = BITBOX.Mnemonic.toSeed(this.mnemonic)
-let masterHDNode = BITBOX.HDNode.fromSeed(
+let rootSeed = bitbox.Mnemonic.toSeed(this.mnemonic)
+let masterHDNode = bitbox.HDNode.fromSeed(
   rootSeed,
   window.scaleCashSettings.networkString
 )
-this.hdNode = BITBOX.HDNode.derivePath(masterHDNode, "m/44'/145'/0'")
-this.node0 = BITBOX.HDNode.derivePath(this.hdNode, '0/0')
-this.node0WIF = BITBOX.ECPair.toWIF(BITBOX.HDNode.toKeyPair(this.node0))
+this.hdNode = bitbox.HDNode.derivePath(masterHDNode, "m/44'/145'/0'")
+this.node0 = bitbox.HDNode.derivePath(this.hdNode, '0/0')
+this.node0WIF = bitbox.ECPair.toWIF(bitbox.HDNode.toKeyPair(this.node0))
 
-let ecpair = BITBOX.ECPair.fromWIF(this.node0WIF)
-this.node0LegacyAddress = BITBOX.ECPair.toLegacyAddress(ecpair)
-this.node0CashAddress = BITBOX.ECPair.toCashAddress(ecpair)
-this.pubKey = Buffer(BITBOX.ECPair.toPublicKey(ecpair), 'hex')
+let ecpair = bitbox.ECPair.fromWIF(this.node0WIF)
+this.node0LegacyAddress = bitbox.ECPair.toLegacyAddress(ecpair)
+this.node0CashAddress = bitbox.ECPair.toCashAddress(ecpair)
+this.pubKey = Buffer(bitbox.ECPair.toPublicKey(ecpair), 'hex')
 ```
 
 #### REST
@@ -157,7 +157,7 @@ Every newly created address in scale.cash signs the message `stresstestbitcoin.c
 
 ```javascript
 this.messageToSign = 'stresstestbitcoin.cash'
-this.signature = BITBOX.BitcoinCash.signMessageWithPrivKey(
+this.signature = bitbox.BitcoinCash.signMessageWithPrivKey(
   this.node0WIF,
   this.messageToSign
 )
@@ -170,7 +170,7 @@ This is useful if you want to prove ownership of this address. You can share the
 Or you can verify ownership with `bitbox-sdk`.
 
 ```javascript
-BITBOX.BitcoinCash.verifyMessage(
+bitbox.BitcoinCash.verifyMessage(
   'bitcoincash:qrxju3vcdctp8s9zx7224s2extas8gc2juyk5ayhyv',
   'IEqQIvP0x1RP0GIFlWZonP7ObQQ2nWu8oATX5pq31ryTToDtrTgKb3JNZnAePcyZui7jgZt7oEzA7/q4FSlfL94=',
   'stresstestbitcoin.cash'
@@ -184,7 +184,7 @@ Scale.cash also [shows how](https://github.com/SpendBCH/bch-stresstest-web/blob/
 
 ```javascript
 const opReturnTagText = 'stresstestbitcoin.cash'
-const opReturnTagBuffer = BITBOX.Script.nullData.output.encode(
+const opReturnTagBuffer = bitbox.Script.nullData.output.encode(
   Buffer.from(opReturnTagText, 'ascii')
 )
 ```
@@ -194,7 +194,7 @@ const opReturnTagBuffer = BITBOX.Script.nullData.output.encode(
 Finally scale.cash [shows how](https://github.com/SpendBCH/bch-stresstest-web/blob/master/src/stresstest-lib/utils.js#L183) to create transactions with P2PKH inputs/outputs and an `OP_RETURN` output.
 
 ```javascript
-let transactionBuilder = new BITBOX.TransactionBuilder(
+let transactionBuilder = new bitbox.TransactionBuilder(
   window.scaleCashSettings.networkString
 )
 transactionBuilder.addInput(wallet.txid, wallet.vout)

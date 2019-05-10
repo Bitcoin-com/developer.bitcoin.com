@@ -104,7 +104,7 @@ A node must connect to a few different peers in order to establish diverse paths
 With BITBOX you can list the peer connections with the command getpeerinfo:
 
 ```javascript
-BITBOX.Network.getPeerInfo().then(
+bitbox.Network.getPeerInfo().then(
   result => {
     console.log(result)
   },

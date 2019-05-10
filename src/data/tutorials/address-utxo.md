@@ -16,7 +16,7 @@ Before we get started let’s create an HDNode and send it some satohis.
 First we generate a random 256 bit mnemonic.
 
 ```javascript
-let mnemonic = BITBOX.Mnemonic.generate(256)
+let mnemonic = bitbox.Mnemonic.generate(256)
 // slam tag city glass asthma mention rich leader snake prevent fatal trick typical gallery scare sort clip wolf strike float dwarf just clip mail
 ```
 
@@ -26,7 +26,7 @@ From that mnemonic we create a root seed buffer.
 
 ```javascript
 // root seed buffer
-let rootSeed = BITBOX.Mnemonic.toSeed(mnemonic)
+let rootSeed = bitbox.Mnemonic.toSeed(mnemonic)
 ```
 
 ### Master HD Node
@@ -35,7 +35,7 @@ With our root seed we can create a [BIP32](https://github.com/bitcoin/bips/blob/
 
 ```javascript
 // master HDNode
-let masterHDNode = BITBOX.HDNode.fromSeed(rootSeed, 'bitcoincash')
+let masterHDNode = bitbox.HDNode.fromSeed(rootSeed, 'bitcoincash')
 ```
 
 ### Account
@@ -44,7 +44,7 @@ Next create a [BIP44](https://github.com/bitcoin/bips/blob/master/bip-0044.media
 
 ```javascript
 // HDNode of BIP44 account
-let account = BITBOX.HDNode.derivePath(masterHDNode, "m/44'/145'/0'")
+let account = bitbox.HDNode.derivePath(masterHDNode, "m/44'/145'/0'")
 ```
 
 ### Change
@@ -53,14 +53,14 @@ Create the first external change address per BIP44.
 
 ```javascript
 // derive the first external change address HDNode which is going to spend utxo
-let change = BITBOX.HDNode.derivePath(account, '0/0')
+let change = bitbox.HDNode.derivePath(account, '0/0')
 ```
 
 ### Cash Address
 
 ```javascript
 // get the cash address
-let cashAddress = BITBOX.HDNode.toCashAddress(change)
+let cashAddress = bitbox.HDNode.toCashAddress(change)
 // bitcoincash:qqn2yf5jzrhwr3magjps5muz30akqqgsm5q7wcgkga
 ```
 
@@ -77,7 +77,7 @@ BITBOX Cloud is your Blockchain as a Service.’ We recently started integrating
 You can use [Address.utxo](../bitbox/docs/address/#utxo) to get back a list of utxo for an address
 
 ```javascript
-BITBOX.Address.utxo(
+bitbox.Address.utxo(
   'bitcoincash:qqn2yf5jzrhwr3magjps5muz30akqqgsm5q7wcgkga'
 ).then(
   result => {
@@ -106,12 +106,12 @@ First create an instance of `TransactionBuilder`. Note the `'bitcoincash'` argum
 
 ```javascript
 // instance of transaction builder
-let transactionBuilder = new BITBOX.TransactionBuilder('bitcoincash')
+let transactionBuilder = new bitbox.TransactionBuilder('bitcoincash')
 ```
 
 ### Original amount
 
-Now get the original amount of satoshis from the utxo. This is returned from the call to `BITBOX.Address.utxo`.
+Now get the original amount of satoshis from the utxo. This is returned from the call to `bitbox.Address.utxo`.
 
 ```javascript
 // original amount of satoshis in vin
@@ -151,7 +151,7 @@ Next use [BitcoinCash.getByteCount](../bitbox/docs/bitcoincash#getByteCount) to 
 
 ```javascript
 // get byte count to calculate fee. paying 1 sat/byte
-let byteCount = BITBOX.BitcoinCash.getByteCount({ P2PKH: 1 }, { P2PKH: 1 })
+let byteCount = bitbox.BitcoinCash.getByteCount({ P2PKH: 1 }, { P2PKH: 1 })
 // 192
 ```
 
@@ -182,7 +182,7 @@ Now get the change node’s keypair to sign the transaction.
 
 ```javascript
 // keypair
-let keyPair = BITBOX.HDNode.toKeyPair(change)
+let keyPair = bitbox.HDNode.toKeyPair(change)
 ```
 
 ### Sign input
@@ -218,7 +218,7 @@ Finally we’re ready to send our transaction to the BCH network.
 
 ```javascript
 // sendRawTransaction to running BCH node
-BITBOX.RawTransactions.sendRawTransaction(hex).then(
+bitbox.RawTransactions.sendRawTransaction(hex).then(
   result => {
     console.log(result)
   },
@@ -242,22 +242,22 @@ let mnemonic =
   'slam tag city glass asthma mention rich leader snake prevent fatal trick typical gallery scare sort clip wolf strike float dwarf just clip mail'
 
 // root seed buffer
-let rootSeed = BITBOX.Mnemonic.toSeed(mnemonic)
+let rootSeed = bitbox.Mnemonic.toSeed(mnemonic)
 
 // master HDNode
-let masterHDNode = BITBOX.HDNode.fromSeed(rootSeed, 'bitcoincash')
+let masterHDNode = bitbox.HDNode.fromSeed(rootSeed, 'bitcoincash')
 
 // HDNode of BIP44 account
-let account = BITBOX.HDNode.derivePath(masterHDNode, "m/44'/145'/0'")
+let account = bitbox.HDNode.derivePath(masterHDNode, "m/44'/145'/0'")
 
 // derive the first external change address HDNode which is going to spend utxo
-let change = BITBOX.HDNode.derivePath(account, '0/0')
+let change = bitbox.HDNode.derivePath(account, '0/0')
 
 // get the cash address
-let cashAddress = BITBOX.HDNode.toCashAddress(change)
+let cashAddress = bitbox.HDNode.toCashAddress(change)
 // bitcoincash:qqn2yf5jzrhwr3magjps5muz30akqqgsm5q7wcgkga
 
-BITBOX.Address.utxo(
+bitbox.Address.utxo(
   'bitcoincash:qqn2yf5jzrhwr3magjps5muz30akqqgsm5q7wcgkga'
 ).then(
   result => {
@@ -273,7 +273,7 @@ BITBOX.Address.utxo(
     //     cashAddress: 'bitcoincash:qqn2yf5jzrhwr3magjps5muz30akqqgsm5q7wcgkga' } ]
 
     // instance of transaction builder
-    let transactionBuilder = new BITBOX.TransactionBuilder('bitcoincash')
+    let transactionBuilder = new bitbox.TransactionBuilder('bitcoincash')
     // original amount of satoshis in vin
 
     let originalAmount = result[0].satoshis
@@ -288,7 +288,7 @@ BITBOX.Address.utxo(
     transactionBuilder.addInput(txid, vout)
 
     // get byte count to calculate fee. paying 1 sat/byte
-    let byteCount = BITBOX.BitcoinCash.getByteCount({ P2PKH: 1 }, { P2PKH: 1 })
+    let byteCount = bitbox.BitcoinCash.getByteCount({ P2PKH: 1 }, { P2PKH: 1 })
     // 192
 
     // amount to send to receiver. It's the original amount - 1 sat/byte for tx size
@@ -301,7 +301,7 @@ BITBOX.Address.utxo(
     )
 
     // keypair
-    let keyPair = BITBOX.HDNode.toKeyPair(change)
+    let keyPair = bitbox.HDNode.toKeyPair(change)
 
     // sign w/ HDNode
     let redeemScript
@@ -319,7 +319,7 @@ BITBOX.Address.utxo(
     let hex = tx.toHex()
 
     // sendRawTransaction to running BCH node
-    BITBOX.RawTransactions.sendRawTransaction(hex).then(
+    bitbox.RawTransactions.sendRawTransaction(hex).then(
       result => {
         console.log(result)
       },
@@ -342,7 +342,7 @@ If we did that correct we should get back a txid [1549abf70bf1f59618d650d72bb717
 
 This was to show step by step how to create a mnemonic, root seed, master node, bip44 account and bip44 change node. It showed how to create a cash address.
 
-Once you have utxo which are spendable it showed how to call BITBOX Cloud via `BITBOX.Address.utxo` to get back a list of spendable utxo.
+Once you have utxo which are spendable it showed how to call BITBOX Cloud via `bitbox.Address.utxo` to get back a list of spendable utxo.
 
 It next showed how to build a transaction, sign it and `POST` it to the BCH network.
 

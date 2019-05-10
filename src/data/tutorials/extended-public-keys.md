@@ -14,7 +14,7 @@ Bitcoin Cash offers an unimaginably large number of addresses. This allows you t
 ```javascript
 for (let i = 0; i < 5; i++) {
   console.log(
-    BITBOX.Address.fromXPub(
+    bitbox.Address.fromXPub(
       'xpub6Bs8HUjmkWC8F6yN6AB4t4npFg7R3EAnzY8yZKRMEiLdTr1PNFwhVSWSaUSkNs43pehV4dNvaQqUAUmAWQXATDQNb1S9EhH515BjyRz5ZNE',
       `${i}`
     )
@@ -35,10 +35,10 @@ Write a script to generate the addresses 1 at a time and check the blockchain to
 
 ## Privacy
 
-**Be aware** that if you use `BITBOX.Address.fromXPub` in the browser or share your `xpub` w/ anyone else they will be able to generate all your public keys and know exactly how much money has in total been sent to that `xpub`. They **cannot** spend any funds unless they also have the private keys.
+**Be aware** that if you use `bitbox.Address.fromXPub` in the browser or share your `xpub` w/ anyone else they will be able to generate all your public keys and know exactly how much money has in total been sent to that `xpub`. They **cannot** spend any funds unless they also have the private keys.
 
 As a matter of good practice you should keep your private keys in a hardware wallet or as a mnemonic on a paper wallet. You should be aware that using `xpub` comes w/ lessened privacy if you make your `xpub` known to anyone.
 
 ## Summary
 
-Extended public keys make generating a new address for every transaction possible. `BITBOX.Address.fromXPub` makes it quick and easy for devs to have their apps create an infinite number of addresses for their users w/out needing to expose their users to loss via holding their private keys.
+Extended public keys make generating a new address for every transaction possible. `bitbox.Address.fromXPub` makes it quick and easy for devs to have their apps create an infinite number of addresses for their users w/out needing to expose their users to loss via holding their private keys.

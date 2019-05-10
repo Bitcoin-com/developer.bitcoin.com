@@ -16,7 +16,7 @@ miningInfo: `Promise<any>`
 
     (async () => {
       try {
-        let getMiningInfo = await BITBOX.Mining.getMiningInfo();
+        let getMiningInfo = await bitbox.Mining.getMiningInfo();
         console.log(getMiningInfo);
       } catch(error) {
        console.error(error)
@@ -40,7 +40,7 @@ x `Promise<number>`: Hashes per second estimated
 
     (async () => {
       try {
-        let getNetworkHashps = await BITBOX.Mining.getNetworkHashps();
+        let getNetworkHashps = await bitbox.Mining.getNetworkHashps();
         console.log(getNetworkHashps);
       } catch(error) {
        console.error(error)

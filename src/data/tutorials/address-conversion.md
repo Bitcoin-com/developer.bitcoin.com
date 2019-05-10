@@ -5,7 +5,7 @@ publishedAt: 2018-07-06
 updatedAt: 2018-07-06
 ---
 
-When Bitcoin Cash began as a fork of $BTC on Aug 1st 2017 it kept the legacy address format. This ended up causing quite a bit of confusion and resulted in lost funds as users accidentally sent $BCH to $BTC addresses and vice versa.
+When Bitcoin Cash began as a fork of $BTC on Aug 1st 2017 it kept the legacy address format. This ended up causing quite a bit of confusion and resulted in lost funds as users accidentally sent $BCH to \$BTC addresses and vice versa.
 
 To fix this [cashaddr](https://github.com/bitcoincashorg/spec/blob/master/cashaddr.md) was introduced. It’s a base32 encoding based on Bech32.
 
@@ -23,9 +23,9 @@ We’re using [bchaddr.js](https://github.com/bitcoincashjs/bchaddrjs) along w/ 
 
 ```javascript
 let wif = 'L3npdkC5BkLZP2d6orb5ZefXYZFzkiteDB5okSgyuYJeGXLH3QNA'
-let ecpair = BITBOX.ECPair.fromWIF(wif)
-let cashaddr = BITBOX.ECPair.toCashAddress(ecpair)
-let base58Check = BITBOX.ECPair.toLegacyAddress(ecpair)
+let ecpair = bitbox.ECPair.fromWIF(wif)
+let cashaddr = bitbox.ECPair.toCashAddress(ecpair)
+let base58Check = bitbox.ECPair.toLegacyAddress(ecpair)
 let cashaddrQR = <QRCode value={cashaddr} />
 let base58CheckQR = <QRCode value={base58Check} />
 let wifQR = <QRCode value={wif} />
@@ -37,4 +37,4 @@ All the addresses in BITBOX are 100% legit on the $BCH network. However BITBOX d
 
 You can safely sweep any funds sent to a BITBOX generated address into a wallet via the private key WIF. But we strongly advice against sending any actual funds to a BITBOX address. This is a development tool and not meant to handle actual funds.
 
-If you want to send real coins to a BITBOX address and then sweep them back into a live wallet we suggest using the $BCH testnet.
+If you want to send real coins to a BITBOX address and then sweep them back into a live wallet we suggest using the \$BCH testnet.

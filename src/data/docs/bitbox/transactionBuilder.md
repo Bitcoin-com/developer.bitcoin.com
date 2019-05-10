@@ -20,7 +20,7 @@ TransactionBuilder `TransactionBuilder`
 #### Examples
 
       // instance of transaction builder
-      let transactionBuilder = new BITBOX.TransactionBuilder('mainnet');
+      let transactionBuilder = new bitbox.TransactionBuilder('mainnet');
 
 ### `hashTypes`
 
@@ -82,7 +82,7 @@ Add output to transaction
 #### Examples
 
       let originalAmount = 100000;
-      let byteCount = BITBOX.BitcoinCash.getByteCount({ P2PKH: 1 }, { P2PKH: 1 });
+      let byteCount = bitbox.BitcoinCash.getByteCount({ P2PKH: 1 }, { P2PKH: 1 });
       // amount to send to receiver. It's the original amount - 1 sat/byte for tx size
       let sendAmount = originalAmount - byteCount;
       // add output w/ address and amount to send
@@ -99,7 +99,7 @@ Set [locktime](https://developer.bitcoin.com/mastering-bitcoin-cash/4-transactio
 #### Examples
 
       let originalAmount = 100000;
-      let byteCount = BITBOX.BitcoinCash.getByteCount({ P2PKH: 1 }, { P2PKH: 1 });
+      let byteCount = bitbox.BitcoinCash.getByteCount({ P2PKH: 1 }, { P2PKH: 1 });
       // amount to send to receiver. It's the original amount - 1 sat/byte for tx size
       let sendAmount = originalAmount - byteCount;
       // add output w/ address and amount to send
@@ -123,9 +123,9 @@ Sign transaction. It creates the unlocking script needed to spend an input. Each
 
       let originalAmount = 100000;
       // node of address which is going to spend utxo
-      let hdnode = BITBOX.HDNode.fromXPriv("xprvA3eaDg64MwDr72PVGJ7CkvshNAzCDRz7rn98sYrZVAtDSWCAmNGQhEQeCLDcnmcpSkfjhHevXmu4ZL8ZcT9D4vEbG8LpiToZETrHZttw9Yw");
+      let hdnode = bitbox.HDNode.fromXPriv("xprvA3eaDg64MwDr72PVGJ7CkvshNAzCDRz7rn98sYrZVAtDSWCAmNGQhEQeCLDcnmcpSkfjhHevXmu4ZL8ZcT9D4vEbG8LpiToZETrHZttw9Yw");
       // keypair
-      let keyPair = BITBOX.HDNode.toKeyPair(hdnode);
+      let keyPair = bitbox.HDNode.toKeyPair(hdnode);
       // empty redeemScript variable
       let redeemScript;
       // sign w/ keyPair
@@ -158,7 +158,7 @@ rawHex `string`: hex encoded raw transaction ready to be sent to the \$BCH netwo
       let hex = tx.toHex();
       // 02000000010e7f337fbaeee563d73e1dccd09be89a90c0bad28126df200958befe150989f7000000006b48304502210085b8eb33f3981315bbe39c6810d0311c6cb39504914300ecd952cab8353222e202200ec95797c06ba8c9b15d59ab80e63300cb2371f67b3969d0b502d0fed733fbed4121025c85a571619e60fed412de0356b4e28f4f3670ab0c2b899dfe60e69aaa6cd4c0ffffffff01a6370000000000001976a91479d3297d1823149f4ec61df31d19f2fad5390c0288ac00000000
       // sendRawTransaction to running BCH node
-      BITBOX.RawTransactions.sendRawTransaction(hex).then((result) => { console.log(result); }, (err) => { console.log(err); });
+      bitbox.RawTransactions.sendRawTransaction(hex).then((result) => { console.log(result); }, (err) => { console.log(err); });
       // dfe54ec45c6fa2fa85b76d113de85b169d36902eaf6700f1cca21eed1392814b
 
 ### `OP_RETURN`
@@ -174,8 +174,8 @@ rawHex `string`: hex encoded raw transaction ready to be sent to the \$BCH netwo
       // encode some text as a buffer
       let buf = new Buffer('#BCHForEveryone');
       // create array w/ OP_RETURN code and text buffer and encode
-      let data = BITBOX.Script.encode([
-      BITBOX.Script.opcodes.OP_RETURN,
+      let data = bitbox.Script.encode([
+      bitbox.Script.opcodes.OP_RETURN,
       buf
       ])
       // add encoded data as output and send 0 satoshis
@@ -185,8 +185,8 @@ rawHex `string`: hex encoded raw transaction ready to be sent to the \$BCH netwo
       "OP_RETURN 23424348466f7245766572796f6e65"
 
       // you can use BITBOX to decode it to the original text
-      let fromAsm = BITBOX.Script.fromASM("OP_RETURN 23424348466f7245766572796f6e65")
-      let decoded = BITBOX.Script.decode(fromAsm)
+      let fromAsm = bitbox.Script.fromASM("OP_RETURN 23424348466f7245766572796f6e65")
+      let decoded = bitbox.Script.decode(fromAsm)
       decoded[1].toString('ascii')
       // #BCHForEveryone
 
@@ -205,7 +205,7 @@ encoded `Buffer`
 
 #### Examples
 
-      let transactionBuilder = new BITBOX.TransactionBuilder();
+      let transactionBuilder = new bitbox.TransactionBuilder();
       let r = Buffer.from('1ea1fdff81b3a271659df4aad19bc4ef83def389131a36358fe64b245632e777', 'hex');
       let s = Buffer.from('29e164658be9ce810921bf81d6b86694785a79ea1e52dbfa5105148d1f0bc1', 'hex');
       transactionBuilder.bip66.encode(r, s);
@@ -225,7 +225,7 @@ decoded `Object`
 
 #### Examples
 
-      let transactionBuilder = new BITBOX.TransactionBuilder();
+      let transactionBuilder = new bitbox.TransactionBuilder();
       let signature = new Buffer.from('304302201ea1fdff81b3a271659df4aad19bc4ef83def389131a36358fe64b245632e777021f29e164658be9ce810921bf81d6b86694785a79ea1e52dbfa5105148d1f0bc1', 'hex');
       transactionBuilder.bip66.decode(signature);
       // { r:
@@ -247,7 +247,7 @@ value `boolean`
 
 #### Examples
 
-      let transactionBuilder = new BITBOX.TransactionBuilder();
+      let transactionBuilder = new bitbox.TransactionBuilder();
       let DER = '3044022029db2d5f4e1dcc04e19266cce3cb135865784c62ab653b307f0e0bb744f5c2aa022000a97f5826912cac8b44d9f577a26f169a2f8db781f2ddb7de2bc886e93b6844';
       let buffer = Buffer.from(DER, 'hex')
       transactionBuilder.bip66.check(buffer);
@@ -267,7 +267,7 @@ hex `string`: hex encoded relative timelock
 
 #### Examples
 
-      let transactionBuilder = new BITBOX.TransactionBuilder();
+      let transactionBuilder = new bitbox.TransactionBuilder();
       transactionBuilder.bip68.encode({ seconds: 2048 })
       // 4194308
       transactionBuilder.bip68.encode({ blocks: 52 })
@@ -287,7 +287,7 @@ details `Object`: details about the relative lock time
 
 #### Examples
 
-      let transactionBuilder = new BITBOX.TransactionBuilder();
+      let transactionBuilder = new bitbox.TransactionBuilder();
       transactionBuilder.bip68.decode(0x03ffffff)
       // { seconds: 33553920 }
       transactionBuilder.bip68.decode(0x0100fffe)

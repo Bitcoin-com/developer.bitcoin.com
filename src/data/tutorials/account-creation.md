@@ -26,8 +26,8 @@ You can configure how much entropy BITBOX uses to create your mnemonic in the co
 To do this we’re using NodeJS’s [`crypto.randomBytes`](https://nodejs.org/api/crypto.html#crypto_crypto_randombytes_size_callback) and the wonderful [BIP39.js](https://github.com/bitcoinjs/bip39).
 
 ```javascript
-let randomBytes = BITBOX.Crypto.randomBytes(32)
-let mnemonic = BITBOX.Mnemonic.fromEntropy(randomBytes)
+let randomBytes = bitbox.Crypto.randomBytes(32)
+let mnemonic = bitbox.Mnemonic.fromEntropy(randomBytes)
 ```
 
 ![Mnemonic](https://bigearth.github.io/bitblog/assets/mnemonic.png)
@@ -40,7 +40,7 @@ Next we take an optional password and combined w/ the mnemonic create a root see
 
 ```javascvript
 let password = 'l337';
-let rootSeed = BITBOX.Mnemonic.toSeed(mnemonic, password);
+let rootSeed = bitbox.Mnemonic.toSeed(mnemonic, password);
 ```
 
 ### Master key
@@ -48,7 +48,7 @@ let rootSeed = BITBOX.Mnemonic.toSeed(mnemonic, password);
 Finally we’re using [bitcoinlib-js](https://github.com/bitcoinjs/bitcoinjs-lib) to create a masterkey from the rootSeed.
 
 ```javascript
-let masterkey = BITBOX.HDNode.fromSeed(rootSeed)
+let masterkey = bitbox.HDNode.fromSeed(rootSeed)
 ```
 
 This masterkey can be used to create 4 billion child keys. Each of those child keys can produce 4 billion child keys recursively in a derivation path.
@@ -63,7 +63,7 @@ Due to the huge number of potential derivation paths BIPs 43 and 44 introduced c
 m / purpose' / coin_type' / account' / change / address_index
 ```
 
-`purpose'` is always set to 44 to signify that the wallet is BIP 44 compliant. `coin_type'` is set to 145 for $BCH. Then we create 10 accounts which are siblings and get the first private key in Wallet Import Format.
+`purpose'` is always set to 44 to signify that the wallet is BIP 44 compliant. `coin_type'` is set to 145 for \$BCH. Then we create 10 accounts which are siblings and get the first private key in Wallet Import Format.
 
 ```javascript
 let purpose = "44'"
@@ -71,8 +71,8 @@ let coin = "145'"
 let addresses = []
 for (let i = 0; i < 10; i++) {
   let path = `m/${purpose}/${coin}/${i}`
-  let account = BITBOX.HDNode.derivePath(masterkey, path)
-  addresses.push(BITBOX.HDNode.toWIF(BITBOX.HDNode.derive(account, 0)))
+  let account = bitbox.HDNode.derivePath(masterkey, path)
+  addresses.push(bitbox.HDNode.toWIF(bitbox.HDNode.derive(account, 0)))
 }
 ```
 
@@ -87,7 +87,7 @@ We don’t want to display the private key WIF by default to the user because it
 ![Private WIF](https://bigearth.github.io/bitblog/assets/private-wif.png)
 
 ```javascript
-let publicKey = BITBOX.ECPair.toLegacyAddress(BITBOX.ECPair.fromWIF(privKeyWIF))
+let publicKey = bitbox.ECPair.toLegacyAddress(bitbox.ECPair.fromWIF(privKeyWIF))
 ```
 
 ![Base58Check](https://bigearth.github.io/bitblog/assets/base58check.png)
@@ -97,14 +97,14 @@ let publicKey = BITBOX.ECPair.toLegacyAddress(BITBOX.ECPair.fromWIF(privKeyWIF))
 `publicKey` from the previous step is Base58Check encoded. You can toggle displaying the address in [CashAddr](https://www.bitcoinabc.org/cashaddr) via [bchaddr.js](https://github.com/bitcoincashjs/bchaddrjs).
 
 ```javascript
-BITBOX.Address.toCashAddress(publicKey)
+bitbox.Address.toCashAddress(publicKey)
 ```
 
 ![CashAddr](https://bigearth.github.io/bitblog/assets/cashaddr-public.png)
 
 ### Testnet
 
-You can also toggle generating keys on the $BCH testnet.
+You can also toggle generating keys on the \$BCH testnet.
 
 ![Testnet private](https://bigearth.github.io/bitblog/assets/testnet-wif.png)
 

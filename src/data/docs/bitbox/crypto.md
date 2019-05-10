@@ -20,17 +20,17 @@ buffer `Buffer`: sha256 hash of data
 
       // buffer from hex
       let buffer = Buffer.from('0101010101010101', 'hex')
-      BITBOX.Crypto.sha256(buffer)
+      bitbox.Crypto.sha256(buffer)
       //
 
       // buffer from hex
       let buffer = Buffer.from('031ad329b3117e1d1e2974406868e575d48cff88e8128ba0eedb10da053785033b', 'hex')
-      BITBOX.Crypto.sha256(buffer)
+      bitbox.Crypto.sha256(buffer)
       //
 
       // buffer from hex
       let buffer = Buffer.from('03123464075c7a5fa6b8680afa2c962a02e7bf071c6b2395b0ac711d462cac9354', 'hex')
-      BITBOX.Crypto.sha256(buffer)
+      bitbox.Crypto.sha256(buffer)
       //
 
 ### `ripemd160`
@@ -49,17 +49,17 @@ buffer `Buffer`: ripemd160 hash of data
 
       // buffer from hex
       let buffer = Buffer.from('0101010101010101', 'hex')
-      BITBOX.Crypto.ripemd160(buffer)
+      bitbox.Crypto.ripemd160(buffer)
       //
 
       // buffer from hex
       let buffer = Buffer.from('75618d82d1f6251f2ef1f42f5f0d5040330948a707ff6d69720dbdcb00b48aab', 'hex')
-      BITBOX.Crypto.ripemd160(buffer)
+      bitbox.Crypto.ripemd160(buffer)
       //
 
       // buffer from hex
       let buffer = Buffer.from('978c09dd46091d1922fa01e9f4a975b91a371f26ba8399de27d53801152121de', 'hex')
-      BITBOX.Crypto.ripemd160(buffer)
+      bitbox.Crypto.ripemd160(buffer)
       //
 
 ### `hash256`
@@ -78,17 +78,17 @@ buffer `Buffer`: double sha256 hash of data
 
       // buffer from hex
       let buffer = Buffer.from('0101010101010101', 'hex')
-      BITBOX.Crypto.hash256(buffer)
+      bitbox.Crypto.hash256(buffer)
       //
 
       // buffer from hex
       let buffer = Buffer.from('031ad329b3117e1d1e2974406868e575d48cff88e8128ba0eedb10da053785033b', 'hex')
-      BITBOX.Crypto.hash256(buffer)
+      bitbox.Crypto.hash256(buffer)
       //
 
       // buffer from hex
       let buffer = Buffer.from('03123464075c7a5fa6b8680afa2c962a02e7bf071c6b2395b0ac711d462cac9354', 'hex')
-      BITBOX.Crypto.hash256(buffer)
+      bitbox.Crypto.hash256(buffer)
       //
 
 ### `hash160`
@@ -107,17 +107,17 @@ buffer `Buffer`: ripemd160(sha256()) hash of data
 
       // buffer from hex
       let buffer = Buffer.from('0101010101010101', 'hex')
-      BITBOX.Crypto.hash160(buffer)
+      bitbox.Crypto.hash160(buffer)
       //
 
       // buffer from hex
       let buffer = Buffer.from('031ad329b3117e1d1e2974406868e575d48cff88e8128ba0eedb10da053785033b', 'hex')
-      BITBOX.Crypto.hash160(buffer)
+      bitbox.Crypto.hash160(buffer)
       //
 
       // buffer from hex
       let buffer = Buffer.from('03123464075c7a5fa6b8680afa2c962a02e7bf071c6b2395b0ac711d462cac9354', 'hex')
-      BITBOX.Crypto.hash160(buffer)
+      bitbox.Crypto.hash160(buffer)
       //
 
 ### `randomBytes`
@@ -134,17 +134,17 @@ buffer `Buffer`: random bytes encoded as a buffer
 
 #### Examples
 
-      BITBOX.Crypto.randomBytes(16)
+      bitbox.Crypto.randomBytes(16)
       //
 
-      BITBOX.Crypto.randomBytes(20)
+      bitbox.Crypto.randomBytes(20)
       //
 
-      BITBOX.Crypto.randomBytes(24)
+      bitbox.Crypto.randomBytes(24)
       //
 
-      BITBOX.Crypto.randomBytes(28)
+      bitbox.Crypto.randomBytes(28)
       //
 
-      BITBOX.Crypto.randomBytes(32)
+      bitbox.Crypto.randomBytes(32)
       //

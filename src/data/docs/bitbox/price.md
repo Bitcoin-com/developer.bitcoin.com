@@ -24,7 +24,7 @@ price `Promise<number>`: Price of single requested currency
 
     (async () => {
       try {
-        let current = await BITBOX.Price.current('usd');
+        let current = await bitbox.Price.current('usd');
         console.log(current);
       } catch(error) {
        console.error(error)
