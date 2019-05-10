@@ -14,7 +14,7 @@ Generates an ECPair from a private key in wallet import format ([WIF](https://de
 
 #### Result
 
-ecpair `string`: ECPair
+ecpair `ECPair`
 
 #### Examples
 
@@ -141,7 +141,7 @@ Get cash address of ECPair
 #### Arguments
 
 1.  ecpair `ECPair`
-2.  regtest `Boolean` optional: return regtest address
+2.  regtest `boolean` **optional**: return regtest address
 
 #### Result
 
@@ -206,11 +206,11 @@ Verify signed 32 byte hash encoded as a buffer
 
 1.  ecpair `ECPair`
 2.  buffer `Buffer`: 32 byte Buffer
-3.  signature `Object`
+3.  signature `ECSignature`
 
 #### Result
 
-verified `Boolean`
+verified `boolean`
 
 #### Examples
 

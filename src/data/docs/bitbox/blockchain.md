@@ -10,7 +10,7 @@ Returns the hash of the best (tip) block in the longest blockchain.
 
 #### Result
 
-hex `String`: the block hash hex encoded
+hex `Promise<string>`: the block hash hex encoded
 
 #### Examples
 
@@ -30,8 +30,12 @@ If verbose is false, returns a string that is serialized, hex-encoded data for b
 
 #### Arguments
 
-1.  blockhash `String` required: The block hash
-2.  verbose `Boolean` optional: true for a json object, false for the hex encoded data
+1.  blockhash `string`: The block hash
+2.  verbose `boolean` **optional**: true for a json object, false for the hex encoded data
+
+#### Result
+
+block `Promise<BlockDetails>`
 
 #### Examples
 
@@ -65,6 +69,10 @@ If verbose is false, returns a string that is serialized, hex-encoded data for b
 ### `getBlockchainInfo`
 
 Returns an object containing various state info regarding blockchain processing.
+
+#### Result
+
+block `Promise<BlockchainInfo>`
 
 #### Examples
 
@@ -103,7 +111,7 @@ Returns the number of blocks in the longest blockchain.
 
 #### Result
 
-n (numeric) The current block count
+n `Promise<number>`
 
 #### Examples
 
@@ -123,11 +131,11 @@ Returns hash of block in best-block-chain at height provided.
 
 #### Arguments
 
-1.  heights `Array` required: Array with maximum of 20 block heights.
+1.  height `number` **optional**
 
 #### Result
 
-hash `string` The block hash
+hash `Promise<string>` The block hash
 
 #### Examples
 
@@ -147,8 +155,12 @@ If verbose is false, returns a string that is serialized, hex-encoded data for b
 
 #### Arguments
 
-1.  hashes `Array` required: Array with maximum of 20 hashes.
-2.  verbose `Boolean` optional: true for a json object, false for the hex encoded data. default=true
+1.  hashes `string | string[]`
+2.  verbose `boolean` **optional**: true for a json object, false for the hex encoded data.
+
+#### Result
+
+blockHeader `Promise<BlockHeader>` The block header
 
 #### Examples
 
@@ -180,6 +192,10 @@ If verbose is false, returns a string that is serialized, hex-encoded data for b
 
 Return information about all known tips in the block tree, including the main chain as well as orphaned branches.
 
+#### Result
+
+chainTips `Promise<ChainTip[]>`
+
 #### Examples
 
     (async () => {
@@ -210,7 +226,7 @@ Returns the proof-of-work difficulty as a multiple of the minimum difficulty.
 
 #### Result
 
-n.nnn (numeric): the proof-of-work difficulty as a multiple of the minimum difficulty.
+n `Promise<number>`: the proof-of-work difficulty as a multiple of the minimum difficulty.
 
 #### Examples
 
@@ -225,22 +241,24 @@ n.nnn (numeric): the proof-of-work difficulty as a multiple of the minimum diffi
 
     // 702784497476.8376
 
-### `getMempoolAncestors`
+<!-- ### `getMempoolAncestors`
 
 If txid is in the mempool, returns all in-mempool ancestors.
 
 #### Arguments
 
-1.  txids `Array` required: Array with maximum of 20 txids.
-2.  verbose `Boolean` optional: True for a json object, false for array of transaction ids. default=false
+1.  txid `string`
+2.  verbose `boolean` **optional**: True for a json object, false for array of transaction ids
 
 #### Result
+
+ancestors `Promise<any>`
 
 #### Examples
 
     (async () => {
       try {
-        let getMempoolAncestors = await BITBOX.Blockchain.getMempoolAncestors(["fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33"]);
+        let getMempoolAncestors = await BITBOX.Blockchain.getMempoolAncestors("fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33");
         console.log(getMempoolAncestors);
       } catch(error) {
        console.error(error)
@@ -253,19 +271,23 @@ If txid is in the mempool, returns all in-mempool descendants.
 
 #### Arguments
 
-1.  txids `Array` required: Array with maximum of 20 txids.
-2.  verbose `Boolean` optional: True for a json object, false for array of transaction ids. default=false
+1.  txid `string`
+2.  verbose `boolean` **optional**: True for a json object, false for array of transaction ids
+
+#### Result
+
+descendants `Promise<any>`
 
 #### Examples
 
     (async () => {
       try {
-        let getMempoolDescendants = await BITBOX.Blockchain.getMempoolDescendants(["fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33"]);
+        let getMempoolDescendants = await BITBOX.Blockchain.getMempoolDescendants("fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33");
         console.log(getMempoolDescendants);
       } catch(error) {
        console.error(error)
       }
-    })()
+    })() -->
 
 ### `getMempoolEntry`
 
@@ -274,20 +296,20 @@ Returns mempool data for given transaction
 #### Arguments
 
 - txids (required):
-  - `String`: TXID currently in mempool
-  - `Array` of strings: Array of TXIDs, with maximum of 20 entries.
+  - `string`: TXID currently in mempool
+  - `string[]`: Array of TXIDs
 
 #### Result
 
 - entry:
-  - `Object`: containing details about the single mempool entry.
-  - `Array`: Array of Objects with details about mempool entries.
+  - `Promise<any>`: containing details about the single mempool entry.
+  - `Promise<any[]>`: Array of Objects with details about mempool entries.
 
 #### Examples
 
     (async () => {
       try {
-        let getMempoolEntry = await BITBOX.Blockchain.getMempoolEntry(["fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33"]);
+        let getMempoolEntry = await BITBOX.Blockchain.getMempoolEntry("fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33");
         console.log(getMempoolEntry);
       } catch(error) {
        console.error(error)
@@ -362,6 +384,10 @@ Returns mempool data for given transaction
 
 Returns details on the active state of the TX memory pool.
 
+#### Result
+
+entry `Promise<MempoolInfo>`
+
 #### Examples
 
     (async () => {
@@ -385,7 +411,11 @@ Returns all transaction ids in memory pool as a json array of string transaction
 
 #### Arguments
 
-1.  verbose (boolean, optional, default=false): True for a json object, false for array of transaction ids
+1.  verbose `boolean` **optional**: True for a json object, false for array of transaction ids
+
+#### Result
+
+rawMemPool `Promise<string[] | object[]>`
 
 #### Examples
 
@@ -421,9 +451,13 @@ Returns details about an unspent transaction output.
 
 #### Arguments
 
-1.  txid (string, required): The transaction id
-2.  n (numeric, required): vout number
-3.  include_mempool (boolean, optional): Whether to include the mempool
+1.  txid `string`: The transaction id
+2.  n `number`: vout number
+3.  include_mempool `boolean` **optional**: Whether to include the mempool
+
+#### Result
+
+txOut `Promise<TxOut | null>`
 
 #### Examples
 
@@ -444,17 +478,15 @@ Returns a hex-encoded proof that "txid" was included in a block.
 
 #### Arguments
 
-- txids (required):
-  - `String`: A single string containing a txid.
-  - `Array` of strings: Array with maximum of 20 txids.
+- txids:
+  - `string`: A single string containing a txid.
+  - `string[]`
 
 #### Result
 
 - proof:
-  - `String`: A string that is a serialized, hex-encoded data for the proof.
-  - `Array` of strings: Array of strings that are a serialized, hex-encoded data for the proof.
-
-legacyAddress `string` legacy base 58 check encoded address
+  - `Promise<string>`: A string that is a serialized, hex-encoded data for the proof.
+  - `Promise<string[]>`: Array of strings that are a serialized, hex-encoded data for the proof.
 
 #### Examples
 
@@ -486,13 +518,17 @@ legacyAddress `string` legacy base 58 check encoded address
     //   "010000007de867cc8adc5cc8fb6b898ca4462cf9fd667d7830a275277447e60800000000338f121232e169d3100edd82004dc2a1f0e1f030c6c488fa61eafa930b0528fe021f7449ffff001d36b4af9a0100000001338f121232e169d3100edd82004dc2a1f0e1f030c6c488fa61eafa930b0528fe0101"
     // ]
 
-### `preciousBlock`
+<!-- ### `preciousBlock`
 
 Treats a block as if it were received before others with the same work. A later preciousblock call can override the effect of an earlier one. The effects of preciousblock are not retained across restarts.
 
 #### Arguments
 
-1.  blockhash (string, required): the hash of the block to mark as precious
+1.  blockhash `string`: the hash of the block to mark as precious
+
+#### Result
+
+preciouBlock `Promise<any>`
 
 #### Examples
 
@@ -503,17 +539,17 @@ Treats a block as if it were received before others with the same work. A later 
       } catch(error) {
        console.error(error)
       }
-    })()
+    })() -->
 
-### `pruneBlockchain`
+<!-- ### `pruneBlockchain`
 
 #### Arguments
 
-1.  height (numeric, required): The block height to prune up to. May be set to a discrete height, or a unix timestamp to prune blocks whose block time is at least 2 hours older than the provided timestamp.
+1.  height `number`: The block height to prune up to. May be set to a discrete height, or a unix timestamp to prune blocks whose block time is at least 2 hours older than the provided timestamp.
 
 #### Result
 
-n (numeric): Height of the last block pruned.
+n `Promise<number>`: Height of the last block pruned.
 
 #### Examples
 
@@ -524,20 +560,20 @@ n (numeric): Height of the last block pruned.
       } catch(error) {
        console.error(error)
       }
-    })()
+    })() -->
 
-### `verifyChain`
+<!-- ### `verifyChain`
 
 Verifies blockchain database.
 
 #### Arguments
 
-1.  checklevel (numeric, optional, 0-4, default=3): How thorough the block verification is.
-2.  nblocks (numeric, optional, default=6, 0=all): The number of blocks to check.
+1.  checklevel `number` **optional**: How thorough the block verification is.
+2.  nblocks `number` **optional**: The number of blocks to check.
 
 #### Result
 
-true|false (boolean): Verified or not
+true|false `Promise<boolean>`: Verified or not
 
 #### Examples
 
@@ -549,7 +585,7 @@ true|false (boolean): Verified or not
        console.error(error)
       }
     })()
-    // true
+    // true -->
 
 ### `verifyTxOutProof`
 
@@ -560,12 +596,12 @@ best chain
 #### Arguments
 
 - proof (required):
-  - `String`: The hex-encoded proof generated by gettxoutproof
-  - `Array` of strings: The hex-encoded proof generated by gettxoutproof
+  - `string`: The hex-encoded proof generated by gettxoutproof
+  - `string[]`: The hex-encoded proof generated by gettxoutproof
 
 #### Result
 
-- txids `Array`: The txid(s) which the proof commits to, or empty array if the proof is invalid
+- txids `Promise<string[]>`: The txid(s) which the proof commits to, or empty array if the proof is invalid
 
 #### Examples
 
@@ -597,3 +633,76 @@ best chain
     //   "03f69502ca32e7927fd4f38c1d3f950bff650c1eea3d09a70e9df5a9d7f989f7",
     //   "03f69502ca32e7927fd4f38c1d3f950bff650c1eea3d09a70e9df5a9d7f989f7"
     // ]
+
+## Interfaces
+
+### MempoolInfo
+
+    {
+      size: number
+      bytes: number
+      usage: number
+      maxmempool: number
+      mempoolminfee: number
+    }
+
+### BlockchainInfo
+
+    {
+      chain: string
+      blocks: number
+      headers: number
+      bestblockhash: string
+      difficulty: number
+      mediantime: number
+      verificationprogress: number
+      chainwork: string
+      pruned: boolean
+      softforks: object[]
+      bip9_softforks: object
+    }
+
+### BlockHeader
+
+    {
+      hash: string
+      confirmations: number
+      height: number
+      version: number
+      versionHex: string
+      merkleroot: string
+      time: number
+      mediantime: number
+      nonce: number
+      bits: string
+      difficulty: number
+      chainwork: string
+      previousblockhash: string
+      nextblockhash: string
+    }
+
+### ChainTip
+
+    {
+      height: number
+      hash: string
+      branchlen: number
+      status: string
+    }
+
+### TxOut
+
+    {
+      bestblock: string
+      confirmations: number
+      value: number
+      scriptPubKey: {
+        asm: string
+        hex: string
+        reqSigs: number
+        type: string
+        addresses: string[]
+      }
+      version: number
+      coinbase: boolean
+    }

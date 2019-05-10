@@ -11,14 +11,14 @@ Return details about a Block. Lookup the block with a block height.
 #### Arguments
 
 - blocks (required):
-  - `Number`: block height
-  - `Array` of Numbers: block heights
+  - `number`: block height
+  - `number[]` of Numbers: block heights
 
 #### Result
 
 - details
-  - `Object`: Details about Block
-  - `Array` of Objects: Details about Block
+  - `Promise<BlockDetails>`
+  - `Promise<BlockDetails[]>`
 
 #### Examples
 
@@ -119,14 +119,14 @@ Return details about a Block. Lookup the block with a block hash.
 #### Arguments
 
 - hashes (required):
-  - `String`: block hash
-  - `Array` of Strings: block hashes
+  - `string`: block hash
+  - `string[]` of Strings: block hashes
 
 #### Result
 
 - details
-  - `Object`: Details about Block
-  - `Array` of Objects: Details about Block
+  - `Promise<BlockDetails>`
+  - `Promise<BlockDetails[]>`
 
 #### Examples
 
@@ -221,3 +221,28 @@ Return details about a Block. Lookup the block with a block hash.
     //   "isMainChain": true,
     //   "poolInfo": {}
     // }]
+
+## Interfaces
+
+### BlockDetails
+
+    {
+      hash: string
+      size: number
+      height: number
+      version: number
+      merkleroot: string
+      tx: string[]
+      time: number
+      mediantime?: number
+      nonce: number
+      bits: string
+      difficulty: number
+      chainwork: string
+      confirmations: number
+      previousblockhash: string
+      nextblockhash: string
+      reward: number
+      isMainChain: boolean
+      poolInfo: object
+    }

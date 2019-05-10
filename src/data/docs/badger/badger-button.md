@@ -10,9 +10,9 @@ Use any button on a page to send BCH by adding the "badger-button" class and inc
 
 #### Arguments
 
-- data-to `String` cashaddr address of BCH destination
-- data-satoshis `String` BCH amount to send in satoshis
-- data-success-callback `String` (Optional) Name of global scoped function to call on success
+- data-to `string` cashaddr address of BCH destination
+- data-satoshis `string` BCH amount to send in satoshis
+- data-success-callback `string` (Optional) Name of global scoped function to call on success
 
 #### Result
 
@@ -50,11 +50,11 @@ Use any button on a page to send tokens by adding the "badger-button" class and 
 
 #### Arguments
 
-- data-to `String` cashaddr address of BCH destination
-- data-token-protocol `String` The Token protocol
-- data-token-id `String` The Token Id
-- data-token-amount `String` (Required) The amount of tokens to send
-- data-success-callback `String` (Optional) Name of global scoped function to call on success
+- data-to `string` cashaddr address of BCH destination
+- data-token-protocol `string` The Token protocol
+- data-token-id `string` The Token Id
+- data-token-amount `string` (Required) The amount of tokens to send
+- data-success-callback `string` (Optional) Name of global scoped function to call on success
 
 #### Result
 

@@ -13,7 +13,7 @@ Create HDNode from Seed Buffer.
 #### Arguments
 
 1.  rootSeed `Buffer`: root seed buffer
-2.  network `String` **optional**: network. default: 'mainnet'
+2.  network `string` **optional**: network. default: 'mainnet'
 
 #### Result
 
@@ -149,7 +149,7 @@ Get cash address of HDNode
 #### Arguments
 
 1.  hdNode: HDNode
-2.  regtest `Boolean` optional: return regtest address
+2.  regtest `boolean` optional: return regtest address
 
 #### Result
 
@@ -478,7 +478,7 @@ Check if an HDNode can only derive public keys and children
 
 #### Result
 
-isPublic `Boolean`
+isPublic `boolean`
 
 #### Examples
 
@@ -516,7 +516,7 @@ Check if an HDNode can derive both public and private keys and children
 
 #### Result
 
-isPrivate `Boolean`
+isPrivate `boolean`
 
 #### Examples
 
@@ -589,7 +589,7 @@ Verify signed 32 byte hash encoded as a buffer
 
 #### Result
 
-verified `Boolean`
+verified `boolean`
 
 #### Examples
 
