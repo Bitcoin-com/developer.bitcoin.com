@@ -12,7 +12,7 @@ Imagine you have a $BCH app which you’d like to deploy. However before doing t
 Let’s say our newly created $BCH app is just a simple call to `getnetworkinfo` but of course it could be much more complex as `BITBOX` supports the entire $BCH RPC.
 
 ```javascript
-BITBOX.Network.getnetworkinfo().then(
+bitbox.Network.getnetworkinfo().then(
   result => {
     console.log(result)
   },
@@ -28,7 +28,7 @@ To test our code first stub out an app w/ production credentials
 bitbox new myApp --environment production --restURL example.com
 ```
 
-Next open up the newly created `bitbox.js` file and add config for your local BITBOX.
+Next open up the newly created `bitbox.js` file and add config for your local bitbox.
 
 ```javascript
 networks: {
@@ -48,7 +48,7 @@ Now when you fire up your BITBOX console you can tell it which environment to co
 ```bash
 bitbox console --environment development
 
-> BITBOX.Network.getNetworkInfo().then((result) => { console.log(result); }, (err) => { console.log(err); });
+> bitbox.Network.getNetworkInfo().then((result) => { console.log(result); }, (err) => { console.log(err); });
 
 { version: 130100,
 subversion: '/Bitcoin ABC:0.16.2(EB8.0)/',
@@ -83,4 +83,4 @@ warnings: '' }
 
 ### Summary
 
-This is just a small example to show how BITBOX can accelerate your $BCH workflow. You can stub out an app scaffold w/ configuration for `development` and `production` environments. You have the full $BCH RPC available on the `BITBOX` object and you can quickly switch between sending commands to different environments.
+This is just a small example to show how BITBOX can accelerate your \$BCH workflow. You can stub out an app scaffold w/ configuration for `development` and `production` environments. You have the full \$BCH RPC available on the `BITBOX` object and you can quickly switch between sending commands to different environments.

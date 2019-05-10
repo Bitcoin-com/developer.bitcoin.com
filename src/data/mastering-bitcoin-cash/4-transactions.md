@@ -115,13 +115,13 @@ The transaction scripting language, used in the locking script mentioned previou
 <table-caption>Table 2. The structure of a transaction output</table-caption>
 <spacer></spacer>
 
-In [A script that calls `BITBOX.Address.utxo` to find the UTXO related to an address](#get_utxo), we use the `BITBOX.Address` class to find the unspent outputs (UTXO) of a specific address.
+In [A script that calls `bitbox.Address.utxo` to find the UTXO related to an address](#get_utxo), we use the `bitbox.Address` class to find the unspent outputs (UTXO) of a specific address.
 
 <spacer></spacer>
-<table-caption>Example 1. A script that calls `BITBOX.Address.utxo` to find the UTXO related to an address</table-caption>
+<table-caption>Example 1. A script that calls `bitbox.Address.utxo` to find the UTXO related to an address</table-caption>
 
 ```javascript
-BITBOX.Address.utxo('bitcoincash:qpcxf2sv9hjw08nvpgffpamfus9nmksm3chv5zqtnz').then((result) => {
+bitbox.Address.utxo('bitcoincash:qpcxf2sv9hjw08nvpgffpamfus9nmksm3chv5zqtnz').then((result) => {
   console.log(result);
 }, (err) => {
   console.log(err);

@@ -24,7 +24,7 @@ Return details about a Block. Lookup the block with a block height.
 
     (async () => {
       try {
-        let details = await BITBOX.Block.detailsByHeight(500000);
+        let details = await bitbox.Block.detailsByHeight(500000);
         console.log(details);
       } catch(error) {
        console.error(error)
@@ -59,7 +59,7 @@ Return details about a Block. Lookup the block with a block height.
 
     (async () => {
       try {
-        let details = await BITBOX.Block.detailsByHeight([500000, 500001]);
+        let details = await bitbox.Block.detailsByHeight([500000, 500001]);
         console.log(details);
       } catch(error) {
        console.error(error)
@@ -132,7 +132,7 @@ Return details about a Block. Lookup the block with a block hash.
 
     (async () => {
       try {
-        let details = await BITBOX.Block.hash("000000000000000005e14d3f9fdfb70745308706615cfa9edca4f4558332b201");
+        let details = await bitbox.Block.hash("000000000000000005e14d3f9fdfb70745308706615cfa9edca4f4558332b201");
         console.log(details);
       } catch(error) {
        console.error(error)
@@ -166,7 +166,7 @@ Return details about a Block. Lookup the block with a block hash.
 
     (async () => {
       try {
-        let details = await BITBOX.Block.detailsByHeight([
+        let details = await bitbox.Block.detailsByHeight([
           "000000000000000005e14d3f9fdfb70745308706615cfa9edca4f4558332b201",
           "000000000000000005e14d3f9fdfb70745308706615cfa9edca4f4558332b201"
         ]);

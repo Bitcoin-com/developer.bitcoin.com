@@ -16,7 +16,7 @@ info `Promise<NodeInfo>`
 
     (async () => {
       try {
-        let getInfo = await BITBOX.Control.getInfo();
+        let getInfo = await bitbox.Control.getInfo();
         console.log(getInfo);
       } catch(error) {
        console.error(error)

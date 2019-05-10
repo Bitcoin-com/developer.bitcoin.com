@@ -13,7 +13,7 @@ Or someone could potentially give you a loan or credit using a signature from a 
 
 ### Sign a message
 
-You can sign a message w/ any address in your BITBOX. It doesn’t matter if it’s in cashaddr or legacy encoding. Just paste the address into the address field and type the message that you want to sign. Then click the ‘Sign’ button and if you have entered a valid address that has keys in your BITBOX you’ll see a signature appear.
+You can sign a message w/ any address in your bitbox. It doesn’t matter if it’s in cashaddr or legacy encoding. Just paste the address into the address field and type the message that you want to sign. Then click the ‘Sign’ button and if you have entered a valid address that has keys in your BITBOX you’ll see a signature appear.
 
 ![Converter](https://bigearth.github.io/bitblog/assets/verify-cashaddr.png)
 
@@ -36,7 +36,7 @@ BITBOX supports the entire Bitcoin Cash RPC. [`bitbox-sdk`](https://www.npmjs.co
 #### Sign
 
 ```javascript
-BITBOX.BitcoinCash.signMessageWithPrivKey(
+bitbox.BitcoinCash.signMessageWithPrivKey(
   'KxtpRDUJDiutLaTV8Vuavhb6h7zq9YV9ZKA3dU79PCgYmNVmkkvS',
   'EARTH'
 )
@@ -46,7 +46,7 @@ BITBOX.BitcoinCash.signMessageWithPrivKey(
 #### Verify
 
 ```javascript
-BITBOX.BitcoinCash.verifyMessage(
+bitbox.BitcoinCash.verifyMessage(
   'bitcoincash:qp2zvw3zpk5xx43w4tve7mtekd9kaxwj4uenq9eupv',
   'IIYVhlo2Z6TWFjYX1+YM+7vQKz0m+zYdSe4eYpFLuAQDEZXqll7lZC8Au22VI2LLP5x+IerZckVk3QQPsA3e8/8=',
   'EARTH'

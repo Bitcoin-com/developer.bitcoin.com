@@ -16,7 +16,7 @@ hex `Promise<string>`: the block hash hex encoded
 
     (async () => {
       try {
-        let getBestBlockHash = await BITBOX.Blockchain.getBestBlockHash();
+        let getBestBlockHash = await bitbox.Blockchain.getBestBlockHash();
         console.log(getBestBlockHash);
       } catch(error) {
        console.error(error)
@@ -41,7 +41,7 @@ block `Promise<BlockDetails>`
 
     (async () => {
       try {
-        let getBlock = await BITBOX.Blockchain.getBlock("00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09");
+        let getBlock = await bitbox.Blockchain.getBlock("00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09");
         console.log(getBlock);
       } catch(error) {
        console.error(error)
@@ -78,7 +78,7 @@ block `Promise<BlockchainInfo>`
 
     (async () => {
       try {
-        let getBlockchainInfo = await BITBOX.Blockchain.getBlockchainInfo();
+        let getBlockchainInfo = await bitbox.Blockchain.getBlockchainInfo();
         console.log(getBlockchainInfo);
       } catch(error) {
        console.error(error)
@@ -117,7 +117,7 @@ n `Promise<number>`
 
     (async () => {
       try {
-        let getBlockCount = await BITBOX.Blockchain.getBlockCount();
+        let getBlockCount = await bitbox.Blockchain.getBlockCount();
         console.log(getBlockCount);
       } catch(error) {
        console.error(error)
@@ -141,7 +141,7 @@ hash `Promise<string>` The block hash
 
     (async () => {
       try {
-        let getBlockHash = await BITBOX.Blockchain.getBlockHash([0]);
+        let getBlockHash = await bitbox.Blockchain.getBlockHash([0]);
         console.log(getBlockHash);
       } catch(error) {
        console.error(error)
@@ -166,7 +166,7 @@ blockHeader `Promise<BlockHeader>` The block header
 
     (async () => {
       try {
-        let getBlockHeader = await BITBOX.Blockchain.getBlockHeader(["00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"]);
+        let getBlockHeader = await bitbox.Blockchain.getBlockHeader(["00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"]);
         console.log(getBlockHeader);
       } catch(error) {
        console.error(error)
@@ -200,7 +200,7 @@ chainTips `Promise<ChainTip[]>`
 
     (async () => {
       try {
-        let getChainTips = await BITBOX.Blockchain.getChainTips();
+        let getChainTips = await bitbox.Blockchain.getChainTips();
         console.log(getChainTips);
       } catch(error) {
        console.error(error)
@@ -232,7 +232,7 @@ n `Promise<number>`: the proof-of-work difficulty as a multiple of the minimum d
 
     (async () => {
       try {
-        let getDifficulty = await BITBOX.Blockchain.getDifficulty();
+        let getDifficulty = await bitbox.Blockchain.getDifficulty();
         console.log(getDifficulty);
       } catch(error) {
        console.error(error)
@@ -258,7 +258,7 @@ ancestors `Promise<any>`
 
     (async () => {
       try {
-        let getMempoolAncestors = await BITBOX.Blockchain.getMempoolAncestors("fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33");
+        let getMempoolAncestors = await bitbox.Blockchain.getMempoolAncestors("fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33");
         console.log(getMempoolAncestors);
       } catch(error) {
        console.error(error)
@@ -282,7 +282,7 @@ descendants `Promise<any>`
 
     (async () => {
       try {
-        let getMempoolDescendants = await BITBOX.Blockchain.getMempoolDescendants("fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33");
+        let getMempoolDescendants = await bitbox.Blockchain.getMempoolDescendants("fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33");
         console.log(getMempoolDescendants);
       } catch(error) {
        console.error(error)
@@ -309,7 +309,7 @@ Returns mempool data for given transaction
 
     (async () => {
       try {
-        let getMempoolEntry = await BITBOX.Blockchain.getMempoolEntry("fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33");
+        let getMempoolEntry = await bitbox.Blockchain.getMempoolEntry("fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33");
         console.log(getMempoolEntry);
       } catch(error) {
        console.error(error)
@@ -335,7 +335,7 @@ Returns mempool data for given transaction
 
     (async () => {
       try {
-        let getMempoolEntry = await BITBOX.Blockchain.getMempoolEntry([
+        let getMempoolEntry = await bitbox.Blockchain.getMempoolEntry([
           "fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33",
           "defea04c38ee00cf73ad402984714ed22dc0dd99b2ae5cb50d791d94343ba79b"
           ]);
@@ -392,7 +392,7 @@ entry `Promise<MempoolInfo>`
 
     (async () => {
       try {
-        let getMempoolInfo = await BITBOX.Blockchain.getMempoolInfo();
+        let getMempoolInfo = await bitbox.Blockchain.getMempoolInfo();
         console.log(getMempoolInfo);
       } catch(error) {
        console.error(error)
@@ -421,7 +421,7 @@ rawMemPool `Promise<string[] | object[]>`
 
     (async () => {
       try {
-        let getRawMempool = await BITBOX.Blockchain.getRawMempool(true);
+        let getRawMempool = await bitbox.Blockchain.getRawMempool(true);
         console.log(getRawMempool);
       } catch(error) {
        console.error(error)
@@ -463,7 +463,7 @@ txOut `Promise<TxOut | null>`
 
     (async () => {
       try {
-        let getTxOut = await BITBOX.Blockchain.getTxOut("e25682caafc7000645d59f4c11d8d594b2943979b9d8fafb9f946e2b35c21b7e", 1);
+        let getTxOut = await bitbox.Blockchain.getTxOut("e25682caafc7000645d59f4c11d8d594b2943979b9d8fafb9f946e2b35c21b7e", 1);
         console.log(getTxOut);
       } catch(error) {
        console.error(error)
@@ -492,7 +492,7 @@ Returns a hex-encoded proof that "txid" was included in a block.
 
     (async () => {
       try {
-        let getTxOutProof = await BITBOX.Blockchain.getTxOutProof("e25682caafc7000645d59f4c11d8d594b2943979b9d8fafb9f946e2b35c21b7e");
+        let getTxOutProof = await bitbox.Blockchain.getTxOutProof("e25682caafc7000645d59f4c11d8d594b2943979b9d8fafb9f946e2b35c21b7e");
         console.log(getTxOutProof);
       } catch(error) {
        console.error(error)
@@ -503,7 +503,7 @@ Returns a hex-encoded proof that "txid" was included in a block.
 
     (async () => {
       try {
-        let getTxOutProof = await BITBOX.Blockchain.getTxOutProof([
+        let getTxOutProof = await bitbox.Blockchain.getTxOutProof([
           "e25682caafc7000645d59f4c11d8d594b2943979b9d8fafb9f946e2b35c21b7e",
           "d16662463fd98eb96c8f6898d58a4461ac3d0120f4d0aea601d72b37759f261c"
         ]);
@@ -534,7 +534,7 @@ preciouBlock `Promise<any>`
 
     (async () => {
       try {
-        let preciousBlock = await BITBOX.Blockchain.preciousBlock("00000000000000000108641af52e01a447b1f9d801571f93a0f20a8cbf80c236");
+        let preciousBlock = await bitbox.Blockchain.preciousBlock("00000000000000000108641af52e01a447b1f9d801571f93a0f20a8cbf80c236");
         console.log(preciousBlock);
       } catch(error) {
        console.error(error)
@@ -555,7 +555,7 @@ n `Promise<number>`: Height of the last block pruned.
 
     (async () => {
       try {
-        let pruneBlockchain = await BITBOX.Blockchain.pruneBlockchain(1000);
+        let pruneBlockchain = await bitbox.Blockchain.pruneBlockchain(1000);
         console.log(pruneBlockchain);
       } catch(error) {
        console.error(error)
@@ -579,7 +579,7 @@ true|false `Promise<boolean>`: Verified or not
 
     (async () => {
       try {
-        let verifyChain = await BITBOX.Blockchain.verifyChain();
+        let verifyChain = await bitbox.Blockchain.verifyChain();
         console.log(verifyChain);
       } catch(error) {
        console.error(error)
@@ -608,7 +608,7 @@ best chain
     (async () => {
       try {
         const proof = "0000002086a4a3161f9ba2174883ec0b93acceac3b2f37b36ed1f90000000000000000009cb02406d1094ecf3e0b4c0ca7c585125e721147c39daf6b48c90b512741e13a12333e5cb38705180f441d8c7100000008fee9b60f1edb57e5712839186277ed39e0a004a32be9096ee47472efde8eae62f789f9d7a9f59d0ea7093dea1e0c65ff0b953f1d8cf3d47f92e732ca0295f603c272d5f4a63509f7a887f2549d78af7444aa0ecbb4f66d9cbe13bc6a89f59e05a199df8325d490818ffefe6b6321d32d7496a68580459836c0183f89082fc1b491cc91b23ecdcaa4c347bf599a62904d61f1c15b400ebbd5c90149010c139d9c1e31b774b796977393a238080ab477e1d240d0c4f155d36f519668f49bae6bd8cd5b8e40522edf76faa09cca6188d83ff13af6967cc6a569d1a5e9aeb1fdb7f531ddd2d0cbb81879741d5f38166ac1932136264366a4065cc96a42e41f96294f02df01"
-        let verifyTxOutProof = await BITBOX.Blockchain.verifyTxOutProof(proof);
+        let verifyTxOutProof = await bitbox.Blockchain.verifyTxOutProof(proof);
         console.log(verifyTxOutProof);
       } catch(error) {
        console.error(error)
@@ -622,7 +622,7 @@ best chain
     (async () => {
       try {
         const proof = "0000002086a4a3161f9ba2174883ec0b93acceac3b2f37b36ed1f90000000000000000009cb02406d1094ecf3e0b4c0ca7c585125e721147c39daf6b48c90b512741e13a12333e5cb38705180f441d8c7100000008fee9b60f1edb57e5712839186277ed39e0a004a32be9096ee47472efde8eae62f789f9d7a9f59d0ea7093dea1e0c65ff0b953f1d8cf3d47f92e732ca0295f603c272d5f4a63509f7a887f2549d78af7444aa0ecbb4f66d9cbe13bc6a89f59e05a199df8325d490818ffefe6b6321d32d7496a68580459836c0183f89082fc1b491cc91b23ecdcaa4c347bf599a62904d61f1c15b400ebbd5c90149010c139d9c1e31b774b796977393a238080ab477e1d240d0c4f155d36f519668f49bae6bd8cd5b8e40522edf76faa09cca6188d83ff13af6967cc6a569d1a5e9aeb1fdb7f531ddd2d0cbb81879741d5f38166ac1932136264366a4065cc96a42e41f96294f02df01"
-        let verifyTxOutProof = await BITBOX.Blockchain.verifyTxOutProof([proof, proof]);
+        let verifyTxOutProof = await bitbox.Blockchain.verifyTxOutProof([proof, proof]);
         console.log(verifyTxOutProof);
       } catch(error) {
        console.error(error)

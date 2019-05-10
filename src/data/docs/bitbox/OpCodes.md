@@ -4,12 +4,12 @@ icon: code
 ordinal: 13
 ---
 
-Bitcoin Cash Script OP Codes are available on the `BITBOX.Script` object.
+Bitcoin Cash Script OP Codes are available on the `bitbox.Script` object.
 
 #### Examples
 
       // list all op codes
-      BITBOX.Script.opcodes;
+      bitbox.Script.opcodes;
       // { OP_FALSE: 0,
       //   OP_0: 0,
       //   OP_PUSHDATA1: 76,
@@ -26,11 +26,11 @@ Bitcoin Cash Script OP Codes are available on the `BITBOX.Script` object.
       // }
 
       // get the op code for a word
-      BITBOX.Script.opcodes.OP_SPLIT
+      bitbox.Script.opcodes.OP_SPLIT
       // 127
-      BITBOX.Script.opcodes.OP_NUM2BIN
+      bitbox.Script.opcodes.OP_NUM2BIN
       // 128
-      BITBOX.Script.opcodes.OP_BIN2NUM
+      bitbox.Script.opcodes.OP_BIN2NUM
       // 129
 
 ### Constants

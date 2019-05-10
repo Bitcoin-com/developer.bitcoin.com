@@ -21,7 +21,7 @@ Socket `Socket`
 #### Examples
 
       // instance of Socket
-      let socket = new BITBOX.Socket({callback: () => {console.log('connected')}, restURL: 'https://rest.bitcoin.com'})
+      let socket = new bitbox.Socket({callback: () => {console.log('connected')}, restURL: 'https://rest.bitcoin.com'})
 
 ### `listen`
 
@@ -37,7 +37,7 @@ data `Object`: data returned in real\-time over a websocket
 
 #### Examples
 
-      let socket = new BITBOX.Socket({callback: () => {console.log('connected')}, restURL: 'https://rest.bitcoin.com'})
+      let socket = new bitbox.Socket({callback: () => {console.log('connected')}, restURL: 'https://rest.bitcoin.com'})
       socket.listen('transactions', (message) => {
         console.log(message)
 
