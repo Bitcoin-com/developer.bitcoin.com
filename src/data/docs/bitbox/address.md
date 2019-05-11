@@ -637,7 +637,7 @@ Convert hash160 to legacy address.
 #### Arguments
 
 1.  hash160 `string`: hash160
-2.  network `Object` **optional**
+2.  network `number` **optional**
 
 #### Result
 
@@ -664,7 +664,7 @@ Convert hash160 to cash address.
 #### Arguments
 
 1.  hash160 `string`: hash160
-2.  network `Object` **optional**
+2.  network `number` **optional**
 
 #### Result
 
