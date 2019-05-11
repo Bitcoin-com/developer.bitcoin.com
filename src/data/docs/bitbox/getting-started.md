@@ -37,20 +37,26 @@ Use the [scaffold generator](./new), or manually import BITBOX into your code:
 All classes are able to be included via both `require` and `import`
 
     // require syntax
+    const Address = require("bitbox-sdk").Address
     const BitcoinCash = require("bitbox-sdk").BitcoinCash
     const Block = require("bitbox-sdk").Block
     const Blockchain = require("bitbox-sdk").Blockchain
     const Control = require("bitbox-sdk").Control
+    const Crypto = require("bitbox-sdk").Crypto
+    const ECPair = require("bitbox-sdk").ECPair
     const Generating = require("bitbox-sdk").Generating
     const HDNode = require("bitbox-sdk").HDNode
     const Mining = require("bitbox-sdk").Mining
     const Mnemonic = require("bitbox-sdk").Mnemonic
     const Price = require("bitbox-sdk").Price
     const RawTransactions = require("bitbox-sdk").RawTransactions
-    const Script = require("bitbox-sdk").Script
-    const Transaction = require("bitbox-sdkn").Transaction
-    const Util = require("bitbox-sdk").Util
     const Schnorr = require("bitbox-sdk").Schnorr
+    const Script = require("bitbox-sdk").Script
+    const Socket = require("bitbox-sdk").Socket
+    const Transaction = require("bitbox-sdkn").Transaction
+    const TransactionBuilder = require("bitbox-sdkn").TransactionBuilder
+    const Util = require("bitbox-sdk").Util
+    const Wallet = require("bitbox-sdk").Wallet
 
     // import syntax
     import {
