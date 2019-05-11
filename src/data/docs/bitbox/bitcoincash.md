@@ -76,6 +76,70 @@ bitbox.BitcoinCash.toBitcoinCash(50700000000)
 // 507
 ```
 
+### `toBits`
+
+Converting satoshi units to Bits denomination
+
+#### Arguments
+
+1.  satoshi `Number`: unit to be converted
+
+#### Result
+
+bits `Number`: satoshi unit converted to Bits
+
+#### Examples
+
+```javascript
+// convert 4242323400 satoshis to 42423.234 bits
+BITBOX.BitcoinCash.toBits(4242323400)
+// 42423.234
+// convert 100000000 satoshis to 1000 bits
+BITBOX.BitcoinCash.toBits(100000000)
+// 1000
+// convert 314000000 satoshis to 3140 bits
+BITBOX.BitcoinCash.toBits(314000000)
+// 3140
+// convert 987600000000 satoshis to 9876000 bits
+BITBOX.BitcoinCash.toBits(987600000000)
+// 9876000
+// convert 12300 satoshis to 0.123 bits
+BITBOX.BitcoinCash.toBits(12300)
+// 0.123
+```
+
+### `fromBits`
+
+Converting bits units to satoshi denomination
+
+#### Arguments
+
+1.  bits `Number`: unit to be converted
+
+#### Result
+
+satoshi `Number`: bits unit converted to satoshi
+
+#### Examples
+
+```javascript
+// convert 42423.234 bits to 4242323400 satoshis
+BITBOX.BitcoinCash.fromBits(42423.234)
+// 4242323400
+// convert 1000 bits to 100000000 satoshis
+BITBOX.BitcoinCash.fromBits(1000)
+// 100000000
+// convert 3140 bits to 314000000 satoshis
+BITBOX.BitcoinCash.fromBits(3140)
+// 314000000
+// convert 9876000 bits to 987600000000 satoshis
+BITBOX.BitcoinCash.fromBits(9876000)
+// 987600000000
+// convert 0.123 bits to 12300 satoshis
+BITBOX.BitcoinCash.fromBits(0.123)
+// 12300
+```
+
 ### `signMessageWithPrivKey`
 
 Sign message with private key
