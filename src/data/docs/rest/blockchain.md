@@ -169,7 +169,7 @@ blockHeaders `Array` of Objects
 
 #### Examples
 
-    curl -X POST "https://bitcoin.com/v2/blockchain/getBlockHeader" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"hashes\":[\"000000000000000005e14d3f9fdfb70745308706615cfa9edca4f4558332b201\",\"00000000000000000568f0a96bf4348847bc84e455cbfec389f27311037a20f3\"],\"verbose\":true}"
+    curl -X POST "https://rest.bitcoin.com/v2/blockchain/getBlockHeader" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"hashes\":[\"000000000000000005e14d3f9fdfb70745308706615cfa9edca4f4558332b201\",\"00000000000000000568f0a96bf4348847bc84e455cbfec389f27311037a20f3\"],\"verbose\":true}"
 
     // returns
     [
@@ -309,7 +309,7 @@ mempoolEntries `Array` of Objects
 
 #### Examples
 
-    curl -X POST "https://bitcoin.com/v2/blockchain/getMempoolEntry" -H "accept: */*" -H "Content-Type: application/json" -d "{\"txids\":[\"a5f972572ee1753e2fd2457dd61ce5f40fa2f8a30173d417e49feef7542c96a1\",\"5165dc531aad05d1149bb0f0d9b7bda99c73e2f05e314bcfb5b4bb9ca5e1af5e\"]}"
+    curl -X POST "https://rest.bitcoin.com/v2/blockchain/getMempoolEntry" -H "accept: */*" -H "Content-Type: application/json" -d "{\"txids\":[\"a5f972572ee1753e2fd2457dd61ce5f40fa2f8a30173d417e49feef7542c96a1\",\"5165dc531aad05d1149bb0f0d9b7bda99c73e2f05e314bcfb5b4bb9ca5e1af5e\"]}"
 
     // returns
     {
@@ -465,7 +465,7 @@ txOutProofs `Array` of Objects
 
 #### Examples
 
-    curl -X POST "https://bitcoin.com/v2/blockchain/getTxOutProof" -H "accept: */*" -H "Content-Type: application/json" -d "{\"txids\":[\"a5f972572ee1753e2fd2457dd61ce5f40fa2f8a30173d417e49feef7542c96a1\",\"5165dc531aad05d1149bb0f0d9b7bda99c73e2f05e314bcfb5b4bb9ca5e1af5e\"]}"
+    curl -X POST "https://rest.bitcoin.com/v2/blockchain/getTxOutProof" -H "accept: */*" -H "Content-Type: application/json" -d "{\"txids\":[\"a5f972572ee1753e2fd2457dd61ce5f40fa2f8a30173d417e49feef7542c96a1\",\"5165dc531aad05d1149bb0f0d9b7bda99c73e2f05e314bcfb5b4bb9ca5e1af5e\"]}"
 
     // returns
     [
@@ -524,7 +524,7 @@ txOutProofs `Array` of Objects
 
 #### Examples
 
-    curl -X POST "https://bitcoin.com/v2/blockchain/verifyTxOutProof" -H "accept: */*" -H "Content-Type: application/json" -d "{\"proofs\":[\"010000007de867cc8adc5cc8fb6b898ca4462cf9fd667d7830a275277447e60800000000338f121232e169d3100edd82004dc2a1f0e1f030c6c488fa61eafa930b0528fe021f7449ffff001d36b4af9a0100000001338f121232e169d3100edd82004dc2a1f0e1f030c6c488fa61eafa930b0528fe0101\",\"000000202cbe31a32f4ad5b42877a9ccf9ff6edb3f5ab29ff73ec9000000000000000000069061a8809fed6557fa87eeb5aa7ac9e6720dcb2e2f401b40b7d83be5b4cb4f20a1e95b8c8d01188ca7c098e20100000a3705adb29177f22766afb07d46eb1d3f16a68fdd01c1ede671fcb954899ffed4c161c0a33aa8f6e562e40b1e0124818663e063004720d8d7e9074808a1f16ca56ba218571cb8069bc45bc8c6496ad9611b35d412e2545211ba85438be487d6dc39cd0ae63a41be9a89c4ed823fa6eceb0ceffe13638defa01109a514e639b89e5eafe1a59cbbb4b5cf4b315ef0e2739ca9bdb7d9f0b09b14d105ad1a53dc655176895cacc3f897d5088b004113f886df266edd1ff797f4550885f32380c8fb575be00072239baa70ccf354882e8c50a1d01e81ab2c85146d9e8c3c75140eca2d9d5640af739a86047493e24b1393745914a75fdfe19f081626a5846353c67b45ccf2dd6a753ba118e89239b7916be2ee06e34dc85257228edeaaca06efa0a565580872eff1787360bdf7ff274bb49437bef6a368ab578e34b739ddcc16088a8603ad3700\"]}"
+    curl -X POST "https://rest.bitcoin.com/v2/blockchain/verifyTxOutProof" -H "accept: */*" -H "Content-Type: application/json" -d "{\"proofs\":[\"010000007de867cc8adc5cc8fb6b898ca4462cf9fd667d7830a275277447e60800000000338f121232e169d3100edd82004dc2a1f0e1f030c6c488fa61eafa930b0528fe021f7449ffff001d36b4af9a0100000001338f121232e169d3100edd82004dc2a1f0e1f030c6c488fa61eafa930b0528fe0101\",\"000000202cbe31a32f4ad5b42877a9ccf9ff6edb3f5ab29ff73ec9000000000000000000069061a8809fed6557fa87eeb5aa7ac9e6720dcb2e2f401b40b7d83be5b4cb4f20a1e95b8c8d01188ca7c098e20100000a3705adb29177f22766afb07d46eb1d3f16a68fdd01c1ede671fcb954899ffed4c161c0a33aa8f6e562e40b1e0124818663e063004720d8d7e9074808a1f16ca56ba218571cb8069bc45bc8c6496ad9611b35d412e2545211ba85438be487d6dc39cd0ae63a41be9a89c4ed823fa6eceb0ceffe13638defa01109a514e639b89e5eafe1a59cbbb4b5cf4b315ef0e2739ca9bdb7d9f0b09b14d105ad1a53dc655176895cacc3f897d5088b004113f886df266edd1ff797f4550885f32380c8fb575be00072239baa70ccf354882e8c50a1d01e81ab2c85146d9e8c3c75140eca2d9d5640af739a86047493e24b1393745914a75fdfe19f081626a5846353c67b45ccf2dd6a753ba118e89239b7916be2ee06e34dc85257228edeaaca06efa0a565580872eff1787360bdf7ff274bb49437bef6a368ab578e34b739ddcc16088a8603ad3700\"]}"
 
     // returns
     [

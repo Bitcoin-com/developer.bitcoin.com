@@ -59,7 +59,7 @@ buffer `Buffer`
       Buffer.from('02fb721b92025e775b1b84774e65d568d24645cb633275f5c26f5c3101b214a8fb', 'hex')
       ]
       bitbox.Script.encode(scriptSig);
-      //
+      // <Buffer 48 30 45 02 21 00 87 7e 2f 9c 28 42 1f 0a 85 0c c8 ff 66 ba 1d 0f 6c 8d be 9e 63 e1 99 c2 c2 60 0c 9c 15 bf 9d 44 02 20 4d 35 b1 3d 3c c2 02 aa 25 72 ... >
 
       // encode P2PKH scriptPubKey to buffer
       let scriptPubKey = [
@@ -70,7 +70,7 @@ buffer `Buffer`
       172
       ];
       bitbox.Script.encode(scriptPubKey);
-      //
+      // <Buffer 76 a9 14 24 e9 c0 78 04 d0 ee 7e 5b da 93 4e 0a 3a e8 71 0f c0 07 dd 88 ac>
 
 ### `decode`
 
@@ -89,17 +89,14 @@ decodedScript `Array`
       // decode P2PKH scriptSig buffer
       let scriptSigBuffer = Buffer.from("483045022100877e2f9c28421f0a850cc8ff66ba1d0f6c8dbe9e63e199c2c2600c9c15bf9d4402204d35b13d3cc202aa25722b2b1791442ebc5c39d898b609515260ad08f0e766a6012102fb721b92025e775b1b84774e65d568d24645cb633275f5c26f5c3101b214a8fb", 'hex');
       bitbox.Script.decode(scriptSigBuffer);
-      // [
-      //   ,
-      //
-      // ]
+      // [ <Buffer 30 45 02 21 00 87 7e 2f 9c 28 42 1f 0a 85 0c c8 ff 66 ba 1d 0f 6c 8d be 9e 63 e1 99 c2 c2 60 0c 9c 15 bf 9d 44 02 20 4d 35 b1 3d 3c c2 02 aa 25 72 2b ... >, <Buffer 02 fb 72 1b 92 02 5e 77 5b 1b 84 77 4e 65 d5 68 d2 46 45 cb 63 32 75 f5 c2 6f 5c 31 01 b2 14 a8 fb> ]
 
       // decode P2PKH scriptPubKey buffer
       let scriptPubKeyBuffer = Buffer.from("76a91424e9c07804d0ee7e5bda934e0a3ae8710fc007dd88ac", 'hex');
       bitbox.Script.decode(scriptPubKeyBuffer);
       // [ 118,
       // 169,
-      // ,
+      // <Buffer 24 e9 c0 78 04 d0 ee 7e 5b da 93 4e 0a 3a e8 71 0f c0 07 dd>,
       // 136,
       // 172 ]
 
@@ -167,13 +164,11 @@ buffer `Buffer`
 
       let data = "BCHForEveryone";
       let buf = bitbox.Script.nullData.output.encode(Buffer.from(data, 'ascii'));
-      //
       bitbox.Script.toASM(buf);
       // OP_RETURN 424348466f7245766572796f6e65
 
       let data = "Satoshi Nakamoto";
       let buf = bitbox.Script.nullData.output.encode(Buffer.from(data, 'ascii'));
-      //
       bitbox.Script.toASM(buf);
       // OP_RETURN 5361746f736869204e616b616d6f746
 
@@ -239,7 +234,6 @@ buffer `Buffer`
 
       let signature = '304402207515cf147d201f411092e6be5a64a6006f9308fad7b2a8fdaab22cd86ce764c202200974b8aca7bf51dbf54150d3884e1ae04f675637b926ec33bf75939446f6ca2801';
       let buf = bitbox.Script.pubKey.input.encode(Buffer.from(signature, 'hex'));
-      //
       bitbox.Script.toASM(buf);
       // 304402207515cf147d201f411092e6be5a64a6006f9308fad7b2a8fdaab22cd86ce764c202200974b8aca7bf51dbf54150d3884e1ae04f675637b926ec33bf75939446f6ca2801
 
@@ -259,7 +253,7 @@ buffer `Buffer`
 
       let hex = '47304402207515cf147d201f411092e6be5a64a6006f9308fad7b2a8fdaab22cd86ce764c202200974b8aca7bf51dbf54150d3884e1ae04f675637b926ec33bf75939446f6ca2801';
       bitbox.Script.pubKey.input.decode(Buffer.from(hex, 'hex'));
-      //
+      // <Buffer 30 44 02 20 75 15 cf 14 7d 20 1f 41 10 92 e6 be 5a 64 a6 00 6f 93 08 fa d7 b2 a8 fd aa b2 2c d8 6c e7 64 c2 02 20 09 74 b8 ac a7 bf 51 db f5 41 50 d3 ... >
 
 ### `checkP2PKInput`
 
@@ -296,7 +290,6 @@ buffer `Buffer`
 
       let pubKey = '02d305772e0873fba6c1c7ff353ce374233316eb5820acd7ff3d7d9b82d514126b';
       let buf = bitbox.Script.pubKey.output.encode(Buffer.from(pubKey, 'hex'));
-      //
       bitbox.Script.toASM(buf)
       // 02d305772e0873fba6c1c7ff353ce374233316eb5820acd7ff3d7d9b82d514126b OP_CHECKSIG
 
@@ -316,7 +309,7 @@ buffer `Buffer`
 
       let hex = '2102d305772e0873fba6c1c7ff353ce374233316eb5820acd7ff3d7d9b82d514126bac';
       bitbox.Script.pubKey.output.decode(Buffer.from(hex, 'hex'));
-      //
+      // <Buffer 02 d3 05 77 2e 08 73 fb a6 c1 c7 ff 35 3c e3 74 23 33 16 eb 58 20 ac d7 ff 3d 7d 9b 82 d5 14 12 6b>
 
 ### `checkP2PKOutput`
 
@@ -356,7 +349,6 @@ buffer `Buffer`
       let signature = '304402207515cf147d201f411092e6be5a64a6006f9308fad7b2a8fdaab22cd86ce764c202200974b8aca7bf51dbf54150d3884e1ae04f675637b926ec33bf75939446f6ca2801';
       let pubKey = '02d9bb8da1de26d390b6f3dcb4e589857730536b646995fa948a8319ede2ca1c15';
       let buf = bitbox.Script.pubKeyHash.input.encode(Buffer.from(signature, 'hex'), Buffer.from(pubKey, 'hex'));
-      //
       bitbox.Script.toASM(buf);
       // 304402207515cf147d201f411092e6be5a64a6006f9308fad7b2a8fdaab22cd86ce764c202200974b8aca7bf51dbf54150d3884e1ae04f675637b926ec33bf75939446f6ca2801 02d9bb8da1de26d390b6f3dcb4e589857730536b646995fa948a8319ede2ca1c15
 
@@ -376,8 +368,9 @@ buffer `Buffer`
 
       let hex = '47304402207515cf147d201f411092e6be5a64a6006f9308fad7b2a8fdaab22cd86ce764c202200974b8aca7bf51dbf54150d3884e1ae04f675637b926ec33bf75939446f6ca28012102d9bb8da1de26d390b6f3dcb4e589857730536b646995fa948a8319ede2ca1c15';
       bitbox.Script.pubKeyHash.input.decode(Buffer.from(hex, 'hex'));
-      // { signature: ,
-      // pubKey:  }
+      // { signature:
+      // <Buffer 30 44 02 20 75 15 cf 14 7d 20 1f 41 10 92 e6 be 5a 64 a6 00 6f 93 08 fa d7 b2 a8 fd aa b2 2c d8 6c e7 64 c2 02 20 09 74 b8 ac a7 bf 51 db f5 41 50 d3 ... >,
+      // pubKey: <Buffer 02 d9 bb 8d a1 de 26 d3 90 b6 f3 dc b4 e5 89 85 77 30 53 6b 64 69 95 fa 94 8a 83 19 ed e2 ca 1c 15> }
 
 ### `checkP2PKHInput`
 
@@ -418,7 +411,6 @@ buffer `Buffer`
       let node = bitbox.HDNode.fromXPriv('xprv9xoxVbZ7L8jmvKx7e1hgd7muo8H35ysTx1LCKFey5nVHUkHSPBxpzBzt2HVK16hu4m6oN5vfaCWSZQvqtDhfJTCY3t9ocp7H7zcTZ2fVRwL');
       let identifier = bitbox.HDNode.toIdentifier(node);
       let buf = bitbox.Script.pubKeyHash.output.encode(identifier);
-      //
       bitbox.Script.toASM(buf)
       // OP_DUP OP_HASH160 6ee7ded4f9d0deb6f4a63d68df5ccc4e41ad8967 OP_EQUALVERIFY OP_CHECKSIG
 
@@ -438,7 +430,7 @@ buffer `Buffer`
 
       let hex = '76a9146ee7ded4f9d0deb6f4a63d68df5ccc4e41ad896788ac';
       bitbox.Script.pubKeyHash.output.decode(Buffer.from(hex, 'hex'));
-      //
+      // <Buffer 6e e7 de d4 f9 d0 de b6 f4 a6 3d 68 df 5c cc 4e 41 ad 89 67>
 
 ### `checkP2PKHOutput`
 
@@ -483,7 +475,6 @@ buffer `Buffer`
       return signature ? Buffer.from(signature, 'hex') : bitbox.Script.opcodes.OP_0
       })
       let buf = bitbox.Script.multisig.input.encode(sigs);
-      //
       bitbox.Script.toASM(buf);
       // OP_0 304402207515cf147d201f411092e6be5a64a6006f9308fad7b2a8fdaab22cd86ce764c202200974b8aca7bf51dbf54150d3884e1ae04f675637b926ec33bf75939446f6ca2801 3045022100ef253c1faa39e65115872519e5f0a33bbecf430c0f35cf562beabbad4da24d8d02201742be8ee49812a73adea3007c9641ce6725c32cd44ddb8e3a3af460015d14050
 
@@ -503,8 +494,8 @@ buffer `Buffer`
 
       let hex = '0047304402207515cf147d201f411092e6be5a64a6006f9308fad7b2a8fdaab22cd86ce764c202200974b8aca7bf51dbf54150d3884e1ae04f675637b926ec33bf75939446f6ca2801483045022100ef253c1faa39e65115872519e5f0a33bbecf430c0f35cf562beabbad4da24d8d02201742be8ee49812a73adea3007c9641ce6725c32cd44ddb8e3a3af460015d140501';
       bitbox.Script.multisig.input.decode(Buffer.from(hex, 'hex'));
-      // [ ,
-      //  ]
+      // [ <Buffer 30 44 02 20 75 15 cf 14 7d 20 1f 41 10 92 e6 be 5a 64 a6 00 6f 93 08 fa d7 b2 a8 fd aa b2 2c d8 6c e7 64 c2 02 20 09 74 b8 ac a7 bf 51 db f5 41 50 d3 ... >,
+      // <Buffer 30 45 02 21 00 ef 25 3c 1f aa 39 e6 51 15 87 25 19 e5 f0 a3 3b be cf 43 0c 0f 35 cf 56 2b ea bb ad 4d a2 4d 8d 02 20 17 42 be 8e e4 98 12 a7 3a de a3 ... > ]
 
 ### `checkP2MSInput`
 
@@ -553,7 +544,6 @@ buffer `Buffer`
       let pubKeys = arr.map((p) => { return Buffer.from(p, 'hex') })
       let m = pubKeys.length
       let buf = bitbox.Script.multisig.output.encode(m, pubKeys);
-      //
       bitbox.Script.toASM(buf);
       // OP_2 02359c6e3f04cefbf089cf1d6670dc47c3fb4df68e2bad1fa5a369f9ce4b42bbd1 0395a9d84d47d524548f79f435758c01faec5da2b7e551d3b8c995b7e06326ae4a OP_2 OP_CHECKMULTISIG
 
@@ -574,9 +564,8 @@ buffer `Buffer`
       let hex = '522102359c6e3f04cefbf089cf1d6670dc47c3fb4df68e2bad1fa5a369f9ce4b42bbd1210395a9d84d47d524548f79f435758c01faec5da2b7e551d3b8c995b7e06326ae4a52ae';
       bitbox.Script.multisig.output.decode(Buffer.from(hex, 'hex'));
       // { m: 2,
-      // pubKeys:
-      //  [ ,
-      //     ] }
+      // pubKeys: [ <Buffer 02 35 9c 6e 3f 04 ce fb f0 89 cf 1d 66 70 dc 47 c3 fb 4d f6 8e 2b ad 1f a5 a3 69 f9 ce 4b 42 bb d1>,
+      // <Buffer 03 95 a9 d8 4d 47 d5 24 54 8f 79 f4 35 75 8c 01 fa ec 5d a2 b7 e5 51 d3 b8 c9 95 b7 e0 63 26 ae 4a> ] }
 
 ### `checkP2MSOutput`
 
@@ -620,7 +609,6 @@ buffer `Buffer`
       let redeemScriptSig = bitbox.Script.fromASM("OP_0 304402207515cf147d201f411092e6be5a64a6006f9308fad7b2a8fdaab22cd86ce764c202200974b8aca7bf51dbf54150d3884e1ae04f675637b926ec33bf75939446f6ca2801 3045022100ef253c1faa39e65115872519e5f0a33bbecf430c0f35cf562beabbad4da24d8d02201742be8ee49812a73adea3007c9641ce6725c32cd44ddb8e3a3af460015d140501");
       let redeemScript = bitbox.Script.fromASM("OP_2 02359c6e3f04cefbf089cf1d6670dc47c3fb4df68e2bad1fa5a369f9ce4b42bbd1 0395a9d84d47d524548f79f435758c01faec5da2b7e551d3b8c995b7e06326ae4a OP_2 OP_CHECKMULTISIG");
       let buf = bitbox.Script.scriptHash.input.encode(redeemScriptSig, redeemScript);
-      //
       bitbox.Script.toASM(buf)
       // OP_0 304402207515cf147d201f411092e6be5a64a6006f9308fad7b2a8fdaab22cd86ce764c202200974b8aca7bf51dbf54150d3884e1ae04f675637b926ec33bf75939446f6ca2801 3045022100ef253c1faa39e65115872519e5f0a33bbecf430c0f35cf562beabbad4da24d8d02201742be8ee49812a73adea3007c9641ce6725c32cd44ddb8e3a3af460015d140501 522102359c6e3f04cefbf089cf1d6670dc47c3fb4df68e2bad1fa5a369f9ce4b42bbd1210395a9d84d47d524548f79f435758c01faec5da2b7e551d3b8c995b7e06326ae4a52ae
 
@@ -640,8 +628,8 @@ buffer `Buffer`
 
       let hex = '0047304402207515cf147d201f411092e6be5a64a6006f9308fad7b2a8fdaab22cd86ce764c202200974b8aca7bf51dbf54150d3884e1ae04f675637b926ec33bf75939446f6ca2801483045022100ef253c1faa39e65115872519e5f0a33bbecf430c0f35cf562beabbad4da24d8d02201742be8ee49812a73adea3007c9641ce6725c32cd44ddb8e3a3af460015d14050147522102359c6e3f04cefbf089cf1d6670dc47c3fb4df68e2bad1fa5a369f9ce4b42bbd1210395a9d84d47d524548f79f435758c01faec5da2b7e551d3b8c995b7e06326ae4a52ae';
       bitbox.Script.scriptHash.input.decode(Buffer.from(hex, 'hex'));
-      // { redeemScript: ,
-      // redeemScriptSig:  }
+      // { redeemScript: <Buffer 52 21 02 35 9c 6e 3f 04 ce fb f0 89 cf 1d 66 70 dc 47 c3 fb 4d f6 8e 2b ad 1f a5 a3 69 f9 ce 4b 42 bb d1 21 03 95 a9 d8 4d 47 d5 24 54 8f 79 f4 35 75 ... >,
+      // redeemScriptSig: <Buffer 00 47 30 44 02 20 75 15 cf 14 7d 20 1f 41 10 92 e6 be 5a 64 a6 00 6f 93 08 fa d7 b2 a8 fd aa b2 2c d8 6c e7 64 c2 02 20 09 74 b8 ac a7 bf 51 db f5 41 ... > }}
 
 ### `checkP2SHInput`
 
