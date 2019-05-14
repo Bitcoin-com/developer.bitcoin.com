@@ -45,7 +45,7 @@ Encode a Script buffer
 
 #### Arguments
 
-1.  scriptChunks `Array`
+1.  scriptChunks `Array<number | Buffer>`
 
 #### Result
 
@@ -668,7 +668,6 @@ buffer `Buffer`
       let redeemScript = bitbox.Script.fromASM("OP_DUP OP_HASH160 aa4d7985c57e011a8b3dd8e0e5a73aaef41629c5 OP_EQUALVERIFY OP_CHECKSIG");
       let scriptHash = bitbox.Crypto.hash160(redeemScript);
       let buf = bitbox.Script.scriptHash.output.encode(scriptHash);
-      //
       bitbox.Script.toASM(buf)
       // OP_HASH160 1b61ebed0c2a16c699a99c3d5ef4d08de7fb1cb8 OP_EQUAL
 
@@ -688,7 +687,7 @@ buffer `Buffer`
 
       let hex = 'a9141b61ebed0c2a16c699a99c3d5ef4d08de7fb1cb887';
       bitbox.Script.scriptHash.output.decode(Buffer.from(hex, 'hex'));
-      //
+      // <Buffer 1b 61 eb ed 0c 2a 16 c6 99 a9 9c 3d 5e f4 d0 8d e7 fb 1c b8>
 
 ### `checkP2SHOutput`
 
