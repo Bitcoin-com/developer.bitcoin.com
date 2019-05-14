@@ -370,7 +370,7 @@ hash160 of Node’s public key. The same value you would see in a scriptPubKey.
 
 #### Result
 
-identifier `string`
+identifier `Buffer`
 
 #### Examples
 

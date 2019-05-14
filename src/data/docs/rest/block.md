@@ -80,7 +80,7 @@ blocksDetails `Array` of Objects
 
 #### Examples
 
-    curl -X POST "https://bitcoin.com/v2/v2/block/detailsByHash" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"hashes\":[\"0000000000000000040e83398a79a16390897f0d18c92bada6350a19a32ec984\",\"000000000000000005e14d3f9fdfb70745308706615cfa9edca4f4558332b201\"]}"
+    curl -X POST "https://rest.bitcoin.com/v2/v2/block/detailsByHash" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"hashes\":[\"0000000000000000040e83398a79a16390897f0d18c92bada6350a19a32ec984\",\"000000000000000005e14d3f9fdfb70745308706615cfa9edca4f4558332b201\"]}"
 
     // returns
     [
@@ -229,7 +229,7 @@ blocksDetails `Array` of Objects
 
 #### Examples
 
-    curl -X POST "https://bitcoin.com/v2/v2/block/detailsByHeight" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"heights\":[499000,500000]}"
+    curl -X POST "https://rest.bitcoin.com/v2/v2/block/detailsByHeight" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"heights\":[499000,500000]}"
 
     // returns
     [

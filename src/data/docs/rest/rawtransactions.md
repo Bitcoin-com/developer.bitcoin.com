@@ -24,7 +24,7 @@ Return a JSON object representing the serialized, hex-encoded transaction.
 
 #### Examples
 
-    curl -X GET "https://bitcoin.com/v2/rawtransactions/decodeRawTransaction/02000000010e991f7ccec410f27d333f737f149b5d3be6728687da81072e638aed0063a176010000006b483045022100cd20443b0af090053450bc4ab00d563d4ac5955bb36e0135b00b8a96a19f233302205047f2c70a08c6ef4b76f2d198b33a31d17edfaa7e1e9e865894da0d396009354121024d4e7f522f67105b7bf5f9dbe557e7b2244613fdfcd6fe09304f93877328f6beffffffff02a0860100000000001976a9140ee020c07f39526ac5505c54fa1ab98490979b8388acb5f0f70b000000001976a9143a9b2b0c12fe722fcf653b6ef5dcc38732d6ff5188ac00000000" -H "accept: application/json"
+    curl -X GET "https://rest.bitcoin.com/v2/rawtransactions/decodeRawTransaction/02000000010e991f7ccec410f27d333f737f149b5d3be6728687da81072e638aed0063a176010000006b483045022100cd20443b0af090053450bc4ab00d563d4ac5955bb36e0135b00b8a96a19f233302205047f2c70a08c6ef4b76f2d198b33a31d17edfaa7e1e9e865894da0d396009354121024d4e7f522f67105b7bf5f9dbe557e7b2244613fdfcd6fe09304f93877328f6beffffffff02a0860100000000001976a9140ee020c07f39526ac5505c54fa1ab98490979b8388acb5f0f70b000000001976a9143a9b2b0c12fe722fcf653b6ef5dcc38732d6ff5188ac00000000" -H "accept: application/json"
 
     // returns
     {
@@ -255,7 +255,7 @@ return the raw transaction data. If verbose is 'true', returns an Object with in
 
 #### Examples
 
-    curl -X GET "https://bitcoin.com/v2/rawtransactions/getRawTransaction/40112ab9d2b5f98427839272d7a1e23dd2afc6c8355626f373e076c2ab5c2f72?verbose=true" -H "accept: application/json"
+    curl -X GET "https://rest.bitcoin.com/v2/rawtransactions/getRawTransaction/40112ab9d2b5f98427839272d7a1e23dd2afc6c8355626f373e076c2ab5c2f72?verbose=true" -H "accept: application/json"
 
     // returns
     {
