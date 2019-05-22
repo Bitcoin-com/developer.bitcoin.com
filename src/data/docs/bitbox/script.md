@@ -858,6 +858,48 @@ type `string`
       bitbox.Script.classifyOutput(bitbox.Script.fromASM(scripthashOutput));
       // scripthash
 
+### `encodeNumber`
+
+Classify transaction output
+
+#### Arguments
+
+1.  number: `number`
+
+#### Result
+
+hex `string`
+
+#### Examples
+
+      bitbox.Script.encodeNumber(1)
+      // "01"
+
+      bitbox.Script.encodeNumber(1000)
+      // "e803"
+
+### `decodeNumber`
+
+Classify transaction output
+
+#### Arguments
+
+1.  buffer: `Buffer`
+2.  maxLength: `number` **optional**
+3.  minimal: `boolean` **optional**
+
+#### Result
+
+hex `string`
+
+#### Examples
+
+      bitbox.Script.number.decode(Buffer.from("01", 'hex'))
+      // 1
+
+      bitbox.Script.number.decode(Buffer.from("e803", 'hex'))
+      // 1000
+
 ## Interfaces
 
 ### opcodes
@@ -1087,4 +1129,11 @@ type `string`
             decode(output: Buffer): Buffer
             check(output: Buffer): boolean
           }
+      }
+
+### scriptNumber
+
+      {
+        encode(number: number): Buffer
+        decode(buffer: Buffer, maxLength?: number, minimal?: boolean): number
       }
