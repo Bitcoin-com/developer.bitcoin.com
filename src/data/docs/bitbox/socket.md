@@ -29,7 +29,7 @@ Listen on a websocket to get real\-time data.
 
 #### Arguments
 
-1.  dataType `string`: type of data to return in real time. Currently only `transactions`
+1.  dataType `string`: type of data to return in real time. `transactions` or `blocks`
 
 #### Result
 
@@ -84,4 +84,24 @@ data `Object`: data returned in real\-time over a websocket
             }
           }
         ]
+      }
+
+
+      let socket = new bitbox.Socket({callback: () => {console.log('connected')}, restURL: 'https://rest.bitcoin.com'})
+      socket.listen('blocks', (message) => {
+        console.log(message)
+      })
+      // returns the following
+      {
+        "transactions": 183,
+        "totalBCHSent": 1057662477171,
+        "reward": 1250000000,
+        "prevHash": "cfac607ebae85629ede7d34f36064d24974f95c90b89c5000000000000000000",
+        "id": "0d2d939b3793ff8b2e130fe1f5257abd7784bfe147009f000000000000000000",
+        "hash": "0000000000000000009f0047e1bf8477bd7a25f5e10f132e8bff93379b932d0d",
+        "merkleRoot": "ac040e9130a71647f29dc55355fbe8db8bb1a5f1ac86b7ee1be0ae8488dc407e",
+        "version": 549453824,
+        "time": 1558667998,
+        "bits": 402882446,
+        "nonce": 2478895818
       }
