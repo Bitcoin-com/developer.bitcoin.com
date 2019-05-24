@@ -1,7 +1,7 @@
 {
   "name": "developer.bitcoin.com",
   "description": "Bitcoin.com developer resources and documentation",
-  "version": "8.1.0",
+  "version": "8.1.1",
   "author": "Peter <peter@bitcoin.com> and Gabriel Cardona <gabriel@bitcoin.com>",
   "dependencies": {
     "badger-components-react": "^0.3.0",
