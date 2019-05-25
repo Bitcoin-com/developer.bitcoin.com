@@ -314,7 +314,7 @@ valid `ValidateTxidResult[]`
 
 List all balances for address
 
-**URL** : `v2/slp/balancesForAddress/:address",`
+**URL** : `v2/slp/balancesForAddress/:address`
 
 **Method** : `GET`
 
@@ -346,7 +346,7 @@ balances `BalancesForAddress[]`
 
 List all balances for tokenId
 
-**URL** : `v2/slp/balancesForToken/:tokenId",`
+**URL** : `v2/slp/balancesForToken/:tokenId`
 
 **Method** : `GET`
 
@@ -382,7 +382,7 @@ balances `BalancesForToken[]`
 
 List balance for address by tokenId
 
-**URL** : `v2/slp/balance/:address/:tokenId",`
+**URL** : `v2/slp/balance/:address/:tokenId`
 
 **Method** : `GET`
 
@@ -411,7 +411,7 @@ balance `BalanceForAddressByTokenId`
 
 Stats for token by tokenId
 
-**URL** : `v2/slp/tokenStats/:tokenId",`
+**URL** : `v2/slp/tokenStats/:tokenId`
 
 **Method** : `GET`
 
@@ -457,7 +457,7 @@ stats `TokenInterface`
 
 SLP Transaction details by transaction Id
 
-**URL** : `v2/slp/txDetails/:txid",`
+**URL** : `v2/slp/txDetails/:txid`
 
 **Method** : `GET`
 
@@ -654,7 +654,7 @@ txDetails `Object`
 
 SLP Transactions by tokenId and address
 
-**URL** : `v2/slp/transactions/:tokenId/:address",`
+**URL** : `v2/slp/transactions/:tokenId/:address`
 
 **Method** : `GET`
 
@@ -707,7 +707,7 @@ transactions `Array`
 
 input, output and burn total for slp transaction
 
-**URL** : `v2/slp/burnTotal/:transactionId",`
+**URL** : `v2/slp/burnTotal/:transactionId`
 
 **Method** : `GET`
 
