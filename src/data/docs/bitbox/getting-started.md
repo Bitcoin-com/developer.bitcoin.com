@@ -74,9 +74,9 @@ All classes are able to be included via both `require` and `import`
     let script = new Script()
     const Socket = require("bitbox-sdk").Socket
     let socket = new Socket()
-    const Transaction = require("bitbox-sdkn").Transaction
+    const Transaction = require("bitbox-sdk").Transaction
     let transaction = new Transaction
-    const TransactionBuilder = require("bitbox-sdkn").TransactionBuilder
+    const TransactionBuilder = require("bitbox-sdk").TransactionBuilder
     let transactionbuilder = new TransactionBuilder()
     const Util = require("bitbox-sdk").Util
     let util = new Util()
