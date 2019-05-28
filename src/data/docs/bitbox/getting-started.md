@@ -30,13 +30,13 @@ Import BITBOX into your code:
     // require syntax
     let BITBOX = require('bitbox-sdk').BITBOX;
     let bitbox = new BITBOX();
-    bitbox.mnemonic.generate()
+    bitbox.Mnemonic.generate()
     // couple sleep cruise hybrid physical nature spin hedgehog put paddle silver laundry
 
     // import syntax
     import { BITBOX } from 'bitbox-sdk'
     let bitbox = new BITBOX();
-    bitbox.mnemonic.generate()
+    bitbox.Mnemonic.generate()
     // whip mind item rapid use cigar gap inherit shove weasel similar stick
 
 All classes are able to be included via both `require` and `import`
