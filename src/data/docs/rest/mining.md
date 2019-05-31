@@ -29,7 +29,7 @@ array `Array` of JSON Objects
       "currentblocktx": 0,
       "difficulty": 243738776600.1426,
       "blockprioritypercentage": 5,
-      "errors": "",
+      "warnings": "",
       "networkhashps": 1587730664538483000,
       "pooledtx": 112,
       "chain": "main"

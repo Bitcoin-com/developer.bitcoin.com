@@ -1,7 +1,7 @@
 ---
 title: Raw Transactions
 icon: exchange
-ordinal: 8
+ordinal: 7
 ---
 
 ## Decode Single Raw Transaction

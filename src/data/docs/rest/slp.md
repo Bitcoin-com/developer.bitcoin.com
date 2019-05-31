@@ -1,7 +1,7 @@
 ---
 title: SLP
 icon: coins
-ordinal: 9
+ordinal: 8
 ---
 
 ## List
@@ -27,7 +27,7 @@ tokens `TokenInterface[]` containing all SLP tokens
       {
         "decimals": 8,
         "timestamp": "2019-05-24 17:13:21",
-        "timestamp_unix": 1558718001,
+        "timestampUnix": 1558718001,
         "versionType": 1,
         "documentUri": "",
         "symbol": "CAR-CH",
@@ -49,7 +49,7 @@ tokens `TokenInterface[]` containing all SLP tokens
       {
         "decimals": 0,
         "timestamp": "2019-05-21 11:33:07",
-        "timestamp_unix": 1558438387,
+        "timestampUnix": 1558438387,
         "versionType": 1,
         "documentUri": "developer.bitcoin.com",
         "symbol": "GABRIEL",
@@ -96,7 +96,7 @@ token `TokenInterface`
     {
       "decimals": 0,
       "timestamp": "2019-05-21 11:33:07",
-      "timestamp_unix": 1558438387,
+      "timestampUnix": 1558438387,
       "versionType": 1,
       "documentUri": "developer.bitcoin.com",
       "symbol": "GABRIEL",
@@ -143,7 +143,7 @@ List details about several SLP tokens,e by tokenId
       {
         "decimals": 8,
         "timestamp": "2019-05-24 17:13:21",
-        "timestamp_unix": 1558718001,
+        "timestampUnix": 1558718001,
         "versionType": 1,
         "documentUri": "",
         "symbol": "CAR-CH",
@@ -165,7 +165,7 @@ List details about several SLP tokens,e by tokenId
       {
         "decimals": 0,
         "timestamp": "2019-05-21 11:33:07",
-        "timestamp_unix": 1558438387,
+        "timestampUnix": 1558438387,
         "versionType": 1,
         "documentUri": "developer.bitcoin.com",
         "symbol": "GABRIEL",
@@ -433,7 +433,7 @@ stats `TokenInterface`
     {
       "decimals": 0,
       "timestamp": "2019-05-21 11:33:07",
-      "timestamp_unix": 1558438387,
+      "timestampUnix": 1558438387,
       "versionType": 1,
       "documentUri": "developer.bitcoin.com",
       "symbol": "GABRIEL",
@@ -881,7 +881,7 @@ txid `string`
     {
       decimals: number
       timestamp: string
-      timestamp_unix: number
+      timestampUnix: number
       versionType: number
       documentUri: string
       symbol: string

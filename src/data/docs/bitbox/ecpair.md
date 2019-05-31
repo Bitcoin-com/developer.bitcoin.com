@@ -173,6 +173,7 @@ Sign 32 byte hash encoded as a buffer
 
 1.  ecpair `ECPair`
 2.  buffer `Buffer`: 32 byte Buffer
+3.  signatureAlgorithm: `number` **optional**. `0x00` for ECDSA and `0x01` for Schnorr. Defaults to `0x00`
 
 #### Result
 
