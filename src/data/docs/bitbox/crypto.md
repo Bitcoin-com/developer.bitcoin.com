@@ -1,7 +1,7 @@
 ---
 title: Crypto
 icon: link
-ordinal: 8
+ordinal: 9
 ---
 
 ### `sha1`

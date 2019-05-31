@@ -1,7 +1,7 @@
 ---
 title: Mining
 icon: hdd
-ordinal: 11
+ordinal: 12
 ---
 
 ### `getMiningInfo`

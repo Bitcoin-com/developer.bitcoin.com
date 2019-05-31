@@ -1,7 +1,7 @@
 ---
 title: Mnemonic
 icon: elipses
-ordinal: 12
+ordinal: 13
 ---
 
 ### `generate`
