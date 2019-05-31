@@ -50,6 +50,8 @@ All classes are able to be included via both `require` and `import`
     let block = new Block()
     const Blockchain = require("bitbox-sdk").Blockchain
     let blockchain = new Blockchain
+    const CashAccounts = require("bitbox-sdk").CashAccounts
+    let cashAccounts = new CashAccounts()
     const Control = require("bitbox-sdk").Control
     let control = new Control()
     const Crypto = require("bitbox-sdk").Crypto
@@ -87,6 +89,7 @@ All classes are able to be included via both `require` and `import`
       BitcoinCash,
       Block,
       Blockchain,
+      CashAccounts,
       Control,
       Crypto,
       ECPair,
@@ -108,6 +111,7 @@ All classes are able to be included via both `require` and `import`
     let bitcoincash = new BitcoinCash()
     let block = new Block()
     let blockchain = new Blockchain
+    let cashAccounts = new CashAccounts()
     let control = new Control()
     let crypto = new Crypto()
     let ecpair = new ECPair()
