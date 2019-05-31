@@ -18,7 +18,7 @@ Returns an object containing account info
 
 1.  account `string` **required**
 2.  number `string` **required**
-3.  collision `string` **number**
+3.  collision `string` **optional**
 
 #### Result
 
