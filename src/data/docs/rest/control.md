@@ -1,7 +1,7 @@
 ---
 title: Control
 icon: gamepad
-ordinal: 4
+ordinal: 5
 ---
 
 ## Get Info
