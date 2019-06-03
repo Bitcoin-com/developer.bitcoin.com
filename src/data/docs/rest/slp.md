@@ -337,6 +337,7 @@ balances `BalancesForAddress[]`
       {
         "tokenId": "7f8889682d57369ed0e32336f8b7e0ffec625a35cca183f4e81fde4e71a538a1",
         "balance": 433962,
+        "balanceString": "433962",
         "slpAddress": "simpleledger:qz9tzs6d5097ejpg279rg0rnlhz546q4fsnck9wh5m",
         "decimalCount": 0
       }
@@ -369,11 +370,13 @@ balances `BalancesForToken[]`
       {
         "tokenId": "df808a41672a0a0ae6475b44f272a107bc9961b90f29dc918d71301f24fe92fb",
         "tokenBalance": 20,
+        "tokenBalanceString": "20",
         "slpAddress": 'simpleledger:qp4g0q97tq53pasnxk2rs570c6573qvylunsf5gy9e'
       },
       {
         "tokenId": "df808a41672a0a0ae6475b44f272a107bc9961b90f29dc918d71301f24fe92fb",
         "tokenBalance": 335.55,
+        "tokenBalanceString": "335.55",
         "slpAddress": 'simpleledger:qqcraw7q0ys3kg4z6f2zd267fhg2093c5c0spfk03f'
       }
     ]
@@ -405,6 +408,7 @@ balance `BalanceForAddressByTokenId`
     {
       "tokenId": "9ba379fe8171176d4e7e6771d9a24cd0e044c7b788d5f86a3fdf80904832b2c0",
       "balance": 100000245
+      "balanceString": "100000245"
     }
 
 ## Token Stats
@@ -906,6 +910,7 @@ txid `string`
     {
       tokenId: string
       balance: number
+      balanceString: string
       slpAddress: string
       decimalCount: number
     }
@@ -914,6 +919,7 @@ txid `string`
 
     {
       tokenBalance: number
+      tokenBalanceString: string
       slpAddress: string
       tokenId: string
     }
@@ -923,6 +929,7 @@ txid `string`
     {
       tokenId: string
       balance: number
+      balanceString: string
     }
 
 ### ConvertResult
@@ -938,6 +945,6 @@ txid `string`
     {
       transactionId: string
       inputTotal: number
-      outputTota": number
+      outputTotal: number
       burnTotal: number
     }
