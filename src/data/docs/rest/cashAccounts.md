@@ -176,6 +176,12 @@ accountLookup `CashAccountReverseLookupResults`
 ### CashAccountReverseLookupResults
 
     {
+      results: SingleCashAccountReverseLookupResult[]
+    }
+
+### SingleCashAccountReverseLookupResult
+
+    {
         accountEmoji: any
         nameText: string
         accountNumber: number
