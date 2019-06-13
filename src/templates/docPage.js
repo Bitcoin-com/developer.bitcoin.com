@@ -132,6 +132,7 @@ class DocTemplate extends React.PureComponent<Props> {
       gui: '/gui/docs/getting-started',
       rest: '/rest/docs/getting-started',
       slp: '/slp/docs/js/getting-started',
+      cashscript: '/cashscript/docs/getting-started',
     }[event.target.value]
 
     pageTarget && push(pageTarget)
@@ -181,6 +182,9 @@ class DocTemplate extends React.PureComponent<Props> {
                     <option value="rest">{getTitleDisplay('rest')}</option>
                     <option value="gui">{getTitleDisplay('gui')}</option>
                     <option value="slp">{getTitleDisplay('slp')}</option>
+                    <option value="cashscript">
+                      {getTitleDisplay('cashscript')}
+                    </option>
                   </Select>
                 </NavFooter>
               </SideNavSticky>
