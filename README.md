@@ -22,34 +22,7 @@ Blockchain-as-a-Service. Infrastructure to deploy and scale your apps. An ecosys
 
 Paid downloads, streaming media, in-app purchases, tokens and more ways for you to monetize.
 
-## Install / develop
-
-```sh
-  yarn install
-  yarn start
-```
-
-## Build / deploy
-
-```sh
-  yarn run build
-  > deploy `/public` folder somewhere.
-```
-
-### Primary technologies
-
-- Gatsby v2
-- React
-- Markdown
-- graphql
-- styled-components
-- Love and care
-
 # Content Contributing
-
-## File structure
-
-The site follows Gatsby V2 structure, please refer to the [Gatsby Docs](https://next.gatsbyjs.org/) for an overview.
 
 ### Data
 
