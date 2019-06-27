@@ -441,5 +441,6 @@ addresses `Object`
     // returns
     {
       "cashAddress": "bitcoincash:qquzx5j5d6u9pge0u7tcurhnk8te3xt0rqlessqhpw",
-      "legacyAddress": "167q9vxiL43xkn3gHCMfg7UbriX1VfdfG5"
+      "legacyAddress": "167q9vxiL43xkn3gHCMfg7UbriX1VfdfG5",
+      "slpAddress": "simpleledger:qquzx5j5d6u9pge0u7tcurhnk8te3xt0rqnzmt4hls"
     }
