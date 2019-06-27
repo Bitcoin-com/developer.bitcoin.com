@@ -85,6 +85,12 @@ const DevelopPage = ({ location, data }: Props) => (
           cta="View"
         />
         <InfoCard
+          to="/cashscript/docs/getting-started"
+          title="CashScript"
+          text="Create contracts and complex spending scripts on Bitcoin Cash. Everything you need to write cash contracts and easily integrate them into your applications."
+          cta="View"
+        />
+        <InfoCard
           to="/gui"
           title="GUI"
           text="BIP44 development wallet. Convert between cashaddr/legacy addresses. Create QR codes for WIF, XPub and XPrivs. Sign and verify messages."

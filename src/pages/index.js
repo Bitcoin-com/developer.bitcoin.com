@@ -151,6 +151,11 @@ const IndexPage = ({ location, data }: Props) => (
                 <Button round>Badger SDK</Button>
               </StyledLink>
             </HeroButtonItem>
+            <HeroButtonItem>
+              <StyledLink to="/cashscript/docs/getting-started">
+                <Button round>CashScript</Button>
+              </StyledLink>
+            </HeroButtonItem>
           </HeroButtonLayout>
         </HeroBlurbLayout>
         <SDKLayout>

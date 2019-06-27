@@ -6,6 +6,7 @@ const titleMap = {
   gui: 'GUI',
   slp: 'SLP',
   badger: 'Badger',
+  cashscript: 'CashScript',
   other: 'Other',
 }
 export const getTitleDisplay = (product: string) => {
