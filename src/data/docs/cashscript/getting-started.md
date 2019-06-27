@@ -4,19 +4,15 @@ icon: home
 ordinal: 0
 ---
 
-CashScript is a high level language enabling basic smart contract functionality on Bitcoin Cash. While these cash contracts are less powerful than Ethereum's smart contracts, CashScript was in many ways inspired by Ethereum's development ecosystem. Ethereum has always had one of the most accessible development ecosystems in terms of tooling, and with CashScript we want to bring that accessibility to Bitcoin Cash.
+CashScript is a high-level language that allows you to write Cash Contracts in a straightforward and familiar way. It is inspired by Ethereum's Solidity, but it is not the same, and cash contracts work very differently from Ethereum's smart contracts. See the [Language Documentation](/cashscript/docs/language) for a full reference of the language.
 
 ---
 
 **Attention:** CashScript is in active development, and is currently in a `beta` phase. While CashScript is in `beta` stage, its APIs and usage is subject to change, so be sure to check the documentation. During the `beta` phase it is possible that the library still contains bugs, so for now the CashScript SDK can only be used on the `testnet` network.
 
-### The CashScript Language
-
-CashScript is a high-level language that allows you to write Cash Contracts in a straightforward and familiar way. It is inspired by Ethereum's Solidity, but it is not the same, and cash contracts work very differently from Ethereum's smart contracts. See the [Language Documentation](/cashscript/docs/language) for a full reference of the language.
-
 ### The CashScript Compiler
 
-CashScript features a compiler as a standalone command line tool, called `cashc`. It can be installed through npm and used to compile `.cash` files into `.json` artifact files. These artifact files can be imported into the CashScript JavaScript SDK (or other SDKs in the future). Note that the CashScript SDK also has a fnuction to import and compile `.cash` files directly, so it is not required to use the `cashc` command line tool.
+CashScript features a compiler as a standalone command line tool, called `cashc`. It can be installed through npm and used to compile `.cash` files into `.json` artifact files. These artifact files can be imported into the CashScript JavaScript SDK (or other SDKs in the future). Note that the CashScript SDK also has a function to import and compile `.cash` files directly, so it is not required to use the `cashc` command line tool.
 
 See the [cashc documentation](/cashscript/docs/cashc) for more information on the `cashc` command line tool.
 
