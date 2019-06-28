@@ -6,7 +6,7 @@ ordinal: 3
 
 ### Introduction
 
-The CashScript language allows you to write cash contracts in a very straightforward, readable, and maintainable way. It has a syntax similar to Ethereum's [Solidity language](https://solidity.readthedocs.io/), which is the most widespread smart contract language in the greater blockchain ecosystem. While Ethereum's smart contracts can be used for almost anything, Bitcoin Cash's cash contracts are much more limited in functionality, and instead they allow you to put complex spending conditions on your currency.
+The CashScript language allows you to write cash contracts in a very straightforward, readable, and maintainable way. It has a syntax similar to Ethereum's [Solidity language](https://solidity.readthedocs.io/), which is the most widespread smart contract language in the greater blockchain ecosystem. Bitcoin Cash's contracts allow you to put complex spending conditions on your currency.
 
 Take the following example cash contract:
 
