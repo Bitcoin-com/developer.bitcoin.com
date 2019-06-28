@@ -99,6 +99,7 @@ All `.ts` files in the examples directory can then be executed with `ts-node`.
 
 ```bash
 npm install -g ts-node
+
 ts-node p2pkh.ts
 ```
 
