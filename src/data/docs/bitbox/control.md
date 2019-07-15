@@ -6,7 +6,8 @@ ordinal: 8
 
 ### `getInfo`
 
-Returns an object containing various state info.
+Returns an object containing various state info. Deprecated in ABC
+full node v0.19.08
 
 #### Result
 
@@ -35,6 +36,64 @@ info `Promise<NodeInfo>`
     // relayfee: 0.00001,
     // errors: '' }
 
+### `getNetworkInfo`
+
+Returns the full node version and other network information.
+
+#### Result
+
+info `Promise<any>`
+
+#### Examples
+
+    (async () => {
+      try {
+        let getNetworkInfo = await bitbox.Control.getNetworkInfo();
+        console.log(getNetworkInfo);
+      } catch(error) {
+       console.error(error)
+      }
+    })()
+
+    ```
+    {
+      "version": 190500,
+      "subversion": "/Bitcoin ABC:0.19.5(EB32.0)/",
+      "protocolversion": 70015,
+      "localservices": "0000000000000425",
+      "localrelay": true,
+      "timeoffset": 0,
+      "networkactive": true,
+      "connections": 19,
+      "networks": [
+        {
+          "name": "ipv4",
+          "limited": false,
+          "reachable": true,
+          "proxy": "",
+          "proxy_randomize_credentials": false
+        },
+        {
+          "name": "ipv6",
+          "limited": false,
+          "reachable": true,
+          "proxy": "",
+          "proxy_randomize_credentials": false
+        },
+        {
+          "name": "onion",
+          "limited": true,
+          "reachable": false,
+          "proxy": "",
+          "proxy_randomize_credentials": false
+        }
+      ],
+      "relayfee": 0.00001,
+      "excessutxocharge": 0,
+      "warnings": "Warning: Unknown block versions being mined! It's possible unknown rules are in effect"
+    }
+    ```
+
 ## Interfaces
 
 ### NodeInfo
@@ -52,16 +111,3 @@ info `Promise<NodeInfo>`
       relayfee: number
       errors: string
     }
-
-<!-- ### NodeMemoryInfo
-
-    {
-      locked: {
-        used: number
-        free: number
-        total: number
-        locked: number
-        chunks_used: number
-        chunks_free: number
-      }
-    } -->
