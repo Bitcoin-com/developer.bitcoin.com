@@ -11,8 +11,9 @@ Create new Socket.
 #### Arguments
 
 1.  config `Object`: with properties:
-    1.  restURL `string`: optional, Defaults to `https://rest.bitcoin.com`
-    2.  callback `Function`: optional
+    1.  wsURL `string`: optional, Defaults to `wss://rest.bitcoin.com`
+    2.  restURL `string`: optional
+    3.  callback `Function`: optional
 
 #### Result
 
@@ -21,7 +22,7 @@ Socket `Socket`
 #### Examples
 
       // instance of Socket
-      let socket = new bitbox.Socket({callback: () => {console.log('connected')}, restURL: 'https://rest.bitcoin.com'})
+      let socket = new bitbox.Socket({callback: () => {console.log('connected')}, wsURL: 'wss://rest.bitcoin.com'})
 
 ### `listen`
 
@@ -30,6 +31,7 @@ Listen on a websocket to get real\-time data.
 #### Arguments
 
 1.  dataType `string`: type of data to return in real time. `transactions` or `blocks`
+2.  callback `function`: function to be called which gets passed back `message` in real time.
 
 #### Result
 
@@ -37,7 +39,7 @@ data `Object`: data returned in real\-time over a websocket
 
 #### Examples
 
-      let socket = new bitbox.Socket({callback: () => {console.log('connected')}, restURL: 'https://rest.bitcoin.com'})
+      let socket = new bitbox.Socket({callback: () => {console.log('connected')}, wsURL: 'wss://rest.bitcoin.com'})
       socket.listen('transactions', (message) => {
         console.log(message)
       })
@@ -87,7 +89,7 @@ data `Object`: data returned in real\-time over a websocket
       }
 
 
-      let socket = new bitbox.Socket({callback: () => {console.log('connected')}, restURL: 'https://rest.bitcoin.com'})
+      let socket = new bitbox.Socket({callback: () => {console.log('connected')}, wsURL: 'https://rest.bitcoin.com'})
       socket.listen('blocks', (message) => {
         console.log(message)
       })
@@ -105,3 +107,22 @@ data `Object`: data returned in real\-time over a websocket
         "bits": 402882446,
         "nonce": 2478895818
       }
+
+### `close`
+
+Close websocket connection
+
+#### Arguments
+
+1.  callback `function` (optional): function to be called.
+
+#### Examples
+
+      let socket = new bitbox.Socket({callback: () => {console.log('connected')}, wsURL: 'wss://rest.bitcoin.com'})
+      socket.listen('transactions', (message) => {
+        socket.close(() => {
+          console.log("closed")
+        })
+      })
+      // returns the following
+      // closed
