@@ -11,7 +11,7 @@ Create new Socket.
 #### Arguments
 
 1.  config `Object`: with properties:
-    1.  wsURL `string`: optional, Defaults to `wss://rest.bitcoin.com`
+    1.  wsURL `string`: optional, Defaults to `wss://ws.bitcoin.com`
     2.  restURL `string`: optional
     3.  callback `Function`: optional
 
@@ -22,7 +22,7 @@ Socket `Socket`
 #### Examples
 
       // instance of Socket
-      let socket = new bitbox.Socket({callback: () => {console.log('connected')}, wsURL: 'wss://rest.bitcoin.com'})
+      let socket = new bitbox.Socket({callback: () => {console.log('connected')}, wsURL: 'wss://ws.bitcoin.com'})
 
 ### `listen`
 
@@ -39,7 +39,7 @@ data `Object`: data returned in real\-time over a websocket
 
 #### Examples
 
-      let socket = new bitbox.Socket({callback: () => {console.log('connected')}, wsURL: 'wss://rest.bitcoin.com'})
+      let socket = new bitbox.Socket({callback: () => {console.log('connected')}, wsURL: 'wss://ws.bitcoin.com'})
       socket.listen('transactions', (message) => {
         console.log(message)
       })
@@ -89,7 +89,7 @@ data `Object`: data returned in real\-time over a websocket
       }
 
 
-      let socket = new bitbox.Socket({callback: () => {console.log('connected')}, wsURL: 'https://rest.bitcoin.com'})
+      let socket = new bitbox.Socket({callback: () => {console.log('connected')}, wsURL: 'https://ws.bitcoin.com'})
       socket.listen('blocks', (message) => {
         console.log(message)
       })
@@ -118,7 +118,7 @@ Close websocket connection
 
 #### Examples
 
-      let socket = new bitbox.Socket({callback: () => {console.log('connected')}, wsURL: 'wss://rest.bitcoin.com'})
+      let socket = new bitbox.Socket({callback: () => {console.log('connected')}, wsURL: 'wss://ws.bitcoin.com'})
       socket.listen('transactions', (message) => {
         socket.close(() => {
           console.log("closed")
