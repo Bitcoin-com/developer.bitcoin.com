@@ -1,7 +1,7 @@
 ---
 title: Block
 icon: cube
-ordinal: 5
+ordinal: 6
 ---
 
 ### `detailsByHeight`

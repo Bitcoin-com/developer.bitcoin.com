@@ -1,7 +1,7 @@
 ---
 title: Blockchain
 icon: cubes
-ordinal: 6
+ordinal: 7
 ---
 
 ### `getBestBlockHash`

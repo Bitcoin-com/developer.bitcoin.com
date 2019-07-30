@@ -1,7 +1,7 @@
 ---
 title: Control
 icon: gamepad
-ordinal: 8
+ordinal: 9
 ---
 
 ### `getInfo`

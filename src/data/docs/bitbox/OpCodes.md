@@ -1,7 +1,7 @@
 ---
 title: OpCodes
 icon: code
-ordinal: 14
+ordinal: 15
 ---
 
 Bitcoin Cash Script OP Codes are available on the `bitbox.Script` object.

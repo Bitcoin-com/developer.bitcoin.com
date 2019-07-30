@@ -1,7 +1,7 @@
 ---
 title: HDNode
 icon: code-branch
-ordinal: 11
+ordinal: 12
 ---
 
 HDNode stands for Hierarchically Deterministic node which can be used to create a [HD wallet](https://developer.bitcoin.com/mastering-bitcoin-cash/3-keys-addresses-wallets/#hierarchical-deterministic-wallets-bip0032bip0044).
