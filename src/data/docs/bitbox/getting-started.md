@@ -46,6 +46,8 @@ All classes are able to be included via both `require` and `import`
     let address = new Address()
     const BitcoinCash = require("bitbox-sdk").BitcoinCash
     let bitcoincash = new BitcoinCash()
+    const BitDB = require("bitbox-sdk").BitDB
+    let bitdb = new BitDB()
     const Block = require("bitbox-sdk").Block
     let block = new Block()
     const Blockchain = require("bitbox-sdk").Blockchain
@@ -87,6 +89,7 @@ All classes are able to be included via both `require` and `import`
     import {
       Address,
       BitcoinCash,
+      BitDB,
       Block,
       Blockchain,
       CashAccounts,
@@ -109,6 +112,7 @@ All classes are able to be included via both `require` and `import`
 
     let address = new Address()
     let bitcoincash = new BitcoinCash()
+    let bitdb = new BitDB()
     let block = new Block()
     let blockchain = new Blockchain
     let cashAccounts = new CashAccounts()
