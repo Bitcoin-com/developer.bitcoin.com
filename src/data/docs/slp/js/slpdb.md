@@ -25,7 +25,7 @@ result `any`: SLPDB Result
   let res = await SLP.SLPDB.get({
     v: 3,
     q: {
-      db: ['c'],
+      db: ['t'],
       find: {},
       limit: 10,
     },
