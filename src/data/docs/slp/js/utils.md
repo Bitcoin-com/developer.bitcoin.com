@@ -172,11 +172,14 @@ Return all balances for an address
 
 #### Arguments
 
-1.  address : `string` **required**. The address in legacy, cash or slp address format
+- address (required):
+  - `string`: A single string containing an slp address.
+  - `Array` of strings: Array with maximum of 20 slp addresses.
 
 #### Result
 
-balances : `Object`. The address's balances
+- `Array`: containing balances Objects.
+- `Array`: Array of arrays.
 
 #### Examples
 
@@ -242,6 +245,45 @@ balances : `Object`. The address's balances
     // '467969e067f5612863d0bf2daaa70dede2c6be03abb6fd401c5ef6e1e1f1f5c5',
     // balance: '507',
     // decimalCount: 2 } ]
+
+
+    // multiple addresses
+    const addresses = [
+      "simpleledger:qzv3zz2trz0xgp6a96lu4m6vp2nkwag0kvyucjzqt9",
+      "simpleledger:qqss4zp80hn6szsa4jg2s9fupe7g5tcg5ucdyl3r57"
+    ]
+    await SLP.Utils.balancesForAddress(addresses)
+    // returns
+    // [
+    //   [
+    //     {
+    //       tokenId:
+    //         "df808a41672a0a0ae6475b44f272a107bc9961b90f29dc918d71301f24fe92fb",
+    //       balance: 1,
+    //       balanceString: "1",
+    //       slpAddress: "simpleledger:qzv3zz2trz0xgp6a96lu4m6vp2nkwag0kvyucjzqt9",
+    //       decimalCount: 8
+    //     },
+    //     {
+    //       tokenId:
+    //         "a436c8e1b6bee3d701c6044d190f76f774be83c36de8d34a988af4489e86dd37",
+    //       balance: 1,
+    //       balanceString: "1",
+    //       slpAddress: "simpleledger:qzv3zz2trz0xgp6a96lu4m6vp2nkwag0kvyucjzqt9",
+    //       decimalCount: 7
+    //     }
+    //   ],
+    //   [
+    //     {
+    //       tokenId:
+    //         "497291b8a1dfe69c8daea50677a3d31a5ef0e9484d8bebb610dac64bbc202fb7",
+    //       balance: 10,
+    //       balanceString: "10",
+    //       slpAddress: "simpleledger:qqss4zp80hn6szsa4jg2s9fupe7g5tcg5ucdyl3r57",
+    //       decimalCount: 8
+    //     }
+    //   ]
+    // ]
 
 ### `balance`
 
