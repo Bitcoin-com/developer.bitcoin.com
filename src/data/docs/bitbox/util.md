@@ -75,6 +75,7 @@ Sweep utxo for `wif` to `cashAddress`
     // balance only
     (async () => {
       try {
+        const wif = "cP8LcsoMneSyjdtyFTmnASsmAuyd2SfZjG4drp5twAJoSpRa2RCx"
         const result = await bitbox.Util.sweep(
           wif,
           "bchtest:qqmd9unmhkpx4pkmr6fkrr8rm6y77vckjvqe8aey35",
@@ -90,6 +91,7 @@ Sweep utxo for `wif` to `cashAddress`
     // sweep utxo
     (async () => {
       try {
+        const wif = "cP8LcsoMneSyjdtyFTmnASsmAuyd2SfZjG4drp5twAJoSpRa2RCx"
         const result = await bitbox.Util.sweep(
           wif,
           "bchtest:qqmd9unmhkpx4pkmr6fkrr8rm6y77vckjvqe8aey35"
