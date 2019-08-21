@@ -56,6 +56,51 @@ Return information about the given bitcoin address.
     // iscompressed: true,
     // account: 'Test' }]
 
+### `sweep`
+
+Sweep utxo for `wif` to `cashAddress`
+
+#### Arguments
+
+- wif `string`
+- toAddr `string`
+- balanceOnly `boolean` **optional**. Defaults to `false`
+
+#### Result
+
+- result `string | number`
+
+#### Examples
+
+    // balance only
+    (async () => {
+      try {
+        const result = await bitbox.Util.sweep(
+          wif,
+          "bchtest:qqmd9unmhkpx4pkmr6fkrr8rm6y77vckjvqe8aey35",
+          true
+        )
+        console.log(result);
+      } catch(error) {
+       console.error(error)
+      }
+    })()
+    // 0.1
+
+    // sweep utxo
+    (async () => {
+      try {
+        const result = await bitbox.Util.sweep(
+          wif,
+          "bchtest:qqmd9unmhkpx4pkmr6fkrr8rm6y77vckjvqe8aey35"
+        )
+        console.log(result);
+      } catch(error) {
+       console.error(error)
+      }
+    })()
+    // 6b647ddfbb6b0edfaf61d2952b9f8e195d2dfede0e63fe12e1beab16e5bcfe5c
+
 ## Interfaces
 
 ### AddressDetails
