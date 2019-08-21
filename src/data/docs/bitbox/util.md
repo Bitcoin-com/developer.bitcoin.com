@@ -58,7 +58,7 @@ Return information about the given bitcoin address.
 
 ### `sweep`
 
-Sweep utxo for `wif` to `cashAddress`
+Sweep utxo for `wif` to cashAddress
 
 #### Arguments
 
