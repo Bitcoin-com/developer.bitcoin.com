@@ -76,9 +76,10 @@ Sweep utxo for `wif` to cashAddress
     (async () => {
       try {
         const wif = "cP8LcsoMneSyjdtyFTmnASsmAuyd2SfZjG4drp5twAJoSpRa2RCx"
+        const toAddr = "bchtest:qqmd9unmhkpx4pkmr6fkrr8rm6y77vckjvqe8aey35"
         const result = await bitbox.Util.sweep(
           wif,
-          "bchtest:qqmd9unmhkpx4pkmr6fkrr8rm6y77vckjvqe8aey35",
+          toAddr,
           true
         )
         console.log(result);
@@ -92,9 +93,10 @@ Sweep utxo for `wif` to cashAddress
     (async () => {
       try {
         const wif = "cP8LcsoMneSyjdtyFTmnASsmAuyd2SfZjG4drp5twAJoSpRa2RCx"
+        const toAddr = "bchtest:qqmd9unmhkpx4pkmr6fkrr8rm6y77vckjvqe8aey35"
         const result = await bitbox.Util.sweep(
           wif,
-          "bchtest:qqmd9unmhkpx4pkmr6fkrr8rm6y77vckjvqe8aey35"
+          toAddr
         )
         console.log(result);
       } catch(error) {
