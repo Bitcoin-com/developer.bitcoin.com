@@ -679,13 +679,13 @@ If false, the UTXO is safe for a wallet to spend in a normal BCH transaction.
 
     (async () => {
       try {
-        const u = await SLP.Address.utxo("bd158c564dd4ef54305b14f44f8e94c44b649f246dab14bcb42fb0d0078b8a90")
+        const u = await SLP.Address.utxo("bitcoincash:qpcqs0n5xap26un2828n55gan2ylj7wavvzeuwdx05")
         const utxos = u.utxos
 
         console.log(`utxos: ${JSON.stringify(utxos,null,2)}`)
 
         const isSLPUtxo: await SLP.Utils.isTokenUtxo(utxos)
-        console.log(`canSpend: ${JSON.stringify(canSpend,null,2}`)
+        console.log(`isSLPUtxo: ${JSON.stringify(canSpend,null,2}`)
       } catch (error) {
         console.error(error)
       }
@@ -717,6 +717,83 @@ If false, the UTXO is safe for a wallet to spend in a normal BCH transaction.
     [
       false,
       true
+    ]
+
+### `tokenUtxoDetails`
+
+Hydrate a UTXO with SLP token metadata.
+
+Expects an array of UTXO objects as input. Returns an array of equal size.
+If the UTXO does not belong to a SLP transaction, it will return false.
+If the UTXO is part of an SLP transaction, it will return the UTXO object
+with additional SLP information attached.
+
+#### Arguments
+
+1.  utxos: `Array` of utxo objects **required**.
+
+#### Result
+
+- `Array`
+  - `false`: The UTXO does not belong to an SLP token and is safe to spend.
+  - `Object`: The same UTXO object hydrated with SLP token metadata.
+
+#### Examples
+
+    (async () => {
+      try {
+        const u = await SLP.Address.utxo("bitcoincash:qpcqs0n5xap26un2828n55gan2ylj7wavvzeuwdx05")
+        const utxos = u.utxos
+
+        console.log(`utxos: ${JSON.stringify(utxos,null,2)}`)
+
+        const isSLPUtxo: await SLP.Utils.tokenUtxoDetails(utxos)
+        console.log(`isSLPUtxo: ${JSON.stringify(canSpend,null,2}`)
+      } catch (error) {
+        console.error(error)
+      }
+    })()
+
+    // returns
+    utxos: [
+      {
+        txid:
+          "bd158c564dd4ef54305b14f44f8e94c44b649f246dab14bcb42fb0d0078b8a90",
+        vout: 3,
+        amount: 0.00002015,
+        satoshis: 2015,
+        height: 594892,
+        confirmations: 5
+      },
+      {
+        txid:
+          "bd158c564dd4ef54305b14f44f8e94c44b649f246dab14bcb42fb0d0078b8a90",
+        vout: 2,
+        amount: 0.00000546,
+        satoshis: 546,
+        height: 594892,
+        confirmations: 5
+      }
+    ]
+
+    isSLPUtxo:
+    [
+      false,
+      {
+        "txid": "bd158c564dd4ef54305b14f44f8e94c44b649f246dab14bcb42fb0d0078b8a90",
+        "vout": 2,
+        "amount": 0.00000546,
+        "satoshis": 546,
+        "height": 594892,
+        "confirmations": 5,
+        "tokenType": "minting-baton",
+        "tokenId": "bd158c564dd4ef54305b14f44f8e94c44b649f246dab14bcb42fb0d0078b8a90",
+        "tokenTicker": "SLPSDK",
+        "tokenName": "SLP SDK example using BITBOX",
+        "tokenDocumentUrl": "developer.bitcoin.com",
+        "tokenDocumentHash": "",
+        "decimals": 8
+      }
     ]
 
 ### `burnTotal`
