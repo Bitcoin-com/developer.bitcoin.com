@@ -39,6 +39,10 @@ Parentheses can not be omitted for conditionals, but curly brances can be omitte
 
 Note that there is no type conversion from non-boolean to boolean types as there is in C and JavaScript, so `if (1) { ... }` is not valid CashScript.
 
+### Comments
+
+Comments can be added anywhere in the contract file. Comment semantics are similar to languages like JavaScript or C. This means that single-line comments can be added with `// ...`, while multiline comments can be added with `/* ... */`.
+
 ### Types
 
 CashScript is a statically typed language, which means that the type of each variable needs to be specified. Types can interact with each other in expressions containing operators. For a quick reference of the various operators, see [Operators](/cashscript/docs/language#operators). Types can also be implicitly or explicitly casted to other types. For a quick reference of the various casting possibilities, see [Casting](/cashscript/docs/language#casting).
@@ -144,6 +148,15 @@ string question = "What is Bitcoin Cash?";
 string answer = question.split(15)[0].split(8)[1];
 ```
 
+### Variables
+
+Variables can be declared by specifying their type and their name. All variables need to be initialised at their time of declaration, but they can be reassigned later on, so it is possible to specifically initialise variables to zero. Since CashScript is strongly typed and has no type inference, it is not possible to use keywords such as `var` or `let` to declare variables, as might be possible in different languages such as JavaScript.
+
+```
+int myNumber = 3000;
+string myString = 'Bitcoin Cash';
+```
+
 ### Functions & Globals
 
 #### Arithmetic functions
@@ -188,6 +201,8 @@ Returns the double SHA-256 hash of argument `x`.
 
 #### Signature checking functions
 
+**Note:** All signature checking functions must comply with the [NULLFAIL](https://github.com/bitcoin/bips/blob/master/bip-0146.mediawiki) rule. This rule implies that if you want to use the output of a signature check inside the condition of an if-statement, the input signature needs to either be correct, or an empty byte array. When you use a valid but incorrect signature as in input, the script will fail immediately.
+
 **`bool checksig(sig s, pubkey pk)`**
 
 Checks that transaction signature `s` is valid for the current transaction and matches with public key `pk`.
@@ -207,6 +222,25 @@ Checks that sig `s` is a valid signature for message `msg` and matches with publ
 **`void require(bool condition)`**
 
 Asserts that boolean expression `condition` evaluates to `true`. If it evaluates to `false`, the script fails. As this function has a `void` return type, it can only be used as a standalone statement.
+
+#### Units
+
+An integer literal can take a suffix of either monetary or temporary units to add smeantic value to these integers and to simplify arithmetic. When these units are used, the underlying integer is automatically multiplied by the value of the unit. The units `sats`, `finney`, `bits` and `bitcoin` are used to denote monetary value, while the units `seconds`, `minutes`, `hours`, `days` and `weeks` are used to denote time.
+
+```
+require(1 sats == 1);
+require(1 finney == 10);
+require(1 bit == 100);
+require(1 bitcoin == 1e8);
+
+require(1 seconds == 1);
+require(1 minutes == 60 seconds);
+require(1 hours == 60 minutes);
+require(1 days == 24 hours);
+require(1 weeks == 7 days);
+```
+
+Be careful when using these units in precise calendar calculations though, because not every year equals 365 days and not even every minute has 60 seconds because of [leap seconds](https://en.wikipedia.org/wiki/Leap_second).
 
 #### Global variables
 

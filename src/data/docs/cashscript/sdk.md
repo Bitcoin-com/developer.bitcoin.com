@@ -1,5 +1,5 @@
 ---
-title: CashScript SDK Reference
+title: CashScript SDK
 icon: code
 ordinal: 2
 ---
@@ -115,6 +115,19 @@ new Sig(keypair, 0x01)
 
 Calling any of the contract functions on a contract instance results in a `Transaction` object, which can be sent by specifying a recipient and amount to send, or a list of these pairs. The `send` functiion calls can also be replaced by `meep` function calls to output the debug command to debug the transaction using [meep](https://github.com/gcash/meep).
 
+The CashScript SDK supports transactions to regular addresses, as well as OP_RETURN outputs. To do so we define two different kind of outputs:
+
+```ts
+interface Recipient {
+  to: string
+  amount: number
+}
+interface OpReturn {
+  opReturn: string[]
+}
+type Output = Recipient | OpReturn
+```
+
 **`async transaction.send(to: string, amount: number): Promise<TxnDetailsResult>`**
 
 Sends a transaction for an amount denoted in satoshis by argument `amount` to an address specified by argument `to`. This sends the transaction to the `rest.bitcoin.com` servers to be included in the Bitcoin Cash blockchain. Returns the raw `TxnDetailsResult` object as returned by `rest.bitcoin.com`.
@@ -125,7 +138,7 @@ const tx = await instance.functions
   .send(instance.address, 10000)
 ```
 
-**`async transaction.send({ to: string, amount: number }[]): Promise<TxnDetailsResult>`**
+**`async transaction.send(Output[]): Promise<TxnDetailsResult>`**
 
 Sends a transaction with multiple outputs to multiple address-amount pairs specified by the list of `{ to: string, amount: number }` objects. This sends the transaction to the `rest.bitcoin.com` servers to be included in the Bitcoin Cash blockchain. Returns the raw `TxnDetailsResult` object as returned by `rest.bitcoin.com`.
 
@@ -135,6 +148,17 @@ const tx = await instance.functions
   .send([
     { to: instance.address, amount: 10000 },
     { to: instance.address, amount: 20000 },
+  ])
+```
+
+These transactions can include outputs to other addresses as well as OP_RETURN outputs:
+
+```ts
+const tx = await instance.functions
+  .spend(pk, new Sig(keypair, 0x01))
+  .send([
+    { opReturn: ['0x6d02', 'Hello World!'] },
+    { to: instance.address, amount: 10000 },
   ])
 ```
 
@@ -148,7 +172,7 @@ await instance.functions
   .meep(instance.address, 10000)
 ```
 
-**`async transaction.meep({ to: string, amount: number }[]): Promise<void>`**
+**`async transaction.meep(Output[]): Promise<void>`**
 
 Prints the `meep` command that can be used to debug the transaction resulting from using the `send` function.
 
