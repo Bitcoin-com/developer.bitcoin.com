@@ -8,9 +8,13 @@ ordinal: 3
 
 The CashScript language allows you to write cash contracts in a very straightforward, readable, and maintainable way. It has a syntax similar to Ethereum's [Solidity language](https://solidity.readthedocs.io/), which is the most widespread smart contract language in the greater blockchain ecosystem. While Ethereum's smart contracts can be used for almost anything, Bitcoin Cash's cash contracts are much more limited in functionality, and instead they allow you to put complex spending conditions on your currency.
 
+### Structure of a contract file
+
 Take the following example cash contract:
 
 ```solidity
+pragma cashscript ^0.2.0;
+
 contract TransferWithTimeout(
     pubkey sender,
     pubkey recipient,
@@ -26,6 +30,8 @@ contract TransferWithTimeout(
     }
 }
 ```
+
+A contract file may start with a pragma directive to indicate the language version the contract was written for. This ensures that a contract is not compiled using the wrong compiler version, which could be a cause of unintended effects. The pragma directive follows regular [semantic versioning rules](https://semver.npmjs.com/).
 
 A contract in CashScript is a collection of functions that can be used to spend the funds that are locked in this contract. These contracts can be instantiated using the contract's parameters, and their functions can be called by specifying the correct function parameters. The example used above is a simple value transfer that can be claimed by the recipient before a certain timeout, after which it can be reclaimed by the original sender. To instantiate this contract, the public keys of the sender and recipient should be passed as well as a timeout in the form of a block number.
 
