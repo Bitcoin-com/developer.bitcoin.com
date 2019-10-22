@@ -93,11 +93,11 @@ Operators:
 Members:
 
 - `length`: Number of characters that represent the string.
-- `split(int)`: Splits the string at the specified character and returns a tuple with the two resulting strings.
+- `split(int)`: Splits the string at the specified index and returns a tuple with the two resulting strings.
 
 #### Bytes
 
-`bytes`, `bytes20`, `bytes32`: Byte sequence, optionally bound to 20 or 32 bytes, which typically represent hashes.
+`bytes`: Byte sequence. Can optionally be bound to a certain byte length by specifying e.g. `bytes5`, `bytes32`, etc.
 
 Operators:
 
@@ -107,8 +107,8 @@ Operators:
 
 Members:
 
-- `length`: Number of characters that represent the string.
-- `split(int)`: Splits the string at the specified character and returns a tuple with the two resulting strings.
+- `length`: Number of bytes in the sequence.
+- `split(int)`: Splits the byte sequence at the specified index and returns a tuple with the two resulting byte sequences.
 
 #### Pubkey
 
