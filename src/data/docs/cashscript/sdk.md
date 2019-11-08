@@ -12,23 +12,23 @@ The `Contract` class allows you to compile CashScript files into `Contract` obje
 
 Before instantiating a contract, first you need to create a new `Contract` object. This can be done by compiling a CashScript file, or by importing an Artifact file that was exported previously.
 
-**`Contract.fromCashFile(fn: string, network?: string): Contract`**
+**`Contract.compile(fnOrString: string, network?: string): Contract`**
 
-Compiles the CashScript file found at the path specified by argument `fn`. Optionally specify a network string (`'testnet'` or `'mainnet'`) to connect with. Returns a `Contract` object that can be further used to instantiate new instances of this contract.
+If `fnOrString` is a file, compiles the CashScript file. If it is a source code string, it compiles the contract specified by the string. Optionally specify a network string (`'testnet'` or `'mainnet'`) to connect with. Returns a `Contract` object that can be further used to instantiate new instances of this contract.
 
 ```ts
-const P2PKH: Contract = Contract.fromCashFile(
+const P2PKH: Contract = Contract.compile(
   path.join(__dirname, 'p2pkh.cash'),
   'testnet'
 )
 ```
 
-**`Contract.fromArtifact(fn: string, network?: string): Contract`**
+**`Contract.import(fnOrArtifact: string | Artifact, network?: string): Contract`**
 
-Imports an Artifact file that was compiled previously. This file is found at the path specified by argument `fn`. Optionally specify a network string (`'testnet'` or `'mainnet'`) to connect with. Returns a `Contract` object that can be further used to instantiate new instances of this contract.
+Imports an Artifact that was compiled previously. If `fnOrArtifact` is a file, this imports the artifact JSON file. If it already is an Artifact object, this is used for the import directly. Optionally specify a network string (`'testnet'` or `'mainnet'`) to connect with. Returns a `Contract` object that can be further used to instantiate new instances of this contract.
 
 ```ts
-const P2PKH: Contract = Contract.fromArtifact(
+const P2PKH: Contract = Contract.import(
   path.join(__dirname, 'p2pkh.cash'),
   'testnet'
 )
@@ -38,9 +38,9 @@ const P2PKH: Contract = Contract.fromArtifact(
 
 A `Contract` object can be exported to an Artifact file to be imported at a later moment, so it can be stored or transfered more easily, and can be used without recompilation. If the object is exported after one or more new contracts have been instantiated, their details will be stored in the file as well so they can be easily accessed later on.
 
-**`contract.export(fn: string): void`**
+**`contract.export(fn?: string): Artifact`**
 
-Writes the contract's details to an Artifact file found at the location specified by argument `fn`, so it can be retrieved later. If the file does not exist yet, it is created. If the file already exists, **it is overwritten**.
+Writes the contract's details to an Artifact file found at the location specified by argument `fn` and returns the object, so it can be retrieved later. If the file does not exist yet, it is created. If the file already exists, **it is overwritten**. If no `fn` arguhment is passed, just the artifact object is returned.
 
 ```ts
 P2PKH.export(path.join(__dirname, 'p2pkh.json'))
