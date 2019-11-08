@@ -95,20 +95,20 @@ All contract functions defined in your CashScript file can be found by their nam
 
 ```ts
 const tx = await instance.functions
-  .spend(pk, new Sig(keypair, 0x01))
+  .spend(pk, new Sig(keypair))
   .send(instance.address, 10000)
 ```
 
 **A note on transaction signatures:**
 
-Some cash contract functions require a signature parameter, which needs to be a valid transaction signature for the current transaction. The current transaction details are unknown at the time of calling a contract function. This is why we have a separate `Sig` class made up of a keypair and hashtype, that represents a placeholder for these signatures. These placeholders are automatically replaced by the correct signature during the transaction building phase.
+Some cash contract functions require a signature parameter, which needs to be a valid transaction signature for the current transaction. The current transaction details are unknown at the time of calling a contract function. This is why we have a separate `Sig` class made up of a keypair and an optional hashtype, that represents a placeholder for these signatures. These placeholders are automatically replaced by the correct signature during the transaction building phase.
 
-**`new Sig(keypair: ECPair, hashtype: number)`**
+**`new Sig(keypair: ECPair, hashtype?: HashType)`**
 
 Creates a placeholder for a transaction signature of the current transaction. During the transaction building phase this placeholder is replaced by the actual signature.
 
 ```ts
-new Sig(keypair, 0x01)
+new Sig(keypair, HashType.SIGHASH_ALL)
 ```
 
 ### Transaction
@@ -134,7 +134,7 @@ Sends a transaction for an amount denoted in satoshis by argument `amount` to an
 
 ```ts
 const tx = await instance.functions
-  .spend(pk, new Sig(keypair, 0x01))
+  .spend(pk, new Sig(keypair))
   .send(instance.address, 10000)
 ```
 
@@ -144,7 +144,7 @@ Sends a transaction with multiple outputs to multiple address-amount pairs speci
 
 ```ts
 const tx = await instance.functions
-  .spend(pk, new Sig(keypair, 0x01))
+  .spend(pk, new Sig(keypair))
   .send([
     { to: instance.address, amount: 10000 },
     { to: instance.address, amount: 20000 },
@@ -155,7 +155,7 @@ These transactions can include outputs to other addresses as well as OP_RETURN o
 
 ```ts
 const tx = await instance.functions
-  .spend(pk, new Sig(keypair, 0x01))
+  .spend(pk, new Sig(keypair))
   .send([
     { opReturn: ['0x6d02', 'Hello World!'] },
     { to: instance.address, amount: 10000 },
@@ -168,7 +168,7 @@ Prints the `meep` command that can be used to debug the transaction resulting fr
 
 ```ts
 await instance.functions
-  .spend(pk, new Sig(keypair, 0x01))
+  .spend(pk, new Sig(keypair))
   .meep(instance.address, 10000)
 ```
 
@@ -178,7 +178,7 @@ Prints the `meep` command that can be used to debug the transaction resulting fr
 
 ```ts
 await instance.functions
-  .spend(pk, new Sig(keypair, 0x01))
+  .spend(pk, new Sig(keypair))
   .meep([
     { to: instance.address, amount: 10000 },
     { to: instance.address, amount: 20000 },
