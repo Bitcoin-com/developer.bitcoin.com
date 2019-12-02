@@ -24,7 +24,7 @@ SLP `SLP`: instance of SLP SDK
 
 ##### Create instance of SLP SDK
 
-    let SLPSDK = require("slp-sdk");
-    let SLP = new SLPSDK({
+    const SLPSDK = require("slp-sdk");
+    const SLP = new SLPSDK({
       restURL: "https://trest.bitcoin.com/v2/"
     });

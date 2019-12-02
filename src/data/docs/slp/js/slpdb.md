@@ -20,8 +20,8 @@ result `any`: SLPDB Result
 
 ```javascript
 ;(async () => {
-  let SLPSDK = require('slp-sdk')
-  let SLP = new SLPSDK()
+  const SLPSDK = require('slp-sdk')
+  const SLP = new SLPSDK()
   let res = await SLP.SLPDB.get({
     v: 3,
     q: {

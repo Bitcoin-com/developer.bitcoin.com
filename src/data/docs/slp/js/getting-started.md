@@ -26,5 +26,5 @@ To use inside a command line script or client/server app:
 
 Use the [scaffold generator](./new), or manually import SLP SDK into your code:
 
-    let SLPSDK = require('slp-sdk');
-    let SLP = new SLPSDK();
+    const SLPSDK = require('slp-sdk');
+    const SLP = new SLPSDK();
