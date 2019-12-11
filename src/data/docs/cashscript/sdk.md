@@ -105,7 +105,7 @@ Some cash contract functions require a signature parameter, which needs to be a 
 
 **`new Sig(keypair: ECPair, hashtype?: HashType)`**
 
-Creates a placeholder for a transaction signature of the current transaction. During the transaction building phase this placeholder is replaced by the actual signature.
+Creates a placeholder for a transaction signature of the current transaction. During the transaction building phase this placeholder is replaced by the actual signature. **Important**: When calling a function that uses covenant variables, the first `Sig` parameter will be used to generate and pass in the sighash preimage as parameter.
 
 ```ts
 new Sig(keypair, HashType.SIGHASH_ALL)
@@ -128,7 +128,21 @@ interface OpReturn {
 type Output = Recipient | OpReturn
 ```
 
-**`async transaction.send(to: string, amount: number): Promise<TxnDetailsResult>`**
+**Transaction options**
+
+Optionally, options can be passed into all `send` function documented below, which can influence the transaction.
+
+```ts
+interface TxOptions {
+  time?: number
+  age?: number
+  fee?: number
+}
+```
+
+`time` sets the transaction `locktime` field in blocks, which corresponds with the `tx.time` global CashScript variable. `age` sets the transaction `sequence` field in blocks, which corresponds with the `tx.age` global CashScript variable. `fee` sets a hardcoded transaction fee, which can be used when the smart contract depends on the transaction having a specific fee.
+
+**`async transaction.send(to: string, amount: number, options?: TxOptions): Promise<TxnDetailsResult>`**
 
 Sends a transaction for an amount denoted in satoshis by argument `amount` to an address specified by argument `to`. This sends the transaction to the `rest.bitcoin.com` servers to be included in the Bitcoin Cash blockchain. Returns the raw `TxnDetailsResult` object as returned by `rest.bitcoin.com`.
 
@@ -138,7 +152,7 @@ const tx = await instance.functions
   .send(instance.address, 10000)
 ```
 
-**`async transaction.send(Output[]): Promise<TxnDetailsResult>`**
+**`async transaction.send(Output[], options?: TxOptions): Promise<TxnDetailsResult>`**
 
 Sends a transaction with multiple outputs to multiple address-amount pairs specified by the list of `{ to: string, amount: number }` objects. This sends the transaction to the `rest.bitcoin.com` servers to be included in the Bitcoin Cash blockchain. Returns the raw `TxnDetailsResult` object as returned by `rest.bitcoin.com`.
 
@@ -162,7 +176,7 @@ const tx = await instance.functions
   ])
 ```
 
-**`async transaction.meep(to: string, amount: number): Promise<void>`**
+**`async transaction.meep(to: string, amount: number, options?: TxOptions): Promise<void>`**
 
 Prints the `meep` command that can be used to debug the transaction resulting from using the `send` function.
 
@@ -172,7 +186,7 @@ await instance.functions
   .meep(instance.address, 10000)
 ```
 
-**`async transaction.meep(Output[]): Promise<void>`**
+**`async transaction.meep(Output[], options?: TxOptions): Promise<void>`**
 
 Prints the `meep` command that can be used to debug the transaction resulting from using the `send` function.
 
