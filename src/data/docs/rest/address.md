@@ -189,7 +189,8 @@ utxo `Object`
       "legacyAddress": "1Fg4r9iDrEkCcDmHTy2T79EusNfhyQpu7W",
       "cashAddress": "bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c",
       "slpAddress":"simpleledger:qzs02v05l7qs5s24srqju498qu55dwuj0c20jv8m5x",
-      "scriptPubKey": "76a914a0f531f4ff810a415580c12e54a7072946bb927e88ac"
+      "scriptPubKey": "76a914a0f531f4ff810a415580c12e54a7072946bb927e88ac",
+      "asm": "OP_DUP OP_HASH160 a0f531f4ff810a415580c12e54a7072946bb927e OP_EQUALVERIFY OP_CHECKSIG"
     }
 
 ## Address utxos bulk
@@ -246,7 +247,8 @@ array `Array` of JSON Objects
         "legacyAddress": "1Fg4r9iDrEkCcDmHTy2T79EusNfhyQpu7W",
         "cashAddress": "bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c",
         "slpAddress": "simpleledger:qzs02v05l7qs5s24srqju498qu55dwuj0c20jv8m5x",
-        "scriptPubKey": "76a914a0f531f4ff810a415580c12e54a7072946bb927e88ac"
+        "scriptPubKey": "76a914a0f531f4ff810a415580c12e54a7072946bb927e88ac",
+        "asm": "OP_DUP OP_HASH160 a0f531f4ff810a415580c12e54a7072946bb927e OP_EQUALVERIFY OP_CHECKSIG"
       },
       {
         "utxos": [
@@ -270,7 +272,8 @@ array `Array` of JSON Objects
         "legacyAddress": "1PCBukyYULnmraUpMy2hW1Y1ngEQTN8DtF",
         "cashAddress": "bitcoincash:qrehqueqhw629p6e57994436w730t4rzasnly00ht0",
         "slpAddress": "simpleledger:qrehqueqhw629p6e57994436w730t4rzasly056h43",
-        "scriptPubKey": "76a914f3707320bbb4a28759a78a5ad63a77a2f5d462ec88ac"
+        "scriptPubKey": "76a914f3707320bbb4a28759a78a5ad63a77a2f5d462ec88ac",
+        "asm": "OP_DUP OP_HASH160 f3707320bbb4a28759a78a5ad63a77a2f5d462ec OP_EQUALVERIFY OP_CHECKSIG"
       }
     ]
 
@@ -311,7 +314,8 @@ array `Array` of JSON Objects
       "legacyAddress": "1Fg4r9iDrEkCcDmHTy2T79EusNfhyQpu7W",
       "cashAddress": "bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c",
       "slpAddress": "simpleledger:qzs02v05l7qs5s24srqju498qu55dwuj0c20jv8m5x",
-      "scriptPubKey": "76a914a0f531f4ff810a415580c12e54a7072946bb927e88ac"
+      "scriptPubKey": "76a914a0f531f4ff810a415580c12e54a7072946bb927e88ac",
+      "asm": "OP_DUP OP_HASH160 a0f531f4ff810a415580c12e54a7072946bb927e OP_EQUALVERIFY OP_CHECKSIG"
     }
 
 ## Unconfirmed transactions bulk
@@ -351,7 +355,8 @@ array `Array` of JSON Objects
         "legacyAddress": "1Fg4r9iDrEkCcDmHTy2T79EusNfhyQpu7W",
         "cashAddress": "bitcoincash:qzs02v05l7qs5s24srqju498qu55dwuj0cx5ehjm2c",
         "slpAddress": "simpleledger:qzs02v05l7qs5s24srqju498qu55dwuj0c20jv8m5x",
-        "scriptPubKey": "76a914a0f531f4ff810a415580c12e54a7072946bb927e88ac"
+        "scriptPubKey": "76a914a0f531f4ff810a415580c12e54a7072946bb927e88ac",
+        "asm": "OP_DUP OP_HASH160 a0f531f4ff810a415580c12e54a7072946bb927e OP_EQUALVERIFY OP_CHECKSIG"
       },
       {
         "utxos": [
@@ -367,7 +372,8 @@ array `Array` of JSON Objects
         "legacyAddress": "1PCBukyYULnmraUpMy2hW1Y1ngEQTN8DtF",
         "cashAddress": "bitcoincash:qrehqueqhw629p6e57994436w730t4rzasnly00ht0",
         "slpAddress": "simpleledger:qrehqueqhw629p6e57994436w730t4rzasly056h43",
-        "scriptPubKey": "76a914f3707320bbb4a28759a78a5ad63a77a2f5d462ec88ac"
+        "scriptPubKey": "76a914f3707320bbb4a28759a78a5ad63a77a2f5d462ec88ac",
+        "asm": "OP_DUP OP_HASH160 f3707320bbb4a28759a78a5ad63a77a2f5d462ec OP_EQUALVERIFY OP_CHECKSIG"
       }
     ]
 

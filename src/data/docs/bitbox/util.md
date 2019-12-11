@@ -1,7 +1,7 @@
 ---
 title: Util
 icon: cogs
-ordinal: 22
+ordinal: 23
 ---
 
 ### `validateAddress`
@@ -55,6 +55,55 @@ Return information about the given bitcoin address.
     // pubkey: '0312eeb9ae5f14c3cf43cece11134af860c2ef7d775060e3a578ceec888acada31',
     // iscompressed: true,
     // account: 'Test' }]
+
+### `sweep`
+
+Sweep utxo for `wif` to cashAddress
+
+#### Arguments
+
+- wif `string`
+- toAddr `string`
+- balanceOnly `boolean` **optional**. Defaults to `false`
+
+#### Result
+
+- result `string | number`
+
+#### Examples
+
+    // balance only
+    (async () => {
+      try {
+        const wif = "cP8LcsoMneSyjdtyFTmnASsmAuyd2SfZjG4drp5twAJoSpRa2RCx"
+        const toAddr = "bchtest:qqmd9unmhkpx4pkmr6fkrr8rm6y77vckjvqe8aey35"
+        const result = await bitbox.Util.sweep(
+          wif,
+          toAddr,
+          true
+        )
+        console.log(result);
+      } catch(error) {
+       console.error(error)
+      }
+    })()
+    // 0.1
+
+    // sweep utxo
+    (async () => {
+      try {
+        const wif = "cP8LcsoMneSyjdtyFTmnASsmAuyd2SfZjG4drp5twAJoSpRa2RCx"
+        const toAddr = "bchtest:qqmd9unmhkpx4pkmr6fkrr8rm6y77vckjvqe8aey35"
+        const result = await bitbox.Util.sweep(
+          wif,
+          toAddr
+        )
+        console.log(result);
+      } catch(error) {
+       console.error(error)
+      }
+    })()
+    // 6b647ddfbb6b0edfaf61d2952b9f8e195d2dfede0e63fe12e1beab16e5bcfe5c
 
 ## Interfaces
 

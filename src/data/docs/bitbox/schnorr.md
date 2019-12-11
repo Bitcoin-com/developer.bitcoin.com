@@ -1,7 +1,7 @@
 ---
 title: Schnorr
 icon: code
-ordinal: 17
+ordinal: 18
 ---
 
 ### `sign`

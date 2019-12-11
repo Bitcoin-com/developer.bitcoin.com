@@ -1,7 +1,7 @@
 ---
 title: ECPair
 icon: key
-ordinal: 10
+ordinal: 11
 ---
 
 ### `fromWIF`

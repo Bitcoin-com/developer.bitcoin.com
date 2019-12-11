@@ -25,11 +25,11 @@ const P2PKH: Contract = Contract.compile(
 
 **`Contract.import(fnOrArtifact: string | Artifact, network?: string): Contract`**
 
-Imports an Artifact that was compiled previously. If `fnOrArtifact` is a file, this imports the artifact JSON file. If it already is an Artifact object, this is used for the import directly. Optionally specify a network string (`'testnet'` or `'mainnet'`) to connect with. Returns a `Contract` object that can be further used to instantiate new instances of this contract.
+Imports an Artifact file in `.json` format that was compiled previously. This file is found at the path specified by argument `fn`. Optionally specify a network string (`'testnet'` or `'mainnet'`) to connect with. Returns a `Contract` object that can be further used to instantiate new instances of this contract.
 
 ```ts
-const P2PKH: Contract = Contract.import(
-  path.join(__dirname, 'p2pkh.cash'),
+const P2PKH: Contract = Contract.fromArtifact(
+  path.join(__dirname, 'p2pkh.json'),
   'testnet'
 )
 ```

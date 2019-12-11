@@ -1,7 +1,7 @@
 ---
-title: Utils
+title: Util
 icon: exchange
-ordinal: 8
+ordinal: 10
 ---
 
 ### `list`
@@ -172,11 +172,14 @@ Return all balances for an address
 
 #### Arguments
 
-1.  address : `string` **required**. The address in legacy, cash or slp address format
+- address (required):
+  - `string`: A single string containing an slp address.
+  - `Array` of strings: Array with maximum of 20 slp addresses.
 
 #### Result
 
-balances : `Object`. The address's balances
+- `Array`: containing balances Objects.
+- `Array`: Array of arrays.
 
 #### Examples
 
@@ -242,6 +245,45 @@ balances : `Object`. The address's balances
     // '467969e067f5612863d0bf2daaa70dede2c6be03abb6fd401c5ef6e1e1f1f5c5',
     // balance: '507',
     // decimalCount: 2 } ]
+
+
+    // multiple addresses
+    const addresses = [
+      "simpleledger:qzv3zz2trz0xgp6a96lu4m6vp2nkwag0kvyucjzqt9",
+      "simpleledger:qqss4zp80hn6szsa4jg2s9fupe7g5tcg5ucdyl3r57"
+    ]
+    await SLP.Utils.balancesForAddress(addresses)
+    // returns
+    // [
+    //   [
+    //     {
+    //       tokenId:
+    //         "df808a41672a0a0ae6475b44f272a107bc9961b90f29dc918d71301f24fe92fb",
+    //       balance: 1,
+    //       balanceString: "1",
+    //       slpAddress: "simpleledger:qzv3zz2trz0xgp6a96lu4m6vp2nkwag0kvyucjzqt9",
+    //       decimalCount: 8
+    //     },
+    //     {
+    //       tokenId:
+    //         "a436c8e1b6bee3d701c6044d190f76f774be83c36de8d34a988af4489e86dd37",
+    //       balance: 1,
+    //       balanceString: "1",
+    //       slpAddress: "simpleledger:qzv3zz2trz0xgp6a96lu4m6vp2nkwag0kvyucjzqt9",
+    //       decimalCount: 7
+    //     }
+    //   ],
+    //   [
+    //     {
+    //       tokenId:
+    //         "497291b8a1dfe69c8daea50677a3d31a5ef0e9484d8bebb610dac64bbc202fb7",
+    //       balance: 10,
+    //       balanceString: "10",
+    //       slpAddress: "simpleledger:qqss4zp80hn6szsa4jg2s9fupe7g5tcg5ucdyl3r57",
+    //       decimalCount: 8
+    //     }
+    //   ]
+    // ]
 
 ### `balance`
 
@@ -508,6 +550,249 @@ transactions: `Array`
           "invalidReason": null,
           "schema_version": 30
         }
+      }
+    ]
+
+### `decodeOpReturn`
+
+Get high-level SLP data on a transaction by decoding the OP_RETURN data.
+Throws an error if the txid is not an SLP transaction.
+
+Note: It is convention in the SLP protocol to use the lowest denomination
+of decimal in the calculations. e.g. Using integer `satoshis` for calculations
+instead of floating point `bitcoins`. For this reason, the decimal information
+for the token only exists in the Genesis transaction, and other transactions
+display all token quantities as large integers.
+
+#### Arguments
+
+1.  txid: `string` **required**. The txid of an SLP transaction
+
+#### Result
+
+slpData: `Object`
+
+#### Examples
+
+    // A Genesis SLP transaction.
+    (async () => {
+      try {
+        const txid =
+          "bd158c564dd4ef54305b14f44f8e94c44b649f246dab14bcb42fb0d0078b8a90"
+
+        const slpData = await SLP.Utils.decodeOpReturn(txid)
+        console.log(slpData)
+      } catch (error) {
+        console.error(error)
+      }
+    })()
+
+    // returns
+    {
+      "tokenType": 1,
+      "transactionType": "genesis",
+      "ticker": "SLPSDK",
+      "name": "SLP SDK example using BITBOX",
+      "documentUrl": "developer.bitcoin.com",
+      "documentHash": "",
+      "decimals": 8,
+      "mintBatonVout": 2,
+      "initialQty": 507,
+      "tokensSentTo": "bitcoincash:qpcqs0n5xap26un2828n55gan2ylj7wavvzeuwdx05",
+      "batonHolder": "bitcoincash:qpcqs0n5xap26un2828n55gan2ylj7wavvzeuwdx05"
+    }
+
+    // A Mint SLP transaction.
+    (async () => {
+      try {
+        const txid =
+          "65f21bbfcd545e5eb515e38e861a9dfe2378aaa2c4e458eb9e59e4d40e38f3a4"
+
+        const slpData = await SLP.Utils.decodeOpReturn(txid)
+        console.log(slpData)
+      } catch (error) {
+        console.error(error)
+      }
+    })()
+
+    // returns
+    {
+      "tokenType": 1,
+      "transactionType": "mint",
+      "tokenId": "023cd3e95a3947058b994fd15a9a4c47937a9d9b6e0c0b1b5898d2ce84f354e4",
+      "mintBatonVout": 2,
+      "batonStillExists": true,
+      "quantity": "10000000000",
+      "tokensSentTo": "bitcoincash:qqss4zp80hn6szsa4jg2s9fupe7g5tcg5u5k0yyr2q",
+      "batonHolder": "bitcoincash:qqss4zp80hn6szsa4jg2s9fupe7g5tcg5u5k0yyr2q"
+    }
+
+    // A Send SLP transaction.
+    (async () => {
+      try {
+        const txid =
+          "4f922565af664b6fdf0a1ba3924487344be721b3d8815c62cafc8a51e04a8afa"
+
+        const slpData = await SLP.Utils.decodeOpReturn(txid)
+        console.log(slpData)
+      } catch (error) {
+        console.error(error)
+      }
+    })()
+
+    // returns
+    {
+      "tokenType": 1,
+      "transactionType": "send",
+      "tokenId": "023cd3e95a3947058b994fd15a9a4c47937a9d9b6e0c0b1b5898d2ce84f354e4",
+      "spendData": [
+        {
+          "quantity": "300000000",
+          "sentTo": "bitcoincash:qzv7t2pzn2d0pklnetdjt65crh6fe8vnhuwvhsk2nn",
+          "vout": 1
+        },
+        {
+          "quantity": "60400000000",
+          "sentTo": "bitcoincash:qqss4zp80hn6szsa4jg2s9fupe7g5tcg5u5k0yyr2q",
+          "vout": 2
+        }
+      ]
+    }
+
+### `isTokenUtxo`
+
+Given an array of UTXOs, this function returns an array of Boolean values
+indicating if each UTXO belongs to an SLP transaction (true) or not (false).
+If false, the UTXO is safe for a wallet to spend in a normal BCH transaction.
+
+#### Arguments
+
+1.  utxos: `Array` of utxo objects **required**.
+
+#### Result
+
+- `Array` of Boolean values.
+  - `true`: The UTXO belongs to an SLP token.
+  - `false`: The UTXO does not belong to an SLP token.
+
+#### Examples
+
+    (async () => {
+      try {
+        const u = await SLP.Address.utxo("bitcoincash:qpcqs0n5xap26un2828n55gan2ylj7wavvzeuwdx05")
+        const utxos = u.utxos
+
+        console.log(`utxos: ${JSON.stringify(utxos,null,2)}`)
+
+        const isSLPUtxo: await SLP.Utils.isTokenUtxo(utxos)
+        console.log(`isSLPUtxo: ${JSON.stringify(canSpend,null,2}`)
+      } catch (error) {
+        console.error(error)
+      }
+    })()
+
+    // returns
+    utxos: [
+      {
+        txid:
+          "bd158c564dd4ef54305b14f44f8e94c44b649f246dab14bcb42fb0d0078b8a90",
+        vout: 3,
+        amount: 0.00002015,
+        satoshis: 2015,
+        height: 594892,
+        confirmations: 5
+      },
+      {
+        txid:
+          "bd158c564dd4ef54305b14f44f8e94c44b649f246dab14bcb42fb0d0078b8a90",
+        vout: 2,
+        amount: 0.00000546,
+        satoshis: 546,
+        height: 594892,
+        confirmations: 5
+      }
+    ]
+
+    isSLPUtxo:
+    [
+      false,
+      true
+    ]
+
+### `tokenUtxoDetails`
+
+Hydrate a UTXO with SLP token metadata.
+
+Expects an array of UTXO objects as input. Returns an array of equal size.
+If the UTXO does not belong to a SLP transaction, it will return false.
+If the UTXO is part of an SLP transaction, it will return the UTXO object
+with additional SLP information attached.
+
+#### Arguments
+
+1.  utxos: `Array` of utxo objects **required**.
+
+#### Result
+
+- `Array`
+  - `false`: The UTXO does not belong to an SLP token and is safe to spend.
+  - `Object`: The same UTXO object hydrated with SLP token metadata.
+
+#### Examples
+
+    (async () => {
+      try {
+        const u = await SLP.Address.utxo("bitcoincash:qpcqs0n5xap26un2828n55gan2ylj7wavvzeuwdx05")
+        const utxos = u.utxos
+
+        console.log(`utxos: ${JSON.stringify(utxos,null,2)}`)
+
+        const isSLPUtxo: await SLP.Utils.tokenUtxoDetails(utxos)
+        console.log(`isSLPUtxo: ${JSON.stringify(canSpend,null,2}`)
+      } catch (error) {
+        console.error(error)
+      }
+    })()
+
+    // returns
+    utxos: [
+      {
+        txid:
+          "bd158c564dd4ef54305b14f44f8e94c44b649f246dab14bcb42fb0d0078b8a90",
+        vout: 3,
+        amount: 0.00002015,
+        satoshis: 2015,
+        height: 594892,
+        confirmations: 5
+      },
+      {
+        txid:
+          "bd158c564dd4ef54305b14f44f8e94c44b649f246dab14bcb42fb0d0078b8a90",
+        vout: 2,
+        amount: 0.00000546,
+        satoshis: 546,
+        height: 594892,
+        confirmations: 5
+      }
+    ]
+
+    isSLPUtxo:
+    [
+      false,
+      {
+        "txid": "bd158c564dd4ef54305b14f44f8e94c44b649f246dab14bcb42fb0d0078b8a90",
+        "vout": 2,
+        "amount": 0.00000546,
+        "satoshis": 546,
+        "height": 594892,
+        "confirmations": 5,
+        "tokenType": "minting-baton",
+        "tokenId": "bd158c564dd4ef54305b14f44f8e94c44b649f246dab14bcb42fb0d0078b8a90",
+        "tokenTicker": "SLPSDK",
+        "tokenName": "SLP SDK example using BITBOX",
+        "tokenDocumentUrl": "developer.bitcoin.com",
+        "tokenDocumentHash": "",
+        "decimals": 8
       }
     ]
 

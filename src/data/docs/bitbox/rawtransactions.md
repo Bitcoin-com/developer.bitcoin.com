@@ -1,7 +1,7 @@
 ---
 title: RawTransactions
 icon: exchange
-ordinal: 16
+ordinal: 17
 ---
 
 ### `decodeRawTransaction`
