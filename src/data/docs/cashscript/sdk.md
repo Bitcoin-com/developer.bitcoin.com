@@ -16,6 +16,8 @@ Before instantiating a contract, first you need to create a new `Contract` objec
 
 If `fnOrString` is a file, compiles the CashScript file. If it is a source code string, it compiles the contract specified by the string. Optionally specify a network string (`'testnet'` or `'mainnet'`) to connect with. Returns a `Contract` object that can be further used to instantiate new instances of this contract.
 
+**Note: If you're using CashScript in a browser-based environment, you can only use the string-based compilation**, so you have to read the file in a different way, such as the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API), and pass the string into the `compile` function.
+
 ```ts
 const P2PKH: Contract = Contract.compile(
   path.join(__dirname, 'p2pkh.cash'),
@@ -27,8 +29,10 @@ const P2PKH: Contract = Contract.compile(
 
 Imports an Artifact file in `.json` format that was compiled previously. This file is found at the path specified by argument `fn`. Optionally specify a network string (`'testnet'` or `'mainnet'`) to connect with. Returns a `Contract` object that can be further used to instantiate new instances of this contract.
 
+**Note: If you're using CashScript in a browser-based environment, you cannot use the file import**, so you will have to import the artifact JSON file in a different way, such as a require statement or the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API), and pass this object into the `import` function.
+
 ```ts
-const P2PKH: Contract = Contract.fromArtifact(
+const P2PKH: Contract = Contract.import(
   path.join(__dirname, 'p2pkh.json'),
   'testnet'
 )
@@ -41,6 +45,8 @@ A `Contract` object can be exported to an Artifact file to be imported at a late
 **`contract.export(fn?: string): Artifact`**
 
 Writes the contract's details to an Artifact file found at the location specified by argument `fn` and returns the object, so it can be retrieved later. If the file does not exist yet, it is created. If the file already exists, **it is overwritten**. If no `fn` arguhment is passed, just the artifact object is returned.
+
+**Note: If you're using CashScript in a browser-based environment, you cannot export to a file**.
 
 ```ts
 P2PKH.export(path.join(__dirname, 'p2pkh.json'))
