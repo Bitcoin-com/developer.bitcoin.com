@@ -5,11 +5,9 @@ ordinal: 2
 ---
 
 ### Contract
-
 The `Contract` class allows you to compile CashScript files into `Contract` objects, from which these contracts can be instantiated and interacted with. These `Contract` objects can also be imported from a JSON Artifact file, and exported to one, which allows you to store and transfer the contract definition in JSON format, so you don't need to recompile the contract every time you use it. For more information on Artifacts, see the [Language Documentation](/cashscript/docs/language).
 
 #### Creating a Contract object
-
 Before instantiating a contract, first you need to create a new `Contract` object. This can be done by compiling a CashScript file, or by importing an Artifact file that was exported previously.
 
 **`Contract.compile(fnOrString: string, network?: string): Contract`**
@@ -39,7 +37,6 @@ const P2PKH: Contract = Contract.import(
 ```
 
 #### Exporting a contract
-
 A `Contract` object can be exported to an Artifact file to be imported at a later moment, so it can be stored or transfered more easily, and can be used without recompilation. If the object is exported after one or more new contracts have been instantiated, their details will be stored in the file as well so they can be easily accessed later on.
 
 **`contract.export(fn?: string): Artifact`**
@@ -53,7 +50,6 @@ P2PKH.export(path.join(__dirname, 'p2pkh.json'))
 ```
 
 #### Instantiating a contract
-
 After creating a `Contract` object through compilation or import, this contract can be instantiated. If any contracts were instantiated before and this information was stored, these instances can also be accessed.
 
 **`contract.new(...parameters: Parameter[]): Instance`**
@@ -76,7 +72,6 @@ const instance: Instance = P2PKH.deployed(
 ```
 
 ### Instance
-
 After instantiating a new contract or retrieving a previously deployed one, this instance can be interacted with using the functions implemented in the `.cash` file.
 
 **`instance.address`**
@@ -118,7 +113,6 @@ new Sig(keypair, HashType.SIGHASH_ALL)
 ```
 
 ### Transaction
-
 Calling any of the contract functions on a contract instance results in a `Transaction` object, which can be sent by specifying a recipient and amount to send, or a list of these pairs. The `send` functiion calls can also be replaced by `meep` function calls to output the debug command to debug the transaction using [meep](https://github.com/gcash/meep).
 
 The CashScript SDK supports transactions to regular addresses, as well as OP_RETURN outputs. To do so we define two different kind of outputs:
