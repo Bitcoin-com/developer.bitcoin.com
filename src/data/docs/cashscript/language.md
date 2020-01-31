@@ -318,6 +318,10 @@ Creates new P2PKH output serialisation for an output sending `amount` to `pkh`.
 
 Creates new P2SH output serialisation for an output sending `amount` to `scriptHash`.
 
+**`new OutputNullData(bytes[] chunks): bytes`**
+
+Creates new OP_RETURN output serialisation for an output containing an OP_RETURN script with `chunks`.
+
 ### Operators
 | Precedence | Description                     | Operator                 |
 | ---------- | ------------------------------- | ------------------------ |
