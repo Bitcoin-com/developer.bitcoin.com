@@ -137,10 +137,11 @@ interface TxOptions {
   time?: number
   age?: number
   fee?: number
+  minChange?: number
 }
 ```
 
-`time` sets the transaction `locktime` field in blocks, which corresponds with the `tx.time` global CashScript variable. `age` sets the transaction `sequence` field in blocks, which corresponds with the `tx.age` global CashScript variable. `fee` sets a hardcoded transaction fee, which can be used when the smart contract depends on the transaction having a specific fee.
+`time` sets the transaction `locktime` field in blocks, which corresponds with the `tx.time` global CashScript variable. `age` sets the transaction `sequence` field in blocks, which corresponds with the `tx.age` global CashScript variable. `fee` sets a hardcoded transaction fee, which can be used when the smart contract depends on the transaction having a specific fee. `minChange` sets the minimal value of change that can be sent back to the contract.
 
 **`async transaction.send(to: string, amount: number, options?: TxOptions): Promise<TxnDetailsResult>`**
 
