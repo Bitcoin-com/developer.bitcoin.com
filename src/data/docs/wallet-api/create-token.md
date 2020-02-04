@@ -50,7 +50,9 @@ interface Error {
 ## Example
 
 ```
-createToken({
+import bitcoinWalletApi from 'bitcoin-wallet-api';
+
+bitcoinWalletApi.createToken({
   name: 'World Hunger Token',
   symbol: 'WHT',
   decimals: 8,

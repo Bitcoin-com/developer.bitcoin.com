@@ -43,7 +43,9 @@ interface Error {
 ## Example
 
 ```
-payInvoice({
+import bitcoinWalletApi from 'bitcoin-wallet-api';
+
+bitcoinWalletApi.payInvoice({
   url: 'bitcoincash:?r=https://bitpay.com/i/LHQmUTjzAcqX1NU47Nk1mJ',
 })
 .then((data: PayInvoiceOutput) => {

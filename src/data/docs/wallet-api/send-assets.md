@@ -46,7 +46,9 @@ interface Error {
 ## Example
 
 ```
-sendAssets({
+import bitcoinWalletApi from 'bitcoin-wallet-api';
+
+bitcoinWalletApi.sendAssets({
   to: 'bitcoincash:qrd9khmeg4nqag3h5gzu8vjt537pm7le85lcauzezc',
   protocol: 'BCH',
   value: '0.000123',

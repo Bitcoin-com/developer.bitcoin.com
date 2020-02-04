@@ -46,7 +46,9 @@ interface Error {
 ## Client Call Example
 
 ```
-getAddress({
+import bitcoinWalletApi from 'bitcoin-wallet-api';
+
+bitcoinWalletApi.getAddress({
   protocol: 'BCH',
 })
 .then((data: GetAccountOutput) => {
