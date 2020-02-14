@@ -4,9 +4,13 @@ icon: plug
 ordinal: 20
 ---
 
+The `Socket` class provides a way to listen for events. You can listen for new transactions, new blocks or both.
+
+Alternatively you can create a [BitSocket](https://bitsocket.org/) query to filter events in details, such as listening for transactions spending a particular address or using a certain opcode. You can develop and test your BitSocket queries using the [Fountainhead](https://fountainhead.cash/) tools.
+
 ### `constructor`
 
-Create new Socket.
+Create new Socket. One instance represents one connections to a server. The URL is set by the constructor but the connection is only established when `listen` is called.
 
 #### Arguments
 
@@ -16,6 +20,8 @@ Create new Socket.
     3.  restURL `string`: optional
     4.  callback `Function`: optional
 
+The callback is invoked immediately and synchronously and does not indicate that a connection has been established.
+
 #### Result
 
 Socket `Socket`
@@ -23,7 +29,7 @@ Socket `Socket`
 #### Examples
 
       // instance of Socket
-      let socket = new bitbox.Socket({callback: () => {console.log('connected')}, wsURL: 'wss://ws.bitcoin.com'})
+      let socket = new bitbox.Socket({callback: () => {console.log('created')}, wsURL: 'wss://ws.bitcoin.com'})
 
 ### `listen`
 
@@ -42,7 +48,7 @@ data `Object`: data returned in real\-time over a websocket
 
       // raw websocket data example
 
-      let socket = new bitbox.Socket({callback: () => {console.log('connected')}, wsURL: 'wss://ws.bitcoin.com'})
+      let socket = new bitbox.Socket({callback: () => {console.log('created')}, wsURL: 'wss://ws.bitcoin.com'})
       socket.listen('transactions', (message) => {
         console.log(message)
       })
@@ -92,7 +98,7 @@ data `Object`: data returned in real\-time over a websocket
       }
 
 
-      let socket = new bitbox.Socket({callback: () => {console.log('connected')}, wsURL: 'https://ws.bitcoin.com'})
+      let socket = new bitbox.Socket({callback: () => {console.log('created')}, wsURL: 'https://ws.bitcoin.com'})
       socket.listen('blocks', (message) => {
         console.log(message)
       })
@@ -114,7 +120,7 @@ data `Object`: data returned in real\-time over a websocket
       // BitSocket query example
       let socket = new bitbox.Socket({
         callback: () => {
-          console.log("connected")
+          console.log("created")
         },
         wsURL: "wss://ws.bitcoin.com"
       })
@@ -143,13 +149,15 @@ Close websocket connection
 
 1.  callback `function` (optional): function to be called.
 
+The callback is invoked immediately and synchronously and does not indicate that the connection has finished closing.
+
 #### Examples
 
-      let socket = new bitbox.Socket({callback: () => {console.log('connected')}, wsURL: 'wss://ws.bitcoin.com'})
+      let socket = new bitbox.Socket({callback: () => {console.log('created')}, wsURL: 'wss://ws.bitcoin.com'})
       socket.listen('transactions', (message) => {
         socket.close(() => {
-          console.log("closed")
+          console.log("close requested")
         })
       })
       // returns the following
-      // closed
+      // close requested
