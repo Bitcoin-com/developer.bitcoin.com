@@ -76,6 +76,16 @@ bitcoinWalletApi.payInvoice({
 });
 ```
 
+## Demo - Send BCH Invoice
+
+<iframe height="825" style="width: 100%;" scrolling="no" title="Bitcoin Wallet API - payInvoice - BCH" src="https://codepen.io/nickfujita/embed/ZEGyjZX?height=265&theme-id=dark&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+</iframe>
+
+## Demo - Send SLP Invoice
+
+<iframe height="950" style="width: 100%;" scrolling="no" title="Bitcoin Wallet API - payInvoice - SLP" src="https://codepen.io/nickfujita/embed/BaNZONK?height=265&theme-id=dark&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+</iframe>
+
 ## Provider Request Handling
 
 - Fetch payment request from merchant server
