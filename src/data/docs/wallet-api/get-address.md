@@ -75,6 +75,11 @@ bitcoinWalletApi.getAddress({
 });
 ```
 
+## Demo
+
+<iframe height="475" style="width: 100%;" scrolling="no" title="Bitcoin Wallet API - getAddress" src="https://codepen.io/nicolasfujita/embed/xxGgrZm?height=265&theme-id=dark&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+</iframe>
+
 ## Provider Request Handling
 
 Depending on the account structure of the wallet, user handling may be different. In all cases, the wallet MUST return an address & protocol, or an error message. Each wallet may choose to provide back a default address in all cases, while others with multiple accounts and HD keys, may prompt a user to select an account from which to provide a new address.

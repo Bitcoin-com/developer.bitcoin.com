@@ -57,7 +57,7 @@ bitcoinWalletApi.createToken({
   symbol: 'WHT',
   decimals: 8,
   initialSupply: '1000000000',
-  tokenReceiverAddress: 'simpleledger:qq835u5srlcqwrtwt6xm4efwan30fxg9hcqag6fk03',
+  tokenReceiverAddress: 'simpleledger:qrw3pqgyjffxsv5qdj9n6zdpe70zqsegxcjyff6q8m',
 })
 .then((data: CreateTokenOutput) => {
   const {
@@ -83,6 +83,11 @@ bitcoinWalletApi.createToken({
   }
 });
 ```
+
+## Demo - Create new token
+
+<iframe height="625" style="width: 100%;" scrolling="no" title="Bitcoin Wallet API - createToken" src="https://codepen.io/nickfujita/embed/WNvOgGj?height=265&theme-id=dark&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+</iframe>
 
 ## Provider Request Handling
 

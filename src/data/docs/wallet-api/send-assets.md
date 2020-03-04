@@ -81,6 +81,16 @@ bitcoinWalletApi.sendAssets({
 });
 ```
 
+## Demo - Send BCH
+
+<iframe height="575" style="width: 100%;" scrolling="no" title="Bitcoin Wallet API - sendAssets - BCH" src="https://codepen.io/nickfujita/embed/yLNgXqx?height=265&theme-id=dark&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+</iframe>
+
+## Demo - Send SLP Tokens
+
+<iframe height="600" style="width: 100%;" scrolling="no" title="Bitcoin Wallet API - sendAssets - SLP" src="https://codepen.io/nickfujita/embed/VwLPWVa?height=265&theme-id=dark&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+</iframe>
+
 ## Provider Request Handling
 
 - Validate the input parameters to make sure that the address provided is valid, and that it matches the provided protocol.
