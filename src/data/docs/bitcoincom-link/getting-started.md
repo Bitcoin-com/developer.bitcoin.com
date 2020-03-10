@@ -4,7 +4,7 @@ icon: home
 ordinal: 0
 ---
 
-### Wallet API
+### Bitcoin.com Link
 
 A standard interface for blockchain connected applications to interact with 3rd party user wallets.
 
