@@ -46,9 +46,9 @@ interface Error {
 ## Client Call Example
 
 ```
-import bitcoinWalletApi from 'bitcoin-wallet-api';
+import bitcoincomLink from 'bitcoincom-link';
 
-bitcoinWalletApi.getAddress({
+bitcoincomLink.getAddress({
   protocol: 'BCH',
 })
 .then((data: GetAccountOutput) => {
@@ -77,7 +77,7 @@ bitcoinWalletApi.getAddress({
 
 ## Demo
 
-<iframe height="475" style="width: 100%;" scrolling="no" title="Bitcoin Wallet API - getAddress" src="https://codepen.io/nicolasfujita/embed/xxGgrZm?height=265&theme-id=dark&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="475" style="width: 100%;" scrolling="no" title="Bitcoin.com Link - getAddress" src="https://codepen.io/nicolasfujita/embed/xxGgrZm?height=265&theme-id=dark&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 </iframe>
 
 ## Provider Request Handling

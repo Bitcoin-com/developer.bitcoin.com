@@ -43,9 +43,9 @@ interface Error {
 ## Example
 
 ```
-import bitcoinWalletApi from 'bitcoin-wallet-api';
+import bitcoincomLink from 'bitcoincom-link';
 
-bitcoinWalletApi.payInvoice({
+bitcoincomLink.payInvoice({
   url: 'bitcoincash:?r=https://bitpay.com/i/LHQmUTjzAcqX1NU47Nk1mJ',
 })
 .then((data: PayInvoiceOutput) => {
@@ -78,12 +78,12 @@ bitcoinWalletApi.payInvoice({
 
 ## Demo - Send BCH Invoice
 
-<iframe height="825" style="width: 100%;" scrolling="no" title="Bitcoin Wallet API - payInvoice - BCH" src="https://codepen.io/nickfujita/embed/ZEGyjZX?height=265&theme-id=dark&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="825" style="width: 100%;" scrolling="no" title="Bitcoin.com Link - payInvoice - BCH" src="https://codepen.io/nickfujita/embed/ZEGyjZX?height=265&theme-id=dark&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 </iframe>
 
 ## Demo - Send SLP Invoice
 
-<iframe height="950" style="width: 100%;" scrolling="no" title="Bitcoin Wallet API - payInvoice - SLP" src="https://codepen.io/nickfujita/embed/BaNZONK?height=265&theme-id=dark&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="950" style="width: 100%;" scrolling="no" title="Bitcoin.com Link - payInvoice - SLP" src="https://codepen.io/nickfujita/embed/BaNZONK?height=265&theme-id=dark&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 </iframe>
 
 ## Provider Request Handling
