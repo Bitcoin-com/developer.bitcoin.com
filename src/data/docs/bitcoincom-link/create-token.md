@@ -50,9 +50,9 @@ interface Error {
 ## Example
 
 ```
-import bitcoinWalletApi from 'bitcoin-wallet-api';
+import bitcoincomLink from 'bitcoincom-link';
 
-bitcoinWalletApi.createToken({
+bitcoincomLink.createToken({
   name: 'World Hunger Token',
   symbol: 'WHT',
   decimals: 8,
@@ -86,7 +86,7 @@ bitcoinWalletApi.createToken({
 
 ## Demo - Create new token
 
-<iframe height="625" style="width: 100%;" scrolling="no" title="Bitcoin Wallet API - createToken" src="https://codepen.io/nickfujita/embed/WNvOgGj?height=265&theme-id=dark&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="625" style="width: 100%;" scrolling="no" title="Bitcoin.com Link - createToken" src="https://codepen.io/nickfujita/embed/WNvOgGj?height=265&theme-id=dark&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 </iframe>
 
 ## Provider Request Handling

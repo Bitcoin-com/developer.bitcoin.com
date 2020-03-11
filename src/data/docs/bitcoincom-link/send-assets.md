@@ -46,9 +46,9 @@ interface Error {
 ## Example
 
 ```
-import bitcoinWalletApi from 'bitcoin-wallet-api';
+import bitcoincomLink from 'bitcoincom-link';
 
-bitcoinWalletApi.sendAssets({
+bitcoincomLink.sendAssets({
   to: 'bitcoincash:qrd9khmeg4nqag3h5gzu8vjt537pm7le85lcauzezc',
   protocol: 'BCH',
   value: '0.000123',
@@ -83,12 +83,12 @@ bitcoinWalletApi.sendAssets({
 
 ## Demo - Send BCH
 
-<iframe height="575" style="width: 100%;" scrolling="no" title="Bitcoin Wallet API - sendAssets - BCH" src="https://codepen.io/nickfujita/embed/yLNgXqx?height=265&theme-id=dark&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="575" style="width: 100%;" scrolling="no" title="Bitcoin.com Link - sendAssets - BCH" src="https://codepen.io/nickfujita/embed/yLNgXqx?height=265&theme-id=dark&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 </iframe>
 
 ## Demo - Send SLP Tokens
 
-<iframe height="600" style="width: 100%;" scrolling="no" title="Bitcoin Wallet API - sendAssets - SLP" src="https://codepen.io/nickfujita/embed/VwLPWVa?height=265&theme-id=dark&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="600" style="width: 100%;" scrolling="no" title="Bitcoin.com Link - sendAssets - SLP" src="https://codepen.io/nickfujita/embed/VwLPWVa?height=265&theme-id=dark&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 </iframe>
 
 ## Provider Request Handling

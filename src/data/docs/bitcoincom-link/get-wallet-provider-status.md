@@ -43,13 +43,13 @@ enum WalletProviderStatus {
 ## Client Call Example
 
 ```
-import bitcoinWalletApi from 'bitcoin-wallet-api';
+import bitcoincomLink from 'bitcoincom-link';
 
-const providerStatuses = bitcoinWalletApi.getWalletProviderStatus();
+const providerStatuses = bitcoincomLink.getWalletProviderStatus();
 console.log('Provider statuses: ' + JSON.stringify(providerStatuses));
 ```
 
 ## Demo
 
-<iframe height="325" style="width: 100%;" scrolling="no" title="Bitcoin Wallet API - getAdgetWalletProviderStatus" src="https://codepen.io/nickfujita/embed/PoqjdRW?height=265&theme-id=dark&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="325" style="width: 100%;" scrolling="no" title="Bitcoin.com Link - getAdgetWalletProviderStatus" src="https://codepen.io/nickfujita/embed/PoqjdRW?height=265&theme-id=dark&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 </iframe>
