@@ -19,7 +19,7 @@ result `any`: SLPDB Result
 #### Examples
 
 ```javascript
-;(async () => {
+(async () => {
   let SLPSDK = require('slp-sdk')
   let SLP = new SLPSDK()
   let res = await SLP.SLPDB.get({
